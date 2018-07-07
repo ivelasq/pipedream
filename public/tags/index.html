@@ -195,12 +195,71 @@
         class="
                hasCoverMetaIn
                ">
-        <section class="postShorten-group main-content-wrap">
-          
-          
-          
 
-        </section>
+        <div id="tags-archives" class="main-content-wrap">
+          <form id="filter-form" action="#">
+            <input name="tag" type="text" class="form-control input--xlarge" placeholder="Search tag" autofocus="autofocus">
+          </form>
+          <h4 class="archive-result text-color-base text-xlarge"
+              data-message-zero="no tag found"
+              data-message-one="1 tag found"
+              data-message-other="{n} tags found"></h4>
+
+            <section>
+              
+                <a class="tag tag--primary tag--small" href="#blogdown-list" data-tag="blogdown">
+                  blogdown
+                </a>
+              
+                <a class="tag tag--primary tag--small" href="#r-ladies-list" data-tag="r-ladies">
+                  r-ladies
+                </a>
+              
+            </section>
+            <section class="boxes">
+              
+                <div id="blogdown-list" class="archive box" data-tag="blogdown">
+                  <h4 class="archive-title">
+                    <a class="link-unstyled" href="blogdown">
+                      blogdown (1)
+                    </a>
+                  </h4>
+                  <ul class="archive-posts">
+                    
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="/2018/07/blogdown-new-site/">
+                          blogdown::new_site()
+                        </a>
+                        <span class="archive-post-date"> - 
+  July 7, 2018
+</span>
+                      </li>
+                    
+                  </ul>
+                </div>
+              
+                <div id="r-ladies-list" class="archive box" data-tag="r-ladies">
+                  <h4 class="archive-title">
+                    <a class="link-unstyled" href="r-ladies">
+                      r-ladies (1)
+                    </a>
+                  </h4>
+                  <ul class="archive-posts">
+                    
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="/2018/07/blogdown-new-site/">
+                          blogdown::new_site()
+                        </a>
+                        <span class="archive-post-date"> - 
+  July 7, 2018
+</span>
+                      </li>
+                    
+                  </ul>
+                </div>
+              
+           </section>
+         </div>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 Isabella Velásquez. All Rights Reserved
@@ -209,7 +268,6 @@
 
       </div>
     </div>
-    
     <div id="about">
   <div id="about-card">
     <div id="about-btn-close">
@@ -239,37 +297,6 @@
   </div>
 </div>
 
-    <div id="algolia-search-modal" class="modal-container">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="close-button"><i class="fa fa-close"></i></span>
-      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
-        <span class="searchby-algolia-text text-color-light text-small">by</span>
-        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
-      </a>
-      <i class="search-icon fa fa-search"></i>
-      <form id="algolia-search-form">
-        <input type="text" id="algolia-search-input" name="search"
-          class="form-control input--large search-input" placeholder="Search" />
-      </form>
-    </div>
-    <div class="modal-body">
-      <div class="no-result text-color-light text-center">no post found</div>
-      <div class="results">
-        
-        
-      </div>
-    </div>
-    <div class="modal-footer">
-      <p class="results-count text-medium"
-         data-message-zero="no post found"
-         data-message-one="1 post found"
-         data-message-other="{n} posts found">
-         0 posts found
-      </p>
-    </div>
-  </div>
-</div>
     
   
     
@@ -277,7 +304,8 @@
   
 
 
-    
+  </body>
+  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
@@ -304,7 +332,4 @@ $(document).ready(function() {
 
 
 
-    
-  </body>
 </html>
-

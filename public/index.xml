@@ -6,9 +6,19 @@
     <description>Recent content on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>blogdown::new_site()</title>
+      <link>/2018/07/blogdown-new-site/</link>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/07/blogdown-new-site/</guid>
+      <description>As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!</description>
+    </item>
     
   </channel>
 </rss>
