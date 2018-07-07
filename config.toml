@@ -18,6 +18,7 @@ defaultContentLanguage = "en-us"
 title = "%>% dreams"
 theme = "hugo-tranquilpeak-theme"
 disqusShortname = "hugo-tranquilpeak-theme"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 # googleAnalytics = "UA-123-45"
 paginate = 7
 canonifyurls = true
