@@ -1,7 +1,7 @@
 ---
 title: blogdown::new_site()
 author: Isabella Velásquez
-date: '2018-07-23'
+date: '2018-07-07'
 slug: blogdown-new-site
 categories: [R]
 tags: [blogdown, r-ladies]

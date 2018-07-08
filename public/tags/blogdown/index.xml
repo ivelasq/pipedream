@@ -6,7 +6,7 @@
     <description>Recent content in Blogdown on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/blogdown/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>blogdown::new_site()</title>
       <link>/2018/07/blogdown-new-site/</link>
-      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/07/blogdown-new-site/</guid>
       <description>&lt;p&gt;As a member of &lt;a href=&#34;https://www.meetup.com/rladies-seattle/&#34;&gt;R-Ladies Seattle&lt;/a&gt;, I offered to give a talk on &lt;a href=&#34;https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6&#34;&gt;blogdown&lt;/a&gt;, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!&lt;/p&gt;</description>
