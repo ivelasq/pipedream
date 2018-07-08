@@ -6,8 +6,8 @@ slug: blogdown-new-site
 categories: [R]
 tags: [blogdown, r-ladies]
 thumbnailImagePosition: left
-thumbnailImage: https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&auto=format&fit=crop&w=1334&q=80
-coverImage: https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&auto=format&fit=crop&w=1334&q=80
+thumbnailImage: https://ivelasq.files.wordpress.com/2016/03/n2908877_32394541_2945.jpg
+coverImage: "https://ivelasq.files.wordpress.com/2016/03/n2908877_32394541_2945.jpg"
 metaAlignment: center
 coverMeta: out
 ---
