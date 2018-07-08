@@ -4,7 +4,7 @@ author: Isabella Velásquez
 date: '2018-07-07'
 slug: blogdown-new-site
 categories: [R]
-tags: [blogdown, r-ladies]
+tags: [blogdown, r-ladies, r]
 thumbnailImagePosition: left
 thumbnailImage: https://ivelasq.files.wordpress.com/2016/03/n2908877_32394541_2945.jpg
 coverImage: "https://ivelasq.files.wordpress.com/2016/03/n2908877_32394541_2945.jpg"
