@@ -125,7 +125,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "Hugo tranquilpeak theme demo"
+  description = "Isabella Velásquez programs in R"
 
   # Customization
   # Define the behavior of the sidebar

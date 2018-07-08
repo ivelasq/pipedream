@@ -28,15 +28,15 @@
     
 
     
-    <meta name="description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
-    <meta property="og:description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
+    <meta name="description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
+    <meta property="og:description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="blogdown::new_site()">
     <meta property="og:url" content="/2018/07/blogdown-new-site/">
     <meta property="og:site_name" content="%&gt;% dreams">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="%&gt;% dreams">
-    <meta name="twitter:description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
+    <meta name="twitter:description" content="As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!">
     
       <meta name="twitter:creator" content="@ivelasq3">
     
@@ -50,6 +50,10 @@
     
 
     
+      <meta property="og:image" content="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&auto=format&fit=crop&w=1334&q=80">
+    
+    
+      <meta property="og:image" content="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=be465b88fdf21a6e05ab522458452344&auto=format&fit=crop&w=1334&q=80">
     
     
 
@@ -202,15 +206,23 @@
 </nav>
 
       
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=be465b88fdf21a6e05ab522458452344&amp;auto=format&amp;fit=crop&amp;w=1334&amp;q=80')"
+       data-behavior="5">
+    
+  </div>
+
 
       <div id="main" data-behavior="5"
-        class="
-               hasCoverMetaIn
+        class="hasCover
+               hasCoverMetaOut
                ">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
           
-            <div class="post-header main-content-wrap text-left">
+            <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
       blogdown::new_site()
@@ -219,21 +231,53 @@
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-07-07T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-07-23T00:00:00Z">
         
-  July 7, 2018
+  July 23, 2018
 
       </time>
     
     
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/r">R</a>
+    
+  
+
   </div>
 
 </div>
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>As a member of <a href="https://www.meetup.com/rladies-seattle/">R-Ladies Seattle</a>, I offered to give a talk on <a href="https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6">blogdown</a>, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!</p>
+              <p>As a member of <a href="https://www.meetup.com/rladies-seattle/">R-Ladies Seattle</a>, I offered to give a talk on <a href="https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6">blogdown</a>, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!</p>
 
+<p>
+<center>
+<img src="https://i.pinimg.com/736x/9f/84/3b/9f843bf305effdf18d6a187079b5eff8--computers-funny-stuff.jpg" alt="That's me." />
+</center></p>
+
+<p>Luckily, blogdown is extremely well documented. My first resource was the book by Yihui, Amber Thomas, Alison Presmanes Hill, <a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a>. Trying to channel my older brother, who is a big believer in documentation, I set forth to follow the instructions step-by-step.</p>
+
+<p>Although blogdown allows you to specify your site through code prompts, I love using add-ins if they&rsquo;ve been offered to you :D</p>
+
+<p><img src="https://image.ibb.co/f2RBGo/Screen_Shot_2018_07_07_at_4_58_47_PM.png" alt="Hooray for Add-Ins" /></p>
+
+<p>I wish there were more that I could offer than the blogdown book, but honestly, it is so straightforward and easy to follow that anything I write would just be redundant. The biggest issue I had was when I accidentally added an &lsquo;i&rsquo; somewhere in the config.toml code (solved <a href="https://discourse.gohugo.io/t/solved-help-error-while-parsing-config-4-1-unexpected-token/9592">here</a>).</p>
+
+<p>There were some Github hoops I needed to go through because I initially started the project on my local drive instead of in a repo (oops). <a href="http://happygitwithr.com/existing-github-first.html">Thankfully, Jenny Bryan already has that covered.</a></p>
+
+<p><center>
+<img src="https://imgs.xkcd.com/comics/git_2x.png" alt="Too true." />
+</center></p>
+
+<p>Getting this site up and running was a valuable experience (especially since I have to give a talk on it!). And most importantly, I thought of the <em>coolest</em> title for the presentation.</p>
+
+<p><img src="https://image.ibb.co/jcDgSJ/blogdownfor_what_2.png" alt="skee-skee" /></p>
+
+<p>yeaaaaaaah!</p>
               
             </div>
           </div>
@@ -495,7 +539,7 @@
                   Jul 7, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">As a member of R-Ladies Seattle, I offered to give a talk on blogdown, a recent package by Yihui Xie that uses R Markdown and Hugo to create websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!</div>
+              <div class="media-content hide-xs font-merryweather"><p>As a member of <a href="https://www.meetup.com/rladies-seattle/">R-Ladies Seattle</a>, I offered to give a talk on <a href="https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6">blogdown</a>, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!</p></div>
             </div>
             <div style="clear:both;"></div>
             <hr>
