@@ -1,23 +1,115 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>%&gt;% dreams</title>
+    <title>Isabella Velásquez</title>
     <link>/</link>
-    <description>Recent content on %&gt;% dreams</description>
+    <description>Recent content on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>blogdown::new_site()</title>
-      <link>/2018/07/blogdown-new-site/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Fancy App 1</title>
+      <link>/itemized/item1/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/blogdown-new-site/</guid>
-      <description>&lt;p&gt;As a member of &lt;a href=&#34;https://www.meetup.com/rladies-seattle/&#34;&gt;R-Ladies Seattle&lt;/a&gt;, I offered to give a talk on &lt;a href=&#34;https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6&#34;&gt;blogdown&lt;/a&gt;, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!&lt;/p&gt;</description>
+      <guid>/itemized/item1/</guid>
+      <description> App 1 </description>
+    </item>
+    
+    <item>
+      <title>Fancy App 2</title>
+      <link>/itemized/item2/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item2/</guid>
+      <description> App 2 </description>
+    </item>
+    
+    <item>
+      <title>Fancy App 3</title>
+      <link>/itemized/item3/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item3/</guid>
+      <description> App 3 </description>
+    </item>
+    
+    <item>
+      <title>Fancy App 4</title>
+      <link>/itemized/item4/</link>
+      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/item4/</guid>
+      <description> App 4 </description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/blog/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/blog/2015-07-23-r-rmarkdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Creating a New Theme</title>
+      <link>/blog/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
+      <title>(Hu)go Template Primer</title>
+      <link>/blog/goisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/goisforlovers/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>/blog/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/hugoisforlovers/</guid>
+      <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
+
+&lt;p&gt;Go to &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo releases&lt;/a&gt; and download the
+appropriate version for your os and architecture.&lt;/p&gt;
+
+&lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
+
+&lt;p&gt;More complete instructions are available at &lt;a href=&#34;/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;
+&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>/blog/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/migrate-from-jekyll/</guid>
+      <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
+With Jekyll, something that looked like&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
+    ▾ images/
+        logo.png
+&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

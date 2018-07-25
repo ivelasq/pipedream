@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on %&gt;% dreams</title>
+    <title>Tags on Isabella Velásquez</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on %&gt;% dreams</description>
+    <description>Recent content in Tags on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blogdown</title>
-      <link>/tags/blogdown/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Plot</title>
+      <link>/tags/plot/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/tags/blogdown/</guid>
+      <guid>/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R Ladies</title>
-      <link>/tags/r-ladies/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <title>R Markdown</title>
+      <link>/tags/r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/tags/r-ladies/</guid>
+      <guid>/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regression</title>
+      <link>/tags/regression/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>/tags/tutorial/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tutorial/</guid>
       <description></description>
     </item>
     

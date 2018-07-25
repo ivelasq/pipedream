@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on %&gt;% dreams</title>
+    <title>R on Isabella Velásquez</title>
     <link>/categories/r/</link>
-    <description>Recent content in R on %&gt;% dreams</description>
+    <description>Recent content in R on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2015 21:13:14 -0500</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>blogdown::new_site()</title>
-      <link>/2018/07/blogdown-new-site/</link>
-      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <title>Hello R Markdown</title>
+      <link>/blog/2015-07-23-r-rmarkdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
       
-      <guid>/2018/07/blogdown-new-site/</guid>
-      <description>&lt;p&gt;As a member of &lt;a href=&#34;https://www.meetup.com/rladies-seattle/&#34;&gt;R-Ladies Seattle&lt;/a&gt;, I offered to give a talk on &lt;a href=&#34;https://slides.yihui.name/2017-rstudio-conf-blogdown-Yihui-Xie.html#6&#34;&gt;blogdown&lt;/a&gt;, a recent package by Yihui Xie that uses R Markdown and Hugo to create static websites. While I was very excited to participate, there was a small snafu: I had never made a blogdown site before!&lt;/p&gt;</description>
+      <guid>/blog/2015-07-23-r-rmarkdown/</guid>
+      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>
