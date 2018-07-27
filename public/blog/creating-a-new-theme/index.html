@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.42.2" />
+        <meta name="generator" content="Hugo 0.32" />
         
 
 
@@ -47,8 +47,7 @@
             <meta name="description" content="Learn how to create a theme on Hugo">
         
 
-        <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Creating a New Theme"/>
+        <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Creating a New Theme"/>
 <meta name="twitter:description" content="Learn how to create a theme on Hugo"/>
 <meta name="twitter:site" content="@ivelasq3"/>
 
@@ -1542,7 +1541,7 @@ i'm speechless
     &lt;h1&gt;&lt;a href=&quot;http://localhost:1313/post/first-post/&quot;&gt;first&lt;/a&gt;&lt;/h1&gt;
 &lt;script&gt;document.write('&lt;script src=&quot;http://'
         + (location.host || 'localhost').split(':')[0]
-		+ ':1313/livereload.js?mindelay=10&quot;&gt;&lt;/'
+        + ':1313/livereload.js?mindelay=10&quot;&gt;&lt;/'
         + 'script&gt;')&lt;/script&gt;&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -1589,8 +1588,8 @@ i'm speechless
 
 <pre><code>$ vi config.toml
 [permalinks]
-	page = &quot;/:title/&quot;
-	about = &quot;/:filename/&quot;
+    page = &quot;/:title/&quot;
+    about = &quot;/:filename/&quot;
 </code></pre>
 
 <p>Generate the web site and verify that this didn&rsquo;t work. Hugo lets &ldquo;slug&rdquo; or &ldquo;URL&rdquo; override the permalinks setting in the configuration file. Go ahead and comment out the slug in content/about.md, then generate the web site to get it to be created in the right place.</p>
@@ -1609,7 +1608,7 @@ i'm speechless
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-	&lt;title&gt;{{ .Title }}&lt;/title&gt;
+    &lt;title&gt;{{ .Title }}&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
 :wq
@@ -1945,9 +1944,6 @@ $ vi themes/zafta/layouts/_default/single.html
 
 
   
-  
-    
-  
 
 
         
@@ -1955,7 +1951,7 @@ $ vi themes/zafta/layouts/_default/single.html
         
 
         <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2014/09/pic03.jpg" alt="">
+            <img src="/date2014/09/pic03.jpg" alt="">
         </a>
     
 
@@ -1986,9 +1982,6 @@ $ vi themes/zafta/layouts/_default/single.html
 
 
   
-  
-    
-  
 
 
         
@@ -1996,7 +1989,7 @@ $ vi themes/zafta/layouts/_default/single.html
         
 
         <a href="/blog/goisforlovers/" class="image featured">
-            <img src="/img/2014/04/pic02.jpg" alt="">
+            <img src="/img//pic02.jpg" alt="">
         </a>
     
 
@@ -2085,7 +2078,7 @@ $ vi themes/zafta/layouts/_default/single.html
             <header>
               
                 Uncategorized
-                <span style="float:right;">4</span>
+                <span style="float:right;">3</span>
               
             </header>
           </article>
@@ -2097,6 +2090,17 @@ $ vi themes/zafta/layouts/_default/single.html
               
                 <a href="/categories/hugo/">Hugo</a>
                 <span style="float:right;">3</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">R</a>
+                <span style="float:right;">2</span>
               
             </header>
           </article>
@@ -2118,17 +2122,6 @@ $ vi themes/zafta/layouts/_default/single.html
             <header>
               
                 <a href="/categories/jekyll/">Jekyll</a>
-                <span style="float:right;">1</span>
-              
-            </header>
-          </article>
-        </p>
-        
-        <p>
-          <article>
-            <header>
-              
-                <a href="/categories/r/">R</a>
                 <span style="float:right;">1</span>
               
             </header>
@@ -2248,7 +2241,7 @@ $ vi themes/zafta/layouts/_default/single.html
     
     <p class="copyright">
       
-        &copy; 2017
+        &copy; 2018
         
           Isabella Velásquez
         
