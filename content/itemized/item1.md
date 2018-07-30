@@ -1,6 +1,6 @@
 +++
 type = "itemized"
-author = "Gustavo E. & Isabella"
+author = "Isabella & Gustavo E."
 date = "2018-07-27"
 title = "wizehiver"
 description = "R wrapper for WizeHive's Zengine API"
