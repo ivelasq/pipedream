@@ -1,6 +1,6 @@
 +++
 author = "Theme author"
-categories = ["Hugo"]
+categories = ["R"]
 tags = ["tutorial"]
 date = "2014-09-28"
 description = "Learn how to create a theme on Hugo"
