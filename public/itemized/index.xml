@@ -23,32 +23,5 @@ The Zengine API, created by WizeHive, is a cloud-based platform that can organiz
  Input and manage Zengine RESTful API tokens Get available API resources Process API response content into analysis-ready tibbles  The wizehiver package has no relationship or affiliation with, sponsorship, or endorsement by WizeHive.</description>
     </item>
     
-    <item>
-      <title>Fancy App 2</title>
-      <link>/itemized/item2/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item2/</guid>
-      <description> App 2 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 3</title>
-      <link>/itemized/item3/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item3/</guid>
-      <description> App 3 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 4</title>
-      <link>/itemized/item4/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item4/</guid>
-      <description> App 4 </description>
-    </item>
-    
   </channel>
 </rss>
