@@ -90,7 +90,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [params.intro]
   header    = "Isabella Velásquez"
 
-  paragraph = "all watched over by machines of loving grace"
+  paragraph = "%>% dreams"
 
   about     = "this is a story about the rise of the machines"
 
