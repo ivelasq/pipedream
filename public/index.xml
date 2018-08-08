@@ -6,10 +6,19 @@
     <description>Recent content on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Jul 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>So You&#39;re Getting a Masters in Analytics</title>
+      <link>/blog/creating-a-new-theme/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/creating-a-new-theme/</guid>
+      <description>The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.</description>
+    </item>
     
     <item>
       <title>wizehiver</title>
@@ -21,98 +30,6 @@
 wizehiver is currently a work in progress.
 The Zengine API, created by WizeHive, is a cloud-based platform that can organize the collection, review, and management of data and applications for grants and other business processes. The goal of wizehiver is to build functionality to:
  Input and manage Zengine RESTful API tokens Get available API resources Process API response content into analysis-ready tibbles  The wizehiver package has no relationship or affiliation with, sponsorship, or endorsement by WizeHive.</description>
-    </item>
-    
-    <item>
-      <title>Fancy App 2</title>
-      <link>/itemized/item2/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item2/</guid>
-      <description> App 2 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 3</title>
-      <link>/itemized/item3/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item3/</guid>
-      <description> App 3 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 4</title>
-      <link>/itemized/item4/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item4/</guid>
-      <description> App 4 </description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/blog/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/blog/2015-07-23-r-rmarkdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>/blog/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>/blog/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/goisforlovers/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>/blog/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/hugoisforlovers/</guid>
-      <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
-
-&lt;p&gt;Go to &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;hugo releases&lt;/a&gt; and download the
-appropriate version for your os and architecture.&lt;/p&gt;
-
-&lt;p&gt;Save it somewhere specific as we will be using it in the next step.&lt;/p&gt;
-
-&lt;p&gt;More complete instructions are available at &lt;a href=&#34;/overview/installing/&#34;&gt;installing hugo&lt;/a&gt;
-&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Migrate to Hugo from Jekyll</title>
-      <link>/blog/migrate-from-jekyll/</link>
-      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/migrate-from-jekyll/</guid>
-      <description>&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Jekyll has a rule that any directory not starting with &lt;code&gt;_&lt;/code&gt; will be copied as-is to the &lt;code&gt;_site&lt;/code&gt; output. Hugo keeps all static content under &lt;code&gt;static&lt;/code&gt;. You should therefore move it all there.
-With Jekyll, something that looked like&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;▾ &amp;lt;root&amp;gt;/
-    ▾ images/
-        logo.png
-&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     
   </channel>

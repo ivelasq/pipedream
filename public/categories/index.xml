@@ -1,41 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Isabella Velásquez</title>
+    <title>Categories on Isabella Velásquez</title>
     <link>/categories/</link>
-    <description>Recent content on Isabella Velásquez</description>
+    <description>Recent content in Categories on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jun 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Fancy App 2</title>
-      <link>/itemized/item2/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <title>General</title>
+      <link>/categories/general/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/itemized/item2/</guid>
-      <description> App 2 </description>
+      <guid>/categories/general/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>Fancy App 3</title>
-      <link>/itemized/item3/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <title>R</title>
+      <link>/categories/r/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/itemized/item3/</guid>
-      <description> App 3 </description>
-    </item>
-    
-    <item>
-      <title>Fancy App 4</title>
-      <link>/itemized/item4/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item4/</guid>
-      <description> App 4 </description>
+      <guid>/categories/r/</guid>
+      <description></description>
     </item>
     
   </channel>
