@@ -15,6 +15,7 @@ type = "post"
 The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.
 
 I've tried to keep track of the different questions people ask and aggregate them into a list. A few caveats:
+
 - My program, homework, and projects were primarily in R.
 - This is assuming that you are entering the program to find a new job or career. 
 
