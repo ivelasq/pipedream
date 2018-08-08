@@ -14,7 +14,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
   # Sets the meta tag description
-  description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
+  description          = "Isabella Velásquez Personal Site on R and Analytics"
   # Sets the navbarTitle that appears in the top left of the navigation bar
   navbarTitle          = "%>% dreams"
   # Sets where "View More Posts" links
