@@ -64,6 +64,7 @@ Oversaw operational processes for survey execution as well as provided analytic,
 ***Researcher/Analyst***
 
 Collaborated with team to bring clarity to a wide variety of ambiguous projects, including analyzing social media to determine organizational structures in a particular field, organizing and storing telephone interview data, and finding trends in clothing stores using online data. 
+
 - Coordinated with team members to design projects and database schema based on clients’ needs
 - Converted assignments to measurable goals for completion and success
 - Determined sample selection and study scope for self-report surveys
