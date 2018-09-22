@@ -190,7 +190,7 @@ The school race demographics are not representative of the district populations 
 
 ### Create Categories
 
-High-poverty schools are defined as public schools where more than 75% percent of the students are eligible for FRPL. According to NCES, [24% of public school students attended high-poverty schools](https://nces.ed.gov/fastfacts/display.asp?id=898). However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?
+High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, [24% of public school students attended high-poverty schools](https://nces.ed.gov/fastfacts/display.asp?id=898). However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?
 
 ```{r, echo = F}
 # high poverty barplot
@@ -242,6 +242,7 @@ Because of the disaggregated data Minneapolis Public Schools provides, we can go
 ## Amazing Examples of Disaggregated Data Reporting
 
 There are so many amazing examples out there using disaggregated data. These two are my favorites:
+
 - [Money, Race and Success: How Your School District Compares](https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html)
 - [Why Pinellas County is the worst place in Florida to be black and go to public school](http://www.tampabay.com/projects/2015/investigations/pinellas-failure-factories/chart-failing-black-students/)
 
