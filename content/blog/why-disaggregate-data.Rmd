@@ -72,7 +72,7 @@ library(janitor)
 race_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf")
 
-race_df <-
+race_df <- # many thanks to my brother @gvelasq for purrrifying this
   race_pdf %>%
   map(as_tibble) %>%
   map_df(~ slice(., -1:-2)) %>% 
@@ -91,7 +91,7 @@ race_filter <-
 frpl_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017.pdf")
 
-frpl_df <-
+frpl_df <- # many thanks to my brother @gvelasq for purrrifying this
   frpl_pdf %>%
   map(as_tibble) %>%
   map_df(~ slice(., -1)) %>%  

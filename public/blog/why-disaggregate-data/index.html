@@ -24,7 +24,7 @@
         "datePublished": "2018-09-21 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-09-21 00:00:00 &#43;0000 UTC",
         "url" : "/blog/why-disaggregate-data/",
-        "wordCount" : "1643",
+        "wordCount" : "1663",
         "keywords" : [ "R","equity","Blog" ]
     }
     </script>
@@ -97,7 +97,7 @@
 
 <meta itemprop="datePublished" content="2018-09-21T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1643">
+<meta itemprop="wordCount" content="1663">
 
 
 
@@ -556,7 +556,7 @@
         
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
-            <img src="/img/2018/09/school.png" alt="">
+            <img src="/date2018/09/school.png" alt="">
         </a>
     
 
@@ -651,7 +651,7 @@ library(janitor)
 race_pdf &lt;-
   extract_tables(&quot;http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf&quot;)
 
-race_df &lt;-
+race_df &lt;- # many thanks to my brother @gvelasq for purrrifying this
   race_pdf %&gt;%
   map(as_tibble) %&gt;%
   map_df(~ slice(., -1:-2)) %&gt;% 
@@ -670,7 +670,7 @@ race_filter &lt;-
 frpl_pdf &lt;-
   extract_tables(&quot;http://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017.pdf&quot;)
 
-frpl_df &lt;-
+frpl_df &lt;- # many thanks to my brother @gvelasq for purrrifying this
   frpl_pdf %&gt;%
   map(as_tibble) %&gt;%
   map_df(~ slice(., -1)) %&gt;%  
