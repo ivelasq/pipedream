@@ -47,6 +47,7 @@ Guide the development of new investments through the refinement of the K-12 Educ
 ***Survey Specialist II***
 
 Oversaw operational processes for survey execution as well as provided analytic, writing, and reporting support for the National Longitudinal Surveys of Youth team. Operational processes included respondent communications, data quality control, knowledge management, and scheduling. Maintained data in Microsoft Access and SAS. Ran automated reports as well as ad hoc requests for data. Conducted analysis of project projections to ensure we met targets. Supplemented reports with data visualizations and tables.
+
 - Provided data collection recommendations and support to succeed in maintaining >79% response rates in surveys over 20 years old
 - Maintained central databases and queries storing associated variables for 12,000+ respondents in Microsoft Access
 - Managed 10+ reports, both automated and ad hoc
