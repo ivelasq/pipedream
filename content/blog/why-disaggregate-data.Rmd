@@ -16,6 +16,8 @@ I am a data analyst committed to nonprofit work with the aim of reducing racial 
 
 In this post, I define what disaggregated data is and how it can inform teams on how their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district's reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.
 
+<!--more-->
+
 Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.
 
 ## What is Equity
