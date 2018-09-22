@@ -14,7 +14,7 @@ type: "post"
 
 I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team's equity journey, and exploring these data beyond averages can highlight the most prominent equity needs. 
 
-In this post, I define what disaggregated data is and how it can inform teams on how their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district's reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.
+In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district's reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.
 
 <!--more-->
 
@@ -237,9 +237,9 @@ Similarly to the result above, **there is a strong negative correlation between 
 
 ### Conclusion
 
-According to the Urban Institute, the disproportionate students of color attending high poverty schools "is a defining feature of almost all Midwestern and northeastern metropolitan school systems." Among other issues, high poverty schools [tend to lack the educational resources—like highly qualified and experienced teachers, low student-teacher ratios, college prerequisite and advanced placement courses, and extracurricular activities—available in low-poverty schools.](https://www.urban.org/urban-wire/high-poverty-schools-undermine-education-children-color) This has a huge impact on these students and their futures. 
+According to the Urban Institute, the disproportionate percentage of students of color attending high poverty schools "is a defining feature of almost all Midwestern and northeastern metropolitan school systems." Among other issues, high poverty schools [tend to lack the educational resources—like highly qualified and experienced teachers, low student-teacher ratios, college prerequisite and advanced placement courses, and extracurricular activities—available in low-poverty schools.](https://www.urban.org/urban-wire/high-poverty-schools-undermine-education-children-color) This has a huge impact on these students and their futures. 
 
-Because of the disaggregated data Minneapolis Public Schools provides, we can go deeper than the average of demographics across the district and see what it looks like on the school level. These views display that (1) there exists a distribution of race/ethnicity within schools that are not representative of the district, (2) that students of color are overrepresented in high poverty schools, and (3) there is a relationship between the percentage of White students in a school and the percent of students eligible for FRPL.
+Because of the disaggregated data Minneapolis Public Schools provides, we can go deeper than the average of demographics across the district and see what it looks like on the school level. These views display that (1) there exists a distribution of race/ethnicity within schools that are not representative of the district, (2) that students of color are overrepresented in high poverty schools, and (3) there is a relationship between the percentage of White students in a school and the percentage of students eligible for FRPL.
 
 ## Amazing Examples of Disaggregated Data Reporting
 
