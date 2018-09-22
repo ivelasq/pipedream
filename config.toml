@@ -92,7 +92,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
   paragraph = "%>% dreams"
 
-  about     = "this is a story about the rise of the machines"
+  about     = "strong reasons make strong actions"
 
   # This appears at the top of the sidebar above params.intro.header.
   # A width of less than 100px is recommended from a design perspective.
