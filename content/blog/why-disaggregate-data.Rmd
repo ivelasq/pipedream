@@ -1,7 +1,7 @@
 ---
 author: ""
-categories: ["general"]
-tags: ["R", "equity"]
+categories: ["general", "R"]
+tags: ["equity"]
 date: "2018-09-21"
 description: "A Look at Minneapolis Public Schools"
 featured: "school.png"
