@@ -320,7 +320,7 @@
         
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
-            <img src="/img/2018/09/school.png" alt="">
+            <img src="/img/2018/092018/09/school.png" alt="">
         </a>
     
 
@@ -359,7 +359,7 @@
         
 
         <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2018/08/chicago.png" alt="">
+            <img src="/img/2018/082018/08/chicago.png" alt="">
         </a>
     
 
@@ -570,7 +570,7 @@
 <h2>What is Equity</h2>
 <p>Inequities are <a href="http://www.yourdictionary.com/racial-inequality">disparities in opportunity, resources, and treatment.</a> Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. <a href="https://www.allsides.com/dictionary/racial-inequity">Examples include:</a></p>
 <ul>
-<li>Racial attitudes/bias and that act subtly to undermine and exclude,</li>
+<li>Racial attitudes/bias that act subtly to undermine and exclude,</li>
 <li>Continued redlining in lending,</li>
 <li>Embedded biases in education (images, language, school discipline),</li>
 <li>Long term ramifications of poor health/healthcare.</li>
@@ -581,7 +581,7 @@
 <h2>What Is Disaggregated Data</h2>
 <p>According to the <a href="https://www.edglossary.org/disaggregated-data/">Glossary of Education Reform</a>, the formal definition of disaggregated data is:</p>
 <blockquote>
-<p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data — i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
+<p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
 </blockquote>
 <p>Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team’s definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.</p>
 </div>
@@ -597,7 +597,7 @@
 <p>Minneapolis Public Schools (MPS) reports their student demographics in a robust, complete way. Not only do they report the percentage of students in a subgroup, but they also include the number of students in each subgroup. This allows a deep look into their individual school demographics and gives us the opportunity to explore equity in their district.</p>
 <div id="pulling-data" class="section level3">
 <h3>Pulling Data</h3>
-<p>All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the <code>tabulizer()</code> package exists! It easily and quickly pulled the data into lists which I then transformed to dataframes and tidied up.</p>
+<p>All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the <code>tabulizer</code> package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.</p>
 </div>
 <div id="first-glance-mps-district-demographics" class="section level3">
 <h3>First Glance: MPS District Demographics</h3>
@@ -623,7 +623,7 @@
 <h3>Reveal Relationships</h3>
 <p>Let’s explore what happens when we correlate race and FRPL percentage by school.</p>
 <p><img src="/blog/why-disaggregate-data_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>Similarly to the result above, <strong>there is a strong negative correlation between FRPL percentage and the percentage of white students in a school.</strong> High poverty schools have lower percentage of White students and low poverty schools have higher percentage of White students.</p>
+<p>Similarly to the result above, <strong>there is a strong negative correlation between FRPL percentage and the percentage of white students in a school.</strong> High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students.</p>
 </div>
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
@@ -647,7 +647,6 @@ library(tabulizer)
 library(janitor)
 
 # race data
-
 race_pdf &lt;-
   extract_tables(&quot;http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf&quot;)
 
@@ -666,7 +665,6 @@ race_filter &lt;-
   mutate_if(is.character, trimws) 
 
 # frpl data
-
 frpl_pdf &lt;-
   extract_tables(&quot;http://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017.pdf&quot;)
 
@@ -977,6 +975,9 @@ merged_df %&gt;%
 
 
   
+  
+    
+  
 
 
         
@@ -984,7 +985,7 @@ merged_df %&gt;%
         
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
-            <img src="/img/2018/09/school.png" alt="">
+            <img src="/date2018/09/school.png" alt="">
         </a>
     
 
@@ -1015,6 +1016,9 @@ merged_df %&gt;%
 
 
   
+  
+    
+  
 
 
         
@@ -1022,7 +1026,7 @@ merged_df %&gt;%
         
 
         <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/date2018/08/chicago.png" alt="">
+            <img src="/date/chicago.png" alt="">
         </a>
     
 
