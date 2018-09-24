@@ -24,7 +24,7 @@ Although this post heavily references education and student data, the principle 
 
 Inequities are [disparities in opportunity, resources, and treatment.](http://www.yourdictionary.com/racial-inequality) Racial and socioeconomic inequities are those that are as a result of one's race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. [Examples include:](https://www.allsides.com/dictionary/racial-inequity)
 
-- Racial attitudes/bias and that act subtly to undermine and exclude,
+- Racial attitudes/bias that act subtly to undermine and exclude,
 - Continued redlining in lending,
 - Embedded biases in education (images, language, school discipline),
 - Long term ramifications of poor health/healthcare.
@@ -35,7 +35,7 @@ Because the definition of equity varies from team to team, it is important to de
 
 According to the [Glossary of Education Reform](https://www.edglossary.org/disaggregated-data/), the formal definition of disaggregated data is:
 
-> Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data — i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.
+> Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.
 
 Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team's definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.
 
@@ -52,7 +52,7 @@ Minneapolis Public Schools (MPS) reports their student demographics in a robust,
 
 ### Pulling Data
 
-All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the `tabulizer()` package exists! It easily and quickly pulled the data into lists which I then transformed to dataframes and tidied up.
+All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the `tabulizer` package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.
 
 ### First Glance: MPS District Demographics
 
@@ -68,7 +68,6 @@ library(tabulizer)
 library(janitor)
 
 # race data
-
 race_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf")
 
@@ -87,7 +86,6 @@ race_filter <-
   mutate_if(is.character, trimws) 
 
 # frpl data
-
 frpl_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017.pdf")
 
@@ -233,7 +231,7 @@ merged_df %>%
 
 ```
 
-Similarly to the result above, **there is a strong negative correlation between FRPL percentage and the percentage of white students in a school.** High poverty schools have lower percentage of White students and low poverty schools have higher percentage of White students. 
+Similarly to the result above, **there is a strong negative correlation between FRPL percentage and the percentage of white students in a school.** High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students. 
 
 ### Conclusion
 
