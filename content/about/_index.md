@@ -8,7 +8,7 @@ date = "2018-07-25"
 
 **DATA ANALYST** committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Diverse experience spanning **Strategic Planning** (strategy development, metric and goal setting, and program evaluation), **Research Design** (survey design, cognitive interviewing, and data collection), **Data Analytics** (business understanding, data preparation, statistical modeling, and evaluation), **Presentation and Reports** (analysis reports, data visualizations, automated and reproducible reports, professional talks, conference presentations, and web presence), and **Project Management** (Agile/Scrum, database design).
 
-### EDUCATION
+## EDUCATION
 
 **The University of Chicago**
 
@@ -16,11 +16,11 @@ MS Analytics, 2016
 
 BA Economics, East Asian Language and Civilizations, 2010
 
-### TECHNICAL SUMMARY
+## TECHNICAL SUMMARY
 
 R, MS Office (high proficiency in Excel, Access), Tableau, Git/GitHub, SQL, QGIS, Base SAS
 
-### EXPERIENCE
+## EXPERIENCE
 
 **BILL & MELINDA GATES FOUNDATION**, Seattle, 2016 – Present
 
@@ -46,4 +46,8 @@ Collaborated with team to bring clarity to a wide variety of ambiguous projects,
 **ILLINOIS COALITION FOR IMMIGRANT AND REFUGEE RIGHTS**, Chicago, 2012
 
 ***Community Organizer***
+
+## PERSONAL
+
+Avid hiker, amateur calligrapher, math puzzle ponderer.
 
