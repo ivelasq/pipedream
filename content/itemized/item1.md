@@ -35,4 +35,4 @@ The wizehiver package has no relationship or affiliation with, sponsorship, or e
   <img src="http://rs795.pbsrc.com/albums/yy232/PixKaruumi/Pixels/Pixels%2050/tha001.gif~c200" alt="hive_gif">
 </p>
 
-[Respository here.](https://github.com/ivelasq/wizehiver/)
+[Repository here.](https://github.com/ivelasq/wizehiver/)
