@@ -32,7 +32,7 @@ Git and Github was not required for any classes (at least when I was in the prog
 - Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!
 - There's also nothing better than having a filled up contribution graph.
 
-<p align = "center">![alt text](http://developer.cybozu.co.jp/akky/wp-content/uploads/2016/09/github-contributions-by-fdizile-gitcontribs-672x203.png "Aww yiss")</center>
+<p align = "center">![alt text](https://developer.cybozu.co.jp/akky/wp-content/uploads/2016/09/github-contributions-by-fdizile-gitcontribs-672x203.png "Aww yiss")</center>
 
 ## 2. Leave each class with an example that you can show a potential employer
 
