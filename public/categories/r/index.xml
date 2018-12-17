@@ -6,10 +6,21 @@
     <description>Recent content in R on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Transforming PDF&#39;s into Useful Tables</title>
+      <link>/blog/snap-expenditures/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/snap-expenditures/</guid>
+      <description>Way back in 2016, the USDA released a study entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:
+This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.
+At the time though, I was most interested in looking at the appendicies data - 263 pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP.</description>
+    </item>
     
     <item>
       <title>Why Equity Requires Looking Beyond Averages</title>

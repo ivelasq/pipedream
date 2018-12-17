@@ -6,26 +6,61 @@
     <description>Recent content in Tags on Isabella Velásquez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Equity</title>
-      <link>/tags/equity/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      <title>broom</title>
+      <link>/tags/broom/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/equity/</guid>
+      <guid>/tags/broom/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Grad school</title>
-      <link>/tags/grad-school/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <title>dplyr</title>
+      <link>/tags/dplyr/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/grad-school/</guid>
+      <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>janitor</title>
+      <link>/tags/janitor/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/janitor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>purrr</title>
+      <link>/tags/purrr/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/purrr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tabulizer</title>
+      <link>/tags/tabulizer/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tabulizer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>viridis</title>
+      <link>/tags/viridis/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/viridis/</guid>
       <description></description>
     </item>
     

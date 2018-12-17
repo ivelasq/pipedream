@@ -1,7 +1,6 @@
 +++
 author = ""
 categories = ["general"]
-tags = ["grad school"]
 date = "2018-08-04"
 description = "Reflections from an R-Centric Program"
 featured = "chicago.png"

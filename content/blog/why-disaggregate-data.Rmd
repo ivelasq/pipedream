@@ -1,7 +1,7 @@
 ---
 author: ""
-categories: ["general", "R"]
-tags: ["equity"]
+categories: ["R"]
+tags: ["dplyr", "purrr", "viridis", "tabulizer", "janitor"]
 date: "2018-09-21"
 description: "A Look at Minneapolis Public Schools"
 featured: "school.png"

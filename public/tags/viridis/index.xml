@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>viridis on Isabella Velásquez</title>
+    <link>/tags/viridis/</link>
+    <description>Recent content in viridis on Isabella Velásquez</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/viridis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why Equity Requires Looking Beyond Averages</title>
+      <link>/blog/why-disaggregate-data/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/why-disaggregate-data/</guid>
+      <description>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.
+In this post, I define what disaggregated data is and how it can inform teams on their equity work.</description>
+    </item>
+    
+  </channel>
+</rss>
