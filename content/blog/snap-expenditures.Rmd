@@ -36,7 +36,7 @@ Use `tabulizer::extract_tables()` to extract the data from the [appendicies PDF]
 snap_pdf <-
   extract_tables("https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf")
 
-head(snap_pdf)
+str(snap_pdf)
 ```
 
 Using the  `purrr` package, create a data frame from the lists while simultaneously removing the unnecessary rows.
@@ -50,7 +50,7 @@ snap_df <-
 head(snap_df)
 ```
 
-Due to the original formatting of the PDFs, there's a bunch of cleaning to be done to make the list into a usable table. Using `select()`, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn't know how to calculate this using code. If you have ideas, let me know!
+Due to the original formatting of the PDFs, there's a bunch of cleaning to be done to make the list into a usable table. Using `slice()`, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn't know how to calculate this using code. If you have ideas, let me know!
 
 ```{r, include = T, message = F}
 snap_appendix1 <-
@@ -58,7 +58,7 @@ snap_appendix1 <-
   slice(1:238) # Appendix A has 238 rows
 ```
 
-Now comes the fun part (yay data cleaning!). When looking at the data frame, the data for each commodity are all mushed together in two separate columns (V2 and V3), but only one column or the other. Then there are a bunch of empty rows (V4 through V9), probably created from the funky original formatting. The data all begin with numbers as well. First things first - put all the data in a single column. Then, remove all the empty rows in the newly created `col_dat` column.
+Now comes the fun part (yay data cleaning!). When looking at the data frame, the data for each commodity are all mushed together in two separate columns (V2 and V3), but only one column or the other. Then there are a bunch of empty columns (V4 through V9), probably created from the funky original formatting. The data all begin with numbers as well. First things first - put all the data in a single column. Then, remove all the empty rows in the newly created `col_dat` column.
 
 ```{r, include = T, message = F}
 snap_appendix1_cleaned <-
@@ -71,7 +71,7 @@ snap_appendix1_cleaned <-
 head(snap_appendix1_cleaned)
 ```
 
-Now the data we want is wonderfully in a single column, so we can select the columns with the names of the commodities and the numeric data.
+Now the numeric data we want is wonderfully in a single column, so we can select the columns `V1` and `col_dat`.
 
 ```{r, include = T, message = F}
 snap_appendix1_cleaned <-
@@ -81,7 +81,7 @@ snap_appendix1_cleaned <-
 head(snap_appendix1_cleaned)
 ```
 
-All the numeric data is still mushed in column `col_dat`, so using `tidyr::separate()` we can split the values because they are all separated by spaces. Using the original PDFs column names, we descriptively rename the columns (and rename the commodity column `V1` as well). The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can sub out those unnecessary characters and transform those columns into truly numeric values.
+All the numeric data is still mushed in column `col_dat`, so using `tidyr::separate()` we can split the values because they are all separated by spaces. Referencing the original PDF, we descriptively rename the columns (and rename the commodity column `V1` as well). The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can sub out those unnecessary characters and transform those columns into truly numeric values.
 
 ```{r, include = T, message = F}
 snap_appendix1_cleaned <-
@@ -121,4 +121,4 @@ snap_res %>% # quick residual plot
   geom_point()
 ```
 
-Mor
+I'd love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap). More to come!
