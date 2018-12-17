@@ -35,8 +35,6 @@ Use `tabulizer::extract_tables()` to extract the data from the [appendicies PDF]
 ```{r, include = T, message = F}
 snap_pdf <-
   extract_tables("https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf")
-
-str(snap_pdf)
 ```
 
 Using the  `purrr` package, create a data frame from the lists while simultaneously removing the unnecessary rows.
