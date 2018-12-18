@@ -590,7 +590,7 @@
 <blockquote>
 <p>This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.</p>
 </blockquote>
-<p>At the time though, I was most interested in looking at the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendicies data</a> - <em>263</em> pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with ‘fancy’ Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.</p>
+<p>At the time though, I was most interested in looking at the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices data</a> - <em>263</em> pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with ‘fancy’ Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.</p>
 <p>I <a href="mailto:SNAPHQ-WEB@fns.usda.gov">emailed</a> SNAP HQ to ask if they had the raw data available in CSV’s and was told simply:</p>
 <blockquote>
 <p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
@@ -599,7 +599,7 @@
 <pre class="r"><code>library(tidyverse)
 library(tabulizer)
 library(broom)</code></pre>
-<p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendicies PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
+<p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
 <pre class="r"><code>snap_pdf &lt;-
   extract_tables(&quot;https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf&quot;)</code></pre>
 <p>Using the <code>purrr</code> package, create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
