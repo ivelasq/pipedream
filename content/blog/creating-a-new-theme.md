@@ -2,12 +2,12 @@
 author = ""
 categories = ["general"]
 date = "2018-08-04"
-description = "Reflections from an R-Centric Program"
+description = "So You're Getting a Masters in Analytics"
 featured = "chicago.png"
 featuredalt = "Chicago River"
 featuredpath = "date"
 linktitle = ""
-title = "So You're Getting a Masters in Analytics"
+title = "Reflections from an R-Centric Program"
 type = "post"
 +++
 
