@@ -20,9 +20,9 @@
         "publisher": "",
         "accountablePerson" : "",
         "copyrightHolder" : "",
-        "copyrightYear" : "2018",
-        "datePublished": "2018-12-16 00:00:00 &#43;0000 UTC",
-        "dateModified" : "2018-12-16 00:00:00 &#43;0000 UTC",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-04-06 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2019-04-06 00:00:00 &#43;0000 UTC",
         "url" : "/",
         "wordCount" : "0",
         "keywords" : [ "Blog" ]
@@ -71,7 +71,7 @@
 <meta property="og:description" content="Isabella Velásquez Personal Site on R and Analytics" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2018-12-16T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-04-06T00:00:00&#43;00:00"/>
 
         <meta property="og:image" content="//images/logo.png">
         <meta property="og:image:type" content="image/png">
@@ -269,6 +269,45 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/blog/average-hike/">Ain&#39;t No Mountain High Enough</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-04-06'>
+                                    April 6, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/average-hike/" class="image featured">
+            <img src="/img/2019/04/hiking.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/blog/snap-expenditures/">Transforming PDF&#39;s into Useful Tables</a></h3>
                                 
                                 <time class="published" datetime=
@@ -400,21 +439,21 @@
   <header>
     <div class="title">
         
-            <h2><a href="/blog/snap-expenditures/">Transforming PDF&#39;s into Useful Tables</a></h2>
+            <h2><a href="/blog/average-hike/">Ain&#39;t No Mountain High Enough</a></h2>
         
         
-            <p>Extracting SNAP Expenditures Data</p>
+            <p>Calculating My Average Hike Using googleway and geosphere</p>
         
     </div>
     <div class="meta">
         
 
         <time class="published"
-            datetime='2018-12-16'>
-            December 16, 2018</time>
+            datetime='2019-04-06'>
+            April 6, 2019</time>
         <span class="author"></span>
         
-            <p>6 minute read</p>
+            <p>4 minute read</p>
         
         
     </div>
@@ -429,7 +468,7 @@
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fblog%2fsnap-expenditures%2f&amp;text=Transforming%20PDF%27s%20into%20Useful%20Tables&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fblog%2faverage-hike%2f&amp;text=Ain%27t%20No%20Mountain%20High%20Enough&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -443,7 +482,7 @@
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fsnap-expenditures%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2faverage-hike%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -456,7 +495,7 @@
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fsnap-expenditures%2f&amp;title=Transforming%20PDF%27s%20into%20Useful%20Tables" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2faverage-hike%2f&amp;title=Ain%27t%20No%20Mountain%20High%20Enough" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -472,7 +511,7 @@
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2fsnap-expenditures%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2faverage-hike%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -506,133 +545,114 @@
         
         
 
-        <a href="/blog/snap-expenditures/" class="image featured">
-            <img src="/img/2018/12/snap.png" alt="">
+        <a href="/blog/average-hike/" class="image featured">
+            <img src="/img/2019/04/hiking.png" alt="">
         </a>
     
 
 
   <div id="content">
-    <p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:</p>
-<blockquote>
-<p>This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.</p>
-</blockquote>
-<p>At the time though, I was most interested in looking at the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices data</a> - <em>263</em> pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with ‘fancy’ Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.</p>
-<p>I <a href="mailto:SNAPHQ-WEB@fns.usda.gov">emailed</a> SNAP HQ to ask if they had the raw data available in CSV’s and was told simply:</p>
-<blockquote>
-<p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
-</blockquote>
-<p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful <code>tidyverse</code> and <code>tabulizer</code> package.</p>
+    <p>I moved to Seattle at the end of 2016 and since then have done around 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
+<p>Recently, I signed up on <a href="https://www.alltrails.com/">AllTrails</a> to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to calculate my ‘average hike.’</p>
+<p>Generally speaking, people consider two main metrics in choosing a hike: distance and elevation. So what would my ‘average hike’ look like? Would my average hike mean average distance, average elevation, or both? Why not all three?!</p>
+<p>I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the <a href="#methodology">Methodology</a> section below!</p>
+<div id="i-dont-particularly-love-long-hikes" class="section level1">
+<h1>I don’t particularly love long hikes</h1>
+<p>My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time.</p>
+</div>
+<div id="i-dont-dislike-high-elevation-hikes-though" class="section level1">
+<h1>I don’t dislike high elevation hikes though</h1>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
+</div>
+<div id="methodology" class="section level1">
+<h1>Methodology</h1>
+<div id="disclaimer" class="section level2">
+<h2>Disclaimer</h2>
+<p>For data collection, I downloaded each trail’s GPX files from AllTrails. Because these data are proprietary, I will not be showing them here. Some things to note:</p>
+<ul>
+<li>Because these are data pulled from the AllTrails website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).</li>
+<li>There are hikes that I did back-to-back that I’d consider one hike but the trails might be listed separately on the site. For example, Deception Pass is actually made up of three small loops.</li>
+</ul>
+</div>
+<div id="choose-packages" class="section level2">
+<h2>Choose Packages</h2>
+<p>It took a bit to decide which packages had the functions needed to run the spatial analyses. In the end, I decided on:</p>
+<ul>
+<li><strong>plotKML</strong>: A package containing functions to read GPX files</li>
+<li><strong>geosphere</strong>: A package containing functions for geospatial calculations. I decided to use this for finding out distances between lon/lat.</li>
+<li><strong>googleway</strong>: A package allowing access to the Google Maps API. To run this, you need to obtain a Google Maps API key and load it to R by using <code>set_key()</code>. I use this for elevation calculations but the API can also obtain distance between points.</li>
+</ul>
 <pre class="r"><code>library(tidyverse)
-library(tabulizer)
-library(broom)</code></pre>
-<p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
-<pre class="r"><code>snap_pdf &lt;-
-  extract_tables(&quot;https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf&quot;)</code></pre>
-<p>Using the <code>purrr</code> package, create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
-<pre class="r"><code>snap_df &lt;- 
-  snap_pdf %&gt;%
-  map(as_tibble) %&gt;%
-  map_df(~ slice(., -2)) # slicing because of the unnecessary rows
-  
-head(snap_df)</code></pre>
-<pre><code>## # A tibble: 6 x 9
-##   V1        V2    V3                   V4    V5    V6    V7    V8    V9   
-##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 &quot;&quot;        &quot;&quot;    &quot;SNAP Household Exp~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 2 Soft dri~ &quot;&quot;    1 $357.7 5.44% 2 $1~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 3 Fluid mi~ &quot;&quot;    2 $253.7 3.85% 1 $1~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 4 Beef:gri~ &quot;&quot;    3 $201.0 3.05% 6 $6~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 5 Bag snac~ &quot;&quot;    4 $199.3 3.03% 5 $7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 6 Cheese    &quot;&quot;    5 $186.4 2.83% 3 $9~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;</code></pre>
-<p>Due to the original formatting of the PDFs, there’s a bunch of cleaning to be done to make the list into a usable table. Using <code>slice()</code>, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn’t know how to calculate this using code. If you have ideas, let me know!</p>
-<pre class="r"><code>snap_appendix1 &lt;-
-  snap_df %&gt;% 
-  slice(1:238) # Appendix A has 238 rows</code></pre>
-<p>Now comes the fun part (yay data cleaning!). When looking at the data frame, the data for each commodity are all mushed together in two separate columns (V2 and V3), but only one column or the other. Then there are a bunch of empty columns (V4 through V9), probably created from the funky original formatting. The data all begin with numbers as well. First things first - put all the data in a single column. Then, remove all the empty rows in the newly created <code>col_dat</code> column.</p>
-<pre class="r"><code>snap_appendix1_cleaned &lt;-
-  snap_appendix1 %&gt;%
-  mutate(col_dat = case_when(grepl(&quot;[0-9]&quot;, V2) ~ V2, # create a column that contains all the data
-                           grepl(&quot;[0-9]&quot;, V3) ~ V3,
-                           TRUE ~ &quot;&quot;)) %&gt;% 
-  filter(col_dat != &quot;&quot;) # some rows are empty
+library(googleway)
+library(plotKML)
+library(geosphere)
 
-head(snap_appendix1_cleaned)</code></pre>
-<pre><code>## # A tibble: 6 x 10
-##   V1       V2    V3        V4    V5    V6    V7    V8    V9    col_dat    
-##   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-## 1 Soft dr~ &quot;&quot;    1 $357.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357.7 5~
-## 2 Fluid m~ &quot;&quot;    2 $253.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253.7 3~
-## 3 Beef:gr~ &quot;&quot;    3 $201.0~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201.0 3~
-## 4 Bag sna~ &quot;&quot;    4 $199.3~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199.3 3~
-## 5 Cheese   &quot;&quot;    5 $186.4~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186.4 2~
-## 6 Baked b~ &quot;&quot;    6 $163.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163.7 2~</code></pre>
-<p>Now the numeric data we want is wonderfully in a single column, so we can select the columns <code>V1</code> and <code>col_dat</code>.</p>
-<pre class="r"><code>snap_appendix1_cleaned &lt;-
-  snap_appendix1_cleaned %&gt;% 
-  select(V1, col_dat)
+googleway::set_key(API_KEY_HERE)</code></pre>
+</div>
+<div id="data-upload" class="section level2">
+<h2>Data Upload</h2>
+<p>I downloaded each GPX file from AllTrails and saved them in a file in my project organization. Their file names were TRAILNAME.gpx.</p>
+<ul>
+<li>Using <code>plotKML::readGPX</code> results in the files being loaded as lists.</li>
+<li>I used <code>purrr</code> in conjunction with <code>plotKML()</code> to handily read them in and add the file name to the list.</li>
+</ul>
+<pre class="r"><code># find gpx files
+data_path &lt;- 
+  here::here(&quot;data&quot;, &quot;raw&quot;, &quot;gpx_files&quot;)
 
-head(snap_appendix1_cleaned)</code></pre>
-<pre><code>## # A tibble: 6 x 2
-##   V1                  col_dat                        
-##   &lt;chr&gt;               &lt;chr&gt;                          
-## 1 Soft drinks         1 $357.7 5.44% 2 $1,263.3 4.01%
-## 2 Fluid milk products 2 $253.7 3.85% 1 $1,270.3 4.03%
-## 3 Beef:grinds         3 $201.0 3.05% 6 $621.1 1.97%  
-## 4 Bag snacks          4 $199.3 3.03% 5 $793.9 2.52%  
-## 5 Cheese              5 $186.4 2.83% 3 $948.9 3.01%  
-## 6 Baked breads        6 $163.7 2.49% 4 $874.8 2.78%</code></pre>
-<p>All the numeric data is still mushed in column <code>col_dat</code>, so using <code>tidyr::separate()</code> we can split the values because they are all separated by spaces. Referencing the original PDF, we descriptively rename the columns (and rename the commodity column <code>V1</code> as well). The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can sub out those unnecessary characters and transform those columns into truly numeric values.</p>
-<pre class="r"><code>snap_appendix1_cleaned &lt;-
-  snap_appendix1_cleaned %&gt;%
-  separate(col_dat, &quot; &quot;,
-           into = c(&quot;snap_rank&quot;, &quot;snap_dollars_in_millions&quot;, &quot;snap_pct_total_expenditures&quot;, &quot;nonsnap_rank&quot;, &quot;nonsnap_dollars_in_millions&quot;, &quot;nonsnap_pct_total_expenditures&quot;)) %&gt;%
-  rename(commodity = V1) %&gt;%
-  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), funs(as.numeric(gsub(&quot;,|%|\\$&quot;, &quot;&quot;, .))))
+files &lt;-
+  dir(data_path, pattern = &quot;*.gpx&quot;, full.names = TRUE)
 
-head(snap_appendix1_cleaned)</code></pre>
-<pre><code>## # A tibble: 6 x 7
-##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
-##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-## 1 Soft dri~         1             358.             5.44            2
-## 2 Fluid mi~         2             254.             3.85            1
-## 3 Beef:gri~         3             201              3.05            6
-## 4 Bag snac~         4             199.             3.03            5
-## 5 Cheese            5             186.             2.83            3
-## 6 Baked br~         6             164.             2.49            4
-## # ... with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
-## #   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
-<p>Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.</p>
-<pre class="r"><code>snap_appendix1_cleaned &lt;-
-  snap_appendix1_cleaned %&gt;%
-  mutate_at(vars(contains(&quot;pct&quot;)), funs(./100))
+# get trail names
+names &lt;-
+  dir(data_path, pattern = &quot;*.gpx&quot;, full.names = FALSE) %&gt;% 
+  str_extract(&quot;.+?(?=.gpx)&quot;)
 
-head(snap_appendix1_cleaned)</code></pre>
-<pre><code>## # A tibble: 6 x 7
-##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
-##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-## 1 Soft dri~         1             358.           0.0544            2
-## 2 Fluid mi~         2             254.           0.0385            1
-## 3 Beef:gri~         3             201            0.0305            6
-## 4 Bag snac~         4             199.           0.0303            5
-## 5 Cheese            5             186.           0.0283            3
-## 6 Baked br~         6             164.           0.0249            4
-## # ... with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
-## #   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
-<p>Tada! Now we have a clean dataset from the original not-very-usable PDFs.</p>
-<p>Another goal is to at some point do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analysis with it. For the purposes of this blogpost, here are some quick ggplots comparing the rank of commodities between families served by SNAP and those who are not.</p>
-<pre class="r"><code>snap_appendix1_cleaned %&gt;% # quick correlation plot
- ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
- geom_point()</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<pre class="r"><code>snap_lm &lt;- lm(snap_rank ~ nonsnap_rank, data = snap_appendix1_cleaned)
-snap_res &lt;- augment(snap_lm)
+# read all gpx files
+gpx_dat &lt;-
+  map2(files,
+       names,
+       ~ readGPX(.x,
+         metadata = TRUE,
+         bounds = TRUE,
+         waypoints = TRUE,
+         tracks = TRUE,
+         routes = TRUE) %&gt;%
+         list_modify(trail = .y)) # otherwise you can&#39;t tell which entry is for which trail</code></pre>
+</div>
+<div id="calculate-distance" class="section level2">
+<h2>Calculate Distance</h2>
+<p>Now we have a list of trails and longitudes and latitudes along their paths.</p>
+<ul>
+<li>We can use <code>map_df()</code> to transform the information into a dataframe.</li>
+<li>To use calculate distance, we can use <code>distHaversine()</code> with two sets of lon/lat. We can create the second set of lon/lat by creating a new variable that takes the “next” value in a vector (so we’re calculating the distance between point A and point B, point B to point C, and so on).</li>
+<li>Finally, cumsum accumulates the distances between each set of lon/lat.</li>
+</ul>
+<pre class="r"><code>dat_lonlat &lt;-
+  gpx_dat %&gt;%
+  map_df(., ~.x$&quot;routes&quot;[[1]], .id = &quot;trail&quot;) %&gt;%
+  select(trail, lon, lat) %&gt;% 
+  group_by(trail) %&gt;% 
+  mutate(lon2 = lead(lon, 1),
+         lat2 = lead(lat, 1))
 
-snap_res %&gt;% # quick residual plot
-  ggplot(aes(x = .fitted, y = .resid)) +
-  geom_point()</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
-<p>I’d love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is <a href="https://github.com/ivelasq/snap">here</a>. More to come!</p>
+dat_dist &lt;-
+  dat_lonlat %&gt;% 
+  ungroup() %&gt;% 
+  mutate(dist = distHaversine(dat_lonlat[, 2:3], dat_lonlat[, 4:5])) %&gt;% 
+  group_by(trail) %&gt;% 
+  mutate(cumdist = cumsum(dist/1609.344)) # to convert to miles
+
+dat_dist_agg &lt;-
+  dat_dist %&gt;% 
+  group_by(trail) %&gt;% 
+  summarize(sum = sum(dist, na.rm = T))
+
+# plot</code></pre>
+</div>
+</div>
 
   </div>
 
@@ -663,13 +683,19 @@ snap_res %&gt;% # quick residual plot
                 <li><a class="article-category-link" href="/tags/dplyr">dplyr</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/tabulizer">tabulizer</a></li>
+                <li><a class="article-category-link" href="/tags/tidyr">tidyr</a></li>
                 
                 
                 <li><a class="article-category-link" href="/tags/purrr">purrr</a></li>
                 
                 
-                <li><a class="article-category-link" href="/tags/broom">broom</a></li>
+                <li><a class="article-category-link" href="/tags/plotkml">plotKML</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/geosphere">geosphere</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/googleway">googleway</a></li>
                 
             
         
@@ -684,8 +710,8 @@ snap_res %&gt;% # quick residual plot
 
 <ul class="actions pagination">
     
-        <li><a href="/blog/why-disaggregate-data/"
-                class="button big previous">Why Equity Requires Looking Beyond Averages</a></li>
+        <li><a href="/blog/snap-expenditures/"
+                class="button big previous">Transforming PDF&#39;s into Useful Tables</a></li>
     
 
     
@@ -704,7 +730,7 @@ snap_res %&gt;% # quick residual plot
 
 
 <li>
-  <a href="//twitter.com/share?url=%2fblog%2fsnap-expenditures%2f&amp;text=Transforming%20PDF%27s%20into%20Useful%20Tables&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
+  <a href="//twitter.com/share?url=%2fblog%2faverage-hike%2f&amp;text=Ain%27t%20No%20Mountain%20High%20Enough&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
     </a>
@@ -718,7 +744,7 @@ snap_res %&gt;% # quick residual plot
 
 
 <li>
-  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fsnap-expenditures%2f" target="_blank" class="share-btn facebook">
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2faverage-hike%2f" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
     </a>
@@ -731,7 +757,7 @@ snap_res %&gt;% # quick residual plot
 
 
 <li>
-  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fsnap-expenditures%2f&amp;title=Transforming%20PDF%27s%20into%20Useful%20Tables" target="_blank" class="share-btn linkedin">
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2faverage-hike%2f&amp;title=Ain%27t%20No%20Mountain%20High%20Enough" target="_blank" class="share-btn linkedin">
       <i class="fa fa-linkedin"></i>
       <p>LinkedIn</p>
     </a>
@@ -747,7 +773,7 @@ snap_res %&gt;% # quick residual plot
 
 
 <li>
-  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2fsnap-expenditures%2f" target="_blank" class="share-btn email">
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2faverage-hike%2f" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
   </a>
@@ -892,6 +918,47 @@ snap_res %&gt;% # quick residual plot
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/blog/average-hike/">Ain&#39;t No Mountain High Enough</a>
+              </h3>
+              
+              <time class="published" datetime='2019-04-06'>
+                April 6, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/average-hike/" class="image featured">
+            <img src="/img/2019/04/hiking.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/blog/snap-expenditures/">Transforming PDF&#39;s into Useful Tables</a>
               </h3>
               
@@ -1005,7 +1072,7 @@ snap_res %&gt;% # quick residual plot
         
 
         <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2018/08/chicago.png" alt="">
+            <img src="/img/2018/082018/08/chicago.png" alt="">
         </a>
     
 
@@ -1039,7 +1106,7 @@ snap_res %&gt;% # quick residual plot
             <header>
               
                 <a href="/categories/r/">R</a>
-                <span style="float:right;">3</span>
+                <span style="float:right;">4</span>
               
             </header>
           </article>
@@ -1169,7 +1236,7 @@ snap_res %&gt;% # quick residual plot
     
     <p class="copyright">
       
-        &copy; 2018
+        &copy; 2019
         
           Isabella Velásquez
         

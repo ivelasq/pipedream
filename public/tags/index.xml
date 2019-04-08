@@ -22,9 +22,27 @@
     <item>
       <title>dplyr</title>
       <link>/tags/dplyr/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/dplyr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geosphere</title>
+      <link>/tags/geosphere/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geosphere/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>googleway</title>
+      <link>/tags/googleway/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/googleway/</guid>
       <description></description>
     </item>
     
@@ -38,9 +56,18 @@
     </item>
     
     <item>
+      <title>plotKML</title>
+      <link>/tags/plotkml/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/plotkml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>purrr</title>
       <link>/tags/purrr/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/purrr/</guid>
       <description></description>
@@ -52,6 +79,15 @@
       <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/tabulizer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyr</title>
+      <link>/tags/tidyr/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyr/</guid>
       <description></description>
     </item>
     
