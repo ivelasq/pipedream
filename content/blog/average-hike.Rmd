@@ -3,12 +3,12 @@ author: ""
 categories: ["R"]
 tags: ["dplyr", "tidyr", "purrr", "plotKML", "geosphere", "googleway"]
 date: "2019-04-06"
-description: "Calculating My Average Hike Using googleway and geosphere"
+description: "Ain't No Mountain High Enough"
 featured: "hiking.png"
-featuredalt: "Ain't No Mountain High Enough"
+featuredalt: "Calculating My Average Hike Using googleway and geosphere"
 featuredpath: "date"
 linktitle: ""
-title: "Ain't No Mountain High Enough"
+title: "Calculating My Average Hike Using googleway and geosphere"
 type: "post"
 ---
 
