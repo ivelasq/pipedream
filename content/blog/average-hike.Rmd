@@ -31,17 +31,17 @@ For data collection, I downloaded each trail's GPX files from AllTrails. Because
 
 Being fortunate enough to live near multiple mountain ranges, the hikes I've been on come in all shapes and sizes.
 
-![](here::here("static", "img", "average-hike_files", "joyplot.png")) 
+![](/static/img/average-hike_files/joyplot.png)
 
 I calculated my 'average hike' - that is, the average elevation given the cumulative distance travelled.
-
-![](here::here("static", "img", "average-hike_files", "avg_hike.png")) 
+  
+![](/static/img/average-hike_files/avg_hike.png)
 
 ## Aggregated Data by Trail
-
-In the aggregate, there seems to be a correlation (r^2 = 0.48) between total distance and total elevation.
-
-![](here::here("static", "img", "average-hike_files", "tot_dis_elev.png")) 
+  
+In the aggregate, there seems to be  a correlation (r^2 = 0.48) between total distance and total elevation.  
+  
+![](/static/img/average-hike_files/tot_dis_elev.png) 
 
 ## There Exist Categories of Hikes
 
@@ -52,19 +52,19 @@ I ran a quick [cluster analysis](https://uc-r.github.io/kmeans_clustering) to se
 * Cluster 3: "The Sweet Spot" (not too long, not too high)
 * Cluster 4: "I Don't Care About My Knees Anyway" (too long for my own good)
 
-![](here::here("static", "img", "average-hike_files", "cluster_analysis.png"))
+![](/static/img/average-hike_files/cluster_analysis.png)
 
 ## I don't particularly love long hikes
 
 My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments...). In these 90 hikes, I hiked around 576 miles.
 
-![](here::here("static",  "img", "average-hike_files", "dist_histogram.png")) ![](here::here("static", "img", "average-hike_files", "cum_dist.png"))
+![](/static/img/average-hike_files/dist_histogram.png) ![](/static/img/average-hike_files/cum_dist.png)
 
 ## I don't dislike high elevation hikes though
 
 Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (~24 miles!).
 
-![](here::here("static", "img", "average-hike_files", "elev_histogram.png")) ![](here::here("img", "average-hike_files", "cum_elev.png"))
+![](/static/img/average-hike_files/elev_histogram.png) ![](/static/img/average-hike_files/cum_elev.png)
 
 # Methodology {#methodology}
 
