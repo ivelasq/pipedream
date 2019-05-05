@@ -16,7 +16,7 @@ I moved to Seattle at the end of 2016 and since then have done over 100 hikes (d
 
 Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.
 
-I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualization](#viz) section below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
+I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualization](#viz) sections below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
 
 # Analysis
 
@@ -31,40 +31,40 @@ For data collection, I downloaded each trail's GPX files from AllTrails. Because
 
 Being fortunate enough to live near multiple mountain ranges, the hikes I've been on come in all shapes and sizes.
 
-![](here::here("content", "blog", "average-hike_files", "joyplot.png")) 
+![](here::here("static", "blog", "average-hike_files", "joyplot.png")) 
 
 I calculated my 'average hike' - that is, the average elevation given the cumulative distance travelled.
 
-![](here::here("content", "blog", "average-hike_files", "avg_hike.png")) 
+![](here::here("static", "blog", "average-hike_files", "avg_hike.png")) 
 
 ## Aggregated Data by Trail
 
 In the aggregate, there seems to be a correlation (r^2 = 0.48) between total distance and total elevation.
 
-![](here::here("content", "blog", "average-hike_files", "tot_dis_elev.png")) 
+![](here::here("static", "blog", "average-hike_files", "tot_dis_elev.png")) 
 
 ## There Exist Categories of Hikes
 
-I ran a quick [cluster analysis](https://uc-r.github.io/kmeans_clustering) to see if I categorize my hikes in any way. Code is in the [Methodology](#methodology) section. Four clusters seemed to be optimal. I have dubbed them:
+I ran a quick [cluster analysis](https://uc-r.github.io/kmeans_clustering) to see if I can categorize my hikes in any way. Code is in the [Methodology](#methodology) section. Four clusters seemed to be optimal. I have dubbed them:
 
 * Cluster 1: "Let's Get This Over With" (steep & hard)
 * Cluster 2: "Easy Peasy Lemon Squeezy" (short & flat)
-* Cluster 3: "The Sweet Spot" (not too long, not too steep)
+* Cluster 3: "The Sweet Spot" (not too long, not too high)
 * Cluster 4: "I Don't Care About My Knees Anyway" (too long for my own good)
 
-![](here::here("content", "blog", "average-hike_files", "cluster_analysis.png"))
+![](here::here("static", "blog", "average-hike_files", "cluster_analysis.png"))
 
 ## I don't particularly love long hikes
 
 My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments...). In these 90 hikes, I hiked around 576 miles.
 
-![](here::here("content",  "blog", "average-hike_files", "dist_histogram.png")) ![](here::here("content", "blog", "average-hike_files", "cum_dist.png"))
+![](here::here("static",  "blog", "average-hike_files", "dist_histogram.png")) ![](here::here("static", "blog", "average-hike_files", "cum_dist.png"))
 
 ## I don't dislike high elevation hikes though
 
 Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (~24 miles!).
 
-![](here::here("content", "blog", "average-hike_files", "elev_histogram.png")) ![](here::here("blog", "average-hike_files", "cum_elev.png"))
+![](here::here("static", "blog", "average-hike_files", "elev_histogram.png")) ![](here::here("blog", "average-hike_files", "cum_elev.png"))
 
 # Methodology {#methodology}
 
