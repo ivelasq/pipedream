@@ -5,10 +5,10 @@ tags: ["dplyr", "tidyr", "purrr", "plotKML", "geosphere", "googleway", "cluster"
 date: "2019-04-06"
 description: "Ain't No Mountain High Enough"
 featured: "hiking.png"
-featuredalt: "A Peek into My Hiking Data"
+featuredalt: "Taking A Peek into My Hiking Data"
 featuredpath: "date"
 linktitle: ""
-title: "A Peek into My Hiking Data"
+title: "Taking A Peek into My Hiking Data"
 type: "post"
 ---
 
@@ -16,7 +16,7 @@ I moved to Seattle at the end of 2016 and since then have done over 100 hikes (d
 
 Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.
 
-I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualization](#viz) sections below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
+I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualizations](#viz) sections below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
 
 # Analysis
 
@@ -72,7 +72,7 @@ Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.
 
 It took a bit to decide which packages had the functions needed to run the spatial analyses. In the end, I decided on:
 
-* **plotKML**: A package containing functions to read GPX files
+* **plotKML**: A package containing functions to read GPX files.
 * **geosphere**: A package containing functions for geospatial calculations. I decided to use this for finding out distances between lon/lat.
 * **googleway**: A package allowing access to the Google Maps API. To run this, you need to obtain a Google Maps API key and load it to R by using `set_key()`. I use this for elevation calculations but the API can also obtain distance between points.
 
@@ -86,7 +86,7 @@ googleway::set_key(API_KEY_HERE)
 ```
 
 
-## Data Upload
+## Upload Data
 
 I downloaded each GPX file from AllTrails and saved them in a file in my project organization. Their file names were TRAILNAME.gpx.
 
@@ -207,7 +207,9 @@ hiking_dat_by_trail <- # total gain/distance by trail
          tot_elev_scaled = scale(tot_elev_gain))
 ```
 
-# Visualization {#viz}
+# Visualizations {#viz}
+
+Below is the code for the visualizations presented above.
 
 ```{r, echo = T, eval = F}
 library(tidyverse)
@@ -265,8 +267,8 @@ ggplot() +
 
 # cluster analysis
 
-fviz_nbclust(hiking_dat_by_trail[, 4:5], kmeans, method = "wss")
-k4 <- kmeans(hiking_dat_by_trail[, 4:5], centers = 4, nstart = 25)
+fviz_nbclust(hiking_dat_by_trail[, 4:5], kmeans, method = "wss") # finding optimal number of clusters
+k4 <- kmeans(hiking_dat_by_trail[, 4:5], centers = 4, nstart = 25) # calculating clusters
 
 fviz_cluster(k4, data = hiking_dat_by_trail)  +
   scale_x_continuous(name = "Scaled Total Distance (miles)") +
@@ -283,8 +285,8 @@ hiking_dat_by_trail %>%
              y = cumdist,
              fill = cumdist)) +
   geom_bar(stat = "identity") +
-  theme_minimal() +
   scale_fill_viridis(option = "cividis") +
+  theme_minimal() +
   theme(legend.position = "none")
 
 # distance histogram
@@ -294,8 +296,8 @@ hiking_dat_by_trail %>%
   geom_histogram(fill = "#00204c") +
   xlab("Trail Total Distance (miles)") +
   ylab("Count") +
-  theme_minimal() +
   scale_fill_viridis(option = "cividis") +
+  theme_minimal() +
   theme(legend.position = "none")
 
 # cumulative elevation barplot
@@ -306,8 +308,8 @@ hiking_dat_by_trail %>%
              y = cumelev,
              fill = cumelev)) +
   geom_bar(stat = "identity") +
-  theme_minimal() +
   scale_fill_viridis(option = "cividis") +
+  theme_minimal() +
   theme(legend.position = "none")
 
 # elevation histogram
@@ -317,8 +319,8 @@ hiking_dat_by_trail %>%
   geom_histogram(fill = "#00204c") +
   xlab("Trail Total Elevation (ft)") +
   ylab("Count") +
-  theme_minimal() +
   scale_fill_viridis(option = "cividis") +
+  theme_minimal() +
   theme(legend.position = "none")
 ```
 
