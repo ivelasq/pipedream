@@ -5,39 +5,64 @@ tags: ["dplyr", "tidyr", "purrr", "plotKML", "geosphere", "googleway"]
 date: "2019-04-06"
 description: "Ain't No Mountain High Enough"
 featured: "hiking.png"
-featuredalt: "Calculating My Average Hike Using googleway and geosphere"
+featuredalt: "A Peek into My Hiking Data"
 featuredpath: "date"
 linktitle: ""
-title: "Calculating My Average Hike Using googleway and geosphere"
+title: "A Peek into My Hiking Data"
 type: "post"
 ---
 
 
 
-<p>I moved to Seattle at the end of 2016 and since then have done around 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
-<p>Recently, I signed up on <a href="https://www.alltrails.com/">AllTrails</a> to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to calculate my ‘average hike.’</p>
-<p>Generally speaking, people consider two main metrics in choosing a hike: distance and elevation. So what would my ‘average hike’ look like? Would my average hike mean average distance, average elevation, or both? Why not all three?!</p>
-<p>I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the <a href="#methodology">Methodology</a> section below!</p>
-<div id="i-dont-particularly-love-long-hikes" class="section level1">
-<h1>I don’t particularly love long hikes</h1>
-<p>My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time.</p>
-</div>
-<div id="i-dont-dislike-high-elevation-hikes-though" class="section level1">
-<h1>I don’t dislike high elevation hikes though</h1>
-</div>
-<div id="section" class="section level1">
-<h1></h1>
-</div>
-<div id="methodology" class="section level1">
-<h1>Methodology</h1>
+<p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
+<p>Recently, I signed up on <a href="https://www.alltrails.com/">AllTrails</a> to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.</p>
+<p>I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the <a href="#methodology">Methodology</a> or <a href="#viz">Visualization</a> section below! (Interesting, I ran <a href="https://twitter.com/ivelasq3/status/1121536896956428289">a poll on Twitter</a> in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).</p>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
 <div id="disclaimer" class="section level2">
 <h2>Disclaimer</h2>
-<p>For data collection, I downloaded each trail’s GPX files from AllTrails. Because these data are proprietary, I will not be showing them here. Some things to note:</p>
+<p>For data collection, I downloaded each trail’s GPX files from AllTrails. Because these data are proprietary, I will not be providing them. Some things to note:</p>
 <ul>
-<li>Because these are data pulled from the AllTrails website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).</li>
+<li>Because these are data pulled from the website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).</li>
 <li>There are hikes that I did back-to-back that I’d consider one hike but the trails might be listed separately on the site. For example, Deception Pass is actually made up of three small loops.</li>
 </ul>
 </div>
+<div id="the-hikes-are-wide-and-varied" class="section level2">
+<h2>The hikes are wide and varied</h2>
+<p>Being fortunate enough to live near multiple mountain ranges, the hikes I’ve been on come in all shapes and sizes.</p>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22joyplot.png%22)" /></p>
+<p>I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance travelled.</p>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22avg_hike.png%22)" /></p>
+</div>
+<div id="aggregated-data-by-trail" class="section level2">
+<h2>Aggregated Data by Trail</h2>
+<p>In the aggregate, there seems to be a correlation (r^2 = 0.48) between total distance and total elevation.</p>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22tot_dis_elev.png%22)" /></p>
+</div>
+<div id="there-exist-categories-of-hikes" class="section level2">
+<h2>There Exist Categories of Hikes</h2>
+<p>I ran a quick <a href="https://uc-r.github.io/kmeans_clustering">cluster analysis</a> to see if I categorize my hikes in any way. Code is in the <a href="#methodology">Methodology</a> section. Four clusters seemed to be optimal. I have dubbed them:</p>
+<ul>
+<li>Cluster 1: “Let’s Get This Over With” (steep &amp; hard)</li>
+<li>Cluster 2: “Easy Peasy Lemon Squeezy” (short &amp; flat)</li>
+<li>Cluster 3: “The Sweet Spot” (not too long, not too steep)</li>
+<li>Cluster 4: “I Don’t Care About My Knees Anyway” (too long for my own good)</li>
+</ul>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22cluster_analysis.png%22)" /></p>
+</div>
+<div id="i-dont-particularly-love-long-hikes" class="section level2">
+<h2>I don’t particularly love long hikes</h2>
+<p>My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments…). In these 90 hikes, I hiked around 576 miles.</p>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22dist_histogram.png%22)" /> <embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22cum_dist.png%22)" /></p>
+</div>
+<div id="i-dont-dislike-high-elevation-hikes-though" class="section level2">
+<h2>I don’t dislike high elevation hikes though</h2>
+<p>Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (~24 miles!).</p>
+<p><embed src="here::here(%22content%22,%20%22blog%22,%20%22average-hike_files%22,%20%22elev_histogram.png%22)" /> <embed src="here::here(%22blog%22,%20%22average-hike_files%22,%20%22cum_elev.png%22)" /></p>
+</div>
+</div>
+<div id="methodology" class="section level1">
+<h1>Methodology</h1>
 <div id="choose-packages" class="section level2">
 <h2>Choose Packages</h2>
 <p>It took a bit to decide which packages had the functions needed to run the spatial analyses. In the end, I decided on:</p>
@@ -84,34 +109,196 @@ gpx_dat &lt;-
          routes = TRUE) %&gt;%
          list_modify(trail = .y)) # otherwise you can&#39;t tell which entry is for which trail</code></pre>
 </div>
-<div id="calculate-distance" class="section level2">
-<h2>Calculate Distance</h2>
-<p>Now we have a list of trails and longitudes and latitudes along their paths.</p>
-<ul>
-<li>We can use <code>map_df()</code> to transform the information into a dataframe.</li>
-<li>To use calculate distance, we can use <code>distHaversine()</code> with two sets of lon/lat. We can create the second set of lon/lat by creating a new variable that takes the “next” value in a vector (so we’re calculating the distance between point A and point B, point B to point C, and so on).</li>
-<li>Finally, cumsum accumulates the distances between each set of lon/lat.</li>
-</ul>
-<pre class="r"><code>dat_lonlat &lt;-
+<div id="calculate-elevation" class="section level2">
+<h2>Calculate Elevation</h2>
+<p>We can use <code>googleway::google_elevation()</code> to access the Google Elevation API and calculate elevation for every lon/lat pair from the GPX files. Unfortunately, the API accepts and returns only a few requests at a time (~200 rows for these files). We have over 51,000 rows of data. So, we can create groups for every 200 rows and use a loop to make a call for each</p>
+<p>This results in a list, so we can then create a tibble pulling out the data we want.</p>
+<pre class="r"><code>lonlat_dat &lt;-
   gpx_dat %&gt;%
   map_df(., ~.x$&quot;routes&quot;[[1]], .id = &quot;trail&quot;) %&gt;%
   select(trail, lon, lat) %&gt;% 
   group_by(trail) %&gt;% 
-  mutate(lon2 = lead(lon, 1),
-         lat2 = lead(lat, 1))
-
-dat_dist &lt;-
-  dat_lonlat %&gt;% 
   ungroup() %&gt;% 
-  mutate(dist = distHaversine(dat_lonlat[, 2:3], dat_lonlat[, 4:5])) %&gt;% 
-  group_by(trail) %&gt;% 
-  mutate(cumdist = cumsum(dist/1609.344)) # to convert to miles
+  mutate(group_number = (1:nrow(.) %/% 200) + 1) # https://stackoverflow.com/questions/32078578/how-to-group-by-every-7-rows-and-aggregate-those-7-values-by-median
 
-dat_dist_agg &lt;-
-  dat_dist %&gt;% 
-  group_by(trail) %&gt;% 
-  summarize(sum = sum(dist, na.rm = T))
+dat_lapply &lt;- lapply(1:max(lonlat_dat$group_number), function(x) {
+  Sys.sleep(3)
+  
+  lonlat_dat %&gt;%
+    filter(group_number == x) %&gt;% # added a filter so you only pull a subset of the data.
+    do(elev_dat =
+         data.frame(
+           google_elevation(
+             df_locations = dplyr::select(., lon, lat),
+             location_type = &quot;individual&quot;,
+             simplify = TRUE)))
+  })
 
-# plot</code></pre>
+dat_lapply_elev_dat &lt;-
+  dat_lapply %&gt;%
+  map(., ~ .x$&quot;elev_dat&quot;[[1]])
+
+elev_df &lt;-
+  dat_lapply_elev_dat %&gt;% {
+    tibble(
+      elevation = map(., ~ .x$&quot;results.elevation&quot;),
+      lon = map(., ~ .x$&quot;results.location&quot;[[&quot;lng&quot;]]),
+      lat = map(.,  ~ .x$&quot;results.location&quot;[[&quot;lat&quot;]])
+    )
+  } %&gt;% 
+  unnest(.id = &quot;group_number&quot;) %&gt;% 
+  select(group_number, elevation, lon, lat)</code></pre>
 </div>
+<div id="calculate-distance" class="section level2">
+<h2>Calculate Distance</h2>
+<p>Now we have a list of trails, longitudes and latitudes along their paths, and the elevation for each of those points. Now we want to calculate the distance along the paths.</p>
+<ul>
+<li>We bring back <code>lonlat_dat</code> so we know what trails with which each points are associated.</li>
+<li>To use calculate distance, we can use <code>distHaversine()</code> with two sets of lon/lat. We create the second set of lon/lat by creating a new variable that takes the “next” value in a vector (so we’re calculating the distance between point A and point B, point B to point C, and so on).</li>
+<li><code>cumsum()</code> accumulates the distances between each set of lon/lat.</li>
+<li>Finally, we calculate the elevation gain for each hike.</li>
+</ul>
+<pre class="r"><code>hiking_dat &lt;-
+  plyr::join(elev_df, lonlat_dat, type = &quot;left&quot;, match = &quot;first&quot;) %&gt;% 
+  group_by(trail) %&gt;% 
+  mutate(elev_feet = elevation * 3.281, # to convert to feet
+         lon2 = lead(lon, 1),
+         lat2 = lead(lat, 1)) %&gt;%
+  ungroup() %&gt;% 
+  mutate(dist = distHaversine(hiking_dat[, 2:3], hiking_dat[, 7:8])/1609.344) %&gt;% # to convert to miles
+  group_by(trail) %&gt;% 
+  mutate(cumdist = cumsum(dist),
+         elev_gain = elev_feet - first(elev_feet)) %&gt;%
+  ungroup()</code></pre>
+</div>
+<div id="create-additional-tables" class="section level2">
+<h2>Create Additional Tables</h2>
+<p>For nerdy kicks, I also wanted to find out my ‘average’ hike - that is, the average distance, the average elevation, and the average elevation for each distance. I also wanted to see the total distance and elevation for each trail for which I pulled data.</p>
+<pre class="r"><code>avg_elev &lt;- # average elevation by distance
+  hiking_dat %&gt;% 
+  group_by(round(cumdist, 1)) %&gt;% 
+  summarize(mean(elev_gain))
+
+hiking_dat_by_trail &lt;- # total gain/distance by trail
+  hiking_dat %&gt;% 
+  select(trail, cumdist, elev_gain) %&gt;% 
+  group_by(trail) %&gt;%
+  summarize(tot_dist = max(cumdist, na.rm = T),
+            tot_elev_gain = max(elev_gain)) %&gt;% 
+  mutate(tot_dist_scaled = scale(tot_dist), # for cluster analysis
+         tot_elev_scaled = scale(tot_elev_gain))</code></pre>
+</div>
+</div>
+<div id="viz" class="section level1">
+<h1>Visualization</h1>
+<pre class="r"><code>library(tidyverse)
+library(viridis)
+library(ggridges)
+library(cluster)
+library(factoextra)
+
+# joy plot
+
+ggplot() + 
+  geom_density_ridges(data = na.omit(hiking_dat),
+                      aes(x = cumdist,
+                          y = trail,
+                          group = trail),
+                      fill = &quot;#00204c&quot;,
+                      rel_min_height = 0.01
+                      ) +
+  theme_minimal() +
+  theme(legend.position = &quot;none&quot;)
+
+# average hike
+
+ggplot() + 
+  geom_ridgeline(data = hiking_dat,
+                 aes(x = cumdist,
+                     y = trail,
+                     group = trail,
+                     height = elev_gain),
+                 color = &quot;#c9b869&quot;,
+                 alpha = 0) +
+  geom_line(data = avg_elev,
+            aes(x = `round(cumdist, 1)`,
+                y = `mean(elev_gain)`),
+            color = &quot;#00204c&quot;,
+            size = 2) +
+  scale_x_continuous(name = &quot;Cumulative Distance (miles)&quot;) +
+  scale_y_continuous(name = &quot;Cumulative Elevation (ft)&quot;, limits = c(0, 5000)) +
+  theme_minimal() +
+  theme(legend.position = &quot;none&quot;)
+
+# aggregate data scatterplot
+
+ggplot() + 
+  geom_point(data = hiking_dat_by_trail,
+             aes(x = tot_dist,
+                 y = tot_elev_gain,
+                 color = tot_elev_gain,
+                 size = tot_dist)) +
+  scale_x_continuous(name = &quot;Total Distance (miles)&quot;) +
+  scale_y_continuous(name = &quot;Total Elevation (ft)&quot;) +
+  scale_color_viridis(option = &quot;cividis&quot;) +
+  theme_minimal() +
+  theme(legend.position = &quot;none&quot;)
+
+# cluster analysis
+
+fviz_nbclust(hiking_dat_by_trail[, 4:5], kmeans, method = &quot;wss&quot;)
+k4 &lt;- kmeans(hiking_dat_by_trail[, 4:5], centers = 4, nstart = 25)
+
+fviz_cluster(k4, data = hiking_dat_by_trail)  +
+  scale_x_continuous(name = &quot;Scaled Total Distance (miles)&quot;) +
+  scale_y_continuous(name = &quot;Scaled Total Elevation (ft)&quot;) +
+  scale_color_viridis(option = &quot;cividis&quot;, discrete = T) +
+  scale_fill_viridis(option = &quot;cividis&quot;, discrete = T) +
+  theme_minimal()
+
+#  cumulative distance barplot
+
+hiking_dat_by_trail %&gt;% 
+  mutate(cumdist = cumsum(tot_dist)) %&gt;% 
+  ggplot(aes(x = trail,
+             y = cumdist,
+             fill = cumdist)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  theme_minimal() +
+  scale_fill_viridis(option = &quot;cividis&quot;) +
+  theme(legend.position = &quot;none&quot;)
+
+# distance histogram
+
+hiking_dat_by_trail %&gt;% 
+  ggplot(aes(x = tot_dist)) +
+  geom_histogram(fill = &quot;#00204c&quot;) +
+  xlab(&quot;Trail Total Distance (miles)&quot;) +
+  ylab(&quot;Count&quot;) +
+  theme_minimal() +
+  scale_fill_viridis(option = &quot;cividis&quot;) +
+  theme(legend.position = &quot;none&quot;)
+
+# cumulative elevation barplot
+
+hiking_dat_by_trail %&gt;% 
+  mutate(cumelev = cumsum(tot_elev_gain)) %&gt;% 
+  ggplot(aes(x = trail,
+             y = cumelev,
+             fill = cumelev)) +
+  geom_bar(stat = &quot;identity&quot;) +
+  theme_minimal() +
+  scale_fill_viridis(option = &quot;cividis&quot;) +
+  theme(legend.position = &quot;none&quot;)
+
+# elevation histogram
+
+hiking_dat_by_trail %&gt;% 
+  ggplot(aes(x = tot_elev_gain)) +
+  geom_histogram(fill = &quot;#00204c&quot;) +
+  xlab(&quot;Trail Total Elevation (ft)&quot;) +
+  ylab(&quot;Count&quot;) +
+  theme_minimal() +
+  scale_fill_viridis(option = &quot;cividis&quot;) +
+  theme(legend.position = &quot;none&quot;)</code></pre>
 </div>

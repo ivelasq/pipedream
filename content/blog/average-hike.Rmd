@@ -5,40 +5,68 @@ tags: ["dplyr", "tidyr", "purrr", "plotKML", "geosphere", "googleway"]
 date: "2019-04-06"
 description: "Ain't No Mountain High Enough"
 featured: "hiking.png"
-featuredalt: "Calculating My Average Hike Using googleway and geosphere"
+featuredalt: "A Peek into My Hiking Data"
 featuredpath: "date"
 linktitle: ""
-title: "Calculating My Average Hike Using googleway and geosphere"
+title: "A Peek into My Hiking Data"
 type: "post"
 ---
 
-I moved to Seattle at the end of 2016 and since then have done around 100 hikes (depending on your definition of 'a  hike'!). I must admit I've been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
+I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of 'a  hike'!). I must admit I've been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
 
-Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to calculate my 'average hike.'
+Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.
 
-Generally speaking, people consider two main metrics in choosing a hike: distance and elevation. So what would my 'average hike' look like? Would my average hike mean average distance, average elevation, or both? Why not all three?! 
+I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualization](#viz) section below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
 
-I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) section below!
-
-# I don't particularly love long hikes
-
-My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time.
-
-
-# I don't dislike high elevation hikes though
-
-
-# 
-
-
-# Methodology {#methodology}
+# Analysis
 
 ## Disclaimer 
 
-For data collection, I downloaded each trail's GPX files from AllTrails. Because these data are proprietary, I will not be showing them here. Some things to note:
+For data collection, I downloaded each trail's GPX files from AllTrails. Because these data are proprietary, I will not be providing them. Some things to note:
 
-* Because these are data pulled from the AllTrails website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).
+* Because these are data pulled from the website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).
 * There are hikes that I did back-to-back that I'd consider one hike but the trails might be listed separately on the site. For example, Deception Pass is actually made up of three small loops.
+
+## The hikes are wide and varied
+
+Being fortunate enough to live near multiple mountain ranges, the hikes I've been on come in all shapes and sizes.
+
+![](here::here("content", "blog", "average-hike_files", "joyplot.png")) 
+
+I calculated my 'average hike' - that is, the average elevation given the cumulative distance travelled.
+
+![](here::here("content", "blog", "average-hike_files", "avg_hike.png")) 
+
+## Aggregated Data by Trail
+
+In the aggregate, there seems to be a correlation (r^2 = 0.48) between total distance and total elevation.
+
+![](here::here("content", "blog", "average-hike_files", "tot_dis_elev.png")) 
+
+## There Exist Categories of Hikes
+
+I ran a quick [cluster analysis](https://uc-r.github.io/kmeans_clustering) to see if I categorize my hikes in any way. Code is in the [Methodology](#methodology) section. Four clusters seemed to be optimal. I have dubbed them:
+
+* Cluster 1: "Let's Get This Over With" (steep & hard)
+* Cluster 2: "Easy Peasy Lemon Squeezy" (short & flat)
+* Cluster 3: "The Sweet Spot" (not too long, not too steep)
+* Cluster 4: "I Don't Care About My Knees Anyway" (too long for my own good)
+
+![](here::here("content", "blog", "average-hike_files", "cluster_analysis.png"))
+
+## I don't particularly love long hikes
+
+My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments...). In these 90 hikes, I hiked around 576 miles.
+
+![](here::here("content",  "blog", "average-hike_files", "dist_histogram.png")) ![](here::here("content", "blog", "average-hike_files", "cum_dist.png"))
+
+## I don't dislike high elevation hikes though
+
+Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (~24 miles!).
+
+![](here::here("content", "blog", "average-hike_files", "elev_histogram.png")) ![](here::here("blog", "average-hike_files", "cum_elev.png"))
+
+# Methodology {#methodology}
 
 ## Choose Packages
 
@@ -91,38 +119,206 @@ gpx_dat <-
          list_modify(trail = .y)) # otherwise you can't tell which entry is for which trail
 ```
 
+## Calculate Elevation
 
-## Calculate Distance
+We can use `googleway::google_elevation()` to access the Google Elevation API and calculate elevation for every lon/lat pair from the GPX files. Unfortunately, the API accepts and returns only a few requests at a time (~200 rows for these files). We have over 51,000 rows of data. So, we can create groups for every 200 rows and use a loop to make a call for each 
 
-Now we have a list of trails and longitudes and latitudes along their paths.
-
-* We can use `map_df()` to transform the information into a dataframe.
-* To use calculate distance, we can use `distHaversine()` with two sets of lon/lat. We can create the second set of lon/lat by creating a new variable that takes the "next" value in a vector (so we're calculating the distance between point A and point B, point B to point C, and so on).
-* Finally, cumsum accumulates the distances between each set of lon/lat.
+This results in a list, so we can then create a tibble pulling out the data we want.
 
 ```{r, echo = T, eval = F}
-dat_lonlat <-
+lonlat_dat <-
   gpx_dat %>%
   map_df(., ~.x$"routes"[[1]], .id = "trail") %>%
   select(trail, lon, lat) %>% 
   group_by(trail) %>% 
-  mutate(lon2 = lead(lon, 1),
-         lat2 = lead(lat, 1))
-
-dat_dist <-
-  dat_lonlat %>% 
   ungroup() %>% 
-  mutate(dist = distHaversine(dat_lonlat[, 2:3], dat_lonlat[, 4:5])) %>% 
-  group_by(trail) %>% 
-  mutate(cumdist = cumsum(dist/1609.344)) # to convert to miles
+  mutate(group_number = (1:nrow(.) %/% 200) + 1) # https://stackoverflow.com/questions/32078578/how-to-group-by-every-7-rows-and-aggregate-those-7-values-by-median
 
-dat_dist_agg <-
-  dat_dist %>% 
-  group_by(trail) %>% 
-  summarize(sum = sum(dist, na.rm = T))
+dat_lapply <- lapply(1:max(lonlat_dat$group_number), function(x) {
+  Sys.sleep(3)
+  
+  lonlat_dat %>%
+    filter(group_number == x) %>% # added a filter so you only pull a subset of the data.
+    do(elev_dat =
+         data.frame(
+           google_elevation(
+             df_locations = dplyr::select(., lon, lat),
+             location_type = "individual",
+             simplify = TRUE)))
+  })
 
-# plot
+dat_lapply_elev_dat <-
+  dat_lapply %>%
+  map(., ~ .x$"elev_dat"[[1]])
+
+elev_df <-
+  dat_lapply_elev_dat %>% {
+    tibble(
+      elevation = map(., ~ .x$"results.elevation"),
+      lon = map(., ~ .x$"results.location"[["lng"]]),
+      lat = map(.,  ~ .x$"results.location"[["lat"]])
+    )
+  } %>% 
+  unnest(.id = "group_number") %>% 
+  select(group_number, elevation, lon, lat)
 ```
 
+## Calculate Distance
 
+Now we have a list of trails, longitudes and latitudes along their paths, and the elevation for each of those points. Now we want to calculate the distance along the paths.
+
+* We bring back `lonlat_dat` so we know what trails with which each points are associated.
+* To use calculate distance, we can use `distHaversine()` with two sets of lon/lat. We create the second set of lon/lat by creating a new variable that takes the "next" value in a vector (so we're calculating the distance between point A and point B, point B to point C, and so on).
+* `cumsum()` accumulates the distances between each set of lon/lat.
+* Finally, we calculate the elevation gain for each hike.
+
+```{r, echo = T, eval = F}
+hiking_dat <-
+  plyr::join(elev_df, lonlat_dat, type = "left", match = "first") %>% 
+  group_by(trail) %>% 
+  mutate(elev_feet = elevation * 3.281, # to convert to feet
+         lon2 = lead(lon, 1),
+         lat2 = lead(lat, 1)) %>%
+  ungroup() %>% 
+  mutate(dist = distHaversine(hiking_dat[, 2:3], hiking_dat[, 7:8])/1609.344) %>% # to convert to miles
+  group_by(trail) %>% 
+  mutate(cumdist = cumsum(dist),
+         elev_gain = elev_feet - first(elev_feet)) %>%
+  ungroup()
+```
+
+## Create Additional Tables
+
+For nerdy kicks, I also wanted to find out my 'average' hike - that is, the average distance, the average elevation, and the average elevation for each distance. I also wanted to see the total distance and elevation for each trail for which I pulled data.
+
+```{r, echo = T, eval = F}
+avg_elev <- # average elevation by distance
+  hiking_dat %>% 
+  group_by(round(cumdist, 1)) %>% 
+  summarize(mean(elev_gain))
+
+hiking_dat_by_trail <- # total gain/distance by trail
+  hiking_dat %>% 
+  select(trail, cumdist, elev_gain) %>% 
+  group_by(trail) %>%
+  summarize(tot_dist = max(cumdist, na.rm = T),
+            tot_elev_gain = max(elev_gain)) %>% 
+  mutate(tot_dist_scaled = scale(tot_dist), # for cluster analysis
+         tot_elev_scaled = scale(tot_elev_gain))
+```
+
+# Visualization {#viz}
+
+```{r, echo = T, eval = F}
+library(tidyverse)
+library(viridis)
+library(ggridges)
+library(cluster)
+library(factoextra)
+
+# joy plot
+
+ggplot() + 
+  geom_density_ridges(data = na.omit(hiking_dat),
+                      aes(x = cumdist,
+                          y = trail,
+                          group = trail),
+                      fill = "#00204c",
+                      rel_min_height = 0.01
+                      ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# average hike
+
+ggplot() + 
+  geom_ridgeline(data = hiking_dat,
+                 aes(x = cumdist,
+                     y = trail,
+                     group = trail,
+                     height = elev_gain),
+                 color = "#c9b869",
+                 alpha = 0) +
+  geom_line(data = avg_elev,
+            aes(x = `round(cumdist, 1)`,
+                y = `mean(elev_gain)`),
+            color = "#00204c",
+            size = 2) +
+  scale_x_continuous(name = "Cumulative Distance (miles)") +
+  scale_y_continuous(name = "Cumulative Elevation (ft)", limits = c(0, 5000)) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# aggregate data scatterplot
+
+ggplot() + 
+  geom_point(data = hiking_dat_by_trail,
+             aes(x = tot_dist,
+                 y = tot_elev_gain,
+                 color = tot_elev_gain,
+                 size = tot_dist)) +
+  scale_x_continuous(name = "Total Distance (miles)") +
+  scale_y_continuous(name = "Total Elevation (ft)") +
+  scale_color_viridis(option = "cividis") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+# cluster analysis
+
+fviz_nbclust(hiking_dat_by_trail[, 4:5], kmeans, method = "wss")
+k4 <- kmeans(hiking_dat_by_trail[, 4:5], centers = 4, nstart = 25)
+
+fviz_cluster(k4, data = hiking_dat_by_trail)  +
+  scale_x_continuous(name = "Scaled Total Distance (miles)") +
+  scale_y_continuous(name = "Scaled Total Elevation (ft)") +
+  scale_color_viridis(option = "cividis", discrete = T) +
+  scale_fill_viridis(option = "cividis", discrete = T) +
+  theme_minimal()
+
+#  cumulative distance barplot
+
+hiking_dat_by_trail %>% 
+  mutate(cumdist = cumsum(tot_dist)) %>% 
+  ggplot(aes(x = trail,
+             y = cumdist,
+             fill = cumdist)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis(option = "cividis") +
+  theme(legend.position = "none")
+
+# distance histogram
+
+hiking_dat_by_trail %>% 
+  ggplot(aes(x = tot_dist)) +
+  geom_histogram(fill = "#00204c") +
+  xlab("Trail Total Distance (miles)") +
+  ylab("Count") +
+  theme_minimal() +
+  scale_fill_viridis(option = "cividis") +
+  theme(legend.position = "none")
+
+# cumulative elevation barplot
+
+hiking_dat_by_trail %>% 
+  mutate(cumelev = cumsum(tot_elev_gain)) %>% 
+  ggplot(aes(x = trail,
+             y = cumelev,
+             fill = cumelev)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  scale_fill_viridis(option = "cividis") +
+  theme(legend.position = "none")
+
+# elevation histogram
+
+hiking_dat_by_trail %>% 
+  ggplot(aes(x = tot_elev_gain)) +
+  geom_histogram(fill = "#00204c") +
+  xlab("Trail Total Elevation (ft)") +
+  ylab("Count") +
+  theme_minimal() +
+  scale_fill_viridis(option = "cividis") +
+  theme(legend.position = "none")
+```
 
