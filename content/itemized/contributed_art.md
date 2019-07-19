@@ -10,6 +10,6 @@ format = "general"
 +++
 
 <div>
-<img style="vertical-align:middle" src="/img/hex-logo-with-text copy.png" height="200"/>
+<img style="vertical-align:middle" src="/img/mutagen_hex.png" height="200"/>
 <span style="">mutagen : extensions to mutate</span>
 </div>
