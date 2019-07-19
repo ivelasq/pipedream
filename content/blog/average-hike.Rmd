@@ -90,7 +90,7 @@ googleway::set_key(API_KEY_HERE)
 
 I downloaded each GPX file from AllTrails and saved them in a file in my project organization. Their file names were TRAILNAME.gpx.
 
-* Using `plotKML::readGPX` results in the files being loaded as lists.
+* Using `plotKML::readGPX()` results in the files being loaded as lists.
 * I used `purrr` in conjunction with `plotKML()` to handily read them in and add the file name to the list. 
 
 ```{r, echo = T, eval = F}
