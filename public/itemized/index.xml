@@ -12,15 +12,6 @@
     
     
     <item>
-      <title>Contributed Art</title>
-      <link>/itemized/contributed_art/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/contributed_art/</guid>
-      <description> mutagen : extensions to mutate  </description>
-    </item>
-    
-    <item>
       <title>wizehiver</title>
       <link>/itemized/item1/</link>
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
@@ -30,6 +21,15 @@
 wizehiver is currently a work in progress.
 The Zengine API, created by WizeHive, is a cloud-based platform that can organize the collection, review, and management of data and applications for grants and other business processes. The goal of wizehiver is to build functionality to:
  Input and manage Zengine RESTful API tokens Get available API resources Process API response content into analysis-ready tibbles  The wizehiver package has no relationship or affiliation with, sponsorship, or endorsement by WizeHive.</description>
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>/itemized/visualizations/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/visualizations/</guid>
+      <description>Energy Generation by U.S. State Code</description>
     </item>
     
   </channel>
