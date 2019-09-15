@@ -1,0 +1,2036 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "\/"
+        },
+        "articleSection" : "blog",
+        "name" : "Finding the Modal School District",
+        "headline" : "Finding the Modal School District",
+        "description" : "Inspired by NPR Planet Money\x27s Modal American Analysis",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-09-11 00:00:00 \x2b0000 UTC",
+        "dateModified" : "2019-09-11 00:00:00 \x2b0000 UTC",
+        "url" : "\/blog\/modal-district\/",
+        "wordCount" : "1836",
+        "keywords" : [ "tidyverse","educationdata","janitor","ggalluvial","Blog" ]
+    }
+    </script>
+        
+            
+                <title>Finding the Modal School District</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.58.1" />
+        
+  
+    
+  
+
+  
+
+  <link rel="apple-touch-icon-precomposed" href='/favicon/apple-touch-icon-precomposed.png'>
+  <link rel="icon" href='/favicon/favicon.png'>
+  
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content='/favicon/mstile.png'>
+  <meta name="application-name" content="Isabella Velásquez">
+  <meta name="msapplication-tooltip" content="Isabella Velásquez Personal Site on R and Analytics">
+  <meta name="msapplication-config" content='/favicon/ieconfig.xml'>
+
+
+
+        
+        
+            <meta name="description" content="Inspired by NPR Planet Money&#39;s Modal American Analysis">
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Finding the Modal School District"/>
+<meta name="twitter:description" content="Inspired by NPR Planet Money&#39;s Modal American Analysis"/>
+<meta name="twitter:site" content="@ivelasq3"/>
+
+        <meta property="og:title" content="Finding the Modal School District" />
+<meta property="og:description" content="Inspired by NPR Planet Money&#39;s Modal American Analysis" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/modal-district/" />
+<meta property="article:published_time" content="2019-09-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-11T00:00:00+00:00" />
+
+        <meta property="og:image" content="//images/logo.png">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta itemprop="name" content="Finding the Modal School District">
+<meta itemprop="description" content="Inspired by NPR Planet Money&#39;s Modal American Analysis">
+
+
+<meta itemprop="datePublished" content="2019-09-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1836">
+
+
+
+<meta itemprop="keywords" content="tidyverse,educationdata,janitor,ggalluvial," />
+
+        
+
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+            <link rel="stylesheet" href="/css/main.css">
+            <link rel="stylesheet" href="/css/add-on.css">
+            <link rel="stylesheet" href="/css/academicons.min.css">
+        
+
+        
+            
+                
+            
+        
+
+
+  
+    
+    <link href='//cdn.bootcss.com/highlight.js/9.11.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+  
+
+
+      
+    </head>
+    <body>
+
+      
+      <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+      <h1><a href="/">blog</a></h1>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/">
+                            <i class="fa fa-home">&nbsp;</i>Home
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about/">
+                            <i class="fa fa-id-card-o">&nbsp;</i>About
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/blog/">
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/itemized/">
+                            <i class="fa fa-list">&nbsp;</i>Itemized
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories/">
+                            <i class="fa fa-sitemap">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/contact/">
+                            <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="as_sitesearch" value="/">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="as_sitesearch" value="/">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/">
+                            <h3>
+                                <i class="fa fa-home">&nbsp;</i>Home
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about/">
+                            <h3>
+                                <i class="fa fa-id-card-o">&nbsp;</i>About
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/blog/">
+                            <h3>
+                                <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/itemized/">
+                            <h3>
+                                <i class="fa fa-list">&nbsp;</i>Itemized
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories/">
+                            <h3>
+                                <i class="fa fa-sitemap">&nbsp;</i>Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/contact/">
+                            <h3>
+                                <i class="fa fa-envelope-o">&nbsp;</i>Contact
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section class="recent-posts">
+            <div class="mini-posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+
+                
+                    
+                
+
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/modal-district/">Finding the Modal School District</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-09-11'>
+                                    September 11, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/modal-district/" class="image featured">
+            <img src="/img/2019/09/modal.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/average-hike/">Taking A Peek into My Hiking Data</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2019-04-06'>
+                                    April 6, 2019</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/average-hike/" class="image featured">
+            <img src="/img/2019/04/hiking.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/snap-expenditures/">Transforming PDF&#39;s into Useful Tables</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-12-16'>
+                                    December 16, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/snap-expenditures/" class="image featured">
+            <img src="/img/2018/12/snap.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/why-disaggregate-data/">Disaggregating Minneapolis Public Schools Data</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-09-21'>
+                                    September 21, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/why-disaggregate-data/" class="image featured">
+            <img src="/img/2018/09/school.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
+                                <h3><a href="/blog/creating-a-new-theme/">Reflections from an R-Centric Program</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2018-08-04'>
+                                    August 4, 2018</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/creating-a-new-theme/" class="image featured">
+            <img src="/img/2018/08/chicago.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+
+                
+                    <a href=
+                        
+                            /blog/
+                        
+                        class="button">View more posts</a>
+                
+            </div>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2fmodal-district%2f&amp;text=Finding%20the%20Modal%20School%20District&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fmodal-district%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fmodal-district%2f&amp;title=Finding%20the%20Modal%20School%20District" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2fmodal-district%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+  <header>
+    <div class="title">
+        
+            <h1><a href="/blog/modal-district/">Finding the Modal School District</a></h1>
+            
+        
+        
+            <p>Inspired by NPR Planet Money&#39;s Modal American Analysis</p>
+        
+    </div>
+    <div class="meta">
+        
+
+        <time class="published"
+            datetime='2019-09-11'>
+            September 11, 2019</time>
+        <span class="author"></span>
+        
+            <p>9 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+  
+    <section id="social-share">
+      <ul class="icons">
+        
+
+
+
+<li>
+  <a href="//twitter.com/share?url=%2fblog%2fmodal-district%2f&amp;text=Finding%20the%20Modal%20School%20District&amp;via=ivelasq3" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+<li>
+  <a href="//www.facebook.com/sharer/sharer.php?u=%2fblog%2fmodal-district%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+<li>
+  <a href="//www.linkedin.com/shareArticle?url=%2fblog%2fmodal-district%2f&amp;title=Finding%20the%20Modal%20School%20District" target="_blank" class="share-btn linkedin">
+      <i class="fa fa-linkedin"></i>
+      <p>LinkedIn</p>
+    </a>
+</li>
+
+
+
+
+
+
+
+
+
+
+<li>
+  <a href="mailto:?subject=Check out this post by &amp;body=%2fblog%2fmodal-district%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+  </a>
+</li>
+
+
+      </ul>
+    </section>
+  
+
+  
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/modal-district/" class="image featured">
+            <img src="/img/2019/09/modal.png" alt="">
+        </a>
+    
+
+
+  <div id="content">
+    
+
+
+<p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NRP Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, they explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group made up of the combination of those variables is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
+<p>Ben Casselman shared the <a href="https://github.com/BenCasselman/planet_money">code</a> he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desparate for the answer, the modal school district in the U.S. is [drumroll please]: (1) Majority (&gt;=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).</p>
+<div id="downloading-and-parsing-data" class="section level2">
+<h2>Downloading and Parsing Data</h2>
+<p>I used NCES <a href="https://nces.ed.gov/ccd/ccddata.asp">Common Core of Data (CCD)</a> to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute’s <a href="https://github.com/UrbanInstitute/education-data-package-r">{educationdata}</a> R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data from CCD.</p>
+<p>What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also referred to <a href="https://nces.ed.gov/pubs2011/2011301.pdf">NCES reports</a> to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.</p>
+<pre class="r"><code>library(tidyverse)
+library(educationdata)
+library(janitor)
+library(ggalluvial)</code></pre>
+<div id="urban-centric-locale-bucket" class="section level3">
+<h3>Urban-Centric Locale Bucket</h3>
+<p>First, we download the directory data using the Urban Institute’s API. These data include the districts and their <a href="https://nces.ed.gov/pubs2007/ruraled/exhibit_a.asp">urban-centric_locale</a>.</p>
+<pre class="r"><code>ccd_dir &lt;- get_education_data(level = &#39;school-districts&#39;,
+                              source = &#39;ccd&#39;, 
+                              topic = &#39;directory&#39;, 
+                              filters = list(year = 2016),
+                              add_labels = TRUE)</code></pre>
+<p>Because there are so many options for urban-centric locale, let’s collapse them to just the biggest buckets: City, Town, Rural, and Suburb.</p>
+<pre class="r"><code>ccd_urbanicity &lt;-
+  ccd_dir %&gt;% 
+  select(leaid, urban_centric_locale) %&gt;% 
+  mutate(leaid = as.numeric(leaid), # the enrollment file loads these as numeric
+         geography = case_when(str_detect(urban_centric_locale, &quot;City|city&quot;) ~ &quot;City&quot;,
+                               str_detect(urban_centric_locale, &quot;Town|town&quot;) ~ &quot;Town&quot;,
+                               str_detect(urban_centric_locale, &quot;Rural|rural&quot;) ~ &quot;Rural&quot;,
+                               str_detect(urban_centric_locale, &quot;Suburb|suburb&quot;) ~ &quot;Suburb&quot;)) %&gt;% 
+  select(-urban_centric_locale)</code></pre>
+</div>
+<div id="size-raceethnicity-buckets" class="section level3">
+<h3>Size &amp; Race/Ethnicity Buckets</h3>
+<p>Then, we download the enrollment data from the Urban Institute.</p>
+<pre class="r"><code>ccd_enroll &lt;- get_education_data(level = &#39;school-districts&#39;,
+                                 source = &#39;ccd&#39;, 
+                                 topic = &#39;enrollment&#39;, 
+                                 filters = list(year = 2016,
+                                             grade = 99),
+                                 by = list(&#39;race&#39;),
+                                 add_labels = TRUE) </code></pre>
+<p>We want to create two buckets here:</p>
+<ul>
+<li><strong>Size:</strong> Bucket districts by enrollment size, Small (less than 2500 students), Medium (between 2500 and 10,000 students), or Large (10,000 students or more). I used <a href="https://www.google.com/search?q=what+is+a+large+school+district&amp;oq=what+is+a&amp;aqs=chrome.0.69i59j69i57j35i39j69i60l3.1065j0j7&amp;sourceid=chrome&amp;ie=UTF-8">MDR’s</a> definition for this.</li>
+<li><strong>Race/Ethnicity:</strong> Bucket districts by Majority White (less than 50% of students are White) or Majority Non-White (50% or more of students are White).</li>
+</ul>
+<pre class="r"><code>ccd_enroll_buckets &lt;-
+  ccd_enroll %&gt;% 
+  select(leaid, race, enrollment) %&gt;% 
+  spread(race, enrollment, -1) %&gt;%
+  mutate(white_na = case_when(White == 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                              TRUE ~ White),
+         pct_white = white_na/Total,
+         enroll_na = case_when(Total &lt; 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                               TRUE ~ Total)) %&gt;% 
+  mutate(demographics = case_when(pct_white &gt;= .5 ~ &quot;Majority White&quot;,
+                                  pct_white &lt; .5 ~ &quot;Majority Non-White&quot;,
+                                  TRUE ~ NA_character_),
+         size = case_when(enroll_na &gt;= 10000 ~ &quot;Large&quot;,
+                          enroll_na &lt; 10000 &amp; enroll_na &gt;= 2500 ~ &quot;Medium&quot;,
+                          enroll_na &lt; 2500 ~ &quot;Small&quot;))</code></pre>
+</div>
+<div id="freereduced-price-lunch-bucket" class="section level3">
+<h3>Free/Reduced Price Lunch Bucket</h3>
+<p>Now, we load the FRPL data.</p>
+<pre class="r"><code>ccd_frpl &lt;-
+  read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;modal_district_files&quot;, &quot;ccd_sch_033_1617_l_2a_11212017.csv&quot;))</code></pre>
+<p>We want Free + Reduced Price Lunch numbers by district. This file also has Free Lunch and Reduced Lunch numbers, and it is school-level. We aggregate up Free + Reduced Price Lunch by district.</p>
+<pre class="r"><code>ccd_frpl_wide &lt;-
+  ccd_frpl %&gt;% 
+  clean_names() %&gt;% 
+  mutate(leaid = as.numeric(leaid)) %&gt;% 
+  filter(data_group == &quot;Free and Reduced-price Lunch Table&quot;,
+         lunch_program == &quot;No Category Codes&quot;) %&gt;% 
+  select(leaid, student_count) %&gt;% 
+  group_by(leaid) %&gt;% 
+  summarise(frpl_student_count = sum(student_count))</code></pre>
+<p>Then, we merge with the enrollment data to calculate percent FRPL by district. Our buckets are Low FRPL (less than 25%), Medium-Low FRPL (between 25% and 50% FRPL), Medium-High FRPL (between 50% and 75% FRPL), and High FRPL (greater than 75% FRPL). I originally did not have Medium-Low and Medium High split out but that bucket was so large that I thought this would bring more nuance.</p>
+<pre class="r"><code>ccd_enroll_buckets &lt;-
+  left_join(ccd_enroll_buckets, ccd_frpl_wide) %&gt;% 
+  mutate(pct_frpl = frpl_student_count/enroll_na,
+         frpl = case_when(pct_frpl &lt;= .25 ~ &quot;Low FRPL&quot;,
+                          pct_frpl &gt; .25 &amp; pct_frpl &lt;= .5 ~ &quot;Medium-Low FRPL&quot;,
+                          pct_frpl &gt; .5 &amp; pct_frpl &lt;= .75 ~ &quot;Medium-High FRPL&quot;,
+                          pct_frpl &gt; .75 ~ &quot;High FRPL&quot;))</code></pre>
+</div>
+<div id="bringing-it-all-together" class="section level3">
+<h3>Bringing It All Together</h3>
+<p>Finally, we put all the datasets together. One question raised was what to do with missing data. Some districts, either because of small n-sizes or policy, do not report their demographic or FRPL numbers. In fact, some districts were missing enrollment data altogether! For the purposes of this analysis, I removed any district that was missing data in the FRPL or Race/Ethnicity Buckets. Any data without enrollment data is also excluded.</p>
+<pre class="r"><code>ccd_all &lt;-
+  full_join(ccd_urbanicity, ccd_enroll_buckets, by = &quot;leaid&quot;) %&gt;% 
+  filter(!is.na(frpl),
+         !is.na(demographics))</code></pre>
+</div>
+<div id="running-the-analysis" class="section level3">
+<h3>Running the Analysis</h3>
+<p>Here, we borrow from Planet Money’s analysis to use the <code>grouper()</code> function.</p>
+<pre class="r"><code>grouper &lt;- function(data, ...) {
+  data %&gt;% 
+    group_by(...) %&gt;% 
+    tally() %&gt;% 
+    arrange(desc(n))
+}</code></pre>
+<p>Now… we can see what is the modal school district - that is, the combination of our buckets that represents the most districts in the U.S. The n shows how many districts fit these criteria. Here are the first four but the full table is in the <a href="#appendix">Appendix</a>.</p>
+<pre class="r"><code>modal &lt;-
+  ccd_all %&gt;% 
+  grouper(demographics, geography, size, frpl) %&gt;% 
+  ungroup()
+
+modal %&gt;% 
+  top_n(4) %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">demographics</th>
+<th align="left">geography</th>
+<th align="left">size</th>
+<th align="left">frpl</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">2484</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+<td align="right">1572</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+<td align="right">888</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+<td align="right">689</td>
+</tr>
+</tbody>
+</table>
+<p>The modal school district ends up being: Majority White, Rural, Small, Medium-Low FRPL districts. <strong>18%</strong> (2484) of the 13,464 districts in our analysis fall within these criteria.</p>
+</div>
+</div>
+<div id="takeaways" class="section level2">
+<h2>Takeaways</h2>
+<div id="based-on-these-characteristics-districts-tend-to-group-together" class="section level3">
+<h3>Based on these characteristics, districts tend to group together</h3>
+<p>If you run <code>grouper()</code> for each bucket individually, you get the same results (as in, when running only based on size, the result is that Rural districts are the modal districts). This is slightly different from the Modal American analysis from NPR - none of these demographics seem to ‘split’ the groups.</p>
+</div>
+<div id="this-makes-sense" class="section level3">
+<h3>This makes sense</h3>
+<p>Everything intuitively makes sense: The U.S. is majority White. It makes sense that there are fewer Large districts than Small districts as districts cannot get too geographically big in order to serve their students and the U.S. is very large. In places with little population density, these districts must not serve very many students.</p>
+</div>
+<div id="its-really-hard-to-visualize-this" class="section level3">
+<h3>It’s really hard to visualize this</h3>
+<p>It was interesting trying to visualize these data, especially since there ended up being 87 (!) combinations. I tried a Sankey chart but it is a bit bananas.</p>
+<pre class="r"><code>modal &lt;- # reordering factors
+  modal %&gt;% 
+  mutate(demographics = factor(demographics, c(&quot;Majority White&quot;, &quot;Majority Non-White&quot;)),
+         size = factor(size, c(&quot;Small&quot;, &quot;Medium&quot;, &quot;Large&quot;)),
+         geography = factor(geography, c(&quot;Rural&quot;, &quot;Suburb&quot;, &quot;Town&quot;, &quot;City&quot;)),
+         frpl = factor(frpl, c(&quot;Low FRPL&quot;, &quot;Medium-Low FRPL&quot;, &quot;Medium-High FRPL&quot;, &quot;High FRPL&quot;)))
+
+ggplot(as.data.frame(modal),
+       aes(y = n,
+           axis1 = demographics, 
+           axis2 = geography, 
+           axis3 = frpl,
+           axis4 = size)) +
+  stat_alluvium(aes(fill = n),
+                width = 1/6, 
+            alpha = 2/3,
+            aes.bind = FALSE) +
+  guides(fill = FALSE) +
+  geom_stratum(width = 1/12, fill = &quot;black&quot;, color = &quot;grey&quot;) +
+  geom_label(stat = &quot;stratum&quot;, label.strata = TRUE, size = 2, hjust = &quot;inward&quot;) +
+  scale_x_continuous(breaks = 1:4, labels = c(&quot;Demographics&quot;, &quot;Geography&quot;, &quot;FRPL&quot;, &quot;Size&quot;)) +
+  ggtitle(&quot;Modal District Sankey Chart&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>I tried to visualize them another way - using barplots. Again, this gets a bit unruly with all the variables…</p>
+<pre class="r"><code>ccd_all %&gt;% 
+  select(leaid, demographics, geography, size, frpl) %&gt;% 
+  mutate(count = 1) %&gt;% 
+  ggplot(aes(count)) +
+  geom_bar() +
+  facet_grid(demographics + frpl ~ size + geography)</code></pre>
+<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</div>
+</div>
+<div id="appendix" class="section level2">
+<h2>Appendix</h2>
+<div id="full-table" class="section level3">
+<h3>Full Table</h3>
+<pre class="r"><code>ccd_all %&gt;% 
+  grouper(demographics, geography, size, frpl) %&gt;% 
+  dplyr::select(1:4) %&gt;% 
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">demographics</th>
+<th align="left">geography</th>
+<th align="left">size</th>
+<th align="left">frpl</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+  </div>
+
+  <footer>
+    <ul class="stats">
+  <li class="categories">
+    <ul>
+        
+            
+            
+                <i class="fa fa-folder"></i>
+                
+                
+                <li><a class="article-category-link" href="/categories/r">R</a></li>
+                
+            
+        
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+        
+            
+            
+                <i class="fa fa-tags"></i>
+                
+                
+                <li><a class="article-category-link" href="/tags/tidyverse">tidyverse</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/educationdata">educationdata</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/janitor">janitor</a></li>
+                
+                
+                <li><a class="article-category-link" href="/tags/ggalluvial">ggalluvial</a></li>
+                
+            
+        
+    </ul>
+  </li>
+</ul>
+
+  </footer>
+
+</article>
+
+
+<ul class="actions pagination">
+    
+        <li><a href="/blog/average-hike/"
+                class="button big previous">Taking A Peek into My Hiking Data</a></li>
+    
+
+    
+</ul>
+
+
+    </div>
+    
+<section id="sidebar">
+
+  
+  <section id="intro">
+    
+    
+      
+        <a href='/' class="logo"><img src="https://avatars1.githubusercontent.com/u/12236152?s=460&amp;v=4" alt="Isabella Velásquez" /></a>
+      
+    
+    
+      <header>
+        <h2>Isabella Velásquez</h2>
+        <p>%>% dreams</p>
+      </header>
+    
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/ivelasq" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/ivelasq" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/ivelasq3" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:ivelasq@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+  </section>
+
+  
+  <section class="recent-posts">
+    <div class="mini-posts">
+      <header>
+        <h3>Recent Posts</h3>
+      </header>
+      <div class="posts-container">
+        
+
+        
+          
+        
+
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/modal-district/">Finding the Modal School District</a>
+              </h3>
+              
+              <time class="published" datetime='2019-09-11'>
+                September 11, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/modal-district/" class="image featured">
+            <img src="/img/2019/09/modal.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/average-hike/">Taking A Peek into My Hiking Data</a>
+              </h3>
+              
+              <time class="published" datetime='2019-04-06'>
+                April 6, 2019
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/average-hike/" class="image featured">
+            <img src="/img/2019/04/hiking.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/snap-expenditures/">Transforming PDF&#39;s into Useful Tables</a>
+              </h3>
+              
+              <time class="published" datetime='2018-12-16'>
+                December 16, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/snap-expenditures/" class="image featured">
+            <img src="/img/2018/12/snap.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/why-disaggregate-data/">Disaggregating Minneapolis Public Schools Data</a>
+              </h3>
+              
+              <time class="published" datetime='2018-09-21'>
+                September 21, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/why-disaggregate-data/" class="image featured">
+            <img src="/img/2018/09/school.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
+                <a href="/blog/creating-a-new-theme/">Reflections from an R-Centric Program</a>
+              </h3>
+              
+              <time class="published" datetime='2018-08-04'>
+                August 4, 2018
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/creating-a-new-theme/" class="image featured">
+            <img src="/img/2018/08/chicago.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+      </div>
+
+      
+        <a href=
+          
+            /blog/
+          
+        class="button">View more posts</a>
+      
+    </div>
+  </section>
+
+  
+  
+  
+  
+  
+    <section id="categories">
+      <header>
+        <h3>
+          <a href="/categories/">Categories</a>
+        </h3>
+      </header>
+        
+          
+        
+
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/r/">r</a>
+                <span style="float:right;">6</span>
+              
+            </header>
+          </article>
+        </p>
+        
+        <p>
+          <article>
+            <header>
+              
+                <a href="/categories/general/">general</a>
+                <span style="float:right;">1</span>
+              
+            </header>
+          </article>
+        </p>
+        
+    </section>
+  
+  
+
+  
+  
+    <section id="mini-bio">
+      <h3>About</h3>
+      <p>strong reasons make strong actions</p>
+      <a href="/about/" class="button">Learn More</a>
+    </section>
+  
+
+  
+  <section id="footer">
+    
+      <ul class="icons">
+        
+          
+    <li><a href="/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fa fa-rss"></a></li>
+
+
+        
+        
+  <li><a href="//github.com/ivelasq" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//linkedin.com/in/ivelasq" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="//twitter.com/ivelasq3" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <li><a href="mailto:ivelasq@gmail.com" title="Email" class="fa fa-envelope"></a></li>
+
+
+      </ul>
+    
+    <p class="copyright">
+      
+        &copy; 2019
+        
+          Isabella Velásquez
+        
+      .
+      Powered by <a href="//gohugo.io" target="_blank">Hugo</a>
+    </p>
+  </section>
+</section>
+
+    </div>
+    <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+    
+
+    
+      
+    
+
+    
+      
+      
+      
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/highlight.min.js"></script>
+        
+        
+        
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/r.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/yaml.min.js"></script>
+        <script src="//cdn.bootcss.com/highlight.js/9.11.0/languages/css.min.js"></script>
+        <script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+      
+    
+    
+    
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+      <script src="/js/util.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="/js/backToTop.js"></script>
+    
+
+    
+      
+        
+      
+    
+
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+      <script src="//yihui.name/js/math-code.js"></script>
+<script async
+src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>
+

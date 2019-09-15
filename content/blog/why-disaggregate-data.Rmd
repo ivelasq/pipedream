@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["dplyr", "purrr", "viridis", "tabulizer", "janitor"]
+tags: ["tidyverse", "purrr", "viridis", "tabulizer", "janitor"]
 date: "2018-09-21"
 description: "Why Equity Requires Looking Beyond Averages"
 featured: "school.png"
