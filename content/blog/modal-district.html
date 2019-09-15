@@ -14,12 +14,12 @@ type: "post"
 
 
 
-<p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NRP Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, they explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group made up of the combination of those variables is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
+<p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NRP Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
 <p>Ben Casselman shared the <a href="https://github.com/BenCasselman/planet_money">code</a> he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (&gt;=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).</p>
 <div id="downloading-and-parsing-data" class="section level2">
 <h2>Downloading and Parsing Data</h2>
-<p>I used NCES <a href="https://nces.ed.gov/ccd/ccddata.asp">Common Core of Data (CCD)</a> to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute’s <a href="https://github.com/UrbanInstitute/education-data-package-r">{educationdata}</a> R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data from CCD.</p>
-<p>What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also referred to <a href="https://nces.ed.gov/pubs2011/2011301.pdf">NCES reports</a> to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.</p>
+<p>I used NCES <a href="https://nces.ed.gov/ccd/ccddata.asp">Common Core of Data (CCD)</a> to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute’s <a href="https://github.com/UrbanInstitute/education-data-package-r">{educationdata}</a> R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data directly from the CCD as it’s not available via the Urban API.</p>
+<p>What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also looked at some <a href="https://nces.ed.gov/pubs2011/2011301.pdf">NCES reports</a> to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.</p>
 <pre class="r"><code>library(tidyverse)
 library(educationdata)
 library(janitor)
@@ -115,7 +115,7 @@ ccd_all &lt;- # reordering factors
 </div>
 <div id="running-the-analysis" class="section level3">
 <h3>Running the Analysis</h3>
-<p>Here, we borrow from Planet Money’s analysis to use the <code>grouper()</code> function.</p>
+<p>Here, we borrow from Casselman’s analysis to use the <code>grouper()</code> function.</p>
 <pre class="r"><code>grouper &lt;- function(data, ...) {
   data %&gt;% 
     group_by(...) %&gt;% 
@@ -183,7 +183,6 @@ modal %&gt;%
 </div>
 <div id="this-makes-sense" class="section level3">
 <h3>This makes sense</h3>
-<p>Everything seems makes sense.</p>
 <ul>
 <li>The U.S. is majority White and areas tend to be segregated.</li>
 <li>Majority of districts fall in the Medium FRPL buckets. Majority Non-White districts tend to have higher levels of FRPL, but there are so few of them compared to Majority White Districts, that they do not change the modal district much.</li>
@@ -211,7 +210,7 @@ modal %&gt;%
   ggtitle(&quot;Modal District Sankey Chart&quot;) +
   theme_minimal()</code></pre>
 <p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<p>I tried to visualize them another way - using bar plots. Again, this gets a bit unruly with all the variables but we can quickly see there are very few Large districts, regardless of urbanicity.</p>
+<p>I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it’s better to just look at the table.</p>
 <pre class="r"><code>ccd_all %&gt;% 
   select(leaid, demographics, geography, size, frpl) %&gt;% 
   mutate(count = 1) %&gt;% 
@@ -224,6 +223,7 @@ modal %&gt;%
 <div id="next-steps" class="section level2">
 <h2>Next steps</h2>
 <p>In addition to analyzing more variables (perhaps data that are less likely to correlate), it would be interesting to cut the data using smaller grain size for the buckets. There are probably very interesting nuances between Majority White districts for example - we just need the data (and bandwidth!) to find out.</p>
+<p>I am in awe of social media, which allows us to learn and share in so many ways. My friend retweeted a news article, which prompted the person who wrote the code to share, and then we crafted an idea based on that. I think that’s pretty great!</p>
 </div>
 <div id="appendix" class="section level2">
 <h2>Appendix</h2>

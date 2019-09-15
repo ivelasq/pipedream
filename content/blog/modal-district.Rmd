@@ -12,15 +12,15 @@ title: "Finding the Modal School District"
 type: "post"
 ---
 
-My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NRP Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, they explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group made up of the combination of those variables is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
+My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NRP Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
 
 Ben Casselman shared the [code](https://github.com/BenCasselman/planet_money) he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (>=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).
 
 ## Downloading and Parsing Data
 
-I used NCES [Common Core of Data (CCD)](https://nces.ed.gov/ccd/ccddata.asp) to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute's [{educationdata}](https://github.com/UrbanInstitute/education-data-package-r) R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data from CCD.
+I used NCES [Common Core of Data (CCD)](https://nces.ed.gov/ccd/ccddata.asp) to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute's [{educationdata}](https://github.com/UrbanInstitute/education-data-package-r) R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data directly from the CCD as it's not available via the Urban API.
 
-What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also referred to [NCES reports](https://nces.ed.gov/pubs2011/2011301.pdf) to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.
+What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also looked at some [NCES reports](https://nces.ed.gov/pubs2011/2011301.pdf) to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.
 
 ```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -147,7 +147,7 @@ ccd_all <- # reordering factors
 
 ### Running the Analysis
 
-Here, we borrow from Planet Money's analysis to use the `grouper()` function. 
+Here, we borrow from Casselman's analysis to use the `grouper()` function. 
 
 ```{r, message = FALSE, warning = FALSE}
 grouper <- function(data, ...) {
@@ -181,8 +181,6 @@ If you run `grouper()` for each bucket individually, you get the same results (a
 
 ### This makes sense
 
-Everything seems makes sense.
-
 - The U.S. is majority White and areas tend to be segregated.
 - Majority of districts fall in the Medium FRPL buckets. Majority Non-White districts tend to have higher levels of FRPL, but there are so few of them compared to Majority White Districts, that they do not change the modal district much.
 - The U.S. is very large and districts cannot get too geographically big in order to serve their students. In places with little population density, which is most of the U.S., these districts must remain small.
@@ -211,7 +209,7 @@ ggplot(as.data.frame(modal),
   theme_minimal()
 ```
 
-I tried to visualize them another way - using bar plots. Again, this gets a bit unruly with all the variables but we can quickly see there are very few Large districts, regardless of urbanicity.
+I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it's better to just look at the table.
 
 ```{r}
 ccd_all %>% 
@@ -225,6 +223,8 @@ ccd_all %>%
 ## Next steps
 
 In addition to analyzing more variables (perhaps data that are less likely to correlate), it would be interesting to cut the data using smaller grain size for the buckets. There are probably very interesting nuances between Majority White districts for example - we just need the data (and bandwidth!) to find out.
+
+I am in awe of social media, which allows us to learn and share in so many ways. My friend retweeted a news article, which prompted the person who wrote the code to share, and then we crafted an idea based on that. I think that's pretty great!
 
 ## Appendix
 
