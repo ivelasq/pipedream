@@ -232,6 +232,5 @@ I am in awe of social media, which allows us to learn and share in so many ways.
 ```{r, message = FALSE, warning = FALSE}
 ccd_all %>% 
   grouper(demographics, geography, size, frpl) %>% 
-  dplyr::select(1:4) %>% 
   knitr::kable()
 ```
