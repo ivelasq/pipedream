@@ -12,7 +12,7 @@ title: "Finding the Modal School District"
 type: "post"
 ---
 
-My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NRP Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
+My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NPR Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
 
 Ben Casselman shared the [code](https://github.com/BenCasselman/planet_money) he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (>=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).
 
