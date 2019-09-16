@@ -231,7 +231,6 @@ modal %&gt;%
 <h3>Full Table</h3>
 <pre class="r"><code>ccd_all %&gt;% 
   grouper(demographics, geography, size, frpl) %&gt;% 
-  dplyr::select(1:4) %&gt;% 
   knitr::kable()</code></pre>
 <table>
 <thead>
@@ -240,6 +239,7 @@ modal %&gt;%
 <th align="left">geography</th>
 <th align="left">size</th>
 <th align="left">frpl</th>
+<th align="right">n</th>
 </tr>
 </thead>
 <tbody>
@@ -248,522 +248,609 @@ modal %&gt;%
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">2484</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">1572</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">888</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">689</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">604</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">520</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">454</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">447</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">434</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">343</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">340</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">275</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">261</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">260</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">184</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">167</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">163</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">159</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">156</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">154</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">151</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">134</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">130</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">115</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">111</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">106</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">102</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Large</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">102</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">101</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">99</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">90</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">83</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">82</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">72</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">63</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Large</td>
 <td align="left">High FRPL</td>
+<td align="right">63</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">62</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">59</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">57</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">54</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">53</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">53</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">53</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">52</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">48</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">High FRPL</td>
+<td align="right">47</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">47</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">44</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">Low FRPL</td>
+<td align="right">43</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Medium</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">43</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">43</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">40</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">39</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">33</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">High FRPL</td>
+<td align="right">33</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Suburb</td>
 <td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">28</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">27</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">City</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">26</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">Suburb</td>
 <td align="left">Large</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">25</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Medium</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">25</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Small</td>
 <td align="left">Low FRPL</td>
+<td align="right">24</td>
 </tr>
 <tr class="even">
-<td align="left">Majority Non-White</td>
-<td align="left">Town</td>
-<td align="left">Small</td>
-<td align="left">Medium-Low FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority Non-White</td>
-<td align="left">City</td>
-<td align="left">Medium</td>
-<td align="left">Medium-Low FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority White</td>
-<td align="left">City</td>
-<td align="left">Small</td>
-<td align="left">High FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority White</td>
-<td align="left">City</td>
-<td align="left">Medium</td>
-<td align="left">Low FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority White</td>
-<td align="left">City</td>
-<td align="left">Large</td>
-<td align="left">Low FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority Non-White</td>
-<td align="left">Town</td>
-<td align="left">Medium</td>
-<td align="left">Medium-Low FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority White</td>
-<td align="left">Rural</td>
-<td align="left">Large</td>
-<td align="left">Medium-Low FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority White</td>
-<td align="left">Rural</td>
-<td align="left">Large</td>
-<td align="left">Medium-High FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority White</td>
-<td align="left">Town</td>
-<td align="left">Medium</td>
-<td align="left">High FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority White</td>
-<td align="left">City</td>
-<td align="left">Large</td>
-<td align="left">Medium-High FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority Non-White</td>
-<td align="left">City</td>
-<td align="left">Large</td>
-<td align="left">Low FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority White</td>
-<td align="left">Suburb</td>
-<td align="left">Medium</td>
-<td align="left">High FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority Non-White</td>
-<td align="left">Rural</td>
-<td align="left">Large</td>
-<td align="left">Medium-High FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority Non-White</td>
-<td align="left">Rural</td>
-<td align="left">Medium</td>
-<td align="left">Medium-Low FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority Non-White</td>
-<td align="left">Town</td>
-<td align="left">Large</td>
-<td align="left">High FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority Non-White</td>
-<td align="left">Rural</td>
-<td align="left">Large</td>
-<td align="left">High FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority Non-White</td>
-<td align="left">Suburb</td>
-<td align="left">Large</td>
-<td align="left">Low FRPL</td>
-</tr>
-<tr class="odd">
-<td align="left">Majority Non-White</td>
-<td align="left">City</td>
-<td align="left">Medium</td>
-<td align="left">Low FRPL</td>
-</tr>
-<tr class="even">
-<td align="left">Majority White</td>
-<td align="left">Town</td>
-<td align="left">Large</td>
-<td align="left">Medium-High FRPL</td>
-</tr>
-<tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Small</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">23</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">23</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Small</td>
+<td align="left">High FRPL</td>
+<td align="right">20</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+<td align="right">18</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">17</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+<td align="right">14</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+<td align="right">14</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+<td align="right">10</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority White</td>
+<td align="left">Suburb</td>
+<td align="left">Medium</td>
+<td align="left">High FRPL</td>
+<td align="right">9</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+<td align="right">8</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Medium</td>
+<td align="left">Medium-Low FRPL</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+<td align="right">7</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Rural</td>
+<td align="left">Large</td>
+<td align="left">High FRPL</td>
+<td align="right">6</td>
+</tr>
+<tr class="even">
+<td align="left">Majority Non-White</td>
+<td align="left">Suburb</td>
+<td align="left">Large</td>
+<td align="left">Low FRPL</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">City</td>
+<td align="left">Medium</td>
+<td align="left">Low FRPL</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Majority White</td>
+<td align="left">Town</td>
+<td align="left">Large</td>
+<td align="left">Medium-High FRPL</td>
+<td align="right">3</td>
+</tr>
+<tr class="odd">
+<td align="left">Majority Non-White</td>
+<td align="left">Town</td>
+<td align="left">Small</td>
+<td align="left">Low FRPL</td>
+<td align="right">3</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Rural</td>
 <td align="left">Large</td>
 <td align="left">Low FRPL</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority White</td>
 <td align="left">City</td>
 <td align="left">Medium</td>
 <td align="left">High FRPL</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="left">Majority Non-White</td>
 <td align="left">Rural</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Medium</td>
 <td align="left">Low FRPL</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="left">Majority White</td>
 <td align="left">Town</td>
 <td align="left">Large</td>
 <td align="left">Medium-Low FRPL</td>
+<td align="right">1</td>
 </tr>
 <tr class="odd">
 <td align="left">Majority Non-White</td>
 <td align="left">Town</td>
 <td align="left">Large</td>
 <td align="left">Medium-High FRPL</td>
+<td align="right">1</td>
 </tr>
 </tbody>
 </table>
