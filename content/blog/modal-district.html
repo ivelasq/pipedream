@@ -56,7 +56,7 @@ library(ggalluvial)</code></pre>
 <p>We want to create two buckets here:</p>
 <ul>
 <li><strong>Size:</strong> Bucket districts by enrollment size, Small (less than 2500 students), Medium (between 2500 and 10,000 students), or Large (10,000 students or more). I used <a href="https://www.google.com/search?q=what+is+a+large+school+district&amp;oq=what+is+a&amp;aqs=chrome.0.69i59j69i57j35i39j69i60l3.1065j0j7&amp;sourceid=chrome&amp;ie=UTF-8">MDR’s</a> definition for this.</li>
-<li><strong>Race/Ethnicity:</strong> Bucket districts by Majority White (less than 50% of students are White) or Majority Non-White (50% or more of students are White).</li>
+<li><strong>Race/Ethnicity:</strong> Bucket districts by Majority Non-White (50% or fewer of students are White) or Majority White (more than 50% of students are White).</li>
 </ul>
 <pre class="r"><code>ccd_enroll_buckets &lt;-
   ccd_enroll %&gt;% 
