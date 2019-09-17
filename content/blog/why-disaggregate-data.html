@@ -54,8 +54,6 @@ type: "post"
 <div id="first-glance-mps-district-demographics" class="section level3">
 <h3>First Glance: MPS District Demographics</h3>
 <p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.)</p>
-<pre><code>## Warning: The `printer` argument is deprecated as of rlang 0.3.0.
-## This warning is displayed once per session.</code></pre>
 <p><img src="/blog/why-disaggregate-data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>When we look at these data, MPS looks like a diverse school district. Almost <strong>40% of students are Black</strong> and around <strong>35% are White</strong>. <strong>60% of the students are eligible for FRPL</strong>, which is <a href="https://nces.ed.gov/programs/digest/d17/tables/dt17_204.10.asp?current=yes">high for Minnesota but close to the US average of 52.1%</a>.</p>
 <p>However, let’s explore if there’s more to this story.</p>
@@ -162,9 +160,8 @@ tidy_df &lt;-
   gather(category, value, -school_name)
 
 # this is so I do not have to run the code above constantly
-tidy_df &lt;- read_csv(&quot;tidy_df.csv&quot;)
-merged_df &lt;- read_csv(&quot;merged_df.csv&quot;)
-
+tidy_df &lt;- read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;why_disaggregate_data_files&quot;, &quot;tidy_df.csv&quot;))
+merged_df &lt;- read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;why_disaggregate_data_files&quot;, &quot;merged_df.csv&quot;))
 # demographic barplot
 tidy_df %&gt;%
   filter(school_name == &quot;Total&quot;,

@@ -27,6 +27,8 @@ library(tidyverse)
 library(educationdata)
 library(janitor)
 library(ggalluvial)
+
+knitr::opts_chunk$set(out.width = '100%') 
 ```
 
 ### Urban-Centric Locale Bucket

@@ -23,7 +23,9 @@ type: "post"
 <pre class="r"><code>library(tidyverse)
 library(educationdata)
 library(janitor)
-library(ggalluvial)</code></pre>
+library(ggalluvial)
+
+knitr::opts_chunk$set(out.width = &#39;100%&#39;) </code></pre>
 <div id="urban-centric-locale-bucket" class="section level3">
 <h3>Urban-Centric Locale Bucket</h3>
 <p>First, we download the directory data using the Urban Institute’s API. These data include the districts and their <a href="https://nces.ed.gov/pubs2007/ruraled/exhibit_a.asp">urban-centric_locale</a>.</p>
@@ -209,7 +211,7 @@ modal %&gt;%
   scale_x_continuous(breaks = 1:4, labels = c(&quot;Demographics&quot;, &quot;Geography&quot;, &quot;FRPL&quot;, &quot;Size&quot;)) +
   ggtitle(&quot;Modal District Sankey Chart&quot;) +
   theme_minimal()</code></pre>
-<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-12-1.png" width="100%" /></p>
 <p>I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it’s better to just look at the table.</p>
 <pre class="r"><code>ccd_all %&gt;% 
   select(leaid, demographics, geography, size, frpl) %&gt;% 
@@ -217,7 +219,7 @@ modal %&gt;%
   ggplot(aes(count)) +
   geom_bar() +
   facet_grid(demographics + frpl ~ size + geography)</code></pre>
-<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/blog/modal-district_files/figure-html/unnamed-chunk-13-1.png" width="100%" /></p>
 </div>
 </div>
 <div id="next-steps" class="section level2">

@@ -132,9 +132,8 @@ tidy_df <-
 
 ```{r, include = F, eval = T}
 # this is so I do not have to run the code above constantly
-tidy_df <- read_csv("tidy_df.csv")
-merged_df <- read_csv("merged_df.csv")
-
+tidy_df <- read_csv(here::here("content", "blog", "why_disaggregate_data_files", "tidy_df.csv"))
+merged_df <- read_csv(here::here("content", "blog", "why_disaggregate_data_files", "merged_df.csv"))
 ```
 
 ```{r, echo = F}

@@ -8,7 +8,7 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "\/"
+             "@id": "/"
         },
         "articleSection" : "blog",
         "name" : "Disaggregating Minneapolis Public Schools Data",
@@ -21,10 +21,10 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-09-21 00:00:00 \x2b0000 UTC",
-        "dateModified" : "2018-09-21 00:00:00 \x2b0000 UTC",
-        "url" : "\/blog\/why-disaggregate-data\/",
-        "wordCount" : "1572",
+        "datePublished": "2018-09-21 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-09-21 00:00:00 &#43;0000 UTC",
+        "url" : "/blog/why-disaggregate-data/",
+        "wordCount" : "1670",
         "keywords" : [ "tidyverse","purrr","viridis","tabulizer","janitor","Blog" ]
     }
     </script>
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.58.1" />
+        <meta name="generator" content="Hugo 0.49.1" />
         
   
     
@@ -68,21 +68,21 @@
         <meta property="og:title" content="Disaggregating Minneapolis Public Schools Data" />
 <meta property="og:description" content="Why Equity Requires Looking Beyond Averages" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/why-disaggregate-data/" />
-<meta property="article:published_time" content="2018-09-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-09-21T00:00:00+00:00" />
+<meta property="og:url" content="/blog/why-disaggregate-data/" /><meta property="article:published_time" content="2018-09-21T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-09-21T00:00:00&#43;00:00"/>
 
         <meta property="og:image" content="//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Disaggregating Minneapolis Public Schools Data">
+        
+<meta itemprop="name" content="Disaggregating Minneapolis Public Schools Data">
 <meta itemprop="description" content="Why Equity Requires Looking Beyond Averages">
 
 
 <meta itemprop="datePublished" content="2018-09-21T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-21T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1572">
+<meta itemprop="wordCount" content="1670">
 
 
 
@@ -344,7 +344,7 @@
         
 
         <a href="/blog/average-hike/" class="image featured">
-            <img src="/img/2019/042019/04/hiking.png" alt="">
+            <img src="/img/2019/04/hiking.png" alt="">
         </a>
     
 
@@ -412,6 +412,9 @@
 
 
   
+  
+    
+  
 
 
         
@@ -419,7 +422,7 @@
         
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
-            <img src="/date2018/09/school.png" alt="">
+            <img src="/img/2018/09/school.png" alt="">
         </a>
     
 
@@ -667,7 +670,10 @@
 
 
   <div id="content">
-    <p>Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.</p>
+    <p>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.</p>
+<p>In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.</p>
+<!--more-->
+<p>Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.</p>
 <div id="what-is-equity" class="section level2">
 <h2>What is Equity</h2>
 <p>Inequities are <a href="http://www.yourdictionary.com/racial-inequality">disparities in opportunity, resources, and treatment.</a> Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. <a href="https://www.allsides.com/dictionary/racial-inequity">Examples include:</a></p>
@@ -704,8 +710,6 @@
 <div id="first-glance-mps-district-demographics" class="section level3">
 <h3>First Glance: MPS District Demographics</h3>
 <p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.)</p>
-<pre><code>## Warning: The `printer` argument is deprecated as of rlang 0.3.0.
-## This warning is displayed once per session.</code></pre>
 <p><img src="/blog/why-disaggregate-data_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>When we look at these data, MPS looks like a diverse school district. Almost <strong>40% of students are Black</strong> and around <strong>35% are White</strong>. <strong>60% of the students are eligible for FRPL</strong>, which is <a href="https://nces.ed.gov/programs/digest/d17/tables/dt17_204.10.asp?current=yes">high for Minnesota but close to the US average of 52.1%</a>.</p>
 <p>However, let’s explore if there’s more to this story.</p>
@@ -812,9 +816,8 @@ tidy_df &lt;-
   gather(category, value, -school_name)
 
 # this is so I do not have to run the code above constantly
-tidy_df &lt;- read_csv(&quot;tidy_df.csv&quot;)
-merged_df &lt;- read_csv(&quot;merged_df.csv&quot;)
-
+tidy_df &lt;- read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;why_disaggregate_data_files&quot;, &quot;tidy_df.csv&quot;))
+merged_df &lt;- read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;why_disaggregate_data_files&quot;, &quot;merged_df.csv&quot;))
 # demographic barplot
 tidy_df %&gt;%
   filter(school_name == &quot;Total&quot;,
@@ -1304,7 +1307,7 @@ merged_df %&gt;%
           <article>
             <header>
               
-                <a href="/categories/r/">r</a>
+                <a href="/categories/r/">R</a>
                 <span style="float:right;">6</span>
               
             </header>

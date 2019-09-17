@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["dplyr", "tabulizer", "purrr", "broom"]
+tags: ["tidyverse", "tabulizer", "purrr", "broom"]
 date:   "2018-12-16"
 description: "Extracting SNAP Expenditures Data"
 featured: "snap.png"

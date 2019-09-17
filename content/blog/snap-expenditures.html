@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["dplyr", "tabulizer", "purrr", "broom"]
+tags: ["tidyverse", "tabulizer", "purrr", "broom"]
 date:   "2018-12-16"
 description: "Extracting SNAP Expenditures Data"
 featured: "snap.png"
@@ -24,8 +24,9 @@ type: "post"
 <p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
 </blockquote>
 <p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful <code>tidyverse</code> and <code>tabulizer</code> package.</p>
-<pre class="r"><code>library(tidyverse)
-library(tabulizer)
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.1</code></pre>
+<pre class="r"><code>library(tabulizer)
 library(broom)</code></pre>
 <p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
 <pre class="r"><code>snap_pdf &lt;-
@@ -38,14 +39,14 @@ library(broom)</code></pre>
   
 head(snap_df)</code></pre>
 <pre><code>## # A tibble: 6 x 9
-##   V1        V2    V3                   V4    V5    V6    V7    V8    V9   
-##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 &quot;&quot;        &quot;&quot;    &quot;SNAP Household Exp~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 2 Soft dri~ &quot;&quot;    1 $357.7 5.44% 2 $1~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 3 Fluid mi~ &quot;&quot;    2 $253.7 3.85% 1 $1~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 4 Beef:gri~ &quot;&quot;    3 $201.0 3.05% 6 $6~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 5 Bag snac~ &quot;&quot;    4 $199.3 3.03% 5 $7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 6 Cheese    &quot;&quot;    5 $186.4 2.83% 3 $9~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;</code></pre>
+##   V1        V2    V3                    V4    V5    V6    V7    V8    V9   
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 &quot;&quot;        &quot;&quot;    &quot;SNAP Household Expe~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 2 Soft dri~ &quot;&quot;    1 $357.7 5.44% 2 $1,~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 3 Fluid mi~ &quot;&quot;    2 $253.7 3.85% 1 $1,~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 4 Beef:gri~ &quot;&quot;    3 $201.0 3.05% 6 $62~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 5 Bag snac~ &quot;&quot;    4 $199.3 3.03% 5 $79~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 6 Cheese    &quot;&quot;    5 $186.4 2.83% 3 $94~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;</code></pre>
 <p>Due to the original formatting of the PDFs, there’s a bunch of cleaning to be done to make the list into a usable table. Using <code>slice()</code>, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn’t know how to calculate this using code. If you have ideas, let me know!</p>
 <pre class="r"><code>snap_appendix1 &lt;-
   snap_df %&gt;% 
@@ -60,14 +61,14 @@ head(snap_df)</code></pre>
 
 head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 10
-##   V1       V2    V3        V4    V5    V6    V7    V8    V9    col_dat    
-##   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-## 1 Soft dr~ &quot;&quot;    1 $357.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357.7 5~
-## 2 Fluid m~ &quot;&quot;    2 $253.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253.7 3~
-## 3 Beef:gr~ &quot;&quot;    3 $201.0~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201.0 3~
-## 4 Bag sna~ &quot;&quot;    4 $199.3~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199.3 3~
-## 5 Cheese   &quot;&quot;    5 $186.4~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186.4 2~
-## 6 Baked b~ &quot;&quot;    6 $163.7~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163.7 2~</code></pre>
+##   V1       V2    V3         V4    V5    V6    V7    V8    V9    col_dat    
+##   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+## 1 Soft dr~ &quot;&quot;    1 $357.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357.7 5~
+## 2 Fluid m~ &quot;&quot;    2 $253.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253.7 3~
+## 3 Beef:gr~ &quot;&quot;    3 $201.0 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201.0 3~
+## 4 Bag sna~ &quot;&quot;    4 $199.3 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199.3 3~
+## 5 Cheese   &quot;&quot;    5 $186.4 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186.4 2~
+## 6 Baked b~ &quot;&quot;    6 $163.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163.7 2~</code></pre>
 <p>Now the numeric data we want is wonderfully in a single column, so we can select the columns <code>V1</code> and <code>col_dat</code>.</p>
 <pre class="r"><code>snap_appendix1_cleaned &lt;-
   snap_appendix1_cleaned %&gt;% 
@@ -89,9 +90,20 @@ head(snap_appendix1_cleaned)</code></pre>
   separate(col_dat, &quot; &quot;,
            into = c(&quot;snap_rank&quot;, &quot;snap_dollars_in_millions&quot;, &quot;snap_pct_total_expenditures&quot;, &quot;nonsnap_rank&quot;, &quot;nonsnap_dollars_in_millions&quot;, &quot;nonsnap_pct_total_expenditures&quot;)) %&gt;%
   rename(commodity = V1) %&gt;%
-  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), funs(as.numeric(gsub(&quot;,|%|\\$&quot;, &quot;&quot;, .))))
-
-head(snap_appendix1_cleaned)</code></pre>
+  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), funs(as.numeric(gsub(&quot;,|%|\\$&quot;, &quot;&quot;, .))))</code></pre>
+<pre><code>## Warning: funs() is soft deprecated as of dplyr 0.8.0
+## Please use a list of either functions or lambdas: 
+## 
+##   # Simple named list: 
+##   list(mean = mean, median = median)
+## 
+##   # Auto named with `tibble::lst()`: 
+##   tibble::lst(mean, median)
+## 
+##   # Using lambdas
+##   list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))
+## This warning is displayed once per session.</code></pre>
+<pre class="r"><code>head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 7
 ##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
 ##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
