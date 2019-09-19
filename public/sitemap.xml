@@ -43,6 +43,12 @@
   </url>
   
   <url>
+    <loc>/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
     <lastmod>2019-09-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -55,12 +61,6 @@
   
   <url>
     <loc>/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

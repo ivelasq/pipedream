@@ -1,6 +1,6 @@
 baseurl = "https://ivelasq.rbind.io/"
 languageCode = "en-us"
-title = "Isabella Velásquez"
+title = "%>% dreams"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3

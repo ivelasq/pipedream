@@ -149,24 +149,22 @@ ccd_all <- # reordering factors
 
 ### Running the Analysis
 
-Here, we borrow from Casselman's analysis to use the `grouper()` function. 
+We can see what is the modal school district - that is, the combination of our buckets that represents the most districts in the U.S. 
 
-```{r, message = FALSE, warning = FALSE}
-grouper <- function(data, ...) {
-  data %>% 
-    group_by(...) %>% 
-    tally() %>% 
-    arrange(desc(n))
-}
+**Update 2019-09-18:** Thanks to the input from [Alison Hill](https://twitter.com/apreshill) on Twitter, instead of the `grouper()` function in the original analysis I'm using `dplyr::count()`.
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1174152252996501504')
 ```
+</center>
 
-Now... we can see what is the modal school district - that is, the combination of our buckets that represents the most districts in the U.S. The n shows how many districts fit these criteria. Here are the first four but the full table is in the [Appendix](#appendix).
+The n shows how many districts fit these criteria. Here are the first four but the full table is in the [Appendix](#appendix).
 
 ```{r, message = FALSE, warning = FALSE}
-modal <-
+modal <- 
   ccd_all %>% 
-  grouper(demographics, frpl, geography, size) %>% 
-  ungroup()
+  count(demographics, frpl, geography, size, sort = TRUE)
 
 modal %>% 
   top_n(4) %>% 
@@ -179,7 +177,7 @@ The modal school district ends up being: Majority White, Rural, Small, Medium-Lo
 
 ### Some districts are all alike; every district is different in its own way
 
-If you run `grouper()` for each bucket individually, you get the same results (as in, when running only based on size, the result is that Rural districts are the modal districts). This is slightly different from the Modal American analysis from NPR - none of these demographics seem to 'split' the groups.
+If you run each bucket individually, you get the same results as all of the groups together (as in, when running only based on size, the result is that Rural districts are the modal districts). This is slightly different from the Modal American analysis from NPR - none of these demographics seem to 'split' the groups.
 
 ### This makes sense
 
@@ -228,11 +226,19 @@ In addition to analyzing more variables (perhaps data that are less likely to co
 
 I am in awe of social media, which allows us to learn and share in so many ways. My friend retweeted a news article, which prompted the person who wrote the code to share, and then we crafted an idea based on that. I think that's pretty great!
 
+**Update 2019-09-18:** [Ben Casselman](https://twitter.com/bencasselman) wrote a reply on how it would be interesting to conduct an analysis on the modal school experience. So exciting! Can't wait to continue the analysis (and always looking for collaborators!)
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1173577230997512198')
+```
+</center>
+
 ## Appendix
 
 ### Full Table
 ```{r, message = FALSE, warning = FALSE}
 ccd_all %>% 
-  grouper(demographics, geography, size, frpl) %>% 
+  count(demographics, frpl, geography, size) %>% 
   knitr::kable()
 ```
