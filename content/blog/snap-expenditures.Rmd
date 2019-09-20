@@ -24,7 +24,7 @@ I [emailed](mailto:SNAPHQ-WEB@fns.usda.gov) SNAP HQ to ask if they had the raw d
 
 At the time, my R skills were pretty rudimentary and I couldn't figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful `tidyverse` and `tabulizer` package.
 
-```{r, include = T, message = F}
+```{r, include = T, message = F, warning = F}
 library(tidyverse)
 library(tabulizer)
 library(broom)

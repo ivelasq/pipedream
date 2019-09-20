@@ -24,9 +24,8 @@ type: "post"
 <p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
 </blockquote>
 <p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful <code>tidyverse</code> and <code>tabulizer</code> package.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.1</code></pre>
-<pre class="r"><code>library(tabulizer)
+<pre class="r"><code>library(tidyverse)
+library(tabulizer)
 library(broom)</code></pre>
 <p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
 <pre class="r"><code>snap_pdf &lt;-

@@ -8,11 +8,11 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "\/"
+             "@id": "/"
         },
         "articleSection" : "blog",
-        "name" : "Transforming PDF\x27s into Useful Tables",
-        "headline" : "Transforming PDF\x27s into Useful Tables",
+        "name" : "Transforming PDF&#39;s into Useful Tables",
+        "headline" : "Transforming PDF&#39;s into Useful Tables",
         "description" : "Extracting SNAP Expenditures Data",
         "inLanguage" : "en",
         "author" : "",
@@ -21,10 +21,10 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2018",
-        "datePublished": "2018-12-16 00:00:00 \x2b0000 UTC",
-        "dateModified" : "2018-12-16 00:00:00 \x2b0000 UTC",
-        "url" : "\/blog\/snap-expenditures\/",
-        "wordCount" : "1317",
+        "datePublished": "2018-12-16 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2018-12-16 00:00:00 &#43;0000 UTC",
+        "url" : "/blog/snap-expenditures/",
+        "wordCount" : "1307",
         "keywords" : [ "tidyverse","tabulizer","purrr","broom","Blog" ]
     }
     </script>
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.58.1" />
+        <meta name="generator" content="Hugo 0.49.1" />
         
   
     
@@ -68,21 +68,21 @@
         <meta property="og:title" content="Transforming PDF&#39;s into Useful Tables" />
 <meta property="og:description" content="Extracting SNAP Expenditures Data" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/snap-expenditures/" />
-<meta property="article:published_time" content="2018-12-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-12-16T00:00:00+00:00" />
+<meta property="og:url" content="/blog/snap-expenditures/" /><meta property="article:published_time" content="2018-12-16T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-12-16T00:00:00&#43;00:00"/>
 
         <meta property="og:image" content="//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Transforming PDF&#39;s into Useful Tables">
+        
+<meta itemprop="name" content="Transforming PDF&#39;s into Useful Tables">
 <meta itemprop="description" content="Extracting SNAP Expenditures Data">
 
 
 <meta itemprop="datePublished" content="2018-12-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1317">
+<meta itemprop="wordCount" content="1307">
 
 
 
@@ -670,10 +670,7 @@
 
 
   <div id="content">
-    
-
-
-<p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:</p>
+    <p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:</p>
 <blockquote>
 <p>This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.</p>
 </blockquote>
@@ -683,9 +680,8 @@
 <p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
 </blockquote>
 <p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful <code>tidyverse</code> and <code>tabulizer</code> package.</p>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.6.1</code></pre>
-<pre class="r"><code>library(tabulizer)
+<pre class="r"><code>library(tidyverse)
+library(tabulizer)
 library(broom)</code></pre>
 <p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
 <pre class="r"><code>snap_pdf &lt;-
@@ -1144,6 +1140,9 @@ snap_res %&gt;% # quick residual plot
 
 
   
+  
+    
+  
 
 
         
@@ -1192,7 +1191,7 @@ snap_res %&gt;% # quick residual plot
         
 
         <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2018/082018/08/chicago.png" alt="">
+            <img src="/img/2018/08/chicago.png" alt="">
         </a>
     
 
@@ -1231,7 +1230,7 @@ snap_res %&gt;% # quick residual plot
           <article>
             <header>
               
-                <a href="/categories/r/">r</a>
+                <a href="/categories/r/">R</a>
                 <span style="float:right;">6</span>
               
             </header>
