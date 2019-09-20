@@ -7,7 +7,7 @@ featured = "chicago.png"
 featuredalt = "Chicago River"
 featuredpath = "date"
 linktitle = ""
-title = "Reflections on an R-Centric Master's Program"
+title = "Reflections on an R-Centric MSc Program"
 type = "post"
 +++
 
