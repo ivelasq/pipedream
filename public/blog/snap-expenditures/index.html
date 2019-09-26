@@ -24,7 +24,7 @@
         "datePublished": "2018-12-16 00:00:00 &#43;0000 UTC",
         "dateModified" : "2018-12-16 00:00:00 &#43;0000 UTC",
         "url" : "/blog/snap-expenditures/",
-        "wordCount" : "1307",
+        "wordCount" : "1242",
         "keywords" : [ "tidyverse","tabulizer","purrr","broom","Blog" ]
     }
     </script>
@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2018-12-16T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-16T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1307">
+<meta itemprop="wordCount" content="1242">
 
 
 
@@ -305,7 +305,7 @@
         
 
         <a href="/blog/modal-district/" class="image featured">
-            <img src="/img/2019/092019/09/modal.png" alt="">
+            <img src="/img/2019/09/modal.png" alt="">
         </a>
     
 
@@ -422,7 +422,7 @@
         
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
-            <img src="/date/school.png" alt="">
+            <img src="/img/2018/09/school.png" alt="">
         </a>
     
 
@@ -571,7 +571,7 @@
             December 16, 2018</time>
         <span class="author"></span>
         
-            <p>7 minute read</p>
+            <p>6 minute read</p>
         
         
     </div>
@@ -745,20 +745,9 @@ head(snap_appendix1_cleaned)</code></pre>
   separate(col_dat, &quot; &quot;,
            into = c(&quot;snap_rank&quot;, &quot;snap_dollars_in_millions&quot;, &quot;snap_pct_total_expenditures&quot;, &quot;nonsnap_rank&quot;, &quot;nonsnap_dollars_in_millions&quot;, &quot;nonsnap_pct_total_expenditures&quot;)) %&gt;%
   rename(commodity = V1) %&gt;%
-  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), funs(as.numeric(gsub(&quot;,|%|\\$&quot;, &quot;&quot;, .))))</code></pre>
-<pre><code>## Warning: funs() is soft deprecated as of dplyr 0.8.0
-## Please use a list of either functions or lambdas: 
-## 
-##   # Simple named list: 
-##   list(mean = mean, median = median)
-## 
-##   # Auto named with `tibble::lst()`: 
-##   tibble::lst(mean, median)
-## 
-##   # Using lambdas
-##   list(~ mean(., trim = .2), ~ median(., na.rm = TRUE))
-## This warning is displayed once per session.</code></pre>
-<pre class="r"><code>head(snap_appendix1_cleaned)</code></pre>
+  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), list(~ as.numeric(gsub(&quot;,|%|\\$&quot;, &quot;&quot;, .))))
+
+head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 7
 ##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
 ##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
@@ -773,7 +762,7 @@ head(snap_appendix1_cleaned)</code></pre>
 <p>Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.</p>
 <pre class="r"><code>snap_appendix1_cleaned &lt;-
   snap_appendix1_cleaned %&gt;%
-  mutate_at(vars(contains(&quot;pct&quot;)), funs(./100))
+  mutate_at(vars(contains(&quot;pct&quot;)), list(~ ./100))
 
 head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 7
@@ -1256,7 +1245,7 @@ snap_res %&gt;% # quick residual plot
   
     <section id="mini-bio">
       <h3>About</h3>
-      <p>This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!</p>
+      <p>This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!</p>
       <a href="/about/" class="button">Learn More</a>
     </section>
   

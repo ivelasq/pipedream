@@ -87,7 +87,7 @@ snap_appendix1_cleaned <-
   separate(col_dat, " ",
            into = c("snap_rank", "snap_dollars_in_millions", "snap_pct_total_expenditures", "nonsnap_rank", "nonsnap_dollars_in_millions", "nonsnap_pct_total_expenditures")) %>%
   rename(commodity = V1) %>%
-  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), funs(as.numeric(gsub(",|%|\\$", "", .))))
+  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), list(~ as.numeric(gsub(",|%|\\$", "", .))))
 
 head(snap_appendix1_cleaned)
 ```
@@ -97,7 +97,7 @@ Last but not least, we convert all the columns with percentages into actual perc
 ```{r, include = T, message = F}
 snap_appendix1_cleaned <-
   snap_appendix1_cleaned %>%
-  mutate_at(vars(contains("pct")), funs(./100))
+  mutate_at(vars(contains("pct")), list(~ ./100))
 
 head(snap_appendix1_cleaned)
 ```
