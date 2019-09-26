@@ -3,13 +3,93 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/educationdata/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/modal-district/</loc>
     <lastmod>2019-09-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/tags/ggalluvial/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/janitor/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cluster/</loc>
+    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/geosphere/</loc>
+    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/googleway/</loc>
+    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/plotkml/</loc>
+    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/purrr/</loc>
+    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/average-hike/</loc>
     <lastmod>2019-04-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/broom/</loc>
+    <lastmod>2018-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tabulizer/</loc>
+    <lastmod>2018-12-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -23,12 +103,27 @@
   </url>
   
   <url>
+    <loc>/tags/viridis/</loc>
+    <lastmod>2018-09-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/general/</loc>
+    <lastmod>2018-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/creating-a-new-theme/</loc>
     <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/itemized/item1/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/itemized/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,119 +138,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>/itemized/</loc>
-    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/broom/</loc>
-    <lastmod>2018-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/cluster/</loc>
-    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/educationdata/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/general/</loc>
-    <lastmod>2018-08-04T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/geosphere/</loc>
-    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/ggalluvial/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/googleway/</loc>
-    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/janitor/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plotkml/</loc>
-    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/purrr/</loc>
-    <lastmod>2019-04-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tabulizer/</loc>
-    <lastmod>2018-12-16T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/viridis/</loc>
-    <lastmod>2018-09-21T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

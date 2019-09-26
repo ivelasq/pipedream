@@ -1,0 +1,20 @@
+---
+author: Isabella
+categories:
+- R
+date: "2018-07-27"
+description: Mini-Projects
+featured: visualizations
+featuredalt: ""
+format: R
+title: visualizations
+type: itemized
+---
+
+# Energy Generation by U.S. State
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1136706380587388928')
+```
+</center>
