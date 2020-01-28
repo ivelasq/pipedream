@@ -8,12 +8,12 @@
         "@type" : "BlogPosting",
         "mainEntityOfPage": {
              "@type": "WebPage",
-             "@id": "\/"
+             "@id": "/"
         },
         "articleSection" : "blog",
         "name" : "Taking A Peek into My Hiking Data",
         "headline" : "Taking A Peek into My Hiking Data",
-        "description" : "Ain\x27t No Mountain High Enough",
+        "description" : "Ain&#39;t No Mountain High Enough",
         "inLanguage" : "en",
         "author" : "",
         "creator" : "",
@@ -21,9 +21,9 @@
         "accountablePerson" : "",
         "copyrightHolder" : "",
         "copyrightYear" : "2019",
-        "datePublished": "2019-04-06 00:00:00 \x2b0000 UTC",
-        "dateModified" : "2019-04-06 00:00:00 \x2b0000 UTC",
-        "url" : "\/blog\/average-hike\/",
+        "datePublished": "2019-04-06 00:00:00 &#43;0000 UTC",
+        "dateModified" : "2019-04-06 00:00:00 &#43;0000 UTC",
+        "url" : "/blog/average-hike/",
         "wordCount" : "1547",
         "keywords" : [ "tidyverse","purrr","plotKML","geosphere","googleway","cluster","Blog" ]
     }
@@ -36,7 +36,7 @@
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="generator" content="Hugo 0.58.1" />
+        <meta name="generator" content="Hugo 0.49.1" />
         
   
     
@@ -68,15 +68,15 @@
         <meta property="og:title" content="Taking A Peek into My Hiking Data" />
 <meta property="og:description" content="Ain&#39;t No Mountain High Enough" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/average-hike/" />
-<meta property="article:published_time" content="2019-04-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-04-06T00:00:00+00:00" />
+<meta property="og:url" content="/blog/average-hike/" /><meta property="article:published_time" content="2019-04-06T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-06T00:00:00&#43;00:00"/>
 
         <meta property="og:image" content="//images/logo.png">
         <meta property="og:image:type" content="image/png">
         <meta property="og:image:width" content="512">
         <meta property="og:image:height" content="512">
-        <meta itemprop="name" content="Taking A Peek into My Hiking Data">
+        
+<meta itemprop="name" content="Taking A Peek into My Hiking Data">
 <meta itemprop="description" content="Ain&#39;t No Mountain High Enough">
 
 
@@ -275,6 +275,45 @@
                 
                         <article class="mini-post">
                             <header>
+                                <h3><a href="/blog/things-i-google/">Six Things I Always Google When Using ggplot2</a></h3>
+                                
+                                <time class="published" datetime=
+                                    '2020-01-27'>
+                                    January 27, 2020</time>
+                            </header>
+                            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/things-i-google/" class="image featured">
+            <img src="/img/2020/01/ggplot2.png" alt="">
+        </a>
+    
+
+
+                        </article>
+                
+                        <article class="mini-post">
+                            <header>
                                 <h3><a href="/blog/modal-district/">Finding the Modal School District</a></h3>
                                 
                                 <time class="published" datetime=
@@ -423,45 +462,6 @@
 
         <a href="/blog/why-disaggregate-data/" class="image featured">
             <img src="/img/2018/09/school.png" alt="">
-        </a>
-    
-
-
-                        </article>
-                
-                        <article class="mini-post">
-                            <header>
-                                <h3><a href="/blog/creating-a-new-theme/">So You&#39;re Getting a Masters in Analytics</a></h3>
-                                
-                                <time class="published" datetime=
-                                    '2018-08-04'>
-                                    August 4, 2018</time>
-                            </header>
-                            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2018/08/chicago.png" alt="">
         </a>
     
 
@@ -670,10 +670,7 @@
 
 
   <div id="content">
-    
-
-
-<p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
+    <p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
 <p>Recently, I signed up on <a href="https://www.alltrails.com/">AllTrails</a> to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.</p>
 <p>I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the <a href="#methodology">Methodology</a> or <a href="#viz">Visualizations</a> sections below! (Interesting, I ran <a href="https://twitter.com/ivelasq3/status/1121536896956428289">a poll on Twitter</a> in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).</p>
 <div id="analysis" class="section level1">
@@ -1163,6 +1160,47 @@ hiking_dat_by_trail %&gt;%
           <article class="mini-post">
             <header>
               <h3>
+                <a href="/blog/things-i-google/">Six Things I Always Google When Using ggplot2</a>
+              </h3>
+              
+              <time class="published" datetime='2020-01-27'>
+                January 27, 2020
+              </time>
+            </header>
+            
+    
+
+    
+        
+        
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+        
+        
+        
+
+        <a href="/blog/things-i-google/" class="image featured">
+            <img src="/img/2020/01/ggplot2.png" alt="">
+        </a>
+    
+
+
+          </article>
+        
+          <article class="mini-post">
+            <header>
+              <h3>
                 <a href="/blog/modal-district/">Finding the Modal School District</a>
               </h3>
               
@@ -1324,47 +1362,6 @@ hiking_dat_by_trail %&gt;%
 
           </article>
         
-          <article class="mini-post">
-            <header>
-              <h3>
-                <a href="/blog/creating-a-new-theme/">So You&#39;re Getting a Masters in Analytics</a>
-              </h3>
-              
-              <time class="published" datetime='2018-08-04'>
-                August 4, 2018
-              </time>
-            </header>
-            
-    
-
-    
-        
-        
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-
-        
-        
-        
-
-        <a href="/blog/creating-a-new-theme/" class="image featured">
-            <img src="/img/2018/08/chicago.png" alt="">
-        </a>
-    
-
-
-          </article>
-        
       </div>
 
       
@@ -1397,8 +1394,8 @@ hiking_dat_by_trail %&gt;%
           <article>
             <header>
               
-                <a href="/categories/r/">r</a>
-                <span style="float:right;">6</span>
+                <a href="/categories/r/">R</a>
+                <span style="float:right;">7</span>
               
             </header>
           </article>
@@ -1528,7 +1525,7 @@ hiking_dat_by_trail %&gt;%
     
     <p class="copyright">
       
-        &copy; 2019
+        &copy; 2020
         
           %&gt;% dreams
         
