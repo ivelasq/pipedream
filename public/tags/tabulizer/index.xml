@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tabulizer on %&gt;% dreams</title>
@@ -18,8 +18,8 @@
       
       <guid>/blog/snap-expenditures/</guid>
       <description>Way back in 2016, the USDA released a study entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:
-This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.
-At the time though, I was most interested in looking at the appendices data - 263 pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP.</description>
+ This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.
+ At the time though, I was most interested in looking at the appendices data - 263 pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP.</description>
     </item>
     
     <item>
@@ -28,8 +28,12 @@
       <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>/blog/why-disaggregate-data/</guid>
-      <description>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.
-In this post, I define what disaggregated data is and how it can inform teams on their equity work.</description>
+      <description>
+
+
+&lt;p&gt;I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.&lt;/p&gt;
+&lt;p&gt;In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.&lt;/p&gt;
+</description>
     </item>
     
   </channel>

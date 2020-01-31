@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ggplot2 on %&gt;% dreams</title>
@@ -18,7 +18,7 @@
       
       <guid>/blog/things-i-google/</guid>
       <description>I often use {ggplot2} to create graphs but there are certain things I always have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!
-Remove the LegendChange Legend Title and LabelsManually Change ColorsRemove X Axis LabelsStart the Y Axis at a Specific NumberUse Scales on the Y Axislibrary(tidyverse)knitr::opts_chunk$set(out.</description>
+ Remove the Legend Change Legend Title and Labels Manually Change Colors Remove X Axis Labels Start the Y Axis at a Specific Number Use Scales on the Y Axis  library(tidyverse) knitr::opts_chunk$set(out.</description>
     </item>
     
   </channel>
