@@ -1,0 +1,13 @@
+---
+author: ""
+categories: ["R"]
+tags: ["tidyverse", "ggplot2"]
+date: "2020-02-19"
+description: "Repository for Project Skeletons"
+featured: "mise-en-place.png"
+featuredalt: "Repository for Project Skeletons"
+featuredpath: "date"
+linktitle: ""
+title: "Mise-en-Place: Everything in its Place"
+type: post
+---
