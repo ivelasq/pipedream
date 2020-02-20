@@ -10,4 +10,5 @@ featuredpath: "date"
 linktitle: ""
 title: "Mise-en-Place: Everything in its Place"
 type: post
+draft: true
 ---
