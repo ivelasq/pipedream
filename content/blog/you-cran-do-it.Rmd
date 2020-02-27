@@ -28,11 +28,11 @@ blogdown::shortcode('tweet', '1228139634871472129')
 
 ## You can get by with a little help from your friends
 
-{usethis}, {devtools}, and {roxygen}, although not necessary, are useful tools for creating CRAN-ready packages.
+{usethis}, {devtools}, and {roxygen2}, although not necessary, are useful tools for creating CRAN-ready packages.
 
 ## Documentation is key
 
-* Have tests and coverage via covr, and making sure they run without issues on all platforms
+* Have tests and coverage via {covr}, and making sure they run without issues on all platforms
 * CRAN will ask that you add examples to your package, wrapped in `\dontrun{}` and `\donttest{}`.
 * Have others read your stuff and provide feedback!
 
