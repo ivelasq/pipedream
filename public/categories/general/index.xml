@@ -6,10 +6,22 @@
     <description>Recent content in general on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>You CRAN Do It</title>
+      <link>/blog/you-cran-do-it/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/you-cran-do-it/</guid>
+      <description>As the @WeAreRLadies curator, I asked the Twitterverse for advice when submitting to CRAN for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!
+Here’s what to expect when succeeding to get your package on CRAN!
+ I don&amp;#39;t know you, but I believe in you 🤩
+&amp;mdash; Travis Dawry (@tdawry) February 14, 2020   Read the Official CRAN Documentation … which is Writing R Extensions!</description>
+    </item>
     
     <item>
       <title>So You&#39;re Getting a Masters in Analytics</title>
