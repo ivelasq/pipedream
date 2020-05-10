@@ -11,8 +11,8 @@ title: talks
 type: itemized
 ---
 
-2020-05-08 [**Package Management in R**](https://garciamikep.github.io/useR-webinar/)
+2020-05-08 [**Package Management in R**](https://garciamikep.github.io/useR-webinar/) *Seattle useR Group*
 
-2019-07-16 [**Taking a Peek at Hiking Data Using R**](https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p)
+2019-07-16 [**Taking a Peek at Hiking Data Using R**](https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p) *R-Ladies Seattle*
 
-2018-07-23 [**Blogdown for What: Introduction to Blogdown**](https://www.slideshare.net/ivelasq/20180723-blogdown-for-what)
+2018-07-23 [**Blogdown for What: Introduction to Blogdown**](https://www.slideshare.net/ivelasq/20180723-blogdown-for-what) *R-Ladies Seattle*

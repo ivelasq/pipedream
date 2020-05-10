@@ -341,9 +341,6 @@ if (!doNotTrack) {
 
 
   
-  
-    
-  
 
 
         
@@ -390,7 +387,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/you-cran-do-it/" class="image featured">
-            <img src="/img/2020/022020/02/cran.png" alt="">
+            <img src="/img/2020/02/cran.png" alt="">
         </a>
     
 
@@ -429,7 +426,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/mis-en-place/" class="image featured">
-            <img src="/img/2020/022020/02/mise-en-place.png" alt="">
+            <img src="/img/2020/02/mise-en-place.png" alt="">
         </a>
     
 
@@ -458,6 +455,9 @@ if (!doNotTrack) {
 
 
   
+  
+    
+  
 
 
         
@@ -465,7 +465,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/botw/" class="image featured">
-            <img src="/img//botw.png" alt="">
+            <img src="/img/2020/02/botw.png" alt="">
         </a>
     
 
@@ -601,7 +601,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/leaid-shapefiles/" class="image featured">
-            <img src="/img/2020/052020/05/leaid.png" alt="">
+            <img src="/img/2020/05/leaid.png" alt="">
         </a>
     
 
@@ -612,7 +612,7 @@ if (!doNotTrack) {
 
 <p>I would like to introduce <a href="https://github.com/ivelasq/leaidr">{leaidr}</a>, a package for mapping U.S. School District shapefiles!</p>
 <p>Inspired by my coauthor <a href="https://joshuamrosenberg.com/">Joshua Rosenberg</a>, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.</p>
-<p>School districts in the U.S. have an associated local education agency identification numbers (LEAID) used in <a href="https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp">National Center for Education Statistics (NCES) Common Core of Data</a>. These are very useful because if you have other datasets with NCES ID’s, then you can easily join them.</p>
+<p>School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the <a href="https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp">National Center for Education Statistics (NCES) Common Core of Data</a>. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.</p>
 <p>It can be very useful to visualize districts and associated data. District shapefiles are available in different places, such as through the <a href="https://nces.ed.gov/programs/edge/Geographic/DistrictBoundaries">NCES</a> and <a href="https://exhibits.stanford.edu/data/catalog/db586ns4974">Stanford Education Data Archive</a>. The package {tigris} also has a school district option, but unfortunately it is missing a few district polygons.</p>
 <pre class="r"><code>library(tigris)
 
@@ -620,23 +620,20 @@ ca &lt;- tigris::school_districts(state = &quot;06&quot;,
                                type = &quot;unified&quot;)
 
 plot(ca[&quot;GEOID&quot;])</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
-<img src="/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-1-1.png" alt="Tigris California School District Output" width="672" />
-<p class="caption">
-Figure 1: Tigris California School District Output
-</p>
-</div>
-<p>{leaidr} saves the U.S. district shapefile to Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB) and Github Large File Storage (LFS) stores files as a hash, not as an actual file that others can download.</p>
-<p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, designate an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like.</p>
+<p><img src="/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>{leaidr} downloads the U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
+<p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, designate an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, I searched for the term ‘summer’. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
+<p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid<em>", "coron</em>”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
 <p>First, let’s download our libraries.</p>
 <pre class="r"><code>library(tidyverse)
 library(leaidr)
+library(maptools)
 library(viridis)</code></pre>
 <p>Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data in a CSV (in this case, <code>summary-of-table-of-links.csv</code>).</p>
+<p><strong>Note:</strong> You must have a Github PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
 <pre class="r"><code># download the shapefile into a designated folder
 leaidr::lea_get(path = &quot;./test&quot;)
 
@@ -645,17 +642,19 @@ ca_shapefile &lt;-
   leaidr::lea_prep(path = &quot;./test&quot;, fips = &quot;06&quot;)
 
 # read in the external data that also has NCES ID&#39;s
+# this is from the covidedu project
 ca_data &lt;-
-  read_csv(&quot;summary-of-table-of-links.csv&quot;)</code></pre>
+  read_csv(&quot;https://raw.githubusercontent.com/making-data-science-count/covidedu/master/output/2020-04-29/summary-of-table-of-links.csv&quot;)</code></pre>
 <p>Join the CSV to the shapefile.</p>
 <pre class="r"><code>ca_merge &lt;-
   sp::merge(ca_shapefile, ca_data, by.x = &quot;GEOID&quot;, by.y = &quot;nces_id&quot;)</code></pre>
-<p>Now ‘fortify’ the data - this converts the polygons into points. This is so ggplot can create the plot/</p>
+<p>Now ‘fortify’ the data - this converts the polygons into points. This is so ggplot can create the plot.</p>
 <p>If you get the error <code>isTRUE(gpclibPermitStatus()) is not TRUE</code>, then you need to enable <code>gpclib</code> by running <code>gpclibPermit()</code>. Note that support for <code>gpclib</code> will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.</p>
-<pre class="r"><code>ca_points &lt;- fortify(ca_merge, region = &quot;GEOID&quot;)</code></pre>
+<pre class="r"><code>gpclibPermit()
+ca_points &lt;- fortify(ca_merge, region = &quot;GEOID&quot;)</code></pre>
 <p>Now, join the points and the shapefile data.</p>
 <pre class="r"><code>ca_df &lt;- left_join(ca_merge@data, ca_points, by = c(&quot;GEOID&quot; = &quot;id&quot;))</code></pre>
-<p>Now, we can finally plot the shapefile and its data!</p>
+<p>We can finally plot the shapefile and its data!</p>
 <pre class="r"><code>ca_map &lt;-
   ca_df %&gt;% 
   ggplot() +
@@ -667,7 +666,7 @@ ca_data &lt;-
                size = .2) +
   theme_void() +
   scale_fill_viridis(option = &quot;cividis&quot;, discrete = TRUE)</code></pre>
-<p>To make the map nicer looking, then you can use <code>coord_map()</code>.</p>
+<p>To make a nicer looking map, then you can use <code>coord_map()</code>.</p>
 <pre class="r"><code>map_projected &lt;- ca_map +
   coord_map()
 
@@ -979,6 +978,9 @@ print(map_projected)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -986,7 +988,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/leaid-shapefiles/" class="image featured">
-            <img src="/date2020/05/leaid.png" alt="">
+            <img src="/img/2020/05/leaid.png" alt="">
         </a>
     
 
@@ -1017,6 +1019,9 @@ print(map_projected)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -1024,7 +1029,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/three-shiny-things/" class="image featured">
-            <img src="/date2020/04/shiny.png" alt="">
+            <img src="/img/2020/04/shiny.png" alt="">
         </a>
     
 
@@ -1055,6 +1060,9 @@ print(map_projected)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -1062,7 +1070,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/you-cran-do-it/" class="image featured">
-            <img src="/img//cran.png" alt="">
+            <img src="/img/2020/02/cran.png" alt="">
         </a>
     
 
@@ -1093,6 +1101,9 @@ print(map_projected)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -1100,7 +1111,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/mis-en-place/" class="image featured">
-            <img src="/img//mise-en-place.png" alt="">
+            <img src="/img/2020/02/mise-en-place.png" alt="">
         </a>
     
 

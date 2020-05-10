@@ -16,11 +16,11 @@ I would like to introduce [{leaidr}](https://github.com/ivelasq/leaidr), a packa
 
 Inspired by my coauthor [Joshua Rosenberg](https://joshuamrosenberg.com/), the goal of {leaidr} is to facilitate the download and use of school district shapefiles.
 
-School districts in the U.S. have an associated local education agency identification numbers (LEAID) used in [National Center for Education Statistics (NCES) Common Core of Data](https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp). These are very useful because if you have other datasets with NCES ID's, then you can easily join them.
+School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the [National Center for Education Statistics (NCES) Common Core of Data](https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp). These are very useful because if you have other datasets with NCES ID's, then you can (sometimes easily) join them.
 
 It can be very useful to visualize districts and associated data. District shapefiles are available in different places, such as through the [NCES](https://nces.ed.gov/programs/edge/Geographic/DistrictBoundaries) and [Stanford Education Data Archive](https://exhibits.stanford.edu/data/catalog/db586ns4974). The package {tigris} also has a school district option, but unfortunately it is missing a few district polygons.
 
-```{r, fig.cap = "Tigris California School District Output", message = FALSE, results = 'hide'}
+```{r, message = FALSE, results = 'hide'}
 library(tigris)
 
 ca <- tigris::school_districts(state = "06",
@@ -29,25 +29,28 @@ ca <- tigris::school_districts(state = "06",
 plot(ca["GEOID"])
 ```
 
-{leaidr} saves the U.S. district shapefile to Github using ROpenSci's [{piggyback}](https://github.com/ropensci/piggyback) package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB) and Github Large File Storage (LFS) stores files as a hash, not as an actual file that others can download.
+{leaidr} downloads the U.S. district shapefile from Github using ROpenSci's [{piggyback}](https://github.com/ropensci/piggyback) package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn't figure out how to use it for a package that others can use.
 
-The function `lea_get()` downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, designate an object with `lea_prep()` by designating where the shapefiles exist and which state(s) you would like.
+The function `lea_get()` downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, designate an object with `lea_prep()` by designating where the shapefiles exist and which state(s) you would like. **Note:** For now, you must use the state's FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found [here](https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm).
 
 Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.
 
 ## Example
 
-Let's walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh's [`covidedu` project](https://github.com/making-data-science-count/covidedu), which scrapes district websites for specific words. In this case, I searched for the term 'summer'. I highly recommend using `covidedu` for easy scraping from a **lot** of district websites!
+Let's walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh's [`covidedu` project](https://github.com/making-data-science-count/covidedu), which scrapes district websites for specific words. In this case, the search terms were "covid*", "coron*", and "closure". I highly recommend using `covidedu` for easy scraping from a **lot** of district websites!
 
 First, let's download our libraries.
 
 ```{r, eval = FALSE}
 library(tidyverse)
 library(leaidr)
+library(maptools)
 library(viridis)
 ```
 
 Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data in a CSV (in this case, `summary-of-table-of-links.csv`).
+
+**Note:** You must have a Github PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to do that.
 
 ```{r, eval = FALSE}
 # download the shapefile into a designated folder
@@ -58,8 +61,9 @@ ca_shapefile <-
   leaidr::lea_prep(path = "./test", fips = "06")
 
 # read in the external data that also has NCES ID's
+# this is from the covidedu project
 ca_data <-
-  read_csv("summary-of-table-of-links.csv")
+  read_csv("https://raw.githubusercontent.com/making-data-science-count/covidedu/master/output/2020-04-29/summary-of-table-of-links.csv")
 ```
 
 Join the CSV to the shapefile.
@@ -69,11 +73,12 @@ ca_merge <-
   sp::merge(ca_shapefile, ca_data, by.x = "GEOID", by.y = "nces_id")
 ```
 
-Now 'fortify' the data - this converts the polygons into points. This is so ggplot can create the plot/
+Now 'fortify' the data - this converts the polygons into points. This is so ggplot can create the plot.
 
 If you get the error `isTRUE(gpclibPermitStatus()) is not TRUE`, then you need to enable `gpclib` by running `gpclibPermit()`. Note that support for `gpclib` will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.
 
 ```{r, eval = FALSE}
+gpclibPermit()
 ca_points <- fortify(ca_merge, region = "GEOID")
 ```
 
@@ -83,7 +88,7 @@ Now, join the points and the shapefile data.
 ca_df <- left_join(ca_merge@data, ca_points, by = c("GEOID" = "id"))
 ```
 
-Now, we can finally plot the shapefile and its data!
+We can finally plot the shapefile and its data!
 
 ```{r, eval = FALSE}
 ca_map <-
@@ -99,7 +104,7 @@ ca_map <-
   scale_fill_viridis(option = "cividis", discrete = TRUE)
 ```
 
-To make the map nicer looking, then you can use `coord_map()`.
+To make a nicer looking map, then you can use `coord_map()`.
 
 ```{r, eval = FALSE}
 map_projected <- ca_map +

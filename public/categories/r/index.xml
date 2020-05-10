@@ -19,7 +19,7 @@
       <guid>/blog/leaid-shapefiles/</guid>
       <description>I would like to introduce {leaidr}, a package for mapping U.S. School District shapefiles!
 Inspired by my coauthor Joshua Rosenberg, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.
-School districts in the U.S. have an associated local education agency identification numbers (LEAID) used in National Center for Education Statistics (NCES) Common Core of Data. These are very useful because if you have other datasets with NCES ID’s, then you can easily join them.</description>
+School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the National Center for Education Statistics (NCES) Common Core of Data. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.</description>
     </item>
     
     <item>
@@ -121,9 +121,9 @@ The Zengine API, created by WizeHive, is a cloud-based platform that can organiz
       <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>/itemized/talks/</guid>
-      <description>2020-05-08 Package Management in R
-2019-07-16 Taking a Peek at Hiking Data Using R
-2018-07-23 Blogdown for What: Introduction to Blogdown</description>
+      <description>2020-05-08 Package Management in R Seattle useR Group
+2019-07-16 Taking a Peek at Hiking Data Using R R-Ladies Seattle
+2018-07-23 Blogdown for What: Introduction to Blogdown R-Ladies Seattle</description>
     </item>
     
     <item>
