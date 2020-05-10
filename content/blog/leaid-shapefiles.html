@@ -30,13 +30,17 @@ plot(ca[&quot;GEOID&quot;])</code></pre>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
 <div id="example" class="section level2">
 <h2>Example</h2>
-<p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid<em>", "coron</em>”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
+<p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
 <p>First, let’s download our libraries.</p>
 <pre class="r"><code>library(tidyverse)
+# if you haven&#39;t installed the package yet
+# devtools::install_github(&quot;ivelasq/leaidr&quot;)
 library(leaidr)
 library(maptools)
-library(viridis)</code></pre>
-<p>Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data in a CSV (in this case, <code>summary-of-table-of-links.csv</code>).</p>
+library(viridis)
+# if you don&#39;t have this downloaded
+# install.packages(&quot;mapproj&quot;)</code></pre>
+<p>Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
 <p><strong>Note:</strong> You must have a Github PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
 <pre class="r"><code># download the shapefile into a designated folder
 leaidr::lea_get(path = &quot;./test&quot;)
@@ -53,8 +57,11 @@ ca_data &lt;-
 <pre class="r"><code>ca_merge &lt;-
   sp::merge(ca_shapefile, ca_data, by.x = &quot;GEOID&quot;, by.y = &quot;nces_id&quot;)</code></pre>
 <p>Now ‘fortify’ the data - this converts the polygons into points. This is so ggplot can create the plot.</p>
-<p>If you get the error <code>isTRUE(gpclibPermitStatus()) is not TRUE</code>, then you need to enable <code>gpclib</code> by running <code>gpclibPermit()</code>. Note that support for <code>gpclib</code> will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.</p>
-<pre class="r"><code>gpclibPermit()
+<p>If you get the error <code>isTRUE(gpclibPermitStatus()) is not TRUE</code>, then you need to enable <code>gpclib</code> by running <code>gpclibPermit()</code> (this is part of the {maptools} package, which should have been loaded above). Note that support for <code>gpclib</code> will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.</p>
+<p>If you run <code>gpclibPermit()</code> and you get <code>FALSE</code>, then you need to also install the package {gpclib} and then run <code>gpclibPermit()</code> to set it to <code>TRUE</code>.</p>
+<p>(I don’t know if this is the best/only way to do this - if anybody has suggestions, please let me know!)</p>
+<pre class="r"><code># install.package(&quot;gpclib&quot;)
+gpclibPermit()
 ca_points &lt;- fortify(ca_merge, region = &quot;GEOID&quot;)</code></pre>
 <p>Now, join the points and the shapefile data.</p>
 <pre class="r"><code>ca_df &lt;- left_join(ca_merge@data, ca_points, by = c(&quot;GEOID&quot; = &quot;id&quot;))</code></pre>
@@ -69,7 +76,8 @@ ca_points &lt;- fortify(ca_merge, region = &quot;GEOID&quot;)</code></pre>
                color = &quot;gray&quot;, 
                size = .2) +
   theme_void() +
-  scale_fill_viridis(option = &quot;cividis&quot;, discrete = TRUE)</code></pre>
+  scale_fill_viridis(option = &quot;cividis&quot;, discrete = TRUE) +
+  ggtitle(&quot;COVID-Related Links Found on CA School District Sites&quot;)</code></pre>
 <p>To make a nicer looking map, then you can use <code>coord_map()</code>.</p>
 <pre class="r"><code>map_projected &lt;- ca_map +
   coord_map()

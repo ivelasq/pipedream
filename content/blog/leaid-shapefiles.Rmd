@@ -37,18 +37,22 @@ Once you have the shapefile, then you can merge with other datasets and plot usi
 
 ## Example
 
-Let's walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh's [`covidedu` project](https://github.com/making-data-science-count/covidedu), which scrapes district websites for specific words. In this case, the search terms were "covid*", "coron*", and "closure". I highly recommend using `covidedu` for easy scraping from a **lot** of district websites!
+Let's walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh's [`covidedu` project](https://github.com/making-data-science-count/covidedu), which scrapes district websites for specific words. In this case, the search terms were "covid\*", "coron\*", and "closure". I highly recommend using `covidedu` for easy scraping from a **lot** of district websites!
 
 First, let's download our libraries.
 
 ```{r, eval = FALSE}
 library(tidyverse)
+# if you haven't installed the package yet
+# devtools::install_github("ivelasq/leaidr")
 library(leaidr)
 library(maptools)
 library(viridis)
+# if you don't have this downloaded
+# install.packages("mapproj")
 ```
 
-Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data in a CSV (in this case, `summary-of-table-of-links.csv`).
+Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, `summary-of-table-of-links.csv`).
 
 **Note:** You must have a Github PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to do that.
 
@@ -75,9 +79,14 @@ ca_merge <-
 
 Now 'fortify' the data - this converts the polygons into points. This is so ggplot can create the plot.
 
-If you get the error `isTRUE(gpclibPermitStatus()) is not TRUE`, then you need to enable `gpclib` by running `gpclibPermit()`. Note that support for `gpclib` will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.
+If you get the error `isTRUE(gpclibPermitStatus()) is not TRUE`, then you need to enable `gpclib` by running `gpclibPermit()` (this is part of the {maptools} package, which should have been loaded above). Note that support for `gpclib` will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.
+
+If you run `gpclibPermit()` and you get `FALSE`, then you need to also install the package {gpclib} and then run `gpclibPermit()` to set it to `TRUE`.
+
+(I don't know if this is the best/only way to do this - if anybody has suggestions, please let me know!)
 
 ```{r, eval = FALSE}
+# install.package("gpclib")
 gpclibPermit()
 ca_points <- fortify(ca_merge, region = "GEOID")
 ```
@@ -101,7 +110,8 @@ ca_map <-
                color = "gray", 
                size = .2) +
   theme_void() +
-  scale_fill_viridis(option = "cividis", discrete = TRUE)
+  scale_fill_viridis(option = "cividis", discrete = TRUE) +
+  ggtitle("COVID-Related Links Found on CA School District Sites")
 ```
 
 To make a nicer looking map, then you can use `coord_map()`.
