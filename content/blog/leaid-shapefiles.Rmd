@@ -54,7 +54,7 @@ library(viridis)
 
 Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, `summary-of-table-of-links.csv`).
 
-**Note:** You must have a Github PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to do that.
+**Note:** You must have a GitHub PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to do that.
 
 ```{r, eval = FALSE}
 # download the shapefile into a designated folder
@@ -131,8 +131,8 @@ Tada! A full school district map for California.
 
 Please try out {leaidr}! I hope that it is useful to you in your work. I'd love any collaborators to join me in making it easier/better!
 
-* **Other functionalities**: Thinking of being able to filter shapefiles by NCES ID's as well as states; adding commonly used data (like district demographics) to the package.
-* **Issues**: If you run into any issues, please post on the [Github page!](https://github.com/ivelasq/leaidr/issues)
+* **Other functionalities**: Thinking of: being able to filter shapefiles by NCES IDs as well as states; adding commonly used data (like district demographics).
+* **Issues**: If you run into any issues, please post on the [GitHub page!](https://github.com/ivelasq/leaidr/issues)
 
 ## Resources
 
