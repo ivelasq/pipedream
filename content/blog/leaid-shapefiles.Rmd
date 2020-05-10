@@ -1,0 +1,126 @@
+---
+author: ""
+categories: ["R"]
+tags: ["rgdal", "sp", "sf", "piggyback", "viridis", "maptools", "ggplot2"]
+date: "2020-05-03"
+description: "Introducing {leaidr}"
+featured: "leaid.png"
+featuredalt: "Creating an R Package for School District Shapefiles"
+featuredpath: "date"
+linktitle: ""
+title: "Creating an R Package for School District Shapefiles"
+type: post
+---
+
+I would like to introduce [{leaidr}](https://github.com/ivelasq/leaidr), a package for mapping U.S. School District shapefiles!
+
+Inspired by my coauthor [Joshua Rosenberg](https://joshuamrosenberg.com/), the goal of {leaidr} is to facilitate the download and use of school district shapefiles.
+
+School districts in the U.S. have an associated local education agency identification numbers (LEAID) used in [National Center for Education Statistics (NCES) Common Core of Data](https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp). These are very useful because if you have other datasets with NCES ID's, then you can easily join them.
+
+It can be very useful to visualize districts and associated data. District shapefiles are available in different places, such as through the [NCES](https://nces.ed.gov/programs/edge/Geographic/DistrictBoundaries) and [Stanford Education Data Archive](https://exhibits.stanford.edu/data/catalog/db586ns4974). The package {tigris} also has a school district option, but unfortunately it is missing a few district polygons.
+
+```{r, fig.cap = "Tigris California School District Output", message = FALSE, results = 'hide'}
+library(tigris)
+
+ca <- tigris::school_districts(state = "06",
+                               type = "unified")
+
+plot(ca["GEOID"])
+```
+
+{leaidr} saves the U.S. district shapefile to Github using ROpenSci's [{piggyback}](https://github.com/ropensci/piggyback) package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB) and Github Large File Storage (LFS) stores files as a hash, not as an actual file that others can download.
+
+The function `lea_get()` downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, designate an object with `lea_prep()` by designating where the shapefiles exist and which state(s) you would like.
+
+Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.
+
+## Example
+
+Let's walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh's [`covidedu` project](https://github.com/making-data-science-count/covidedu), which scrapes district websites for specific words. In this case, I searched for the term 'summer'. I highly recommend using `covidedu` for easy scraping from a **lot** of district websites!
+
+First, let's download our libraries.
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(leaidr)
+library(viridis)
+```
+
+Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data in a CSV (in this case, `summary-of-table-of-links.csv`).
+
+```{r, eval = FALSE}
+# download the shapefile into a designated folder
+leaidr::lea_get(path = "./test")
+
+# prep the shapefile for the state(s) you'd like
+ca_shapefile <-
+  leaidr::lea_prep(path = "./test", fips = "06")
+
+# read in the external data that also has NCES ID's
+ca_data <-
+  read_csv("summary-of-table-of-links.csv")
+```
+
+Join the CSV to the shapefile.
+
+```{r, eval = FALSE}
+ca_merge <-
+  sp::merge(ca_shapefile, ca_data, by.x = "GEOID", by.y = "nces_id")
+```
+
+Now 'fortify' the data - this converts the polygons into points. This is so ggplot can create the plot/
+
+If you get the error `isTRUE(gpclibPermitStatus()) is not TRUE`, then you need to enable `gpclib` by running `gpclibPermit()`. Note that support for `gpclib` will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.
+
+```{r, eval = FALSE}
+ca_points <- fortify(ca_merge, region = "GEOID")
+```
+
+Now, join the points and the shapefile data.
+
+```{r, eval = FALSE}
+ca_df <- left_join(ca_merge@data, ca_points, by = c("GEOID" = "id"))
+```
+
+Now, we can finally plot the shapefile and its data!
+
+```{r, eval = FALSE}
+ca_map <-
+  ca_df %>% 
+  ggplot() +
+  geom_polygon(aes(x = long, 
+                   y = lat, 
+                   group = group,
+                   fill = any_link_found),
+               color = "gray", 
+               size = .2) +
+  theme_void() +
+  scale_fill_viridis(option = "cividis", discrete = TRUE)
+```
+
+To make the map nicer looking, then you can use `coord_map()`.
+
+```{r, eval = FALSE}
+map_projected <- ca_map +
+  coord_map()
+
+print(map_projected)
+```
+
+![](https://ivelasq.rbind.io/img/leaid-shapefiles/test_map.png)
+
+Tada! A full school district map for California.
+
+## Call for Collaboration
+
+Please try out {leaidr}! I hope that it is useful to you in your work. I'd love any collaborators to join me in making it easier/better!
+
+* **Other functionalities**: Thinking of being able to filter shapefiles by NCES ID's as well as states; adding commonly used data (like district demographics) to the package.
+* **Issues**: If you run into any issues, please post on the [Github page!](https://github.com/ivelasq/leaidr/issues)
+
+## Resources
+
+* [**Joining Spatial Data**](
+# joining spatial data: http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html)
+* [**Analyzing U.S. Census Data Using R**](https://rpubs.com/DanielSLee/censusMap)

@@ -4,17 +4,82 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/leaid-shapefiles/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/maptools/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/piggyback/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rgdal/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sf/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sp/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/viridis/</loc>
+    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/three-shiny-things/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/shiny/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tidyverse/</loc>
+    <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -28,27 +93,7 @@
   </url>
   
   <url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/mis-en-place/</loc>
-    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-02-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
     <lastmod>2020-02-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -133,11 +178,6 @@
   </url>
   
   <url>
-    <loc>/tags/viridis/</loc>
-    <lastmod>2018-09-21T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/blog/creating-a-new-theme/</loc>
     <lastmod>2018-08-04T00:00:00+00:00</lastmod>
   </url>
@@ -149,6 +189,11 @@
   
   <url>
     <loc>/itemized/</loc>
+    <lastmod>2018-07-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/itemized/talks/</loc>
     <lastmod>2018-07-27T00:00:00+00:00</lastmod>
   </url>
   

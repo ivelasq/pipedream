@@ -6,7 +6,7 @@
     <description>Recent content in Tags on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,16 +14,79 @@
     <item>
       <title>ggplot2</title>
       <link>/tags/ggplot2/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/ggplot2/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>maptools</title>
+      <link>/tags/maptools/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/maptools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>piggyback</title>
+      <link>/tags/piggyback/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/piggyback/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rgdal</title>
+      <link>/tags/rgdal/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rgdal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sf</title>
+      <link>/tags/sf/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sp</title>
+      <link>/tags/sp/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>viridis</title>
+      <link>/tags/viridis/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/viridis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shiny</title>
+      <link>/tags/shiny/</link>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>tidyverse</title>
       <link>/tags/tidyverse/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/tidyverse/</guid>
       <description></description>
@@ -116,15 +179,6 @@
       <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/tabulizer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>viridis</title>
-      <link>/tags/viridis/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/viridis/</guid>
       <description></description>
     </item>
     

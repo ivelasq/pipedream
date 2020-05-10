@@ -1,0 +1,18 @@
+---
+author: Isabella
+categories:
+- R
+date: "2018-07-27"
+description: Talks & Presentations
+featured: talks
+featuredalt: ""
+format: R
+title: talks
+type: itemized
+---
+
+2020-05-08 [**Package Management in R**](https://garciamikep.github.io/useR-webinar/)
+
+2019-07-16 [**Taking a Peek at Hiking Data Using R**](https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p)
+
+2018-07-23 [**Blogdown for What: Introduction to Blogdown**](https://www.slideshare.net/ivelasq/20180723-blogdown-for-what)
