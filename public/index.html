@@ -351,7 +351,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/three-shiny-things/" class="image featured">
-            <img src="/img/2020/04/shiny.png" alt="">
+            <img src="/date/shiny.png" alt="">
         </a>
     
 
@@ -379,6 +379,9 @@ if (!doNotTrack) {
 
 
 
+  
+  
+    
   
 
 
@@ -465,7 +468,7 @@ if (!doNotTrack) {
         
 
         <a href="/blog/botw/" class="image featured">
-            <img src="/date2020/02/botw.png" alt="">
+            <img src="/date/botw.png" alt="">
         </a>
     
 
@@ -622,7 +625,7 @@ ca &lt;- tigris::school_districts(state = &quot;06&quot;,
 plot(ca[&quot;GEOID&quot;])</code></pre>
 <p><img src="/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
-<p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
+<p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
 <div id="example" class="section level2">
 <h2>Example</h2>
@@ -1027,6 +1030,9 @@ print(map_projected)</code></pre>
 
 
   
+  
+    
+  
 
 
         
@@ -1034,7 +1040,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/three-shiny-things/" class="image featured">
-            <img src="/img//shiny.png" alt="">
+            <img src="/img/2020/04/shiny.png" alt="">
         </a>
     
 
@@ -1116,7 +1122,7 @@ print(map_projected)</code></pre>
         
 
         <a href="/blog/mis-en-place/" class="image featured">
-            <img src="/date2020/02/mise-en-place.png" alt="">
+            <img src="/img/2020/02/mise-en-place.png" alt="">
         </a>
     
 
