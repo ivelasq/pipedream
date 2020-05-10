@@ -15,4 +15,4 @@ type: itemized
 
 2019-07-16 [**Taking a Peek at Hiking Data Using R**](https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p) *R-Ladies Seattle*
 
-2018-07-23 [**Blogdown for What: Introduction to Blogdown**](https://www.slideshare.net/ivelasq/20180723-blogdown-for-what) *R-Ladies Seattle*
+2018-07-23 [**Blogdown for What**](https://www.slideshare.net/ivelasq/20180723-blogdown-for-what) *R-Ladies Seattle*

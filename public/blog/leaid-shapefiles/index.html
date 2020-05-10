@@ -24,7 +24,7 @@
         "datePublished": "2020-05-03 00:00:00 \x2b0000 UTC",
         "dateModified" : "2020-05-03 00:00:00 \x2b0000 UTC",
         "url" : "\/blog\/leaid-shapefiles\/",
-        "wordCount" : "811",
+        "wordCount" : "813",
         "keywords" : [ "rgdal","sp","sf","piggyback","viridis","maptools","ggplot2","Blog" ]
     }
     </script>
@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2020-05-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-05-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="811">
+<meta itemprop="wordCount" content="813">
 
 
 
@@ -697,13 +697,13 @@ ca &lt;- tigris::school_districts(state = &quot;06&quot;,
 
 plot(ca[&quot;GEOID&quot;])</code></pre>
 <p><img src="/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>{leaidr} downloads the U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
+<p>{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
 <p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then reads the necessary files. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
 <div id="example" class="section level2">
 <h2>Example</h2>
 <p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
-<p>First, let’s download our libraries.</p>
+<p>First, let’s call our libraries.</p>
 <pre class="r"><code>library(tidyverse)
 # if you haven&#39;t installed the package yet
 # devtools::install_github(&quot;ivelasq/leaidr&quot;)
@@ -712,7 +712,7 @@ library(maptools)
 library(viridis)
 # if you don&#39;t have this downloaded
 # install.packages(&quot;mapproj&quot;)</code></pre>
-<p>Get your data. Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
+<p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
 <p><strong>Note:</strong> You must have a Github PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
 <pre class="r"><code># download the shapefile into a designated folder
 leaidr::lea_get(path = &quot;./test&quot;)
