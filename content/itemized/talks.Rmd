@@ -11,7 +11,7 @@ title: talks
 type: itemized
 ---
 <center>
-![](https://ivelasq.rbind.io/img/talks.png)
+![](https://ivelasq.rbind.io/img/talks.jpg)
 </center>
 
 2020-05-08 [**Package Management in R**](https://garciamikep.github.io/useR-webinar/) *Seattle useR Group*
