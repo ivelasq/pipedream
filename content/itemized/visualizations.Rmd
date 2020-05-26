@@ -11,13 +11,21 @@ title: visualizations
 type: itemized
 ---
 
-# Energy Generation by U.S. State
+# Donkey Kong High Score Competition Record Over Time
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1265252845365817346')
+```
+</center>
 
+
+# Energy Generation by U.S. State
 <center>
 ```{r echo=FALSE}
 blogdown::shortcode('tweet', '1136706380587388928')
 ```
 </center>
+
 
 # U.S. Public High School Start Times
 <center>
