@@ -6,10 +6,19 @@
     <description>Recent content on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>packages</title>
+      <link>/itemized/packages/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/packages/</guid>
+      <description>          </description>
+    </item>
     
     <item>
       <title>Creating an R Package for School District Shapefiles</title>
@@ -122,18 +131,6 @@ Recently, I signed up on AllTrails to start collecting data on my hikes. The Pro
       
       <guid>/blog/creating-a-new-theme/</guid>
       <description>The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.</description>
-    </item>
-    
-    <item>
-      <title>wizehiver</title>
-      <link>/itemized/item1/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item1/</guid>
-      <description>wizehiver      
-wizehiver is currently a work in progress.
-The Zengine API, created by WizeHive, is a cloud-based platform that can organize the collection, review, and management of data and applications for grants and other business processes. The goal of wizehiver is to build functionality to:
- Input and manage Zengine RESTful API tokens Get available API resources Process API response content into analysis-ready tibbles  The wizehiver package has no relationship or affiliation with, sponsorship, or endorsement by WizeHive.</description>
     </item>
     
     <item>

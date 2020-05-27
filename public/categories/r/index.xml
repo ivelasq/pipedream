@@ -6,10 +6,19 @@
     <description>Recent content in R on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>packages</title>
+      <link>/itemized/packages/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/packages/</guid>
+      <description>          </description>
+    </item>
     
     <item>
       <title>Creating an R Package for School District Shapefiles</title>
@@ -101,18 +110,6 @@ Recently, I signed up on AllTrails to start collecting data on my hikes. The Pro
 &lt;p&gt;I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.&lt;/p&gt;
 &lt;p&gt;In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>wizehiver</title>
-      <link>/itemized/item1/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/item1/</guid>
-      <description>wizehiver      
-wizehiver is currently a work in progress.
-The Zengine API, created by WizeHive, is a cloud-based platform that can organize the collection, review, and management of data and applications for grants and other business processes. The goal of wizehiver is to build functionality to:
- Input and manage Zengine RESTful API tokens Get available API resources Process API response content into analysis-ready tibbles  The wizehiver package has no relationship or affiliation with, sponsorship, or endorsement by WizeHive.</description>
     </item>
     
     <item>
