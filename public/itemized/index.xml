@@ -17,7 +17,10 @@
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/itemized/packages/</guid>
-      <description>          </description>
+      <description>  wizehiver: R wrapper for WizeHive’s Zengine API
+   dataedu: R Package Associated with the Data Science in Education Using R Book
+   leaidr: R Package for U.S. School District Shapefiles
+  </description>
     </item>
     
     <item>

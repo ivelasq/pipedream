@@ -12,15 +12,19 @@ type: itemized
 ---
 
 <center>
-<a href="https://github.com/ivelasq/wizehiver" target="_blank">![](https://image.ibb.co/hkekzT/hex_Sticker_nospot_copy.png){height=120px}</a>
-</center>
+**wizehiver:** R wrapper for WizeHive's Zengine API
 
+<a href="https://github.com/ivelasq/wizehiver" target="_blank">![](https://image.ibb.co/hkekzT/hex_Sticker_nospot_copy.png){height=120px}</a>
+</center> 
 
 <center>
+**dataedu:** R Package Associated with the Data Science in Education Using R Book
+
 <a href="https://github.com/data-edu" target="_blank">![](https://github.com/ivelasq/dataedu/blob/master/man/figures/logo.png?raw=true){height=120px}</a>
 </center>
 
-
 <center>
+**leaidr:** R Package for U.S. School District Shapefiles
+
 <a href="https://github.com/ivelasq/leaidr" target="_blank">![](https://github.com/ivelasq/leaidr/blob/master/man/figures/logo.png?raw=true){height=120px}</a>
 </center>
