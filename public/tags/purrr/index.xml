@@ -6,10 +6,20 @@
     <description>Recent content in purrr on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/purrr/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What It Takes to Tidy Census Data</title>
+      <link>/blog/tidying-census-data/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tidying-census-data/</guid>
+      <description>The U.S. Census releases data on their Household Pulse Survey. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
+First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet.</description>
+    </item>
     
     <item>
       <title>Taking A Peek into My Hiking Data</title>

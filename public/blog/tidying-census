@@ -1,0 +1,15 @@
+---
+author: ""
+categories: ["R"]
+tags: ["tidyverse", "purrr", "readxl", "ggplot2"]
+date: "2020-05-28"
+description: "Pulling and Cleaning Multiple Excel Sheets for Analysis"
+featured: "shiny.png"
+featuredalt: "What It Takes to Tidy Census Data"
+featuredpath: "date"
+linktitle: ""
+title: "What It Takes to Tidy Census Data"
+type: "post"
+---
+
+test

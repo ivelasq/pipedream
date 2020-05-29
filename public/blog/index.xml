@@ -6,10 +6,20 @@
     <description>Recent content in Blog on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What It Takes to Tidy Census Data</title>
+      <link>/blog/tidying-census-data/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tidying-census-data/</guid>
+      <description>The U.S. Census releases data on their Household Pulse Survey. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
+First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet.</description>
+    </item>
     
     <item>
       <title>Creating an R Package for School District Shapefiles</title>
@@ -20,15 +30,6 @@
       <description>I would like to introduce {leaidr}, a package for mapping U.S. School District shapefiles!
 Inspired by my coauthor Joshua Rosenberg, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.
 School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the National Center for Education Statistics (NCES) Common Core of Data. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/blog/three-shiny-things/</link>
-      <pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/three-shiny-things/</guid>
-      <description>I’ve commonly heard (and experienced) that Shiny apps “look Shiny”, as in, it’s really clear when you look at an app whether or not it is a Shiny app. It may be the font, layout, or interactivity, but something about them is uniform across most of the apps that you see (I could argue the same for most Tableau dashboards too…). This is not to say that the “Shiny” look is not good, but I have been trying to find ways of making them “prettier” - more aesthetically pleasing, and a little less uniform than the standard template.</description>
     </item>
     
     <item>
