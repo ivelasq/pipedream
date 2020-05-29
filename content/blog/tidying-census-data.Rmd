@@ -10,10 +10,9 @@ featuredpath: "date"
 linktitle: ""
 title: "What It Takes to Tidy Census Data"
 type: "post"
-draft: true
 ---
 
-The U.S. Census releases data on their [Household Pulse Survey](https://www.census.gov/data/tables/2020/demo/hhp2.html). These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
+The U.S. Census releases aggregate data on their [Household Pulse Survey](https://www.census.gov/data/tables/2020/demo/hhp2.html). These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
 
 First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numerics numerics, and category names in rows makes me feel `emo::ji('unamused')`.
 
@@ -33,7 +32,6 @@ Per usual, we begin by loading our necessary libraries.
 library(tidyverse)
 library(readxl)
 library(httr)
-library(janitor)
 ```
 
 An option to download the Excel file and loading it in R. What if we want to load the data directly from the website? We can use {httr}! The following code 'gets' the file from the internet, writes it in a temporary file path, and loads it in an object called `path`.
@@ -52,7 +50,7 @@ Let's look at a single sheet!
 
 ### Single Sheet Cleaning
 
-```{r, message = F}
+```{r, message = F, eval = F}
 census_sheet1 <-
   read_excel(path, sheet = 1)
 
@@ -67,7 +65,7 @@ Immediately, we see that the top lines are superfluous rows (the headers from th
 census_sheet1 <-
   read_excel(path, sheet = 1, skip = 3)
 
-View(census_sheet1)
+# View(census_sheet1)
 ```
 
 ![](https://ivelasq.rbind.io/img/census_files/census2.png)
@@ -119,11 +117,15 @@ census_example <-
   add_column(category_column)
 ```
 
+<center>
 ![](https://ivelasq.rbind.io/img/census_files/census6.png)
+</center>
 
 Finally, you may have noticed that some of the rows did not read in as numbers but as characters.
 
+<center>
 ![](https://ivelasq.rbind.io/img/census_files/census7.png)
+</center>
 
 We can use `mutate_at()` and specify which variables we want to be numeric.
 

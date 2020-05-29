@@ -10,12 +10,11 @@ featuredpath: "date"
 linktitle: ""
 title: "What It Takes to Tidy Census Data"
 type: "post"
-draft: true
 ---
 
 
 
-<p>The U.S. Census releases data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
+<p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numerics numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
 <p><img src="https://ivelasq.rbind.io/img/census_files/census_image.png" /></p>
 <p>However, this is not terribly surprising (and with public data, somewhat expected). As stated in the <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy data</a> paper:</p>
@@ -28,16 +27,15 @@ draft: true
 <p>Per usual, we begin by loading our necessary libraries.</p>
 <pre class="r"><code>library(tidyverse)
 library(readxl)
-library(httr)
-library(janitor)</code></pre>
+library(httr)</code></pre>
 <p>An option to download the Excel file and loading it in R. What if we want to load the data directly from the website? We can use {httr}! The following code ‘gets’ the file from the internet, writes it in a temporary file path, and loads it in an object called <code>path</code>.</p>
 <pre class="r"><code>GET(&quot;https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2.xlsx&quot;, write_disk(path &lt;- tempfile(fileext = &quot;.xlsx&quot;)))</code></pre>
 <pre><code>## Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2.xlsx]
-##   Date: 2020-05-29 05:55
+##   Date: 2020-05-29 14:17
 ##   Status: 200
 ##   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 ##   Size: 510 kB
-## &lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmphTQbmN/file3fd15aab5008.xlsx</code></pre>
+## &lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpJLJtbg/file8f7f6a4a3000.xlsx</code></pre>
 </div>
 <div id="cleaning-the-data" class="section level2">
 <h2>Cleaning the Data</h2>
@@ -55,7 +53,7 @@ View(census_sheet1)</code></pre>
 <pre class="r"><code>census_sheet1 &lt;-
   read_excel(path, sheet = 1, skip = 3)
 
-View(census_sheet1)</code></pre>
+# View(census_sheet1)</code></pre>
 <p><img src="https://ivelasq.rbind.io/img/census_files/census2.png" /></p>
 <p>Now that the unnecessary rows are gone, we see that the column names aren’t reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with <code>set_names()</code>.</p>
 <pre class="r"><code>new_names &lt;-
@@ -85,9 +83,13 @@ census_example &lt;-
 census_example &lt;-
   census_example %&gt;% 
   add_column(category_column)</code></pre>
-<p><img src="https://ivelasq.rbind.io/img/census_files/census6.png" /></p>
+<center>
+<img src="https://ivelasq.rbind.io/img/census_files/census6.png" />
+</center>
 <p>Finally, you may have noticed that some of the rows did not read in as numbers but as characters.</p>
-<p><img src="https://ivelasq.rbind.io/img/census_files/census7.png" /></p>
+<center>
+<img src="https://ivelasq.rbind.io/img/census_files/census7.png" />
+</center>
 <p>We can use <code>mutate_at()</code> and specify which variables we want to be numeric.</p>
 <pre class="r"><code>census_example &lt;-
   census_example %&gt;% 
