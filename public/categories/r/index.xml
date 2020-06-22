@@ -30,6 +30,7 @@ First of all, let me clarify that I think that the work that the Census does is 
       <description>  wizehiver: R wrapper for WizeHive’s Zengine API
    dataedu: R Package Associated with the Data Science in Education Using R Book
    leaidr: R Package for U.S. School District Shapefiles
+   edreportr: R Wrapper for EdReports API
   </description>
     </item>
     
