@@ -28,9 +28,3 @@ type: itemized
 
 <a href="https://github.com/ivelasq/leaidr" target="_blank">![](https://github.com/ivelasq/leaidr/blob/master/man/figures/logo.png?raw=true){height=120px}</a>
 </center>
-
-<center>
-**edreportr:** R Wrapper for EdReports API
-
-<a href="https://github.com/MarkLaVenia/edreportr" target="_blank">![](https://github.com/MarkLaVenia/edreportr/blob/master/man/figures/logo.png?raw=true){height=120px}</a>
-</center> 
