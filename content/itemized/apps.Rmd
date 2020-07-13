@@ -10,21 +10,26 @@ title: Websites & Apps
 type: itemized
 ---
 
-# R-Ladies Seattle Website [Blogdown]
+# R-Ladies Seattle Website
+## Blogdown
 <center>
 ![](https://ivelasq.rbind.io/img/seattle.png)
 
 https://rladiesseattle.org/
 </center>
 
-# Data Science in Education Open Version [Bookdown]
+
+# Data Science in Education Open Version
+## Bookdown
 <center>
 ![](https://ivelasq.rbind.io/img/dsieur.png)
 
 https://datascienceineducation.com/
 </center>
 
-# Spurious COVID Correlation Creator [Shiny]
+
+# Spurious COVID Correlation Creator
+## Shiny
 <center>
 ![](https://ivelasq.rbind.io/img/corr.png)
 
