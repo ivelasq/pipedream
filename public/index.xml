@@ -6,10 +6,19 @@
     <description>Recent content on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Websites &amp; Apps</title>
+      <link>/itemized/apps/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/apps/</guid>
+      <description> R-Ladies Seattle Website [Blogdown]  https://rladiesseattle.org/   Data Science in Education Open Version [Bookdown]  https://datascienceineducation.com/   Spurious COVID Correlation Creator [Shiny]  https://ivelasq.shinyapps.io/SpuriousCOVIDCorrelationCreator/   </description>
+    </item>
     
     <item>
       <title>What It Takes to Tidy Census Data</title>
@@ -30,6 +39,7 @@ First of all, let me clarify that I think that the work that the Census does is 
       <description>  wizehiver: R wrapper for WizeHive’s Zengine API
    dataedu: R Package Associated with the Data Science in Education Using R Book
    leaidr: R Package for U.S. School District Shapefiles
+   edreportr: R Wrapper for EdReports API
   </description>
     </item>
     

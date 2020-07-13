@@ -6,10 +6,19 @@
     <description>Recent content in R on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Websites &amp; Apps</title>
+      <link>/itemized/apps/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/apps/</guid>
+      <description> R-Ladies Seattle Website [Blogdown]  https://rladiesseattle.org/   Data Science in Education Open Version [Bookdown]  https://datascienceineducation.com/   Spurious COVID Correlation Creator [Shiny]  https://ivelasq.shinyapps.io/SpuriousCOVIDCorrelationCreator/   </description>
+    </item>
     
     <item>
       <title>What It Takes to Tidy Census Data</title>
@@ -30,6 +39,7 @@ First of all, let me clarify that I think that the work that the Census does is 
       <description>  wizehiver: R wrapper for WizeHive’s Zengine API
    dataedu: R Package Associated with the Data Science in Education Using R Book
    leaidr: R Package for U.S. School District Shapefiles
+   edreportr: R Wrapper for EdReports API
   </description>
     </item>
     
@@ -114,17 +124,6 @@ Recently, I signed up on AllTrails to start collecting data on my hikes. The Pro
 &lt;p&gt;I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.&lt;/p&gt;
 &lt;p&gt;In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>talks</title>
-      <link>/itemized/talks/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/talks/</guid>
-      <description>2020-05-08 Package Management in R Seattle useR Group
-2019-07-16 Taking a Peek at Hiking Data Using R R-Ladies Seattle
-2018-07-23 Blogdown for What R-Ladies Seattle</description>
     </item>
     
     <item>

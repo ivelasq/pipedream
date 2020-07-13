@@ -6,7 +6,7 @@ date = "2018-07-25"
 # ISABELLA C. VELÁSQUEZ
 *Detailed CV available upon request.*
 
-**DATA ANALYST** committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Diverse experience spanning **Strategic Planning** (strategy development, metric and goal setting, and program evaluation), **Research Design** (survey design, cognitive interviewing, and data collection), **Data Analytics** (business understanding, data preparation, statistical modeling, and evaluation), **Presentation and Reports** (analysis reports, data visualizations, automated and reproducible reports, professional talks, conference presentations, and web presence), and **Project Management** (Agile/Scrum, database design).
+**DATA ANALYST** committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Diverse experience spanning **Strategic Planning** (strategy development, metric and goal setting, and program evaluation), **Research Design** (survey design, cognitive interviewing, and data collection), **Data Analytics** (business understanding, data preparation, statistical modeling, and evaluation), **Presentation and Reports** (analysis reports, data visualizations, automated and reproducible reports, dashboards, professional talks, conference presentations, and web presence), and **Project Management** (Agile/Scrum, database design).
 
 ## EDUCATION
 
@@ -19,6 +19,10 @@ BA Economics, East Asian Language and Civilizations, 2010
 ## TECHNICAL SUMMARY
 
 R, MS Office (high proficiency in Excel, Access), Tableau, Git/GitHub, SQL, QGIS, Base SAS
+
+## PUBLICATIONS
+
+[Data Science in Education Using R](https://datascienceineducation.com/), Routledge (forthcoming)
 
 ## EXPERIENCE
 

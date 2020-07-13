@@ -4,16 +4,31 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/itemized/</loc>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/itemized/apps/</loc>
+    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -24,11 +39,6 @@
   
   <url>
     <loc>/tags/purrr/</loc>
-    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -50,11 +60,6 @@
   <url>
     <loc>/blog/tidying-census-data/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/itemized/</loc>
-    <lastmod>2020-05-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
