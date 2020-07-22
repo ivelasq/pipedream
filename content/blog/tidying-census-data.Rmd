@@ -36,8 +36,10 @@ library(httr)
 
 An option to download the Excel file and loading it in R. What if we want to load the data directly from the website? We can use {httr}! The following code 'gets' the file from the internet, writes it in a temporary file path, and loads it in an object called `path`.
 
+> Many thanks to Liz Potamites for pointing out: if the below doesn't work, it may be that the link is changed or broken. It should be Table 2 from the second week of the Household Pulse Survey, which as of July 21, 2020 is located [here](https://www.census.gov/data/tables/2020/demo/hhp/hhp2.html).
+
 ```{r}
-GET("https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2.xlsx", write_disk(path <- tempfile(fileext = ".xlsx")))
+GET("https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx", write_disk(path <- tempfile(fileext = ".xlsx")))
 ```
 
 ## Cleaning the Data
@@ -88,7 +90,7 @@ We still have some empty rows (and also a row at the very bottom which is a note
 ```{r}
 census_example <-
   census_example %>% 
-  slice(-1:-3, -60)
+  slice(-1:-3, -60:-61)
 ```
 
 ![](https://ivelasq.rbind.io/img/census_files/census4.png)
@@ -172,7 +174,7 @@ For each tibble in the list (`.x`), remove the rows 1 through 3 and 60.
 ```{r}
 census_list <- 
   census_list %>% 
-  map(~ slice(.x, -1:-3, -60))
+  map(~ slice(.x, -1:-3, -60:-61))
 ```
 
 Now for each tibble, filter out the rows in `select_characteristics` that contain the items in `filter_var`.
