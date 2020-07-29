@@ -10,6 +10,13 @@ title: visualizations
 type: itemized
 ---
 
+# Most Common Allegations Against New York City Police Officers
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1288498168183681024')
+```
+</center>
+
 # Donkey Kong High Score Competition Record Over Time
 <center>
 ```{r echo=FALSE}
