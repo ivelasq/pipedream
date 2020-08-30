@@ -24,7 +24,7 @@
         "datePublished": "2020-08-30 00:00:00 \x2b0000 UTC",
         "dateModified" : "2020-08-30 00:00:00 \x2b0000 UTC",
         "url" : "\/blog\/leaidr2\/",
-        "wordCount" : "913",
+        "wordCount" : "914",
         "keywords" : [ "mapboxapi","leaidr","rmapshaper","mapdeck","maptools","shiny","Blog" ]
     }
     </script>
@@ -82,7 +82,7 @@
 
 <meta itemprop="datePublished" content="2020-08-30T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-08-30T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="913">
+<meta itemprop="wordCount" content="914">
 
 
 
@@ -569,7 +569,8 @@ if (!doNotTrack) {
   <header>
     <div class="title">
         
-            <h2><a href="/blog/leaidr2/">Even Easier-to-Use R Package for School District Shapefiles</a></h2>
+            <h1><a href="/blog/leaidr2/">Even Easier-to-Use R Package for School District Shapefiles</a></h1>
+            
         
         
             <p>{leaidr} Update</p>
@@ -706,7 +707,7 @@ if (!doNotTrack) {
 
 tn &lt;- lea_get(&quot;tn&quot;)</code></pre>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCHDBzk/47&quot;, layer: &quot;47&quot;
+## Source: &quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCFlfFo/47&quot;, layer: &quot;47&quot;
 ## with 158 features
 ## It has 18 fields</code></pre>
 <pre class="r"><code>tn %&gt;% 
@@ -777,7 +778,7 @@ upload_tiles(input = &quot;nw.mbtiles&quot;,
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: <a href="https://studio.mapbox.com/tilesets/" class="uri">https://studio.mapbox.com/tilesets/</a>.</p>
 <p><img src="https://ivelasq.rbind.io/img/mapbox_files/1.png" /></p>
 <p>Then, go to Styles on this webpage: <a href="https://studio.mapbox.com/" class="uri">https://studio.mapbox.com/</a>. Click “New Style” and choose the template you want, then Customize.</p>
-<p><img src="https://ivelasq.rbind.io/img/mapbox_files/3.png" /></p>
+<p><img src="https://ivelasq.rbind.io/img/mapbox_files/2.png" /></p>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <p><img src="https://ivelasq.rbind.io/img/mapbox_files/3.png" /></p>
 <p>I zoomed to where my tiles are located (Oregon and Washington) and started editing. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling">This section of the walkthrough</a> explains how to create a choropleth map, where each geography has a different color according to a value.</p>
@@ -828,7 +829,7 @@ ui &lt;- fluidPage(
 <li>Create an R file to run your example (I used <code>usethis::use_r("runExample.R")</code>) to create this file.</li>
 <li>Don’t forget to document! <code>devtools::document()</code></li>
 </ol>
-<p>So, if you were to install and load {leaidr}, you can run <code>leaidr::runExample()</code> to launch the Shiny app. To see what the files look like, check out the Github repo <a href="https://github.com/ivelasq/leaidr">here</a>.</p>
+<p>So, if you were to install and load {leaidr}, you can run <code>leaidr::runExample()</code> to launch the Shiny app. To see what the files look like, check out the Github repo files <a href="https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox">here</a>.</p>
 </div>
 <div id="conclusion" class="section level2">
 <h2>Conclusion</h2>
@@ -1094,6 +1095,9 @@ ui &lt;- fluidPage(
 
 
   
+  
+    
+  
 
 
         
@@ -1183,7 +1187,7 @@ ui &lt;- fluidPage(
         
 
         <a href="/blog/you-cran-do-it/" class="image featured">
-            <img src="/img/2020/02/cran.png" alt="">
+            <img src="/img/2020/022020/02/cran.png" alt="">
         </a>
     
 
@@ -1224,7 +1228,7 @@ ui &lt;- fluidPage(
         
 
         <a href="/blog/mis-en-place/" class="image featured">
-            <img src="/img/2020/02/mise-en-place.png" alt="">
+            <img src="/img/2020/022020/02/mise-en-place.png" alt="">
         </a>
     
 

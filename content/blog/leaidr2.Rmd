@@ -108,7 +108,7 @@ This is the part that I had to figure out on the Mapbox website. [This](https://
 
 Then, go to Styles on this webpage: https://studio.mapbox.com/. Click "New Style" and choose the template you want, then Customize. 
 
-![](https://ivelasq.rbind.io/img/mapbox_files/3.png)
+![](https://ivelasq.rbind.io/img/mapbox_files/2.png)
 
 To add your tileset, go to Layers, click the Plus sign, then under "Source", find your uploaded tileset or add the tileset by the ID given by `upload_tiles()`.
 
@@ -175,7 +175,7 @@ Now, say you would like to add the Shiny app to your package as well as upload t
 3. Create an R file to run your example (I used `usethis::use_r("runExample.R")`) to create this file.
 4. Don't forget to document! `devtools::document()`
 
-So, if you were to install and load {leaidr}, you can run `leaidr::runExample()` to launch the Shiny app. To see what the files look like, check out the Github repo [here](https://github.com/ivelasq/leaidr).
+So, if you were to install and load {leaidr}, you can run `leaidr::runExample()` to launch the Shiny app. To see what the files look like, check out the Github repo files [here](https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox).
 
 ## Conclusion
 

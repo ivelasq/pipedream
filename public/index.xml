@@ -19,7 +19,7 @@
       <guid>/blog/leaidr2/</guid>
       <description>leaidr Update A few months ago, I created {leaidr} for easier download of U.S. school district shapefiles. Daniel Anderson went through and greatly improved the package, making it even easier to download and use the shapefiles (thanks Dan!).
 Now, instead of having to run lea_prep(), you can download the shapefiles from Dan’s Github repository like so:
-library(leaidr) tn &amp;lt;- lea_get(&amp;quot;tn&amp;quot;) ## OGR data source with driver: ESRI Shapefile ## Source: &amp;quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCHDBzk/47&amp;quot;, layer: &amp;quot;47&amp;quot; ## with 158 features ## It has 18 fields tn %&amp;gt;% sf::st_as_sf() %&amp;gt;% ggplot2::ggplot() + ggplot2::geom_sf() And, if you use lea_get() (i.</description>
+library(leaidr) tn &amp;lt;- lea_get(&amp;quot;tn&amp;quot;) ## OGR data source with driver: ESRI Shapefile ## Source: &amp;quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCFlfFo/47&amp;quot;, layer: &amp;quot;47&amp;quot; ## with 158 features ## It has 18 fields tn %&amp;gt;% sf::st_as_sf() %&amp;gt;% ggplot2::ggplot() + ggplot2::geom_sf() And, if you use lea_get() (i.</description>
     </item>
     
     <item>
