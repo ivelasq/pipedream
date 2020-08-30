@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["rgdal", "sp", "sf", "piggyback", "viridis", "maptools", "ggplot2"]
+tags: ["rgdal", "sp", "sf", "piggyback", "viridis", "maptools", "ggplot2", "leaidr"]
 date: "2020-05-03"
 description: "Introducing {leaidr}"
 featured: "leaid.png"

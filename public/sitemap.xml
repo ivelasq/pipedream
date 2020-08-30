@@ -4,12 +4,62 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/leaidr2/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/leaidr/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mapboxapi/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mapdeck/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/maptools/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rmapshaper/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/shiny/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,18 +68,8 @@
   </url>
   
   <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/itemized/apps/</loc>
     <lastmod>2020-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -44,11 +84,6 @@
   
   <url>
     <loc>/tags/readxl/</loc>
-    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
     <lastmod>2020-05-28T00:00:00+00:00</lastmod>
   </url>
   
@@ -69,11 +104,6 @@
   
   <url>
     <loc>/blog/leaid-shapefiles/</loc>
-    <lastmod>2020-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/maptools/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
