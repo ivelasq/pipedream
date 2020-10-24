@@ -801,6 +801,9 @@ $ vi themes/zafta/layouts/_default/single.html
 <html>
 <head>
   <title>{{ .Title }}</title>
+  {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 </head>
 <body>
   <h1>{{ .Title }}</h1>
