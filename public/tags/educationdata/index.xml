@@ -1,24 +1,872 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>educationdata on %&gt;% dreams</title>
-    <link>/tags/educationdata/</link>
-    <description>Recent content in educationdata on %&gt;% dreams</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/educationdata/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Finding the Modal School District</title>
-      <link>/blog/modal-district/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/modal-district/</guid>
-      <description>My good friend Ryan Estrellado recommended an NPR Planet Money podcast episode on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!</description>
-    </item>
-    
-  </channel>
-</rss>
+  <title>educationdata on %&gt;% dreams</title>
+  <link>/tags/educationdata/</link>
+  <description>Recent content in educationdata on %&gt;% dreams</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+<lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/educationdata/index.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Finding the Modal School District</title>
+  <link>/blog/modal-district/</link>
+  <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+  
+<guid>/blog/modal-district/</guid>
+  <description>
+
+
+&lt;p&gt;My good friend &lt;a href=&#34;https://twitter.com/RyanEs&#34;&gt;Ryan Estrellado&lt;/a&gt; recommended an &lt;a href=&#34;https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american&#34;&gt;NPR Planet Money podcast episode&lt;/a&gt; on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).&lt;/p&gt;
+&lt;p&gt;Ben Casselman shared the &lt;a href=&#34;https://github.com/BenCasselman/planet_money&#34;&gt;code&lt;/a&gt; he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (&amp;gt;=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).&lt;/p&gt;
+&lt;div id=&#34;downloading-and-parsing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Downloading and Parsing Data&lt;/h2&gt;
+&lt;p&gt;I used NCES &lt;a href=&#34;https://nces.ed.gov/ccd/ccddata.asp&#34;&gt;Common Core of Data (CCD)&lt;/a&gt; to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute’s &lt;a href=&#34;https://github.com/UrbanInstitute/education-data-package-r&#34;&gt;{educationdata}&lt;/a&gt; R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data directly from the CCD as it’s not available via the Urban API.&lt;/p&gt;
+&lt;p&gt;What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also looked at some &lt;a href=&#34;https://nces.ed.gov/pubs2011/2011301.pdf&#34;&gt;NCES reports&lt;/a&gt; to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(educationdata)
+library(janitor)
+library(ggalluvial)
+
+knitr::opts_chunk$set(out.width = &amp;#39;100%&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;urban-centric-locale-bucket&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Urban-Centric Locale Bucket&lt;/h3&gt;
+&lt;p&gt;First, we download the directory data using the Urban Institute’s API. These data include the districts and their &lt;a href=&#34;https://nces.ed.gov/pubs2007/ruraled/exhibit_a.asp&#34;&gt;urban-centric_locale&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_dir &amp;lt;- get_education_data(level = &amp;#39;school-districts&amp;#39;,
+                              source = &amp;#39;ccd&amp;#39;, 
+                              topic = &amp;#39;directory&amp;#39;, 
+                              filters = list(year = 2016),
+                              add_labels = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Because there are so many options for urban-centric locale, let’s collapse them to just the biggest buckets: City, Town, Rural, and Suburb.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_urbanicity &amp;lt;-
+  ccd_dir %&amp;gt;% 
+  select(leaid, urban_centric_locale) %&amp;gt;% 
+  mutate(leaid = as.numeric(leaid), # the enrollment file loads these as numeric
+         geography = case_when(str_detect(urban_centric_locale, &amp;quot;City|city&amp;quot;) ~ &amp;quot;City&amp;quot;,
+                               str_detect(urban_centric_locale, &amp;quot;Town|town&amp;quot;) ~ &amp;quot;Town&amp;quot;,
+                               str_detect(urban_centric_locale, &amp;quot;Rural|rural&amp;quot;) ~ &amp;quot;Rural&amp;quot;,
+                               str_detect(urban_centric_locale, &amp;quot;Suburb|suburb&amp;quot;) ~ &amp;quot;Suburb&amp;quot;)) %&amp;gt;% 
+  select(-urban_centric_locale)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;size-raceethnicity-buckets&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Size &amp;amp; Race/Ethnicity Buckets&lt;/h3&gt;
+&lt;p&gt;Then, we download the enrollment data from the Urban Institute.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_enroll &amp;lt;- get_education_data(level = &amp;#39;school-districts&amp;#39;,
+                                 source = &amp;#39;ccd&amp;#39;, 
+                                 topic = &amp;#39;enrollment&amp;#39;, 
+                                 filters = list(year = 2016,
+                                             grade = 99),
+                                 by = list(&amp;#39;race&amp;#39;),
+                                 add_labels = TRUE) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to create two buckets here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Size:&lt;/strong&gt; Bucket districts by enrollment size, Small (less than 2500 students), Medium (between 2500 and 10,000 students), or Large (10,000 students or more). I used &lt;a href=&#34;https://www.google.com/search?q=what+is+a+large+school+district&amp;amp;oq=what+is+a&amp;amp;aqs=chrome.0.69i59j69i57j35i39j69i60l3.1065j0j7&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34;&gt;MDR’s&lt;/a&gt; definition for this.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Race/Ethnicity:&lt;/strong&gt; Bucket districts by Majority Non-White (50% or fewer of students are White) or Majority White (more than 50% of students are White).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_enroll_buckets &amp;lt;-
+  ccd_enroll %&amp;gt;% 
+  select(leaid, race, enrollment) %&amp;gt;% 
+  spread(race, enrollment, -1) %&amp;gt;%
+  mutate(white_na = case_when(White == 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                              TRUE ~ White),
+         pct_white = white_na/Total,
+         enroll_na = case_when(Total &amp;lt; 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                               TRUE ~ Total)) %&amp;gt;% 
+  mutate(demographics = case_when(pct_white &amp;gt;= .5 ~ &amp;quot;Majority White&amp;quot;,
+                                  pct_white &amp;lt; .5 ~ &amp;quot;Majority Non-White&amp;quot;,
+                                  TRUE ~ NA_character_),
+         size = case_when(enroll_na &amp;gt;= 10000 ~ &amp;quot;Large&amp;quot;,
+                          enroll_na &amp;lt; 10000 &amp;amp; enroll_na &amp;gt;= 2500 ~ &amp;quot;Medium&amp;quot;,
+                          enroll_na &amp;lt; 2500 ~ &amp;quot;Small&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;freereduced-price-lunch-bucket&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Free/Reduced Price Lunch Bucket&lt;/h3&gt;
+&lt;p&gt;Now, we load the FRPL data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_frpl &amp;lt;-
+  read_csv(here::here(&amp;quot;content&amp;quot;, &amp;quot;blog&amp;quot;, &amp;quot;modal_district_files&amp;quot;, &amp;quot;ccd_sch_033_1617_l_2a_11212017.csv&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want Free + Reduced Price Lunch numbers by district. This file also has Free Lunch and Reduced Lunch numbers, and it is school-level. We aggregate up Free + Reduced Price Lunch by district.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_frpl_wide &amp;lt;-
+  ccd_frpl %&amp;gt;% 
+  clean_names() %&amp;gt;% 
+  mutate(leaid = as.numeric(leaid)) %&amp;gt;% 
+  filter(data_group == &amp;quot;Free and Reduced-price Lunch Table&amp;quot;,
+         lunch_program == &amp;quot;No Category Codes&amp;quot;) %&amp;gt;% 
+  select(leaid, student_count) %&amp;gt;% 
+  group_by(leaid) %&amp;gt;% 
+  summarise(frpl_student_count = sum(student_count))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, we merge with the enrollment data to calculate percent FRPL by district. Our buckets are Low FRPL (less than 25%), Medium-Low FRPL (between 25% and 50% FRPL), Medium-High FRPL (between 50% and 75% FRPL), and High FRPL (greater than 75% FRPL). I originally did not have Medium-Low and Medium High split out but that bucket was so large that I thought this would bring more nuance.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_enroll_buckets &amp;lt;-
+  left_join(ccd_enroll_buckets, ccd_frpl_wide) %&amp;gt;% 
+  mutate(pct_frpl = frpl_student_count/enroll_na,
+         frpl = case_when(pct_frpl &amp;lt;= .25 ~ &amp;quot;Low FRPL&amp;quot;,
+                          pct_frpl &amp;gt; .25 &amp;amp; pct_frpl &amp;lt;= .5 ~ &amp;quot;Medium-Low FRPL&amp;quot;,
+                          pct_frpl &amp;gt; .5 &amp;amp; pct_frpl &amp;lt;= .75 ~ &amp;quot;Medium-High FRPL&amp;quot;,
+                          pct_frpl &amp;gt; .75 ~ &amp;quot;High FRPL&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bringing-it-all-together&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Bringing It All Together&lt;/h3&gt;
+&lt;p&gt;Finally, we put all the datasets together. One question raised was what to do with missing data. Some districts, either because of small n-sizes or policy, do not report their demographic or FRPL numbers. In fact, some districts were missing enrollment data altogether! For the purposes of this analysis, I removed any district that was missing data in the FRPL or Race/Ethnicity Buckets. Any data without enrollment data is also excluded.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_all &amp;lt;-
+  full_join(ccd_urbanicity, ccd_enroll_buckets, by = &amp;quot;leaid&amp;quot;) %&amp;gt;% 
+  filter(!is.na(frpl),
+         !is.na(demographics))
+
+ccd_all &amp;lt;- # reordering factors
+  ccd_all %&amp;gt;% 
+  mutate(demographics = factor(demographics, c(&amp;quot;Majority White&amp;quot;, &amp;quot;Majority Non-White&amp;quot;)),
+         size = factor(size, c(&amp;quot;Small&amp;quot;, &amp;quot;Medium&amp;quot;, &amp;quot;Large&amp;quot;)),
+         geography = factor(geography, c(&amp;quot;Rural&amp;quot;, &amp;quot;Suburb&amp;quot;, &amp;quot;Town&amp;quot;, &amp;quot;City&amp;quot;)),
+         frpl = factor(frpl, c(&amp;quot;Low FRPL&amp;quot;, &amp;quot;Medium-Low FRPL&amp;quot;, &amp;quot;Medium-High FRPL&amp;quot;, &amp;quot;High FRPL&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;running-the-analysis&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Running the Analysis&lt;/h3&gt;
+&lt;p&gt;We can see what is the modal school district - that is, the combination of our buckets that represents the most districts in the U.S.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2019-09-18:&lt;/strong&gt; Thanks to the input from &lt;a href=&#34;https://twitter.com/apreshill&#34;&gt;Alison Hill&lt;/a&gt; on Twitter, instead of the &lt;code&gt;grouper()&lt;/code&gt; function in the original analysis I’m using &lt;code&gt;dplyr::count()&lt;/code&gt;.&lt;/p&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;This is a great post! I think you don&amp;#39;t need the grouper function- I think what you need is dplyr::count(sort = TRUE) (it also does the ungroup for you :) &lt;a href=&#34;https://t.co/G6ccoQIHFC&#34;&gt;https://t.co/G6ccoQIHFC&lt;/a&gt;&lt;/p&gt;&amp;mdash; Alison Presmanes Hill (@apreshill) &lt;a href=&#34;https://twitter.com/apreshill/status/1174152252996501504?ref_src=twsrc%5Etfw&#34;&gt;September 18, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;p&gt;The n shows how many districts fit these criteria. Here are the first four but the full table is in the &lt;a href=&#34;#appendix&#34;&gt;Appendix&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;modal &amp;lt;- 
+  ccd_all %&amp;gt;% 
+  count(demographics, frpl, geography, size, sort = TRUE)
+
+modal %&amp;gt;% 
+  top_n(4) %&amp;gt;% 
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;demographics&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;frpl&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;geography&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;size&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2484&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1572&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;888&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;689&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The modal school district ends up being: Majority White, Rural, Small, Medium-Low FRPL districts. &lt;strong&gt;18%&lt;/strong&gt; (2484) of the 13,464 districts in our analysis fall within these criteria.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;takeaways&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Takeaways&lt;/h2&gt;
+&lt;div id=&#34;some-districts-are-all-alike-every-district-is-different-in-its-own-way&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Some districts are all alike; every district is different in its own way&lt;/h3&gt;
+&lt;p&gt;If you run each bucket individually, you get the same results as all of the groups together (as in, when running only based on size, the result is that Rural districts are the modal districts). This is slightly different from the Modal American analysis from NPR - none of these demographics seem to ‘split’ the groups.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;this-makes-sense&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;This makes sense&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The U.S. is majority White and areas tend to be segregated.&lt;/li&gt;
+&lt;li&gt;Majority of districts fall in the Medium FRPL buckets. Majority Non-White districts tend to have higher levels of FRPL, but there are so few of them compared to Majority White Districts, that they do not change the modal district much.&lt;/li&gt;
+&lt;li&gt;The U.S. is very large and districts cannot get too geographically big in order to serve their students. In places with little population density, which is most of the U.S., these districts must remain small.&lt;/li&gt;
+&lt;li&gt;Similarly, there are not that many Cities/Towns compared to Rural districts, probably because you need many districts in Rural areas to serve the spread-out population of students.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;its-really-hard-to-visualize-this&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;It’s really hard to visualize this&lt;/h3&gt;
+&lt;p&gt;It was interesting trying to visualize these data, especially since there ended up being 87 (!) combinations. I tried a Sankey chart but it is a bit bananas.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(as.data.frame(modal),
+       aes(y = n,
+           axis1 = demographics, 
+           axis2 = geography, 
+           axis3 = frpl,
+           axis4 = size)) +
+  stat_alluvium(aes(fill = n),
+                width = 1/6, 
+            alpha = 2/3,
+            aes.bind = FALSE) +
+  guides(fill = FALSE) +
+  geom_stratum(width = 1/12, fill = &amp;quot;black&amp;quot;, color = &amp;quot;grey&amp;quot;) +
+  geom_label(stat = &amp;quot;stratum&amp;quot;, label.strata = TRUE, size = 2, hjust = &amp;quot;inward&amp;quot;) +
+  scale_x_continuous(breaks = 1:4, labels = c(&amp;quot;Demographics&amp;quot;, &amp;quot;Geography&amp;quot;, &amp;quot;FRPL&amp;quot;, &amp;quot;Size&amp;quot;)) +
+  ggtitle(&amp;quot;Modal District Sankey Chart&amp;quot;) +
+  theme_minimal()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/modal-district_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it’s better to just look at the table.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_all %&amp;gt;% 
+  select(leaid, demographics, geography, size, frpl) %&amp;gt;% 
+  mutate(count = 1) %&amp;gt;% 
+  ggplot(aes(count)) +
+  geom_bar() +
+  facet_grid(demographics + frpl ~ size + geography)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/modal-district_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-steps&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;In addition to analyzing more variables (perhaps data that are less likely to correlate), it would be interesting to cut the data using smaller grain size for the buckets. There are probably very interesting nuances between Majority White districts for example - we just need the data (and bandwidth!) to find out.&lt;/p&gt;
+&lt;p&gt;I am in awe of social media, which allows us to learn and share in so many ways. My friend retweeted a news article, which prompted the person who wrote the code to share, and then we crafted an idea based on that. I think that’s pretty great!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update 2019-09-18:&lt;/strong&gt; &lt;a href=&#34;https://twitter.com/bencasselman&#34;&gt;Ben Casselman&lt;/a&gt; wrote a reply on how it would be interesting to conduct an analysis on the modal school experience. So exciting! Can’t wait to continue the analysis (and always looking for collaborators!)&lt;/p&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Curious what this would look like if you weighted by student population -- in essence, the modal school *experience.* (More students attend this type of school than any other.) Suspect the results would look quite different.&lt;/p&gt;&amp;mdash; Ben Casselman (@bencasselman) &lt;a href=&#34;https://twitter.com/bencasselman/status/1173577230997512198?ref_src=twsrc%5Etfw&#34;&gt;September 16, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;appendix&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Appendix&lt;/h2&gt;
+&lt;div id=&#34;full-table&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Full Table&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ccd_all %&amp;gt;% 
+  count(demographics, frpl, geography, size) %&amp;gt;% 
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;demographics&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;frpl&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;geography&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;size&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;888&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;53&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;520&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;434&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;156&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;39&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;102&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2484&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;115&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;343&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;260&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;52&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;604&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;163&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;83&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;27&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1572&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;106&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;151&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;72&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;447&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;154&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;57&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;40&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;340&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;47&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;53&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;24&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;47&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;59&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;101&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;99&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;48&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;111&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-Low FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;26&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;275&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;159&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;134&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;54&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;130&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;63&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;261&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;62&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium-High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;102&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;454&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;53&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rural&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;184&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;82&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Suburb&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;167&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;90&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Town&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Small&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;689&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Medium&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;44&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Majority Non-White&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;High FRPL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;City&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Large&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;63&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>

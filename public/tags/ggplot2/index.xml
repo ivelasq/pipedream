@@ -1,64 +1,498 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ggplot2 on %&gt;% dreams</title>
-    <link>/tags/ggplot2/</link>
-    <description>Recent content in ggplot2 on %&gt;% dreams</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>What It Takes to Tidy Census Data</title>
-      <link>/blog/tidying-census-data/</link>
-      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/tidying-census-data/</guid>
-      <description>The U.S. Census releases aggregate data on their Household Pulse Survey. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
-First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet.</description>
-    </item>
-    
-    <item>
-      <title>Creating an R Package for School District Shapefiles</title>
-      <link>/blog/leaid-shapefiles/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/leaid-shapefiles/</guid>
-      <description>I would like to introduce {leaidr}, a package for mapping U.S. School District shapefiles!
-Inspired by my coauthor Joshua Rosenberg, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.
-School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the National Center for Education Statistics (NCES) Common Core of Data. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.</description>
-    </item>
-    
-    <item>
-      <title>Mise-en-Place: Everything in its Place</title>
-      <link>/blog/mis-en-place/</link>
-      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/mis-en-place/</guid>
-      <description>I got to be the @WeAreRLadies curator for the week of February 10th and it was a great experience to get feedback from a wider swath of the R community. One question I posed was how people organize the folders within their projects, and I got a lot of engagement! For this blogpost, I categorize the common themes from these different resources and then list them all out at the end of the post.</description>
-    </item>
-    
-    <item>
-      <title>Breath of the Wild Weapon Dendrogram</title>
-      <link>/blog/botw/</link>
-      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/botw/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Six Things I Always Google When Using ggplot2</title>
-      <link>/blog/things-i-google/</link>
-      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/things-i-google/</guid>
-      <description>I often use {ggplot2} to create graphs but there are certain things I always have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!
- Remove the Legend Change Legend Title and Labels Manually Change Colors Remove X Axis Labels Start the Y Axis at a Specific Number Use Scales on the Y Axis  library(tidyverse) knitr::opts_chunk$set(out.</description>
-    </item>
-    
-  </channel>
-</rss>
+  <title>ggplot2 on %&gt;% dreams</title>
+  <link>/tags/ggplot2/</link>
+  <description>Recent content in ggplot2 on %&gt;% dreams</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+<lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>What It Takes to Tidy Census Data</title>
+  <link>/blog/tidying-census-data/</link>
+  <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/tidying-census-data/</guid>
+  <description>
+
+
+&lt;p&gt;The U.S. Census releases aggregate data on their &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp2.html&#34;&gt;Household Pulse Survey&lt;/a&gt;. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.&lt;/p&gt;
+&lt;p&gt;First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numerics numerics, and category names in rows makes me feel &lt;code&gt;emo::ji(&#39;unamused&#39;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census_image.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;However, this is not terribly surprising (and with public data, somewhat expected). As stated in the &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html&#34;&gt;tidy data&lt;/a&gt; paper:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is often said that 80% of data analysis is spent on the cleaning and preparing data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thankfully, we have the very powerful R and tidyverse available to address our data woes. Let’s go through the process of tidying these data with tidyverse packages to show how easily they can become Ready for analysis!&lt;/p&gt;
+&lt;div id=&#34;loading-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Loading the Data&lt;/h2&gt;
+&lt;p&gt;Per usual, we begin by loading our necessary libraries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(readxl)
+library(httr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An option to download the Excel file and loading it in R. What if we want to load the data directly from the website? We can use {httr}! The following code ‘gets’ the file from the internet, writes it in a temporary file path, and loads it in an object called &lt;code&gt;path&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Many thanks to Liz Potamites for pointing out: if the below doesn’t work, it may be that the link is changed or broken. It should be Table 2 from the second week of the Household Pulse Survey, which as of July 21, 2020 is located &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp/hhp2.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;GET(&amp;quot;https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx&amp;quot;, write_disk(path &amp;lt;- tempfile(fileext = &amp;quot;.xlsx&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
+##   Date: 2020-07-22 03:02
+##   Status: 200
+##   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+##   Size: 442 kB
+## &amp;lt;ON DISK&amp;gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpfjZc3y/file7f32106c6185.xlsx&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cleaning-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cleaning the Data&lt;/h2&gt;
+&lt;p&gt;As mentioned in the figure above, each sheet comprises of a state’s data. It’d be good to have all of the data in one single data structure. One option is to try to force all of the sheets together at once in a data frame (which is a 2D structure). But we also saw that each sheet requires a lot of cleaning before it can be useful, and it may be difficult to clean if they’re all merged in one data frame. Therefore, let’s instead first read in all the data as a &lt;strong&gt;list&lt;/strong&gt; (which is a higher dimension structure), clean it up, and &lt;em&gt;then&lt;/em&gt; put it together in a data frame.&lt;/p&gt;
+&lt;p&gt;However, I am not very good at thinking about things in list format and it’s a little harder to see what’s going on compared to looking at a data frame using &lt;code&gt;View()&lt;/code&gt;. Before I clean up a list, I usually work on a single cut of the list as a data frame to know what exactly I am going to do. Thankfully, all the sheets in this Excel sheet are formatted the same across states. This isn’t always the case! Because they are identically formatted, we know if our processing works on one sheet, it will work across all of them.&lt;/p&gt;
+&lt;p&gt;Let’s look at a single sheet!&lt;/p&gt;
+&lt;div id=&#34;single-sheet-cleaning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Single Sheet Cleaning&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_sheet1 &amp;lt;-
+  read_excel(path, sheet = 1)
+
+View(census_sheet1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Immediately, we see that the top lines are superfluous rows (the headers from the original dataset). We can use &lt;code&gt;skip&lt;/code&gt; in &lt;code&gt;read_excel()&lt;/code&gt; to not have them read in.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_sheet1 &amp;lt;-
+  read_excel(path, sheet = 1, skip = 3)
+
+# View(census_sheet1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now that the unnecessary rows are gone, we see that the column names aren’t reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with &lt;code&gt;set_names()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;new_names &amp;lt;-
+  c(&amp;quot;select_characteristics&amp;quot;, &amp;quot;total&amp;quot;, &amp;quot;using_online_resources&amp;quot;, &amp;quot;using_paper_materials_sent_home&amp;quot;, &amp;quot;where_classes_were_cancelled&amp;quot;, &amp;quot;where_classes_changed_in_another_way&amp;quot;, &amp;quot;where_no_change_to_classes&amp;quot;, &amp;quot;did_not_respond&amp;quot;)
+
+census_example &amp;lt;-
+  census_sheet1 %&amp;gt;% 
+  set_names(new_names)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We still have some empty rows (and also a row at the very bottom which is a note in the original dataset). We can eliminate these rows using &lt;code&gt;slice()&lt;/code&gt;. Here, we’re saying to ‘slice’ rows 1 through 3 and 60.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  slice(-1:-3, -60:-61)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census4.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now to deal with the fact that the category names are embedded within the first column &lt;code&gt;select_characteristics&lt;/code&gt;. There may be other ways to do this, but again I manually create a vector with all the characteristic names that I want to get rid of and use &lt;code&gt;filter()&lt;/code&gt; to keep only the rows that do &lt;strong&gt;not&lt;/strong&gt; contain the items in the vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter_var &amp;lt;- 
+  c(&amp;quot;Age&amp;quot;, &amp;quot;Sex&amp;quot;, &amp;quot;Hispanic origin and Race&amp;quot;, &amp;quot;Education&amp;quot;, &amp;quot;Marital status&amp;quot;, &amp;quot;Presence of children under 18 years old&amp;quot;, &amp;quot;Respondent or household member experienced loss of employment income&amp;quot;, &amp;quot;Mean weekly hours spent on…&amp;quot;, &amp;quot;Respondent currently employed&amp;quot;, &amp;quot;Food sufficiency for households prior to March 13, 2020&amp;quot;, &amp;quot;Household income&amp;quot;)
+
+census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  filter(!select_characteristics %in% filter_var) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census5.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Even though we removed the characteristic names from the rows, they actually contain very useful information. Also, we run into an issue in which two of the characteristic categories had the same options (“yes” and “no”). If we don’t address this, we’ll forget which rows are for which characteristic. To fix this, we manually create a column with the characteristics for each of the response options and append it to the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;category_column &amp;lt;-
+  c(&amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;sex&amp;quot;, &amp;quot;sex&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;children&amp;quot;, &amp;quot;children&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;hours_spent&amp;quot;, &amp;quot;hours_spent&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;)
+
+census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  add_column(category_column)&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;
+&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census6.png&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;Finally, you may have noticed that some of the rows did not read in as numbers but as characters.&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census7.png&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;We can use &lt;code&gt;mutate_at()&lt;/code&gt; and specify which variables we want to be numeric.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  mutate_at(vars(total, using_online_resources:did_not_respond), list(~ as.numeric(.)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hooray - now we have a tidy dataset we could use for analysis! Which is great, but it’s only one sheet. How do we do this for the additional 66?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multi-sheet-cleaning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Multi Sheet Cleaning&lt;/h3&gt;
+&lt;p&gt;We will now download the data and store it in a list, where each sheet (which represents a state) is saved as a tibble within the list. To work across all the lists, we use the tidyverse package {purrr} and its handy functions.&lt;/p&gt;
+&lt;p&gt;You may notice that the multi sheet cleaning looks a lot like the single sheet cleaning but everything is wrapped in the function &lt;code&gt;map()&lt;/code&gt;. That’s true! The wonderful thing about {purrr} being in the tidyverse is that it’s really easy to integrate with all the tidyverse functions.&lt;/p&gt;
+&lt;p&gt;Reading the data into one list is slightly more complicated than reading in a single sheet. We begin with the file path from before and then use &lt;code&gt;excel_sheets()&lt;/code&gt; to create a vector of the sheet names. &lt;code&gt;set_names()&lt;/code&gt; ensures that we have a named list that contains the state names, which will be important later. If we don’t use &lt;code&gt;set_names()&lt;/code&gt;, then the tibbles have generic names instead of ‘US’, ‘AL’, etc. Then using &lt;code&gt;purrr::map()&lt;/code&gt;, we ask R to download each of the sheets of the dataset and store it together in a list (&lt;code&gt;map()&lt;/code&gt; always returns a list).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;-
+  path %&amp;gt;% 
+  excel_sheets() %&amp;gt;% 
+  set_names() %&amp;gt;% 
+  map(~ read_excel(path = path, sheet = .x, skip = 3), .id = &amp;quot;Sheet&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you take a look at the list using &lt;code&gt;View(census_list)&lt;/code&gt;, you can see the data is stored as tibbles within the list. If you expand &lt;code&gt;US&lt;/code&gt;, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run &lt;code&gt;census_list[[&#34;US&#34;]]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census_list.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Using the same thinking as we did with the single sheet example, let’s go through and clean up this list - without having to go into each individual tibble!&lt;/p&gt;
+&lt;p&gt;First, we set the names within each list using &lt;code&gt;set_names()&lt;/code&gt;. We tell &lt;code&gt;map()&lt;/code&gt; the names of the columns by defining &lt;code&gt;nm&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(., set_names, nm = new_names)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For each tibble in the list (&lt;code&gt;.x&lt;/code&gt;), remove the rows 1 through 3 and 60.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ slice(.x, -1:-3, -60:-61))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now for each tibble, filter out the rows in &lt;code&gt;select_characteristics&lt;/code&gt; that contain the items in &lt;code&gt;filter_var&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ filter(.x, !select_characteristics %in% filter_var))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Like before, we want a new column that lets us know the category for each of the characteristic options.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ add_column(.x, category_column))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And like before, we want to make sure our numeric columns are actually numeric.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ mutate_at(.x, vars(total, using_online_resources:did_not_respond), list(~ as.numeric(.))))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that our tibbles are all clean and uniform, let’s make this a single, 2D data frame! Like I mentioned before, it’s important that our list is named with the state abbreviations. We can use &lt;code&gt;map_df()&lt;/code&gt; to create a data frame with an ID column called &lt;code&gt;state&lt;/code&gt; that stores each of the sheet names. With this column, we’ll easily know which column is for which state/geography.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_df &amp;lt;- 
+  census_list %&amp;gt;% 
+  map_df(~ as.data.frame(.x), .id = &amp;quot;state&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Congrats! We have successfully tidied a Census dataset!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using the Data&lt;/h2&gt;
+&lt;p&gt;The purpose of all this work is to be able to use it easily in R and with the tidyverse specifically. Let’s use the plotting package {ggplot2} to make something!&lt;/p&gt;
+&lt;p&gt;According to the Census website, we can calculate percentages by removing those that did not respond from the total for the denominator (let’s presume that NA in the column means that everybody responded). Let’s say we want to see the proportion of respondents in the U.S. who say their classes were cancelled by income level.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_us_income &amp;lt;-
+  census_df %&amp;gt;% 
+  filter(state == &amp;quot;US&amp;quot;, category_column == &amp;quot;income&amp;quot;) %&amp;gt;% 
+  mutate(responses = case_when(!is.na(did_not_respond) ~ total - did_not_respond, 
+                               is.na(did_not_respond) ~ total),# calculate denominator
+         pct_cancelled = where_classes_were_cancelled / responses) # calculate percentage
+
+census_us_income &amp;lt;- # setting factor levels so graph shows correct order
+  census_us_income %&amp;gt;% 
+  mutate(select_characteristics = factor(select_characteristics,
+                                         levels = c(&amp;quot;Less than $25,000&amp;quot;, 
+                                                    &amp;quot;$25,000 - $34,999&amp;quot;,
+                                                    &amp;quot;$35,000 - $49,999&amp;quot;,
+                                                    &amp;quot;$50,000 - $74,999&amp;quot;,
+                                                    &amp;quot;$75,000 - $99,999&amp;quot;,
+                                                    &amp;quot;$100,000 - $149,999&amp;quot;,
+                                                    &amp;quot;$150,000 - $199,999&amp;quot;,
+                                                    &amp;quot;$200,000 and above&amp;quot;)))
+
+census_us_income %&amp;gt;% 
+  filter(select_characteristics != &amp;quot;Did not report&amp;quot;) %&amp;gt;% 
+  ggplot(aes(x = select_characteristics, y = pct_cancelled)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;,
+           fill = &amp;quot;#265B5F&amp;quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = &amp;quot;Percent of Respondents Whose Children&amp;#39;s Classes Were Cancelled&amp;quot;,
+       x = &amp;quot;Income&amp;quot;,
+       y = &amp;quot;Percent with Classes Cancelled&amp;quot;,
+       caption = &amp;quot;Source: U.S. Census&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/tidying-census-data_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;From this graph, we can see that respondents from the lower income bands were more likely to say that classes were cancelled for their children due to COVID.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Creating an R Package for School District Shapefiles</title>
+  <link>/blog/leaid-shapefiles/</link>
+  <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/leaid-shapefiles/</guid>
+  <description>
+
+
+&lt;p&gt;I would like to introduce &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt;, a package for mapping U.S. School District shapefiles!&lt;/p&gt;
+&lt;p&gt;Inspired by my coauthor &lt;a href=&#34;https://joshuamrosenberg.com/&#34;&gt;Joshua Rosenberg&lt;/a&gt;, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.&lt;/p&gt;
+&lt;p&gt;School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the &lt;a href=&#34;https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp&#34;&gt;National Center for Education Statistics (NCES) Common Core of Data&lt;/a&gt;. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.&lt;/p&gt;
+&lt;p&gt;It can be very useful to visualize districts and associated data. District shapefiles are available in different places, such as through the &lt;a href=&#34;https://nces.ed.gov/programs/edge/Geographic/DistrictBoundaries&#34;&gt;NCES&lt;/a&gt; and &lt;a href=&#34;https://exhibits.stanford.edu/data/catalog/db586ns4974&#34;&gt;Stanford Education Data Archive&lt;/a&gt;. The package {tigris} also has a school district option, but unfortunately it is missing a few district polygons.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tigris)
+
+ca &amp;lt;- tigris::school_districts(state = &amp;quot;06&amp;quot;,
+                               type = &amp;quot;unified&amp;quot;)
+
+plot(ca[&amp;quot;GEOID&amp;quot;])&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s &lt;a href=&#34;https://github.com/ropensci/piggyback&#34;&gt;{piggyback}&lt;/a&gt; package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.&lt;/p&gt;
+&lt;p&gt;The function &lt;code&gt;lea_get()&lt;/code&gt; downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with &lt;code&gt;lea_prep()&lt;/code&gt; by designating where the shapefiles exist and which state(s) you would like. &lt;strong&gt;Note:&lt;/strong&gt; For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found &lt;a href=&#34;https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.&lt;/p&gt;
+&lt;div id=&#34;example&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Example&lt;/h2&gt;
+&lt;p&gt;Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s &lt;a href=&#34;https://github.com/making-data-science-count/covidedu&#34;&gt;&lt;code&gt;covidedu&lt;/code&gt; project&lt;/a&gt;, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using &lt;code&gt;covidedu&lt;/code&gt; for easy scraping from a &lt;strong&gt;lot&lt;/strong&gt; of district websites!&lt;/p&gt;
+&lt;p&gt;First, let’s call our libraries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+# if you haven&amp;#39;t installed the package yet
+# devtools::install_github(&amp;quot;ivelasq/leaidr&amp;quot;)
+library(leaidr)
+library(maptools)
+library(viridis)
+# if you don&amp;#39;t have this downloaded
+# install.packages(&amp;quot;mapproj&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, &lt;code&gt;summary-of-table-of-links.csv&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; You must have a GitHub PAT set to run &lt;code&gt;lea_get()&lt;/code&gt;. &lt;a href=&#34;https://happygitwithr.com/github-pat.html&#34;&gt;Happy git with R&lt;/a&gt; has a great walkthrough on how to do that.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# download the shapefile into a designated folder
+leaidr::lea_get(path = &amp;quot;./test&amp;quot;)
+
+# prep the shapefile for the state(s) you&amp;#39;d like
+ca_shapefile &amp;lt;-
+  leaidr::lea_prep(path = &amp;quot;./test&amp;quot;, fips = &amp;quot;06&amp;quot;)
+
+# read in the external data that also has NCES ID&amp;#39;s
+# this is from the covidedu project
+ca_data &amp;lt;-
+  read_csv(&amp;quot;https://raw.githubusercontent.com/making-data-science-count/covidedu/master/output/2020-04-29/summary-of-table-of-links.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Join the CSV to the shapefile.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ca_merge &amp;lt;-
+  sp::merge(ca_shapefile, ca_data, by.x = &amp;quot;GEOID&amp;quot;, by.y = &amp;quot;nces_id&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now ‘fortify’ the data - this converts the polygons into points. This is so ggplot can create the plot.&lt;/p&gt;
+&lt;p&gt;If you get the error &lt;code&gt;isTRUE(gpclibPermitStatus()) is not TRUE&lt;/code&gt;, then you need to enable &lt;code&gt;gpclib&lt;/code&gt; by running &lt;code&gt;gpclibPermit()&lt;/code&gt; (this is part of the {maptools} package, which should have been loaded above). Note that support for &lt;code&gt;gpclib&lt;/code&gt; will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.&lt;/p&gt;
+&lt;p&gt;If you run &lt;code&gt;gpclibPermit()&lt;/code&gt; and you keep getting &lt;code&gt;FALSE&lt;/code&gt;, then you are missing the package {gpclib}. Install the package, then run &lt;code&gt;gpclibPermit()&lt;/code&gt; to set it to &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;(I don’t know if this is the best/only way to do this - if anybody has suggestions, please let me know!)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# install.package(&amp;quot;gpclib&amp;quot;)
+gpclibPermit()
+ca_points &amp;lt;- fortify(ca_merge, region = &amp;quot;GEOID&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, join the points and the shapefile data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ca_df &amp;lt;- left_join(ca_merge@data, ca_points, by = c(&amp;quot;GEOID&amp;quot; = &amp;quot;id&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can finally plot the shapefile and its data!&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ca_map &amp;lt;-
+  ca_df %&amp;gt;% 
+  ggplot() +
+  geom_polygon(aes(x = long, 
+                   y = lat, 
+                   group = group,
+                   fill = any_link_found),
+               color = &amp;quot;gray&amp;quot;, 
+               size = .2) +
+  theme_void() +
+  scale_fill_viridis(option = &amp;quot;cividis&amp;quot;, discrete = TRUE) +
+  ggtitle(&amp;quot;COVID-Related Links Found on CA School District Sites&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To make a nicer looking map, then you can use &lt;code&gt;coord_map()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;map_projected &amp;lt;- ca_map +
+  coord_map()
+
+print(map_projected)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/leaid-shapefiles/test_map.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Tada! A full school district map for California.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;call-for-collaboration&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Call for Collaboration&lt;/h2&gt;
+&lt;p&gt;Please try out {leaidr}! I hope that it is useful to you in your work. I’d love any collaborators to join me in making it easier/better!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Other functionalities&lt;/strong&gt;: Thinking of: being able to filter shapefiles by NCES IDs as well as states; adding commonly used data (like district demographics).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Issues&lt;/strong&gt;: If you run into any issues, please post on the &lt;a href=&#34;https://github.com/ivelasq/leaidr/issues&#34;&gt;GitHub page!&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;resources&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#%20joining%20spatial%20data:%20http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html&#34;&gt;&lt;strong&gt;Joining Spatial Data&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rpubs.com/DanielSLee/censusMap&#34;&gt;&lt;strong&gt;Analyzing U.S. Census Data Using R&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Mise-en-Place: Everything in its Place</title>
+  <link>/blog/mis-en-place/</link>
+  <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/mis-en-place/</guid>
+  <description>
+
+
+&lt;p&gt;I got to be the &lt;span class=&#34;citation&#34;&gt;@WeAreRLadies&lt;/span&gt; curator for the week of February 10th and it was a great experience to get feedback from a wider swath of the R community. One question I posed was how people organize the folders within their projects, and I got a lot of engagement! For this blogpost, I categorize the common themes from these different resources and then list them all out at the end of the post.&lt;/p&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Alright everybody! What is your project folder structure? I want to shout out my &lt;a href=&#34;https://twitter.com/hashtag/rladies?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rladies&lt;/a&gt; co-organizer &lt;a href=&#34;https://twitter.com/chayacore?ref_src=twsrc%5Etfw&#34;&gt;@chayacore&lt;/a&gt; for creating this project skeleton 💀(and an awesome utilities package that creates it!) &lt;a href=&#34;https://t.co/8EzyAhkf2O&#34;&gt;pic.twitter.com/8EzyAhkf2O&lt;/a&gt;&lt;/p&gt;&amp;mdash; We are R-Ladies (@WeAreRLadies) &lt;a href=&#34;https://twitter.com/WeAreRLadies/status/1227575580171747333?ref_src=twsrc%5Etfw&#34;&gt;February 12, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;#resources&#34;&gt;Resources&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/moldach/project-directory&#34;&gt;Best Practices for Data Science Project Workflows and File Organization&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;resources&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Resources&lt;/h2&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+<item>
+  <title>Breath of the Wild Weapon Dendrogram</title>
+  <link>/blog/botw/</link>
+  <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/botw/</guid>
+  <description>
+
+
+
+</description>
+  </item>
+  
+<item>
+  <title>Six Things I Always Google When Using ggplot2</title>
+  <link>/blog/things-i-google/</link>
+  <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/things-i-google/</guid>
+  <description>
+
+
+&lt;p&gt;I often use {ggplot2} to create graphs but there are certain things I &lt;em&gt;always&lt;/em&gt; have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#remove-the-legend&#34;&gt;Remove the Legend&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#change-legend-title-and-labels&#34;&gt;Change Legend Title and Labels&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#manually-change-colors&#34;&gt;Manually Change Colors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#remove-x-axis-labels&#34;&gt;Remove X Axis Labels&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#start-the-y-axis-at-a-specific-number&#34;&gt;Start the Y Axis at a Specific Number&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#use-scales-on-the-y-axis&#34;&gt;Use Scales on the Y Axis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+knitr::opts_chunk$set(out.width = &amp;#39;100%&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To showcase what’s happening, I am going to use a &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34;&gt;TidyTuesday&lt;/a&gt; dataset: Spotify songs! Let’s start by creating a simple graph.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Load Data
+spotify_songs &amp;lt;- 
+  readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv&amp;#39;)
+
+spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;remove-the-legend&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Remove the legend&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;theme(legend.position = “none”)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ahh… this one always gets me. Sometimes when your color is mostly just for aesthetics, it doesn’t make sense to also have a color legend. This removes the legend and makes the graph look cleaner.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;change-legend-title-and-labels&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Change Legend Title and Labels&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scale_fill_discrete(name = “New Legend Title”, labels = c(“lab1” = “Label 1”, “lab2” = “Label 2”))&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Alright, say I do want the legend. How do I make it something readable?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  scale_fill_discrete(name = &amp;quot;Playlist Genre&amp;quot;, 
+                      labels = c(&amp;quot;edm&amp;quot; = &amp;quot;EDM&amp;quot;, 
+                                 &amp;quot;latin&amp;quot; = &amp;quot;Latin&amp;quot;, 
+                                 &amp;quot;pop&amp;quot; = &amp;quot;Pop&amp;quot;, 
+                                 &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;R&amp;amp;B&amp;quot;, 
+                                 &amp;quot;rap&amp;quot; = &amp;quot;Rap&amp;quot;, 
+                                 &amp;quot;rock&amp;quot; = &amp;quot;Rock&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manually-change-colors&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Manually Change Colors&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scale_fill_manual(“New Legend Title”, values = c(“lab1” = “#000000”, “lab2” = “#FFFFFF”))&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is a bit tricker, in that you cannot use &lt;code&gt;scale_fill_manual&lt;/code&gt; and &lt;code&gt;scale_fill_discrete&lt;/code&gt; separately on the same plot as they override each other. However, if you want to change the labels &lt;em&gt;and&lt;/em&gt; the colors together, you can use &lt;code&gt;scale_fill_manual&lt;/code&gt; like below.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  scale_fill_manual(name = &amp;quot;Playlist Genre&amp;quot;, 
+                    labels = c(&amp;quot;edm&amp;quot; = &amp;quot;EDM&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;Latin&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;Pop&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;R&amp;amp;B&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;Rap&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;Rock&amp;quot;),
+                    values = c(&amp;quot;edm&amp;quot; = &amp;quot;#68B39B&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;#F6C7FF&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;#ADFFE5&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;#CCB576&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;#B3A070&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;#d3d3d3&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;remove-x-axis-labels&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Remove X Axis Labels&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;theme(axis.title.x = element_blank(),
+axis.text.x = element_blank(),
+axis.ticks.x = element_blank())&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In this case, since we have a legend, we don’t need any x axis labels. Sometimes I use this if there’s redundant information or if it otherwise makes the graph look cleaner.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  scale_fill_manual(name = &amp;quot;Playlist Genre&amp;quot;, 
+                    labels = c(&amp;quot;edm&amp;quot; = &amp;quot;EDM&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;Latin&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;Pop&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;R&amp;amp;B&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;Rap&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;Rock&amp;quot;),
+                    values = c(&amp;quot;edm&amp;quot; = &amp;quot;#68B39B&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;#F6C7FF&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;#ADFFE5&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;#CCB576&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;#B3A070&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;#d3d3d3&amp;quot;)) +
+  theme(axis.title.x = element_blank(),
+         axis.text.x = element_blank(),
+         axis.ticks.x = element_blank())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;start-the-y-axis-at-a-specific-number&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Start the Y Axis at a Specific Number&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scale_y_continuous(name = “New Y Axis Title”, limits = c(0, 1000000))&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Often times, we want our graph’s y axis to start at 0. In this example it already does, but this handy parameter allows us to set exactly what we want our y axis to be.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  scale_fill_manual(name = &amp;quot;Playlist Genre&amp;quot;, 
+                    labels = c(&amp;quot;edm&amp;quot; = &amp;quot;EDM&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;Latin&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;Pop&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;R&amp;amp;B&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;Rap&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;Rock&amp;quot;),
+                    values = c(&amp;quot;edm&amp;quot; = &amp;quot;#68B39B&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;#F6C7FF&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;#ADFFE5&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;#CCB576&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;#B3A070&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;#d3d3d3&amp;quot;)) +
+  theme(axis.title.x = element_blank(),
+         axis.text.x = element_blank(),
+         axis.ticks.x = element_blank()) +
+  scale_y_continuous(name = &amp;quot;Count&amp;quot;, limits = c(0, 10000))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;use-scales-on-the-y-axis&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Use scales on the Y Axis&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;scale_y_continuous(label = scales::format)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Depending on our data, we may want the y axis to be formatted a certain way (using dollar signs, commas, percentage signs, etc.). The handy {scales} package allows us to do that easily.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;spotify_songs %&amp;gt;% 
+  ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
+  geom_histogram(stat = &amp;quot;count&amp;quot;) +
+  scale_fill_manual(name = &amp;quot;Playlist Genre&amp;quot;, 
+                    labels = c(&amp;quot;edm&amp;quot; = &amp;quot;EDM&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;Latin&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;Pop&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;R&amp;amp;B&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;Rap&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;Rock&amp;quot;),
+                    values = c(&amp;quot;edm&amp;quot; = &amp;quot;#68B39B&amp;quot;, 
+                               &amp;quot;latin&amp;quot; = &amp;quot;#F6C7FF&amp;quot;, 
+                               &amp;quot;pop&amp;quot; = &amp;quot;#ADFFE5&amp;quot;, 
+                               &amp;quot;r&amp;amp;b&amp;quot; = &amp;quot;#CCB576&amp;quot;, 
+                               &amp;quot;rap&amp;quot; = &amp;quot;#B3A070&amp;quot;, 
+                               &amp;quot;rock&amp;quot; = &amp;quot;#d3d3d3&amp;quot;)) +
+  theme(axis.title.x = element_blank(),
+         axis.text.x = element_blank(),
+         axis.ticks.x = element_blank()) +
+  scale_y_continuous(name = &amp;quot;Count&amp;quot;, limits = c(0, 10000),
+                     labels = scales::comma)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/things-i-google_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;100%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>

@@ -1,25 +1,186 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>readxl on %&gt;% dreams</title>
-    <link>/tags/readxl/</link>
-    <description>Recent content in readxl on %&gt;% dreams</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/readxl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>What It Takes to Tidy Census Data</title>
-      <link>/blog/tidying-census-data/</link>
-      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/tidying-census-data/</guid>
-      <description>The U.S. Census releases aggregate data on their Household Pulse Survey. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.
-First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet.</description>
-    </item>
-    
-  </channel>
-</rss>
+  <title>readxl on %&gt;% dreams</title>
+  <link>/tags/readxl/</link>
+  <description>Recent content in readxl on %&gt;% dreams</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+<lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/readxl/index.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>What It Takes to Tidy Census Data</title>
+  <link>/blog/tidying-census-data/</link>
+  <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/tidying-census-data/</guid>
+  <description>
+
+
+&lt;p&gt;The U.S. Census releases aggregate data on their &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp2.html&#34;&gt;Household Pulse Survey&lt;/a&gt;. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.&lt;/p&gt;
+&lt;p&gt;First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numerics numerics, and category names in rows makes me feel &lt;code&gt;emo::ji(&#39;unamused&#39;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census_image.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;However, this is not terribly surprising (and with public data, somewhat expected). As stated in the &lt;a href=&#34;https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html&#34;&gt;tidy data&lt;/a&gt; paper:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It is often said that 80% of data analysis is spent on the cleaning and preparing data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Thankfully, we have the very powerful R and tidyverse available to address our data woes. Let’s go through the process of tidying these data with tidyverse packages to show how easily they can become Ready for analysis!&lt;/p&gt;
+&lt;div id=&#34;loading-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Loading the Data&lt;/h2&gt;
+&lt;p&gt;Per usual, we begin by loading our necessary libraries.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(readxl)
+library(httr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An option to download the Excel file and loading it in R. What if we want to load the data directly from the website? We can use {httr}! The following code ‘gets’ the file from the internet, writes it in a temporary file path, and loads it in an object called &lt;code&gt;path&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Many thanks to Liz Potamites for pointing out: if the below doesn’t work, it may be that the link is changed or broken. It should be Table 2 from the second week of the Household Pulse Survey, which as of July 21, 2020 is located &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp/hhp2.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;GET(&amp;quot;https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx&amp;quot;, write_disk(path &amp;lt;- tempfile(fileext = &amp;quot;.xlsx&amp;quot;)))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
+##   Date: 2020-07-22 03:02
+##   Status: 200
+##   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+##   Size: 442 kB
+## &amp;lt;ON DISK&amp;gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpfjZc3y/file7f32106c6185.xlsx&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;cleaning-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Cleaning the Data&lt;/h2&gt;
+&lt;p&gt;As mentioned in the figure above, each sheet comprises of a state’s data. It’d be good to have all of the data in one single data structure. One option is to try to force all of the sheets together at once in a data frame (which is a 2D structure). But we also saw that each sheet requires a lot of cleaning before it can be useful, and it may be difficult to clean if they’re all merged in one data frame. Therefore, let’s instead first read in all the data as a &lt;strong&gt;list&lt;/strong&gt; (which is a higher dimension structure), clean it up, and &lt;em&gt;then&lt;/em&gt; put it together in a data frame.&lt;/p&gt;
+&lt;p&gt;However, I am not very good at thinking about things in list format and it’s a little harder to see what’s going on compared to looking at a data frame using &lt;code&gt;View()&lt;/code&gt;. Before I clean up a list, I usually work on a single cut of the list as a data frame to know what exactly I am going to do. Thankfully, all the sheets in this Excel sheet are formatted the same across states. This isn’t always the case! Because they are identically formatted, we know if our processing works on one sheet, it will work across all of them.&lt;/p&gt;
+&lt;p&gt;Let’s look at a single sheet!&lt;/p&gt;
+&lt;div id=&#34;single-sheet-cleaning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Single Sheet Cleaning&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_sheet1 &amp;lt;-
+  read_excel(path, sheet = 1)
+
+View(census_sheet1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Immediately, we see that the top lines are superfluous rows (the headers from the original dataset). We can use &lt;code&gt;skip&lt;/code&gt; in &lt;code&gt;read_excel()&lt;/code&gt; to not have them read in.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_sheet1 &amp;lt;-
+  read_excel(path, sheet = 1, skip = 3)
+
+# View(census_sheet1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now that the unnecessary rows are gone, we see that the column names aren’t reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with &lt;code&gt;set_names()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;new_names &amp;lt;-
+  c(&amp;quot;select_characteristics&amp;quot;, &amp;quot;total&amp;quot;, &amp;quot;using_online_resources&amp;quot;, &amp;quot;using_paper_materials_sent_home&amp;quot;, &amp;quot;where_classes_were_cancelled&amp;quot;, &amp;quot;where_classes_changed_in_another_way&amp;quot;, &amp;quot;where_no_change_to_classes&amp;quot;, &amp;quot;did_not_respond&amp;quot;)
+
+census_example &amp;lt;-
+  census_sheet1 %&amp;gt;% 
+  set_names(new_names)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We still have some empty rows (and also a row at the very bottom which is a note in the original dataset). We can eliminate these rows using &lt;code&gt;slice()&lt;/code&gt;. Here, we’re saying to ‘slice’ rows 1 through 3 and 60.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  slice(-1:-3, -60:-61)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census4.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Now to deal with the fact that the category names are embedded within the first column &lt;code&gt;select_characteristics&lt;/code&gt;. There may be other ways to do this, but again I manually create a vector with all the characteristic names that I want to get rid of and use &lt;code&gt;filter()&lt;/code&gt; to keep only the rows that do &lt;strong&gt;not&lt;/strong&gt; contain the items in the vector.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;filter_var &amp;lt;- 
+  c(&amp;quot;Age&amp;quot;, &amp;quot;Sex&amp;quot;, &amp;quot;Hispanic origin and Race&amp;quot;, &amp;quot;Education&amp;quot;, &amp;quot;Marital status&amp;quot;, &amp;quot;Presence of children under 18 years old&amp;quot;, &amp;quot;Respondent or household member experienced loss of employment income&amp;quot;, &amp;quot;Mean weekly hours spent on…&amp;quot;, &amp;quot;Respondent currently employed&amp;quot;, &amp;quot;Food sufficiency for households prior to March 13, 2020&amp;quot;, &amp;quot;Household income&amp;quot;)
+
+census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  filter(!select_characteristics %in% filter_var) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census5.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Even though we removed the characteristic names from the rows, they actually contain very useful information. Also, we run into an issue in which two of the characteristic categories had the same options (“yes” and “no”). If we don’t address this, we’ll forget which rows are for which characteristic. To fix this, we manually create a column with the characteristics for each of the response options and append it to the data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;category_column &amp;lt;-
+  c(&amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;age&amp;quot;, &amp;quot;sex&amp;quot;, &amp;quot;sex&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;race&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;education&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;marital_status&amp;quot;, &amp;quot;children&amp;quot;, &amp;quot;children&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;loss_employment&amp;quot;, &amp;quot;hours_spent&amp;quot;, &amp;quot;hours_spent&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;employed&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;food_sufficiency&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;, &amp;quot;income&amp;quot;)
+
+census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  add_column(category_column)&lt;/code&gt;&lt;/pre&gt;
+&lt;center&gt;
+&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census6.png&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;Finally, you may have noticed that some of the rows did not read in as numbers but as characters.&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census7.png&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;We can use &lt;code&gt;mutate_at()&lt;/code&gt; and specify which variables we want to be numeric.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_example &amp;lt;-
+  census_example %&amp;gt;% 
+  mutate_at(vars(total, using_online_resources:did_not_respond), list(~ as.numeric(.)))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hooray - now we have a tidy dataset we could use for analysis! Which is great, but it’s only one sheet. How do we do this for the additional 66?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;multi-sheet-cleaning&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Multi Sheet Cleaning&lt;/h3&gt;
+&lt;p&gt;We will now download the data and store it in a list, where each sheet (which represents a state) is saved as a tibble within the list. To work across all the lists, we use the tidyverse package {purrr} and its handy functions.&lt;/p&gt;
+&lt;p&gt;You may notice that the multi sheet cleaning looks a lot like the single sheet cleaning but everything is wrapped in the function &lt;code&gt;map()&lt;/code&gt;. That’s true! The wonderful thing about {purrr} being in the tidyverse is that it’s really easy to integrate with all the tidyverse functions.&lt;/p&gt;
+&lt;p&gt;Reading the data into one list is slightly more complicated than reading in a single sheet. We begin with the file path from before and then use &lt;code&gt;excel_sheets()&lt;/code&gt; to create a vector of the sheet names. &lt;code&gt;set_names()&lt;/code&gt; ensures that we have a named list that contains the state names, which will be important later. If we don’t use &lt;code&gt;set_names()&lt;/code&gt;, then the tibbles have generic names instead of ‘US’, ‘AL’, etc. Then using &lt;code&gt;purrr::map()&lt;/code&gt;, we ask R to download each of the sheets of the dataset and store it together in a list (&lt;code&gt;map()&lt;/code&gt; always returns a list).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;-
+  path %&amp;gt;% 
+  excel_sheets() %&amp;gt;% 
+  set_names() %&amp;gt;% 
+  map(~ read_excel(path = path, sheet = .x, skip = 3), .id = &amp;quot;Sheet&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you take a look at the list using &lt;code&gt;View(census_list)&lt;/code&gt;, you can see the data is stored as tibbles within the list. If you expand &lt;code&gt;US&lt;/code&gt;, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run &lt;code&gt;census_list[[&#34;US&#34;]]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/census_files/census_list.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Using the same thinking as we did with the single sheet example, let’s go through and clean up this list - without having to go into each individual tibble!&lt;/p&gt;
+&lt;p&gt;First, we set the names within each list using &lt;code&gt;set_names()&lt;/code&gt;. We tell &lt;code&gt;map()&lt;/code&gt; the names of the columns by defining &lt;code&gt;nm&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(., set_names, nm = new_names)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For each tibble in the list (&lt;code&gt;.x&lt;/code&gt;), remove the rows 1 through 3 and 60.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ slice(.x, -1:-3, -60:-61))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now for each tibble, filter out the rows in &lt;code&gt;select_characteristics&lt;/code&gt; that contain the items in &lt;code&gt;filter_var&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ filter(.x, !select_characteristics %in% filter_var))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Like before, we want a new column that lets us know the category for each of the characteristic options.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ add_column(.x, category_column))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And like before, we want to make sure our numeric columns are actually numeric.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_list &amp;lt;- 
+  census_list %&amp;gt;% 
+  map(~ mutate_at(.x, vars(total, using_online_resources:did_not_respond), list(~ as.numeric(.))))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that our tibbles are all clean and uniform, let’s make this a single, 2D data frame! Like I mentioned before, it’s important that our list is named with the state abbreviations. We can use &lt;code&gt;map_df()&lt;/code&gt; to create a data frame with an ID column called &lt;code&gt;state&lt;/code&gt; that stores each of the sheet names. With this column, we’ll easily know which column is for which state/geography.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_df &amp;lt;- 
+  census_list %&amp;gt;% 
+  map_df(~ as.data.frame(.x), .id = &amp;quot;state&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Congrats! We have successfully tidied a Census dataset!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-the-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Using the Data&lt;/h2&gt;
+&lt;p&gt;The purpose of all this work is to be able to use it easily in R and with the tidyverse specifically. Let’s use the plotting package {ggplot2} to make something!&lt;/p&gt;
+&lt;p&gt;According to the Census website, we can calculate percentages by removing those that did not respond from the total for the denominator (let’s presume that NA in the column means that everybody responded). Let’s say we want to see the proportion of respondents in the U.S. who say their classes were cancelled by income level.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;census_us_income &amp;lt;-
+  census_df %&amp;gt;% 
+  filter(state == &amp;quot;US&amp;quot;, category_column == &amp;quot;income&amp;quot;) %&amp;gt;% 
+  mutate(responses = case_when(!is.na(did_not_respond) ~ total - did_not_respond, 
+                               is.na(did_not_respond) ~ total),# calculate denominator
+         pct_cancelled = where_classes_were_cancelled / responses) # calculate percentage
+
+census_us_income &amp;lt;- # setting factor levels so graph shows correct order
+  census_us_income %&amp;gt;% 
+  mutate(select_characteristics = factor(select_characteristics,
+                                         levels = c(&amp;quot;Less than $25,000&amp;quot;, 
+                                                    &amp;quot;$25,000 - $34,999&amp;quot;,
+                                                    &amp;quot;$35,000 - $49,999&amp;quot;,
+                                                    &amp;quot;$50,000 - $74,999&amp;quot;,
+                                                    &amp;quot;$75,000 - $99,999&amp;quot;,
+                                                    &amp;quot;$100,000 - $149,999&amp;quot;,
+                                                    &amp;quot;$150,000 - $199,999&amp;quot;,
+                                                    &amp;quot;$200,000 and above&amp;quot;)))
+
+census_us_income %&amp;gt;% 
+  filter(select_characteristics != &amp;quot;Did not report&amp;quot;) %&amp;gt;% 
+  ggplot(aes(x = select_characteristics, y = pct_cancelled)) +
+  geom_bar(stat = &amp;quot;identity&amp;quot;,
+           fill = &amp;quot;#265B5F&amp;quot;) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = &amp;quot;Percent of Respondents Whose Children&amp;#39;s Classes Were Cancelled&amp;quot;,
+       x = &amp;quot;Income&amp;quot;,
+       y = &amp;quot;Percent with Classes Cancelled&amp;quot;,
+       caption = &amp;quot;Source: U.S. Census&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/tidying-census-data_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;From this graph, we can see that respondents from the lower income bands were more likely to say that classes were cancelled for their children due to COVID.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>

@@ -1,58 +1,148 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Itemized on %&gt;% dreams</title>
-    <link>/itemized/</link>
-    <description>Recent content in Itemized on %&gt;% dreams</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/itemized/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Websites &amp; Apps</title>
-      <link>/itemized/apps/</link>
-      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/apps/</guid>
-      <description>  Blogdown Bookdown Shiny  Blogdown R-Ladies Seattle Website  https://rladiesseattle.org/    Bookdown Data Science in Education Using R Open Version  https://datascienceineducation.com/    Shiny Spurious COVID Correlation Creator  https://ivelasq.shinyapps.io/SpuriousCOVIDCorrelationCreator/    </description>
-    </item>
-    
-    <item>
-      <title>packages</title>
-      <link>/itemized/packages/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/packages/</guid>
-      <description>  wizehiver: R wrapper for WizeHive’s Zengine API
-   dataedu: R Package Associated with the Data Science in Education Using R Book
-   leaidr: R Package for U.S. School District Shapefiles
-   edreportr: R Wrapper for EdReports API
-  </description>
-    </item>
-    
-    <item>
-      <title>talks</title>
-      <link>/itemized/talks/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/talks/</guid>
-      <description>2020-05-08 Package Management in R Seattle useR Group
-2019-07-16 Taking a Peek at Hiking Data Using R R-Ladies Seattle
-2018-07-23 Blogdown for What R-Ladies Seattle</description>
-    </item>
-    
-    <item>
-      <title>visualizations</title>
-      <link>/itemized/visualizations/</link>
-      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/itemized/visualizations/</guid>
-      <description>Most Common Allegations Against New York City Police Officers  I&amp;#39;ve been digging through @propublica &amp;#39;s database of Civilian Complaints Against New York City Police Officers. What questions do you have of the data? Here&amp;#39;s an #rstats circular packing of most common allegations by race. Code and link to data here: https://t.co/SlwSrTAYrK pic.twitter.com/VAQJviORlT
-&amp;mdash; Isabella Velásquez (@ivelasq3) July 29, 2020    Donkey Kong High Score Competition Record Over Time  I recently rewatched The King of Kong: A Fistful of Quarters and was inspired to make a chart of the record holders since the infamous Billy Mitchell 🕹️ Merging my love of #rstats and video games (and got to use #cowplot to embed images too!</description>
-    </item>
-    
-  </channel>
-</rss>
+  <title>Itemized on %&gt;% dreams</title>
+  <link>/itemized/</link>
+  <description>Recent content in Itemized on %&gt;% dreams</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+<lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="/itemized/index.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Websites &amp; Apps</title>
+  <link>/itemized/apps/</link>
+  <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+  
+<guid>/itemized/apps/</guid>
+  <description>
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#blogdown&#34;&gt;Blogdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#bookdown&#34;&gt;Bookdown&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#shiny&#34;&gt;Shiny&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&#34;blogdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Blogdown&lt;/h1&gt;
+&lt;div id=&#34;r-ladies-seattle-website&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;R-Ladies Seattle Website&lt;/h2&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/seattle.png&#34; /&gt;&lt;/p&gt;
+&lt;a href=&#34;https://rladiesseattle.org/&#34; class=&#34;uri&#34;&gt;https://rladiesseattle.org/&lt;/a&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;bookdown&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Bookdown&lt;/h1&gt;
+&lt;div id=&#34;data-science-in-education-using-r-open-version&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Data Science in Education Using R Open Version&lt;/h2&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/dsieur.png&#34; /&gt;&lt;/p&gt;
+&lt;a href=&#34;https://datascienceineducation.com/&#34; class=&#34;uri&#34;&gt;https://datascienceineducation.com/&lt;/a&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;shiny&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Shiny&lt;/h1&gt;
+&lt;div id=&#34;spurious-covid-correlation-creator&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Spurious COVID Correlation Creator&lt;/h2&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/corr.png&#34; /&gt;&lt;/p&gt;
+&lt;a href=&#34;https://ivelasq.shinyapps.io/SpuriousCOVIDCorrelationCreator/&#34; class=&#34;uri&#34;&gt;https://ivelasq.shinyapps.io/SpuriousCOVIDCorrelationCreator/&lt;/a&gt;
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+<item>
+  <title>packages</title>
+  <link>/itemized/packages/</link>
+  <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+  
+<guid>/itemized/packages/</guid>
+  <description>
+
+
+&lt;center&gt;
+&lt;p&gt;&lt;strong&gt;wizehiver:&lt;/strong&gt; R wrapper for WizeHive’s Zengine API&lt;/p&gt;
+&lt;a href=&#34;https://github.com/ivelasq/wizehiver&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://image.ibb.co/hkekzT/hex_Sticker_nospot_copy.png&#34; height=&#34;120&#34; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;strong&gt;dataedu:&lt;/strong&gt; R Package Associated with the Data Science in Education Using R Book&lt;/p&gt;
+&lt;a href=&#34;https://github.com/data-edu&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://github.com/ivelasq/dataedu/blob/master/man/figures/logo.png?raw=true&#34; height=&#34;120&#34; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;strong&gt;leaidr:&lt;/strong&gt; R Package for U.S. School District Shapefiles&lt;/p&gt;
+&lt;a href=&#34;https://github.com/ivelasq/leaidr&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://github.com/ivelasq/leaidr/blob/master/man/figures/logo.png?raw=true&#34; height=&#34;120&#34; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+&lt;center&gt;
+&lt;p&gt;&lt;strong&gt;edreportr:&lt;/strong&gt; R Wrapper for EdReports API&lt;/p&gt;
+&lt;a href=&#34;https://github.com/MarkLaVenia/edreportr&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://github.com/MarkLaVenia/edreportr/blob/master/man/figures/logo.png?raw=true&#34; height=&#34;120&#34; /&gt;&lt;/a&gt;
+&lt;/center&gt;
+</description>
+  </item>
+  
+<item>
+  <title>talks</title>
+  <link>/itemized/talks/</link>
+  <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+  
+<guid>/itemized/talks/</guid>
+  <description>
+
+
+&lt;center&gt;
+&lt;img src=&#34;https://ivelasq.rbind.io/img/talks.jpg&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;2020-05-08 &lt;a href=&#34;https://garciamikep.github.io/useR-webinar/&#34;&gt;&lt;strong&gt;Package Management in R&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;Seattle useR Group&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;2019-07-16 &lt;a href=&#34;https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p&#34;&gt;&lt;strong&gt;Taking a Peek at Hiking Data Using R&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;R-Ladies Seattle&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;2018-07-23 &lt;a href=&#34;https://www.slideshare.net/ivelasq/20180723-blogdown-for-what&#34;&gt;&lt;strong&gt;Blogdown for What&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;R-Ladies Seattle&lt;/em&gt;&lt;/p&gt;
+</description>
+  </item>
+  
+<item>
+  <title>visualizations</title>
+  <link>/itemized/visualizations/</link>
+  <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+  
+<guid>/itemized/visualizations/</guid>
+  <description>
+
+
+&lt;div id=&#34;most-common-allegations-against-new-york-city-police-officers&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Most Common Allegations Against New York City Police Officers&lt;/h1&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I&amp;#39;ve been digging through &lt;a href=&#34;https://twitter.com/propublica?ref_src=twsrc%5Etfw&#34;&gt;@propublica&lt;/a&gt; &amp;#39;s database of Civilian Complaints Against New York City Police Officers. What questions do you have of the data? Here&amp;#39;s an &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; circular packing of most common allegations by race. Code and link to data here: &lt;a href=&#34;https://t.co/SlwSrTAYrK&#34;&gt;https://t.co/SlwSrTAYrK&lt;/a&gt; &lt;a href=&#34;https://t.co/VAQJviORlT&#34;&gt;pic.twitter.com/VAQJviORlT&lt;/a&gt;&lt;/p&gt;&amp;mdash; Isabella Velásquez (@ivelasq3) &lt;a href=&#34;https://twitter.com/ivelasq3/status/1288498168183681024?ref_src=twsrc%5Etfw&#34;&gt;July 29, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;donkey-kong-high-score-competition-record-over-time&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Donkey Kong High Score Competition Record Over Time&lt;/h1&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I recently rewatched The King of Kong: A Fistful of Quarters and was inspired to make a chart of the record holders since the infamous Billy Mitchell 🕹️ Merging my love of &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; and video games (and got to use &lt;a href=&#34;https://twitter.com/hashtag/cowplot?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#cowplot&lt;/a&gt; to embed images too!) Code here: &lt;a href=&#34;https://t.co/BvrwN2W1GO&#34;&gt;https://t.co/BvrwN2W1GO&lt;/a&gt; &lt;a href=&#34;https://t.co/IkDyA1hn6e&#34;&gt;pic.twitter.com/IkDyA1hn6e&lt;/a&gt;&lt;/p&gt;&amp;mdash; Isabella Velásquez (@ivelasq3) &lt;a href=&#34;https://twitter.com/ivelasq3/status/1265252845365817346?ref_src=twsrc%5Etfw&#34;&gt;May 26, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;energy-generation-by-u.s.-state&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Energy Generation by U.S. State&lt;/h1&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Energy ⚡🏭💧generation by U.S. state, 1990 - 2017 using the &lt;a href=&#34;https://twitter.com/hashtag/geofacet?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#geofacet&lt;/a&gt; package &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt;&lt;br&gt;&lt;br&gt;Code: &lt;a href=&#34;https://t.co/ARpYK7snSp&#34;&gt;https://t.co/ARpYK7snSp&lt;/a&gt; &lt;a href=&#34;https://t.co/DrtKcOWJqt&#34;&gt;pic.twitter.com/DrtKcOWJqt&lt;/a&gt;&lt;/p&gt;&amp;mdash; Isabella Velásquez (@ivelasq3) &lt;a href=&#34;https://twitter.com/ivelasq3/status/1136706380587388928?ref_src=twsrc%5Etfw&#34;&gt;June 6, 2019&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;/div&gt;
+&lt;div id=&#34;u.s.-public-high-school-start-times&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;U.S. Public High School Start Times&lt;/h1&gt;
+&lt;center&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;U.S. Public High School Start Times from &lt;a href=&#34;https://twitter.com/EdNCES?ref_src=twsrc%5Etfw&#34;&gt;@EdNCES&lt;/a&gt; ☀️I went to one of those unfortunate Texan high schools that start at *7:25* in the morning. I&amp;#39;m still sleepy.&lt;a href=&#34;https://t.co/fdhyowIu09&#34;&gt;https://t.co/fdhyowIu09&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/dataedu?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#dataedu&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/ggplot2?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#ggplot2&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/maps?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#maps&lt;/a&gt; &lt;a href=&#34;https://twitter.com/hashtag/showtext?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#showtext&lt;/a&gt; &lt;a href=&#34;https://t.co/drfk2OSpG8&#34;&gt;pic.twitter.com/drfk2OSpG8&lt;/a&gt;&lt;/p&gt;&amp;mdash; Isabella Velásquez (@ivelasq3) &lt;a href=&#34;https://twitter.com/ivelasq3/status/1231914419887603713?ref_src=twsrc%5Etfw&#34;&gt;February 24, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;/center&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>

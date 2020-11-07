@@ -1,26 +1,172 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rmapshaper on %&gt;% dreams</title>
-    <link>/tags/rmapshaper/</link>
-    <description>Recent content in rmapshaper on %&gt;% dreams</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/rmapshaper/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Even Easier-to-Use R Package for School District Shapefiles</title>
-      <link>/blog/leaidr2/</link>
-      <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/leaidr2/</guid>
-      <description>leaidr Update A few months ago, I created {leaidr} for easier download of U.S. school district shapefiles. Daniel Anderson went through and greatly improved the package, making it even easier to download and use the shapefiles (thanks Dan!).
-Now, instead of having to run lea_prep(), you can download the shapefiles from Dan’s Github repository like so:
-library(leaidr) tn &amp;lt;- lea_get(&amp;quot;tn&amp;quot;) ## OGR data source with driver: ESRI Shapefile ## Source: &amp;quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCFlfFo/47&amp;quot;, layer: &amp;quot;47&amp;quot; ## with 158 features ## It has 18 fields tn %&amp;gt;% sf::st_as_sf() %&amp;gt;% ggplot2::ggplot() + ggplot2::geom_sf() And, if you use lea_get() (i.</description>
-    </item>
-    
-  </channel>
-</rss>
+  <title>rmapshaper on %&gt;% dreams</title>
+  <link>/tags/rmapshaper/</link>
+  <description>Recent content in rmapshaper on %&gt;% dreams</description>
+  <generator>Hugo -- gohugo.io</generator>
+<language>en-us</language>
+<lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/rmapshaper/index.xml" rel="self" type="application/rss+xml" />
+<item>
+  <title>Even Easier-to-Use R Package for School District Shapefiles</title>
+  <link>/blog/leaidr2/</link>
+  <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
+  
+<guid>/blog/leaidr2/</guid>
+  <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/mapdeck-binding/mapdeck.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/mpadeck_functions/mapdeck_functions.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/deckgl/deckgl.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/legend/legend.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/title/title.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/mapdeck_location/mapdeck_location.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/mapdeck_colours/mapdeck_colours.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/mapdeck_coordinates/mapdeck_coordinates.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/mapboxgl/mapbox-gl.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/mapboxgl/mapbox-gl.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/mapdeck/mapdeck.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/mpadeck-binding/mapdeck.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;leaidr-update&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;leaidr Update&lt;/h2&gt;
+&lt;p&gt;A few months ago, I created &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt; for easier download of U.S. school district shapefiles. &lt;a href=&#34;https://github.com/datalorax&#34;&gt;Daniel Anderson&lt;/a&gt; went through and greatly improved the package, making it even easier to download and use the shapefiles (thanks Dan!).&lt;/p&gt;
+&lt;p&gt;Now, instead of having to run &lt;code&gt;lea_prep()&lt;/code&gt;, you can download the shapefiles from Dan’s Github repository like so:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(leaidr)
+
+tn &amp;lt;- lea_get(&amp;quot;tn&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## OGR data source with driver: ESRI Shapefile 
+## Source: &amp;quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCFlfFo/47&amp;quot;, layer: &amp;quot;47&amp;quot;
+## with 158 features
+## It has 18 fields&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tn %&amp;gt;% 
+  sf::st_as_sf() %&amp;gt;% 
+  ggplot2::ggplot() +
+  ggplot2::geom_sf()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/blog/leaidr2_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And, if you use &lt;code&gt;lea_get()&lt;/code&gt; (i.e., with &lt;code&gt;state = NULL&lt;/code&gt;), you’ll get the shapefiles for the whole U.S. back via ROpenSci’s {piggyback}.&lt;/p&gt;
+&lt;p&gt;So much easier and better!&lt;/p&gt;
+&lt;p&gt;Because Dan helped make the package so great, I wanted to add on and showcase what can be done with it! So, today’s post is jam-packed with choices…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-beautiful-map-in-mapbox&#34;&gt;Create a Beautiful Map in Mapbox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-a-shiny-app-with-your-beautiful-map&#34;&gt;Create a Shiny App with Your Beautiful Maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#add-a-shiny-app-to-the-package&#34;&gt;Add A Shiny App to the Package&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-a-beautiful-map-in-mapbox&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Create a Beautiful Map in Mapbox&lt;/h2&gt;
+&lt;p&gt;Asmae Toumi wrote a &lt;a href=&#34;https://asmae-toumi.netlify.app/posts/2020-08-10-how-to-make-web-ready-us-county-level-maps/&#34;&gt;blog post&lt;/a&gt; on how to make maps using R and Mapbox. So, I figured: why not announce the new and improved {leaidr} functions to create a beautiful Mapbox map??&lt;/p&gt;
+&lt;p&gt;This walkthrough will go a little deeper with Mapbox, as I am an extreme beginner and had to do a lot of investigating to figure out how to use it.&lt;/p&gt;
+&lt;p&gt;I suggest first reading through Asmae’s tutorial as there are a few things you need to do before being able to run the below: download the {mapboxapi} package, create a Mapbox account, and install Tippecanoe.&lt;/p&gt;
+&lt;div id=&#34;load-the-libraries&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load the Libraries&lt;/h3&gt;
+&lt;p&gt;Here are the libraries you will need:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+
+# remotes::install_github(&amp;quot;walkerke/mapboxapi&amp;quot;)
+library(mapboxapi)
+
+# if you haven&amp;#39;t installed the package yet
+# devtools::install_github(&amp;quot;ivelasq/leaidr&amp;quot;)
+library(leaidr)
+
+library(rmapshaper)
+library(mapdeck)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;download-the-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Download the Data&lt;/h3&gt;
+&lt;p&gt;Download your shapefiles. If you want to make a choropleth map, also read in the data that you will append to your shapefiles and merge them together by a common ID. (Sorry for using a local file!)&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;shp &amp;lt;- # leaidr shapefiles
+  lea_get(c(&amp;quot;or&amp;quot;, &amp;quot;wa&amp;quot;)) %&amp;gt;% 
+  sf::st_as_sf()
+
+dat &amp;lt;- # data to append 
+  read_csv(&amp;quot;/Users/shortessay/Downloads/ccd_lea_141_1819_l_1a_091019/ccd_lea_141_1819_l_1a_091019.csv&amp;quot;) %&amp;gt;%
+  filter(ST %in% c(&amp;quot;OR&amp;quot;, &amp;quot;WA&amp;quot;))
+
+northwest &amp;lt;-
+  shp %&amp;gt;%
+  select(GEOID, geometry) %&amp;gt;%
+  sp::merge(dat, by.x = &amp;quot;GEOID&amp;quot;, by.y = &amp;quot;LEAID&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-the-tileset&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Create the Tileset&lt;/h3&gt;
+&lt;p&gt;Now, following the original tutorial, we use Tippecanoe to optimize the shapefiles and data and then upload the “tiles” to Mapbox.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tippecanoe(
+  input = northwest,
+  output = &amp;quot;nw.mbtiles&amp;quot;,
+  layer_name = &amp;quot;northwest&amp;quot;)
+
+upload_tiles(input = &amp;quot;nw.mbtiles&amp;quot;,
+             username = &amp;quot;ivelasq3&amp;quot;, 
+             tileset_id = &amp;quot;northwest&amp;quot;,
+             multipart = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;style-the-tiles&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Style the Tiles&lt;/h3&gt;
+&lt;p&gt;This is the part that I had to figure out on the Mapbox website. &lt;a href=&#34;https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/&#34;&gt;This&lt;/a&gt; walkthrough was helpful. Once you have uploaded the tiles using &lt;code&gt;upload_tiles()&lt;/code&gt;, you should see them available under “Custom tileset” at the bottom of this webpage: &lt;a href=&#34;https://studio.mapbox.com/tilesets/&#34; class=&#34;uri&#34;&gt;https://studio.mapbox.com/tilesets/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/mapbox_files/1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Then, go to Styles on this webpage: &lt;a href=&#34;https://studio.mapbox.com/&#34; class=&#34;uri&#34;&gt;https://studio.mapbox.com/&lt;/a&gt;. Click “New Style” and choose the template you want, then Customize.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/mapbox_files/2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset or add the tileset by the ID given by &lt;code&gt;upload_tiles()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/mapbox_files/3.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I zoomed to where my tiles are located (Oregon and Washington) and started editing. &lt;a href=&#34;https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling&#34;&gt;This section of the walkthrough&lt;/a&gt; explains how to create a choropleth map, where each geography has a different color according to a value.&lt;/p&gt;
+&lt;p&gt;Once done styling, I clicked “Publish” on the top right of Mapbox Studio.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;using-map-in-r&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Using Map in R&lt;/h3&gt;
+&lt;p&gt;To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://ivelasq.rbind.io/img/mapbox_files/4.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mapdeck(token = Sys.getenv(&amp;quot;MAPBOX_PUBLIC_TOKEN&amp;quot;),
+        style = &amp;quot;mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj&amp;quot;,
+        zoom = 4,
+        location = c(-120.161, 45.843))&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;mapdeck html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;access_token&#34;:&#34;pk.eyJ1IjoiaXZlbGFzcTMiLCJhIjoiY2tlNmJpaHlrMWJpbjJ2cDgzczRpbjNpMSJ9.YMLVVVzPxfnms4oADrG0aQ&#34;,&#34;style&#34;:&#34;mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj&#34;,&#34;pitch&#34;:0,&#34;zoom&#34;:4,&#34;location&#34;:[-120.161,45.843],&#34;bearing&#34;:0,&#34;max_zoom&#34;:20,&#34;min_zoom&#34;:0,&#34;max_pitch&#34;:60,&#34;min_pitch&#34;:0,&#34;show_view_state&#34;:false,&#34;repeat_view&#34;:false},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;create-a-shiny-app-with-your-beautiful-map&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Create a Shiny App with Your Beautiful Map&lt;/h2&gt;
+&lt;p&gt;Once you have the &lt;code&gt;mapdeck()&lt;/code&gt; function all set up, you can use it in a Shiny app. &lt;a href=&#34;https://github.com/greghuang8/Geovis/blob/master/shinyApp.R&#34;&gt;Here’s&lt;/a&gt; some reference code that I found useful for using &lt;code&gt;renderMapdeck()&lt;/code&gt;. Thank you Greg Huang!&lt;/p&gt;
+&lt;p&gt;This is an example of a very bare bones Shiny app. For the UI, use &lt;code&gt;mapdeckOutput()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(shiny)
+library(mapdeck)
+
+ui &amp;lt;- fluidPage(
+  mapdeckOutput(outputId = &amp;quot;createMap&amp;quot;)
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And for the server, paste the &lt;code&gt;mapdeck()&lt;/code&gt; function in &lt;code&gt;renderMapdeck()&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;server &amp;lt;- function(input, output) {
+
+  output$createMap &amp;lt;- renderMapdeck({
+    mapdeck(token = Sys.getenv(&amp;quot;MAPBOX_PUBLIC_TOKEN&amp;quot;),
+            style = &amp;quot;mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj&amp;quot;,
+            zoom = 4,
+            location = c(-120.161, 45.843))
+  })
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I uploaded the bare bones app &lt;a href=&#34;https://ivelasq.shinyapps.io/leaidr/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;add-a-shiny-app-to-the-package&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Add A Shiny App to the Package&lt;/h2&gt;
+&lt;p&gt;Now, say you would like to add the Shiny app to your package as well as upload to shinyapps.io / instead of uploading to shinyapps.io. Thankfully, Dean Attali has a &lt;a href=&#34;https://deanattali.com/2015/04/21/r-package-shiny-app/&#34;&gt;great walkthrough&lt;/a&gt; on how to do this!&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Add {shiny} to your dependencies in your &lt;code&gt;DESCRIPTION&lt;/code&gt; file (I do this with &lt;code&gt;usethis::use_package(&#34;shiny&#34;)&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Create a folder called &lt;code&gt;inst&lt;/code&gt; in your package with another folder for the Shiny example, and your UI/server file(s) within.&lt;/li&gt;
+&lt;li&gt;Create an R file to run your example (I used &lt;code&gt;usethis::use_r(&#34;runExample.R&#34;)&lt;/code&gt;) to create this file.&lt;/li&gt;
+&lt;li&gt;Don’t forget to document! &lt;code&gt;devtools::document()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So, if you were to install and load {leaidr}, you can run &lt;code&gt;leaidr::runExample()&lt;/code&gt; to launch the Shiny app. To see what the files look like, check out the Github repo files &lt;a href=&#34;https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+  </item>
+  
+</channel>
+  </rss>
