@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>sp on %&gt;% dreams</title>
-  <link>/tags/sp/</link>
-  <description>Recent content in sp on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sp/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Creating an R Package for School District Shapefiles</title>
-  <link>/blog/leaid-shapefiles/</link>
-  <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaid-shapefiles/</guid>
-  <description>
+    <title>sp on %&gt;% dreams</title>
+    <link>/tags/sp/</link>
+    <description>Recent content in sp on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an R Package for School District Shapefiles</title>
+      <link>/blog/leaid-shapefiles/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaid-shapefiles/</guid>
+      <description>
 
 
 &lt;p&gt;I would like to introduce &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt;, a package for mapping U.S. School District shapefiles!&lt;/p&gt;
@@ -104,7 +104,7 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

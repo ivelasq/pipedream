@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>mapdeck on %&gt;% dreams</title>
-  <link>/tags/mapdeck/</link>
-  <description>Recent content in mapdeck on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/mapdeck/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Even Easier-to-Use R Package for School District Shapefiles</title>
-  <link>/blog/leaidr2/</link>
-  <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaidr2/</guid>
-  <description>
+    <title>mapdeck on %&gt;% dreams</title>
+    <link>/tags/mapdeck/</link>
+    <description>Recent content in mapdeck on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/mapdeck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Even Easier-to-Use R Package for School District Shapefiles</title>
+      <link>/blog/leaidr2/</link>
+      <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaidr2/</guid>
+      <description>
 &lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/mapdeck-binding/mapdeck.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/mpadeck_functions/mapdeck_functions.js&#34;&gt;&lt;/script&gt;
@@ -166,7 +166,7 @@ ui &amp;lt;- fluidPage(
 &lt;p&gt;In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>ggplot2 on %&gt;% dreams</title>
-  <link>/tags/ggplot2/</link>
-  <description>Recent content in ggplot2 on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>What It Takes to Tidy Census Data</title>
-  <link>/blog/tidying-census-data/</link>
-  <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/tidying-census-data/</guid>
-  <description>
+    <title>ggplot2 on %&gt;% dreams</title>
+    <link>/tags/ggplot2/</link>
+    <description>Recent content in ggplot2 on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggplot2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What It Takes to Tidy Census Data</title>
+      <link>/blog/tidying-census-data/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tidying-census-data/</guid>
+      <description>
 
 
 &lt;p&gt;The U.S. Census releases aggregate data on their &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp2.html&#34;&gt;Household Pulse Survey&lt;/a&gt;. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.&lt;/p&gt;
@@ -180,15 +180,15 @@ census_us_income %&amp;gt;%
 &lt;p&gt;From this graph, we can see that respondents from the lower income bands were more likely to say that classes were cancelled for their children due to COVID.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Creating an R Package for School District Shapefiles</title>
-  <link>/blog/leaid-shapefiles/</link>
-  <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaid-shapefiles/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Creating an R Package for School District Shapefiles</title>
+      <link>/blog/leaid-shapefiles/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaid-shapefiles/</guid>
+      <description>
 
 
 &lt;p&gt;I would like to introduce &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt;, a package for mapping U.S. School District shapefiles!&lt;/p&gt;
@@ -279,15 +279,15 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Mise-en-Place: Everything in its Place</title>
-  <link>/blog/mis-en-place/</link>
-  <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/mis-en-place/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Mise-en-Place: Everything in its Place</title>
+      <link>/blog/mis-en-place/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/mis-en-place/</guid>
+      <description>
 
 
 &lt;p&gt;I got to be the &lt;span class=&#34;citation&#34;&gt;@WeAreRLadies&lt;/span&gt; curator for the week of February 10th and it was a great experience to get feedback from a wider swath of the R community. One question I posed was how people organize the folders within their projects, and I got a lot of engagement! For this blogpost, I categorize the common themes from these different resources and then list them all out at the end of the post.&lt;/p&gt;
@@ -305,28 +305,28 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Resources&lt;/h2&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Breath of the Wild Weapon Dendrogram</title>
-  <link>/blog/botw/</link>
-  <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/botw/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Breath of the Wild Weapon Dendrogram</title>
+      <link>/blog/botw/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/botw/</guid>
+      <description>
 
 
 
 </description>
-  </item>
-  
-<item>
-  <title>Six Things I Always Google When Using ggplot2</title>
-  <link>/blog/things-i-google/</link>
-  <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/things-i-google/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Six Things I Always Google When Using ggplot2</title>
+      <link>/blog/things-i-google/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/things-i-google/</guid>
+      <description>
 
 
 &lt;p&gt;I often use {ggplot2} to create graphs but there are certain things I &lt;em&gt;always&lt;/em&gt; have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!&lt;/p&gt;
@@ -492,7 +492,7 @@ axis.ticks.x = element_blank())&lt;/p&gt;
 &lt;p&gt;There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

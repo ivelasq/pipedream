@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>educationdata on %&gt;% dreams</title>
-  <link>/tags/educationdata/</link>
-  <description>Recent content in educationdata on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/educationdata/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Finding the Modal School District</title>
-  <link>/blog/modal-district/</link>
-  <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-  
-<guid>/blog/modal-district/</guid>
-  <description>
+    <title>educationdata on %&gt;% dreams</title>
+    <link>/tags/educationdata/</link>
+    <description>Recent content in educationdata on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/educationdata/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding the Modal School District</title>
+      <link>/blog/modal-district/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/modal-district/</guid>
+      <description>
 
 
 &lt;p&gt;My good friend &lt;a href=&#34;https://twitter.com/RyanEs&#34;&gt;Ryan Estrellado&lt;/a&gt; recommended an &lt;a href=&#34;https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american&#34;&gt;NPR Planet Money podcast episode&lt;/a&gt; on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).&lt;/p&gt;
@@ -866,7 +866,7 @@ modal %&amp;gt;%
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

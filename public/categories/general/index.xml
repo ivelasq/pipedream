@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>general on %&gt;% dreams</title>
-  <link>/categories/general/</link>
-  <description>Recent content in general on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>You CRAN Do It</title>
-  <link>/blog/you-cran-do-it/</link>
-  <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/you-cran-do-it/</guid>
-  <description>
+    <title>general on %&gt;% dreams</title>
+    <link>/categories/general/</link>
+    <description>Recent content in general on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You CRAN Do It</title>
+      <link>/blog/you-cran-do-it/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/you-cran-do-it/</guid>
+      <description>
 
 
 &lt;p&gt;As the @&lt;a href=&#34;https://twitter.com/WeAreRLadies&#34;&gt;WeAreRLadies&lt;/a&gt; curator, I &lt;a href=&#34;https://twitter.com/WeAreRLadies/status/1227937968117043200&#34;&gt;asked the Twitterverse&lt;/a&gt; for advice when submitting to CRAN for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!&lt;/p&gt;
@@ -83,15 +83,15 @@
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>So You&#39;re Getting a Masters in Analytics</title>
-  <link>/blog/creating-a-new-theme/</link>
-  <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/creating-a-new-theme/</guid>
-  <description>&lt;p&gt;The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.&lt;/p&gt;
+    </item>
+    
+    <item>
+      <title>So You&#39;re Getting a Masters in Analytics</title>
+      <link>/blog/creating-a-new-theme/</link>
+      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/creating-a-new-theme/</guid>
+      <description>&lt;p&gt;The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve tried to keep track of the different questions people ask and aggregate them into a list. A few caveats:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;My program, homework, and projects were primarily in R.&lt;/li&gt;
@@ -138,7 +138,7 @@
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;The purpose of these data science/analytics degrees is to serve as a means to an end but it&amp;rsquo;s been two years since I finished my Masters and I still reflect on the experience.  Along the journey, there was a lot of change and improvement. My Analytics program impacted how I think, my career trajectory, and what I do outside of work. For that I am thankful, as I also realize that there is no definite end to learning.&lt;/p&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

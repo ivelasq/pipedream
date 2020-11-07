@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>Blog on %&gt;% dreams</title>
-  <link>/blog/</link>
-  <description>Recent content in Blog on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Even Easier-to-Use R Package for School District Shapefiles</title>
-  <link>/blog/leaidr2/</link>
-  <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaidr2/</guid>
-  <description>
+    <title>Blog on %&gt;% dreams</title>
+    <link>/blog/</link>
+    <description>Recent content in Blog on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Even Easier-to-Use R Package for School District Shapefiles</title>
+      <link>/blog/leaidr2/</link>
+      <pubDate>Sun, 30 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaidr2/</guid>
+      <description>
 &lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/mapdeck-binding/mapdeck.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/mpadeck_functions/mapdeck_functions.js&#34;&gt;&lt;/script&gt;
@@ -166,15 +166,15 @@ ui &amp;lt;- fluidPage(
 &lt;p&gt;In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>What It Takes to Tidy Census Data</title>
-  <link>/blog/tidying-census-data/</link>
-  <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/tidying-census-data/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>What It Takes to Tidy Census Data</title>
+      <link>/blog/tidying-census-data/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tidying-census-data/</guid>
+      <description>
 
 
 &lt;p&gt;The U.S. Census releases aggregate data on their &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp2.html&#34;&gt;Household Pulse Survey&lt;/a&gt;. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.&lt;/p&gt;
@@ -341,15 +341,15 @@ census_us_income %&amp;gt;%
 &lt;p&gt;From this graph, we can see that respondents from the lower income bands were more likely to say that classes were cancelled for their children due to COVID.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Creating an R Package for School District Shapefiles</title>
-  <link>/blog/leaid-shapefiles/</link>
-  <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaid-shapefiles/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Creating an R Package for School District Shapefiles</title>
+      <link>/blog/leaid-shapefiles/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaid-shapefiles/</guid>
+      <description>
 
 
 &lt;p&gt;I would like to introduce &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt;, a package for mapping U.S. School District shapefiles!&lt;/p&gt;
@@ -440,15 +440,15 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>You CRAN Do It</title>
-  <link>/blog/you-cran-do-it/</link>
-  <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/you-cran-do-it/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>You CRAN Do It</title>
+      <link>/blog/you-cran-do-it/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/you-cran-do-it/</guid>
+      <description>
 
 
 &lt;p&gt;As the @&lt;a href=&#34;https://twitter.com/WeAreRLadies&#34;&gt;WeAreRLadies&lt;/a&gt; curator, I &lt;a href=&#34;https://twitter.com/WeAreRLadies/status/1227937968117043200&#34;&gt;asked the Twitterverse&lt;/a&gt; for advice when submitting to CRAN for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!&lt;/p&gt;
@@ -518,15 +518,15 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Mise-en-Place: Everything in its Place</title>
-  <link>/blog/mis-en-place/</link>
-  <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/mis-en-place/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Mise-en-Place: Everything in its Place</title>
+      <link>/blog/mis-en-place/</link>
+      <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/mis-en-place/</guid>
+      <description>
 
 
 &lt;p&gt;I got to be the &lt;span class=&#34;citation&#34;&gt;@WeAreRLadies&lt;/span&gt; curator for the week of February 10th and it was a great experience to get feedback from a wider swath of the R community. One question I posed was how people organize the folders within their projects, and I got a lot of engagement! For this blogpost, I categorize the common themes from these different resources and then list them all out at the end of the post.&lt;/p&gt;
@@ -544,28 +544,28 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Resources&lt;/h2&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Breath of the Wild Weapon Dendrogram</title>
-  <link>/blog/botw/</link>
-  <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/botw/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Breath of the Wild Weapon Dendrogram</title>
+      <link>/blog/botw/</link>
+      <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/botw/</guid>
+      <description>
 
 
 
 </description>
-  </item>
-  
-<item>
-  <title>Six Things I Always Google When Using ggplot2</title>
-  <link>/blog/things-i-google/</link>
-  <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/things-i-google/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Six Things I Always Google When Using ggplot2</title>
+      <link>/blog/things-i-google/</link>
+      <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/things-i-google/</guid>
+      <description>
 
 
 &lt;p&gt;I often use {ggplot2} to create graphs but there are certain things I &lt;em&gt;always&lt;/em&gt; have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!&lt;/p&gt;
@@ -731,15 +731,15 @@ axis.ticks.x = element_blank())&lt;/p&gt;
 &lt;p&gt;There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Finding the Modal School District</title>
-  <link>/blog/modal-district/</link>
-  <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-  
-<guid>/blog/modal-district/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Finding the Modal School District</title>
+      <link>/blog/modal-district/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/modal-district/</guid>
+      <description>
 
 
 &lt;p&gt;My good friend &lt;a href=&#34;https://twitter.com/RyanEs&#34;&gt;Ryan Estrellado&lt;/a&gt; recommended an &lt;a href=&#34;https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american&#34;&gt;NPR Planet Money podcast episode&lt;/a&gt; on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).&lt;/p&gt;
@@ -1592,15 +1592,15 @@ modal %&amp;gt;%
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Taking A Peek into My Hiking Data</title>
-  <link>/blog/average-hike/</link>
-  <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-  
-<guid>/blog/average-hike/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Taking A Peek into My Hiking Data</title>
+      <link>/blog/average-hike/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/average-hike/</guid>
+      <description>
 
 
 &lt;p&gt;I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing&#34;&gt;Google spreadsheet&lt;/a&gt;, despite the ubiquity of trail tracking apps that exist.&lt;/p&gt;
@@ -1893,15 +1893,15 @@ hiking_dat_by_trail %&amp;gt;%
   theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Transforming PDF&#39;s into Useful Tables</title>
-  <link>/blog/snap-expenditures/</link>
-  <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/snap-expenditures/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Transforming PDF&#39;s into Useful Tables</title>
+      <link>/blog/snap-expenditures/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/snap-expenditures/</guid>
+      <description>
 
 
 &lt;p&gt;Way back in 2016, the USDA released a &lt;a href=&#34;https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households&#34;&gt;study&lt;/a&gt; entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:&lt;/p&gt;
@@ -2025,7 +2025,7 @@ snap_res %&amp;gt;% # quick residual plot
 &lt;p&gt;&lt;img src=&#34;/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I’d love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is &lt;a href=&#34;https://github.com/ivelasq/snap&#34;&gt;here&lt;/a&gt;. More to come!&lt;/p&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>cluster on %&gt;% dreams</title>
-  <link>/tags/cluster/</link>
-  <description>Recent content in cluster on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Taking A Peek into My Hiking Data</title>
-  <link>/blog/average-hike/</link>
-  <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-  
-<guid>/blog/average-hike/</guid>
-  <description>
+    <title>cluster on %&gt;% dreams</title>
+    <link>/tags/cluster/</link>
+    <description>Recent content in cluster on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cluster/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taking A Peek into My Hiking Data</title>
+      <link>/blog/average-hike/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/average-hike/</guid>
+      <description>
 
 
 &lt;p&gt;I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing&#34;&gt;Google spreadsheet&lt;/a&gt;, despite the ubiquity of trail tracking apps that exist.&lt;/p&gt;
@@ -306,7 +306,7 @@ hiking_dat_by_trail %&amp;gt;%
   theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

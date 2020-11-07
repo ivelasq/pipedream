@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>purrr on %&gt;% dreams</title>
-  <link>/tags/purrr/</link>
-  <description>Recent content in purrr on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/purrr/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>What It Takes to Tidy Census Data</title>
-  <link>/blog/tidying-census-data/</link>
-  <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/tidying-census-data/</guid>
-  <description>
+    <title>purrr on %&gt;% dreams</title>
+    <link>/tags/purrr/</link>
+    <description>Recent content in purrr on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/purrr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What It Takes to Tidy Census Data</title>
+      <link>/blog/tidying-census-data/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tidying-census-data/</guid>
+      <description>
 
 
 &lt;p&gt;The U.S. Census releases aggregate data on their &lt;a href=&#34;https://www.census.gov/data/tables/2020/demo/hhp2.html&#34;&gt;Household Pulse Survey&lt;/a&gt;. These data are super interesting and cover a range of important topics, particularly those related to the COVID-19 pandemic.&lt;/p&gt;
@@ -180,15 +180,15 @@ census_us_income %&amp;gt;%
 &lt;p&gt;From this graph, we can see that respondents from the lower income bands were more likely to say that classes were cancelled for their children due to COVID.&lt;/p&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Taking A Peek into My Hiking Data</title>
-  <link>/blog/average-hike/</link>
-  <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-  
-<guid>/blog/average-hike/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Taking A Peek into My Hiking Data</title>
+      <link>/blog/average-hike/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/average-hike/</guid>
+      <description>
 
 
 &lt;p&gt;I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing&#34;&gt;Google spreadsheet&lt;/a&gt;, despite the ubiquity of trail tracking apps that exist.&lt;/p&gt;
@@ -481,15 +481,15 @@ hiking_dat_by_trail %&amp;gt;%
   theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Transforming PDF&#39;s into Useful Tables</title>
-  <link>/blog/snap-expenditures/</link>
-  <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/snap-expenditures/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>Transforming PDF&#39;s into Useful Tables</title>
+      <link>/blog/snap-expenditures/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/snap-expenditures/</guid>
+      <description>
 
 
 &lt;p&gt;Way back in 2016, the USDA released a &lt;a href=&#34;https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households&#34;&gt;study&lt;/a&gt; entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:&lt;/p&gt;
@@ -613,15 +613,15 @@ snap_res %&amp;gt;% # quick residual plot
 &lt;p&gt;&lt;img src=&#34;/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I’d love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is &lt;a href=&#34;https://github.com/ivelasq/snap&#34;&gt;here&lt;/a&gt;. More to come!&lt;/p&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Disaggregating Minneapolis Public Schools Data</title>
-  <link>/blog/why-disaggregate-data/</link>
-  <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/why-disaggregate-data/</guid>
-  <description>&lt;p&gt;Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.&lt;/p&gt;
+    </item>
+    
+    <item>
+      <title>Disaggregating Minneapolis Public Schools Data</title>
+      <link>/blog/why-disaggregate-data/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/why-disaggregate-data/</guid>
+      <description>&lt;p&gt;Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.&lt;/p&gt;
 &lt;div id=&#34;what-is-equity&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What is Equity&lt;/h2&gt;
 &lt;p&gt;Inequities are &lt;a href=&#34;http://www.yourdictionary.com/racial-inequality&#34;&gt;disparities in opportunity, resources, and treatment.&lt;/a&gt; Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. &lt;a href=&#34;https://www.allsides.com/dictionary/racial-inequity&#34;&gt;Examples include:&lt;/a&gt;&lt;/p&gt;
@@ -824,7 +824,7 @@ merged_df %&amp;gt;%
   theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

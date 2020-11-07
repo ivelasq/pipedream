@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>viridis on %&gt;% dreams</title>
-  <link>/tags/viridis/</link>
-  <description>Recent content in viridis on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/viridis/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Creating an R Package for School District Shapefiles</title>
-  <link>/blog/leaid-shapefiles/</link>
-  <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/blog/leaid-shapefiles/</guid>
-  <description>
+    <title>viridis on %&gt;% dreams</title>
+    <link>/tags/viridis/</link>
+    <description>Recent content in viridis on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/viridis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating an R Package for School District Shapefiles</title>
+      <link>/blog/leaid-shapefiles/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/leaid-shapefiles/</guid>
+      <description>
 
 
 &lt;p&gt;I would like to introduce &lt;a href=&#34;https://github.com/ivelasq/leaidr&#34;&gt;{leaidr}&lt;/a&gt;, a package for mapping U.S. School District shapefiles!&lt;/p&gt;
@@ -104,15 +104,15 @@ print(map_projected)&lt;/code&gt;&lt;/pre&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>Disaggregating Minneapolis Public Schools Data</title>
-  <link>/blog/why-disaggregate-data/</link>
-  <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/why-disaggregate-data/</guid>
-  <description>&lt;p&gt;Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.&lt;/p&gt;
+    </item>
+    
+    <item>
+      <title>Disaggregating Minneapolis Public Schools Data</title>
+      <link>/blog/why-disaggregate-data/</link>
+      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/why-disaggregate-data/</guid>
+      <description>&lt;p&gt;Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.&lt;/p&gt;
 &lt;div id=&#34;what-is-equity&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;What is Equity&lt;/h2&gt;
 &lt;p&gt;Inequities are &lt;a href=&#34;http://www.yourdictionary.com/racial-inequality&#34;&gt;disparities in opportunity, resources, and treatment.&lt;/a&gt; Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. &lt;a href=&#34;https://www.allsides.com/dictionary/racial-inequity&#34;&gt;Examples include:&lt;/a&gt;&lt;/p&gt;
@@ -315,7 +315,7 @@ merged_df %&amp;gt;%
   theme(legend.position = &amp;quot;none&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>broom on %&gt;% dreams</title>
-  <link>/tags/broom/</link>
-  <description>Recent content in broom on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/broom/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Transforming PDF&#39;s into Useful Tables</title>
-  <link>/blog/snap-expenditures/</link>
-  <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-  
-<guid>/blog/snap-expenditures/</guid>
-  <description>
+    <title>broom on %&gt;% dreams</title>
+    <link>/tags/broom/</link>
+    <description>Recent content in broom on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="/tags/broom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transforming PDF&#39;s into Useful Tables</title>
+      <link>/blog/snap-expenditures/</link>
+      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/snap-expenditures/</guid>
+      <description>
 
 
 &lt;p&gt;Way back in 2016, the USDA released a &lt;a href=&#34;https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households&#34;&gt;study&lt;/a&gt; entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:&lt;/p&gt;
@@ -137,7 +137,7 @@ snap_res %&amp;gt;% # quick residual plot
 &lt;p&gt;&lt;img src=&#34;/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I’d love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is &lt;a href=&#34;https://github.com/ivelasq/snap&#34;&gt;here&lt;/a&gt;. More to come!&lt;/p&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>

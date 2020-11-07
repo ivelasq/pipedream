@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-  <title>Itemized on %&gt;% dreams</title>
-  <link>/itemized/</link>
-  <description>Recent content in Itemized on %&gt;% dreams</description>
-  <generator>Hugo -- gohugo.io</generator>
-<language>en-us</language>
-<lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="/itemized/index.xml" rel="self" type="application/rss+xml" />
-<item>
-  <title>Websites &amp; Apps</title>
-  <link>/itemized/apps/</link>
-  <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
-  
-<guid>/itemized/apps/</guid>
-  <description>
+    <title>Itemized on %&gt;% dreams</title>
+    <link>/itemized/</link>
+    <description>Recent content in Itemized on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="/itemized/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Websites &amp; Apps</title>
+      <link>/itemized/apps/</link>
+      <pubDate>Sun, 12 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/apps/</guid>
+      <description>
 
 
 &lt;ul&gt;
@@ -52,15 +52,15 @@
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-<item>
-  <title>packages</title>
-  <link>/itemized/packages/</link>
-  <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-  
-<guid>/itemized/packages/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>packages</title>
+      <link>/itemized/packages/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/packages/</guid>
+      <description>
 
 
 &lt;center&gt;
@@ -80,15 +80,15 @@
 &lt;a href=&#34;https://github.com/MarkLaVenia/edreportr&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://github.com/MarkLaVenia/edreportr/blob/master/man/figures/logo.png?raw=true&#34; height=&#34;120&#34; /&gt;&lt;/a&gt;
 &lt;/center&gt;
 </description>
-  </item>
-  
-<item>
-  <title>talks</title>
-  <link>/itemized/talks/</link>
-  <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-  
-<guid>/itemized/talks/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>talks</title>
+      <link>/itemized/talks/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/talks/</guid>
+      <description>
 
 
 &lt;center&gt;
@@ -98,15 +98,15 @@
 &lt;p&gt;2019-07-16 &lt;a href=&#34;https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit#slide=id.p&#34;&gt;&lt;strong&gt;Taking a Peek at Hiking Data Using R&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;R-Ladies Seattle&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;2018-07-23 &lt;a href=&#34;https://www.slideshare.net/ivelasq/20180723-blogdown-for-what&#34;&gt;&lt;strong&gt;Blogdown for What&lt;/strong&gt;&lt;/a&gt; &lt;em&gt;R-Ladies Seattle&lt;/em&gt;&lt;/p&gt;
 </description>
-  </item>
-  
-<item>
-  <title>visualizations</title>
-  <link>/itemized/visualizations/</link>
-  <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
-  
-<guid>/itemized/visualizations/</guid>
-  <description>
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>/itemized/visualizations/</link>
+      <pubDate>Fri, 27 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/itemized/visualizations/</guid>
+      <description>
 
 
 &lt;div id=&#34;most-common-allegations-against-new-york-city-police-officers&#34; class=&#34;section level1&#34;&gt;
@@ -142,7 +142,7 @@
 &lt;/center&gt;
 &lt;/div&gt;
 </description>
-  </item>
-  
-</channel>
-  </rss>
+    </item>
+    
+  </channel>
+</rss>
