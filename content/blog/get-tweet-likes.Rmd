@@ -80,11 +80,11 @@ likes_dat <-
   lookup_statuses(likes_df$tweetId)
 ```
 
-There you have it! All your likes and their information saved in the `likes_dat` data frame. Here, you can do all of your usual data manipulation - `lookupstatuses()` results in a LOT of data, so I recommend narrowing down to the columns you care about using `select()`.
+There you have it! All your likes and their information saved in the `likes_dat` data frame. Here, you can do all of your usual data manipulation - `lookup_statuses()` results in a LOT of data, so I recommend narrowing down to the columns you care about using `select()`.
 
 ### Step 4: Save to a CSV
 
-Saving to a CSV is a bit tricky because `lookupstatuses()` creates list-columns, which cannot be exported to a CSV.
+Saving to a CSV is a bit tricky because `lookup_statuses()` creates list-columns, which cannot be exported to a CSV.
 
 Here, I've selected only the columns `status_id`, `text`, and `hashtags` to look at. `hashtags` is a list-column because one Tweet may have multiple hashtags, which is then saved as a vector within the column `hashtags`. To convert it to a data frame, I use `unnest()`. This creates a data frame with multiple entries for each Tweet, one for each hashtag.
 

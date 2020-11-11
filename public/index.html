@@ -658,11 +658,11 @@ likes_df &lt;-
 <p>Once your <code>token</code> is saved, you can use <code>rtweet::lookup_statuses</code> to get the Tweet info.</p>
 <pre class="r"><code>likes_dat &lt;-
   lookup_statuses(likes_df$tweetId)</code></pre>
-<p>There you have it! All your likes and their information saved in the <code>likes_dat</code> data frame. Here, you can do all of your usual data manipulation - <code>lookupstatuses()</code> results in a LOT of data, so I recommend narrowing down to the columns you care about using <code>select()</code>.</p>
+<p>There you have it! All your likes and their information saved in the <code>likes_dat</code> data frame. Here, you can do all of your usual data manipulation - <code>lookup_statuses()</code> results in a LOT of data, so I recommend narrowing down to the columns you care about using <code>select()</code>.</p>
 </div>
 <div id="step-4-save-to-a-csv" class="section level3">
 <h3>Step 4: Save to a CSV</h3>
-<p>Saving to a CSV is a bit tricky because <code>lookupstatuses()</code> creates list-columns, which cannot be exported to a CSV.</p>
+<p>Saving to a CSV is a bit tricky because <code>lookup_statuses()</code> creates list-columns, which cannot be exported to a CSV.</p>
 <p>Here, I’ve selected only the columns <code>status_id</code>, <code>text</code>, and <code>hashtags</code> to look at. <code>hashtags</code> is a list-column because one Tweet may have multiple hashtags, which is then saved as a vector within the column <code>hashtags</code>. To convert it to a data frame, I use <code>unnest()</code>. This creates a data frame with multiple entries for each Tweet, one for each hashtag.</p>
 <p>That is too long for me since I want to quickly look through my likes. I then create a hashtag ID for each tweet by grouping by the <code>status_id</code> and assigning each of its hashtags an ID using <code>row_number()</code> and then using <code>pivot_wider()</code> to move each hashtag into its own column.</p>
 <p>You will see that some tweets have blank entries while some tweets have 14 hashtags!</p>
@@ -967,7 +967,7 @@ likes_df &lt;-
         
 
         <a href="/blog/get-tweet-likes/" class="image featured">
-            <img src="/img//tweet.png" alt="">
+            <img src="/img/2020/11/tweet.png" alt="">
         </a>
     
 
@@ -1008,7 +1008,7 @@ likes_df &lt;-
         
 
         <a href="/blog/leaidr2/" class="image featured">
-            <img src="/img/2020/082020/08/leaid2.png" alt="">
+            <img src="/img/2020/08/leaid2.png" alt="">
         </a>
     
 
@@ -1080,6 +1080,9 @@ likes_df &lt;-
 
 
   
+  
+    
+  
 
 
         
@@ -1117,6 +1120,9 @@ likes_df &lt;-
 
 
 
+  
+  
+    
   
 
 
