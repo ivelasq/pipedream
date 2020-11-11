@@ -13,76 +13,10 @@
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/blog/you-cran-do-it/</guid>
-      <description>
-
-
-&lt;p&gt;As the @&lt;a href=&#34;https://twitter.com/WeAreRLadies&#34;&gt;WeAreRLadies&lt;/a&gt; curator, I &lt;a href=&#34;https://twitter.com/WeAreRLadies/status/1227937968117043200&#34;&gt;asked the Twitterverse&lt;/a&gt; for advice when submitting to CRAN for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!&lt;/p&gt;
-&lt;p&gt;Here’s what to expect when succeeding to get your package on CRAN!&lt;/p&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;I don&amp;#39;t know you, but I believe in you 🤩&lt;/p&gt;&amp;mdash; Travis Dawry (@tdawry) &lt;a href=&#34;https://twitter.com/tdawry/status/1228139634871472129?ref_src=twsrc%5Etfw&#34;&gt;February 14, 2020&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;div id=&#34;read-the-official-cran-documentation&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Read the Official CRAN Documentation&lt;/h2&gt;
-&lt;p&gt;… which is &lt;a href=&#34;https://cran.r-project.org/doc/manuals/r-release/R-exts.html&#34;&gt;Writing R Extensions&lt;/a&gt;! “Necessary and sufficient,” according to Avraham Adler.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;you-can-get-by-with-a-little-help-from-your-friends&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;You can get by with a little help from your friends&lt;/h2&gt;
-&lt;p&gt;{usethis}, {devtools}, and {roxygen2}, although not necessary, are useful tools for creating CRAN-ready packages.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;documentation-is-key&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Documentation is key&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Have tests and coverage via {covr}, and making sure they run without issues on all platforms&lt;/li&gt;
-&lt;li&gt;CRAN will ask that you add examples to your package, wrapped in &lt;code&gt;\dontrun{}&lt;/code&gt; and &lt;code&gt;\donttest{}&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Have others read your stuff and provide feedback!&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div id=&#34;let-reviewers-know-why-this-should-be-on-cran&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Let Reviewers Know Why This Should Be on CRAN&lt;/h2&gt;
-&lt;p&gt;A quick note letting the reviewers know why your package should be on CRAN goes a long way.&lt;/p&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;This is how I responded when I submitted spongebob:&lt;br&gt;&lt;br&gt;&amp;quot;Thank you for reviewing my package. This is a lightweight package simply for fun -- similar in spirit to other packages on CRAN like cowsay and happytime.&amp;quot; &lt;a href=&#34;https://t.co/fWzVcNh5I7&#34;&gt;https://t.co/fWzVcNh5I7&lt;/a&gt;&lt;/p&gt;&amp;mdash; Jay Qi (@jayyqi) &lt;a href=&#34;https://twitter.com/jayyqi/status/1228056164937523200?ref_src=twsrc%5Etfw&#34;&gt;February 13, 2020&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;/div&gt;
-&lt;div id=&#34;be-patient&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Be Patient&lt;/h2&gt;
-&lt;p&gt;The people at CRAN are busy! It might take a while for them to reply and accept your package. If you want to track where your package is at, you can take a look at the &lt;a href=&#34;https://lockedata.github.io/cransays/articles/dashboard.html&#34;&gt;CRAN Incoming Dashboard&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;emails-will-be-terse&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Emails will be Terse&lt;/h2&gt;
-&lt;p&gt;This is particularly difficult for me to hear, as someone who provides! ample! exclamation marks! in emails! in order to sound cheery and polite, but responses can be short and to-the-point. Breathe, and address everything mentioned. When you do reply, respond to the CRAN list.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;persist&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Persist&lt;/h2&gt;
-&lt;p&gt;The reviewers will let you know what you need to do for approval. Go through their list carefully and try again!&lt;/p&gt;
-&lt;center&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Don’t get discouraged if you don’t succeed on your first try. Everyone (including me, my team, and R core) gets rejected from time to time. It sucks, but don’t give up — just make the requested changes and resubmit.&lt;/p&gt;&amp;mdash; Hadley Wickham (@hadleywickham) &lt;a href=&#34;https://twitter.com/hadleywickham/status/1228043230601777152?ref_src=twsrc%5Etfw&#34;&gt;February 13, 2020&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;/center&gt;
-&lt;p&gt;Many thanks to the R Community for their words of advice and encouragement ❤&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;guides&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Guides&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://cran.r-project.org/doc/manuals/r-release/R-exts.html&#34;&gt;Writing R Extensions&lt;/a&gt; (Official CRAN Documentation)&lt;/li&gt;
-&lt;li&gt;Hadley Wickham and Jenny Bryan’s &lt;a href=&#34;https://r-pkgs.org/&#34;&gt;R Packages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Julia Silge’s &lt;a href=&#34;https://juliasilge.com/blog/how-i-stopped/&#34;&gt;How I Learned to Stop Worrying and Love R CMD Check&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Maëlle Salmon’s &lt;a href=&#34;https://blog.r-hub.io/2020/01/27/examples/&#34;&gt;Code Examples in R Package Manuals&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;R-hub’s &lt;a href=&#34;https://r-hub.github.io/rhub/articles/rhub.html#prepare-a-cran-submission&#34;&gt;Prepare a CRAN submission&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;R-hub’s &lt;a href=&#34;https://vimeo.com/329059890&#34;&gt;CRAN submission preparation with rhub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Karl Broman’s &lt;a href=&#34;https://kbroman.org/pkg_primer/pages/cran.html&#34;&gt;Getting Your R Package on CRAN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Colin Fay’s &lt;a href=&#34;https://github.com/ThinkR-open/prepare-for-cran&#34;&gt;Preparing your package for a CRAN submission&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Jp Marín Díaz’s &lt;a href=&#34;https://jpmarindiaz.com/2020-01-08-how-to-publish-a-package-to-cran/&#34;&gt;How to publish a package to CRAN&lt;/a&gt; and &lt;a href=&#34;https://jpmarindiaz.com/2020-02-13-from-0-to-cran-in-1-day/&#34;&gt;From 0 to CRAN in 1 day&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Jim Hester’s &lt;a href=&#34;https://www.jimhester.com/post/2019-05-01-submit-vroom/&#34;&gt;Submitting vroom to CRAN, LIVE!&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Ryo Nakagawara’s &lt;a href=&#34;https://ryo-n7.github.io/2019-09-06-tvthemes-CRAN-announcement/#cran-trials-and-errors-and-future-releases&#34;&gt;CRAN Trial(s) and Error(s) and Future Releases&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-</description>
+      <description>As the @WeAreRLadies curator, I asked the Twitterverse for advice when submitting to CRAN for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!
+Here’s what to expect when succeeding to get your package on CRAN!
+ I don&amp;#39;t know you, but I believe in you 🤩
+&amp;mdash; Travis Dawry (@tdawry) February 14, 2020   Read the Official CRAN Documentation … which is Writing R Extensions!</description>
     </item>
     
     <item>
@@ -91,53 +25,7 @@
       <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>/blog/creating-a-new-theme/</guid>
-      <description>&lt;p&gt;The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve tried to keep track of the different questions people ask and aggregate them into a list. A few caveats:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;My program, homework, and projects were primarily in R.&lt;/li&gt;
-&lt;li&gt;This is assuming that you are entering the program to find a new job or career.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Here is my advice to aspiring data scientists/analysts entering these programs and how I would have made an already great experience even better.&lt;/p&gt;
-&lt;h2 id=&#34;1-learn-git-and-put-everything-on-github-or-equivalent&#34;&gt;1. Learn Git and put everything on Github (or equivalent)&lt;/h2&gt;
-&lt;p&gt;Git and Github was not required for any classes (at least when I was in the program) and I really regret not using it with my classmates.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Github is a great way to show off your skills to potential employers.&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s a much better collaboration tool than what we did (which was email each other with code changes).&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s also a good history so you remember things you&amp;rsquo;ve done (which I have forgotten already).&lt;/li&gt;
-&lt;li&gt;It&amp;rsquo;s also way neater to have homework in projects in Github as opposed to a zillion folders on your Desktop (which is what I went with).&lt;/li&gt;
-&lt;li&gt;Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!&lt;/li&gt;
-&lt;li&gt;There&amp;rsquo;s also nothing better than having a filled up contribution graph.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;2-leave-each-class-with-an-example-that-you-can-show-a-potential-employer&#34;&gt;2. Leave each class with an example that you can show a potential employer&lt;/h2&gt;
-&lt;p&gt;These programs go &lt;em&gt;quickly.&lt;/em&gt; I was a part-time student and took my sweet time and even then I felt like I was racing towards the end. Due to competing priorities, it&amp;rsquo;s easy to rush through homework assignments and projects. Instead of focusing on completion, remember the goal of this is to enter a new career/role/path in life and that everything you do is an example of a new skill you can showcase. So: document your work. Be clear in the intention behind it and how you went through your thought process. Make it presentable. Related to the advice above, link potential employers to your Github.&lt;/p&gt;
-&lt;p&gt;Of course, I understand that not all homework applies to this - but a lot of it does, in particular your final projects. Are you going to put on your resumé that you can produce dashboards with data visualizations? You must have an example to back that up - and be able to show how this project illustrates the value you can bring to your future company.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;3-diversify-your-programming-languages&#34;&gt;3. Diversify your programming languages&lt;/h2&gt;
-&lt;p&gt;My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python - and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I&amp;rsquo;d have to refresh myself on even the basics of the language - which is a shame considering how much effort I put in when I was in the class.&lt;/p&gt;
-&lt;h2 id=&#34;4-choose-your-capstone-project-and-advisor-carefully&#34;&gt;4. Choose your Capstone project and advisor carefully&lt;/h2&gt;
-&lt;p&gt;When it was Capstone time, the options were listed on a website and we were told to form a group, choose a project, and pick out an advisor. It seemed like those were the only variables but in actuality there were &lt;em&gt;many&lt;/em&gt; other considerations that impacted the difficulty and complexity of the project. They directly affected whether or not someone graduated when they wanted so this is a decision to take very seriously.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Research Question&lt;/strong&gt;: Is the research question defined (clearly) by the Capstone sponsor? If not, a lot of time will be dedicated to research question development, edits, rewrites, and eventual approval.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Data&lt;/strong&gt;: The addition of a project to the Capstone list does not mean that the data will be readily available to you when you want to begin your project. Several students chose a project under the assumption that the Capstone sponsor would immediately send over the data and instead had to wait a quarter (!) before they actually received anything and could begin analysis. Ask: Is the data available, and if not, how will it be collected? Will you need to sign a confidentiality agreement and who is in charge of that? How will the data be transferred to you and in what format? How long will it take to get the data? Will you need to update or refresh it throughout the course of your Capstone? Will you refine your research question(s) once you have the data?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sponsor Availability/Interaction&lt;/strong&gt;: Some sponsors want to be involved in every step of the process. Some sponsors will see you once a quarter. There are pros and cons to each approach but generally speaking you want a sponsor that provides clear guidance and expectations without micromanaging. Try to find out the kind of sponsor you have so you know how to best work with them. You are in it together for the long haul!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Advisor Availability/Interaction&lt;/strong&gt;: Similar to the sponsor, the Capstone advisor will vary in their expectations of how they will collaborate. Be mindful that some advisors are handling a heavy load - another job, classes, and several Capstone projects at the same time - and therefore you have to account for how you will get their time and attention. This can be frustrating if you need help or are struggling to meet a deadline. Decide your expectations early - my group set up a standing weekly call and biweekly in-person meeting with our advisor.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Advisor Specialty&lt;/strong&gt;: Some advisors have more experience or insight in the particular analysis you are trying to do. My Capstone project dealt with survey respondents - and luckily my advisor was a marketing researcher! However, sometimes the advisor&amp;rsquo;s specialty differs from your analytic apprach and your group will have to do more research on their own to fulfill the sponsor&amp;rsquo;s needs.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Group Availability/Interaction&lt;/strong&gt;: In a sudden turn of events, one of the members of a Capstone group quit to start a new job in another state. This left their group in disarray as they tried to figure out how to manage the rest of their project. While I am happy for the person who got a job (that is the point of it all, anyway), they could have helped out their team by being open and honest. Ask your potential teammates: What happens if you were offered a new job? Is your graduation timeline fixed or flexible? How many other courses are you taking and how much time can you dedicate to this project? Along with these questions, figure out how everybody intends to interact and set clear expectations from the beginning so that the group can work towards success together.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;5-keep-track-of-and-give-recommendations-on-how-the-program-can-improve&#34;&gt;5. Keep track of and give recommendations on how the program can improve&lt;/h2&gt;
-&lt;p&gt;I was in the second cohort of my Analytics program and even though it&amp;rsquo;s been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it&amp;rsquo;s offered to any student who may benefit from it.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.&lt;/p&gt;
-&lt;h2 id=&#34;6-learn-what-you-love-about-the-process&#34;&gt;6. Learn what you love about the process&lt;/h2&gt;
-&lt;p&gt;As you progress through your Analytics or Data Science program, you will learn the nuance and complexity of data work. It is a fascinating journey that requires project management, client interaction and understanding, technical expertise, feedback loops, and trial and error. It&amp;rsquo;s all amazing and necessary but there will be parts that you enjoy more. I have always been into creating aesthetically pleasing work and knew I would love developing data visualizations. I &lt;em&gt;didn&amp;rsquo;t&lt;/em&gt; know that I love the creativity and mind puzzles that come with data wrangling. Some people feel the opposite - that is their least favorite part of the data science routine. But they may enjoy business requirements gathering a lot more than I do.&lt;/p&gt;
-&lt;p&gt;You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;The purpose of these data science/analytics degrees is to serve as a means to an end but it&amp;rsquo;s been two years since I finished my Masters and I still reflect on the experience.  Along the journey, there was a lot of change and improvement. My Analytics program impacted how I think, my career trajectory, and what I do outside of work. For that I am thankful, as I also realize that there is no definite end to learning.&lt;/p&gt;
-</description>
+      <description>The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.</description>
     </item>
     
   </channel>
