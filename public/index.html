@@ -665,7 +665,7 @@ likes_df &lt;-
 <p>Saving to a CSV is a bit tricky because <code>lookup_statuses()</code> creates list-columns, which cannot be exported to a CSV.</p>
 <p>Here, I’ve selected only the columns <code>status_id</code>, <code>text</code>, and <code>hashtags</code> to look at. <code>hashtags</code> is a list-column because one Tweet may have multiple hashtags, which is then saved as a vector within the column <code>hashtags</code>. To convert it to a data frame, I use <code>unnest()</code>. This creates a data frame with multiple entries for each Tweet, one for each hashtag.</p>
 <p>That is too long for me since I want to quickly look through my likes. I then create a hashtag ID for each tweet by grouping by the <code>status_id</code> and assigning each of its hashtags an ID using <code>row_number()</code> and then using <code>pivot_wider()</code> to move each hashtag into its own column.</p>
-<p>You will see that some tweets have blank entries while some tweets have 14 hashtags!</p>
+<p>You will see that some tweets have blank entries while some tweets have many!</p>
 <pre class="r"><code>likes_csv &lt;-
   likes_dat %&gt;% 
   select(status_id, text, hashtags) %&gt;% 

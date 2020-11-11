@@ -90,7 +90,7 @@ Here, I've selected only the columns `status_id`, `text`, and `hashtags` to look
 
 That is too long for me since I want to quickly look through my likes. I then create a hashtag ID for each tweet by grouping by the `status_id` and assigning each of its hashtags an ID using `row_number()` and then using `pivot_wider()` to move each hashtag into its own column.
 
-You will see that some tweets have blank entries while some tweets have 14 hashtags!
+You will see that some tweets have blank entries while some tweets have many!
 
 ```{r, eval = F}
 likes_csv <-
