@@ -39,7 +39,7 @@ Once downloaded, open the ZIP file. Save the `like.js` file in your project's `d
 
 Now, start an `R` script (I called mine `code.R`). First install (if you haven't already) and load all the libraries.
 
-```{r, message=F}
+```{r, message=F, eval = F}
 library(tidyverse)
 library(rjson)
 library(rtweet)
