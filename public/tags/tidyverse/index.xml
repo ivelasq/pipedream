@@ -6,10 +6,15 @@
     <description>Recent content in tidyverse on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 May 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Browse and Search Liked Tweets using R</title>
+      <link>/blog/get-tweet-likes/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/get-tweet-likes/</guid>
+      <description>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found this tutorial that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</description>
+    </item>
     
     <item>
       <title>What It Takes to Tidy Census Data</title>

@@ -6,10 +6,15 @@
     <description>Recent content in Blog on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Browse and Search Liked Tweets using R</title>
+      <link>/blog/get-tweet-likes/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/get-tweet-likes/</guid>
+      <description>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found this tutorial that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</description>
+    </item>
     
     <item>
       <title>Even Easier-to-Use R Package for School District Shapefiles</title>
@@ -100,40 +105,6 @@ Here’s what to expect when succeeding to get your package on CRAN!
       <guid>/blog/average-hike/</guid>
       <description>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a Google spreadsheet, despite the ubiquity of trail tracking apps that exist.
 Recently, I signed up on AllTrails to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes.</description>
-    </item>
-    
-    <item>
-      <title>Transforming PDF&#39;s into Useful Tables</title>
-      <link>/blog/snap-expenditures/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/snap-expenditures/</guid>
-      <description>Way back in 2016, the USDA released a study entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:
- This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.
- At the time though, I was most interested in looking at the appendices data - 263 pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP.</description>
-    </item>
-    
-    <item>
-      <title>Disaggregating Minneapolis Public Schools Data</title>
-      <link>/blog/why-disaggregate-data/</link>
-      <pubDate>Fri, 21 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/why-disaggregate-data/</guid>
-      <description>
-
-
-&lt;p&gt;I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.&lt;/p&gt;
-&lt;p&gt;In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>So You&#39;re Getting a Masters in Analytics</title>
-      <link>/blog/creating-a-new-theme/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/creating-a-new-theme/</guid>
-      <description>The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analyst program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.</description>
     </item>
     
   </channel>

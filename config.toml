@@ -11,6 +11,7 @@ pluralizeListTitles = false
 enableRobotsTXT = true
 canonifyURLs = true
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+rssLimit = 10
 
 [params]
   # Sets the meta tag description

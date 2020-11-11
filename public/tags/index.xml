@@ -6,10 +6,33 @@
     <description>Recent content in Tags on %&gt;% dreams</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rjson</title>
+      <link>/tags/rjson/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rjson/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rtweet</title>
+      <link>/tags/rtweet/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rtweet/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>tidyverse</title>
+      <link>/tags/tidyverse/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/tidyverse/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>leaidr</title>
@@ -71,159 +94,6 @@
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/ggplot2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>purrr</title>
-      <link>/tags/purrr/</link>
-      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/purrr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>readxl</title>
-      <link>/tags/readxl/</link>
-      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/readxl/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidyverse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>piggyback</title>
-      <link>/tags/piggyback/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/piggyback/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rgdal</title>
-      <link>/tags/rgdal/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/rgdal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sf</title>
-      <link>/tags/sf/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/sf/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>sp</title>
-      <link>/tags/sp/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/sp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>viridis</title>
-      <link>/tags/viridis/</link>
-      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/viridis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>educationdata</title>
-      <link>/tags/educationdata/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/educationdata/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ggalluvial</title>
-      <link>/tags/ggalluvial/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ggalluvial/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>janitor</title>
-      <link>/tags/janitor/</link>
-      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/janitor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cluster</title>
-      <link>/tags/cluster/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/cluster/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>geosphere</title>
-      <link>/tags/geosphere/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/geosphere/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>googleway</title>
-      <link>/tags/googleway/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/googleway/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>plotKML</title>
-      <link>/tags/plotkml/</link>
-      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/plotkml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>broom</title>
-      <link>/tags/broom/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/broom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tabulizer</title>
-      <link>/tags/tabulizer/</link>
-      <pubDate>Sun, 16 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tabulizer/</guid>
       <description></description>
     </item>
     
