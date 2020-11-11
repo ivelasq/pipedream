@@ -1,0 +1,85 @@
+---
+author: ""
+categories: ["R"]
+tags: ["tidyverse", "rtweet", "rjson"]
+date: "2020-11-10"
+description: "Scraping Twitter using rtweet"
+featured: "tweet.png"
+featuredalt: "Browse and Search Liked Tweets using R"
+featuredpath: "date"
+linktitle: ""
+title: "Browse and Search Liked Tweets using R"
+type: "post"
+---
+
+
+
+<p>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found <a href="https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851">this tutorial</a> that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</p>
+<div id="set-up-your-project" class="section level2">
+<h2>Set Up Your Project</h2>
+<p>For this tutorial, I set up a project with the following structure. I walk through how to create <code>like.js</code> and <code>like_df.csv</code> in the walkthrough.</p>
+<pre><code>+-- code.R
++-- data
+|   +-- like.js
++-- output
+|   +-- likes_csv.csv</code></pre>
+</div>
+<div id="getting-liked-tweets" class="section level2">
+<h2>Getting Liked Tweets</h2>
+<div id="step-1-download-your-twitter-archive" class="section level3">
+<h3>Step 1: Download Your Twitter Archive</h3>
+<p>Like the Python tutorial, you have to first download your Twitter archive.
+Go to <a href="https://twitter.com/settings/your_twitter_data" class="uri">https://twitter.com/settings/your_twitter_data</a>, enter your password, and “Download Archive”. You will get an email when you can download your data - for me, it took a day.</p>
+<p>Once downloaded, open the ZIP file. Save the <code>like.js</code> file in your project’s <code>data</code> folder.</p>
+</div>
+<div id="step-2-load-the-js-file-and-convert-to-data-frame" class="section level3">
+<h3>Step 2: Load the JS File and Convert to Data Frame</h3>
+<p>Now, start an <code>R</code> script (I called mine <code>code.R</code>). First install (if you haven’t already) and load all the libraries.</p>
+<pre class="r"><code>library(tidyverse)
+library(rjson)
+library(rtweet)</code></pre>
+<p>The <code>like.js</code> file is a Javascript file. To convert it to a data frame, first convert to a JSON file by removing the text that makes it Javascript, read in the JSON, and then flatten into a dataframe using <code>purrr::flatten_df</code>.</p>
+<pre class="r"><code>js &lt;- read_file(here::here(&quot;data&quot;, &quot;like.js&quot;))
+json &lt;- sub(&quot;window.YTD.like.part0 = &quot;, &quot;&quot;, js)
+ 
+likes_raw &lt;-
+  fromJSON(json)
+
+likes_df &lt;-
+  likes_raw %&gt;% 
+  flatten_df()</code></pre>
+<p>Now your likes, their status IDs, and URLs are stored in <code>likes_df</code>.</p>
+</div>
+<div id="step-3-authenticate-rtweet-and-get-tweet-info" class="section level3">
+<h3>Step 3: Authenticate {rtweet} and Get Tweet Info</h3>
+<p>To get the Tweet info, you have to authenticate your Twitter account and get the API keys. Go to your <a href="https://developer.twitter.com/en/portal/projects-and-apps">Twitter Developer Portal</a> to do this. The {rtweet} vignette <a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html">here</a> covers what to do pretty well, but one thing I noticed is now you have to enable “3-legged OAuth” and there, you can add the Callback URL of <code>http://127.0.0.1:1410</code> (otherwise you will get a 401 error when running the code below).</p>
+<pre class="r"><code>token &lt;-
+  create_token(
+    consumer_key = &quot;PUT API KEY IN QUOTES HERE&quot;,
+    consumer_secret = &quot;PUT API KEY SECRET IN QUOTES HERE&quot;
+  )</code></pre>
+<p>Once your <code>token</code> is saved, you can use <code>rtweet::lookup_statuses</code> to get the Tweet info.</p>
+<pre class="r"><code>likes_dat &lt;-
+  lookup_statuses(likes_df$tweetId)</code></pre>
+<p>There you have it! All your likes and their information saved in the <code>likes_dat</code> data frame. Here, you can do all of your usual data manipulation - <code>lookupstatuses()</code> results in a LOT of data, so I recommend narrowing down to the columns you care about using <code>select()</code>.</p>
+</div>
+<div id="step-4-save-to-a-csv" class="section level3">
+<h3>Step 4: Save to a CSV</h3>
+<p>Saving to a CSV is a bit tricky because <code>lookupstatuses()</code> creates list-columns, which cannot be exported to a CSV.</p>
+<p>Here, I’ve selected only the columns <code>status_id</code>, <code>text</code>, and <code>hashtags</code> to look at. <code>hashtags</code> is a list-column because one Tweet may have multiple hashtags, which is then saved as a vector within the column <code>hashtags</code>. To convert it to a data frame, I use <code>unnest()</code>. This creates a data frame with multiple entries for each Tweet, one for each hashtag.</p>
+<p>That is too long for me since I want to quickly look through my likes. I then create a hashtag ID for each tweet by grouping by the <code>status_id</code> and assigning each of its hashtags an ID using <code>row_number()</code> and then using <code>pivot_wider()</code> to move each hashtag into its own column.</p>
+<p>You will see that some tweets have blank entries while some tweets have 14 hashtags!</p>
+<pre class="r"><code>likes_csv &lt;-
+  likes_dat %&gt;% 
+  select(status_id, text, hashtags) %&gt;% 
+  unnest() %&gt;% 
+  group_by(status_id) %&gt;% 
+  mutate(id = row_number()) %&gt;% 
+  pivot_wider(names_prefix = &quot;hashtag_&quot;,
+              names_from = id,
+              values_from = hashtags)</code></pre>
+<p>Now, this is saveable in a CSV. You can run the code below if your project has an <code>output</code> folder.</p>
+<pre class="r"><code>write_csv(likes_csv, here::here(&quot;output&quot;, &quot;likes_csv&quot;))</code></pre>
+<p>Thank you for reading this quick entry in looking through your Twitter likes. I hope this reduces the amount of annoying scrolling you need to do to look through your Tweets! I think there’s a lot of possibility to make this an even easier process - maybe a Shiny app? - but hopefully this is a good starting off point.</p>
+</div>
+</div>
