@@ -107,7 +107,7 @@ likes_csv <-
 Now, this is saveable in a CSV. You can run the code below if your project has an `output` folder.
 
 ```{r, eval = F}
-write_csv(likes_csv, here::here("output", "likes_csv"))
+write_csv(likes_csv, here::here("output", "likes_csv.csv"))
 ```
 
 Thank you for reading this quick entry in looking through your Twitter likes. I hope this reduces the amount of annoying scrolling you need to do to look through your Tweets! I think there's a lot of possibility to make this an even easier process - maybe a Shiny app? - but hopefully this is a good starting off point.
