@@ -3,14 +3,14 @@ languageCode = "en-us"
 title = "%>% dreams"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
-paginate = 3
+paginate = 5
 #disqusShortname = "shortname"
 googleAnalytics = "UA-158801579-1"
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
 enableRobotsTXT = true
 canonifyURLs = true
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 rssLimit = 10
 
 [params]
@@ -147,6 +147,12 @@ rssLimit = 10
   url = "/contact/"
   identifier = "fa fa-envelope-o"
   weight = 6
+  
+[[menu.main]]
+  name = "R-Bloggers"
+  url = "https://www.r-bloggers.com/"
+  identifier = "fa fa-rss-square"
+  weight = 7
 
 # Sets Social Media icons to appear and link to your account. Value should be your
 # username unless otherwise noted. These are the icons affected by socialAppearAtTop
