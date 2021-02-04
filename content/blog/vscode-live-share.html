@@ -1,14 +1,24 @@
 ---
-title:  "Remote Pair Programming in R Using Visual Studio Code and Live Share"
+title: "Remote Pair Programming in R Using Visual Studio Code and Live Share"
 author: "Isabella & Gustavo E."
-date: "2021-02-03"
-categories: ["Collaboration", "R"]
-tags: ["devtools", "dplyr", "languageserver", "purrr", "tibble", "usethis", "vctrs", "vscDebugger"]
-description: "Tutorial"
-featured: "collab.png"
-featuredpath: "date"
-linktitle: ""
-type: "post"
+date: '2021-02-03'
+categories:
+- Collaboration
+- R
+tags:
+- devtools
+- dplyr
+- languageserver
+- purrr
+- tibble
+- usethis
+- vctrs
+- vscDebugger
+description: Tutorial
+featured: collab.png
+featuredpath: date
+linktitle: ''
+type: post
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
@@ -73,7 +83,7 @@ conda install pip
 python -m pip install radian
 python -m pip install jedi==0.17.2 # for {reticulate} python autocompletion</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>In RStudio, install the required R packages for VS Code, namely <a href="https://cran.r-project.org/package=languageserver">{languageserver}</a> from CRAN and the latest GitHub release of <a href="https://github.com/ManuelHentschel/vscDebugger">{vscDebugger}</a>:</li>
+<li>In RStudio, install the required R packages for VS Code, namely <a href="https://github.com/REditorSupport/languageserver">{languageserver}</a> from CRAN and the latest GitHub release of <a href="https://github.com/ManuelHentschel/vscDebugger">{vscDebugger}</a>:</li>
 </ol>
 <pre class="r"><code>install.packages(&quot;languageserver&quot;)
 remotes::install_github(&quot;ManuelHentschel/vscDebugger&quot;, ref = remotes::github_release())</code></pre>
@@ -125,112 +135,112 @@ install.packages(&quot;vctrs&quot;)</code></pre>
 ;   # to enter shell mode, exit by pressing backspace on an empty line
 ~   # to enter {reticulate} python mode, exit by pressing backspace on an empty line</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>To configure your <code>.Rprofile</code>, type <code>code ~/.Rprofile</code> in your terminal, or if you are already set up with {usethis} in RStudio, run the R command <code>usethis::edit_r_profile()</code>. At a minimum, you will want to enable {rstudioapi} <a href="https://github.com/Ikuyadeu/vscode-R/wiki/RStudio-addin-support#installing-addins">emulation</a> in VS Code:</li>
+<li>To configure your <code>.Rprofile</code>, type <code>code ~/.Rprofile</code> in your terminal, or if you are already set up with <a href="https://usethis.r-lib.org">{usethis}</a> in RStudio, run the R command <a href="https://usethis.r-lib.org/reference/edit.html"><code>usethis::edit_r_profile()</code></a>. At a minimum, you will want to enable <a href="https://rstudio.github.io/rstudioapi">{rstudioapi}</a> <a href="https://github.com/Ikuyadeu/vscode-R/wiki/RStudio-addin-support">emulation</a> in VS Code:</li>
 </ol>
 <pre class="r"><code>options(vsc.rstudioapi = TRUE)</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>To configure <code>radian</code>, type <code>code ~/.radian_profile</code> in your terminal which will open up a new blank editor and create a new file named <code>.radian_profile</code> in the home directory. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/radian/.radian_profile"><code>.radian_profile</code></a>:</li>
 </ol>
 <pre class="r"><code>options(
-  radian.insert_new_line = FALSE,
-  radian.escape_key_map = list(
-    list(key = &quot;-&quot;, value = &quot; &lt;- &quot;),
-    list(key = &quot;m&quot;, value = &quot; %&gt;% &quot;)
-  )
+    radian.insert_new_line = FALSE,
+    radian.escape_key_map = list(
+        list(key = &quot;-&quot;, value = &quot; &lt;- &quot;),
+        list(key = &quot;m&quot;, value = &quot; %&gt;% &quot;)
+    )
 )</code></pre>
 <p>Save <code>~/.radian_profile</code> and restart your terminal for the settings to take effect.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>Now we’ll configure VS Code settings. Open VS Code, and navigate to <code>settings.json</code> by using the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>Preferences: Open Settings (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/settings.json"><code>settings.json</code></a>:</li>
 </ol>
 <pre class="json"><code>{
-  // Liveshare: Prompt when receiving focus requests
-  &quot;liveshare.focusBehavior&quot;: &quot;prompt&quot;,
-  // R: Treat`names.like.this` as one word for selection
-  &quot;[r]&quot;: {
-    &quot;editor.wordSeparators&quot;: &quot;`~!@#%$^&amp;*()-=+[{]}\\|;:&#39;\&quot;,&lt;&gt;/?&quot;
-  },
-  // R: Use active terminal for all commands
-  &quot;r.alwaysUseActiveTerminal&quot;: true,
-  // R: Use bracketed paste mode when sending code to console (radian)
-  &quot;r.bracketedPaste&quot;: true,
-  // R: R or radian path for macOS
-  &quot;r.rterm.mac&quot;: &quot;/usr/local/Caskroom/miniforge/base/envs/r-console/bin/radian&quot;,
-  // R: Enable R session watcher (experimental)
-  &quot;r.sessionWatcher&quot;: true,
-  // R: Remove hidden items when clearing R workspace
-  &quot;r.workspaceViewer.removeHiddenItems&quot;: true,
-  // Telemetry: Disable Microsoft crash reporter
-  &quot;telemetry.enableCrashReporter&quot;: false,
-  // Telemetry: Disable Microsoft telemetry
-  &quot;telemetry.enableTelemetry&quot;: false,
-  // Terminal: Path to integrated shell on macOS
-  &quot;terminal.integrated.shell.osx&quot;: &quot;/bin/zsh&quot;
+    // Liveshare: Prompt when receiving focus requests
+    &quot;liveshare.focusBehavior&quot;: &quot;prompt&quot;,
+    // R: Treat`names.like.this` as one word for selection
+    &quot;[r]&quot;: {
+        &quot;editor.wordSeparators&quot;: &quot;`~!@#%$^&amp;*()-=+[{]}\\|;:&#39;\&quot;,&lt;&gt;/?&quot;
+    },
+    // R: Use active terminal for all commands
+    &quot;r.alwaysUseActiveTerminal&quot;: true,
+    // R: Use bracketed paste mode when sending code to console (radian)
+    &quot;r.bracketedPaste&quot;: true,
+    // R: R or radian path for macOS
+    &quot;r.rterm.mac&quot;: &quot;/usr/local/Caskroom/miniforge/base/envs/r-console/bin/radian&quot;,
+    // R: Enable R session watcher (experimental)
+    &quot;r.sessionWatcher&quot;: true,
+    // R: Remove hidden items when clearing R workspace
+    &quot;r.workspaceViewer.removeHiddenItems&quot;: true,
+    // Telemetry: Disable Microsoft crash reporter
+    &quot;telemetry.enableCrashReporter&quot;: false,
+    // Telemetry: Disable Microsoft telemetry
+    &quot;telemetry.enableTelemetry&quot;: false,
+    // Terminal: Path to integrated shell on macOS
+    &quot;terminal.integrated.shell.osx&quot;: &quot;/bin/zsh&quot;
 }</code></pre>
-<p><em>NOTE:</em> The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (<code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+<p><em>NOTE:</em> The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
 <ol start="8" style="list-style-type: decimal">
 <li>Below are some useful <a href="https://github.com/Ikuyadeu/vscode-R/wiki/Keyboard-shortcuts">keyboard shortcuts</a> for <code>keybindings.json</code>, found by using the Command Palette (<code>Shift-Command-P</code>) in VS Code and navigating to <code>Preferences: Open Keyboard Shortcuts (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/keybindings.json"><code>keybindings.json</code></a>:</li>
 </ol>
 <pre class="json"><code>[
-  {
-    &quot;description&quot;: &quot;View: Show R Workspace&quot;,
-    &quot;key&quot;: &quot;alt+r&quot;,
-    &quot;command&quot;: &quot;workbench.view.extension.workspaceViewer&quot;
-  },
-  {
-    &quot;description&quot;: &quot;R: Create R Terminal&quot;,
-    &quot;key&quot;: &quot;alt+`&quot;,
-    &quot;command&quot;: &quot;r.createRTerm&quot;
-  },
-  {
-    &quot;description&quot;: &quot;R: Insert Assignment Operator&quot;,
-    &quot;key&quot;: &quot;alt+-&quot;,
-    &quot;command&quot;: &quot;type&quot;,
-    &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
-    &quot;args&quot;: { &quot;text&quot;: &quot; &lt;- &quot; }
-  },
-  {
-    &quot;description&quot;: &quot;R: Insert Pipe Operator&quot;,
-    &quot;key&quot;: &quot;shift+cmd+m&quot;,
-    &quot;command&quot;: &quot;type&quot;,
-    &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
-    &quot;args&quot;: { &quot;text&quot;: &quot; %&gt;% &quot; }
-  },
-  {
-    &quot;description&quot;: &quot;R: Insert Assignment Pipe Operator&quot;,
-    &quot;key&quot;: &quot;shift+cmd+,&quot;,
-    &quot;command&quot;: &quot;type&quot;,
-    &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
-    &quot;args&quot;: { &quot;text&quot;: &quot; %&lt;&gt;% &quot; }
-  },
-  {
-    &quot;description&quot;: &quot;R: Insert Tee Pipe Operator&quot;,
-    &quot;key&quot;: &quot;shift+cmd+.&quot;,
-    &quot;command&quot;: &quot;type&quot;,
-    &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
-    &quot;args&quot;: { &quot;text&quot;: &quot; %T&gt;% &quot; }
-  },
-  {
-    &quot;description&quot;: &quot;R: Test Package&quot;,
-    &quot;key&quot;: &quot;shift+cmd+8&quot;,
-    &quot;command&quot;: &quot;r.test&quot;
-  },
-  {
-    &quot;description&quot;: &quot;R: Document&quot;,
-    &quot;key&quot;: &quot;shift+cmd+9&quot;,
-    &quot;command&quot;: &quot;r.document&quot;
-  },
-  {
-    &quot;description&quot;: &quot;R: Load All&quot;,
-    &quot;key&quot;: &quot;shift+cmd+0&quot;,
-    &quot;command&quot;: &quot;r.loadAll&quot;,
-  }
+    {
+        &quot;description&quot;: &quot;View: Show R Workspace&quot;,
+        &quot;key&quot;: &quot;alt+r&quot;,
+        &quot;command&quot;: &quot;workbench.view.extension.workspaceViewer&quot;
+    },
+    {
+        &quot;description&quot;: &quot;R: Create R Terminal&quot;,
+        &quot;key&quot;: &quot;alt+`&quot;,
+        &quot;command&quot;: &quot;r.createRTerm&quot;
+    },
+    {
+        &quot;description&quot;: &quot;R: Insert Assignment Operator&quot;,
+        &quot;key&quot;: &quot;alt+-&quot;,
+        &quot;command&quot;: &quot;type&quot;,
+        &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
+        &quot;args&quot;: { &quot;text&quot;: &quot; &lt;- &quot; }
+    },
+    {
+        &quot;description&quot;: &quot;R: Insert Pipe Operator&quot;,
+        &quot;key&quot;: &quot;shift+cmd+m&quot;,
+        &quot;command&quot;: &quot;type&quot;,
+        &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
+        &quot;args&quot;: { &quot;text&quot;: &quot; %&gt;% &quot; }
+    },
+    {
+        &quot;description&quot;: &quot;R: Insert Assignment Pipe Operator&quot;,
+        &quot;key&quot;: &quot;shift+cmd+,&quot;,
+        &quot;command&quot;: &quot;type&quot;,
+        &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
+        &quot;args&quot;: { &quot;text&quot;: &quot; %&lt;&gt;% &quot; }
+    },
+    {
+        &quot;description&quot;: &quot;R: Insert Tee Pipe Operator&quot;,
+        &quot;key&quot;: &quot;shift+cmd+.&quot;,
+        &quot;command&quot;: &quot;type&quot;,
+        &quot;when&quot;: &quot;editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus&quot;,
+        &quot;args&quot;: { &quot;text&quot;: &quot; %T&gt;% &quot; }
+    },
+    {
+        &quot;description&quot;: &quot;R: Test Package&quot;,
+        &quot;key&quot;: &quot;shift+cmd+8&quot;,
+        &quot;command&quot;: &quot;r.test&quot;
+    },
+    {
+        &quot;description&quot;: &quot;R: Document&quot;,
+        &quot;key&quot;: &quot;shift+cmd+9&quot;,
+        &quot;command&quot;: &quot;r.document&quot;
+    },
+    {
+        &quot;description&quot;: &quot;R: Load All&quot;,
+        &quot;key&quot;: &quot;shift+cmd+0&quot;,
+        &quot;command&quot;: &quot;r.loadAll&quot;,
+    }
 ]</code></pre>
 </div>
 <div id="writing-an-r-package-using-vs-code" class="section level2">
 <h2>Writing an R Package Using VS Code</h2>
 <p>In this section we’re going to set up a toy R package in VS Code, and in the next section we will enable Live Share.</p>
 <ol style="list-style-type: decimal">
-<li><p>Open VS Code and use the Command Palette (<code>Shift-Command-P</code>) to navigate to <code>R: Create R Terminal</code>, or use the suggested keyboard shortcut above (<code>Option-`</code>). Note that if you have an editor open and the focus is on the editor, for the shortcut to work you may first need to use <code>Control-`</code> for <code>View: Toggle Integrated Terminal</code> followed by <code>Option-`</code> for <code>R: Create R Terminal</code>. If our configuration above worked for you, these commands should open a Terminal instance with the <code>radian</code> console, and the title of the terminal should be <code>1: R Interactive</code> (or <code>2: R Interactive</code> if it’s the second active terminal).</p></li>
+<li><p>Open VS Code and use the Command Palette (<code>Shift-Command-P</code>) to navigate to <code>R: Create R Terminal</code>, or use the suggested keyboard shortcut above (<code>Option-`</code>). Note that if you have an editor open and the focus is on the editor, for the shortcut to work you may first need to use <code>Control-`</code> for <code>View: Toggle Integrated Terminal</code> followed by <code>Option-`</code> for <code>R: Create R Terminal</code>. If our configuration above worked for you, these commands should open a terminal instance with the <code>radian</code> console, and the title of the terminal should be <code>1: R Interactive</code> (or <code>2: R Interactive</code> if it’s the second active terminal).</p></li>
 <li><p>In the VS Code R console, create a {mutagen} package folder on your Desktop, declare dependencies, and start an R script for a new function <code>cast_integers()</code>:</p></li>
 </ol>
 <pre class="r"><code>library(usethis)
@@ -239,7 +249,7 @@ deps &lt;- c(&quot;dplyr&quot;, &quot;purrr&quot;, &quot;tibble&quot;, &quot;vct
 purrr::walk(deps, use_package)
 use_r(&quot;cast_integers&quot;)</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li><p>In VS Code, open the {mutagen} folder using File &gt; Open… (<code>Command-O</code>) and selecting the <code>mutagen</code> folder in the Desktop. This will open a new VS Code instance and the title bar will read <code>Welcome — mutagen</code>. The R extension icon will be visible on the sidebar since it will detect the <code>.R</code> file in the folder.</p></li>
+<li><p>In VS Code, open the {mutagen} folder using File &gt; Open… (<code>Command-O</code>) and selecting the <code>mutagen</code> folder in the Desktop. This will open a new VS Code instance and the title bar will read <code>Welcome — mutagen</code>. The R extension icon will be visible on the sidebar since VS Code will detect the <code>.R</code> file in the folder.</p></li>
 <li><p>Use the Explorer icon in the sidebar (<code>Shift-Command-E</code>) and open the <code>cast_integers.R</code> file. Paste the following code into the editor and save the file:</p></li>
 </ol>
 <pre class="r"><code>#&#39; Safely cast numeric columns to integers
@@ -250,24 +260,24 @@ use_r(&quot;cast_integers&quot;)</code></pre>
 #&#39; @examples (mtcars_integerized &lt;- cast_integers(mtcars))
 #&#39; @export
 cast_integers &lt;- function(.data) {
-  stopifnot(is.data.frame(.data))
-  .data &lt;- tibble::rownames_to_column(.data)
-  .data &lt;- tibble::as_tibble(.data)
-  int_index &lt;- purrr::map_lgl(
-    .data,
-    ~ !inherits(try(vctrs::vec_cast(.x, to = integer()), silent = TRUE), &quot;try-error&quot;)
-  )
-  .data &lt;- dplyr::mutate(
-    .data,
-    dplyr::across(
-      .cols = any_of(names(which(int_index))),
-      .fns = ~ vctrs::vec_cast(.x, to = integer())
+    stopifnot(is.data.frame(.data))
+    .data &lt;- tibble::rownames_to_column(.data)
+    .data &lt;- tibble::as_tibble(.data)
+    int_index &lt;- purrr::map_lgl(
+        .data,
+        ~ !inherits(try(vctrs::vec_cast(.x, to = integer()), silent = TRUE), &quot;try-error&quot;)
     )
-  )
-  return(.data)
+    .data &lt;- dplyr::mutate(
+        .data,
+        dplyr::across(
+            .cols = any_of(names(which(int_index))),
+            .fns = ~ vctrs::vec_cast(.x, to = integer())
+        )
+    )
+    return(.data)
 }</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li>Now create a new R console in VS Code using either the keyboard shortcuts (<code>Control-`</code> to toggle the terminal and <code>Option-`</code> to create an R console) or by opening the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>R: Create R Terminal</code>. Focus your view on the R extension by clicking R the sidebar (<code>Option-R</code>), and now test out the package. Below are a series of R console commands to familiarize you with the package development workflow. We will load the package, document it, and create a new object in the R workspace that uses the new function we just loaded onto the package environment. To get familiar with the VS Code user interface, we will also print the object in the console, view it with the data viewer, and check out the help file for our new function.</li>
+<li>Now create a new R console in VS Code using either the keyboard shortcuts (<code>Control-`</code> to toggle the terminal and <code>Option-`</code> to create an R console) or by opening the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>R: Create R Terminal</code>. Focus your view on the R extension by clicking R the sidebar (<code>Option-R</code>), and now test out the package. Below are a series of R console commands to familiarize you with the package development workflow in VS Code. We will load the package, document it, and create a new object in the R workspace that uses the new function we just loaded onto the package environment. To get familiar with the VS Code user interface, we will also print the object in the console, view it with the data viewer, and check out the help file for our new function.</li>
 </ol>
 <pre class="r"><code>library(dplyr)
 devtools::load_all() # or Shift-Command-0 using keyboard shortcuts above
@@ -281,12 +291,12 @@ View(mtcars_integerized)
 <h2>Live Share Tutorial</h2>
 <p>Now that we’ve started writing our R package in VS Code, it’s time to Live Share! Microsoft has a handy walkthrough <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode">here</a>, but we will explain what we did and detail R project idiosyncrasies that we found.</p>
 <p>In order to host a Live Share collaboration session, first you’ll need to sign into Visual Studio Live Share. Click on the <code>Live Share</code> status bar item or press <code>Shift-Command-P</code> and navigate to <code>Live Share: Sign In With Browser</code>. A notification will appear asking you to sign into either a Microsoft or GitHub account using your default web browser.</p>
-<p>Once you are signed in, open a folder or file for pair programming. For package development, this would be the project folder for the package (e.g., the {mutagen} folder we created above). Click the <code>Live Share</code> status bar item or hit <code>Shift-Command-P</code> and navigate to <code>Live Share: Start Collaboration Session (Share)</code>. An invite link will be copied automatically to your clipboard. You can send this link to your collaborator(s) and allow them to join a new session that shares the contents of the folder. Once a collaborator clicks the link, a notification will prompt you to approve the guest before they can join. Please note that guests do not necessarily need to be signed into to collaborate using Live Share, since anonymous guests are allowed; however, the host will need to be signed in. In fact, <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/browser-join">guests don’t even need to have VS Code installed and can join Live Share from a browser</a>!</p>
+<p>Once you are signed in, open a folder or file for pair programming. For package development, this would be the project folder for the package (e.g., the {mutagen} folder we created above). Click the <code>Live Share</code> status bar item or type <code>Shift-Command-P</code> and navigate to <code>Live Share: Start Collaboration Session (Share)</code>. An invite link will be copied automatically to your clipboard. You can send this link to your collaborator(s) and allow them to join a new session that shares the contents of the folder. Once a collaborator clicks the link, a notification will prompt you to approve the guest before they can join. Please note that guests do not necessarily need to be signed into to collaborate using Live Share, since anonymous guests are allowed; however, the host will need to be signed in. In fact, <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/browser-join">guests don’t even need to have VS Code installed and can join Live Share from a browser</a>!</p>
 <p>Once a guest has joined a collaboration session, all collaborators will immediately be able to see each other’s cursors, edits, and selections in real-time. You can pick a file from the Explorer (<code>Shift-Command-E</code>) and start editing. Both hosts and guests will see edits as they are made.</p>
 <p>As we worked on {mutagen} files, we noticed the usual loading of a package in development, via <code>devtools::load_all()</code>, or sourcing an entire file using <code>Shift-Command-S</code> (the VS Code version of RStudio’s <code>Shift-Command-Enter</code>), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host’s path <code>~/Desktop/mutagen/R/cast_integers.R</code>, the guest’s path was an abbreviated <code>/R/cast_integers.R</code>, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using <code>Command-Enter</code> line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests’ Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run <code>devtools::load_all()</code> or <code>source()</code> with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting <code>"liveshare.publishWorkspaceInfo": true</code> in <code>settings.json</code>, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R workspace and its objects.</p>
 </div>
 <div id="final-thoughts" class="section level2">
 <h2>Final Thoughts</h2>
 <p>We’re excited for the future of R programming in VS Code. Live Share is an outstanding innovation for collaborative real-time editing, and is only one of the many amazing features in VS Code. Here we have only scratched the surface of use cases for Live Share. Microsoft keeps a running list of <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/use-cases">many other Live Share use cases</a>.</p>
-<p>We are huge fans of RStudio and the RStudio IDE. On our wish list for RStudio is that a live collaboration feature be supported in future versions of RStudio Desktop (not only the Pro version) and RStudio Cloud. Having many excellent options is a good thing! In the meantime, it is clear that VS Code is maturing into a capable IDE for R. Live Share is an attractive and free feature that enables real-time collaboration for the masses that we hope others will enjoy as much as we have.</p>
+<p>We are also huge fans of RStudio and the RStudio IDE. On our wish list for RStudio is that a live collaboration feature be supported in future versions of RStudio Desktop (not only the Pro version) and RStudio Cloud. Having many excellent options is a good thing! In the meantime, it is clear that VS Code is maturing into a capable IDE for R. Live Share is an attractive and free feature that enables real-time collaboration for the masses and that we hope others will enjoy as much as we have.</p>
 </div>
