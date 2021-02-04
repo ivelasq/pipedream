@@ -38,7 +38,7 @@ We have been following, with increasing [interest](https://github.com/issues?q=v
 2. We wanted to start collaborating on an open-source R package [{mutagen}](https://github.com/gvelasq/mutagen) which will (someday) provide useful extensions to [{dplyr}](https://dplyr.tidyverse.org/)'s [`mutate()`](https://dplyr.tidyverse.org/reference/mutate.html):
 
 <center>
-![](https://ivelasq.rbind.io/img/vscode/mutagen.png)
+![](https://raw.githubusercontent.com/gvelasq/mutagen/master/man/figures/logo.jpeg)
 </center>
 
 So far, we only have a hex sticker — [#hexdrivendevelopment](https://twitter.com/search?q=%23hexdrivendevelopment) in action!
