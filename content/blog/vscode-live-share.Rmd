@@ -326,7 +326,6 @@ cast_integers <- function(.data) {
 
 ```{r, eval = FALSE}
 library(dplyr)
-
 devtools::load_all() # or Shift-Command-0 using keyboard shortcuts above
 devtools::document() # or Shift-Command-9 using keyboard shortcuts above
 mtcars_integerized <- mtcars %>% cast_integers()

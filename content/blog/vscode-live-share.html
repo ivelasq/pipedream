@@ -270,7 +270,6 @@ cast_integers &lt;- function(.data) {
 <li>Now create a new R console in VS Code using either the keyboard shortcuts (<code>Control-`</code> to toggle the terminal and <code>Option-`</code> to create an R console) or by opening the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>R: Create R Terminal</code>. Focus your view on the R extension by clicking R the sidebar (<code>Option-R</code>), and now test out the package. Below are a series of R console commands to familiarize you with the package development workflow. We will load the package, document it, and create a new object in the R workspace that uses the new function we just loaded onto the package environment. To get familiar with the VS Code user interface, we will also print the object in the console, view it with the data viewer, and check out the help file for our new function.</li>
 </ol>
 <pre class="r"><code>library(dplyr)
-
 devtools::load_all() # or Shift-Command-0 using keyboard shortcuts above
 devtools::document() # or Shift-Command-9 using keyboard shortcuts above
 mtcars_integerized &lt;- mtcars %&gt;% cast_integers()
