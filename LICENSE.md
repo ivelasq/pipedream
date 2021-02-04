@@ -398,7 +398,7 @@ Creative Commons may be contacted at creativecommons.org.
 
 # MIT License
 
-Copyright (c) 2020 Isabella Velásquez
+Copyright (c) 2021 Isabella Velásquez
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
