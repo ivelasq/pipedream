@@ -2,7 +2,7 @@
 title:  "Remote Pair Programming in R Using Visual Studio Code and Live Share"
 author: "Isabella & Gustavo E."
 date: "2021-02-03"
-categories: ["Collaboration"]
+categories: ["Collaboration", "R"]
 tags: ["devtools", "dplyr", "languageserver", "purrr", "tibble", "usethis", "vctrs", "vscDebugger"]
 description: "Tutorial"
 featured: "collab.png"
@@ -36,7 +36,7 @@ type: "post"
 <li><p>We wanted to start collaborating on an open-source R package <a href="https://github.com/gvelasq/mutagen">{mutagen}</a> which will (someday) provide useful extensions to <a href="https://dplyr.tidyverse.org/">{dplyr}</a>’s <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>:</p></li>
 </ol>
 <center>
-<img src="https://ivelasq.rbind.io/img/vscode_files/mutagen.png" />
+<img src="https://ivelasq.rbind.io/img/vscode/mutagen.png" />
 </center>
 <p>So far, we only have a hex sticker — <a href="https://twitter.com/search?q=%23hexdrivendevelopment">#hexdrivendevelopment</a> in action!</p>
 <center>
@@ -75,8 +75,8 @@ python -m pip install jedi==0.17.2 # for {reticulate} python autocompletion</cod
 <ol start="6" style="list-style-type: decimal">
 <li>In RStudio, install the required R packages for VS Code, namely <a href="https://cran.r-project.org/package=languageserver">{languageserver}</a> from CRAN and the latest GitHub release of <a href="https://github.com/ManuelHentschel/vscDebugger">{vscDebugger}</a>:</li>
 </ol>
-<pre class="r"><code>install.packages(&#39;languageserver&#39;)
-remotes::install_github(&#39;ManuelHentschel/vscDebugger&#39;, ref = remotes::github_release())</code></pre>
+<pre class="r"><code>install.packages(&quot;languageserver&quot;)
+remotes::install_github(&quot;ManuelHentschel/vscDebugger&quot;, ref = remotes::github_release())</code></pre>
 <p>For the tutorial, make sure that you have the following R packages installed, if you don’t already:</p>
 <pre class="r"><code>install.packages(&quot;devtools&quot;)
 install.packages(&quot;dplyr&quot;)
