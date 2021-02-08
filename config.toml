@@ -5,7 +5,6 @@ theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 5
 #disqusShortname = "shortname"
-googleAnalytics = "UA-158801579-1"
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
 enableRobotsTXT = true
