@@ -18,7 +18,7 @@ description: Tutorial
 featured: collab.png
 featuredpath: date
 linktitle: ''
-type: post
+type: "post"
 ---
 
 ```{r setup, include = FALSE}
@@ -361,3 +361,9 @@ As we worked on {mutagen} files, we noticed the usual loading of a package in de
 We're excited for the future of R programming in VS Code. Live Share is an outstanding innovation for collaborative real-time editing, and is only one of the many amazing features in VS Code. Here we have only scratched the surface of use cases for Live Share. Microsoft keeps a running list of [many other Live Share use cases](https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/use-cases).
 
 We are also huge fans of RStudio and the RStudio IDE. On our wish list for RStudio is that a live collaboration feature be supported in future versions of RStudio Desktop (not only the Pro version) and RStudio Cloud. Having many excellent options is a good thing! In the meantime, it is clear that VS Code is maturing into a capable IDE for R. Live Share is an attractive and free feature that enables real-time collaboration for the masses and that we hope others will enjoy as much as we have.
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1357136366568689664')
+```
+</center>
