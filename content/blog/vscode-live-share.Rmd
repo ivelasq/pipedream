@@ -87,17 +87,18 @@ brew tap homebrew/cask-versions
 brew install --cask rstudio-preview
 ```
 
-5. Install [`radian`](https://github.com/randy3k/radian), a '21st century R console' and the recommended R console for VS Code. Currently the best method to install `radian` is with [`pip`](https://pypi.org/project/pip). Most data science tutorials recommend using Python with [`conda`](https://docs.conda.io/projects/conda/en/latest) environments, so we suspect that our readers will be more familiar with using `conda` than `pip`, as we are. However, since `pip` [should be used carefully](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) inside `conda` environments, we show how to install `radian` in a dedicated `conda` environment.
+5. Install [`radian`](https://github.com/randy3k/radian), a '21st century R console' and the recommended R console for VS Code.
 
-The steps below first install [Miniforge](https://github.com/conda-forge/miniforge), which we prefer to [Miniconda](https://docs.conda.io/en/latest/miniconda.html) since it sets `conda-forge` as the default channel, then create an empty `conda` environment named `r-console` into which we install `pip` using `conda`. Then, using [`python -m pip`](https://snarky.ca/why-you-should-use-python-m-pip/) we install both `radian` and `jedi`. `jedi` is a `radian` dependency that enables Python autocompletion using the [{reticulate}](https://rstudio.github.io/reticulate/) R package. In the future, we hope that `radian` can be installed directly from `conda-forge` as requested in this [issue](https://github.com/randy3k/radian/issues/244), since it would simplify `conda`-only workflows. Paste this into your terminal:
+*Update 2021-02-11*: Thanks to the efforts of [@jdblischak](https://twitter.com/jdblischak) and [@randy3k](https://github.com/randy3k) in this closed [issue](https://github.com/randy3k/radian/issues/244), `radian` can now be installed with [`conda-forge`](https://anaconda.org/conda-forge/radian) instead of only with [`pip`](https://pypi.org/project/radian/). Most data science tutorials recommend using Python with [`conda`](https://docs.conda.io/projects/conda/en/latest) environments, so we suspect that our readers will be more familiar with using `conda` than `pip`, as we are. If you do choose to use `pip` (or [`python -m pip`](https://snarky.ca/why-you-should-use-python-m-pip/)), beware that `pip` [should be used carefully](https://www.anaconda.com/blog/using-pip-in-a-conda-environment) inside `conda` environments.
+
+The steps below first install [Miniforge](https://github.com/conda-forge/miniforge), which we prefer to [Miniconda](https://docs.conda.io/en/latest/miniconda.html) since it sets `conda-forge` as the default channel, then create an empty `conda` environment named `r-console` into which we install `radian` and [`jedi`](https://anaconda.org/conda-forge/jedi). `jedi` is an optional package that enables Python autocompletion using the [{reticulate}](https://rstudio.github.io/reticulate/) R package. Paste this into your terminal:
 
 ```{zsh, eval = FALSE}
 brew install miniforge
 conda create --name r-console
 conda activate r-console
-conda install pip
-python -m pip install radian
-python -m pip install jedi==0.17.2 # for {reticulate} python autocompletion
+conda install radian
+conda install jedi # for {reticulate} python autocompletion
 ```
 
 6. In RStudio, install the required R packages for VS Code, namely [{languageserver}](https://github.com/REditorSupport/languageserver) from CRAN and the latest GitHub release of [{vscDebugger}](https://github.com/ManuelHentschel/vscDebugger):
