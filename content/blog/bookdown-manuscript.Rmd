@@ -12,7 +12,7 @@ title: "Creating a book manuscript using {bookdown}"
 type: "post"
 ---
 
-My co-authors [Ryan](https://twitter.com/RyanEs), [Emily](https://twitter.com/efreer20), [Jesse](https://twitter.com/kierisi), [Josh](https://twitter.com/jrosenberg6432), and [I](https://twitter.com/ivelasq3) published our book last year, but it had actually been around since the moment we started writing it. [Data Science in Education Using R](datascienceineducation.com) is available online as a  bookdown on a website, available to all.
+My co-authors [Ryan](https://twitter.com/RyanEs), [Emily](https://twitter.com/efreer20), [Jesse](https://twitter.com/kierisi), [Josh](https://twitter.com/jrosenberg6432), and [I](https://twitter.com/ivelasq3) published our book last year, but it had actually been around since the moment we started writing it. [Data Science in Education Using R](https://datascienceineducation.com/) is available online as a  bookdown on a website, available to all.
 
 [{bookdown}](https://www.bookdown.org/) is an R package that facilitates writing books and long-form articles/reports with R Markdown. [R Markdown]() is a file format that allows you to write using markdown, a language for formatted text, and integrate R code, analyses, and visualizations. By using R Markdown, my co-authors and I were able to collaborate using familiar scripts, share and run code, and edit our manuscript for publication. By using {bookdown}, we were able to publish these R Markdown files to the web so people could access our book as we were writing it.
 
