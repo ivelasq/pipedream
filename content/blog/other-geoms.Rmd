@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["ggplot2", "ggstream", "ggridges", "ggsankey", "ggalluvial", "ggbump", "waffle", "ggbeeswarm", "ggmosaic]
+tags: ["ggplot2", "ggstream", "ggridges", "ggsankey", "ggalluvial", "ggbump", "waffle", "ggbeeswarm", "ggmosaic"]
 date: "2021-03-28"
 description: "Into the ggplot2niverse"
 featured: "gg.png"
