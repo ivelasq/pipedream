@@ -1,7 +1,7 @@
 ---
 author: ""
 categories: ["R"]
-tags: ["ggplot2"]
+tags: ["ggplot2", "ggstream", "ggridges", "ggsankey", "ggalluvial", "ggbump", "waffle", "ggbeeswarm", "ggmosaic]
 date: "2021-03-28"
 description: "Into the ggplot2niverse"
 featured: "gg.png"
@@ -18,13 +18,13 @@ R users are incredibly fortunate to work in an open source community that create
 * `geom_histogram` for histograms
 * `geom_point` for scatterplots
 
-In addition, other amazing folks in the R Community have created other geoms that can be used with {ggplot2} and similarly use the tidyverse framework. Here are a few that I've tried out!
+In addition, other amazing folks in the R Community have created geoms that can be used with {ggplot2} and similarly use the tidyverse framework. This is fantastic for many reasons, but some include being able to add themes, facets, titles, and other components just like with any `ggplot`. Here are a few geoms that I've tried out with examples!
 
 * [Streamgraphs using ggstream::geom_stream](#streamgraphs)
 * [Ridgeline plots using ggridges::geom_density_ridges](#ridgeline-plots)
 * [Sankey diagrams using ggsankey::geom_sankey & ggalluvial::geom_alluvial](#sankey-diagrams)
 * [Bump charts using ggbump::geom_bump](#bump-charts)
-* [Waffle charts using waffle::geom_waffle and waffle::geom_pictograph](#waffle-charts)
+* [Waffle charts using waffle::geom_waffle](#waffle-charts)
 * [Beeswarm charts using ggbeeswarm::geom_beeswarm](#beeswarm-charts)
 * [Mosaic charts using ggmosaic::geom_mosaic](#mosaic-charts)
 
@@ -32,7 +32,9 @@ In addition, other amazing folks in the R Community have created other geoms tha
 ![](https://ivelasq.rbind.io/img/geoms.png)
 </center>
 
-What other gg's and geoms am I missing? Please [let me know!](https://twitter.com/ivelasq3) I'll list them at the bottom for reference.
+## Setup
+
+To be able to run this code, be sure to have the tidyverse installed. The {wesanderson} package contains beautiful palettes for visualizations.
 
 ```{r, message = F}
 # Load required packages
@@ -47,7 +49,7 @@ This post includes three of David Sjoberg's amazing geoms; he created {ggsankey}
 
 This first geom, `geom_stream()`, creates a streamplot (which I've also seen called stream graphs). The streamplot is an area graph that usually centers around a central axis and allows us to see large fluctuations over time. More information on streamplot can be found [here](https://en.wikipedia.org/wiki/Streamgraph).
 
-{ggstream} also has other options available to customize the streamgraphs, check out the repo [here](https://github.com/davidsjoberg/ggstream).
+{ggstream} also has other options available to customize the streamgraphs, such as creating an area achart. Check out the repo [here](https://github.com/davidsjoberg/ggstream).
 
 ```{r}
 # remotes::install_github("davidsjoberg/ggstream")
@@ -62,7 +64,7 @@ ggplot(blockbusters, aes(year, box_office, fill = genre)) +
 
 ## Ridgeline Plots
 
-The {ggridges} by Claus O. Wilke package also has a variety of geoms; check out the repo [here](https://github.com/wilkelab/ggridges). Ridgeline plots show the distribution of a numeric value for different groups and usually look like mountain ranges. The [R-Ladies Seattle](https://www.meetup.com/rladies-seattle/) hex sticker was created using ridgelines (very appropriate for the mountainous Washington!).
+The {ggridges} package by Claus O. Wilke package also has a variety of geoms; check out the repo [here](https://github.com/wilkelab/ggridges). Ridgeline plots show the distribution of a numeric value for different groups and can look like mountain ranges. The [R-Ladies Seattle](https://www.meetup.com/rladies-seattle/) hex sticker was created using ridgelines (very appropriate for the mountainous Washington!).
 
 ```{r, message = F}
 # install.packages("ggridges")
@@ -133,7 +135,7 @@ ggplot(blockbusters2, aes(year, rank, color = genre)) +
 
 ## Waffle Charts
 
-For waffle charts, which are handy visualizations that show completion or parts of a whole, there is hrbrmstr's {waffle}, repo [here](https://github.com/hrbrmstr/waffle). Check out the ability to bring in other {ggplot2} functions, like `facet_wrap`. {waffle} also allows you to create pictograms, which replaces the squares in the 'waffle' with pictures.
+For waffle charts, which are handy visualizations that show completion or parts of a whole, there is hrbrmstr's {waffle}. The repo is [here](https://github.com/hrbrmstr/waffle). Check out the ability to bring in other {ggplot2} functions, like `facet_wrap`. {waffle} also allows you to create pictograms using `geom_pictogram`, which replaces the squares in the 'waffle' with pictures.
 
 ```{r}
 # install.packages("waffle", repos = "https://cinc.rud.is")
@@ -148,7 +150,7 @@ ggplot(as_tibble(Titanic), aes(fill = Sex, values = n)) +
 
 ## Beeswarm Charts
 
-Beeswarm charts, similar to jitter plots in {ggplot2}, plot individual points showing distributions without allowing the points to overlap too much. The repo for {ggbeeswarm} is [here](https://github.com/eclarke/ggbeeswarm).
+Beeswarm charts, similar to jitter plots in {ggplot2}, plot individual points showing distributions without allowing the points to overlap too much. Erik Clarke's repo for {ggbeeswarm} is [here](https://github.com/eclarke/ggbeeswarm).
 
 ```{r}
 # install.packages("ggbeeswarm")
@@ -163,7 +165,7 @@ ggplot(blockbusters, aes(x = genre, y = box_office, color = genre)) +
 
 ## Mosaic Charts
 
-Mosaic charts are incredibly helpful when displaying proportions of (multiple) categories. The {ggmosaic} package (repo [here](https://github.com/haleyjeppson/ggmosaic)) uses `geom_mosaic` to create these visualizations.
+Mosaic charts are incredibly helpful when displaying proportions of (multiple) categories. The {ggmosaic} package by Haley Jeppson (repo [here](https://github.com/haleyjeppson/ggmosaic)) uses `geom_mosaic` to create these visualizations.
 
 ```{r}
 # devtools::install_github("haleyjeppson/ggmosaic")
@@ -177,4 +179,4 @@ ggplot(as.data.frame(UCBAdmissions)) +
 
 ## Other Geoms
 
-I know there exist a ton of other geoms that work with {ggplot2} out there. Just as I was writing this blogpost, I discovered {gghilbertstrings}! What other geoms do you know of? Let me know on [Twitter](https://twitter.com/ivelasq3) and I'll list them here!
+I know there exist a ton of other geoms that work with {ggplot2} out there. Just as I was writing this blogpost, I discovered {gghilbertstrings}! What other gg packages or geoms do you know of? Let me know on [Twitter](https://twitter.com/ivelasq3) and I'll list them here!
