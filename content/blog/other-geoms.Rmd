@@ -12,15 +12,13 @@ title: "Exploring other {ggplot2} geoms"
 type: "post"
 ---
 
-R users are incredibly fortunate to work in an open source community that creates and shares resources that make our work even better. The many R packages that aid in creating beautiful visualizations are examples of this. 
+R users are incredibly fortunate to work in an open source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the [reference documents](https://ggplot2.tidyverse.org/reference/) for {ggplot2}. These include:
 
-The {ggplot2} package comes with incredibly useful geoms (geometric objects) already. A full list of these can be found in the [reference documents](https://ggplot2.tidyverse.org/reference/) for {ggplot2}. These include:
+* `geom_bar` and `geom_col` for barcharts
+* `geom_histogram` for histograms
+* `geom_point` for scatterplots
 
-* geom_bar() and geom_col() for barcharts
-* geom_histogram() for histograms
-* geom_point() for scatterplots
-
-However, the amazing folks in the R Community have created other geoms that can be used with {ggplot2} and similarly use the tidyverse framework. Here are a few that I've tried out!
+In addition, other amazing folks in the R Community have created other geoms that can be used with {ggplot2} and similarly use the tidyverse framework. Here are a few that I've tried out!
 
 * [Streamgraphs using ggstream::geom_stream](#streamgraphs)
 * [Ridgeline plots using ggridges::geom_density_ridges](#ridgeline-plots)
