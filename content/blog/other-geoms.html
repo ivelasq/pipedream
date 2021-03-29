@@ -1,0 +1,159 @@
+---
+author: ""
+categories: ["R"]
+tags: ["ggplot2"]
+date: "2021-03-28"
+description: "Into the ggplot2niverse"
+featured: "gg.png"
+featuredalt: "Exploring other {ggplot2} geoms"
+featuredpath: "date"
+linktitle: ""
+title: "Exploring other {ggplot2} geoms"
+type: "post"
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>R users are incredibly fortunate to work in an open source community that creates and shares resources that make our work even better. The many R packages that aid in creating beautiful visualizations are examples of this.</p>
+<p>The {ggplot2} package comes with incredibly useful geoms (geometric objects) already. A full list of these can be found in the <a href="https://ggplot2.tidyverse.org/reference/">reference documents</a> for {ggplot2}. These include:</p>
+<ul>
+<li>geom_bar() and geom_col() for barcharts</li>
+<li>geom_histogram() for histograms</li>
+<li>geom_point() for scatterplots</li>
+</ul>
+<p>However, the amazing folks in the R Community have created other geoms that can be used with {ggplot2} and similarly use the tidyverse framework. Here are a few that I’ve tried out!</p>
+<ul>
+<li><a href="#streamgraphs">Streamgraphs using ggstream::geom_stream</a></li>
+<li><a href="#ridgeline-plots">Ridgeline plots using ggridges::geom_density_ridges</a></li>
+<li><a href="#sankey-diagrams">Sankey diagrams using ggsankey::geom_sankey &amp; ggalluvial::geom_alluvial</a></li>
+<li><a href="#bump-charts">Bump charts using ggbump::geom_bump</a></li>
+<li><a href="#waffle-charts">Waffle charts using waffle::geom_waffle and waffle::geom_pictograph</a></li>
+<li><a href="#beeswarm-charts">Beeswarm charts using ggbeeswarm::geom_beeswarm</a></li>
+<li><a href="#mosaic-charts">Mosaic charts using ggmosaic::geom_mosaic</a></li>
+</ul>
+<center>
+<img src="https://ivelasq.rbind.io/img/geoms.png" />
+</center>
+<p>What other gg’s and geoms am I missing? Please <a href="https://twitter.com/ivelasq3">let me know!</a> I’ll list them at the bottom for reference.</p>
+<pre class="r"><code># Load required packages
+
+library(tidyverse)
+library(wesanderson)</code></pre>
+<div id="streamgraphs" class="section level2">
+<h2>Streamgraphs</h2>
+<p>This post includes three of David Sjoberg’s amazing geoms; he created {ggsankey}, {ggstream}, AND {ggbump}. If you haven’t seen his GitHub, please <a href="https://github.com/davidsjoberg">check it out now</a>.</p>
+<p>This first geom, <code>geom_stream()</code>, creates a streamplot (which I’ve also seen called stream graphs). The streamplot is an area graph that usually centers around a central axis and allows us to see large fluctuations over time. More information on streamplot can be found <a href="https://en.wikipedia.org/wiki/Streamgraph">here</a>.</p>
+<p>{ggstream} also has other options available to customize the streamgraphs, check out the repo <a href="https://github.com/davidsjoberg/ggstream">here</a>.</p>
+<pre class="r"><code># remotes::install_github(&quot;davidsjoberg/ggstream&quot;)
+library(ggstream)
+
+ggplot(blockbusters, aes(year, box_office, fill = genre)) +
+  geom_stream() +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="ridgeline-plots" class="section level2">
+<h2>Ridgeline Plots</h2>
+<p>The {ggridges} by Claus O. Wilke package also has a variety of geoms; check out the repo <a href="https://github.com/wilkelab/ggridges">here</a>. Ridgeline plots show the distribution of a numeric value for different groups and usually look like mountain ranges. The <a href="https://www.meetup.com/rladies-seattle/">R-Ladies Seattle</a> hex sticker was created using ridgelines (very appropriate for the mountainous Washington!).</p>
+<pre class="r"><code># install.packages(&quot;ggridges&quot;)
+library(ggridges)
+ 
+ggplot(blockbusters, aes(x = box_office, y = genre, fill = genre)) +
+  geom_density_ridges(scale = 4) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="sankey-diagrams" class="section level2">
+<h2>Sankey Diagrams</h2>
+<p>Another geom by David Sjoberg is <code>geom_sankey()</code>, repo <a href="https://github.com/davidsjoberg/ggsankey">here</a>. This geom creates <a href="https://en.wikipedia.org/wiki/Sankey_diagram">Sankey diagrams</a> and <a href="https://en.wikipedia.org/wiki/Alluvial_diagram">alluvial plots</a>, which show flow and transfers in a system or throughout time. These plots are VERY popular on the subreddit <a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a> (check it out on Mondays to see some examples).</p>
+<pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggsankey&quot;)
+library(ggsankey)
+
+example_dat &lt;-
+  mtcars %&gt;%
+  make_long(cyl, vs, am, gear, carb) # function in ggsankey to format data correctly
+
+ggplot(example_dat,
+       aes(x = x, 
+               next_x = next_x, 
+               node = node, 
+               next_node = next_node,
+               fill = factor(node))) +
+   geom_sankey(flow.alpha = .6) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Another package for alluvial charts is {ggalluvial} by Jason Cory Brunson, with its repo <a href="https://corybrunson.github.io/ggalluvial/">here</a>. The data can be in more familiar formats than what is required for {ggsankey}.</p>
+<pre class="r"><code># install.packages(&quot;ggalluvial&quot;)
+library(ggalluvial)
+
+ggplot(as.data.frame(UCBAdmissions),
+       aes(y = Freq, axis1 = Gender, axis2 = Dept)) +
+  geom_alluvium(aes(fill = Admit), width = 1/12) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="bump-charts" class="section level2">
+<h2>Bump Charts</h2>
+<p>One last one by David Sjoberg is the amazing {ggbump}, repo <a href="https://github.com/davidsjoberg/ggbump">here</a>. Bump plots are helpful for showing change in rank over time.</p>
+<pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggbump&quot;)
+library(ggbump)
+
+blockbusters2 &lt;-
+  blockbusters %&gt;% 
+  filter(genre %in% c(&quot;Action&quot;, &quot;Comedy&quot;, &quot;Drama&quot;)) %&gt;% 
+  group_by(year) %&gt;% 
+  mutate(rank = rank(box_office))
+
+ggplot(blockbusters2, aes(year, rank, color = genre)) +
+  geom_point(size = 7) +
+  geom_bump() +
+  scale_color_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="waffle-charts" class="section level2">
+<h2>Waffle Charts</h2>
+<p>For waffle charts, which are handy visualizations that show completion or parts of a whole, there is hrbrmstr’s {waffle}, repo <a href="https://github.com/hrbrmstr/waffle">here</a>. Check out the ability to bring in other {ggplot2} functions, like <code>facet_wrap</code>. {waffle} also allows you to create pictograms, which replaces the squares in the ‘waffle’ with pictures.</p>
+<pre class="r"><code># install.packages(&quot;waffle&quot;, repos = &quot;https://cinc.rud.is&quot;)
+library(waffle)
+
+ggplot(as_tibble(Titanic), aes(fill = Sex, values = n)) +
+  geom_waffle(n_rows = 20, color = &quot;white&quot;) +
+  facet_wrap(~ Survived, ncol = 1)  +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="beeswarm-charts" class="section level2">
+<h2>Beeswarm Charts</h2>
+<p>Beeswarm charts, similar to jitter plots in {ggplot2}, plot individual points showing distributions without allowing the points to overlap too much. The repo for {ggbeeswarm} is <a href="https://github.com/eclarke/ggbeeswarm">here</a>.</p>
+<pre class="r"><code># install.packages(&quot;ggbeeswarm&quot;)
+library(ggbeeswarm)
+
+ggplot(blockbusters, aes(x = genre, y = box_office, color = genre)) + 
+  geom_quasirandom() +
+  theme_minimal() +
+  scale_color_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="mosaic-charts" class="section level2">
+<h2>Mosaic Charts</h2>
+<p>Mosaic charts are incredibly helpful when displaying proportions of (multiple) categories. The {ggmosaic} package (repo <a href="https://github.com/haleyjeppson/ggmosaic">here</a>) uses <code>geom_mosaic</code> to create these visualizations.</p>
+<pre class="r"><code># devtools::install_github(&quot;haleyjeppson/ggmosaic&quot;)
+library(ggmosaic)
+
+ggplot(as.data.frame(UCBAdmissions)) +
+  geom_mosaic(aes(x = product(Admit, Dept), fill = Gender, weight = Freq)) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="other-geoms" class="section level2">
+<h2>Other Geoms</h2>
+<p>I know there exist a ton of other geoms that work with {ggplot2} out there. Just as I was writing this blogpost, I discovered {gghilbertstrings}! What other geoms do you know of? Let me know on <a href="https://twitter.com/ivelasq3">Twitter</a> and I’ll list them here!</p>
+</div>
