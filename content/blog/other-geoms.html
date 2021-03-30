@@ -44,9 +44,9 @@ library(wesanderson)</code></pre>
 </div>
 <div id="streamgraphs" class="section level2">
 <h2>Streamgraphs</h2>
-<p>This post includes three of David Sjoberg’s amazing geoms; he created {ggsankey}, {ggstream}, AND {ggbump}. If you haven’t seen his GitHub, please <a href="https://github.com/davidsjoberg">check it out now</a>.</p>
+<p>This post includes three of David Sjöberg’s amazing geoms; he created {ggsankey}, {ggstream}, AND {ggbump}. If you haven’t seen his GitHub, please <a href="https://github.com/davidsjoberg">check it out now</a>.</p>
 <p>This first geom, <code>geom_stream()</code>, creates a streamplot (which I’ve also seen called stream graphs). The streamplot is an area graph that usually centers around a central axis and allows us to see large fluctuations over time. More information on streamplot can be found <a href="https://en.wikipedia.org/wiki/Streamgraph">here</a>.</p>
-<p>{ggstream} also has other options available to customize the streamgraphs, such as creating an area achart. Check out the repo <a href="https://github.com/davidsjoberg/ggstream">here</a>.</p>
+<p>{ggstream} also has other options available to customize the streamgraphs, such as creating an area chart. Check out the repo <a href="https://github.com/davidsjoberg/ggstream">here</a>.</p>
 <pre class="r"><code># remotes::install_github(&quot;davidsjoberg/ggstream&quot;)
 library(ggstream)
 
@@ -70,7 +70,7 @@ ggplot(blockbusters, aes(x = box_office, y = genre, fill = genre)) +
 </div>
 <div id="sankey-diagrams" class="section level2">
 <h2>Sankey Diagrams</h2>
-<p>Another geom by David Sjoberg is <code>geom_sankey()</code>, repo <a href="https://github.com/davidsjoberg/ggsankey">here</a>. This geom creates <a href="https://en.wikipedia.org/wiki/Sankey_diagram">Sankey diagrams</a> and <a href="https://en.wikipedia.org/wiki/Alluvial_diagram">alluvial plots</a>, which show flow and transfers in a system or throughout time. These plots are VERY popular on the subreddit <a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a> (check it out on Mondays to see some examples).</p>
+<p>Another geom by David Sjöberg is <code>geom_sankey()</code>, repo <a href="https://github.com/davidsjoberg/ggsankey">here</a>. This geom creates <a href="https://en.wikipedia.org/wiki/Sankey_diagram">Sankey diagrams</a> and <a href="https://en.wikipedia.org/wiki/Alluvial_diagram">alluvial plots</a>, which show flow and transfers in a system or throughout time. These plots are VERY popular on the subreddit <a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a> (check it out on Mondays to see some examples).</p>
 <pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggsankey&quot;)
 library(ggsankey)
 
@@ -100,7 +100,7 @@ ggplot(as.data.frame(UCBAdmissions),
 </div>
 <div id="bump-charts" class="section level2">
 <h2>Bump Charts</h2>
-<p>One last one by David Sjoberg is the amazing {ggbump}, repo <a href="https://github.com/davidsjoberg/ggbump">here</a>. Bump plots are helpful for showing change in rank over time.</p>
+<p>One last one by David Sjöberg is the amazing {ggbump}, repo <a href="https://github.com/davidsjoberg/ggbump">here</a>. Bump plots are helpful for showing change in rank over time.</p>
 <pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggbump&quot;)
 library(ggbump)
 
