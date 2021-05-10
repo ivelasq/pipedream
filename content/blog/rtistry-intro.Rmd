@@ -251,7 +251,7 @@ dat %>%
   scale_color_viridis(option = "magma") +
   dark_theme_void() +
   theme(legend.position = "none") + # remove legend
-  ggsave(here::here("public", "img", "rtistry.png"), dpi = 320, height = 6, width = 8)
+  ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8)
 ```
 
 Tada! My first ever #rtistry plot.
