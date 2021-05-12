@@ -272,3 +272,9 @@ This was my attempt to create generative art in R! It was fun to figure out how 
 * @djnavarro's [flametree](https://github.com/djnavarro/flametree)
 * @ijeamaka_a's [contourR](https://github.com/Ijeamakaanyene/contouR)
 * @cutterkom's [generativeart](https://github.com/cutterkom/generativeart)
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1391947964013285379')
+```
+</center>
