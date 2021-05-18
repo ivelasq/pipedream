@@ -20,7 +20,7 @@ type: "post"
 <p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dready Sunday.</p>
 <p>I am proud to showcase my first #rtistry plot ever! Kinda reminds me of <a href="https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/">KidPix</a> (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I’m not even sure if I am doing it right?</p>
 <center>
-<img src="https://ivelasq.rbind.io/img/rtistry.png" />
+<img src="https://ivelasq.rbind.io/img/rtistry2.png" />
 </center>
 <p>As always, we start with the libraries we will use:</p>
 <pre class="r"><code># Load packages
@@ -29,7 +29,7 @@ library(viridis)
 library(ggdark)</code></pre>
 <div id="write-a-parametric-equation" class="section level2">
 <h2>Write a parametric equation</h2>
-<p>First up is figuring out the function you will use to create the plot. I decided to go with a parametric equation for my first <code>#rtistry</code> plot. A parametric equation of a curve expresses the coordinates of points of a curve as functions of a variable. <a href="https://lifethroughamathematicianseyes.wordpress.com/2014/11/13/parametric-equations/">This blog post</a> explains the concept very clearly and also has various examples of wonderful parametric equations.</p>
+<p>First up is figuring out the function you will use to create the plot. I decided to go with a parametric equation for my first <code>#rtistry</code> plot. A parametric equation of a curve expresses the coordinates of points of the curve as functions of a variable. <a href="https://lifethroughamathematicianseyes.wordpress.com/2014/11/13/parametric-equations/">This blog post</a> explains the concept very clearly and also has various examples of wonderful parametric equations.</p>
 <p>Why parametric equations? First, even simple equations can create beautiful symmetries. Second, they are easy to modify to find the <em>perfect</em> plot.</p>
 <p>The simplest parametric equation uses cosine and sine to make the unit circle:</p>
 <pre class="r"><code>circleFun &lt;- function(center = c(0, 0), diameter = 1, npoints = 100){
@@ -214,7 +214,7 @@ dat %&gt;%
   scale_color_viridis(option = &quot;magma&quot;) +
   dark_theme_void() +
   theme(legend.position = &quot;none&quot;) + # remove legend
-  ggsave(here::here(&quot;public&quot;, &quot;img&quot;, &quot;rtistry.png&quot;), dpi = 320, height = 6, width = 8)</code></pre>
+  ggsave(here::here(&quot;public&quot;, &quot;img&quot;, &quot;rtistry2.png&quot;), dpi = 320, height = 6, width = 8)</code></pre>
 <p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Tada! My first ever #rtistry plot.</p>
 </div>
@@ -238,6 +238,9 @@ dat %&gt;%
 <li><span class="citation">@ijeamaka_a</span>’s <a href="https://github.com/Ijeamakaanyene/contouR">contourR</a></li>
 <li><span class="citation">@cutterkom</span>’s <a href="https://github.com/cutterkom/generativeart">generativeart</a></li>
 </ul>
+<center>
+{{% tweet "1391947964013285379" %}}
+</center>
 </div>
 </div>
 </div>
