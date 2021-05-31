@@ -156,7 +156,7 @@ Because of R:
 * **All tables had to be in Word format**: at the time, we hadn't seen this from [{gtsummary}](https://cran.r-project.org/web/packages/gtsummary/vignettes/rmarkdown.html), and we spent quite a bit of time trying to use {gt} for our tables before realizing that we wouldn't be able to output using Word. We then switched to {sjPlot}, which got us exactly what we needed.
 
 <center>
-![](/images/gt.png)
+![](ivelasq.rbind.io/images/gt.png)
 </center>
 
 * **Our bibliography had to be in APA format:** thanks to a file that Josh had (saved [here](https://github.com/data-edu/data-science-in-education/blob/master/apa_pl.csl)), all we had to do was save that file and add `biblio-style: "apalike"` to our `index.Rmd` file for everything to show up in the format we needed.
