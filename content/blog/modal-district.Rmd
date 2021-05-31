@@ -1,16 +1,13 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "educationdata", "janitor", "ggalluvial"]
+comments: false
+tags: ["summary-statistics", "dataedu", "tidy"]
 date: "2019-09-11"
-description: "Inspired by NPR Planet Money's Modal American Analysis"
-featured: "modal.png"
-featuredalt: "Finding the Modal School District"
-featuredpath: "date"
-linktitle: ""
 title: "Finding the Modal School District"
-type: "post"
 ---
+
+Blog post on using education data to find the modal district.
+
+<!--more-->
 
 My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NPR Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
 
@@ -49,7 +46,7 @@ Because there are so many options for urban-centric locale, let's collapse them 
 ccd_urbanicity <-
   ccd_dir %>% 
   select(leaid, urban_centric_locale) %>% 
-  mutate(leaid = as.numeric(leaid), # the enrollment file loads these as numeric
+  mutate(leaid = as.character(leaid),
          geography = case_when(str_detect(urban_centric_locale, "City|city") ~ "City",
                                str_detect(urban_centric_locale, "Town|town") ~ "Town",
                                str_detect(urban_centric_locale, "Rural|rural") ~ "Rural",
@@ -100,7 +97,7 @@ Now, we load the FRPL data.
 
 ```{r, message = FALSE, warning = FALSE, cache = TRUE}
 ccd_frpl <-
-  read_csv(here::here("content", "blog", "modal_district_files", "ccd_sch_033_1617_l_2a_11212017.csv"))
+  read_csv("https://media.githubusercontent.com/media/ivelasq/modal_district/master/data/raw/ccd_sch_033_1617_l_2a_11212017.csv")
 ```
 
 We want Free + Reduced Price Lunch numbers by district. This file also has Free Lunch and Reduced Lunch numbers, and it is school-level. We aggregate up Free + Reduced Price Lunch by district.
@@ -109,7 +106,7 @@ We want Free + Reduced Price Lunch numbers by district. This file also has Free 
 ccd_frpl_wide <-
   ccd_frpl %>% 
   clean_names() %>% 
-  mutate(leaid = as.numeric(leaid)) %>% 
+  mutate(leaid = as.character(leaid)) %>% 
   filter(data_group == "Free and Reduced-price Lunch Table",
          lunch_program == "No Category Codes") %>% 
   select(leaid, student_count) %>% 

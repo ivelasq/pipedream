@@ -1,16 +1,12 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "rtweet", "rjson"]
+tags: ["scrape", "tidy", "twitter-data"]
 date: "2020-11-10"
-description: "Scraping Twitter using rtweet"
-featured: "tweet.png"
-featuredalt: "Browse and Search Liked Tweets using R"
-featuredpath: "date"
-linktitle: ""
-title: "Browse and Search Liked Tweets using R"
-type: "post"
+title: "Browse and Search Liked Tweets Using R"
 ---
+
+How to download your liked Tweets using R.
+
+<!--more-->
 
 The other day, I was scrolling through my "liked" Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one's likes. I found [this tutorial](https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851) that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.
 
@@ -39,15 +35,15 @@ Once downloaded, open the ZIP file. Save the `like.js` file in your project's `d
 
 Now, start an `R` script (I called mine `code.R`). First install (if you haven't already) and load all the libraries.
 
-```{r, message=F, eval = F}
+```{r, message = F, eval = F}
 library(tidyverse)
 library(rjson)
 library(rtweet)
 ```
 
-The `like.js` file is a Javascript file. To convert it to a data frame, first convert to a JSON file by removing the text that makes it Javascript, read in the JSON, and then flatten into a dataframe using `purrr::flatten_df`.
+The `like.js` file is a Javascript file. To convert it to a data frame, first convert to a JSON file by removing the text that makes it Javascript, read in the JSON, and then flatten into a data frame using `purrr::flatten_df`.
 
-```{r, eval=F}
+```{r, eval = F}
 js <- read_file(here::here("data", "like.js"))
 json <- sub("window.YTD.like.part0 = ", "", js)
  
@@ -104,7 +100,7 @@ likes_csv <-
               values_from = hashtags)
 ```
 
-Now, this is saveable in a CSV. You can run the code below if your project has an `output` folder.
+Now, this is savable in a CSV. You can run the code below if your project has an `output` folder.
 
 ```{r, eval = F}
 write_csv(likes_csv, here::here("output", "likes_csv.csv"))

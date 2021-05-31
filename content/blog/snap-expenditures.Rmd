@@ -1,16 +1,18 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "tabulizer", "purrr", "broom"]
-date:   "2018-12-16"
-description: "Extracting SNAP Expenditures Data"
-featured: "snap.png"
-featuredalt: "Transforming PDF's into Useful Tables"
-featuredpath: "date"
-linktitle: ""
+comments: false
+date: "2018-12-16"
+tags: ["import-pdf", "tidy", "visualization", "residuals"]
 title: "Transforming PDF's into Useful Tables"
-type: "post"
 ---
+
+Blog post on importing, tidying, and visualizing SNAP expenditure data.
+
+<!--more-->
+
+```{r, include = FALSE, echo = FALSE, message = FALSE}
+source("/Users/shortessay/pipedreams/R/build.R")
+
+```
 
 Way back in 2016, the USDA released a [study](https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households) entitled "Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households," including a summary, final report, and appendices. Per the USDA's description:
 
@@ -22,7 +24,7 @@ I [emailed](mailto:SNAPHQ-WEB@fns.usda.gov) SNAP HQ to ask if they had the raw d
 
 > Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.  
 
-At the time, my R skills were pretty rudimentary and I couldn't figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful `tidyverse` and `tabulizer` package.
+At the time, my R skills were pretty rudimentary and I couldn't figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful {tidyverse} and {tabulizer} packages.
 
 ```{r, include = T, message = F, warning = F}
 library(tidyverse)
@@ -30,16 +32,21 @@ library(tabulizer)
 library(broom)
 ```
 
-Use `tabulizer::extract_tables()` to extract the data from the [appendices PDF](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf). Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).
+Use `tabulizer::extract_tables()` to extract the data from the [appendices PDF](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf). Once you extract the tables, you are left with a list (which is slightly more manageable than the original PDFs).
 
-```{r, include = T, message = F}
+```{r, include = T, message = F, eval = F}
 snap_pdf <-
   extract_tables("https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf")
 ```
 
-Using the  `purrr` package, create a data frame from the lists while simultaneously removing the unnecessary rows.
+```{r, include = F, message = F}
+snap_pdf <-
+  readRDS(here::here("content", "blog", "snap-expenditures_files", "snap_pdf.Rds"))
+```
 
-```{r, include = T, message = F}
+Using the {purrr} package, create a data frame from the lists while simultaneously removing the unnecessary rows.
+
+```{r, include = T, message = F, warning = F}
 snap_df <- 
   snap_pdf %>%
   map(as_tibble) %>%
@@ -108,15 +115,23 @@ Another goal is to at some point do a full analysis of what these data show. My 
 
 ```{r, include = T, message = F}
 snap_appendix1_cleaned %>% # quick correlation plot
- ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
- geom_point()
+  ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
+  geom_point(color = "#00C3DA") +
+  theme_iv() # custom theme
 
 snap_lm <- lm(snap_rank ~ nonsnap_rank, data = snap_appendix1_cleaned)
 snap_res <- augment(snap_lm)
 
 snap_res %>% # quick residual plot
   ggplot(aes(x = .fitted, y = .resid)) +
-  geom_point()
+  geom_point(color = "#00C3DA") +
+  theme_iv() # custom theme
 ```
 
-I'd love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap). More to come!
+I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap). More to come!
+
+*Liked this article? I'd love for you to retweet!*
+
+```{r, echo = FALSE}
+blogdown::shortcode('tweet', '1074704678858973184')
+```

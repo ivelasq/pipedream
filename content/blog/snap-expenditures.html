@@ -1,19 +1,15 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "tabulizer", "purrr", "broom"]
-date:   "2018-12-16"
-description: "Extracting SNAP Expenditures Data"
-featured: "snap.png"
-featuredalt: "Transforming PDF's into Useful Tables"
-featuredpath: "date"
-linktitle: ""
+comments: false
+date: "2018-12-16"
+tags: ["import-pdf", "tidy", "visualization", "residuals"]
 title: "Transforming PDF's into Useful Tables"
-type: "post"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>Blog post on importing, tidying, and visualizing SNAP expenditure data.</p>
+<!--more-->
 <p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households,” including a summary, final report, and appendices. Per the USDA’s description:</p>
 <blockquote>
 <p>This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.</p>
@@ -23,14 +19,14 @@ type: "post"
 <blockquote>
 <p>Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.</p>
 </blockquote>
-<p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful <code>tidyverse</code> and <code>tabulizer</code> package.</p>
+<p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful {tidyverse} and {tabulizer} packages.</p>
 <pre class="r"><code>library(tidyverse)
 library(tabulizer)
 library(broom)</code></pre>
-<p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (slightly more manageable than the original PDFs).</p>
+<p>Use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once you extract the tables, you are left with a list (which is slightly more manageable than the original PDFs).</p>
 <pre class="r"><code>snap_pdf &lt;-
   extract_tables(&quot;https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf&quot;)</code></pre>
-<p>Using the <code>purrr</code> package, create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
+<p>Using the {purrr} package, create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
 <pre class="r"><code>snap_df &lt;- 
   snap_pdf %&gt;%
   map(as_tibble) %&gt;%
@@ -38,14 +34,14 @@ library(broom)</code></pre>
   
 head(snap_df)</code></pre>
 <pre><code>## # A tibble: 6 x 9
-##   V1        V2    V3                    V4    V5    V6    V7    V8    V9   
-##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-## 1 &quot;&quot;        &quot;&quot;    &quot;SNAP Household Expe~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 2 Soft dri~ &quot;&quot;    1 $357.7 5.44% 2 $1,~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 3 Fluid mi~ &quot;&quot;    2 $253.7 3.85% 1 $1,~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 4 Beef:gri~ &quot;&quot;    3 $201.0 3.05% 6 $62~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 5 Bag snac~ &quot;&quot;    4 $199.3 3.03% 5 $79~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-## 6 Cheese    &quot;&quot;    5 $186.4 2.83% 3 $94~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;</code></pre>
+##   V1          V2    V3                       V4    V5    V6    V7    V8    V9   
+##   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 &quot;&quot;          &quot;&quot;    SNAP Household Expendit… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 2 &quot;Soft drin… &quot;&quot;    1 $357.7 5.44% 2 $1,263… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 3 &quot;Fluid mil… &quot;&quot;    2 $253.7 3.85% 1 $1,270… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 4 &quot;Beef:grin… &quot;&quot;    3 $201.0 3.05% 6 $621.1… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 5 &quot;Bag snack… &quot;&quot;    4 $199.3 3.03% 5 $793.9… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
+## 6 &quot;Cheese&quot;    &quot;&quot;    5 $186.4 2.83% 3 $948.9… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;</code></pre>
 <p>Due to the original formatting of the PDFs, there’s a bunch of cleaning to be done to make the list into a usable table. Using <code>slice()</code>, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn’t know how to calculate this using code. If you have ideas, let me know!</p>
 <pre class="r"><code>snap_appendix1 &lt;-
   snap_df %&gt;% 
@@ -60,14 +56,14 @@ head(snap_df)</code></pre>
 
 head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 10
-##   V1       V2    V3         V4    V5    V6    V7    V8    V9    col_dat    
-##   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
-## 1 Soft dr~ &quot;&quot;    1 $357.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357.7 5~
-## 2 Fluid m~ &quot;&quot;    2 $253.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253.7 3~
-## 3 Beef:gr~ &quot;&quot;    3 $201.0 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201.0 3~
-## 4 Bag sna~ &quot;&quot;    4 $199.3 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199.3 3~
-## 5 Cheese   &quot;&quot;    5 $186.4 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186.4 2~
-## 6 Baked b~ &quot;&quot;    6 $163.7 ~ &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163.7 2~</code></pre>
+##   V1        V2    V3           V4    V5    V6    V7    V8    V9    col_dat      
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        
+## 1 Soft dri… &quot;&quot;    1 $357.7 5.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357.7 5.4…
+## 2 Fluid mi… &quot;&quot;    2 $253.7 3.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253.7 3.8…
+## 3 Beef:gri… &quot;&quot;    3 $201.0 3.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201.0 3.0…
+## 4 Bag snac… &quot;&quot;    4 $199.3 3.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199.3 3.0…
+## 5 Cheese    &quot;&quot;    5 $186.4 2.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186.4 2.8…
+## 6 Baked br… &quot;&quot;    6 $163.7 2.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163.7 2.4…</code></pre>
 <p>Now the numeric data we want is wonderfully in a single column, so we can select the columns <code>V1</code> and <code>col_dat</code>.</p>
 <pre class="r"><code>snap_appendix1_cleaned &lt;-
   snap_appendix1_cleaned %&gt;% 
@@ -93,15 +89,15 @@ head(snap_appendix1_cleaned)</code></pre>
 
 head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 7
-##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
-##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-## 1 Soft dri~         1             358.             5.44            2
-## 2 Fluid mi~         2             254.             3.85            1
-## 3 Beef:gri~         3             201              3.05            6
-## 4 Bag snac~         4             199.             3.03            5
-## 5 Cheese            5             186.             2.83            3
-## 6 Baked br~         6             164.             2.49            4
-## # ... with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
+##   commodity      snap_rank snap_dollars_in_mi… snap_pct_total_expe… nonsnap_rank
+##   &lt;chr&gt;              &lt;dbl&gt;               &lt;dbl&gt;                &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Soft drinks            1                358.                 5.44            2
+## 2 Fluid milk pr…         2                254.                 3.85            1
+## 3 Beef:grinds            3                201                  3.05            6
+## 4 Bag snacks             4                199.                 3.03            5
+## 5 Cheese                 5                186.                 2.83            3
+## 6 Baked breads           6                164.                 2.49            4
+## # … with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
 ## #   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
 <p>Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.</p>
 <pre class="r"><code>snap_appendix1_cleaned &lt;-
@@ -110,27 +106,31 @@ head(snap_appendix1_cleaned)</code></pre>
 
 head(snap_appendix1_cleaned)</code></pre>
 <pre><code>## # A tibble: 6 x 7
-##   commodity snap_rank snap_dollars_in~ snap_pct_total_~ nonsnap_rank
-##   &lt;chr&gt;         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-## 1 Soft dri~         1             358.           0.0544            2
-## 2 Fluid mi~         2             254.           0.0385            1
-## 3 Beef:gri~         3             201            0.0305            6
-## 4 Bag snac~         4             199.           0.0303            5
-## 5 Cheese            5             186.           0.0283            3
-## 6 Baked br~         6             164.           0.0249            4
-## # ... with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
+##   commodity      snap_rank snap_dollars_in_mi… snap_pct_total_expe… nonsnap_rank
+##   &lt;chr&gt;              &lt;dbl&gt;               &lt;dbl&gt;                &lt;dbl&gt;        &lt;dbl&gt;
+## 1 Soft drinks            1                358.               0.0544            2
+## 2 Fluid milk pr…         2                254.               0.0385            1
+## 3 Beef:grinds            3                201                0.0305            6
+## 4 Bag snacks             4                199.               0.0303            5
+## 5 Cheese                 5                186.               0.0283            3
+## 6 Baked breads           6                164.               0.0249            4
+## # … with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
 ## #   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
 <p>Tada! Now we have a clean dataset from the original not-very-usable PDFs.</p>
 <p>Another goal is to at some point do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analysis with it. For the purposes of this blogpost, here are some quick ggplots comparing the rank of commodities between families served by SNAP and those who are not.</p>
 <pre class="r"><code>snap_appendix1_cleaned %&gt;% # quick correlation plot
- ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
- geom_point()</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+  ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
+  geom_point(color = &quot;#00C3DA&quot;) +
+  theme_iv() # custom theme</code></pre>
+<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <pre class="r"><code>snap_lm &lt;- lm(snap_rank ~ nonsnap_rank, data = snap_appendix1_cleaned)
 snap_res &lt;- augment(snap_lm)
 
 snap_res %&gt;% # quick residual plot
   ggplot(aes(x = .fitted, y = .resid)) +
-  geom_point()</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
-<p>I’d love to collaborate with others to finish up this project and find efficiencies. The repo with the code and final dataset is <a href="https://github.com/ivelasq/snap">here</a>. More to come!</p>
+  geom_point(color = &quot;#00C3DA&quot;) +
+  theme_iv() # custom theme</code></pre>
+<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p>I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is <a href="https://github.com/ivelasq/snap">here</a>. More to come!</p>
+<p><em>Liked this article? I’d love for you to retweet!</em></p>
+<p>{{% tweet "1074704678858973184" %}}</p>

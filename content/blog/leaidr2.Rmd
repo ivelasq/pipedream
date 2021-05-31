@@ -1,16 +1,12 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["mapboxapi", "leaidr", "rmapshaper", "mapdeck", "maptools", "shiny"]
+tags: ["package-development", "spatial", "maps", "mapbox", "shiny", "dataedu"]
 date: "2020-08-30"
-description: "{leaidr} Update"
-featured: "leaid2.png"
-featuredalt: "Even Easier-to-Use R Package for School District Shapefiles"
-featuredpath: "date"
-linktitle: ""
 title: "Even Easier-to-Use R Package for School District Shapefiles"
-type: post
 ---
+
+An update to {leaidr}, an R package for U.S. school district shapefiles.
+
+<!--more-->
 
 ## leaidr Update
 
@@ -104,15 +100,15 @@ upload_tiles(input = "nw.mbtiles",
 
 This is the part that I had to figure out on the Mapbox website. [This](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/) walkthrough was helpful. Once you have uploaded the tiles using `upload_tiles()`, you should see them available under "Custom tileset" at the bottom of this webpage: https://studio.mapbox.com/tilesets/.
 
-![](https://ivelasq.rbind.io/img/mapbox_files/1.png)
+![](images/mapbox_files/1.png)
 
 Then, go to Styles on this webpage: https://studio.mapbox.com/. Click "New Style" and choose the template you want, then Customize. 
 
-![](https://ivelasq.rbind.io/img/mapbox_files/2.png)
+![](images/mapbox_files/2.png)
 
 To add your tileset, go to Layers, click the Plus sign, then under "Source", find your uploaded tileset or add the tileset by the ID given by `upload_tiles()`.
 
-![](https://ivelasq.rbind.io/img/mapbox_files/3.png)
+![](images/mapbox_files/3.png)
 
 I zoomed to where my tiles are located (Oregon and Washington) and started editing. [This section of the walkthrough](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling) explains how to create a choropleth map, where each geography has a different color according to a value.
 
@@ -122,7 +118,7 @@ Once done styling, I clicked "Publish" on the top right of Mapbox Studio.
 
 To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked "Share" and scrolled to find the Style ID.
 
-![](https://ivelasq.rbind.io/img/mapbox_files/4.png)
+![](images/mapbox_files/4.png)
 
 I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.
 

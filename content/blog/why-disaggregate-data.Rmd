@@ -1,22 +1,23 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "purrr", "viridis", "tabulizer", "janitor"]
+comments: false
 date: "2018-09-21"
-description: "Why Equity Requires Looking Beyond Averages"
-featured: "school.png"
-featuredalt: "Disaggregating Minneapolis Public Schools Data"
-featuredpath: "date"
-linktitle: ""
+image: /images/blog/4.jpg
+tags: ["import pdf", "tidy", "visualization", "dataedu"]
 title: "Disaggregating Minneapolis Public Schools Data"
-type: "post"
 ---
+
+Blog post on importing, tidying, and visualizing district demographic data.
+
+<!--more-->
+
+```{r, include = FALSE, echo = FALSE, message = FALSE}
+source("/Users/shortessay/pipedreams/R/build.R")
+
+```
 
 I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team's equity journey, and exploring these data beyond averages can highlight the most prominent equity needs. 
 
 In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district's reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.
-
-<!--more-->
 
 Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.
 
@@ -52,22 +53,21 @@ Minneapolis Public Schools (MPS) reports their student demographics in a robust,
 
 ### Pulling Data
 
-All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the `tabulizer` package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.
+All code to pull MPS data is included in the code appendix. MPS has moved to publishing their school data in PDFs. Thankfully, the {tabulizer} package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.
 
 ### First Glance: MPS District Demographics
 
-Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it's ubiquitous and reporting is mandated but [there is debate as to whether it actually reflects the level of poverty among students](https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty).) 
+Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it's ubiquitous and reporting is mandated but [there is debate as to whether it actually reflects the level of poverty among students](https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty)).
 
 ```{r setup, include = F, eval = T}
 library(tidyverse)
-library(viridis)
 ```
 
 ```{r, echo = F, eval = F}
 library(tabulizer)
 library(janitor)
 
-# race data
+# Race data
 race_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf")
 
@@ -85,7 +85,7 @@ race_filter <-
   mutate(school_name = str_replace(school_name, "Total", "")) %>% 
   mutate_if(is.character, trimws) 
 
-# frpl data
+# FRPL data
 frpl_pdf <-
   extract_tables("http://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017.pdf")
 
@@ -100,7 +100,7 @@ frpl_filter <-
   filter(school_name != "") %>%
   select(-school_grades)
 
-# merged data
+# Merged data
 merged_df <-
   left_join(race_filter, frpl_filter, by = c("school_name")) %>% 
   mutate_at(2:17, as.numeric) %>%
@@ -123,7 +123,7 @@ merged_df <-
          wh_povsch = wh_povnum/wh_num[which(school_name == "Total")],
          na_povsch = na_povnum/na_num[which(school_name == "Total")])
 
-# tidy data
+# Tidy data
 tidy_df <-
   merged_df %>%
   gather(category, value, -school_name)
@@ -131,13 +131,14 @@ tidy_df <-
 ```
 
 ```{r, include = F, eval = T}
-# this is so I do not have to run the code above constantly
+# This is so I do not have to run the code above constantly
 tidy_df <- read_csv(here::here("content", "blog", "why_disaggregate_data_files", "tidy_df.csv"))
 merged_df <- read_csv(here::here("content", "blog", "why_disaggregate_data_files", "merged_df.csv"))
 ```
 
-```{r, echo = F}
-# demographic barplot
+```{r, echo = F, fig.align = "center"}
+
+# Demographic barplot
 tidy_df %>%
   filter(school_name == "Total",
          str_detect(category, "pct")) %>% 
@@ -148,10 +149,9 @@ tidy_df %>%
   ylab("Percentage of Population") +
   scale_x_discrete(labels = c("Black", "White", "Hispanic", "Asian", "Native Am.", "FRPL")) +
   scale_y_continuous(labels = scales::percent) +
-  scale_fill_viridis(option = "cividis", discrete = T) +
-  theme_minimal() +
+  scale_fill_iv() +
+  theme_iv() +
   theme(legend.position = "none")
-
 ```
 
 When we look at these data, MPS looks like a diverse school district. Almost **40% of students are Black** and around **35% are White**. **60% of the students are eligible for FRPL**, which is [high for Minnesota but close to the US average of 52.1%](https://nces.ed.gov/programs/digest/d17/tables/dt17_204.10.asp?current=yes).
@@ -162,25 +162,27 @@ However, let's explore if there's more to this story.
 
 Another view of the data can be visualizing the distribution of percentage of a demographic within schools. Here is a histogram for the percentage of White students within the 74 MPS schools for which we have data.
 
-```{r,  echo = F, warning = F}
-# histogram
+```{r,  echo = F, warning = F, fig.align = "center"}
+
+# Histogram
 merged_df %>% 
   filter(school_name != "Total") %>% 
   ggplot(aes(x = wh_pct)) +
-  geom_histogram(fill = "slategray4", breaks= seq(0, 1, by = .1)) +
+  geom_histogram(fill = "#00C3DA", breaks= seq(0, 1, by = .1)) +
   xlab("White Percentage") +
   ylab("Count") +
   scale_x_continuous(labels = scales::percent) +
   theme_minimal() +
+  scale_fill_iv() +
+  theme_iv() +
   theme(legend.position = "none")
-
 ```
 
 ```{r, include = F}
-# histogram info
+
+# Histogram info
 histinfo <- hist(merged_df$wh_pct)
 histinfo
-
 ```
 
 **27 of the 74 (36%) of schools have between 0-10% White students.** This implies that even though the school district may be diverse, the demographics are not evenly distributed across the schools. More than half of schools enroll fewer than 30% of White students even though White students make up 35% of the district student population.
@@ -191,8 +193,9 @@ The school race demographics are not representative of the district populations 
 
 High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, [24% of public school students attended high-poverty schools](https://nces.ed.gov/fastfacts/display.asp?id=898). However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?
 
-```{r, echo = F}
-# high poverty barplot
+```{r, echo = F, fig.align = "center"}
+
+# High poverty barplot
 tidy_df %>%
   filter(school_name == "Total",
          str_detect(category, "povsch")) %>% 
@@ -203,34 +206,37 @@ tidy_df %>%
   ylab("Percentage in High Poverty Schools") +
   scale_x_discrete(labels = c("Hispanic", "Native Am.", "Black", "Asian", "White")) +
   scale_y_continuous(labels = scales::percent) +
-  scale_fill_viridis(option = "cividis", discrete = T) +
+  scale_fill_iv() +
+  theme_iv() +
   theme_minimal() +
   theme(legend.position = "none")
 
 ```
 
-**9% of White students** attend high poverty schools, compared to **46% of Black students**, **51% of Hispanic students**, **46% of Asian students**, and **49% of Native American students**. These students are disproportionally attending high poverty schools.
+**9% of White students** attend high poverty schools, compared to **46% of Black students**, **51% of Hispanic students**, **46% of Asian students**, and **49% of Native American students**. These students are disproportionately attending high poverty schools.
 
 ### Reveal Relationships
 
 Let's explore what happens when we correlate race and FRPL percentage by school.
 
-```{r,  echo = F, warning = F}
-# scatterplot
+```{r,  echo = F, warning = F, fig.align = "center"}
+
+# Scatterplot
 merged_df %>% 
   filter(school_name != "Total") %>% 
   ggplot(aes(x = wh_pct, y = frpl_pct)) +
-  geom_point(color = "slategray4") +
+  geom_point(color = "#00C3DA") +
   xlab("White Percentage") +
   ylab("FRPL Percentage") +
   scale_y_continuous(labels = scales::percent) +
   scale_x_continuous(labels = scales::percent) +
   theme_minimal() +
+  theme_iv() +
   theme(legend.position = "none")
 
 ```
 
-Similarly to the result above, **there is a strong negative correlation between FRPL percentage and the percentage of white students in a school.** High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students. 
+Similarly to the result above, **there is a strong negative correlation between FRPL percentage and the percentage of White students in a school.** High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students. 
 
 ### Conclusion
 
@@ -238,12 +244,20 @@ According to the Urban Institute, the disproportionate percentage of students of
 
 Because of the disaggregated data Minneapolis Public Schools provides, we can go deeper than the average of demographics across the district and see what it looks like on the school level. These views display that (1) there exists a distribution of race/ethnicity within schools that are not representative of the district, (2) that students of color are overrepresented in high poverty schools, and (3) there is a relationship between the percentage of White students in a school and the percentage of students eligible for FRPL.
 
-## Amazing Examples of Disaggregated Data Reporting
+## Examples of Disaggregated Data Reporting
 
 There are so many amazing examples out there using disaggregated data. These two are my favorites:
 
 - [Money, Race and Success: How Your School District Compares](https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html)
 - [Why Pinellas County is the worst place in Florida to be black and go to public school](http://www.tampabay.com/projects/2015/investigations/pinellas-failure-factories/chart-failing-black-students/)
+
+*Liked this article? I'd love for you to retweet!*
+
+<center>
+```{r echo = FALSE}
+blogdown::shortcode('tweet', '1044233934865752064')
+```
+</center>
 
 ## Code Appendix
 

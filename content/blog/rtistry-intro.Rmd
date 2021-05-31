@@ -1,25 +1,19 @@
 ---
-author: ""
-categories: ["R"]
 tags: ["ggplot2"]
 date: "2021-05-09"
-description: "Plotting parametric functions"
-featured: "rtistry.png"
-featuredalt: "Getting started in #rtistry"
-featuredpath: "date"
-linktitle: ""
-title: "Getting started in #rtistry"
-type: "post"
+title: "Getting Started in #rtistry"
 ---
 
-# Getting started in #rtistry
+An introduction to generative art using R.
 
-Artists in the R community have been using the [`#rtistry`](https://twitter.com/hashtag/rtistry) hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dready Sunday.
+<!--more-->
+
+Artists in the R community have been using the [`#rtistry`](https://twitter.com/hashtag/rtistry) hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.
 
 I am proud to showcase my first #rtistry plot ever! Kinda reminds me of [KidPix](https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/) (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I'm not even sure if I am doing it right?
 
 <center>
-![](https://ivelasq.rbind.io/img/rtistry2.png)
+![](images/rtistry2.png)
 </center>
 
 As always, we start with the libraries we will use:
@@ -250,8 +244,9 @@ dat %>%
              alpha = dat$rand_o) +
   scale_color_viridis(option = "magma") +
   dark_theme_void() +
-  theme(legend.position = "none") + # remove legend
-  ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8)
+  theme(legend.position = "none") # remove legend
+
+# ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8) + # this sames the image
 ```
 
 Tada! My first ever #rtistry plot.

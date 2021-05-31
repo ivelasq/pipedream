@@ -1,29 +1,14 @@
 ---
 title: "Remote Pair Programming in R Using Visual Studio Code and Live Share"
-author: "Isabella & Gustavo E."
 date: '2021-02-03'
-categories:
-- Collaboration
-- R
-tags:
-- devtools
-- dplyr
-- languageserver
-- purrr
-- tibble
-- usethis
-- vctrs
-- vscDebugger
-description: Tutorial
-featured: collab.png
-featuredpath: date
-linktitle: ''
-type: "post"
+tags: ["pair-programming"]
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>A walkthrough on setting up and using VS Code for collaborative coding.</p>
+<!--more-->
 <ul>
 <li><a href="#the-problem">The Problem</a></li>
 <li><a href="#state-of-the-code-editors">State of the Code Editors</a></li>
@@ -293,7 +278,7 @@ View(mtcars_integerized)
 <p>In order to host a Live Share collaboration session, first you’ll need to sign into Visual Studio Live Share. Click on the <code>Live Share</code> status bar item or press <code>Shift-Command-P</code> and navigate to <code>Live Share: Sign In With Browser</code>. A notification will appear asking you to sign into either a Microsoft or GitHub account using your default web browser.</p>
 <p>Once you are signed in, open a folder or file for pair programming. For package development, this would be the project folder for the package (e.g., the {mutagen} folder we created above). Click the <code>Live Share</code> status bar item or type <code>Shift-Command-P</code> and navigate to <code>Live Share: Start Collaboration Session (Share)</code>. An invite link will be copied automatically to your clipboard. You can send this link to your collaborator(s) and allow them to join a new session that shares the contents of the folder. Once a collaborator clicks the link, a notification will prompt you to approve the guest before they can join. Please note that guests do not necessarily need to be signed into to collaborate using Live Share, since anonymous guests are allowed; however, the host will need to be signed in. In fact, <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/browser-join">guests don’t even need to have VS Code installed and can join Live Share from a browser</a>!</p>
 <p>Once a guest has joined a collaboration session, all collaborators will immediately be able to see each other’s cursors, edits, and selections in real-time. You can pick a file from the Explorer (<code>Shift-Command-E</code>) and start editing. Both hosts and guests will see edits as they are made.</p>
-<p>As we worked on {mutagen} files, we noticed the usual loading of a package in development, via <code>devtools::load_all()</code>, or sourcing an entire file using <code>Shift-Command-S</code> (the VS Code version of RStudio’s <code>Shift-Command-Enter</code>), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host’s path <code>~/Desktop/mutagen/R/cast_integers.R</code>, the guest’s path was an abbreviated <code>/R/cast_integers.R</code>, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using <code>Command-Enter</code> line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests’ Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run <code>devtools::load_all()</code> or <code>source()</code> with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting <code>"liveshare.publishWorkspaceInfo": true</code> in <code>settings.json</code>, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R workspace and its objects.</p>
+<p>As we worked on {mutagen} files, we noticed the usual loading of a package in development, via <code>devtools::load_all()</code>, or sourcing an entire file using <code>Shift-Command-S</code> (the VS Code version of RStudio’s <code>Shift-Command-Enter</code>), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host’s path <code>~/Desktop/mutagen/R/cast_integers.R</code>, the guest’s path was an abbreviated <code>/R/cast_integers.R</code>, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using <code>Command-Enter</code> line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests’ Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run <code>devtools::load_all()</code> or <code>source()</code> with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting <code>"liveshare.publishWorkspaceInfo": true</code> in <code>settings.json</code>, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R s and its objects.</p>
 </div>
 <div id="final-thoughts" class="section level2">
 <h2>Final Thoughts</h2>

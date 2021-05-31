@@ -1,19 +1,14 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "ggplot2"]
+tags: ["visualization"]
 date: "2020-01-27"
-description: "Quick Reference Guide"
-featured: "ggplot2.png"
-featuredalt: "Six Things I Always Google When Using ggplot2"
-featuredpath: "date"
-linktitle: ""
 title: "Six Things I Always Google When Using ggplot2"
-type: "post"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>Reference list of six things for your {ggplot2} chart.</p>
+<!--more-->
 <p>I often use {ggplot2} to create graphs but there are certain things I <em>always</em> have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!</p>
 <ul>
 <li><a href="#remove-the-legend">Remove the Legend</a></li>
@@ -34,24 +29,20 @@ spotify_songs &lt;-
 spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre)) +
   geom_histogram(stat = &quot;count&quot;)</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-2-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-3-1.png" width="100%" /></p>
 <div id="remove-the-legend" class="section level2">
 <h2>Remove the legend</h2>
-<blockquote>
-<p>theme(legend.position = “none”)</p>
-</blockquote>
+<p><code>theme(legend.position = "none")</code></p>
 <p>Ahh… this one always gets me. Sometimes when your color is mostly just for aesthetics, it doesn’t make sense to also have a color legend. This removes the legend and makes the graph look cleaner.</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
   geom_histogram(stat = &quot;count&quot;) +
   theme(legend.position = &quot;none&quot;)</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-3-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-4-1.png" width="100%" /></p>
 </div>
 <div id="change-legend-title-and-labels" class="section level2">
 <h2>Change Legend Title and Labels</h2>
-<blockquote>
-<p>scale_fill_discrete(name = “New Legend Title”, labels = c(“lab1” = “Label 1”, “lab2” = “Label 2”))</p>
-</blockquote>
+<p><code>scale_fill_discrete(name = "New Legend Title", labels = c("lab1" = "Label 1", "lab2" = "Label 2"))</code></p>
 <p>Alright, say I do want the legend. How do I make it something readable?</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
@@ -63,14 +54,12 @@ spotify_songs %&gt;%
                                  &quot;r&amp;b&quot; = &quot;R&amp;B&quot;, 
                                  &quot;rap&quot; = &quot;Rap&quot;, 
                                  &quot;rock&quot; = &quot;Rock&quot;))</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-4-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-5-1.png" width="100%" /></p>
 </div>
 <div id="manually-change-colors" class="section level2">
 <h2>Manually Change Colors</h2>
-<blockquote>
-<p>scale_fill_manual(“New Legend Title”, values = c(“lab1” = “#000000”, “lab2” = “#FFFFFF”))</p>
-</blockquote>
-<p>This is a bit tricker, in that you cannot use <code>scale_fill_manual</code> and <code>scale_fill_discrete</code> separately on the same plot as they override each other. However, if you want to change the labels <em>and</em> the colors together, you can use <code>scale_fill_manual</code> like below.</p>
+<p><code>scale_fill_manual("New Legend Title", values = c("lab1" = "#000000", "lab2" = "#FFFFFF"))</code></p>
+<p>This is a bit trickier, in that you cannot use <code>scale_fill_manual</code> and <code>scale_fill_discrete</code> separately on the same plot as they override each other. However, if you want to change the labels <em>and</em> the colors together, you can use <code>scale_fill_manual</code> like below.</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
   geom_histogram(stat = &quot;count&quot;) +
@@ -81,21 +70,17 @@ spotify_songs %&gt;%
                                &quot;r&amp;b&quot; = &quot;R&amp;B&quot;, 
                                &quot;rap&quot; = &quot;Rap&quot;, 
                                &quot;rock&quot; = &quot;Rock&quot;),
-                    values = c(&quot;edm&quot; = &quot;#68B39B&quot;, 
-                               &quot;latin&quot; = &quot;#F6C7FF&quot;, 
-                               &quot;pop&quot; = &quot;#ADFFE5&quot;, 
-                               &quot;r&amp;b&quot; = &quot;#CCB576&quot;, 
-                               &quot;rap&quot; = &quot;#B3A070&quot;, 
-                               &quot;rock&quot; = &quot;#d3d3d3&quot;))</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-5-1.png" width="100%" /></p>
+                    values = c(&quot;edm&quot; = &quot;#0081e8&quot;, 
+                               &quot;latin&quot; = &quot;#9597f0&quot;, 
+                               &quot;pop&quot; = &quot;#d4b4f6&quot;, 
+                               &quot;r&amp;b&quot; = &quot;#ffd6ff&quot;, 
+                               &quot;rap&quot; = &quot;#ffa1d4&quot;, 
+                               &quot;rock&quot; = &quot;#ff688c&quot;))</code></pre>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-6-1.png" width="100%" /></p>
 </div>
 <div id="remove-x-axis-labels" class="section level2">
 <h2>Remove X Axis Labels</h2>
-<blockquote>
-<p>theme(axis.title.x = element_blank(),
-axis.text.x = element_blank(),
-axis.ticks.x = element_blank())</p>
-</blockquote>
+<p><code>theme(axis.title.x = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank())</code></p>
 <p>In this case, since we have a legend, we don’t need any x axis labels. Sometimes I use this if there’s redundant information or if it otherwise makes the graph look cleaner.</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
@@ -107,22 +92,20 @@ axis.ticks.x = element_blank())</p>
                                &quot;r&amp;b&quot; = &quot;R&amp;B&quot;, 
                                &quot;rap&quot; = &quot;Rap&quot;, 
                                &quot;rock&quot; = &quot;Rock&quot;),
-                    values = c(&quot;edm&quot; = &quot;#68B39B&quot;, 
-                               &quot;latin&quot; = &quot;#F6C7FF&quot;, 
-                               &quot;pop&quot; = &quot;#ADFFE5&quot;, 
-                               &quot;r&amp;b&quot; = &quot;#CCB576&quot;, 
-                               &quot;rap&quot; = &quot;#B3A070&quot;, 
-                               &quot;rock&quot; = &quot;#d3d3d3&quot;)) +
+                    values = c(&quot;edm&quot; = &quot;#0081e8&quot;, 
+                               &quot;latin&quot; = &quot;#9597f0&quot;, 
+                               &quot;pop&quot; = &quot;#d4b4f6&quot;, 
+                               &quot;r&amp;b&quot; = &quot;#ffd6ff&quot;, 
+                               &quot;rap&quot; = &quot;#ffa1d4&quot;, 
+                               &quot;rock&quot; = &quot;#ff688c&quot;)) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank())</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-6-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-7-1.png" width="100%" /></p>
 </div>
 <div id="start-the-y-axis-at-a-specific-number" class="section level2">
 <h2>Start the Y Axis at a Specific Number</h2>
-<blockquote>
-<p>scale_y_continuous(name = “New Y Axis Title”, limits = c(0, 1000000))</p>
-</blockquote>
+<p><code>scale_y_continuous(name = "New Y Axis Title", limits = c(0, 1000000))</code></p>
 <p>Often times, we want our graph’s y axis to start at 0. In this example it already does, but this handy parameter allows us to set exactly what we want our y axis to be.</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
@@ -134,23 +117,21 @@ axis.ticks.x = element_blank())</p>
                                &quot;r&amp;b&quot; = &quot;R&amp;B&quot;, 
                                &quot;rap&quot; = &quot;Rap&quot;, 
                                &quot;rock&quot; = &quot;Rock&quot;),
-                    values = c(&quot;edm&quot; = &quot;#68B39B&quot;, 
-                               &quot;latin&quot; = &quot;#F6C7FF&quot;, 
-                               &quot;pop&quot; = &quot;#ADFFE5&quot;, 
-                               &quot;r&amp;b&quot; = &quot;#CCB576&quot;, 
-                               &quot;rap&quot; = &quot;#B3A070&quot;, 
-                               &quot;rock&quot; = &quot;#d3d3d3&quot;)) +
+                    values = c(&quot;edm&quot; = &quot;#0081e8&quot;, 
+                               &quot;latin&quot; = &quot;#9597f0&quot;, 
+                               &quot;pop&quot; = &quot;#d4b4f6&quot;, 
+                               &quot;r&amp;b&quot; = &quot;#ffd6ff&quot;, 
+                               &quot;rap&quot; = &quot;#ffa1d4&quot;, 
+                               &quot;rock&quot; = &quot;#ff688c&quot;)) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank()) +
   scale_y_continuous(name = &quot;Count&quot;, limits = c(0, 10000))</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-7-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
 </div>
 <div id="use-scales-on-the-y-axis" class="section level2">
 <h2>Use scales on the Y Axis</h2>
-<blockquote>
-<p>scale_y_continuous(label = scales::format)</p>
-</blockquote>
+<p><code>scale_y_continuous(label = scales::format)</code></p>
 <p>Depending on our data, we may want the y axis to be formatted a certain way (using dollar signs, commas, percentage signs, etc.). The handy {scales} package allows us to do that easily.</p>
 <pre class="r"><code>spotify_songs %&gt;% 
   ggplot(aes(x = playlist_genre, fill = playlist_genre)) +
@@ -162,17 +143,17 @@ axis.ticks.x = element_blank())</p>
                                &quot;r&amp;b&quot; = &quot;R&amp;B&quot;, 
                                &quot;rap&quot; = &quot;Rap&quot;, 
                                &quot;rock&quot; = &quot;Rock&quot;),
-                    values = c(&quot;edm&quot; = &quot;#68B39B&quot;, 
-                               &quot;latin&quot; = &quot;#F6C7FF&quot;, 
-                               &quot;pop&quot; = &quot;#ADFFE5&quot;, 
-                               &quot;r&amp;b&quot; = &quot;#CCB576&quot;, 
-                               &quot;rap&quot; = &quot;#B3A070&quot;, 
-                               &quot;rock&quot; = &quot;#d3d3d3&quot;)) +
+                    values = c(&quot;edm&quot; = &quot;#0081e8&quot;, 
+                               &quot;latin&quot; = &quot;#9597f0&quot;, 
+                               &quot;pop&quot; = &quot;#d4b4f6&quot;, 
+                               &quot;r&amp;b&quot; = &quot;#ffd6ff&quot;, 
+                               &quot;rap&quot; = &quot;#ffa1d4&quot;, 
+                               &quot;rock&quot; = &quot;#ff688c&quot;)) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank()) +
   scale_y_continuous(name = &quot;Count&quot;, limits = c(0, 10000),
                      labels = scales::comma)</code></pre>
-<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-8-1.png" width="100%" /></p>
+<p><img src="/blog/things-i-google_files/figure-html/unnamed-chunk-9-1.png" width="100%" /></p>
 <p>There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!</p>
 </div>

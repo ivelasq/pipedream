@@ -1,16 +1,17 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "ggplot2"]
+tags: ["visualization"]
 date: "2020-01-27"
-description: "Quick Reference Guide"
-featured: "ggplot2.png"
-featuredalt: "Six Things I Always Google When Using ggplot2"
-featuredpath: "date"
-linktitle: ""
 title: "Six Things I Always Google When Using ggplot2"
-type: "post"
 ---
+
+Reference list of six things for your {ggplot2} chart.
+
+<!--more-->
+
+```{r, include = FALSE, echo = FALSE, message = FALSE}
+source("/Users/shortessay/pipedreams/R/build.R")
+
+```
 
 I often use {ggplot2} to create graphs but there are certain things I *always* have to Google. I figured I'd create a post for quick reference for myself but I'd love to hear what you always have to look up!
 
@@ -41,7 +42,7 @@ spotify_songs %>%
 
 ## Remove the legend
 
->  theme(legend.position = "none")
+`theme(legend.position = "none")`
 
 Ahh... this one always gets me. Sometimes when your color is mostly just for aesthetics,  it doesn't make sense to also have a color legend. This removes the legend and makes the graph look cleaner.
 
@@ -54,7 +55,7 @@ spotify_songs %>%
 
 ## Change Legend Title and Labels
 
-> scale_fill_discrete(name = "New Legend Title", labels = c("lab1" = "Label 1", "lab2" = "Label 2"))
+`scale_fill_discrete(name = "New Legend Title", labels = c("lab1" = "Label 1", "lab2" = "Label 2"))`
 
 Alright, say I do want the legend. How do I make it something readable?
 
@@ -73,9 +74,9 @@ spotify_songs %>%
 
 ## Manually Change Colors
 
-> scale_fill_manual("New Legend Title", values = c("lab1" = "#000000", "lab2" = "#FFFFFF"))
+`scale_fill_manual("New Legend Title", values = c("lab1" = "#000000", "lab2" = "#FFFFFF"))`
 
-This is a bit tricker, in that you cannot use `scale_fill_manual` and `scale_fill_discrete` separately on the same plot as they override each other. However, if you want to change the labels *and* the colors together, you can use `scale_fill_manual` like below.
+This is a bit trickier, in that you cannot use `scale_fill_manual` and `scale_fill_discrete` separately on the same plot as they override each other. However, if you want to change the labels *and* the colors together, you can use `scale_fill_manual` like below.
 
 ```{r, warning = F, message = F}
 spotify_songs %>% 
@@ -88,19 +89,17 @@ spotify_songs %>%
                                "r&b" = "R&B", 
                                "rap" = "Rap", 
                                "rock" = "Rock"),
-                    values = c("edm" = "#68B39B", 
-                               "latin" = "#F6C7FF", 
-                               "pop" = "#ADFFE5", 
-                               "r&b" = "#CCB576", 
-                               "rap" = "#B3A070", 
-                               "rock" = "#d3d3d3"))
+                    values = c("edm" = "#0081e8", 
+                               "latin" = "#9597f0", 
+                               "pop" = "#d4b4f6", 
+                               "r&b" = "#ffd6ff", 
+                               "rap" = "#ffa1d4", 
+                               "rock" = "#ff688c"))
 ```
 
 ## Remove X Axis Labels
 
->  theme(axis.title.x = element_blank(),
-         axis.text.x = element_blank(),
-         axis.ticks.x = element_blank())
+`theme(axis.title.x = element_blank(), axis.text.x = element_blank(), axis.ticks.x = element_blank())`
         
 In this case, since we have a legend, we don't need any x axis labels. Sometimes I use this if there's redundant information or if it otherwise makes the graph look cleaner.
 
@@ -115,12 +114,12 @@ spotify_songs %>%
                                "r&b" = "R&B", 
                                "rap" = "Rap", 
                                "rock" = "Rock"),
-                    values = c("edm" = "#68B39B", 
-                               "latin" = "#F6C7FF", 
-                               "pop" = "#ADFFE5", 
-                               "r&b" = "#CCB576", 
-                               "rap" = "#B3A070", 
-                               "rock" = "#d3d3d3")) +
+                    values = c("edm" = "#0081e8", 
+                               "latin" = "#9597f0", 
+                               "pop" = "#d4b4f6", 
+                               "r&b" = "#ffd6ff", 
+                               "rap" = "#ffa1d4", 
+                               "rock" = "#ff688c")) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank())
@@ -128,7 +127,7 @@ spotify_songs %>%
 
 ## Start the Y Axis at a Specific Number
 
-> scale_y_continuous(name = "New Y Axis Title", limits = c(0, 1000000))
+`scale_y_continuous(name = "New Y Axis Title", limits = c(0, 1000000))`
 
 Often times, we want our graph's y axis to start at 0. In this example it already does, but this handy parameter allows us to set exactly what we want our y axis to be.
 
@@ -143,12 +142,12 @@ spotify_songs %>%
                                "r&b" = "R&B", 
                                "rap" = "Rap", 
                                "rock" = "Rock"),
-                    values = c("edm" = "#68B39B", 
-                               "latin" = "#F6C7FF", 
-                               "pop" = "#ADFFE5", 
-                               "r&b" = "#CCB576", 
-                               "rap" = "#B3A070", 
-                               "rock" = "#d3d3d3")) +
+                    values = c("edm" = "#0081e8", 
+                               "latin" = "#9597f0", 
+                               "pop" = "#d4b4f6", 
+                               "r&b" = "#ffd6ff", 
+                               "rap" = "#ffa1d4", 
+                               "rock" = "#ff688c")) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank()) +
@@ -157,7 +156,7 @@ spotify_songs %>%
 
 ## Use scales on the Y Axis
 
-> scale_y_continuous(label = scales::format)
+`scale_y_continuous(label = scales::format)`
 
 Depending on our data, we may want the y axis to be formatted a certain way (using dollar signs, commas, percentage signs, etc.). The handy {scales} package allows us to do that easily. 
 
@@ -172,12 +171,12 @@ spotify_songs %>%
                                "r&b" = "R&B", 
                                "rap" = "Rap", 
                                "rock" = "Rock"),
-                    values = c("edm" = "#68B39B", 
-                               "latin" = "#F6C7FF", 
-                               "pop" = "#ADFFE5", 
-                               "r&b" = "#CCB576", 
-                               "rap" = "#B3A070", 
-                               "rock" = "#d3d3d3")) +
+                    values = c("edm" = "#0081e8", 
+                               "latin" = "#9597f0", 
+                               "pop" = "#d4b4f6", 
+                               "r&b" = "#ffd6ff", 
+                               "rap" = "#ffa1d4", 
+                               "rock" = "#ff688c")) +
   theme(axis.title.x = element_blank(),
          axis.text.x = element_blank(),
          axis.ticks.x = element_blank()) +

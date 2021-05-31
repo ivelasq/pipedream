@@ -1,19 +1,15 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "educationdata", "janitor", "ggalluvial"]
+comments: false
+tags: ["summary-statistics", "dataedu", "tidy"]
 date: "2019-09-11"
-description: "Inspired by NPR Planet Money's Modal American Analysis"
-featured: "modal.png"
-featuredalt: "Finding the Modal School District"
-featuredpath: "date"
-linktitle: ""
 title: "Finding the Modal School District"
-type: "post"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>Blog post on using education data to find the modal district.</p>
+<!--more-->
 <p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NPR Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
 <p>Ben Casselman shared the <a href="https://github.com/BenCasselman/planet_money">code</a> he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (&gt;=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).</p>
 <div id="downloading-and-parsing-data" class="section level2">
@@ -38,7 +34,7 @@ knitr::opts_chunk$set(out.width = &#39;100%&#39;) </code></pre>
 <pre class="r"><code>ccd_urbanicity &lt;-
   ccd_dir %&gt;% 
   select(leaid, urban_centric_locale) %&gt;% 
-  mutate(leaid = as.numeric(leaid), # the enrollment file loads these as numeric
+  mutate(leaid = as.character(leaid),
          geography = case_when(str_detect(urban_centric_locale, &quot;City|city&quot;) ~ &quot;City&quot;,
                                str_detect(urban_centric_locale, &quot;Town|town&quot;) ~ &quot;Town&quot;,
                                str_detect(urban_centric_locale, &quot;Rural|rural&quot;) ~ &quot;Rural&quot;,
@@ -80,12 +76,12 @@ knitr::opts_chunk$set(out.width = &#39;100%&#39;) </code></pre>
 <h3>Free/Reduced Price Lunch Bucket</h3>
 <p>Now, we load the FRPL data.</p>
 <pre class="r"><code>ccd_frpl &lt;-
-  read_csv(here::here(&quot;content&quot;, &quot;blog&quot;, &quot;modal_district_files&quot;, &quot;ccd_sch_033_1617_l_2a_11212017.csv&quot;))</code></pre>
+  read_csv(&quot;https://media.githubusercontent.com/media/ivelasq/modal_district/master/data/raw/ccd_sch_033_1617_l_2a_11212017.csv&quot;)</code></pre>
 <p>We want Free + Reduced Price Lunch numbers by district. This file also has Free Lunch and Reduced Lunch numbers, and it is school-level. We aggregate up Free + Reduced Price Lunch by district.</p>
 <pre class="r"><code>ccd_frpl_wide &lt;-
   ccd_frpl %&gt;% 
   clean_names() %&gt;% 
-  mutate(leaid = as.numeric(leaid)) %&gt;% 
+  mutate(leaid = as.character(leaid)) %&gt;% 
   filter(data_group == &quot;Free and Reduced-price Lunch Table&quot;,
          lunch_program == &quot;No Category Codes&quot;) %&gt;% 
   select(leaid, student_count) %&gt;% 

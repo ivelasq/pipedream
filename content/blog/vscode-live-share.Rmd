@@ -1,25 +1,12 @@
 ---
 title: "Remote Pair Programming in R Using Visual Studio Code and Live Share"
-author: "Isabella & Gustavo E."
 date: '2021-02-03'
-categories:
-- Collaboration
-- R
-tags:
-- devtools
-- dplyr
-- languageserver
-- purrr
-- tibble
-- usethis
-- vctrs
-- vscDebugger
-description: Tutorial
-featured: collab.png
-featuredpath: date
-linktitle: ''
-type: "post"
+tags: ["pair-programming"]
 ---
+
+A walkthrough on setting up and using VS Code for collaborative coding.
+
+<!--more-->
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -355,7 +342,7 @@ Once you are signed in, open a folder or file for pair programming. For package 
 
 Once a guest has joined a collaboration session, all collaborators will immediately be able to see each other's cursors, edits, and selections in real-time. You can pick a file from the Explorer (`Shift-Command-E`) and start editing. Both hosts and guests will see edits as they are made.
 
-As we worked on {mutagen} files, we noticed the usual loading of a package in development, via `devtools::load_all()`, or sourcing an entire file using `Shift-Command-S` (the VS Code version of RStudio's `Shift-Command-Enter`), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host's path `~/Desktop/mutagen/R/cast_integers.R`, the guest's path was an abbreviated `/R/cast_integers.R`, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using `Command-Enter` line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests' Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run `devtools::load_all()` or `source()` with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting `"liveshare.publishWorkspaceInfo": true` in `settings.json`, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R workspace and its objects.
+As we worked on {mutagen} files, we noticed the usual loading of a package in development, via `devtools::load_all()`, or sourcing an entire file using `Shift-Command-S` (the VS Code version of RStudio's `Shift-Command-Enter`), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host's path `~/Desktop/mutagen/R/cast_integers.R`, the guest's path was an abbreviated `/R/cast_integers.R`, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using `Command-Enter` line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests' Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run `devtools::load_all()` or `source()` with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting `"liveshare.publishWorkspaceInfo": true` in `settings.json`, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R s and its objects.
 
 ## Final Thoughts
 

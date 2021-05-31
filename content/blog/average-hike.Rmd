@@ -1,18 +1,15 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "purrr", "plotKML", "geosphere", "googleway", "cluster"]
+comments: false
+tags: ["import gpx", "visualization", "summary statistics"]
 date: "2019-04-06"
-description: "Ain't No Mountain High Enough"
-featured: "hiking.png"
-featuredalt: "Taking A Peek into My Hiking Data"
-featuredpath: "date"
-linktitle: ""
 title: "Taking A Peek into My Hiking Data"
-type: "post"
 ---
 
-I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of 'a  hike'!). I must admit I've been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
+Blog post on importing, tidying, and visualizing hiking location data.
+
+<!--more-->
+
+I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of 'a  hike'). I must admit I've been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
 
 Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.
 
@@ -33,7 +30,7 @@ Being fortunate enough to live near multiple mountain ranges, the hikes I've bee
 
 ![](https://ivelasq.rbind.io/img/average-hike_files/joyplot.png)
 
-I calculated my 'average hike' - that is, the average elevation given the cumulative distance travelled.
+I calculated my 'average hike' - that is, the average elevation given the cumulative distance traveled.
   
 ![](https://ivelasq.rbind.io/img/average-hike_files/avg_hike.png)
 

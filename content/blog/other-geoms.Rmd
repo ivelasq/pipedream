@@ -1,16 +1,12 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["ggplot2", "ggstream", "ggridges", "ggsankey", "ggalluvial", "ggbump", "waffle", "ggbeeswarm", "ggmosaic"]
+tags: ["visualization"]
 date: "2021-03-28"
-description: "Into the ggplot2niverse"
-featured: "gg.png"
-featuredalt: "Exploring other {ggplot2} geoms"
-featuredpath: "date"
-linktitle: ""
-title: "Exploring other {ggplot2} geoms"
-type: "post"
+title: "Exploring Other {ggplot2} geoms"
 ---
+
+A list of {ggplot2} geoms.
+
+<!--more-->
 
 R users are incredibly fortunate to work in an open source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the [reference documents](https://ggplot2.tidyverse.org/reference/) for {ggplot2}. These include:
 
@@ -29,7 +25,7 @@ In addition, other amazing folks in the R Community have created geoms that can 
 * [Mosaic charts using ggmosaic::geom_mosaic](#mosaic-charts)
 
 <center>
-![](https://ivelasq.rbind.io/img/geoms.png)
+![](images/geoms.png)
 </center>
 
 ## Setup

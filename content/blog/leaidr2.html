@@ -1,17 +1,10 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["mapboxapi", "leaidr", "rmapshaper", "mapdeck", "maptools", "shiny"]
+tags: ["package-development", "spatial", "maps", "mapbox", "shiny", "dataedu"]
 date: "2020-08-30"
-description: "{leaidr} Update"
-featured: "leaid2.png"
-featuredalt: "Even Easier-to-Use R Package for School District Shapefiles"
-featuredpath: "date"
-linktitle: ""
 title: "Even Easier-to-Use R Package for School District Shapefiles"
-type: post
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
 <script src="/rmarkdown-libs/mapdeck-binding/mapdeck.js"></script>
 <script src="/rmarkdown-libs/mpadeck_functions/mapdeck_functions.js"></script>
@@ -35,7 +28,7 @@ type: post
 
 tn &lt;- lea_get(&quot;tn&quot;)</code></pre>
 <pre><code>## OGR data source with driver: ESRI Shapefile 
-## Source: &quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpCFlfFo/47&quot;, layer: &quot;47&quot;
+## Source: &quot;/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpkYN6J6/47&quot;, layer: &quot;47&quot;
 ## with 158 features
 ## It has 18 fields</code></pre>
 <pre class="r"><code>tn %&gt;% 
@@ -122,7 +115,7 @@ upload_tiles(input = &quot;nw.mbtiles&quot;,
         zoom = 4,
         location = c(-120.161, 45.843))</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:480px;" class="mapdeck html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"access_token":"pk.eyJ1IjoiaXZlbGFzcTMiLCJhIjoiY2tlNmJpaHlrMWJpbjJ2cDgzczRpbjNpMSJ9.YMLVVVzPxfnms4oADrG0aQ","style":"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj","pitch":0,"zoom":4,"location":[-120.161,45.843],"bearing":0,"max_zoom":20,"min_zoom":0,"max_pitch":60,"min_pitch":0,"show_view_state":false,"repeat_view":false},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"access_token":"","style":"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj","pitch":0,"zoom":4,"location":[-120.161,45.843],"bearing":0,"max_zoom":20,"min_zoom":0,"max_pitch":60,"min_pitch":0,"show_view_state":false,"repeat_view":false},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div id="create-a-shiny-app-with-your-beautiful-map" class="section level2">

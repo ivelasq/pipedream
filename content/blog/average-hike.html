@@ -1,21 +1,16 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "purrr", "plotKML", "geosphere", "googleway", "cluster"]
+comments: false
+tags: ["import gpx", "visualization", "summary statistics"]
 date: "2019-04-06"
-description: "Ain't No Mountain High Enough"
-featured: "hiking.png"
-featuredalt: "Taking A Peek into My Hiking Data"
-featuredpath: "date"
-linktitle: ""
 title: "Taking A Peek into My Hiking Data"
-type: "post"
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’!). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
+<p>Blog post on importing, tidying, and visualizing hiking location data.</p>
+<!--more-->
+<p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
 <p>Recently, I signed up on <a href="https://www.alltrails.com/">AllTrails</a> to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.</p>
 <p>I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the <a href="#methodology">Methodology</a> or <a href="#viz">Visualizations</a> sections below! (Interesting, I ran <a href="https://twitter.com/ivelasq3/status/1121536896956428289">a poll on Twitter</a> in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).</p>
 <div id="analysis" class="section level1">
@@ -32,7 +27,7 @@ type: "post"
 <h2>The hikes are wide and varied</h2>
 <p>Being fortunate enough to live near multiple mountain ranges, the hikes I’ve been on come in all shapes and sizes.</p>
 <p><img src="https://ivelasq.rbind.io/img/average-hike_files/joyplot.png" /></p>
-<p>I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance travelled.</p>
+<p>I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance traveled.</p>
 <p><img src="https://ivelasq.rbind.io/img/average-hike_files/avg_hike.png" /></p>
 </div>
 <div id="aggregated-data-by-trail" class="section level2">

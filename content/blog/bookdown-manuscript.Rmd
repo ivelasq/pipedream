@@ -1,16 +1,12 @@
 ---
-author: ""
-categories: ["R"]
 tags: ["bookdown"]
 date: "2021-03-08"
-description: "Reflections from Trial & Error"
-featured: "docs.png"
-featuredalt: "Creating a book manuscript using {bookdown}"
-featuredpath: "date"
-linktitle: ""
-title: "Creating a book manuscript using {bookdown}"
-type: "post"
+title: "Creating a Book Manuscript using {bookdown}"
 ---
+
+Tips on using {bookdown} to
+
+<!--more-->
 
 My co-authors [Ryan](https://twitter.com/RyanEs), [Emily](https://twitter.com/efreer20), [Jesse](https://twitter.com/kierisi), [Josh](https://twitter.com/jrosenberg6432), and [I](https://twitter.com/ivelasq3) published our book last year, but it had actually been around since the moment we started writing it. [Data Science in Education Using R](https://datascienceineducation.com/) is available online as a  bookdown on a website, available to all.
 
@@ -160,7 +156,7 @@ Because of R:
 * **All tables had to be in Word format**: at the time, we hadn't seen this from [{gtsummary}](https://cran.r-project.org/web/packages/gtsummary/vignettes/rmarkdown.html), and we spent quite a bit of time trying to use {gt} for our tables before realizing that we wouldn't be able to output using Word. We then switched to {sjPlot}, which got us exactly what we needed.
 
 <center>
-![](https://ivelasq.rbind.io/img/gt.png)
+![](images/gt.png)
 </center>
 
 * **Our bibliography had to be in APA format:** thanks to a file that Josh had (saved [here](https://github.com/data-edu/data-science-in-education/blob/master/apa_pl.csl)), all we had to do was save that file and add `biblio-style: "apalike"` to our `index.Rmd` file for everything to show up in the format we needed.

@@ -1,26 +1,18 @@
 ---
-author: ""
-categories: ["R"]
 tags: ["ggplot2"]
 date: "2021-05-09"
-description: "Plotting parametric functions"
-featured: "rtistry.png"
-featuredalt: "Getting started in #rtistry"
-featuredpath: "date"
-linktitle: ""
-title: "Getting started in #rtistry"
-type: "post"
+title: "Getting Started in #rtistry"
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="getting-started-in-rtistry" class="section level1">
-<h1>Getting started in #rtistry</h1>
-<p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dready Sunday.</p>
+<p>An introduction to generative art using R.</p>
+<!--more-->
+<p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.</p>
 <p>I am proud to showcase my first #rtistry plot ever! Kinda reminds me of <a href="https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/">KidPix</a> (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I’m not even sure if I am doing it right?</p>
 <center>
-<img src="https://ivelasq.rbind.io/img/rtistry2.png" />
+<img src="images/rtistry2.png" />
 </center>
 <p>As always, we start with the libraries we will use:</p>
 <pre class="r"><code># Load packages
@@ -213,9 +205,9 @@ dat %&gt;%
              alpha = dat$rand_o) +
   scale_color_viridis(option = &quot;magma&quot;) +
   dark_theme_void() +
-  theme(legend.position = &quot;none&quot;) + # remove legend
-  ggsave(here::here(&quot;public&quot;, &quot;img&quot;, &quot;rtistry2.png&quot;), dpi = 320, height = 6, width = 8)</code></pre>
+  theme(legend.position = &quot;none&quot;) # remove legend</code></pre>
 <p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code># ggsave(here::here(&quot;public&quot;, &quot;img&quot;, &quot;rtistry2.png&quot;), dpi = 320, height = 6, width = 8) + # this sames the image</code></pre>
 <p>Tada! My first ever #rtistry plot.</p>
 </div>
 </div>
@@ -241,6 +233,5 @@ dat %&gt;%
 <center>
 {{% tweet "1391947964013285379" %}}
 </center>
-</div>
 </div>
 </div>

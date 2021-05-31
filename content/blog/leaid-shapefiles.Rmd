@@ -1,16 +1,17 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["rgdal", "sp", "sf", "piggyback", "viridis", "maptools", "ggplot2", "leaidr"]
+tags: ["package-development", "spatial", "maps", "dataedu"]
 date: "2020-05-03"
-description: "Introducing {leaidr}"
-featured: "leaid.png"
-featuredalt: "Creating an R Package for School District Shapefiles"
-featuredpath: "date"
-linktitle: ""
 title: "Creating an R Package for School District Shapefiles"
-type: post
 ---
+
+Blog post on {leaidr}, an R package for U.S. school district shapefiles.
+
+<!--more-->
+
+```{r, include = FALSE, echo = FALSE, message = FALSE}
+source("/Users/shortessay/pipedreams/R/build.R")
+
+```
 
 I would like to introduce [{leaidr}](https://github.com/ivelasq/leaidr), a package for mapping U.S. School District shapefiles!
 
@@ -47,7 +48,6 @@ library(tidyverse)
 # devtools::install_github("ivelasq/leaidr")
 library(leaidr)
 library(maptools)
-library(viridis)
 # if you don't have this downloaded
 # install.packages("mapproj")
 ```
@@ -86,7 +86,7 @@ If you run `gpclibPermit()` and you keep getting `FALSE`, then you are missing t
 (I don't know if this is the best/only way to do this - if anybody has suggestions, please let me know!)
 
 ```{r, eval = FALSE}
-# install.package("gpclib")
+# install.packages("gpclib")
 gpclibPermit()
 ca_points <- fortify(ca_merge, region = "GEOID")
 ```
@@ -110,7 +110,7 @@ ca_map <-
                color = "gray", 
                size = .2) +
   theme_void() +
-  scale_fill_viridis(option = "cividis", discrete = TRUE) +
+  scale_fill_iv() +
   ggtitle("COVID-Related Links Found on CA School District Sites")
 ```
 
@@ -123,7 +123,7 @@ map_projected <- ca_map +
 print(map_projected)
 ```
 
-![](https://ivelasq.rbind.io/img/leaid-shapefiles/test_map.png)
+![](images/test_map.png)
 
 Tada! A full school district map for California.
 
@@ -131,7 +131,7 @@ Tada! A full school district map for California.
 
 Please try out {leaidr}! I hope that it is useful to you in your work. I'd love any collaborators to join me in making it easier/better!
 
-* **Other functionalities**: Thinking of: being able to filter shapefiles by NCES IDs as well as states; adding commonly used data (like district demographics).
+* **Other functionality**: Thinking of: being able to filter shapefiles by NCES IDs as well as states; adding commonly used data (like district demographics).
 * **Issues**: If you run into any issues, please post on the [GitHub page!](https://github.com/ivelasq/leaidr/issues)
 
 ## Resources

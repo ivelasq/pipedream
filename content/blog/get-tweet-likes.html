@@ -1,19 +1,14 @@
 ---
-author: ""
-categories: ["R"]
-tags: ["tidyverse", "rtweet", "rjson"]
+tags: ["scrape", "tidy", "twitter-data"]
 date: "2020-11-10"
-description: "Scraping Twitter using rtweet"
-featured: "tweet.png"
-featuredalt: "Browse and Search Liked Tweets using R"
-featuredpath: "date"
-linktitle: ""
-title: "Browse and Search Liked Tweets using R"
-type: "post"
+title: "Browse and Search Liked Tweets Using R"
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<p>How to download your liked Tweets using R.</p>
+<!--more-->
 <p>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found <a href="https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851">this tutorial</a> that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</p>
 <div id="set-up-your-project" class="section level2">
 <h2>Set Up Your Project</h2>
@@ -38,7 +33,7 @@ Go to <a href="https://twitter.com/settings/your_twitter_data" class="uri">https
 <pre class="r"><code>library(tidyverse)
 library(rjson)
 library(rtweet)</code></pre>
-<p>The <code>like.js</code> file is a Javascript file. To convert it to a data frame, first convert to a JSON file by removing the text that makes it Javascript, read in the JSON, and then flatten into a dataframe using <code>purrr::flatten_df</code>.</p>
+<p>The <code>like.js</code> file is a Javascript file. To convert it to a data frame, first convert to a JSON file by removing the text that makes it Javascript, read in the JSON, and then flatten into a data frame using <code>purrr::flatten_df</code>.</p>
 <pre class="r"><code>js &lt;- read_file(here::here(&quot;data&quot;, &quot;like.js&quot;))
 json &lt;- sub(&quot;window.YTD.like.part0 = &quot;, &quot;&quot;, js)
  
@@ -78,7 +73,7 @@ likes_df &lt;-
   pivot_wider(names_prefix = &quot;hashtag_&quot;,
               names_from = id,
               values_from = hashtags)</code></pre>
-<p>Now, this is saveable in a CSV. You can run the code below if your project has an <code>output</code> folder.</p>
+<p>Now, this is savable in a CSV. You can run the code below if your project has an <code>output</code> folder.</p>
 <pre class="r"><code>write_csv(likes_csv, here::here(&quot;output&quot;, &quot;likes_csv.csv&quot;))</code></pre>
 <p>Thank you for reading this quick entry in looking through your Twitter likes. I hope this reduces the amount of annoying scrolling you need to do to look through your Tweets! I think there’s a lot of possibility to make this an even easier process - maybe a Shiny app? - but hopefully this is a good starting off point.</p>
 </div>
