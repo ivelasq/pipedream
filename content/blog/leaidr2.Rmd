@@ -100,15 +100,15 @@ upload_tiles(input = "nw.mbtiles",
 
 This is the part that I had to figure out on the Mapbox website. [This](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/) walkthrough was helpful. Once you have uploaded the tiles using `upload_tiles()`, you should see them available under "Custom tileset" at the bottom of this webpage: https://studio.mapbox.com/tilesets/.
 
-![](ivelasq.rbind.io/images/mapbox_files/1.png)
+![](https://ivelasq.rbind.io/images/mapbox_files/1.png)
 
 Then, go to Styles on this webpage: https://studio.mapbox.com/. Click "New Style" and choose the template you want, then Customize. 
 
-![](ivelasq.rbind.io/images/mapbox_files/2.png)
+![](https://ivelasq.rbind.io/images/mapbox_files/2.png)
 
 To add your tileset, go to Layers, click the Plus sign, then under "Source", find your uploaded tileset or add the tileset by the ID given by `upload_tiles()`.
 
-![](ivelasq.rbind.io/images/mapbox_files/3.png)
+![](https://ivelasq.rbind.io/images/mapbox_files/3.png)
 
 I zoomed to where my tiles are located (Oregon and Washington) and started editing. [This section of the walkthrough](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling) explains how to create a choropleth map, where each geography has a different color according to a value.
 
@@ -118,7 +118,7 @@ Once done styling, I clicked "Publish" on the top right of Mapbox Studio.
 
 To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked "Share" and scrolled to find the Style ID.
 
-![](ivelasq.rbind.io/images/mapbox_files/4.png)
+![](https://ivelasq.rbind.io/images/mapbox_files/4.png)
 
 I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.
 

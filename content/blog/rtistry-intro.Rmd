@@ -13,7 +13,7 @@ Artists in the R community have been using the [`#rtistry`](https://twitter.com/
 I am proud to showcase my first #rtistry plot ever! Kinda reminds me of [KidPix](https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/) (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I'm not even sure if I am doing it right?
 
 <center>
-![](ivelasq.rbind.io/images/rtistry2.png)
+![](https://ivelasq.rbind.io/images/rtistry2.png)
 </center>
 
 As always, we start with the libraries we will use:

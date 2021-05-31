@@ -25,7 +25,7 @@ In addition, other amazing folks in the R Community have created geoms that can 
 * [Mosaic charts using ggmosaic::geom_mosaic](#mosaic-charts)
 
 <center>
-![](ivelasq.rbind.io/images/geoms.png)
+![](https://ivelasq.rbind.io/images/geoms.png)
 </center>
 
 ## Setup

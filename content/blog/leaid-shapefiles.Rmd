@@ -123,7 +123,7 @@ map_projected <- ca_map +
 print(map_projected)
 ```
 
-  ![](ivelasq.rbind.io/images/test_map.png)
+![](https://ivelasq.rbind.io/images/test_map.png)
 
 Tada! A full school district map for California.
 
