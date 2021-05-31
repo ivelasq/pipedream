@@ -4,7 +4,7 @@ date: '2021-02-03'
 tags: ["pair-programming"]
 ---
 
-A walkthrough on setting up and using VS Code for collaborative coding.
+Walkthrough on setting up and using VS Code for collaborative coding.
 
 <!--more-->
 

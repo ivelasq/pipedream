@@ -4,7 +4,7 @@ date: "2021-03-28"
 title: "Exploring Other {ggplot2} geoms"
 ---
 
-A list of {ggplot2} geoms.
+List of {ggplot2} geoms.
 
 <!--more-->
 
