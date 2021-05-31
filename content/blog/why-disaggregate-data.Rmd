@@ -254,7 +254,7 @@ There are so many amazing examples out there using disaggregated data. These two
 *Liked this article? I'd love for you to retweet!*
 
 <center>
-```{r echo = FALSE}
+```{r echo=FALSE}
 blogdown::shortcode('tweet', '1044233934865752064')
 ```
 </center>

@@ -13,7 +13,7 @@ As the @[WeAreRLadies](https://twitter.com/WeAreRLadies) curator, I [asked the T
 Here's what to expect when succeeding to get your package on CRAN!
 
 <center>
-```{r echo = FALSE}
+```{r echo=FALSE}
 blogdown::shortcode('tweet', '1228139634871472129')
 ```
 </center>

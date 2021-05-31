@@ -101,7 +101,7 @@ head(snap_appendix1_cleaned)
 
 Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.
 
-```{r, include = T, message = F}
+```{r, include = T, message = F, fig.align='center'}
 snap_appendix1_cleaned <-
   snap_appendix1_cleaned %>%
   mutate_at(vars(contains("pct")), list(~ ./100))
@@ -113,7 +113,7 @@ Tada! Now we have a clean dataset from the original not-very-usable PDFs.
 
 Another goal is to at some point do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analysis with it. For the purposes of this blogpost, here are some quick ggplots comparing the rank of commodities between families served by SNAP and those who are not.
 
-```{r, include = T, message = F}
+```{r, include = T, message = F, fig.align='center'}
 snap_appendix1_cleaned %>% # quick correlation plot
   ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
   geom_point(color = "#00C3DA") +
@@ -132,6 +132,8 @@ I'd love to collaborate with others to finish up this project and find more effi
 
 *Liked this article? I'd love for you to retweet!*
 
-```{r, echo = FALSE}
+<center>
+```{r echo=FALSE}
 blogdown::shortcode('tweet', '1074704678858973184')
 ```
+</center>

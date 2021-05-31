@@ -10,7 +10,7 @@ params:
   author:
     description: Author
     name: Isabella Velásquez
-    thumbnail: /images/author.png
+    thumbnail: /images/thumbnail.png
   description: Isabella Velásquez
   index:
     alertbar: no

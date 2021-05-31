@@ -122,7 +122,7 @@ head(snap_appendix1_cleaned)</code></pre>
   ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
   geom_point(color = &quot;#00C3DA&quot;) +
   theme_iv() # custom theme</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>snap_lm &lt;- lm(snap_rank ~ nonsnap_rank, data = snap_appendix1_cleaned)
 snap_res &lt;- augment(snap_lm)
 
@@ -130,7 +130,9 @@ snap_res %&gt;% # quick residual plot
   ggplot(aes(x = .fitted, y = .resid)) +
   geom_point(color = &quot;#00C3DA&quot;) +
   theme_iv() # custom theme</code></pre>
-<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p><img src="/blog/snap-expenditures_files/figure-html/unnamed-chunk-11-2.png" width="672" style="display: block; margin: auto;" /></p>
 <p>I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is <a href="https://github.com/ivelasq/snap">here</a>. More to come!</p>
 <p><em>Liked this article? I’d love for you to retweet!</em></p>
-<p>{{% tweet "1074704678858973184" %}}</p>
+<center>
+{{% tweet "1074704678858973184" %}}
+</center>

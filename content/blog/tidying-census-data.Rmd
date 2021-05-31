@@ -12,7 +12,7 @@ The U.S. Census releases aggregate data on their [Household Pulse Survey](https:
 
 First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel `emo::ji('unamused')`.
 
-![](images/census_files/census_image.png)
+![](/images/census_files/census_image.png)
 
 However, this is not terribly surprising (and with public data, somewhat expected). As stated in the [tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) paper:
 
@@ -55,7 +55,7 @@ census_sheet1 <-
 View(census_sheet1)
 ```
 
-![](images/census_files/census1.png)
+![](/images/census_files/census1.png)
 
 Immediately, we see that the top lines are superfluous rows (the headers from the original dataset). We can use `skip` in `read_excel()` to not have them read in.
 
@@ -66,7 +66,7 @@ census_sheet1 <-
 # View(census_sheet1)
 ```
 
-![](images/census_files/census2.png)
+![](/images/census_files/census2.png)
 
 Now that the unnecessary rows are gone, we see that the column names aren't reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with `set_names()`.
 
@@ -79,7 +79,7 @@ census_example <-
   set_names(new_names)
 ```
 
-![](images/census_files/census3.png)
+![](/images/census_files/census3.png)
 
 We still have some empty rows (and also a row at the very bottom which is a note in the original dataset). We can eliminate these rows using `slice()`. Here, we're saying to 'slice' rows 1 through 3 and 60.
 
@@ -89,7 +89,7 @@ census_example <-
   slice(-1:-3, -60:-61)
 ```
 
-![](images/census_files/census4.png)
+![](/images/census_files/census4.png)
 
 Now to deal with the fact that the category names are embedded within the first column `select_characteristics`. There may be other ways to do this, but again I manually create a vector with all the characteristic names that I want to get rid of and use `filter()` to keep only the rows that do **not** contain the items in the vector.
 
@@ -102,7 +102,7 @@ census_example <-
   filter(!select_characteristics %in% filter_var) 
 ```
 
-![](images/census_files/census5.png)
+![](/images/census_files/census5.png)
 
 Even though we removed the characteristic names from the rows, they actually contain very useful information. Also, we run into an issue in which two of the characteristic categories had the same options ("yes" and "no"). If we don't address this, we'll forget which rows are for which characteristic. To fix this, we manually create a column with the characteristics for each of the response options and append it to the data.
 
@@ -116,13 +116,13 @@ census_example <-
 ```
 
 <center>
-![](images/census_files/census6.png)
+![](/images/census_files/census6.png)
 </center>
 
 Finally, you may have noticed that some of the rows did not read in as numbers but as characters.
 
 <center>
-![](images/census_files/census7.png)
+![](/images/census_files/census7.png)
 </center>
 
 We can use `mutate_at()` and specify which variables we want to be numeric.
@@ -153,7 +153,7 @@ census_list <-
 
 If you take a look at the list using `View(census_list)`, you can see the data is stored as tibbles within the list. If you expand `US`, you'll see the same data as when we did the single sheet example. You can also see the same data if you run `census_list[["US"]]`.
 
-![](images/census_files/census_list.png)
+![](/images/census_files/census_list.png)
 
 Using the same thinking as we did with the single sheet example, let's go through and clean up this list - without having to go into each individual tibble!
 
