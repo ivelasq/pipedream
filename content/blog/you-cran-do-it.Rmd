@@ -14,7 +14,7 @@ Here's what to expect when succeeding to get your package on CRAN!
 
 <center>
 ```{r echo=FALSE}
-blogdown::shortcode("tweet", "1228139634871472129")
+blogdown::shortcode_html("tweet", "1228139634871472129")
 ```
 </center>
 
