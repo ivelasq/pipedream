@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.82.0" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>Creating an R Package for School District Shapefiles | %&gt;% dreams</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Creating an R Package for School District Shapefiles"/>
+<meta name="twitter:description" content="
+
+
+
+Blog post on {leaidr}, an R package for U.S. school district shapefiles.
+"/>
+
+	<meta property="og:title" content="Creating an R Package for School District Shapefiles" />
+<meta property="og:description" content="
+
+
+
+Blog post on {leaidr}, an R package for U.S. school district shapefiles.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ivelasq.rbind.io/blog/leaid-shapefiles/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2020-05-03T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2020-05-03T00:00:00&#43;00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://ivelasq.rbind.io//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/portfolio">Portfolio</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">%&gt;% dreams</h1>
+    <p class="lead">
+         Isabella Velásquez
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Creating%20an%20R%20Package%20for%20School%20District%20Shapefiles&url=https%3a%2f%2fivelasq.rbind.io%2fblog%2fleaid-shapefiles%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fivelasq.rbind.io%2fblog%2fleaid-shapefiles%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fivelasq.rbind.io%2fblog%2fleaid-shapefiles%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/thumbnail.png" alt="Isabella Velásquez">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Isabella Velásquez</a><br>
+                                <span class="author-description">
+                                    Author<br>
+                                    <i class="far fa-star"></i>
+                                    May 3, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    4 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Creating an R Package for School District Shapefiles</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>I would like to introduce <a href="https://github.com/ivelasq/leaidr">{leaidr}</a>, a package for mapping U.S. School District shapefiles!</p>
+<p>Inspired by my coauthor <a href="https://joshuamrosenberg.com/">Joshua Rosenberg</a>, the goal of {leaidr} is to facilitate the download and use of school district shapefiles.</p>
+<p>School districts in the U.S. have associated local education agency identification numbers (LEAID) used in the <a href="https://nces.ed.gov/pubs2010/100largest0809/tables/table_d05.asp">National Center for Education Statistics (NCES) Common Core of Data</a>. These are very useful because if you have other datasets with NCES ID’s, then you can (sometimes easily) join them.</p>
+<p>It can be very useful to visualize districts and associated data. District shapefiles are available in different places, such as through the <a href="https://nces.ed.gov/programs/edge/Geographic/DistrictBoundaries">NCES</a> and <a href="https://exhibits.stanford.edu/data/catalog/db586ns4974">Stanford Education Data Archive</a>. The package {tigris} also has a school district option, but unfortunately it is missing a few district polygons.</p>
+<pre class="r"><code>library(tigris)
+
+ca &lt;- tigris::school_districts(state = &quot;06&quot;,
+                               type = &quot;unified&quot;)
+
+plot(ca[&quot;GEOID&quot;])</code></pre>
+<p><img src="/blog/leaid-shapefiles_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
+<p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
+<p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
+<p>First, let’s call our libraries.</p>
+<pre class="r"><code>library(tidyverse)
+# if you haven&#39;t installed the package yet
+# devtools::install_github(&quot;ivelasq/leaidr&quot;)
+library(leaidr)
+library(maptools)
+# if you don&#39;t have this downloaded
+# install.packages(&quot;mapproj&quot;)</code></pre>
+<p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
+<p><strong>Note:</strong> You must have a GitHub PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
+<pre class="r"><code># download the shapefile into a designated folder
+leaidr::lea_get(path = &quot;./test&quot;)
+
+# prep the shapefile for the state(s) you&#39;d like
+ca_shapefile &lt;-
+  leaidr::lea_prep(path = &quot;./test&quot;, fips = &quot;06&quot;)
+
+# read in the external data that also has NCES ID&#39;s
+# this is from the covidedu project
+ca_data &lt;-
+  read_csv(&quot;https://raw.githubusercontent.com/making-data-science-count/covidedu/master/output/2020-04-29/summary-of-table-of-links.csv&quot;)</code></pre>
+<p>Join the CSV to the shapefile.</p>
+<pre class="r"><code>ca_merge &lt;-
+  sp::merge(ca_shapefile, ca_data, by.x = &quot;GEOID&quot;, by.y = &quot;nces_id&quot;)</code></pre>
+<p>Now ‘fortify’ the data - this converts the polygons into points. This is so ggplot can create the plot.</p>
+<p>If you get the error <code>isTRUE(gpclibPermitStatus()) is not TRUE</code>, then you need to enable <code>gpclib</code> by running <code>gpclibPermit()</code> (this is part of the {maptools} package, which should have been loaded above). Note that support for <code>gpclib</code> will be withdrawn from maptools at the next major release, so you might have to try something else if the package has been upgraded.</p>
+<p>If you run <code>gpclibPermit()</code> and you keep getting <code>FALSE</code>, then you are missing the package {gpclib}. Install the package, then run <code>gpclibPermit()</code> to set it to <code>TRUE</code>.</p>
+<p>(I don’t know if this is the best/only way to do this - if anybody has suggestions, please let me know!)</p>
+<pre class="r"><code># install.packages(&quot;gpclib&quot;)
+gpclibPermit()
+ca_points &lt;- fortify(ca_merge, region = &quot;GEOID&quot;)</code></pre>
+<p>Now, join the points and the shapefile data.</p>
+<pre class="r"><code>ca_df &lt;- left_join(ca_merge@data, ca_points, by = c(&quot;GEOID&quot; = &quot;id&quot;))</code></pre>
+<p>We can finally plot the shapefile and its data!</p>
+<pre class="r"><code>ca_map &lt;-
+  ca_df %&gt;% 
+  ggplot() +
+  geom_polygon(aes(x = long, 
+                   y = lat, 
+                   group = group,
+                   fill = any_link_found),
+               color = &quot;gray&quot;, 
+               size = .2) +
+  theme_void() +
+  scale_fill_iv() +
+  ggtitle(&quot;COVID-Related Links Found on CA School District Sites&quot;)</code></pre>
+<p>To make a nicer looking map, then you can use <code>coord_map()</code>.</p>
+<pre class="r"><code>map_projected &lt;- ca_map +
+  coord_map()
+
+print(map_projected)</code></pre>
+<p><img src="https://ivelasq.rbind.io/images/test_map.png" /></p>
+<p>Tada! A full school district map for California.</p>
+</div>
+<div id="call-for-collaboration" class="section level2">
+<h2>Call for Collaboration</h2>
+<p>Please try out {leaidr}! I hope that it is useful to you in your work. I’d love any collaborators to join me in making it easier/better!</p>
+<ul>
+<li><strong>Other functionality</strong>: Thinking of: being able to filter shapefiles by NCES IDs as well as states; adding commonly used data (like district demographics).</li>
+<li><strong>Issues</strong>: If you run into any issues, please post on the <a href="https://github.com/ivelasq/leaidr/issues">GitHub page!</a></li>
+</ul>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<ul>
+<li><a href="#%20joining%20spatial%20data:%20http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html"><strong>Joining Spatial Data</strong></a></li>
+<li><a href="https://rpubs.com/DanielSLee/censusMap"><strong>Analyzing U.S. Census Data Using R</strong></a></li>
+</ul>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/package-development">package-development</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/spatial">spatial</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/maps">maps</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/dataedu">dataedu</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://ivelasq.rbind.io/blog/tidying-census-data/"> &laquo; What It Takes to Tidy Census Data</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://ivelasq.rbind.io/blog/you-cran-do-it/">You CRAN Do It &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/bookdown">bookdown</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cran">cran</a>
+			
+			<a class="mt-1 mb-1" href="/tags/dataedu">dataedu</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ggplot2">ggplot2</a>
+			
+			<a class="mt-1 mb-1" href="/tags/graduate-school">graduate-school</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-gpx">import-gpx</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-pdf">import-pdf</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-xls">import-xls</a>
+			
+			<a class="mt-1 mb-1" href="/tags/mapbox">mapbox</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maps">maps</a>
+			
+			<a class="mt-1 mb-1" href="/tags/package-development">package-development</a>
+			
+			<a class="mt-1 mb-1" href="/tags/pair-programming">pair-programming</a>
+			
+			<a class="mt-1 mb-1" href="/tags/residuals">residuals</a>
+			
+			<a class="mt-1 mb-1" href="/tags/scrape">scrape</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shiny">shiny</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spatial">spatial</a>
+			
+			<a class="mt-1 mb-1" href="/tags/summary-statistics">summary-statistics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tidy">tidy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/twitter-data">twitter-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/visualization">visualization</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Isabella Velásquez - This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme by Wowthemes</a> | <a target="_blank" rel="noopener" href="https://www.tiffanymcknight.com/">Website Artwork by Tiffany McKnight</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

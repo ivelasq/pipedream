@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.82.0" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>Exploring Other {ggplot2} geoms | %&gt;% dreams</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Exploring Other {ggplot2} geoms"/>
+<meta name="twitter:description" content="
+
+
+
+List of {ggplot2} geoms.
+"/>
+
+	<meta property="og:title" content="Exploring Other {ggplot2} geoms" />
+<meta property="og:description" content="
+
+
+
+List of {ggplot2} geoms.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ivelasq.rbind.io/blog/other-geoms/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-03-28T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-28T00:00:00&#43;00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://ivelasq.rbind.io//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/portfolio">Portfolio</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">%&gt;% dreams</h1>
+    <p class="lead">
+         Isabella Velásquez
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Exploring%20Other%20%7bggplot2%7d%20geoms&url=https%3a%2f%2fivelasq.rbind.io%2fblog%2fother-geoms%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fivelasq.rbind.io%2fblog%2fother-geoms%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fivelasq.rbind.io%2fblog%2fother-geoms%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/thumbnail.png" alt="Isabella Velásquez">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Isabella Velásquez</a><br>
+                                <span class="author-description">
+                                    Author<br>
+                                    <i class="far fa-star"></i>
+                                    Mar 28, 2021
+                                    <i class="far fa-clock clock"></i>
+                                    4 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Exploring Other {ggplot2} geoms</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>R users are incredibly fortunate to work in an open source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the <a href="https://ggplot2.tidyverse.org/reference/">reference documents</a> for {ggplot2}. These include:</p>
+<ul>
+<li><code>geom_bar</code> and <code>geom_col</code> for barcharts</li>
+<li><code>geom_histogram</code> for histograms</li>
+<li><code>geom_point</code> for scatterplots</li>
+</ul>
+<p>In addition, other amazing folks in the R Community have created geoms that can be used with {ggplot2} and similarly use the tidyverse framework. This is fantastic for many reasons, but some include being able to add themes, facets, titles, and other components just like with any <code>ggplot</code>. Here are a few geoms that I’ve tried out with examples!</p>
+<ul>
+<li><a href="#streamgraphs">Streamgraphs using ggstream::geom_stream</a></li>
+<li><a href="#ridgeline-plots">Ridgeline plots using ggridges::geom_density_ridges</a></li>
+<li><a href="#sankey-diagrams">Sankey diagrams using ggsankey::geom_sankey &amp; ggalluvial::geom_alluvial</a></li>
+<li><a href="#bump-charts">Bump charts using ggbump::geom_bump</a></li>
+<li><a href="#waffle-charts">Waffle charts using waffle::geom_waffle</a></li>
+<li><a href="#beeswarm-charts">Beeswarm charts using ggbeeswarm::geom_beeswarm</a></li>
+<li><a href="#mosaic-charts">Mosaic charts using ggmosaic::geom_mosaic</a></li>
+</ul>
+<center>
+<img src="https://ivelasq.rbind.io/images/geoms.png" />
+</center>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>To be able to run this code, be sure to have the tidyverse installed. The {wesanderson} package contains beautiful palettes for visualizations.</p>
+<pre class="r"><code># Load required packages
+
+library(tidyverse)
+library(wesanderson)</code></pre>
+</div>
+<div id="streamgraphs" class="section level2">
+<h2>Streamgraphs</h2>
+<p>This post includes three of David Sjöberg’s amazing geoms; he created {ggsankey}, {ggstream}, AND {ggbump}. If you haven’t seen his GitHub, please <a href="https://github.com/davidsjoberg">check it out now</a>.</p>
+<p>This first geom, <code>geom_stream()</code>, creates a streamplot (which I’ve also seen called stream graphs). The streamplot is an area graph that usually centers around a central axis and allows us to see large fluctuations over time. More information on streamplot can be found <a href="https://en.wikipedia.org/wiki/Streamgraph">here</a>.</p>
+<p>{ggstream} also has other options available to customize the streamgraphs, such as creating an area chart. Check out the repo <a href="https://github.com/davidsjoberg/ggstream">here</a>.</p>
+<pre class="r"><code># remotes::install_github(&quot;davidsjoberg/ggstream&quot;)
+library(ggstream)
+
+ggplot(blockbusters, aes(year, box_office, fill = genre)) +
+  geom_stream() +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-2-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ridgeline-plots" class="section level2">
+<h2>Ridgeline Plots</h2>
+<p>The {ggridges} package by Claus O. Wilke package also has a variety of geoms; check out the repo <a href="https://github.com/wilkelab/ggridges">here</a>. Ridgeline plots show the distribution of a numeric value for different groups and can look like mountain ranges. The <a href="https://www.meetup.com/rladies-seattle/">R-Ladies Seattle</a> hex sticker was created using ridgelines (very appropriate for the mountainous Washington!).</p>
+<pre class="r"><code># install.packages(&quot;ggridges&quot;)
+library(ggridges)
+ 
+ggplot(blockbusters, aes(x = box_office, y = genre, fill = genre)) +
+  geom_density_ridges(scale = 4) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="sankey-diagrams" class="section level2">
+<h2>Sankey Diagrams</h2>
+<p>Another geom by David Sjöberg is <code>geom_sankey()</code>, repo <a href="https://github.com/davidsjoberg/ggsankey">here</a>. This geom creates <a href="https://en.wikipedia.org/wiki/Sankey_diagram">Sankey diagrams</a> and <a href="https://en.wikipedia.org/wiki/Alluvial_diagram">alluvial plots</a>, which show flow and transfers in a system or throughout time. These plots are VERY popular on the subreddit <a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a> (check it out on Mondays to see some examples).</p>
+<pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggsankey&quot;)
+library(ggsankey)
+
+example_dat &lt;-
+  mtcars %&gt;%
+  make_long(cyl, vs, am, gear, carb) # function in ggsankey to format data correctly
+
+ggplot(example_dat,
+       aes(x = x, 
+               next_x = next_x, 
+               node = node, 
+               next_node = next_node,
+               fill = factor(node))) +
+   geom_sankey(flow.alpha = .6) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Another package for alluvial charts is {ggalluvial} by Jason Cory Brunson, with its repo <a href="https://corybrunson.github.io/ggalluvial/">here</a>. The data can be in more familiar formats than what is required for {ggsankey}.</p>
+<pre class="r"><code># install.packages(&quot;ggalluvial&quot;)
+library(ggalluvial)
+
+ggplot(as.data.frame(UCBAdmissions),
+       aes(y = Freq, axis1 = Gender, axis2 = Dept)) +
+  geom_alluvium(aes(fill = Admit), width = 1/12) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bump-charts" class="section level2">
+<h2>Bump Charts</h2>
+<p>One last one by David Sjöberg is the amazing {ggbump}, repo <a href="https://github.com/davidsjoberg/ggbump">here</a>. Bump plots are helpful for showing change in rank over time.</p>
+<pre class="r"><code># devtools::install_github(&quot;davidsjoberg/ggbump&quot;)
+library(ggbump)
+
+blockbusters2 &lt;-
+  blockbusters %&gt;% 
+  filter(genre %in% c(&quot;Action&quot;, &quot;Comedy&quot;, &quot;Drama&quot;)) %&gt;% 
+  group_by(year) %&gt;% 
+  mutate(rank = rank(box_office))
+
+ggplot(blockbusters2, aes(year, rank, color = genre)) +
+  geom_point(size = 7) +
+  geom_bump() +
+  scale_color_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="waffle-charts" class="section level2">
+<h2>Waffle Charts</h2>
+<p>For waffle charts, which are handy visualizations that show completion or parts of a whole, there is hrbrmstr’s {waffle}. The repo is <a href="https://github.com/hrbrmstr/waffle">here</a>. Check out the ability to bring in other {ggplot2} functions, like <code>facet_wrap</code>. {waffle} also allows you to create pictograms using <code>geom_pictogram</code>, which replaces the squares in the ‘waffle’ with pictures.</p>
+<pre class="r"><code># install.packages(&quot;waffle&quot;, repos = &quot;https://cinc.rud.is&quot;)
+library(waffle)
+
+ggplot(as_tibble(Titanic), aes(fill = Sex, values = n)) +
+  geom_waffle(n_rows = 20, color = &quot;white&quot;) +
+  facet_wrap(~ Survived, ncol = 1)  +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="beeswarm-charts" class="section level2">
+<h2>Beeswarm Charts</h2>
+<p>Beeswarm charts, similar to jitter plots in {ggplot2}, plot individual points showing distributions without allowing the points to overlap too much. Erik Clarke’s repo for {ggbeeswarm} is <a href="https://github.com/eclarke/ggbeeswarm">here</a>.</p>
+<pre class="r"><code># install.packages(&quot;ggbeeswarm&quot;)
+library(ggbeeswarm)
+
+ggplot(blockbusters, aes(x = genre, y = box_office, color = genre)) + 
+  geom_quasirandom() +
+  theme_minimal() +
+  scale_color_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="mosaic-charts" class="section level2">
+<h2>Mosaic Charts</h2>
+<p>Mosaic charts are incredibly helpful when displaying proportions of (multiple) categories. The {ggmosaic} package by Haley Jeppson (repo <a href="https://github.com/haleyjeppson/ggmosaic">here</a>) uses <code>geom_mosaic</code> to create these visualizations.</p>
+<pre class="r"><code># devtools::install_github(&quot;haleyjeppson/ggmosaic&quot;)
+library(ggmosaic)
+
+ggplot(as.data.frame(UCBAdmissions)) +
+  geom_mosaic(aes(x = product(Admit, Dept), fill = Gender, weight = Freq)) +
+  scale_fill_manual(values = wes_palette(&quot;Darjeeling2&quot;)) +
+  theme_minimal()</code></pre>
+<p><img src="/blog/other-geoms_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="other-geoms" class="section level2">
+<h2>Other Geoms</h2>
+<p>I know there exist a ton of other geoms that work with {ggplot2} out there. Just as I was writing this blogpost, I discovered {gghilbertstrings}! What other gg packages or geoms do you know of? Let me know on <a href="https://twitter.com/ivelasq3">Twitter</a> and I’ll list them here!</p>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/visualization">visualization</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://ivelasq.rbind.io/blog/rtistry-intro/"> &laquo; Getting Started in #rtistry</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://ivelasq.rbind.io/blog/bookdown-manuscript/">Creating a Book Manuscript using {bookdown} &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/bookdown">bookdown</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cran">cran</a>
+			
+			<a class="mt-1 mb-1" href="/tags/dataedu">dataedu</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ggplot2">ggplot2</a>
+			
+			<a class="mt-1 mb-1" href="/tags/graduate-school">graduate-school</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-gpx">import-gpx</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-pdf">import-pdf</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-xls">import-xls</a>
+			
+			<a class="mt-1 mb-1" href="/tags/mapbox">mapbox</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maps">maps</a>
+			
+			<a class="mt-1 mb-1" href="/tags/package-development">package-development</a>
+			
+			<a class="mt-1 mb-1" href="/tags/pair-programming">pair-programming</a>
+			
+			<a class="mt-1 mb-1" href="/tags/residuals">residuals</a>
+			
+			<a class="mt-1 mb-1" href="/tags/scrape">scrape</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shiny">shiny</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spatial">spatial</a>
+			
+			<a class="mt-1 mb-1" href="/tags/summary-statistics">summary-statistics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tidy">tidy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/twitter-data">twitter-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/visualization">visualization</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Isabella Velásquez - This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme by Wowthemes</a> | <a target="_blank" rel="noopener" href="https://www.tiffanymcknight.com/">Website Artwork by Tiffany McKnight</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

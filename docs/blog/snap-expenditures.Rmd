@@ -1,0 +1,139 @@
+---
+comments: false
+date: "2018-12-16"
+tags: ["import-pdf", "tidy", "visualization", "residuals"]
+title: "Transforming PDF's into Useful Tables"
+---
+
+Blog post on importing, tidying, and visualizing SNAP expenditure data.
+
+<!--more-->
+
+```{r, include = FALSE, echo = FALSE, message = FALSE}
+source("/Users/shortessay/pipedreams/R/build.R")
+
+```
+
+Way back in 2016, the USDA released a [study](https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households) entitled "Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households," including a summary, final report, and appendices. Per the USDA's description:
+
+> This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.
+
+At the time though, I was most interested in looking at the [appendices data](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf) - _263_ pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with 'fancy' Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.
+
+I [emailed](mailto:SNAPHQ-WEB@fns.usda.gov) SNAP HQ to ask if they had the raw data available in CSV's and was told simply:
+
+> Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.  
+
+At the time, my R skills were pretty rudimentary and I couldn't figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the wonderful {tidyverse} and {tabulizer} packages.
+
+```{r, include = T, message = F, warning = F}
+library(tidyverse)
+library(tabulizer)
+library(broom)
+```
+
+Use `tabulizer::extract_tables()` to extract the data from the [appendices PDF](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf). Once you extract the tables, you are left with a list (which is slightly more manageable than the original PDFs).
+
+```{r, include = T, message = F, eval = F}
+snap_pdf <-
+  extract_tables("https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf")
+```
+
+```{r, include = F, message = F}
+snap_pdf <-
+  readRDS(here::here("content", "blog", "snap-expenditures_files", "snap_pdf.Rds"))
+```
+
+Using the {purrr} package, create a data frame from the lists while simultaneously removing the unnecessary rows.
+
+```{r, include = T, message = F, warning = F}
+snap_df <- 
+  snap_pdf %>%
+  map(as_tibble) %>%
+  map_df(~ slice(., -2)) # slicing because of the unnecessary rows
+  
+head(snap_df)
+```
+
+Due to the original formatting of the PDFs, there's a bunch of cleaning to be done to make the list into a usable table. Using `slice()`, I choose only the rows from Appendix 1. I manually put in the number of entries (238) because I didn't know how to calculate this using code. If you have ideas, let me know!
+
+```{r, include = T, message = F}
+snap_appendix1 <-
+  snap_df %>% 
+  slice(1:238) # Appendix A has 238 rows
+```
+
+Now comes the fun part (yay data cleaning!). When looking at the data frame, the data for each commodity are all mushed together in two separate columns (V2 and V3), but only one column or the other. Then there are a bunch of empty columns (V4 through V9), probably created from the funky original formatting. The data all begin with numbers as well. First things first - put all the data in a single column. Then, remove all the empty rows in the newly created `col_dat` column.
+
+```{r, include = T, message = F}
+snap_appendix1_cleaned <-
+  snap_appendix1 %>%
+  mutate(col_dat = case_when(grepl("[0-9]", V2) ~ V2, # create a column that contains all the data
+                           grepl("[0-9]", V3) ~ V3,
+                           TRUE ~ "")) %>% 
+  filter(col_dat != "") # some rows are empty
+
+head(snap_appendix1_cleaned)
+```
+
+Now the numeric data we want is wonderfully in a single column, so we can select the columns `V1` and `col_dat`.
+
+```{r, include = T, message = F}
+snap_appendix1_cleaned <-
+  snap_appendix1_cleaned %>% 
+  select(V1, col_dat)
+
+head(snap_appendix1_cleaned)
+```
+
+All the numeric data is still mushed in column `col_dat`, so using `tidyr::separate()` we can split the values because they are all separated by spaces. Referencing the original PDF, we descriptively rename the columns (and rename the commodity column `V1` as well). The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can sub out those unnecessary characters and transform those columns into truly numeric values.
+
+```{r, include = T, message = F}
+snap_appendix1_cleaned <-
+  snap_appendix1_cleaned %>%
+  separate(col_dat, " ",
+           into = c("snap_rank", "snap_dollars_in_millions", "snap_pct_total_expenditures", "nonsnap_rank", "nonsnap_dollars_in_millions", "nonsnap_pct_total_expenditures")) %>%
+  rename(commodity = V1) %>%
+  mutate_at(vars(snap_rank:nonsnap_pct_total_expenditures), list(~ as.numeric(gsub(",|%|\\$", "", .))))
+
+head(snap_appendix1_cleaned)
+```
+
+Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.
+
+```{r, include = T, message = F, fig.align='center'}
+snap_appendix1_cleaned <-
+  snap_appendix1_cleaned %>%
+  mutate_at(vars(contains("pct")), list(~ ./100))
+
+head(snap_appendix1_cleaned)
+```
+
+Tada! Now we have a clean dataset from the original not-very-usable PDFs.
+
+Another goal is to at some point do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analysis with it. For the purposes of this blogpost, here are some quick ggplots comparing the rank of commodities between families served by SNAP and those who are not.
+
+```{r, include = T, message = F, fig.align='center'}
+snap_appendix1_cleaned %>% # quick correlation plot
+  ggplot(aes(x = snap_rank, y = nonsnap_rank)) +
+  geom_point(color = "#00C3DA") +
+  theme_iv() # custom theme
+
+snap_lm <- lm(snap_rank ~ nonsnap_rank, data = snap_appendix1_cleaned)
+snap_res <- augment(snap_lm)
+
+snap_res %>% # quick residual plot
+  ggplot(aes(x = .fitted, y = .resid)) +
+  geom_point(color = "#00C3DA") +
+  theme_iv() # custom theme
+```
+
+I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap). More to come!
+
+*Liked this article? I'd love for you to retweet!*
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1074704678858973184')
+```
+</center>

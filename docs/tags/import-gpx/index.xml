@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>import gpx on %&gt;% dreams</title>
+    <link>https://ivelasq.rbind.io/tags/import-gpx/</link>
+    <description>Recent content in import gpx on %&gt;% dreams</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Isabella Velásquez - This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!</copyright>
+    <lastBuildDate>Sat, 06 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://ivelasq.rbind.io/tags/import-gpx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taking A Peek into My Hiking Data</title>
+      <link>https://ivelasq.rbind.io/blog/average-hike/</link>
+      <pubDate>Sat, 06 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ivelasq.rbind.io/blog/average-hike/</guid>
+      <description>
+&lt;script src=&#34;https://ivelasq.rbind.io/rmarkdown-libs/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Blog post on importing, tidying, and visualizing hiking location data.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

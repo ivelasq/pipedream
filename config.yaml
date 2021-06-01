@@ -38,3 +38,8 @@ menu:
       name: Portfolio
       url: /static/portfolio
       weight: 300
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

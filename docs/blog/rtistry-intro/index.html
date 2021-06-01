@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.82.0" />
+	
+	<link rel="icon" href="/images/logo.png">
+	
+	<title>Getting Started in #rtistry | %&gt;% dreams</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started in #rtistry"/>
+<meta name="twitter:description" content="
+
+
+
+Introduction to creating generative art using R.
+"/>
+
+	<meta property="og:title" content="Getting Started in #rtistry" />
+<meta property="og:description" content="
+
+
+
+Introduction to creating generative art using R.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ivelasq.rbind.io/blog/rtistry-intro/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-05-09T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-09T00:00:00&#43;00:00" />
+
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+
+	
+	
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://ivelasq.rbind.io//">
+
+            
+            <img src="/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/blog">Blog</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/portfolio">Portfolio</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">%&gt;% dreams</h1>
+    <p class="lead">
+         Isabella Velásquez
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Getting%20Started%20in%20%23rtistry&url=https%3a%2f%2fivelasq.rbind.io%2fblog%2frtistry-intro%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fivelasq.rbind.io%2fblog%2frtistry-intro%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fivelasq.rbind.io%2fblog%2frtistry-intro%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/images/thumbnail.png" alt="Isabella Velásquez">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Isabella Velásquez</a><br>
+                                <span class="author-description">
+                                    Author<br>
+                                    <i class="far fa-star"></i>
+                                    May 9, 2021
+                                    <i class="far fa-clock clock"></i>
+                                    6 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Getting Started in #rtistry</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.</p>
+<p>I am proud to showcase my first #rtistry plot ever! Kinda reminds me of <a href="https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/">KidPix</a> (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I’m not even sure if I am doing it right?</p>
+<center>
+<img src="https://ivelasq.rbind.io/images/rtistry2.png" />
+</center>
+<p>As always, we start with the libraries we will use:</p>
+<pre class="r"><code># Load packages
+library(tidyverse)
+library(viridis)
+library(ggdark)</code></pre>
+<div id="write-a-parametric-equation" class="section level2">
+<h2>Write a parametric equation</h2>
+<p>First up is figuring out the function you will use to create the plot. I decided to go with a parametric equation for my first <code>#rtistry</code> plot. A parametric equation of a curve expresses the coordinates of points of the curve as functions of a variable. <a href="https://lifethroughamathematicianseyes.wordpress.com/2014/11/13/parametric-equations/">This blog post</a> explains the concept very clearly and also has various examples of wonderful parametric equations.</p>
+<p>Why parametric equations? First, even simple equations can create beautiful symmetries. Second, they are easy to modify to find the <em>perfect</em> plot.</p>
+<p>The simplest parametric equation uses cosine and sine to make the unit circle:</p>
+<pre class="r"><code>circleFun &lt;- function(center = c(0, 0), diameter = 1, npoints = 100){
+    r = diameter / 2
+    tt &lt;- seq(0,2*pi,length.out = npoints)
+    xx &lt;- center[1] + r * cos(tt)
+    yy &lt;- center[2] + r * sin(tt)
+    return(data.frame(x = xx, y = yy))
+}
+
+dat &lt;- 
+  circleFun(c(1, -1), 2.3, npoints = 100)
+
+ggplot(dat,aes(x, y)) +
+  geom_path()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Let’s write a function to create a parametric equation. I based this equation on the aforementioned blog post equations. The parameters are:</p>
+<ul>
+<li>center: the center of the equation</li>
+<li>npoints: the number of points used to evaluate the function.</li>
+<li>c1, c2, c3, c4: the coefficients for the equation</li>
+</ul>
+<pre class="r"><code>genFun &lt;- function(center = c(0, 0), npoints = 500, c1 = 2.5, c2 = -5, c3 = 4.28, c4 = 2.3){
+    t &lt;- seq(0, 2*pi, length.out = npoints)
+    xx &lt;- center[1] + c1*(sin(c2*t)*sin(c2*t))*(2^cos(cos(c3*c4*t)))
+    yy &lt;- center[2] + c1*sin(sin(c2*t))*(cos(c3*c4*t)*cos(c3*c4*t))
+    a &lt;- data.frame(x = xx, y = yy)
+    
+    return(a)
+}</code></pre>
+<p>Playing around with the function, we see how the graph gets smoother with more points and how the shape changes with different coefficients.</p>
+<pre class="r"><code>dat &lt;- 
+  genFun(c(1,-1), npoints = 100)
+
+ggplot(dat, aes(x, y)) +
+  geom_path()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>dat &lt;- 
+  genFun(c(1,-1), npoints = 500, c1 = 5, c2 = -3, c3 = 5, c4 = 2)
+
+ggplot(dat, aes(x, y)) +
+  geom_path()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="create-variation-within-the-graph" class="section level2">
+<h2>Create variation within the graph</h2>
+<p>Now that we have a basic shape, let’s play around with different aspects of the graph:</p>
+<ul>
+<li>geoms</li>
+<li>Aesthetic specifications</li>
+<li>Repetition</li>
+</ul>
+<div id="geoms" class="section level3">
+<h3>geoms</h3>
+<p>We started off with <code>geom_path</code> but can play around with other geoms too. Here it is with <code>geom_line</code>:</p>
+<pre class="r"><code>dat &lt;- 
+  genFun(c(1,-1), npoints = 5000)
+
+ggplot(dat, aes(x, y)) +
+  geom_line()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>And with <code>geom_point</code>:</p>
+<pre class="r"><code>set.seed(1234)
+
+dat &lt;- 
+  genFun(c(1,-1), npoints = 500)
+
+dat %&gt;% 
+  ggplot(aes(x, y)) +
+  geom_point()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="aesthetic-specifications" class="section level3">
+<h3>Aesthetic specifications</h3>
+<p>The {ggplot2} package has several aesthetic specifications available for plots. A full list can be found <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html">here</a>.</p>
+<p>We’re going to go ahead and get rid of all the background using <code>theme_void()</code>.</p>
+<div id="size" class="section level4">
+<h4>Size</h4>
+<p>Let’s go with <code>geom_point</code>. In this case, we can start playing around with the aesthetics to see what would look interesting. With <code>geom_point</code>, you can edit the sizes of the points, so we create a column with random point sizes to create some variation.</p>
+<pre class="r"><code>set.seed(1111)
+
+dat &lt;- 
+  genFun(c(1,-1), npoints = 5000) %&gt;% 
+  mutate(rand_w = sample(n())/3000)
+
+dat %&gt;% 
+  ggplot(aes(x, y)) +
+  geom_point(size = dat$rand_w) +
+  theme_void()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="shape" class="section level4">
+<h4>Shape</h4>
+<p>We could also change the shape of each of the points, but I liked the circles more:</p>
+<pre class="r"><code>dat %&gt;% 
+  ggplot(aes(x, y)) +
+  geom_point(size = dat$rand_w,
+             shape = 8) +
+  theme_void()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="opacity" class="section level4">
+<h4>Opacity</h4>
+<p>We could also change the opacity of the points:</p>
+<pre class="r"><code>set.seed(1234)
+
+dat &lt;- 
+  dat %&gt;% 
+  mutate(rand_o = sample(n())/5000)
+
+dat %&gt;% 
+  ggplot(aes(x, y)) +
+  geom_point(size = dat$rand_w,
+             alpha = dat$rand_o) +
+  theme_void()</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="color" class="section level4">
+<h4>Color</h4>
+<p>We can also create a column for random numbers to ascribe colors to each point. I decided to use the magma color palette from the {viridis} package because it is so vibrant. Now that we’re not using only black points, we can use <code>dark_theme_void()</code> from the {ggdark} package for a fully black background.</p>
+<pre class="r"><code>set.seed(1234)
+
+dat &lt;- 
+  dat %&gt;% 
+  mutate(rand_c = sample(n()))
+
+dat %&gt;% 
+  ggplot(aes(x, y,  color = rand_c)) +
+  geom_point(size = dat$rand_w,
+             alpha = dat$rand_o) +
+  scale_color_viridis(option = &quot;magma&quot;) +
+  dark_theme_void() +
+  theme(legend.position = &quot;none&quot;) # remove legend</code></pre>
+<pre><code>## Inverted geom defaults of fill and color/colour.
+## To change them back, use invert_geom_defaults().</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="repetition" class="section level3">
+<h3>Repetition</h3>
+<p>Notice we added <code>rand_w</code>, <code>rand_o</code>, and <code>rand_c</code> so that we can randomly change up the size, opacity, and color of the plot. Let’s go back to our original generative function and them as parameters. Now we can change them without having to add them to the data frame externally from the function. (Apologies for the switching back and forth from dplyr to base R!)</p>
+<pre class="r"><code>genFun &lt;- function(center = c(0, 0), npoints = 500, c1 = 2.5, c2 = -5, c3 = 4.28, c4 = 2.3, size_denom = 1, opacity_denom = 1, color_denom = 1){
+    t &lt;- seq(0, 2*pi, length.out = npoints)
+    xx &lt;- center[1] + c1*(sin(c2*t)*sin(c2*t))*(2^cos(cos(c3*c4*t)))
+    yy &lt;- center[2] + c1*sin(sin(c2*t))*(cos(c3*c4*t)*cos(c3*c4*t))
+    rand_w &lt;- sample(0:20, npoints, replace = TRUE)/size_denom
+    rand_o &lt;- sample(1:100, npoints, replace = TRUE)/opacity_denom
+    rand_c &lt;- sample(1:100, npoints, replace = TRUE)/color_denom
+    a &lt;- data.frame(x = xx, y = yy, rand_w = rand_w, rand_o = rand_o, rand_c = rand_c)
+    
+    return(a)
+}</code></pre>
+<p>Now playing around with the new parameters, I decided to go with this plot:</p>
+<pre class="r"><code>set.seed(1111)
+
+dat &lt;- 
+  genFun(c(0, 0), npoints = 5000, c1 = 5, c2 = -3, c3 = 5, c4 = 2, size_denom = 1.5, opacity_denom = 50)
+
+dat %&gt;% 
+  ggplot(aes(x, y,  color = rand_c)) +
+  geom_point(size = dat$rand_w,
+             alpha = dat$rand_o) +
+  scale_color_viridis(option = &quot;magma&quot;) +
+  dark_theme_void() +
+  theme(legend.position = &quot;none&quot;) # remove legend</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>What this allows us to do is change up the generative function and build on our plot. I was interested in rotating the plot around the axis.</p>
+<pre class="r"><code>dat %&gt;% 
+  ggplot() +
+  geom_point(aes(x, y,  color = rand_c),
+             size = dat$rand_w,
+             alpha = dat$rand_o) +
+  geom_point(aes(-x, -y,  color = rand_c),
+             size = dat$rand_w,
+             alpha = dat$rand_o) +
+  geom_point(aes(-y, x,  color = rand_c),
+             size = dat$rand_w,
+             alpha = dat$rand_o) +
+  geom_point(aes(-y, -x,  color = rand_c),
+             size = dat$rand_w,
+             alpha = dat$rand_o) +
+  scale_color_viridis(option = &quot;magma&quot;) +
+  dark_theme_void() +
+  theme(legend.position = &quot;none&quot;) # remove legend</code></pre>
+<p><img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code># ggsave(here::here(&quot;public&quot;, &quot;img&quot;, &quot;rtistry2.png&quot;), dpi = 320, height = 6, width = 8) + # this sames the image</code></pre>
+<p>Tada! My first ever #rtistry plot.</p>
+</div>
+</div>
+<div id="conclusion" class="section level2">
+<h2>Conclusion</h2>
+<p>This was my attempt to create generative art in R! It was fun to figure out how on earth to even get started and see how the plots change with new parameters on different attempts. I welcome any thoughts and please share your art using the #rtistry hashtag with <a href="https://twitter.com/ivelasq3">me</a>!</p>
+<div id="rtists-i-follow" class="section level3">
+<h3>rtists I follow</h3>
+<ul>
+<li><a href="https://twitter.com/djnavarro">Danielle Navarro</a></li>
+<li><a href="https://twitter.com/ijeamaka_a">Ijeamaka A</a></li>
+<li><a href="https://twitter.com/geokaramanis">Georgios Karamanis</a></li>
+<li><a href="https://twitter.com/toeb18">Tobias Stalder</a></li>
+</ul>
+</div>
+<div id="packages-for-creating-generative-art" class="section level3">
+<h3>Packages for creating generative art</h3>
+<ul>
+<li><span class="citation">@djnavarro</span>’s <a href="https://github.com/djnavarro/flametree">flametree</a></li>
+<li><span class="citation">@ijeamaka_a</span>’s <a href="https://github.com/Ijeamakaanyene/contouR">contourR</a></li>
+<li><span class="citation">@cutterkom</span>’s <a href="https://github.com/cutterkom/generativeart">generativeart</a></li>
+</ul>
+<center>
+{{% tweet "1391947964013285379" %}}
+</center>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/ggplot2">ggplot2</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://ivelasq.rbind.io/blog/other-geoms/">Exploring Other {ggplot2} geoms &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/bookdown">bookdown</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cran">cran</a>
+			
+			<a class="mt-1 mb-1" href="/tags/dataedu">dataedu</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ggplot2">ggplot2</a>
+			
+			<a class="mt-1 mb-1" href="/tags/graduate-school">graduate-school</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-gpx">import-gpx</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-pdf">import-pdf</a>
+			
+			<a class="mt-1 mb-1" href="/tags/import-xls">import-xls</a>
+			
+			<a class="mt-1 mb-1" href="/tags/mapbox">mapbox</a>
+			
+			<a class="mt-1 mb-1" href="/tags/maps">maps</a>
+			
+			<a class="mt-1 mb-1" href="/tags/package-development">package-development</a>
+			
+			<a class="mt-1 mb-1" href="/tags/pair-programming">pair-programming</a>
+			
+			<a class="mt-1 mb-1" href="/tags/residuals">residuals</a>
+			
+			<a class="mt-1 mb-1" href="/tags/scrape">scrape</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shiny">shiny</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spatial">spatial</a>
+			
+			<a class="mt-1 mb-1" href="/tags/summary-statistics">summary-statistics</a>
+			
+			<a class="mt-1 mb-1" href="/tags/tidy">tidy</a>
+			
+			<a class="mt-1 mb-1" href="/tags/twitter-data">twitter-data</a>
+			
+			<a class="mt-1 mb-1" href="/tags/visualization">visualization</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Isabella Velásquez - This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction. Many thanks to Dr. Noam Ross for the language included here!
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme by Wowthemes</a> | <a target="_blank" rel="noopener" href="https://www.tiffanymcknight.com/">Website Artwork by Tiffany McKnight</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

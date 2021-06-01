@@ -84,4 +84,4 @@ The purpose of these data science/analytics degrees is to serve as a means to an
 
 *Liked this article? I'd love for you to retweet!*
 
-`r blogdown::shortcode('tweet', '1288498168183681024')`
+{{< tweet 1288498168183681024 >}}
