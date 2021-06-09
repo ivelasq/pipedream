@@ -1,0 +1,71 @@
+---
+tags: ["cran", "package-development"]
+date: "2020-02-25"
+title: "You CRAN Do It"
+---
+
+Recommendations for submitting an R package to CRAN.
+
+<!--more-->
+
+As the @[WeAreRLadies](https://twitter.com/WeAreRLadies) curator, I [asked the Twitterverse](https://twitter.com/WeAreRLadies/status/1227937968117043200) for advice when submitting a package to the Comprehensive R Archive Network (CRAN) for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!
+
+Here’s what to expect when succeeding to get your package on CRAN!
+
+<center>
+{{% tweet "1228139634871472129" %}}
+</center>
+
+## Read the Official CRAN Documentation
+
+… which is [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html)! “Necessary and sufficient,” according to Avraham Adler.
+
+## You can get by with a little help from your friends
+
+{usethis}, {devtools}, and {roxygen2}, although not necessary, are useful tools for creating CRAN-ready packages.
+
+## Documentation is key
+
+-   Have tests and coverage via {covr}, and making sure they run without issues on all platforms
+-   CRAN will ask that you add examples to your package, wrapped in `\dontrun{}` and `\donttest{}`.
+-   Have others read your stuff and provide feedback!
+
+## Let Reviewers Know Why This Should Be on CRAN
+
+A quick note letting the reviewers know why your package should be on CRAN goes a long way.
+
+<center>
+{{% tweet "1228056164937523200" %}}
+</center>
+
+## Be Patient
+
+The people at CRAN are busy! It might take a while for them to reply and accept your package. If you want to track where your package is at, you can take a look at the [CRAN Incoming Dashboard](https://lockedata.github.io/cransays/articles/dashboard.html).
+
+## Emails will be Terse
+
+This is particularly difficult for me to hear, as someone who provides! ample! exclamation marks! in emails! in order to sound cheery and polite, but responses can be short and to-the-point. Breathe, and address everything mentioned. When you do reply, respond to the CRAN list.
+
+## Persist
+
+The reviewers will let you know what you need to do for approval. Go through their list carefully and try again!
+
+<center>
+{{% tweet "1228043230601777152" %}}
+</center>
+
+Many thanks to the R Community for their words of advice and encouragement ❤
+
+## Guides
+
+-   [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) (Official CRAN Documentation)
+-   Hadley Wickham and Jenny Bryan’s [R Packages](https://r-pkgs.org/)
+-   Julia Silge’s [How I Learned to Stop Worrying and Love R CMD Check](https://juliasilge.com/blog/how-i-stopped/)
+-   Maëlle Salmon’s [Code Examples in R Package Manuals](https://blog.r-hub.io/2020/01/27/examples/)
+-   R-hub’s [Prepare a CRAN submission](https://r-hub.github.io/rhub/articles/rhub.html#prepare-a-cran-submission)
+-   R-hub’s [CRAN submission preparation with rhub](https://vimeo.com/329059890)
+-   Karl Broman’s [Getting Your R Package on CRAN](https://kbroman.org/pkg_primer/pages/cran.html)
+-   Colin Fay’s [Preparing your package for a CRAN submission](https://github.com/ThinkR-open/prepare-for-cran)
+-   Jp Marín Díaz’s [How to publish a package to CRAN](https://jpmarindiaz.com/2020-01-08-how-to-publish-a-package-to-cran/) and [From 0 to CRAN in 1 day](https://jpmarindiaz.com/2020-02-13-from-0-to-cran-in-1-day/)
+-   Jim Hester’s [Submitting vroom to CRAN, LIVE!](https://www.jimhester.com/post/2019-05-01-submit-vroom/)
+-   Ryo Nakagawara’s [CRAN Trial(s) and Error(s) and Future Releases](https://ryo-n7.github.io/2019-09-06-tvthemes-CRAN-announcement/#cran-trials-and-errors-and-future-releases)
