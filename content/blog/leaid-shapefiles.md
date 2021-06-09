@@ -143,6 +143,5 @@ Please try out {leaidr}! I hope that it is useful to you in your work. I'd love 
 
 ## Resources
 
-* [**Joining Spatial Data**](
-# joining spatial data: http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html)
+* [**Joining Spatial Data**](http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html)
 * [**Analyzing U.S. Census Data Using R**](https://rpubs.com/DanielSLee/censusMap)

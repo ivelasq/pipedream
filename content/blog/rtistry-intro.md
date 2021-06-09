@@ -78,7 +78,7 @@ ggplot(dat, aes(x, y)) +
   geom_path()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" />
 
 ``` r
 dat <- 
@@ -88,7 +88,7 @@ ggplot(dat, aes(x, y)) +
   geom_path()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
 
 ## Create variation within the graph
 
@@ -110,7 +110,7 @@ ggplot(dat, aes(x, y)) +
   geom_line()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" />
 
 And with `geom_point`:
 
@@ -125,7 +125,7 @@ dat %>%
   geom_point()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Aesthetic specifications
 
@@ -150,7 +150,7 @@ dat %>%
   theme_void()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Shape
 
@@ -164,7 +164,7 @@ dat %>%
   theme_void()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Opacity
 
@@ -184,7 +184,7 @@ dat %>%
   theme_void()
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" />
 
 #### Color
 
@@ -209,7 +209,7 @@ dat %>%
     ## Inverted geom defaults of fill and color/colour.
     ## To change them back, use invert_geom_defaults().
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" />
 
 ### Repetition
 
@@ -246,7 +246,7 @@ dat %>%
   theme(legend.position = "none") # remove legend
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" />
 
 What this allows us to do is change up the generative function and build on our plot. I was interested in rotating the plot around the axis.
 
@@ -270,7 +270,7 @@ dat %>%
   theme(legend.position = "none") # remove legend
 ```
 
-<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+<img src="/blog/rtistry-intro_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" />
 
 ``` r
 # ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8) + # this sames the image

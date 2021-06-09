@@ -68,7 +68,7 @@ genFun <- function(center = c(0, 0), npoints = 500, c1 = 2.5, c2 = -5, c3 = 4.28
 
 Playing around with the function, we see how the graph gets smoother with more points and how the shape changes with different coefficients.
 
-```{r}
+```{r, fig.align='center'}
 dat <- 
   genFun(c(1,-1), npoints = 100)
 
@@ -76,7 +76,7 @@ ggplot(dat, aes(x, y)) +
   geom_path()
 ```
 
-```{r}
+```{r, fig.align='center'}
 dat <- 
   genFun(c(1,-1), npoints = 500, c1 = 5, c2 = -3, c3 = 5, c4 = 2)
 
@@ -96,7 +96,7 @@ Now that we have a basic shape, let's play around with different aspects of the 
 
 We started off with `geom_path` but can play around with other geoms too. Here it is with `geom_line`:
 
-```{r}
+```{r, fig.align='center'}
 dat <- 
   genFun(c(1,-1), npoints = 5000)
 
@@ -106,7 +106,7 @@ ggplot(dat, aes(x, y)) +
 
 And with `geom_point`:
 
-```{r}
+```{r, fig.align='center'}
 set.seed(1234)
 
 dat <- 
@@ -127,7 +127,7 @@ We're going to go ahead and get rid of all the background using `theme_void()`.
 
 Let's go with `geom_point`. In this case, we can start playing around with the aesthetics to see what would look interesting. With `geom_point`, you can edit the sizes of the points, so we create a column with random point sizes to create some variation.
 
-```{r}
+```{r, fig.align='center'}
 set.seed(1111)
 
 dat <- 
@@ -144,7 +144,7 @@ dat %>%
 
 We could also change the shape of each of the points, but I liked the circles more:
 
-```{r}
+```{r, fig.align='center'}
 dat %>% 
   ggplot(aes(x, y)) +
   geom_point(size = dat$rand_w,
@@ -156,7 +156,7 @@ dat %>%
 
 We could also change the opacity of the points:
 
-```{r}
+```{r, fig.align='center'}
 set.seed(1234)
 
 dat <- 
@@ -174,7 +174,7 @@ dat %>%
 
 We can also create a column for random numbers to ascribe colors to each point. I decided to use the magma color palette from the {viridis} package because it is so vibrant. Now that we're not using only black points, we can use `dark_theme_void()` from the {ggdark} package for a fully black background.
 
-```{r}
+```{r, fig.align='center'}
 set.seed(1234)
 
 dat <- 
@@ -210,7 +210,7 @@ genFun <- function(center = c(0, 0), npoints = 500, c1 = 2.5, c2 = -5, c3 = 4.28
 
 Now playing around with the new parameters, I decided to go with this plot:
 
-```{r}
+```{r, fig.align='center'}
 set.seed(1111)
 
 dat <- 
@@ -227,7 +227,7 @@ dat %>%
 
 What this allows us to do is change up the generative function and build on our plot. I was interested in rotating the plot around the axis.
 
-```{r}
+```{r, fig.align='center'}
 dat %>% 
   ggplot() +
   geom_point(aes(x, y,  color = rand_c),

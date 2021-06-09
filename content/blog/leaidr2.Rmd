@@ -14,7 +14,7 @@ A few months ago, I created [{leaidr}](https://github.com/ivelasq/leaidr) for ea
 
 Now, instead of having to run `lea_prep()`, you can download the shapefiles from Dan's Github repository like so:
 
-```{r, message = FALSE, warning = FALSE}
+```{r, message = FALSE, warning = FALSE, fig.align='center'}
 library(leaidr)
 
 tn <- lea_get("tn")

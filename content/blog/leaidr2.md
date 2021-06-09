@@ -35,7 +35,7 @@ tn <- lea_get("tn")
 ```
 
     ## OGR data source with driver: ESRI Shapefile 
-    ## Source: "/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpJhI6U9/47", layer: "47"
+    ## Source: "/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpNVPANR/47", layer: "47"
     ## with 158 features
     ## It has 18 fields
 
@@ -46,7 +46,7 @@ tn %>%
   ggplot2::geom_sf()
 ```
 
-<img src="/blog/leaidr2_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="/blog/leaidr2_files/figure-html/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" />
 
 And, if you use `lea_get()` (i.e., with `state = NULL`), you’ll get the shapefiles for the whole U.S. back via ROpenSci’s {piggyback}.
 
@@ -201,3 +201,9 @@ So, if you were to install and load {leaidr}, you can run `leaidr::runExample()`
 ## Conclusion
 
 In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!
+
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+{{% tweet "1300446746955452416" %}}
+</center>
