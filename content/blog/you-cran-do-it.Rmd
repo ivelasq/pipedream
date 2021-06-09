@@ -76,3 +76,11 @@ Many thanks to the R Community for their words of advice and encouragement ❤
 * Jim Hester's [Submitting vroom to CRAN, LIVE!](https://www.jimhester.com/post/2019-05-01-submit-vroom/)
 * Ryo Nakagawara's [CRAN Trial(s) and Error(s) and Future Releases](https://ryo-n7.github.io/2019-09-06-tvthemes-CRAN-announcement/#cran-trials-and-errors-and-future-releases)
 
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1233031919551401984')
+```
+</center>
+

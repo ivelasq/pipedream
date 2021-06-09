@@ -291,9 +291,11 @@ This was my attempt to create generative art in R! It was fun to figure out how 
 
 ### Packages for creating generative art
 
--   (**djnavarro?**)’s [flametree](https://github.com/djnavarro/flametree)
--   (**ijeamaka\_a?**)’s [contourR](https://github.com/Ijeamakaanyene/contouR)
--   (**cutterkom?**)’s [generativeart](https://github.com/cutterkom/generativeart)
+-   djnavarro’s [flametree](https://github.com/djnavarro/flametree)
+-   ijeamaka\_a’s [contourR](https://github.com/Ijeamakaanyene/contouR)
+-   cutterkom’s [generativeart](https://github.com/cutterkom/generativeart)
+
+*Liked this article? I’d love for you to retweet!*
 
 <center>
 {{% tweet "1391947964013285379" %}}

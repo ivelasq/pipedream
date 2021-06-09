@@ -177,3 +177,11 @@ So, if you were to install and load {leaidr}, you can run `leaidr::runExample()`
 
 In conclusion, {leaidr} can help you map your data as long as you have school district LEAID's or names in there somewhere. I hope that it helps you in your education data projects!
 
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1300446746955452416')
+```
+</center>
+

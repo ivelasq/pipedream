@@ -248,3 +248,11 @@ census_us_income %>%
 ```
 
 From this graph, we can see that respondents from the lower income bands were more likely to say that classes were canceled for their children due to COVID.
+
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1266372221179588609')
+```
+</center>

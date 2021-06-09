@@ -321,3 +321,10 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1125384610894843905')
+```
+</center>
