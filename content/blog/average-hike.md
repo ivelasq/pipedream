@@ -9,72 +9,71 @@ Blog post on importing, tidying, and visualizing hiking location data.
 
 <!--more-->
 
-I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of 'a  hike'). I must admit I've been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
+I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing), despite the ubiquity of trail tracking apps that exist.
 
 Recently, I signed up on [AllTrails](https://www.alltrails.com/) to start collecting data on my hikes. The Pro service offers many wonderful features, including the ability to download GPX data on hikes. I was so excited by this that I decided to try to visualize the hikes I have done.
 
-I'm structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualizations](#viz) sections below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text [n = 85]! Still, I prefer having the code at the end).
+I’m structuring this article a bit differently with the results/visualizations first, but for anybody dying to see the data cleaning process, please see the [Methodology](#methodology) or [Visualizations](#viz) sections below! (Interesting, I ran [a poll on Twitter](https://twitter.com/ivelasq3/status/1121536896956428289) in which I asked whether people embed code in the main text of their blog post or at the end. 91% embed in the main text \[n = 85\]! Still, I prefer having the code at the end).
 
 # Analysis
 
-## Disclaimer 
+## Disclaimer
 
-For data collection, I downloaded each trail's GPX files from AllTrails. Because these data are proprietary, I will not be providing them. Some things to note:
+For data collection, I downloaded each trail’s GPX files from AllTrails. Because these data are proprietary, I will not be providing them. Some things to note:
 
-* Because these are data pulled from the website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).
-* There are hikes that I did back-to-back that I'd consider one hike but the trails might be listed separately on the site. For example, Deception Pass is actually made up of three small loops.
+-   Because these are data pulled from the website, they are not indicative of my actual hiking path (for example, Franklin Falls is a 2 mile hike in the summer, but in the winter is a 6 mile snowshoe).
+-   There are hikes that I did back-to-back that I’d consider one hike but the trails might be listed separately on the site. For example, Deception Pass is actually made up of three small loops.
 
 ## The hikes are wide and varied
 
-Being fortunate enough to live near multiple mountain ranges, the hikes I've been on come in all shapes and sizes.
+Being fortunate enough to live near multiple mountain ranges, the hikes I’ve been on come in all shapes and sizes.
 
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/joyplot.png)
+![](https://ivelasq.rbind.io/images/average-hike_files/joyplot.png)
 
-I calculated my 'average hike' - that is, the average elevation given the cumulative distance traveled.
-  
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/avg_hike.png)
+I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance traveled.
+
+![](https://ivelasq.rbind.io/images/average-hike_files/avg_hike.png)
 
 ## Aggregated Data by Trail
-  
-In the aggregate, there seems to be  a correlation (r^2 = 0.48) between total distance and total elevation.  
-  
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/tot_dis_elev.png) 
+
+In the aggregate, there seems to be a correlation (r^2 = 0.48) between total distance and total elevation.
+
+![](https://ivelasq.rbind.io/images/average-hike_files/tot_dis_elev.png)
 
 ## There Exist Categories of Hikes
 
 I ran a quick [cluster analysis](https://uc-r.github.io/kmeans_clustering) to see if I can categorize my hikes in any way. Code is in the [Methodology](#methodology) section. Four clusters seemed to be optimal. I have dubbed them:
 
-* Cluster 1: "Let's Get This Over With" (steep & hard)
-* Cluster 2: "Easy Peasy Lemon Squeezy" (short & flat)
-* Cluster 3: "The Sweet Spot" (not too long, not too high)
-* Cluster 4: "I Don't Care About My Knees Anyway" (too long for my own good)
+-   Cluster 1: “Let’s Get This Over With” (steep & hard)
+-   Cluster 2: “Easy Peasy Lemon Squeezy” (short & flat)
+-   Cluster 3: “The Sweet Spot” (not too long, not too high)
+-   Cluster 4: “I Don’t Care About My Knees Anyway” (too long for my own good)
 
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/cluster_analysis.png)
+![](https://ivelasq.rbind.io/images/average-hike_files/cluster_analysis.png)
 
-## I don't particularly love long hikes
+## I don’t particularly love long hikes
 
-My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments...). In these 90 hikes, I hiked around 576 miles.
+My average hike is 6.4 miles - and most of them are concentrated around that distance. This makes sense as I usually day hike and need to get back at a reasonable time. My shortest hike was 1.18 miles and my longest was 17.85 (the Enchantments…). In these 90 hikes, I hiked around 576 miles.
 
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/dist_histogram.png) ![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/cum_dist.png)
+![](https://ivelasq.rbind.io/images/average-hike_files/dist_histogram.png) ![](https://ivelasq.rbind.io/images/average-hike_files/cum_dist.png)
 
-## I don't dislike high elevation hikes though
+## I don’t dislike high elevation hikes though
 
-Elevation on these hikes ranged from ~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (~24 miles!).
+Elevation on these hikes ranged from \~0 feet to 4580 feet gain. I averaged 1455.4 feet gain and have climbed 130,984 feet (\~24 miles!).
 
-![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/elev_histogram.png) ![](https://ivelasq.rbind.io/images/average-hike_filesaverage-hike_files/cum_elev.png)
+![](https://ivelasq.rbind.io/images/average-hike_files/elev_histogram.png) ![](https://ivelasq.rbind.io/images/average-hike_files/cum_elev.png)
 
-# Methodology {#methodology}
+# Methodology
 
 ## Choose Packages
 
 It took a bit to decide which packages had the functions needed to run the spatial analyses. In the end, I decided on:
 
-* **plotKML**: A package containing functions to read GPX files.
-* **geosphere**: A package containing functions for geospatial calculations. I decided to use this for finding out distances between lon/lat.
-* **googleway**: A package allowing access to the Google Maps API. To run this, you need to obtain a Google Maps API key and load it to R by using `set_key()`. I use this for elevation calculations but the API can also obtain distance between points.
+-   **plotKML**: A package containing functions to read GPX files.
+-   **geosphere**: A package containing functions for geospatial calculations. I decided to use this for finding out distances between lon/lat.
+-   **googleway**: A package allowing access to the Google Maps API. To run this, you need to obtain a Google Maps API key and load it to R by using `set_key()`. I use this for elevation calculations but the API can also obtain distance between points.
 
-
-```r
+``` r
 library(tidyverse)
 library(googleway)
 library(plotKML)
@@ -83,16 +82,14 @@ library(geosphere)
 googleway::set_key(API_KEY_HERE)
 ```
 
-
 ## Upload Data
 
 I downloaded each GPX file from AllTrails and saved them in a file in my project organization. Their file names were TRAILNAME.gpx.
 
-* Using `plotKML::readGPX()` results in the files being loaded as lists.
-* I used `purrr` in conjunction with `plotKML()` to handily read them in and add the file name to the list. 
+-   Using `plotKML::readGPX()` results in the files being loaded as lists.
+-   I used `purrr` in conjunction with `plotKML()` to handily read them in and add the file name to the list.
 
-
-```r
+``` r
 # find gpx files
 data_path <- 
   here::here("data", "raw", "gpx_files")
@@ -120,12 +117,11 @@ gpx_dat <-
 
 ## Calculate Elevation
 
-We can use `googleway::google_elevation()` to access the Google Elevation API and calculate elevation for every lon/lat pair from the GPX files. Unfortunately, the API accepts and returns only a few requests at a time (~200 rows for these files). We have over 51,000 rows of data. So, we can create groups for every 200 rows and use a loop to make a call for each 
+We can use `googleway::google_elevation()` to access the Google Elevation API and calculate elevation for every lon/lat pair from the GPX files. Unfortunately, the API accepts and returns only a few requests at a time (\~200 rows for these files). We have over 51,000 rows of data. So, we can create groups for every 200 rows and use a loop to make a call for each
 
 This results in a list, so we can then create a tibble pulling out the data we want.
 
-
-```r
+``` r
 lonlat_dat <-
   gpx_dat %>%
   map_df(., ~.x$"routes"[[1]], .id = "trail") %>%
@@ -167,13 +163,12 @@ elev_df <-
 
 Now we have a list of trails, longitudes and latitudes along their paths, and the elevation for each of those points. Now we want to calculate the distance along the paths.
 
-* We bring back `lonlat_dat` so we know what trails with which each points are associated.
-* To use calculate distance, we can use `distHaversine()` with two sets of lon/lat. We create the second set of lon/lat by creating a new variable that takes the "next" value in a vector (so we're calculating the distance between point A and point B, point B to point C, and so on).
-* `cumsum()` accumulates the distances between each set of lon/lat.
-* Finally, we calculate the elevation gain for each hike.
+-   We bring back `lonlat_dat` so we know what trails with which each points are associated.
+-   To use calculate distance, we can use `distHaversine()` with two sets of lon/lat. We create the second set of lon/lat by creating a new variable that takes the “next” value in a vector (so we’re calculating the distance between point A and point B, point B to point C, and so on).
+-   `cumsum()` accumulates the distances between each set of lon/lat.
+-   Finally, we calculate the elevation gain for each hike.
 
-
-```r
+``` r
 hiking_dat <-
   plyr::join(elev_df, lonlat_dat, type = "left", match = "first") %>% 
   group_by(trail) %>% 
@@ -190,10 +185,9 @@ hiking_dat <-
 
 ## Create Additional Tables
 
-For nerdy kicks, I also wanted to find out my 'average' hike - that is, the average distance, the average elevation, and the average elevation for each distance. I also wanted to see the total distance and elevation for each trail for which I pulled data.
+For nerdy kicks, I also wanted to find out my ‘average’ hike - that is, the average distance, the average elevation, and the average elevation for each distance. I also wanted to see the total distance and elevation for each trail for which I pulled data.
 
-
-```r
+``` r
 avg_elev <- # average elevation by distance
   hiking_dat %>% 
   group_by(round(cumdist, 1)) %>% 
@@ -209,12 +203,11 @@ hiking_dat_by_trail <- # total gain/distance by trail
          tot_elev_scaled = scale(tot_elev_gain))
 ```
 
-# Visualizations {#viz}
+# Visualizations
 
 Below is the code for the visualizations presented above.
 
-
-```r
+``` r
 library(tidyverse)
 library(viridis)
 library(ggridges)
@@ -327,3 +320,8 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
+*Liked this article? I’d love for you to retweet!*
+
+<center>
+{{% tweet "1125384610894843905" %}}
+</center>
