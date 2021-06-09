@@ -4,7 +4,7 @@ date: 2020-07-13
 tags: ["community"]
 ---
 
-Blogpost on how the R community contributed to Data Science in Education Using R. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
+Blogpost on how the R community enabled Data Science in Education Using R. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
 
 <!--more-->
 
