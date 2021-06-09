@@ -33,7 +33,7 @@ Why parametric equations? First, even simple equations can create beautiful symm
 
 The simplest parametric equation uses cosine and sine to make the unit circle:
 
-```{r}
+```{r, fig.align='center'}
 circleFun <- function(center = c(0, 0), diameter = 1, npoints = 100){
     r = diameter / 2
     tt <- seq(0,2*pi,length.out = npoints)
