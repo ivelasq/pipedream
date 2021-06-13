@@ -14,6 +14,12 @@ devtools::install_github("hadley/emo")
 
 > It is like a party all the time; nobody has to worry about giving one or being invited; it is going on every day in the street and you can go down or be part of it from your window. - Eleanor Clark
 
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1290688259182526466')
+```
+</center>
+
 Without the R community, [*Data Science in Education Using R*](https://www.datascienceineducation.com/) would never have happened. Most evidently, we wouldn't have met each other without the strong R presence on Twitter that sparked a conversation about data use in education. More importantly though, are the aspects of the R community that inspired that initial discussion and enabled us to complete a book for a broad and complex field. 
 
 In the [first chapter of our book](https://datascienceineducation.com/c01.html), we invite data practitioners in education to the party but the R community invited us to the party first. Like any successful party, certain elements had to exist for us to join in and end up having an amazing time.
