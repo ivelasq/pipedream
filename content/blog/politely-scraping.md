@@ -1,0 +1,14 @@
+---
+title: "Politely Scraping Wikipedia Tables"
+date: 2021-07-05T20:34:05-07:00
+publishdate: 2021-07-05T20:34:05-07:00
+tags: ["scrape"]
+comments: true
+draft: true
+---
+
+Walkthrough on "politely" scraping Wikipedia tables and transforming them into a tidy dataset.
+
+<!--more-->
+
+[Wikiepdia]

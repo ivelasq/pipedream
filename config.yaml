@@ -35,10 +35,26 @@ menu:
       name: Blog
       url: /blog
       weight: 200
-    - identifier: portfolio
-      name: Portfolio
-      url: /static/portfolio
+    - identifier: presentations
+      name: Presentations
+      url: /static/presentations
       weight: 300
+    - identifier: websites
+      name: Websites & Apps
+      url: /static/websites
+      weight: 400
+    - identifier: packages
+      name: Packages
+      url: /static/packages
+      weight: 500
+    - identifier: viz
+      name: Visualizations
+      url: /static/viz
+      weight: 600
+    - identifier: book
+      name: Book
+      url: https://datascienceineducation.com/
+      weight: 700
 
 markup:
   goldmark:

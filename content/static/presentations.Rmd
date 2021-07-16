@@ -1,0 +1,64 @@
+---
+output:
+  html_document:
+    theme:
+      version: 4
+---
+
+# Presentations
+
+```{r, echo = FALSE}
+talk6 <- bs4cards::card(
+  title = "Using Git from RStudio",
+  image = "/images/talks/2021-04-21_GitHub.png",
+  text = "A tutorial on using RStudio for version control.",
+  link = "https://github.com/kdillmcfarland/2021-04-02-r-ladies-seattle-online/blob/gh-pages/_episodes/R-ladies/2021-04-16_r-studio-gui-deck.pdf",
+  footer = "R-Ladies Seattle"
+)
+
+talk5 <- bs4cards::card(
+  title = "Longitudinal Analysis with Federal Students with Disabilities Data",
+  image = "/images/talks/2021-03-31_Longitudinal Analysis.png",
+  text = "A bookclub session on longitudinal data analysis.",
+  link = "https://ivelasq.github.io/bookclub-dsieur/R/2021-03-31/Walkthrough-4.html#1",
+  footer = "R4DS"
+)
+
+talk4 <- bs4cards::card(
+  title = "Package Management in R",
+  image = "/images/talks/2020-05-07_Package Management.png",
+  text = "A webinar on package management in R.",
+  link = "https://ivelasq.github.io/useR-webinar/useR-slides.html#1",
+  footer = "userR Seattle"
+)
+
+talk3 <- bs4cards::card(
+  title = "What Do Penguins Have to Do With Being Anti-Racist?",
+  image = "/images/talks/2020-08-05_Anti-Racism.png",
+  text = "A presentation on why being anti-racist matters in data science",
+  link = "https://docs.google.com/presentation/d/1te1mdJde5xqaW-Wi7AN1xDewsVOrpkywL7RvaRq7GM8/edit",
+  footer = "R-Ladies Seattle"
+)
+
+talk2 <- bs4cards::card(
+  title = "Taking a Peek into Hiking Data Using R",
+  image = "/images/talks/2019-07-16_Hiking Data.png",
+  text = "A talk on analyzing hiking data using R.",
+  link = "https://docs.google.com/presentation/d/1hDxK7gbdg13HzeIGQ9Od-tCHhOwfKM1fSCoeJpvjlaA/edit",
+  footer = "R-Ladies Seattle"
+)
+
+talk1 <- bs4cards::card(
+  title = "Blogdown for What",
+  image = "/images/talks/2018-07-23_Blogdown for What.png",
+  text = "A walkthrough on installing and using the {blogdown} package.",
+  link = "https://docs.google.com/presentation/d/1yZUuwI888YpQS_jxIbwpIPdP7olAXg4S/edit?usp=drive_web&ouid=114084946004887718704&rtpof=true",
+  footer = "R-Ladies Seattle"
+)
+
+kitty_list <- list(
+  talk6, talk5, talk4, talk3, talk2, talk1
+)
+
+bs4cards::card_grid(kitty_list)
+```

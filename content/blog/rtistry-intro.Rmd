@@ -1,5 +1,5 @@
 ---
-tags: ["ggplot2"]
+tags: ["visualization"]
 date: "2021-05-09"
 title: "Getting Started in #rtistry"
 ---
