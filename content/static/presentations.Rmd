@@ -35,7 +35,7 @@ talk4 <- bs4cards::card(
 talk3 <- bs4cards::card(
   title = "What Do Penguins Have to Do With Being Anti-Racist?",
   image = "/images/talks/2020-08-05_Anti-Racism.png",
-  text = "A presentation on why being anti-racist matters in data science",
+  text = "A presentation on why being anti-racist matters in data science.",
   link = "https://docs.google.com/presentation/d/1te1mdJde5xqaW-Wi7AN1xDewsVOrpkywL7RvaRq7GM8/edit",
   footer = "R-Ladies Seattle"
 )

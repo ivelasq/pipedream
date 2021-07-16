@@ -52,7 +52,7 @@ output:
 <a href="https://docs.google.com/presentation/d/1te1mdJde5xqaW-Wi7AN1xDewsVOrpkywL7RvaRq7GM8/edit">
 <h5 class="card-title">What Do Penguins Have to Do With Being Anti-Racist?</h5>
 </a>
-<p class="card-text">A presentation on why being anti-racist matters in data science</p>
+<p class="card-text">A presentation on why being anti-racist matters in data science.</p>
 </div>
 <div class="card-footer">R-Ladies Seattle</div>
 </div>
