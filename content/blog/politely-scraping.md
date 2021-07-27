@@ -13,7 +13,7 @@ Walkthrough on "politely" scraping Wikipedia tables and transforming them into a
 
 However, scraping a website can create issues if not done properly. Though not required, I like to use the [{polite} package](https://github.com/dmi3kno/polite) to introduce myself to the website and ask for permission to scrape.
 
-Recently, I submitted the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List) to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) and I wanted to share how I "politely" scraped the the table, cleaned it up, and submitted it for use - resulting in many beautiful and creative visualizations!
+Recently, I submitted the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List) to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) - resulting in many beautiful and creative visualizations from the R Community ! This post walks through how to "politely" scraped the the table and pull it into a flat data frame so that it's ready for use.
 
 # Load libraries
 
