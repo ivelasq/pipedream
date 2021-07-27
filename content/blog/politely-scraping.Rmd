@@ -1,16 +1,15 @@
 ---
 title: "Politely Scraping Wikipedia Tables"
-date: 2021-07-05T20:34:05-07:00
-publishdate: 2021-07-05T20:34:05-07:00
+date: 2021-07-27
+publishdate: 2021-07-37
 tags: ["scrape"]
-comments: true
 ---
 
 Walkthrough on "politely" scraping Wikipedia tables and transforming them into a tidy dataset.
 
 <!--more-->
 
-[Wikiepdia](https://en.wikipedia.org/wiki/Main_Page) is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself [scraping](https://en.wikipedia.org/wiki/Web_scraping) Wikipedia's tables for information and then cleaning and using the data for whatever I am working on.
+[Wikipedia](https://en.wikipedia.org/wiki/Main_Page) is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself [scraping](https://en.wikipedia.org/wiki/Web_scraping) Wikipedia's tables for information and then cleaning and using the data for whatever I am working on.
 
 However, scraping a website can create issues if not done properly. Though not required, I like to use the [{polite} package](https://github.com/dmi3kno/polite) to introduce myself to the website and ask for permission to scrape.
 
@@ -82,6 +81,6 @@ That's it! Now we've "politely" scraped the Wikipedia table into an analysis-rea
 
 Additional steps to clean the file can be found in my [GitHub repo](https://github.com/ivelasq/data-visualization-portfolio/blob/main/independence-days/independence_days.R).
 
-I'd like to also recommend Ryo Nakagawara's [blog post on politely scraping websites](https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/), especially if you would like a more complex scraping example.
+I also recommend Ryo Nakagawara's [blog post on politely scraping websites](https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/), especially if you would like a more complex scraping example.
 
 Which Wikipedia table will you analyze next?
