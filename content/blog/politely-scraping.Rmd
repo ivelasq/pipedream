@@ -13,7 +13,7 @@ Walkthrough on "politely" scraping Wikipedia tables and transforming them into a
 
 However, scraping a website can create issues if not done properly. Though not required, I like to use the [{polite} package](https://github.com/dmi3kno/polite) to introduce myself to the website and ask for permission to scrape.
 
-Recently, I submitted a [dataset] from Wikipedia to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) and I wanted to share how I "politely" scraped the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List), cleaned it up, and submitted it for use - resulting in many beautiful and creative visualizations!
+Recently, I submitted the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List) to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) and I wanted to share how I "politely" scraped the the table, cleaned it up, and submitted it for use - resulting in many beautiful and creative visualizations!
 
 # Load libraries
 
@@ -79,8 +79,8 @@ That's it! Now we've "politely" scraped the Wikipedia table into an analysis-rea
 
 # Conclusion
 
-Additional steps to clean the file can be found in my [GitHub repo](https://github.com/ivelasq/data-visualization-portfolio/blob/main/independence-days/independence_days.R).
+Additional steps to clean the file can be found in my [GitHub repo](https://github.com/ivelasq/data-visualization-portfolio/blob/main/independence-days/independence_days.R). After doing so, I submitted to #TidyTuesday by submitting an [issue](https://github.com/rfordatascience/tidytuesday/issues) on their page. Then they approved and shared the dataset!
 
-I also recommend Ryo Nakagawara's [blog post on politely scraping websites](https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/), especially if you would like a more complex scraping example.
+This was a very quick walkthrough. I recommend Ryo Nakagawara's [blog post on politely scraping websites](https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/), especially if you would like (1) more in-depth explanation of what {polite} does and (2) more complex scraping examples.
 
 Which Wikipedia table will you analyze next?
