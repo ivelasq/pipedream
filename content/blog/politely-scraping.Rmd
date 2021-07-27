@@ -5,7 +5,7 @@ publishdate: 2021-07-37
 tags: ["scrape"]
 ---
 
-Walkthrough on "politely" scraping Wikipedia tables and transforming them into a tidy dataset.
+Walkthrough on "politely" scraping Wikipedia tables and transforming them into an analysis-ready dataset.
 
 <!--more-->
 
