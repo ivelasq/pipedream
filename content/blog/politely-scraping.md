@@ -79,7 +79,7 @@ ind_html <-
 
 # Flatten table
 
-You will notice that `ind_html` is saved as a data frame within lists. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element `[[1]]`. We con then use `janitor::clean_names()` for nice, standardized column names.
+You will notice that `ind_html` is saved as a data frame within lists. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element `[[1]]`. We can then use `janitor::clean_names()` for nice, standardized column names.
 
 
 ```r
