@@ -13,7 +13,7 @@ Walkthrough on "politely" scraping Wikipedia tables and transforming them into a
 
 However, scraping a website can create issues if not done properly. Though not required, I like to use the [{polite} package](https://github.com/dmi3kno/polite) to introduce myself to the website and ask for permission to scrape.
 
-Recently, I submitted the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List) to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) - resulting in many beautiful and creative visualizations from the R Community ! This post walks through how to "politely" scraped the the table and pull it into a flat data frame so that it's ready for use.
+Recently, I submitted the [Wikipedia table on independence days around the world](https://en.wikipedia.org/wiki/List_of_national_independence_days#List) to [TidyTuesday](https://github.com/rfordatascience/tidytuesday) - resulting in many beautiful and creative visualizations from the R Community ! This post walks through how to "politely" scrape the table and pull it into a flat data frame so that it's ready for use.
 
 # Load libraries
 
@@ -59,7 +59,7 @@ url_bow
 
 Next, we actually 'scrape' (pull the content of) the web page using `polite::scrape()`. This needs an object of class `polite` (created with `bow()` from before).
 
-Since we politely scraped the entire web page, we want to use the {rvest} to specify what exact content we'd like to pull out. We can do this using `html_nodes()`.
+Since we politely scraped the entire web page, we want to use {rvest} to specify what exact content we'd like to pull out. We can do this using `html_nodes()`.
 
 How do we know which node we want? There are probably other ways of doing this. As a Firefox and Mac user, I click Cmd + Shift + C which opens up the Developer Tools so that I can select a specific element from the web page. I hover over the table to determine what the HTML is called, in this case, `table.wikitable`.
 
@@ -79,7 +79,7 @@ ind_html <-
 
 # Flatten table
 
-You will notice that `ind_html` is saved as a data frame within lists. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element `[[1]]`. We can then use `janitor::clean_names()` for nice, standardized column names.
+You will notice that `ind_html` is saved as a single object (a list) in which each element is a data frame. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element `[[1]]`. We can then use `janitor::clean_names()` for nice, standardized column names.
 
 
 ```r
