@@ -1,6 +1,6 @@
 ---
 title: "Why I’m Excited to Join RStudio, Told Through a {blogdown} Metadata Project"
-date: 2021-09-13T03:00:00-05:00
+date: "2021-09-13"
 tags: ["blogdown", "tidy"]
 ---
 
@@ -63,7 +63,9 @@ meta_df <- tibble(
 
 In this case, there are entries where there is a vector within categories or tags - this is because a single blog post can have multiple categories or tags (see example [here](https://blog.rstudio.com/2021/08/30/rstudio-connect-2021-08-custom-branding/), which has “rstudio connect” and “featured” as categories).
 
+<center>
 ![](https://ivelasq.rbind.io/images/cells.png)
+</center>
 
 The following code separates the tags or categories with multiple values so that each value has its own column using a `pivot_longer()` followed by `unnest()`, then re-pivots the table to wide format using `pivot_wider()`.
 
