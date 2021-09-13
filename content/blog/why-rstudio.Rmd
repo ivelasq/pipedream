@@ -1,6 +1,6 @@
 ---
 title: "Why I’m Excited to Join RStudio, Told Through a {blogdown} Metadata Project"
-date: 2021-09-12T23:48:07-05:00
+date: 2021-09-13T03:00:00-05:00
 tags: ["blogdown", "tidy"]
 ---
 

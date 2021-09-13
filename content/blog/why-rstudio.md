@@ -1,6 +1,6 @@
 ---
 title: "Why I’m Excited to Join RStudio, Told Through a {blogdown} Metadata Project"
-date: 2021-09-13T23:48:07-05:00
+date: 2021-09-13T03:00:00-05:00
 tags: ["blogdown", "tidy"]
 ---
 
@@ -32,7 +32,7 @@ If you check out the [tags](https://blog.rstudio.com/tags/) from the RStudio blo
 
 ## A New Chapter in my RStudio Journey
 
-I am proud to join an organization that I’ve long admired and hope that my contributions in this realm of RStudio's business will promote the uptake of amazing RStudio products, and the crucial work RStudio does in free open-source software, data science education, and other spaces as a Public Benefit Corporation. I look forward to learning alongside my colleagues at RStudio and working to achieve the company's mission.
+I am proud to join an organization that I’ve long admired and hope that my contributions in this realm of RStudio's business will promote the uptake of amazing RStudio products, and the crucial work RStudio does in free open-source software, data science education, and other spaces as a Public Benefit Corporation. I look forward to working alongside my colleagues at RStudio to achieve the company's vision.
 
 And with that… I give you, the code!
 
