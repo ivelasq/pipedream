@@ -4,7 +4,7 @@ date: "2020-08-30"
 title: "Even Easier-to-Use R Package for School District Shapefiles"
 ---
 
-An update to {leaidr}, an R package for U.S. school district shapefiles.
+> An update to {leaidr}, an R package for U.S. school district shapefiles.
 
 <!--more-->
 

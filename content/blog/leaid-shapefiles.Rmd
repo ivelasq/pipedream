@@ -4,7 +4,7 @@ date: "2020-05-03"
 title: "Creating an R Package for School District Shapefiles"
 ---
 
-Blog post on {leaidr}, an R package for U.S. school district shapefiles.
+> Blog post on {leaidr}, an R package for U.S. school district shapefiles.
 
 <!--more-->
 

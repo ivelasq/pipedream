@@ -4,7 +4,7 @@ date: "2021-03-08"
 title: "Creating a Book Manuscript using {bookdown}"
 ---
 
-Tips on using {bookdown} to create a manuscript to submit for publishing.
+> Tips on using {bookdown} to create a manuscript to submit for publishing.
 
 <!--more-->
 

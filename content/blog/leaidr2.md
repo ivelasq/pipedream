@@ -18,7 +18,7 @@ title: "Even Easier-to-Use R Package for School District Shapefiles"
 <link href="/rmarkdown-libs/mapdeck/mapdeck.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/mpadeck-binding/mapdeck.js"></script>
 
-An update to {leaidr}, an R package for U.S. school district shapefiles.
+> An update to {leaidr}, an R package for U.S. school district shapefiles.
 
 <!--more-->
 
@@ -35,7 +35,7 @@ tn <- lea_get("tn")
 ```
 
     ## OGR data source with driver: ESRI Shapefile 
-    ## Source: "/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpNVPANR/47", layer: "47"
+    ## Source: "/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/Rtmpjyci5a/47", layer: "47"
     ## with 158 features
     ## It has 18 fields
 

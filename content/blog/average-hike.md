@@ -5,7 +5,7 @@ date: "2019-04-06"
 title: "Taking A Peek into My Hiking Data"
 ---
 
-Blog post on importing, tidying, and visualizing hiking location data.
+> Blog post on importing, tidying, and visualizing hiking location data.
 
 <!--more-->
 

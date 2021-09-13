@@ -15,7 +15,7 @@ params:
   description: Isabella Velásquez
   index:
     alertbar: no
-    mdtext: I am a data analyst working in philanthropy. Follow me on [Twitter](https://twitter.com/ivelasq3) for more updates. |
+    mdtext: I work at [RStudio](https://www.rstudio.com). Follow me on [Twitter](https://twitter.com/ivelasq3) for more updates. |
       [Resume](https://docs.google.com/document/d/14tJLqFuI9g6hDkP5IYQg0HPTZ05WVHxacedhajiilHo/edit?usp=sharing) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
     picture: /images/author.png
     subtitle: "%>% dreams"
