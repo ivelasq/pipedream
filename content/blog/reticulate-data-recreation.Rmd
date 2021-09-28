@@ -15,7 +15,7 @@ Last week, a paper started making the Twitter rounds. [Selective attention in hy
 ![cartoon gorilla and its recreation in ggplot2](/blog/reticulate-data-recreation_files/main.png)
 </center>
 
-I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called 'getpixel', manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the [{reticulate}](https://rstudio.github.io/reticulate/) which allows R to interface with Python and thought this would be a fun exercise to try.
+I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called 'getpixel', manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the [{reticulate}](https://rstudio.github.io/reticulate/) package which allows R to interface with Python and thought this would be a fun exercise to try.
 
 With that, let's recreate this dataset entirely within R Markdown! In addition to copy/pasting the code below, I have also provided it as a project on [RStudio Cloud](https://rstudio.cloud/project/2949291).
 
