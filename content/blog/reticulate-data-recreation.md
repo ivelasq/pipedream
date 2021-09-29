@@ -34,7 +34,7 @@ library(reticulate)
 
 In your project, create a folder called "image". Save the image you would like to convert to a dataset in that folder. To recreate this paper's dataset, go to [this](https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm) page and download the gorilla cartoon.
 
-The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I created a `python` chunk to run the Python code below.
+The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} code below.
 
 ````
 ```{r}
@@ -44,7 +44,7 @@ py_install("pillow")
 ```
 ````
 
-{reticulate} is the package that allows you to call Python. If you do not have Python installed, then you will get a message (which you would reply Y to):
+Since {reticulate} is the package that allows you to call Python, if you do not have Python installed, then you will get a message (which you would reply Y to):
 
 ```
 No non-system installation of Python could be found.
@@ -55,7 +55,7 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.
 
 ### Create coordinates
 
-[This](https://stackoverflow.com/questions/58398300/find-all-coordinates-of-black-grey-pixels-in-image-using-python) Stack Overflow thread was very helpful to determine what we need to do with the 'getpixel' function in `pillow`. Again, like in R, we need to call the functions we need. 
+[This](https://stackoverflow.com/questions/58398300/find-all-coordinates-of-black-grey-pixels-in-image-using-python) Stack Overflow thread was very helpful to determine what we need to do with the 'getpixel' function in `pillow`. Again, like in R, we need to call the functions we need but this time, we are doing it in a `python` chunk.
 
 ````
 ```{python}
