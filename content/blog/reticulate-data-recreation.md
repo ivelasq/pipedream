@@ -34,7 +34,7 @@ library(reticulate)
 
 In your project, create a folder called "image". Save the image you would like to convert to a dataset in that folder. To recreate this paper's dataset, go to [this](https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm) page and download the gorilla cartoon.
 
-The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} code below.
+The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} below.
 
 ````
 ```{r}
