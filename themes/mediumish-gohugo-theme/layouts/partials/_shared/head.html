@@ -19,6 +19,8 @@
 	<link href="{{ "/css/medium.css" | urlize | relURL }}" rel="stylesheet">
 	<link href="{{ "/css/additional.css" | urlize | relURL }}" rel="stylesheet">
 
+  <script defer data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
+  
 	<!-- Custom css -->
 	{{ range .Site.Params.customCSS -}}
 	{{ $style := resources.Get . }}
