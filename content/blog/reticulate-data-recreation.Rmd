@@ -3,11 +3,14 @@ title: "Creating a Dataset from an Image in R Markdown using reticulate"
 date: 2021-09-28
 publishdate: 2021-09-28
 tags: ["python", "ggplot2"]
+description: A recreation of a dataset using {reticulate}.
 ---
 
-> A recreation of a dataset using {reticulate}.
-
-<!--more-->
+<center>
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '1443216191858769922')
+```
+</center>
 
 Last week, a paper started making the Twitter rounds. [Selective attention in hypothesis-driven data analysis](https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf) by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.
 
@@ -32,7 +35,7 @@ library(reticulate)
 ```
 ````
 
-In your project, create a folder called "image". Save the image you would like to convert to a dataset in that folder. To recreate this paper's dataset, go to [this](https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm) page and download the gorilla cartoon.
+In your project, create a folder called "image". Save the image you would like to convert to a dataset in that folder. To recreate this paper's dataset, go to [this](https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm) page and download the cartoon gorilla.
 
 The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} below.
 
