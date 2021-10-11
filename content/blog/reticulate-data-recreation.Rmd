@@ -71,8 +71,9 @@ Then, we point to the image and create coordinates pixels for the outline of the
 
 ````
 ```{python}`r ''`
+# Thanks to Bart Huntley for pointing out a typo here!
 im = Image.open("/cloud/project/image/gorilla.jpg")
-coords = np.asarray(im)
+pixels = np.asarray(im)
 
 # Set threshold level
 threshold_level = 50
