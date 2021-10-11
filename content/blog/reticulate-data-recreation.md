@@ -60,7 +60,7 @@ Since {reticulate} is the package that allows you to call Python, if you do not 
 Then, we point to the image and create coordinates pixels for the outline of the cartoon. We are able to set a threshold level for which pixels to keep/discard, which isn’t really necessary here since the image is in black and white, but I left the code in case you’d like to use an image with shading.
 
     ```{python}
-    # Thanks to Bart Huntley for pointing out a typo here!
+    # Thanks to Bart Huntley for pointing out a typo previously in this chunk!
     im = Image.open("/cloud/project/image/gorilla.jpg")
     pixels = np.asarray(im)
 
