@@ -195,7 +195,7 @@ wilcox.test(snap_appendix1_clean$snap_rank,
     ## V = 13954, p-value = 0.7538
     ## alternative hypothesis: true location shift is not equal to 0
 
-I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap).
+I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are [here](https://github.com/ivelasq/snap).
 
 *Liked this article? I’d love for you to retweet!*
 

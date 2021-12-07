@@ -41,8 +41,7 @@ snap_pdf <-
 ```
 
 ```{r, include = F, message = F}
-snap_pdf <-
-  readRDS(here::here("content", "blog", "snap-expenditures_files", "snap_pdf.Rds"))
+readRDS(here::here("static", "blog", "snap-expenditures_files", "snap_pdf.Rds"))
 ```
 
 Using the {purrr} package, we create a data frame from the lists while simultaneously removing the unnecessary rows.
@@ -144,6 +143,55 @@ wilcox.test(snap_appendix1_clean$snap_rank,
             paired = TRUE)
 ```
 
+Here is a ggplot that compare the rank of commodities between families served by SNAP and those who are not. The labels display which commodities differ by rank of 30 or more.
+
+```{r, fig.alt="Line plot showing difference in rank by families served and not served by SNAP"}
+library(ggrepel)
+
+snap_appendix1_plot <-
+  snap_appendix1_clean %>%
+  select(commodity, snap_rank, nonsnap_rank) %>%
+  mutate(rank_diff = snap_rank - nonsnap_rank) %>%
+  pivot_longer(c("snap_rank", "nonsnap_rank"),
+               names_to = "variable",
+               values_to = "value")
+
+ggplot(snap_appendix1_plot, aes(x = variable, y = value)) +
+  geom_point(size = 1, col = "lightgrey", alpha = 0.2) +
+  geom_line(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff >= 30 | rank_diff <= -30),
+    aes(group = commodity),
+    color = "#00C3DA",
+    alpha = 0.6
+  ) +
+  geom_text_repel(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff >= 30,
+             variable == "nonsnap_rank"),
+    aes(label = commodity),
+    nudge_y = 0.25,
+    size = 2,
+    direction = "y"
+  ) +
+  geom_text_repel(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff <= -30,
+             variable == "snap_rank"),
+    aes(label = commodity),
+    nudge_y = 0.25,
+    size = 2,
+    direction = "y"
+  ) +
+  ggtitle("Rank Comparison") +
+  xlab("Category") +
+  ylab("Rank") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels = c("Non-SNAP Expenditure Rank", "SNAP Expenditure Rank")) +
+  scale_y_reverse()
+```
+
 ```{r, include = T, message = F, fig.align='center', include = FALSE}
 # https://stats.stackexchange.com/questions/51295/comparison-of-ranked-lists
 # Using this tutorial: https://drsimonj.svbtle.com/visualising-residuals
@@ -168,7 +216,7 @@ ggplot(d, aes(x = nonsnap_rank, y = snap_rank)) +
   ylab("SNAP Expenditure Rank")
 ```
 
-I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset is [here](https://github.com/ivelasq/snap).
+I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are [here](https://github.com/ivelasq/snap).
 
 *Liked this article? I'd love for you to retweet!*
 
