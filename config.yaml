@@ -47,14 +47,10 @@ menu:
       name: Packages
       url: /static/packages
       weight: 500
-    - identifier: viz
-      name: Visualizations
-      url: /static/viz
-      weight: 600
     - identifier: book
       name: Book
       url: https://datascienceineducation.com/
-      weight: 700
+      weight: 600
 
 markup:
   goldmark:
