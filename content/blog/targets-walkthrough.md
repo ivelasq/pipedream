@@ -4,7 +4,7 @@ date: '2021-12-09'
 tags: ['targets', 'reproducibility']
 ---
 
-This talk is based on [Will Landeau's Reproducible Computation at Scale With targets](https://www.youtube.com/watch?v=GRqKJBaC5g4
+This talk is based on [Will Landau's Reproducible Computation at Scale With targets](https://www.youtube.com/watch?v=GRqKJBaC5g4
 ) talk at R/Pharma 2020.
 
 I presented this talk at [R-Ladies Seattle](https://rladiesseattle.org/) on December 9, 2021.
@@ -31,7 +31,7 @@ One type of a pipeline tool is called a Make file. A make file is a file you mak
 
 ![An example workflow from the targets package](https://ivelasq.rbind.io/images/target-files/4.png)
 
-[Targets](https://docs.ropensci.org/targets/) is a make-like pipeline tool specifically designed for R by Will Landeau and hosted on ROpenSci. It has a clean, modular, function-oriented programming style. It has strong guardrails because by design, it is not meant to be flexible - there’s only one right way to use targets. And because it was built for R users, it is easy to use within our existing R toolkit.
+[Targets](https://docs.ropensci.org/targets/) is a make-like pipeline tool specifically designed for R by Will Landau and hosted on ROpenSci. It has a clean, modular, function-oriented programming style. It has strong guardrails because by design, it is not meant to be flexible - there’s only one right way to use targets. And because it was built for R users, it is easy to use within our existing R toolkit.
 
 * Github: https://github.com/ropensci/targets/
 * Manual: https://books.ropensci.org/targets/
@@ -67,7 +67,7 @@ In terms of file structure, we can use one based on our usual project convention
 
 ## See it in action
 
-Check out Will Landeau's R/Pharma 2020 example in this [RStudio Cloud project](https://rstudio.cloud/project/3342415). The original repo is here: https://github.com/wlandau/rpharma2020.
+Check out Will Landau's R/Pharma 2020 example in this [RStudio Cloud project](https://rstudio.cloud/project/3342415). The original repo is here: https://github.com/wlandau/rpharma2020.
 
 Load the library:
 
@@ -356,7 +356,7 @@ Check out more in the [targets R Package User Manual](https://books.ropensci.org
 
 ## Resources
 
-* Will Landeau, [Reproducible Computation at Scale With targets](https://www.youtube.com/watch?v=Gqn7Xn4d5NI&t=6022s) (1 hour walkthrough)
+* Will Landau, [Reproducible Computation at Scale With targets](https://www.youtube.com/watch?v=Gqn7Xn4d5NI&t=6022s) (1 hour walkthrough)
 * [Stantargets and Target Markdown for Bayesian model validation](https://www.youtube.com/watch?v=odcBA4ETLn8)
 * [The targets R Package User Manual](https://books.ropensci.org/targets/)
 * [ROpenSci targets docs](https://docs.ropensci.org/targets/)
