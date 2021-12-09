@@ -19,17 +19,17 @@ You may have seen also a data analysis workflow that looks something like this. 
 
 However, things aren’t always as easy as they seem. Sometimes we run into issues with our pipeline and we have to go back and correct things. And hopefully we remember all the things that we need to change. If we don’t, we might not be able to get accurate results, or reproduce results in the future.
 
-![Import, tidy, visualize, transform, model, communicate but having to redo several components](https://ivelasq.rbind.io/images/targets-filess/2.png)
+![Import, tidy, visualize, transform, model, communicate but having to redo several components](https://ivelasq.rbind.io/images/targets-files/2.png)
 
 Even if we do remember, one small change means that we have to rerun our entire workflow from scratch. Everything that depends on the new data or code also has to be updated. This can be really time consuming if our pipeline has really long runtimes. If the computation already takes hours to complete, then having to redo it all will set us back significantly and it ends up feeling like Groundhog Day.
 
-![A groundhog next to a series of code sourcing data from other files](https://ivelasq.rbind.io/images/targets-filess/3.png)
+![A groundhog next to a series of code sourcing data from other files](https://ivelasq.rbind.io/images/targets-files/3.png)
 
 When you find yourself chugging coffee, waiting for everything to run — again! — consider instead using a pipeline tool. Pipeline tools break the cycle of launching code, waiting for it to run, discovering an issue, and restarting from scratch.
 
 One type of a pipeline tool is called a Make file. A make file is a file you make (hence the name), with a list of rules that tell the system the commands you want executed. One nifty thing about make files is that they only update those files containing changes - they don’t rerun things that don’t need to be re-run. Restarting a pipeline can go a lot faster. And unless directed otherwise, make files will stop when it encounters an error during the construction process. This makes it easy to spot any problems.
 
-![An example workflow from the targets package](https://ivelasq.rbind.io/images/targets-filess/4.png)
+![An example workflow from the targets package](https://ivelasq.rbind.io/images/targets-files/4.png)
 
 [Targets](https://docs.ropensci.org/targets/) is a make-like pipeline tool specifically designed for R by Will Landau and hosted on ROpenSci. It has a clean, modular, function-oriented programming style. It has strong guardrails because by design, it is not meant to be flexible - there’s only one right way to use targets. And because it was built for R users, it is easy to use within our existing R toolkit.
 
@@ -51,7 +51,7 @@ We need two things:
 
 For the simulator, we have functions that run the pipeline that we want. The functions should have no side effects, with an R object like a dataset, a fitted model, or a table or figure as the output. In terms of size, you want targets to be big enough that you're progressing along your workflow but not too big that some targets can be skipped even if others need to run.
 
-![Clinical trial experiment with corresponding functions](https://ivelasq.rbind.io/images/targets-filess/5.png)
+![Clinical trial experiment with corresponding functions](https://ivelasq.rbind.io/images/targets-files/5.png)
 
 2\. _targets.R File
 
@@ -59,11 +59,11 @@ Every targets workflow needs a target script file to formally define the targets
 
 Here are the requirements for a target file:
 
-![Example target file with annotations for the requirements](https://ivelasq.rbind.io/images/targets-filess/6.png)
+![Example target file with annotations for the requirements](https://ivelasq.rbind.io/images/targets-files/6.png)
 
 In terms of file structure, we can use one based on our usual project conventions. Targets is structure-agnostic but we still want to make sure it's a well-organized project.
 
-![Example file structure](https://ivelasq.rbind.io/images/targets-filess/7.png)
+![Example file structure](https://ivelasq.rbind.io/images/targets-files/7.png)
 
 ## See it in action
 
@@ -81,7 +81,7 @@ Then check out the dependency graph to see how things slow into each other:
 tar_visnetwork()
 ```
 
-![Example dependency chart](https://ivelasq.rbind.io/images/targets-filess/7.png)
+![Example dependency chart](https://ivelasq.rbind.io/images/targets-files/7.png)
 
 
 Run the pipeline with `tar_make()`:
@@ -242,7 +242,7 @@ Run `tar_visnetwork()` again and see that `mean_treatment` and all of its downst
 tar_visnetwork()
 ```
 
-![Example dependency chart with outdated notes](https://ivelasq.rbind.io/images/targets-filess9.png)
+![Example dependency chart with outdated notes](https://ivelasq.rbind.io/images/targets-files9.png)
 
 Run the pipeline again with `tar_make()`. Notice that some branches are skipped because they do not need to be rerun.
 
