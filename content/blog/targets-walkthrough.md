@@ -31,7 +31,7 @@ One type of a pipeline tool is called a Make file. A make file is a file you mak
 
 ![An example workflow from the targets package](https://ivelasq.rbind.io/images/targets-files/4.png)
 
-[Targets](https://docs.ropensci.org/targets/) is a make-like pipeline tool specifically designed for R by Will Landau and hosted on ROpenSci. It has a clean, modular, function-oriented programming style. It has strong guardrails because by design, it is not meant to be flexible - there’s only one right way to use targets. And because it was built for R users, it is easy to use within our existing R toolkit.
+[Targets](https://docs.ropensci.org/targets/) is a make-like pipeline tool specifically designed for R by Will Landau and on ROpenSci. It has a clean, modular, function-oriented programming style. It has strong guardrails because by design, it is not meant to be flexible - there’s only one right way to use targets. And because it was built for R users, it is easy to use within our existing R toolkit.
 
 * Github: https://github.com/ropensci/targets/
 * Manual: https://books.ropensci.org/targets/
