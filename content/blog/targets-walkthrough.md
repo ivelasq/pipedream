@@ -15,7 +15,7 @@ You may have seen the 1993 movie Groundhog Day. If you haven’t, I will try to 
 
 You may have seen also a data analysis workflow that looks something like this. You import your data, tidy it, go through a cycle of transformation, visualization, and modeling, then you communicate the results. Simple enough, right?
 
-![Import, tidy, visualize, transform, model, communicate](https://ivelasq.rbind.io/images/target-files/1.png)
+![Import, tidy, visualize, transform, model, communicate](https://ivelasq.rbind.io/images/targets-files/1.png)
 
 However, things aren’t always as easy as they seem. Sometimes we run into issues with our pipeline and we have to go back and correct things. And hopefully we remember all the things that we need to change. If we don’t, we might not be able to get accurate results, or reproduce results in the future.
 
