@@ -356,7 +356,9 @@ Check out more in the [targets R Package User Manual](https://books.ropensci.org
 
 ## Resources
 
+* [ROpenSci targets docs](https://docs.ropensci.org/targets/)
+* [The targets R Package User Manual](https://books.ropensci.org/targets/)
 * Will Landau, [Reproducible Computation at Scale With targets](https://www.youtube.com/watch?v=Gqn7Xn4d5NI&t=6022s) (1 hour walkthrough)
 * [Stantargets and Target Markdown for Bayesian model validation](https://www.youtube.com/watch?v=odcBA4ETLn8)
-* [The targets R Package User Manual](https://books.ropensci.org/targets/)
-* [ROpenSci targets docs](https://docs.ropensci.org/targets/)
+
+
