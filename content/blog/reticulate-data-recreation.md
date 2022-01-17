@@ -1,9 +1,9 @@
 ---
-title: "Creating a Dataset from an Image in R Markdown using reticulate"
+title: "Creating a Dataset From an Image in R Markdown Using reticulate"
 date: 2021-09-28
 publishdate: 2021-09-28
 tags: ["python", "ggplot2"]
-description: A recreation of a dataset using {reticulate}.
+summary: Using R and Python together with the reticulate package in an R Markdown file.
 ---
 
 <center>
@@ -57,7 +57,7 @@ Since {reticulate} is the package that allows you to call Python, if you do not 
     from PIL import Image
     ```
 
-Then, we point to the image and create coordinates pixels for the outline of the cartoon. We are able to set a threshold level for which pixels to keep/discard, which isn’t really necessary here since the image is in black and white, but I left the code in case you’d like to use an image with shading.
+Then, we point to the image and create coordinates pixels for the outline of the cartoon. We can set a threshold level for which pixels to keep/discard.
 
     ```{python}
     # Thanks to Bart Huntley for pointing out a typo previously in this chunk!
@@ -73,7 +73,7 @@ Then, we point to the image and create coordinates pixels for the outline of the
 
 ### Bring back into R
 
-This results in an NumPy ndarray called `coords` that contains the coordinates of the pixels of the outline. That’s great but… it’s in Python! How do we bring it back into R?
+This results in a NumPy ndarray called `coords` that contains the coordinates of the pixels of the outline. That’s great but… it’s in Python! How do we bring it back into R?
 
 The [{reticulate} Cheat Sheet](https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf) was very helpful in figuring this out. The section “Python in R Markdown” shows that you can use the `py` object to access objects created in Python chunks from R chunks.
 
@@ -109,8 +109,10 @@ Now for the fun part - visualizing the plots (spoiler: one should always do this
     ```{r}
     coords %>%
       ggplot(aes(x = bmi,
-                 y = steps)) +
-      geom_point()
+                  y = steps)) +
+      geom_point() +
+      theme_void() +
+      xlim(0, 15000)
     ```
 
 <center>
@@ -122,7 +124,9 @@ Now for the fun part - visualizing the plots (spoiler: one should always do this
       ggplot(aes(x = bmi,
                  y = steps,
                  color = gender)) +
-      geom_point()
+      geom_point() +
+      theme_void() +
+      xlim(0, 15000)
     ```
 
 With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!
