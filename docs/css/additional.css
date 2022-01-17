@@ -20,12 +20,15 @@
 .clock{
     margin-left: 25px;
 }
+
 .jumbotron.fortags a {
     background: #FB372D !important;
 }
+
 .error{
     text-align: center !important;
 }
+
 @media(min-width: 769px){
     .md-nopad-right{
         padding-right: 0px !important;
