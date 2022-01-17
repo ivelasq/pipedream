@@ -6,19 +6,16 @@ License: https://www.wowthemes.net/freebies-license/
 
 .mainheading {
     padding: 1rem 0rem;
-
 }
 
 a {
-    color: #FF0018;
+    color: #FB372D;
     transition: all 0.2s;
-
 }
 
 a:hover {
     color: #00C3DA;
     text-decoration: none;
-
 }
 
 pre {
@@ -36,19 +33,16 @@ pre {
     line-height: 1.6;
     color: #333;
     margin-bottom: -rem;
-
 }
 
 .mediumnavigation {
     background: rgba(255, 255, 255, .97);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
     transition: top 0.2s ease-in-out;
-
 }
 
 .main-content {
     min-height: 300px;
-
 }
 
 .site-content {
@@ -56,7 +50,6 @@ pre {
     padding-top: 1.5rem;
     margin-top: 57px;
     transition: all 0.4s;
-
 }
 
 section {
@@ -69,7 +62,6 @@ section.recent-posts {
 
 .section-title h2 {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-
     margin-bottom: 25px;
     font-weight: 700;
     font-size: 1.4rem;
@@ -81,20 +73,17 @@ section.recent-posts {
     display: inline-block;
     padding-bottom: 20px;
     margin-bottom: -1px;
-
 }
 
 .article-post ol,
 .article-post ul {
     margin-bottom: 1.5rem;
-
 }
 
 .article-post ol ol,
 .article-post ul ul {
     list-style: disc;
     margin-bottom: 0rem;
-
 }
 
 @media (min-width:576px) {
@@ -102,7 +91,6 @@ section.recent-posts {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
-    
     }
 }
 
@@ -110,7 +98,6 @@ section.recent-posts {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.8rem;
         padding-left: 0.8rem;
-    
     }
 }
 
@@ -118,26 +105,22 @@ section.recent-posts {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-
 }
 
 .listfeaturedtag .wrapthumbnail {
     height: 290px;
     flex: 0 0 auto;
     height: 100%;
-
 }
 
 .maxthumb {
     max-height: 300px;
     overflow: hidden;
-
 }
 
 .listfeaturedtag .card,
 .card-footer {
     border: 0;
-
 }
 
 .listfeaturedtag .thumbnail {
@@ -148,12 +131,10 @@ section.recent-posts {
     background-origin: border-box !important;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
-
 }
 
 .listfeaturedtag .card-block {
     padding-left: 0;
-
 }
 
 .listfeaturedtag h2.card-title,
@@ -161,7 +142,6 @@ section.recent-posts {
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.25;
-
 }
 
 .listfeaturedtag h4.card-text,
@@ -170,7 +150,6 @@ section.recent-posts {
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 400;
-
 }
 
 .featured-box-img-cover {
@@ -178,14 +157,12 @@ section.recent-posts {
     width: 100%;
     height: 100%;
     max-height: 100%;
-
 }
 
 @media (max-width:991px) {
     .featured-box-img-cover {
         height: auto;
         width: 100%;
-    
     }
 }
 
@@ -194,50 +171,42 @@ section.recent-posts {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-
 }
 
 .author-thumb {
     width: 40px;
     height: 40px;
     border-radius: 100%;
-
 }
 
 .post-top-meta {
     margin-bottom: 2rem;
-
 }
 
 .post-top-meta .author-thumb {
     width: 72px;
     height: 72px;
-
 }
 
 .post-top-meta.authorpage .author-thumb {
     margin-top: 40px;
-
 }
 
 .post-top-meta span {
     font-size: 0.9rem;
     color: rgba(0, 0, 0, .44);
     display: inline-block;
-
 }
 
 .post-top-meta .author-description {
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 0.95rem;
-
 }
 
 .toc ul {
     list-style: decimal;
     font-weight: 400;
-
 }
 
 .author-meta {
@@ -245,20 +214,17 @@ section.recent-posts {
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
     overflow: hidden !important;
-
 }
 
 span.post-name,
 span.post-date,
 span.author-meta {
     display: inline-block;
-
 }
 
 span.post-date,
 span.post-read {
     color: rgba(0, 0, 0, .44);
-
 }
 
 span.post-read-more {
@@ -266,25 +232,21 @@ span.post-read-more {
     display: inline-block;
     float: right;
     margin-top: 8px;
-
 }
 
 span.post-read-more a {
     color: rgba(0, 0, 0, .44);
-
 }
 
 span.post-name a,
 span.post-read-more a:hover {
     color: rgba(0, 0, 0, .8);
-
 }
 
 .dot:after {
     content: "·";
     margin-left: 3px;
     margin-right: 3px;
-
 }
 
 .mediumnavigation .form-control {
@@ -293,7 +255,6 @@ span.post-read-more a:hover {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.04);
     min-width: 180px;
-
 }
 
 .mediumnavigation .form-inline {
@@ -310,25 +271,21 @@ span.post-read-more a:hover {
 .mediumnavigation .form-inline .btn:hover,
 .mediumnavigation .form-inline .btn:active {
     background: transparent;
-    color: red;
-
+    color: green;
 }
 
 .mediumnavigation .navbar-brand {
     font-weight: 500;
-
 }
 
 .mediumnavigation .dropdown-menu {
     border: 1px solid rgba(0, 0, 0, 0.08);
     margin: .5rem 0 0;
-
 }
 
 .mediumnavigation .nav-item,
 .dropdown-menu {
     font-size: 0.9rem;
-
 }
 
 .mediumnavigation .search-icon {
@@ -336,23 +293,20 @@ span.post-read-more a:hover {
     display: inline-block;
     margin-top: 3px;
     cursor: pointer;
-
 }
 
 .mediumnavigation .navbar-brand img {
     max-height: 30px;
     margin-right: 5px;
-
 }
 
 .mainheading h1.sitetitle {
-
+    font-family: Righteous;
 }
 
 .mainheading h1.posttitle {
     font-weight: 700;
     margin-bottom: 1rem;
-
 }
 
 .footer {
@@ -365,7 +319,6 @@ span.post-read-more a:hover {
     margin-bottom: 62px;
     position: relative;
     background: #fff;
-
 }
 
 .link-dark {
@@ -373,7 +326,7 @@ span.post-read-more a:hover {
 }
 
 .article-post {
-    font-family: Lato;
+    font-family: Merriweather;
     font-size: 1.1rem;
     line-height: 1.84;
     color: rgba(0, 0, 0, .8);
@@ -384,13 +337,11 @@ blockquote {
     padding: 0 20px;
     font-style: italic;
     color: rgba(0, 0, 0, .5);
-
 }
 
 .article-post p,
 .article-post blockquote {
     margin: 0 0 1.5rem 0;
-
 }
 
 .featured-image {
@@ -570,8 +521,8 @@ ul.tags li a:hover {
 }
 
 .btn.follow {
-    border-color: #00C3DA;
-    color: #00C3DA;
+    border-color: #02B875;
+    color: #FB372D;
     padding: 3px 10px;
     text-align: center;
     border-radius: 999em;
@@ -580,8 +531,8 @@ ul.tags li a:hover {
 }
 
 .btn.subscribe {
-    background-color: #00C3DA;
-    border-color: #00C3DA;
+    background-color: #FB372D;
+    border-color: #FB372D;
     color: rgba(255, 255, 255, 1);
     fill: rgba(255, 255, 255, 1);
     border-radius: 30px;
@@ -626,8 +577,8 @@ ul.tags li a:hover {
 }
 
 .alertbar input[type="submit"] {
-    background-color: #00C3DA;
-    border: 1px solid #00C3DA;
+    background-color: #FB372D;
+    border: 1px solid #FB372D;
     color: rgba(255, 255, 255, 1);
     fill: rgba(255, 255, 255, 1);
     font-size: 0.85rem;
@@ -664,7 +615,6 @@ ul.tags li a:hover {
 .authorpage h1 {
     font-weight: 700;
     font-size: 30px;
-
 }
 
 .post-top-meta.authorpage .author-thumb {
@@ -674,7 +624,6 @@ ul.tags li a:hover {
 .authorpage .author-description {
     font-size: 1rem;
     color: rgba(0, 0, 0, .6);
-
 }
 
 .post-top-meta.authorpage .btn.follow {
@@ -682,12 +631,10 @@ ul.tags li a:hover {
     margin-top: 10px;
     margin-left: 0;
     font-size: 0.9rem;
-
 }
 
 .graybg.authorpage {
     border-top: 1px solid #f0f0f0;
-
 }
 
 .authorpostbox {
@@ -695,12 +642,10 @@ ul.tags li a:hover {
     margin: 0px auto;
     margin-bottom: 1.5rem;
     max-width: 100%;
-
 }
 
 .authorpostbox .img-thumb {
     width: 100%;
-
 }
 
 .sociallinks {
@@ -722,7 +667,6 @@ ul.tags li a:hover {
 #comments {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-
 }
 
 .h1,
@@ -731,8 +675,7 @@ ul.tags li a:hover {
 .h4,
 .h5,
 .h6,
-h1 {
-},
+h1,
 h2,
 h3,
 h4,
@@ -822,20 +765,18 @@ iframe {
 
 @media (min-width:768px) {
     .jumbotron.fortags {
-        margin-bottom: 3px;
+        margin-bottom: -50px;
         margin-top: 3rem;
         padding: 0;
-        height: 500px;
+        height: 350px;
         border-radius: 0;
-        background-image: url(../images/jumbotron.png);
+        background-image: url(../images/jumbotron.jpg);
         background-size: cover;
-        
     }
 
     .jumbotron.fortags .col-md-4 {
         background: rgba(0, 0, 0, 0.75);
         color: #fff;
-    
     }
 
     .jumbotron.fortags .row {
@@ -847,18 +788,18 @@ iframe {
     margin-top: 3rem;
     padding: 0;
     border-radius: 0;
-    background-image: url(../images/jumbotron.png);
+    background-image: url(../images/jumbotron.jpg);
     background-size: cover;
 }
 
 .jumbotron.fortags a {
     padding: 5px 10px 7px;
-    background: #FB372D;
+    background: #222;
     border-radius: 30px;
     color: #fff;
     font-weight: 500;
     text-transform: lowercase;
-    font-size: 1rem;
+    font-size: 0.8rem;
     display: inline-block;
 }
 
@@ -905,9 +846,4 @@ iframe {
 
 .sticky-top-80 {
     top: 80px;
-}
-
-img[src$="centerme"] {
-  display:block;
-  margin: 0 auto;
 }
