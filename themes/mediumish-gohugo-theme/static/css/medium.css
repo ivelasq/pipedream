@@ -4,24 +4,21 @@ Copyright: Sal, WowThemes.net, https://www.wowthemes.net
 License: https://www.wowthemes.net/freebies-license/ 
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-
 .mainheading {
     padding: 1rem 0rem;
-    font-family: "Lato";
+
 }
 
 a {
     color: #FF0018;
     transition: all 0.2s;
-    font-family: "Lato";
+
 }
 
 a:hover {
     color: #00C3DA;
     text-decoration: none;
-    font-family: "Lato";
+
 }
 
 pre {
@@ -39,19 +36,19 @@ pre {
     line-height: 1.6;
     color: #333;
     margin-bottom: -rem;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation {
     background: rgba(255, 255, 255, .97);
     box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
     transition: top 0.2s ease-in-out;
-    font-family: "Lato";
+
 }
 
 .main-content {
     min-height: 300px;
-    font-family: "Lato";
+
 }
 
 .site-content {
@@ -59,7 +56,7 @@ pre {
     padding-top: 1.5rem;
     margin-top: 57px;
     transition: all 0.4s;
-    font-family: "Lato";
+
 }
 
 section {
@@ -72,7 +69,7 @@ section.recent-posts {
 
 .section-title h2 {
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    font-family: "Lato";
+
     margin-bottom: 25px;
     font-weight: 700;
     font-size: 1.4rem;
@@ -84,20 +81,20 @@ section.recent-posts {
     display: inline-block;
     padding-bottom: 20px;
     margin-bottom: -1px;
-    font-family: "Lato";
+
 }
 
 .article-post ol,
 .article-post ul {
     margin-bottom: 1.5rem;
-    font-family: "Lato";
+
 }
 
 .article-post ol ol,
 .article-post ul ul {
     list-style: disc;
     margin-bottom: 0rem;
-    font-family: "Lato";
+
 }
 
 @media (min-width:576px) {
@@ -105,7 +102,7 @@ section.recent-posts {
         -webkit-column-count: 2;
         -moz-column-count: 2;
         column-count: 2;
-        font-family: "Lato";
+    
     }
 }
 
@@ -113,7 +110,7 @@ section.recent-posts {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: 0.8rem;
         padding-left: 0.8rem;
-        font-family: "Lato";
+    
     }
 }
 
@@ -121,26 +118,26 @@ section.recent-posts {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    font-family: "Lato";
+
 }
 
 .listfeaturedtag .wrapthumbnail {
     height: 290px;
     flex: 0 0 auto;
     height: 100%;
-    font-family: "Lato";
+
 }
 
 .maxthumb {
     max-height: 300px;
     overflow: hidden;
-    font-family: "Lato";
+
 }
 
 .listfeaturedtag .card,
 .card-footer {
     border: 0;
-    font-family: "Lato";
+
 }
 
 .listfeaturedtag .thumbnail {
@@ -151,12 +148,12 @@ section.recent-posts {
     background-origin: border-box !important;
     border-top-left-radius: .25rem;
     border-bottom-left-radius: .25rem;
-    font-family: "Lato";
+
 }
 
 .listfeaturedtag .card-block {
     padding-left: 0;
-    font-family: "Lato";
+
 }
 
 .listfeaturedtag h2.card-title,
@@ -164,7 +161,7 @@ section.recent-posts {
     font-size: 1.3rem;
     font-weight: 700;
     line-height: 1.25;
-    font-family: "Nova Mono";
+
 }
 
 .listfeaturedtag h4.card-text,
@@ -173,7 +170,7 @@ section.recent-posts {
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 400;
-    font-family: "Lato";
+
 }
 
 .featured-box-img-cover {
@@ -181,14 +178,14 @@ section.recent-posts {
     width: 100%;
     height: 100%;
     max-height: 100%;
-    font-family: "Lato";
+
 }
 
 @media (max-width:991px) {
     .featured-box-img-cover {
         height: auto;
         width: 100%;
-        font-family: "Lato";
+    
     }
 }
 
@@ -197,50 +194,50 @@ section.recent-posts {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    font-family: "Lato";
+
 }
 
 .author-thumb {
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    font-family: "Lato";
+
 }
 
 .post-top-meta {
     margin-bottom: 2rem;
-    font-family: "Lato";
+
 }
 
 .post-top-meta .author-thumb {
     width: 72px;
     height: 72px;
-    font-family: "Lato";
+
 }
 
 .post-top-meta.authorpage .author-thumb {
     margin-top: 40px;
-    font-family: "Lato";
+
 }
 
 .post-top-meta span {
     font-size: 0.9rem;
     color: rgba(0, 0, 0, .44);
     display: inline-block;
-    font-family: "Lato";
+
 }
 
 .post-top-meta .author-description {
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 0.95rem;
-    font-family: "Lato";
+
 }
 
 .toc ul {
     list-style: decimal;
     font-weight: 400;
-    font-family: "Lato";
+
 }
 
 .author-meta {
@@ -248,20 +245,20 @@ section.recent-posts {
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
     overflow: hidden !important;
-    font-family: "Lato";
+
 }
 
 span.post-name,
 span.post-date,
 span.author-meta {
     display: inline-block;
-    font-family: "Lato";
+
 }
 
 span.post-date,
 span.post-read {
     color: rgba(0, 0, 0, .44);
-    font-family: "Lato";
+
 }
 
 span.post-read-more {
@@ -269,25 +266,25 @@ span.post-read-more {
     display: inline-block;
     float: right;
     margin-top: 8px;
-    font-family: "Lato";
+
 }
 
 span.post-read-more a {
     color: rgba(0, 0, 0, .44);
-    font-family: "Lato";
+
 }
 
 span.post-name a,
 span.post-read-more a:hover {
     color: rgba(0, 0, 0, .8);
-    font-family: "Lato";
+
 }
 
 .dot:after {
     content: "·";
     margin-left: 3px;
     margin-right: 3px;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .form-control {
@@ -296,7 +293,7 @@ span.post-read-more a:hover {
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.04);
     min-width: 180px;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .form-inline {
@@ -314,24 +311,24 @@ span.post-read-more a:hover {
 .mediumnavigation .form-inline .btn:active {
     background: transparent;
     color: red;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .navbar-brand {
     font-weight: 500;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .dropdown-menu {
     border: 1px solid rgba(0, 0, 0, 0.08);
     margin: .5rem 0 0;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .nav-item,
 .dropdown-menu {
     font-size: 0.9rem;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .search-icon {
@@ -339,23 +336,23 @@ span.post-read-more a:hover {
     display: inline-block;
     margin-top: 3px;
     cursor: pointer;
-    font-family: "Lato";
+
 }
 
 .mediumnavigation .navbar-brand img {
     max-height: 30px;
     margin-right: 5px;
-    font-family: "Lato";
+
 }
 
 .mainheading h1.sitetitle {
-    font-family: "Nova Mono";
+
 }
 
 .mainheading h1.posttitle {
     font-weight: 700;
     margin-bottom: 1rem;
-    font-family: "Lato";
+
 }
 
 .footer {
@@ -368,7 +365,7 @@ span.post-read-more a:hover {
     margin-bottom: 62px;
     position: relative;
     background: #fff;
-    font-family: "Lato";
+
 }
 
 .link-dark {
@@ -387,13 +384,13 @@ blockquote {
     padding: 0 20px;
     font-style: italic;
     color: rgba(0, 0, 0, .5);
-    font-family: "Lato";
+
 }
 
 .article-post p,
 .article-post blockquote {
     margin: 0 0 1.5rem 0;
-    font-family: "Lato";
+
 }
 
 .featured-image {
@@ -667,7 +664,7 @@ ul.tags li a:hover {
 .authorpage h1 {
     font-weight: 700;
     font-size: 30px;
-    font-family: "Nova Mono";
+
 }
 
 .post-top-meta.authorpage .author-thumb {
@@ -677,7 +674,7 @@ ul.tags li a:hover {
 .authorpage .author-description {
     font-size: 1rem;
     color: rgba(0, 0, 0, .6);
-    font-family: "Lato";
+
 }
 
 .post-top-meta.authorpage .btn.follow {
@@ -685,12 +682,12 @@ ul.tags li a:hover {
     margin-top: 10px;
     margin-left: 0;
     font-size: 0.9rem;
-    font-family: "Lato";
+
 }
 
 .graybg.authorpage {
     border-top: 1px solid #f0f0f0;
-    font-family: "Lato";
+
 }
 
 .authorpostbox {
@@ -698,12 +695,12 @@ ul.tags li a:hover {
     margin: 0px auto;
     margin-bottom: 1.5rem;
     max-width: 100%;
-    font-family: "Lato";
+
 }
 
 .authorpostbox .img-thumb {
     width: 100%;
-    font-family: "Lato";
+
 }
 
 .sociallinks {
@@ -725,7 +722,7 @@ ul.tags li a:hover {
 #comments {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    font-family: "Lato";
+
 }
 
 .h1,
@@ -735,7 +732,7 @@ ul.tags li a:hover {
 .h5,
 .h6,
 h1 {
-    font-family: "Nova Mono";},
+},
 h2,
 h3,
 h4,
@@ -838,7 +835,7 @@ iframe {
     .jumbotron.fortags .col-md-4 {
         background: rgba(0, 0, 0, 0.75);
         color: #fff;
-        font-family: "Nova Mono";
+    
     }
 
     .jumbotron.fortags .row {

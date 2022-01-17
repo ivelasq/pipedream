@@ -3,6 +3,6 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 publishdate: {{ .Date }}
 tags: []
-comments: true
+comments: false
 draft: true
 ---
