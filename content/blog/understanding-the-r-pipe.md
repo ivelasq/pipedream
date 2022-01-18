@@ -1,7 +1,7 @@
 ---
 title: "Understanding the native R pipe |>"
 date: 2022-01-18
-publishdate: 2022-01-18T16:05:52-08:00
+publishdate: 2022-01-18T13:25:52-08:00
 tags: ["magrittr"]
 comments: true
 summary: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
@@ -17,7 +17,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 😄:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 😂:
 
 ``` r
 library(ggplot2)
@@ -86,7 +86,7 @@ plot(mtcars, hp, mpg)
 plot(x = mtcars, y = hp, type = mpg)
 ```
 
-which doesn’t work and gives us an error message, because the first two arguments of `plot()` should be objects for the x and y axes (`mtcars` is an odd x-axis but technically works), and the third argument is for the type of plot (`mpg` definitely doesn’t work there).
+Which does not work and gives us an error message, because the first two arguments of `plot()` should be objects for the x and y axes (`mtcars` is an odd x-axis but technically works), and the third argument is for the type of plot (`mpg` definitely doesn’t work there).
 
 If you want the LHS to be passed somewhere other than the first argument with the {magrittr} pipe, you can use its dot syntax (`.`): `y %>% f(x, .)` is equivalent to `f(x, y)`.
 
@@ -118,7 +118,7 @@ plot(mtcars, mtcars$hp, mtcars$mpg)
 plot(x = mtcars, y = mtcars$hp, type = mtcars$mpg)
 ```
 
-which does not work nor is what we intended (we want to have `mtcars$hp` on the x-axis, and `mtcars$mpg` on the y-axis). The way to get the {magrittr} pipe to do what we want with `plot()` is to use its curly brace `{}` syntax. By wrapping the RHS in curly braces, we can override the rule where the LHS is passed to the first argument:
+Which does not work nor is what we intended (we want to have `mtcars$hp` on the x-axis, and `mtcars$mpg` on the y-axis). The way to get the {magrittr} pipe to do what we want with `plot()` is to use its curly brace `{}` syntax. By wrapping the RHS in curly braces, we can override the rule where the LHS is passed to the first argument:
 
 ``` r
 mtcars %>% {plot(.$hp, .$mpg)}
@@ -146,8 +146,7 @@ function(x) {
 }
 ```
 
-What does this do? It creates an anonymous function (also known as a lambda function)
-if it is not saved to an object.
+What does this do? It creates an anonymous function (also known as a lambda function) if it is not saved to an object.
 
 Introduced in R 4.1, the shortcut for anonymous functions `\(x) {}` is the same as `function(x) {}`:
 
@@ -259,7 +258,7 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
-[^2]: Curly braces for the first expression, `{}()`, works too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
-    . See Ronak Shah's reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.
+[^2]: Curly braces for the first expression, `{}()`, work too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
+    . See Ronak Shah’s reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063) for an example.
 
-[^3]: Or more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).
+[^3]: Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).
