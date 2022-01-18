@@ -1,8 +1,8 @@
 ---
 title: "Understanding the native R pipe |>"
 date: 2022-01-18
-publishdate: 2022-01-18T21:30:52-08:00
-tags: ["magrittr"]
+publishdate: 2022-01-18T17:12:52-08:00
+tags: ["magrittr", "baseR"]
 comments: true
 summary: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 ---
@@ -83,7 +83,7 @@ And,
 mtcars %>% plot(hp, mpg)
 ```
 
- is equivalent to:
+is equivalent to:
 
 ```{r}
 plot(mtcars, hp, mpg)
@@ -264,4 +264,4 @@ blogdown::shortcode('tweet', '1404947187155574787')
 
 ## Extra credit for those who made it this far
 
-How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my tweet about this blog post below!
+How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my [tweet](https://twitter.com/ivelasq3) about this blog post once you have the answer!

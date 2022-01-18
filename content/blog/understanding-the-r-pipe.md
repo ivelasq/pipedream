@@ -1,8 +1,8 @@
 ---
 title: "Understanding the native R pipe |>"
 date: 2022-01-18
-publishdate: 2022-01-18T21:30:52-08:00
-tags: ["magrittr"]
+publishdate: 2022-01-18T17:12:52-08:00
+tags: ["magrittr", "baseR"]
 comments: true
 summary: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 ---
@@ -17,7 +17,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 😄:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 😂:
 
 ``` r
 library(ggplot2)
@@ -254,7 +254,7 @@ Really though, all pipe users are winners here! As shown in the alignment chart 
 
 ## Extra credit for those who made it this far
 
-How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my tweet about this blog post below!
+How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my [tweet](https://twitter.com/ivelasq3) about this blog post once you have the answer!
 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
