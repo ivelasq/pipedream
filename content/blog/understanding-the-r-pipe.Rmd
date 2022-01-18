@@ -1,7 +1,7 @@
 ---
 title: "Understanding the native R pipe |>"
 date: 2022-01-18
-publishdate: 2022-01-18T17:12:52-08:00
+publishdate: 2022-01-18T15:26:52-08:00
 tags: ["magrittr", "baseR"]
 comments: true
 summary: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
