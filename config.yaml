@@ -1,4 +1,4 @@
-baseURL: "https://ivelasq.rbind.io/"
+baseURL: "https://ivelasq.rbind.io"
 languageCode: en-us
 title: "%>% dreams"
 theme: mediumish-gohugo-theme
@@ -19,7 +19,7 @@ params:
       [Resume](https://docs.google.com/document/d/14tJLqFuI9g6hDkP5IYQg0HPTZ05WVHxacedhajiilHo/edit?usp=sharing) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
     picture: /images/author.png
     subtitle: "%>% dreams"
-    title: Isabella C. Velásquez
+    title: Isabella Velásquez
   logo: /images/logo.png
   social:
     github: ivelasq
