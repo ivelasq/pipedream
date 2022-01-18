@@ -188,7 +188,7 @@ So, the native R pipe pipes the LHS into the first argument of the function on t
 
 
 A gotcha here is that we also needed to write parentheses around the anonymous function, such that a pseudocode version of the above is `mtcars |> (anonymous-function-definition)()`. The reason for this is so that the second set of `()` properly points to the complex expression inside the first set of `()` as the function being called.^[Curly braces for the first expression, `{}()`, works too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
-. See Magnus' reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.] ^[Or more on this, see Q2 and its answer in the 'Functions' chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).]
+. See Ronak Shah's reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.] ^[Or more on this, see Q2 and its answer in the 'Functions' chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).]
 
 ```{r}
 mtcars |> (\(x) {

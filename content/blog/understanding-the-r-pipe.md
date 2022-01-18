@@ -260,6 +260,6 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
 [^2]: Curly braces for the first expression, `{}()`, works too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
-    . See Magnus’ reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.
+    . See Ronak Shah's reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.
 
 [^3]: Or more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).
