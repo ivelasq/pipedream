@@ -1,7 +1,7 @@
 ---
-title: "Understanding the Native R Pipe |>"
-date: 2022-01-16T13:47:52-08:00
-publishdate: 2022-01-16T13:47:52-08:00
+title: "Understanding the native R pipe |>"
+date: 2022-01-18
+publishdate: 2022-01-18T16:05:52-08:00
 tags: ["magrittr"]
 comments: true
 summary: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
@@ -17,7 +17,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 😂:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 😆:
 
 ``` r
 library(ggplot2)
@@ -175,15 +175,15 @@ An important note: on the RHS of `|>`, you need to include the function as a fun
 
 So, the native R pipe pipes the LHS into the first argument of the function on the RHS (with an extra requirement of needing a function call on the RHS). **But that’s all!** If you want to do anything *beyond* piping the LHS into the first argument of the RHS function, then you need the special anonymous function syntax introduced above.
 
+A gotcha here is that we also needed to write parentheses around the anonymous function, such that a pseudocode version of the above is `mtcars |> (anonymous-function-definition)()`. The reason for this is so that the second set of `()` properly points to the complex expression inside the first set of `()` as the function being called.[^2][^3]
+
 ``` r
 mtcars |> (\(x) {
    x[which.max(x$mpg), ]
 })()
 ```
 
-A gotcha here is that we also needed to write parentheses around the anonymous function, such that a pseudocode version of the above is `mtcars |> (anonymous-function-definition)()`. The reason for this is so that the second set of `()` properly points to the complex expression inside the first set of `()` as the function being[^2] called.[^3]
-
-Thinking back to what we learned about the {magrittr} pipe `%>%`, you might be tempted to use the dot syntax (`.`). A final important note is that the dot syntax does not work with the native R pipe `|>`, since the dot syntax is a feature of {magrittr} and not of base R. For example, this works:
+Thinking back to what we learned about the {magrittr} pipe `%>%`, you might be tempted to use the dot syntax (`.`). A final important note is that the dot syntax does not work with the native R pipe `|>` since the dot syntax is a feature of {magrittr} and not of base R. For example, this works:
 
 ``` r
 mtcars %>% plot(.$hp)
@@ -198,7 +198,7 @@ mtcars |> plot(.$hp)
 
 However, if you create an anonymous function, you can decide what the input argument names are, whether `.`, `x`, `data`, anything! So, if you are tied to the dot syntax in {magrittr}, you can ‘bootstrap’ your own dot syntax with `\(.) {}`.
 
-In sum: the native R pipe does not support the dot syntax unless you explicitly define your own.
+In sum, the native R pipe does not support the dot syntax unless you explicitly define your own.
 
 ## Getting to the solution
 
@@ -239,6 +239,7 @@ No dot syntax, no curly braces, no anonymous functions, no terminal function cal
 Really though, all pipe users are winners here! As shown in the alignment chart tweet, we have many options of doing what we want to do with R.
 
 <center>
+{{% tweet "1404947187155574787" %}}
 </center>
 
 ## More resources
@@ -254,6 +255,6 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
 [^2]: Curly braces for the first expression, `{}()`, works too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
-    . See Magnus’ reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe).
+    . See Magnus’ reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe) for an example.
 
-[^3]: or more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).
+[^3]: Or more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).
