@@ -17,7 +17,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 😆:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 😄:
 
 ``` r
 library(ggplot2)
@@ -85,7 +85,7 @@ plot(mtcars, hp, mpg)
 
 which doesn’t work and gives us an error message, because the first two arguments of `plot()` should be objects for the x and y axes (`mtcars` is an odd x-axis but technically works), and the third argument is for the type of plot (`mpg` definitely doesn’t work there).
 
-If you want the LHS to be passed somewhere other than the first argument, then with the {magrittr} pipe you can use its dot syntax (`.`): `y %>% f(x, .)` is equivalent to `f(x, y)`.
+If you want the LHS to be passed somewhere other than the first argument with the {magrittr} pipe, you can use its dot syntax (`.`): `y %>% f(x, .)` is equivalent to `f(x, y)`.
 
 ``` r
 mtcars %>%
@@ -147,7 +147,7 @@ if it is not saved to an object.
 Introduced in R 4.1, the shortcut for anonymous functions `\(x) {}` is the same as `function(x) {}`:
 
 ``` r
-# Equivalent to the above
+# equivalent to the above
 \(x) {
   x[which.max(x$mpg), ]
 }
