@@ -81,6 +81,9 @@ is equivalent to:
 
 ``` r
 plot(mtcars, hp, mpg)
+
+# or, more explicitly
+plot(x = mtcars, y = hp, type = mpg)
 ```
 
 which doesn’t work and gives us an error message, because the first two arguments of `plot()` should be objects for the x and y axes (`mtcars` is an odd x-axis but technically works), and the third argument is for the type of plot (`mpg` definitely doesn’t work there).
@@ -123,7 +126,9 @@ mtcars %>% {plot(.$hp, .$mpg)}
 
 This works! It’s equivalent to having written:
 
-    plot(mtcars$hp, mtcars$mpg)
+``` r
+plot(mtcars$hp, mtcars$mpg)
+```
 
 OK! Now, we can apply what we’ve learned to the native R pipe. Right? …Right?
 
