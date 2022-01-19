@@ -263,3 +263,9 @@ blogdown::shortcode('tweet', '1404947187155574787')
 ## Extra credit for those who made it this far
 
 How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my [tweet](https://twitter.com/ivelasq3) about this blog post once you have the answer!
+
+<center>
+```{r echo = FALSE, eval = TRUE}
+blogdown::shortcode('tweet', "1483554890152439811")
+```
+</center>

@@ -15,7 +15,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 😂:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 🤣:
 
 ``` r
 library(ggplot2)
@@ -253,6 +253,10 @@ Really though, all pipe users are winners here! As shown in the alignment chart 
 ## Extra credit for those who made it this far
 
 How would you do this with the proposed native R pipe-bind `=>` syntax? Respond to my [tweet](https://twitter.com/ivelasq3) about this blog post once you have the answer!
+
+<center>
+{{% tweet "1483554890152439811" %}}
+</center>
 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
