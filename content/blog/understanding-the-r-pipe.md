@@ -15,7 +15,7 @@ When I am feeling lazy, I use base R for quick plots:
 plot(mtcars$hp, mtcars$mpg)
 ```
 
-Because that clearly saves a lot of time compared to the {ggplot2} alternative 🤣:
+Because that clearly saves a lot of time compared to the {ggplot2} alternative 😄:
 
 ``` r
 library(ggplot2)
@@ -75,7 +75,7 @@ And,
 mtcars %>% plot(hp, mpg)
 ```
 
-is equivalent to:
+Is equivalent to:
 
 ``` r
 plot(mtcars, hp, mpg)
@@ -93,7 +93,7 @@ mtcars %>%
   lm(mpg ~ hp, data = .)
 ```
 
-is equivalent to:
+Is equivalent to:
 
 ``` r
 lm(mpg ~ hp, data = mtcars)
