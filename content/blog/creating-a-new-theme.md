@@ -1,16 +1,11 @@
 ---
 comments: false
 date: "2018-08-04T11:39:13+02:00"
-image: /images/blog/3.jpg
-publishdate: "2018-08-04T11:39:13+02:00"
 tags:
 - graduate school
-title: So You're Getting a Masters in Analytics
+title: So you're getting a Masters in Analytics
+summary: Recommendations when entering an Analytics or Data Science degree program.
 ---
-
-Recommendations when entering an Analytics or Data Science degree program.
-
-<!--more-->
 
 The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analytics program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.
 
@@ -33,7 +28,9 @@ Git and Github was not required for any classes (at least when I was in the prog
 - Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!
 - There's also nothing better than having a filled up contribution graph.
 
-![alt text](https://i.imgur.com/7c6ss6v.jpg?style=centerme "Aww yiss")
+<center>
+![Meme from Napolean Dynamite saying "created repo and made an initial commit, so you can say things are getting pretty serious"](https://i.imgur.com/7c6ss6v.jpg?style=centerme "Aww yiss")
+</center>
 
 ## 2. Leave each class with an example that you can show a potential employer
 
@@ -41,13 +38,17 @@ These programs go *quickly.* I was a part-time student and took my sweet time an
 
 Of course, I understand that not all homework applies to this - but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up - and be able to show how this project illustrates the value you can bring to your future company.
 
-![alt text](https://stepcdn.com/assets/legacy/6f7/155vlt-700x.gif?style=centerme "Per my email")
+<center>
+![Man lifting a shield, caption says I'm here and I'm ready](https://i.imgflip.com/155vlt.gif?style=centerme "Per my email")
+</center>
 
 ## 3. Diversify your programming languages
 
 My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python - and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.
 
-![alt text](https://media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme "Do you speak it?")
+<center>
+![Ron Burgundy from Anchorman saying you don't know I don't speak Python, in R please](https://media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme "Do you speak it?")
+</center>
 
 Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I'd have to refresh myself on even the basics of the language - which is a shame considering how much effort I put in when I was in the class.
 
@@ -66,7 +67,9 @@ When it was Capstone time, the options were listed on a website and we were told
 
 I was in the second cohort of my Analytics program and even though it's been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it's offered to any student who may benefit from it.
 
-![alt text](https://media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme "Administration be like")
+<center>
+![Tom Cruise saying help me help you](https://media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme "Administration be like")
+</center>
 
 As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.
 
@@ -76,7 +79,9 @@ As you progress through your Analytics or Data Science program, you will learn t
 
 You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.
 
-![alt text](https://i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme "This is supposed to represent something with data but I chose it because it has a cat")   
+<center>
+![Data from Star Trek playing with a cat](https://i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme "This is supposed to represent something with data but I chose it because it has a cat")   
+</center>
 
 ## Conclusion
 
