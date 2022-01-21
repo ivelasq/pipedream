@@ -81,7 +81,7 @@ And,
 mtcars %>% plot(hp, mpg)
 ```
 
-is equivalent to:
+Is equivalent to:
 
 ```{r}
 plot(mtcars, hp, mpg)
@@ -99,7 +99,7 @@ mtcars %>%
   lm(mpg ~ hp, data = .)
 ```
 
-is equivalent to:
+Is equivalent to:
 
 ```{r}
 lm(mpg ~ hp, data = mtcars)
