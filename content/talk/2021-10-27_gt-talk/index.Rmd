@@ -1,0 +1,27 @@
+---
+author: Isabella Velásquez
+categories:
+  - R
+  - Package
+  - Walkthrough
+date: "2021-10-27T11:00:00-06:00"
+draft: false
+excerpt: A discussion on using tables as a format for communicating information and a walkthrough of creating a table in R using the {gt} package.
+event: R-Ladies Johannesburg Meetup
+event_url: https://www.meetup.com/rladies-johannesburg/events/281522272/
+layout: single
+location: Remote
+title: Around the World in a Single Table (gt Walkthrough)
+links:
+- icon: github
+  icon_pack: fab
+  name: "Github Repository"
+  url: https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation
+---
+
+```{r, echo = FALSE}
+xaringanExtra::embed_xaringan(
+  url = "https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1",
+  ratio = "16:9"
+)
+```

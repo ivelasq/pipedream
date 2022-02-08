@@ -55,5 +55,5 @@ scale_fill_iv <- function(palette = "main", discrete = TRUE, reverse = FALSE, ..
 
 theme_iv <- function() {
   ggplot2::theme_minimal(base_size = 11,
-                         base_family = "Lato")
+                         base_family = "Inter")
 }
