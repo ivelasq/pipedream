@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.24">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2020-08-30">
+  <meta name="description" content="Thanks to contributions from Daniel Anderson, leaidr is even easier to use.">
+  <title>%&gt;% dreams - An even easier-to-use R package for school district shapefiles</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../logo.png" rel="icon" type="image/png">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="../../site_libs/mapdeck-binding-0.3.4/mapdeck.js"></script>
+  <script src="../../site_libs/mpadeck_functions-0.0.1/mapdeck_functions.js"></script>
+  <script src="../../site_libs/deckgl-8.1.6/deckgl.min.js"></script>
+  <script src="../../site_libs/legend-0.0.1/legend.js"></script>
+  <script src="../../site_libs/title-0.0.1/title.js"></script>
+  <script src="../../site_libs/mapdeck_location-0.0.1/mapdeck_location.js"></script>
+  <script src="../../site_libs/mapdeck_colours-0.0.1/mapdeck_colours.js"></script>
+  <script src="../../site_libs/mapdeck_coordinates-0.0.1/mapdeck_coordinates.js"></script>
+  <link href="../../site_libs/mapboxgl-1.10.0/mapbox-gl.css" rel="stylesheet">
+  <script src="../../site_libs/mapboxgl-1.10.0/mapbox-gl.js"></script>
+  <link href="../../site_libs/mapdeck-0.0.1/mapdeck.css" rel="stylesheet">
+  <script src="../../site_libs/mpadeck-binding-0.3.4/mapdeck.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - An even easier-to-use R package for school district shapefiles">
+<meta name="twitter:description" content="Thanks to contributions from Daniel Anderson, leaidr is even easier to use.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//blog/leaidr2/thumbnail.jpg">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">An even easier-to-use R package for school district shapefiles</h1>
+<p class="date">2020-08-30</p>
+</header>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption><p></p>
+</figure>
+</div>
+<section id="an-update-to-leaidr" class="level2">
+<h2 class="anchored" data-anchor-id="an-update-to-leaidr">An update to leaidr</h2>
+<p>A few months ago, I created <a href="https://github.com/ivelasq/leaidr">{leaidr}</a> for easier download of U.S. school district shapefiles. <a href="https://github.com/datalorax">Daniel Anderson</a> went through and greatly improved the package, making it even easier to download and use the shapefiles (thanks Dan!).</p>
+<p>Now, instead of having to run <code>lea_prep()</code>, you can download the shapefiles from Dan’s Github repository like so:</p>
+<div class="cell" data-layout-align="center" data-hash="index_cache/html/unnamed-chunk-2_39a8649a452d2d0a34547b5043cdf2e4">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaidr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>tn <span class="ot">&lt;-</span> <span class="fu">lea_get</span>(<span class="st">"tn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code>OGR data source with driver: ESRI Shapefile 
+Source: "/private/var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T/RtmpqlCmYd/47", layer: "47"
+with 158 features
+It has 18 fields</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tn <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Blank map of Tennessee school districts." width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>And, if you use <code>lea_get()</code> (i.e., with <code>state = NULL</code>), you’ll get the shapefiles for the whole U.S. back via ROpenSci’s {piggyback}.</p>
+<p>So much easier and better!</p>
+<p>Because Dan helped make the package so great, I wanted to add on and showcase what can be done with it! So, today’s post is jam-packed with choices…</p>
+<ul>
+<li><a href="#create-a-beautiful-map-in-mapbox">Create a beautiful map in Mapbox</a></li>
+<li><a href="#create-a-shiny-app-with-your-beautiful-map">Create a Shiny app with your beautiful map</a></li>
+<li><a href="#add-a-shiny-app-to-a-package">Add a Shiny app to a package</a></li>
+</ul>
+</section>
+<section id="create-a-beautiful-map-in-mapbox" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-beautiful-map-in-mapbox">Create a beautiful map in Mapbox</h2>
+<p>Asmae Toumi wrote a <a href="https://asmae-toumi.netlify.app/posts/2020-08-10-how-to-make-web-ready-us-county-level-maps/">blog post</a> on how to make maps using R and Mapbox. So, I figured: why not announce the new and improved {leaidr} functions to create a beautiful Mapbox map??</p>
+<p>This walkthrough will go a little deeper with Mapbox, as I am an extreme beginner and had to do a lot of investigating to figure out how to use it.</p>
+<p>I suggest first reading through Asmae’s tutorial as there are a few things you need to do before being able to run the below: download the {mapboxapi} package, create a Mapbox account, and install Tippecanoe.</p>
+<section id="load-the-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-packages">Load the packages</h3>
+<p>Here are the packages you will need:</p>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># remotes::install_github("walkerke/mapboxapi")</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapboxapi)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># if you haven't installed the package yet</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("ivelasq/leaidr")</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaidr)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rmapshaper)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapdeck)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="download-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="download-the-data">Download the data</h3>
+<p>Download your shapefiles. If you want to make a choropleth map, also read in the data that you will append to your shapefiles and merge them by a common ID. (Sorry for using a local file!)</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>shp <span class="ot">&lt;-</span> <span class="co"># leaidr shapefiles</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lea_get</span>(<span class="fu">c</span>(<span class="st">"or"</span>, <span class="st">"wa"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  sf<span class="sc">::</span><span class="fu">st_as_sf</span>()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="co"># data to append </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"/Users/shortessay/Downloads/ccd_lea_141_1819_l_1a_091019/ccd_lea_141_1819_l_1a_091019.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ST <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"OR"</span>, <span class="st">"WA"</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>northwest <span class="ot">&lt;-</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  shp <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(GEOID, geometry) <span class="sc">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  sp<span class="sc">::</span><span class="fu">merge</span>(dat, <span class="at">by.x =</span> <span class="st">"GEOID"</span>, <span class="at">by.y =</span> <span class="st">"LEAID"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="create-the-tileset" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-tileset">Create the tileset</h3>
+<p>Now, following the original tutorial, we use Tippecanoe to optimize the shapefiles and data and then upload the “tiles” to Mapbox.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tippecanoe</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">input =</span> northwest,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">"nw.mbtiles"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer_name =</span> <span class="st">"northwest"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">upload_tiles</span>(<span class="at">input =</span> <span class="st">"nw.mbtiles"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">username =</span> <span class="st">"ivelasq3"</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">tileset_id =</span> <span class="st">"northwest"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">multipart =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="style-the-tiles" class="level3">
+<h3 class="anchored" data-anchor-id="style-the-tiles">Style the tiles</h3>
+<p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of Mapbox website with Tilesets</figcaption><p></p>
+</figure>
+</div>
+<p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of Mapbox choosing a template</figcaption><p></p>
+</figure>
+</div>
+<p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of Mapbox layers and how to add them</figcaption><p></p>
+</figure>
+</div>
+<p>I zoomed to where my tiles are located (Oregon and Washington) and started editing. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling">This section of the walkthrough</a> explains how to create a choropleth map, where each geography has a different color according to a value.</p>
+<p>Once done styling, I clicked “Publish” on the top right of Mapbox Studio.</p>
+</section>
+<section id="using-the-map-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-map-in-r">Using the map in R</h3>
+<p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of Mapbox sharing a map</figcaption><p></p>
+</figure>
+</div>
+<p>I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mapdeck</span>(<span class="at">token =</span> <span class="fu">Sys.getenv</span>(<span class="st">"MAPBOX_PUBLIC_TOKEN"</span>),</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">style =</span> <span class="st">"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">zoom =</span> <span class="dv">4</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">location =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">120.161</span>, <span class="fl">45.843</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-09ac2a810cf3f52af29c" style="width:100%;height:464px;" class="mapdeck html-widget"></div>
+<script type="application/json" data-for="htmlwidget-09ac2a810cf3f52af29c">{"x":{"access_token":"","style":"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj","pitch":0,"zoom":4,"location":[-120.161,45.843],"bearing":0,"max_zoom":20,"min_zoom":0,"max_pitch":60,"min_pitch":0,"show_view_state":false,"repeat_view":false},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="create-a-shiny-app-with-your-beautiful-map" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-shiny-app-with-your-beautiful-map">Create a Shiny app with your beautiful map</h2>
+<p>Once you have the <code>mapdeck()</code> function all set up, you can use it in a Shiny app. <a href="https://github.com/greghuang8/Geovis/blob/master/shinyApp.R">Here’s</a> some reference code that I found useful for using <code>renderMapdeck()</code>. Thank you Greg Huang!</p>
+<p>This is an example of a very bare-bones Shiny app. For the UI, use <code>mapdeckOutput()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mapdeck)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mapdeckOutput</span>(<span class="at">outputId =</span> <span class="st">"createMap"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And for the server, paste the <code>mapdeck()</code> function in <code>renderMapdeck()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>createMap <span class="ot">&lt;-</span> <span class="fu">renderMapdeck</span>({</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mapdeck</span>(<span class="at">token =</span> <span class="fu">Sys.getenv</span>(<span class="st">"MAPBOX_PUBLIC_TOKEN"</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">style =</span> <span class="st">"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">zoom =</span> <span class="dv">4</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">location =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">120.161</span>, <span class="fl">45.843</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I uploaded the app <a href="https://ivelasq.shinyapps.io/leaidr/">here</a>.</p>
+</section>
+<section id="add-a-shiny-app-to-a-package" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-shiny-app-to-a-package">Add a Shiny app to a package</h2>
+<p>Now, say you would like to add the Shiny app to your package as well as upload it to shinyapps.io / instead of uploading to shinyapps.io. Thankfully, Dean Attali has a <a href="https://deanattali.com/2015/04/21/r-package-shiny-app/">great walkthrough</a> on how to do this!</p>
+<ol type="1">
+<li>Add {shiny} to your dependencies in your <code>DESCRIPTION</code> file (I do this with <code>usethis::use_package("shiny")</code>).</li>
+<li>Create a folder called <code>inst</code> in your package with another folder for the Shiny example, and your UI/server file(s) within.</li>
+<li>Create an R file to run your example (I used <code>usethis::use_r("runExample.R")</code>) to create this file.</li>
+<li>Don’t forget to document! <code>devtools::document()</code></li>
+</ol>
+<p>So, if you were to install and load {leaidr}, you can run <code>leaidr::runExample()</code> to launch the Shiny app. To see what the files look like, check out the Github repo files <a href="https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox">here</a>.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!</p>
+<center>
+<p><em>Liked this article? I’d love for you to retweet!</em></p>
+<div class="cell">
+<div class="cell-output-display">
+<p>{{% tweet "1300446746955452416" %}}</p>
+</div>
+</div>
+</center>
+
+
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

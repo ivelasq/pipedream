@@ -1,0 +1,15 @@
+---
+title: "Talks"
+listing:
+  type: table
+  sort-ui: false
+  filter-ui: false
+  image-height: 150px
+  contents: talk
+  sort: "date desc"
+  categories: false
+  fields: [image, title, date, description]
+format: 
+  html:
+    page-layout: full
+---

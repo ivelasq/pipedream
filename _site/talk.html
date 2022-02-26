@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.24">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>%&gt;% dreams - Talks</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <link href="./logo.png" rel="icon" type="image/png">
+  <script src="site_libs/quarto-listing/list.min.js"></script>
+  <script src="site_libs/quarto-listing/quarto-listing.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script>
+
+    window.document.addEventListener("DOMContentLoaded", function (_event) {
+      const listingTargetEl = window.document.querySelector('#listing .list');
+      if (!listingTargetEl) {
+        // No listing discovered, do not attach.
+        return; 
+      }
+
+      const options = {
+        valueNames: ['listing-image','listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+        
+        searchColumns: ["listing-date","listing-title","listing-author"],
+      };
+
+      window['quarto-listings'] = window['quarto-listings'] || {};
+      window['quarto-listings']['listing'] = new List('listing', options);
+
+      if (window['quarto-listing-loaded']) {
+        window['quarto-listing-loaded']();
+      }
+    });
+    </script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Talks">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//talk/building-a-blog-with-r/thumbnail.png">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:image-height" content="1326">
+<meta name="twitter:image-width" content="2560">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./talk.html" aria-current="page">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">Talks</h1>
+</header>
+
+
+
+<div id="listing" class="quarto-listing">
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+Title
+</th>
+<th>
+Date
+</th>
+<th>
+Description
+</th>
+</tr>
+</thead>
+<tbody class="list">
+<tr data-index="0" data-categories="walkthroughs,packages" data-listing-date-sort="1643068800000" data-listing-file-modified-sort="1645898539928" data-listing-reading-time-sort="7.485" data-listing-title-sort="Building a Blog With R" data-listing-filename-sort="index.md">
+<td class="listing-image">
+<img src="talk/building-a-blog-with-r/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/building-a-blog-with-r/index.html" class="title">Building a Blog With R</a>
+</td>
+<td class="listing-date">
+1/24/2022
+</td>
+<td class="listing-description">
+A blog is a wonderful opportunity to record your data stories, gain exposure for your expertise, and support others in their R journey. In this talk, I discuss possible reasons for creating a blog and explore tools that make it easy to showcase your R skills.
+</td>
+</tr>
+<tr data-index="1" data-categories="packages" data-listing-date-sort="1639094400000" data-listing-file-modified-sort="1645898569331" data-listing-reading-time-sort="12.45" data-listing-title-sort="Packages for Using R With Python, Tableau, and Other Tools" data-listing-filename-sort="index.md">
+<td class="listing-image">
+<img src="talk/using-r-and-other-tools/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/using-r-and-other-tools/index.html" class="title">Packages for Using R With Python, Tableau, and Other Tools</a>
+</td>
+<td class="listing-date">
+12/9/2021
+</td>
+<td class="listing-description">
+R is a powerful programming language for statistics and data science with an accompanying ecosystem that supports its use. Interoperability is part of what makes the R ecosystem so rich, enabling users to apply R in a variety of contexts. In this talk, I will discuss packages that allow you to integrate R together with other tools, including Python and Tableau.
+</td>
+</tr>
+<tr data-index="2" data-categories="walkthroughs,packages" data-listing-date-sort="1635292800000" data-listing-file-modified-sort="1645898628368" data-listing-reading-time-sort="3.94" data-listing-title-sort="Around the World in a Single Table (gt Walkthrough)" data-listing-filename-sort="index.Rmd">
+<td class="listing-image">
+<img src="talk/gt-talk/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/gt-talk/index.html" class="title">Around the World in a Single Table (gt Walkthrough)</a>
+</td>
+<td class="listing-date">
+10/26/2021
+</td>
+<td class="listing-description">
+Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package.
+</td>
+</tr>
+<tr data-index="3" data-categories="github,rstudio" data-listing-date-sort="1619136000000" data-listing-file-modified-sort="1645898659399" data-listing-reading-time-sort="2.105" data-listing-title-sort="Git Through April" data-listing-filename-sort="index.Rmd">
+<td class="listing-image">
+<img src="talk/git-through-april/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/git-through-april/index.html" class="title">Git Through April</a>
+</td>
+<td class="listing-date">
+4/22/2021
+</td>
+<td class="listing-description">
+A walkthrough on using Git in the RStudio GUI.
+</td>
+</tr>
+<tr data-index="4" data-categories="bookclub" data-listing-date-sort="1617148800000" data-listing-file-modified-sort="1645898765632" data-listing-reading-time-sort="2.21" data-listing-title-sort="Longitudinal Analysis with Federal Students with Disabilities Data" data-listing-filename-sort="index.Rmd">
+<td class="listing-image">
+<img src="talk/longitudinal-analysis/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/longitudinal-analysis/index.html" class="title">Longitudinal Analysis with Federal Students with Disabilities Data</a>
+</td>
+<td class="listing-date">
+3/30/2021
+</td>
+<td class="listing-description">
+A Data Science in Education Using R bookclub session on longitudinal data analysis.
+</td>
+</tr>
+<tr data-index="5" data-categories="" data-listing-date-sort="1596585600000" data-listing-file-modified-sort="1645898783633" data-listing-reading-time-sort="2.085" data-listing-title-sort="What do penguins have to do with being anti-racist?" data-listing-filename-sort="index.md">
+<td class="listing-image">
+<img src="talk/rladies-allyship/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/rladies-allyship/index.html" class="title">What do penguins have to do with being anti-racist?</a>
+</td>
+<td class="listing-date">
+8/4/2020
+</td>
+<td class="listing-description">
+A talk on why being anti-racist matters in data science.
+</td>
+</tr>
+<tr data-index="6" data-categories="package" data-listing-date-sort="1588809600000" data-listing-file-modified-sort="1645898836187" data-listing-reading-time-sort="27.765" data-listing-title-sort="Package Management for Reproducible Data Science in R" data-listing-filename-sort="index.Rmd">
+<td class="listing-image">
+<img src="talk/package-mangement-in-r/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/package-mangement-in-r/index.html" class="title">Package Management for Reproducible Data Science in R</a>
+</td>
+<td class="listing-date">
+5/6/2020
+</td>
+<td class="listing-description">
+Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.
+</td>
+</tr>
+<tr data-index="7" data-categories="" data-listing-date-sort="1563235200000" data-listing-file-modified-sort="1645898184424" data-listing-reading-time-sort="2.23" data-listing-title-sort="Taking a Peek at Hiking Data Using R" data-listing-filename-sort="index.md">
+<td class="listing-image">
+<img src="talk/hiking-data/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/hiking-data/index.html" class="title">Taking a Peek at Hiking Data Using R</a>
+</td>
+<td class="listing-date">
+7/15/2019
+</td>
+<td class="listing-description">
+An analysis of hiking routes and metrics.
+</td>
+</tr>
+<tr data-index="8" data-categories="package,walkthrough" data-listing-date-sort="1532304000000" data-listing-file-modified-sort="1645898415063" data-listing-reading-time-sort="8.55" data-listing-title-sort="Blogdown for What" data-listing-filename-sort="index.md">
+<td class="listing-image">
+<img src="talk/blogdown-for-what/thumbnail.png" style="height: 150px;">
+</td>
+<td class="listing-title">
+<a href="./talk/blogdown-for-what/index.html" class="title">Blogdown for What</a>
+</td>
+<td class="listing-date">
+7/22/2018
+</td>
+<td class="listing-description">
+A walkthrough on creating a website using the {blogdown} package.
+</td>
+</tr>
+</tbody>
+</table>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

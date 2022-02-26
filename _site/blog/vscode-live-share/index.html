@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.24">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2021-02-03">
+  <meta name="description" content="Setting up a Google Docs-like coding environment in VS Code.">
+  <title>%&gt;% dreams - Remote pair programming in R using Visual Studio Code and Live Share</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../logo.png" rel="icon" type="image/png">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Remote pair programming in R using Visual Studio Code and Live Share">
+<meta name="twitter:description" content="Setting up a Google Docs-like coding environment in VS Code.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//blog/vscode-live-share/thumbnail.jpg">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">Remote pair programming in R using Visual Studio Code and Live Share</h1>
+<p class="date">2021-02-03</p>
+</header>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><a href="#the-problem">The Problem</a></li>
+<li><a href="#state-of-the-code-editors">State of the Code Editors</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#writing-an-r-package-using-vs-code">Writing an R Package Using VS Code</a></li>
+<li><a href="#live-share-tutorial">Live Share Tutorial</a></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
+<p>Way back in the <a href="https://www.urbandictionary.com/define.php?term=The%20Before%20Time">Before Time</a>, my <a href="https://github.com/gvelasq">older brother</a> and I worked together on an R package called <a href="https://ivelasq.github.io/wizehiver">{wizehiver}</a>. To collaborate, we used many tools. We had an email thread (of over 35 emails!) that eventually became two email threads. We tried <a href="https://github.com/ivelasq/wizehiver/issues?q=is%3Aissue+is%3Aclosed">GitHub Issues</a>, but we were in such close communication that the back-and-forth on issues was ineffectual. We also tried <a href="https://en.m.wikipedia.org/wiki/Pair_programming">pair programming</a> but since we lived in separate cities, we did it while one of us would share our screen on Skype. We wished there was a better, more hands-on, and immediate way to collaborate in a source code editor in <a href="https://en.wikipedia.org/wiki/Collaborative_real-time_editor">real-time</a>, similar to how seamless it is to work on Google Docs.</p>
+</section>
+<section id="state-of-the-code-editors" class="level2">
+<h2 class="anchored" data-anchor-id="state-of-the-code-editors">State of the code editors</h2>
+<p>The <a href="https://rstudio.com/products/rstudio">RStudio IDE</a> is in our opinion the best IDE for R out there; however, live collaboration using RStudio’s <a href="https://docs.rstudio.com/ide/server-pro/r-sessions.html#project-sharing">Project Sharing</a> feature is limited to those with a paid <a href="https://rstudio.com/pricing">RStudio Server Pro</a> license as of this writing. There are many source code editors out there, and notably <a href="https://atom.io/packages/teletype">Atom</a> and <a href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare">Visual Studio (VS) Code</a> both provide extensions for free, collaborative real-time editing.</p>
+<p>We have been following, with increasing <a href="https://github.com/issues?q=vscode+OR+radian+OR+languageserver+OR+vscDebugger+is%3Aissue+author%3Agvelasq">interest</a>, the growing community of developers who have been focused on tools for R in VS Code. There are now several R packages, VS Code extensions, and a command-line R console available, as well as several tutorials dedicated to R in VS Code. Here we set out to see if VS Code could fill the particular gap we identified in our previous work together — the need for seamless remote pair programming. A few of our use cases are:</p>
+<ol type="1">
+<li><p>We wanted to collaborate on this blog post in a shared <code>.Rmd</code> file which we could edit and knit as we wrote. Ultimately we wrote most of this post on Google Docs before transferring it to a versioned <code>.Rmd</code> on GitHub for finishing touches.</p></li>
+<li><p>We wanted to start collaborating on an open-source R package <a href="https://github.com/gvelasq/mutagen">{mutagen}</a> which will (someday) provide useful extensions to <a href="https://dplyr.tidyverse.org/">{dplyr}</a>’s <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>:</p></li>
+</ol>
+<center>
+<img src="https://raw.githubusercontent.com/gvelasq/mutagen/master/man/figures/logo.jpeg" class="img-fluid">
+</center>
+<p>So far, we only have a hex sticker — <a href="https://twitter.com/search?q=%23hexdrivendevelopment">#hexdrivendevelopment</a> in action!</p>
+<center>
+{{% tweet “1022413631340912640” %}}
+</center>
+<p>Embarrassingly, our last commit to the package was in December 2019. While it would be convenient to blame the pandemic, it was a mix of being busy and other ‘hobby’ projects. However, having a synchronous way of collaborating—where we could see the package being built in action—would enable us to truly get the project underway. Before we begin the tutorial, first we have a public service announcement: if you would like to see Microsoft devote additional resources to support R in VS Code, please upvote R in this <code>vscode-jupyter</code> <a href="https://github.com/microsoft/vscode-jupyter/issues/1536">issue</a>!</p>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>We’re going to use <a href="https://brew.sh/">Homebrew</a> to facilitate installation steps on macOS. We only provide instructions for macOS here, but we do provide links for macOS users who prefer to install applications using the point-and-click method, and for Linux and Windows users to find the correct binaries. We also indicate which steps are optional.</p>
+<ol type="1">
+<li><p>Open Applications &gt; Utilities &gt; Terminal.</p></li>
+<li><p>Install <a href="https://brew.sh/">Homebrew</a> using the terminal command below, also provided on the Homebrew landing page. Paste this code into your terminal:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/bin/bash</span> <span class="at">-c</span> <span class="st">"</span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>(Optional) For our favorite free and open-source terminal on macOS, install <a href="https://iterm2.com/">iTerm2</a> by pasting this into your terminal:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> iterm2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>If you don’t have them already, you’ll need <a href="https://cloud.r-project.org/">R</a> and <a href="https://rstudio.com/products/rstudio/download/preview/">RStudio Desktop</a>. We’re partial to the preview version of RStudio Desktop which has all the latest features. You can install (and update) them easily from your terminal:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> r</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap homebrew/cask-versions</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> rstudio-preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Install <a href="https://github.com/randy3k/radian"><code>radian</code></a>, a ‘21st century R console’ and the recommended R console for VS Code.</li>
+</ol>
+<p><em>Update 2021-02-11</em>: Thanks to the efforts of <a href="https://twitter.com/jdblischak"><code>@jdblischak</code></a> and <a href="https://github.com/randy3k"><code>@randy3k</code></a> in this closed <a href="https://github.com/randy3k/radian/issues/244">issue</a>, <code>radian</code> can now be installed with <a href="https://anaconda.org/conda-forge/radian"><code>conda-forge</code></a> instead of only with <a href="https://pypi.org/project/radian/"><code>pip</code></a>. Most data science tutorials recommend using Python with <a href="https://docs.conda.io/projects/conda/en/latest"><code>conda</code></a> environments, so we suspect that our readers will be more familiar with using <code>conda</code> than <code>pip</code>, as we are. If you do choose to use <code>pip</code> (or <a href="https://snarky.ca/why-you-should-use-python-m-pip/"><code>python -m pip</code></a>), beware that <code>pip</code> <a href="https://www.anaconda.com/blog/using-pip-in-a-conda-environment">should be used carefully</a> inside <code>conda</code> environments.</p>
+<p>The steps below first install <a href="https://github.com/conda-forge/miniforge">Miniforge</a>, which we prefer to <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> since it sets <code>conda-forge</code> as the default channel, then create an empty <code>conda</code> environment named <code>r-console</code> into which we install <code>radian</code> and <a href="https://anaconda.org/conda-forge/jedi"><code>jedi</code></a>. <code>jedi</code> is an optional package that enables Python autocompletion using the <a href="https://rstudio.github.io/reticulate/">{reticulate}</a> R package. Paste this into your terminal:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install miniforge</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">--name</span> r-console</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate r-console</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install radian</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install jedi <span class="co"># for {reticulate} python autocompletion</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>In RStudio, install the required R packages for VS Code, namely <a href="https://github.com/REditorSupport/languageserver">{languageserver}</a> from CRAN and the latest GitHub release of <a href="https://github.com/ManuelHentschel/vscDebugger">{vscDebugger}</a>:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"languageserver"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ManuelHentschel/vscDebugger"</span>, <span class="at">ref =</span> remotes<span class="sc">::</span><span class="fu">github_release</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For the tutorial, make sure that you have the following R packages installed, if you don’t already:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"purrr"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tibble"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"vctrs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Install <a href="https://code.visualstudio.com/">VS Code</a> by pasting this into your terminal:</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install <span class="at">--cask</span> visual-studio-code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Open VS Code and install the following extensions from the Extensions gallery (<code>Shift-Command-X</code>):</li>
+</ol>
+<!-- -->
+<ol type="1">
+<li><a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">R</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=REditorSupport.r-lsp">R LSP Client</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=RDebugger.r-debugger">R Debugger</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare">Live Share</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-audio">Live Share Audio</a></li>
+</ol>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<ol type="1">
+<li>Make sure the <code>r-console</code> environment is still active in your terminal. If it is, your terminal prompt will look like this, or similar:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">r-console</span><span class="kw">)</span> <span class="ex">~</span> %</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If not, then reactivate the <code>r-console</code> environment:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate r-console</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Type <code>which radian</code> in your terminal to display the path to the <code>radian</code> executable. Below is what it is on our local machines. Copy the path to your clipboard.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">/usr/local/Caskroom/miniforge/base/envs/r-console/bin/radian</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Determine whether <code>bash</code> or <code>zsh</code> is your default shell. If you don’t know, type this into your terminal:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Older Macs may still use <code>bash</code>, while newer Macs or those with older Macs who have created new user accounts since upgrading to macOS Catalina will likely run <code>zsh</code>, the <a href="https://scriptingosx.com/2019/06/moving-to-zsh">new default macOS shell</a>.</p>
+<ol type="1">
+<li>Let’s take VS Code for a spin! An useful feature to know about is that typing <code>code &lt;path/file.ext&gt;</code> in your terminal will open a new or existing file in VS Code at the path you specify. Many more details are available in the help page <code>code -h</code>. Depending on whether your default shell is <code>bash</code> or <code>zsh</code>, type <code>code ~/.bashrc</code> or <code>code ~/.zshrc</code> in your terminal to open your shell configuration file, and paste the path you copied in step 2. above to add an alias to <code>radian</code> and bind it to lowercase <code>r</code>:</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> r=<span class="st">"/usr/local/Caskroom/miniforge/base/envs/r-console/bin/radian"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can paste the alias anywhere in the file, but it is probably best to paste it at the very bottom, and avoid inserting it in any preexisting code blocks (e.g., <code>conda initialize</code> blocks) which may be overwritten. Save your configuration file and restart your terminal for the settings to take effect. Now all you need to open <code>radian</code> is to type <code>r</code> in any terminal (Terminal, iTerm2, RStudio, or VS Code)! Useful <code>radian</code> commands to know are:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q()</span> <span class="co"># to exit R, same as with vanilla R and RStudio</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">;</span>   <span class="co"># to enter shell mode, exit by pressing backspace on an empty line</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">~</span>   <span class="co"># to enter {reticulate} python mode, exit by pressing backspace on an empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>To configure your <code>.Rprofile</code>, type <code>code ~/.Rprofile</code> in your terminal, or if you are already set up with <a href="https://usethis.r-lib.org">{usethis}</a> in RStudio, run the R command <a href="https://usethis.r-lib.org/reference/edit.html"><code>usethis::edit_r_profile()</code></a>. At a minimum, you will want to enable <a href="https://rstudio.github.io/rstudioapi">{rstudioapi}</a> <a href="https://github.com/Ikuyadeu/vscode-R/wiki/RStudio-addin-support">emulation</a> in VS Code:</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">vsc.rstudioapi =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>To configure <code>radian</code>, type <code>code ~/.radian_profile</code> in your terminal which will open up a new blank editor and create a new file named <code>.radian_profile</code> in the home directory. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/radian/.radian_profile"><code>.radian_profile</code></a>:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">radian.insert_new_line =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">radian.escape_key_map =</span> <span class="fu">list</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">key =</span> <span class="st">"-"</span>, <span class="at">value =</span> <span class="st">" &lt;- "</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">key =</span> <span class="st">"m"</span>, <span class="at">value =</span> <span class="st">" %&gt;% "</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Save <code>~/.radian_profile</code> and restart your terminal for the settings to take effect.</p>
+<ol type="1">
+<li>Now we’ll configure VS Code settings. Open VS Code, and navigate to <code>settings.json</code> by using the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>Preferences: Open Settings (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/settings.json"><code>settings.json</code></a>:</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Liveshare</span><span class="fu">:</span> <span class="er">Prompt</span> <span class="er">when</span> <span class="er">receiving</span> <span class="er">focus</span> <span class="er">requests</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"liveshare.focusBehavior"</span><span class="er">:</span> <span class="st">"prompt"</span><span class="fu">,</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">Treat`names.like.this`</span> <span class="er">as</span> <span class="er">one</span> <span class="er">word</span> <span class="er">for</span> <span class="er">selection</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"[r]"</span><span class="er">:</span> <span class="fu">{</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"editor.wordSeparators"</span><span class="fu">:</span> <span class="st">"`~!@#%$^&amp;*()-=+[{]}</span><span class="ch">\\</span><span class="st">|;:'</span><span class="ch">\"</span><span class="st">,&lt;&gt;/?"</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">},</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">Use</span> <span class="er">active</span> <span class="er">terminal</span> <span class="er">for</span> <span class="er">all</span> <span class="er">commands</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"r.alwaysUseActiveTerminal"</span><span class="er">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">Use</span> <span class="er">bracketed</span> <span class="er">paste</span> <span class="er">mode</span> <span class="er">when</span> <span class="er">sending</span> <span class="er">code</span> <span class="er">to</span> <span class="er">console</span> <span class="er">(radian)</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"r.bracketedPaste"</span><span class="er">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">R</span> <span class="er">or</span> <span class="er">radian</span> <span class="er">path</span> <span class="er">for</span> <span class="er">macOS</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"r.rterm.mac"</span><span class="er">:</span> <span class="st">"/usr/local/Caskroom/miniforge/base/envs/r-console/bin/radian"</span><span class="fu">,</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">Enable</span> <span class="er">R</span> <span class="er">session</span> <span class="er">watcher</span> <span class="er">(experimental)</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"r.sessionWatcher"</span><span class="er">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">R</span><span class="fu">:</span> <span class="er">Remove</span> <span class="er">hidden</span> <span class="er">items</span> <span class="er">when</span> <span class="er">clearing</span> <span class="er">R</span> <span class="er">workspace</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"r.workspaceViewer.removeHiddenItems"</span><span class="er">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Telemetry</span><span class="fu">:</span> <span class="er">Disable</span> <span class="er">Microsoft</span> <span class="er">crash</span> <span class="er">reporter</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"telemetry.enableCrashReporter"</span><span class="er">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Telemetry</span><span class="fu">:</span> <span class="er">Disable</span> <span class="er">Microsoft</span> <span class="er">telemetry</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"telemetry.enableTelemetry"</span><span class="er">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Terminal</span><span class="fu">:</span> <span class="er">Path</span> <span class="er">to</span> <span class="er">integrated</span> <span class="er">shell</span> <span class="er">on</span> <span class="er">macOS</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"terminal.integrated.shell.osx"</span><span class="er">:</span> <span class="st">"/bin/zsh"</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>NOTE:</em> The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+<ol type="1">
+<li>Below are some useful <a href="https://github.com/Ikuyadeu/vscode-R/wiki/Keyboard-shortcuts">keyboard shortcuts</a> for <code>keybindings.json</code>, found by using the Command Palette (<code>Shift-Command-P</code>) in VS Code and navigating to <code>Preferences: Open Keyboard Shortcuts (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/keybindings.json"><code>keybindings.json</code></a>:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"View: Show R Workspace"</span><span class="fu">,</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"alt+r"</span><span class="fu">,</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"workbench.view.extension.workspaceViewer"</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Create R Terminal"</span><span class="fu">,</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"alt+`"</span><span class="fu">,</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"r.createRTerm"</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Insert Assignment Operator"</span><span class="fu">,</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"alt+-"</span><span class="fu">,</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"type"</span><span class="fu">,</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"when"</span><span class="fu">:</span> <span class="st">"editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus"</span><span class="fu">,</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"args"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">" &lt;- "</span> <span class="fu">}</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Insert Pipe Operator"</span><span class="fu">,</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+m"</span><span class="fu">,</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"type"</span><span class="fu">,</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"when"</span><span class="fu">:</span> <span class="st">"editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus"</span><span class="fu">,</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"args"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">" %&gt;% "</span> <span class="fu">}</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Insert Assignment Pipe Operator"</span><span class="fu">,</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+,"</span><span class="fu">,</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"type"</span><span class="fu">,</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"when"</span><span class="fu">:</span> <span class="st">"editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus"</span><span class="fu">,</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"args"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">" %&lt;&gt;% "</span> <span class="fu">}</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Insert Tee Pipe Operator"</span><span class="fu">,</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+."</span><span class="fu">,</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"type"</span><span class="fu">,</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"when"</span><span class="fu">:</span> <span class="st">"editorLangId == r || editorLangId == rmd &amp;&amp; editorTextFocus"</span><span class="fu">,</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"args"</span><span class="fu">:</span> <span class="fu">{</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">" %T&gt;% "</span> <span class="fu">}</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Test Package"</span><span class="fu">,</span></span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+8"</span><span class="fu">,</span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"r.test"</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Document"</span><span class="fu">,</span></span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+9"</span><span class="fu">,</span></span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"r.document"</span></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"description"</span><span class="fu">:</span> <span class="st">"R: Load All"</span><span class="fu">,</span></span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"key"</span><span class="fu">:</span> <span class="st">"shift+cmd+0"</span><span class="fu">,</span></span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>        <span class="dt">"command"</span><span class="fu">:</span> <span class="st">"r.loadAll"</span><span class="fu">,</span></span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="writing-an-r-package-using-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="writing-an-r-package-using-vs-code">Writing an R Package using VS Code</h2>
+<p>In this section we’re going to set up a toy R package in VS Code, and in the next section we will enable Live Share.</p>
+<ol type="1">
+<li><p>Open VS Code and use the Command Palette (<code>Shift-Command-P</code>) to navigate to <code>R: Create R Terminal</code>, or use the suggested keyboard shortcut above (<code>Option-`</code>). Note that if you have an editor open and the focus is on the editor, for the shortcut to work you may first need to use <code>Control-`</code> for <code>View: Toggle Integrated Terminal</code> followed by <code>Option-`</code> for <code>R: Create R Terminal</code>. If our configuration above worked for you, these commands should open a terminal instance with the <code>radian</code> console, and the title of the terminal should be <code>1: R Interactive</code> (or <code>2: R Interactive</code> if it’s the second active terminal).</p></li>
+<li><p>In the VS Code R console, create a {mutagen} package folder on your Desktop, declare dependencies, and start an R script for a new function <code>cast_integers()</code>:</p></li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">create_package</span>(<span class="st">"~/Desktop/mutagen"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>deps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"dplyr"</span>, <span class="st">"purrr"</span>, <span class="st">"tibble"</span>, <span class="st">"vctrs"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">walk</span>(deps, use_package)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">use_r</span>(<span class="st">"cast_integers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><p>In VS Code, open the {mutagen} folder using File &gt; Open… (<code>Command-O</code>) and selecting the <code>mutagen</code> folder in the Desktop. This will open a new VS Code instance and the title bar will read <code>Welcome — mutagen</code>. The R extension icon will be visible on the sidebar since VS Code will detect the <code>.R</code> file in the folder.</p></li>
+<li><p>Use the Explorer icon in the sidebar (<code>Shift-Command-E</code>) and open the <code>cast_integers.R</code> file. Paste the following code into the editor and save the file:</p></li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Safely cast numeric columns to integers</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' `cast_integers()` casts all eligible numeric columns in a data frame to integers, without data loss, using `vctrs::vec_cast()` for coercion.</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param .data A data frame</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return A tibble. If the input data frame has rownames, these will be preserved in a new rowname column.</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples (mtcars_integerized &lt;- cast_integers(mtcars))</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>cast_integers <span class="ot">&lt;-</span> <span class="cf">function</span>(.data) {</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stopifnot</span>(<span class="fu">is.data.frame</span>(.data))</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    .data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(.data)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    .data <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>(.data)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    int_index <span class="ot">&lt;-</span> purrr<span class="sc">::</span><span class="fu">map_lgl</span>(</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        .data,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="sc">~</span> <span class="sc">!</span><span class="fu">inherits</span>(<span class="fu">try</span>(vctrs<span class="sc">::</span><span class="fu">vec_cast</span>(.x, <span class="at">to =</span> <span class="fu">integer</span>()), <span class="at">silent =</span> <span class="cn">TRUE</span>), <span class="st">"try-error"</span>)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    .data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>        .data,</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">across</span>(</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">.cols =</span> <span class="fu">any_of</span>(<span class="fu">names</span>(<span class="fu">which</span>(int_index))),</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">.fns =</span> <span class="sc">~</span> vctrs<span class="sc">::</span><span class="fu">vec_cast</span>(.x, <span class="at">to =</span> <span class="fu">integer</span>())</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(.data)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Now create a new R console in VS Code using either the keyboard shortcuts (<code>Control-`</code> to toggle the terminal and <code>Option-`</code> to create an R console) or by opening the Command Palette (<code>Shift-Command-P</code>) and navigating to <code>R: Create R Terminal</code>. Focus your view on the R extension by clicking R the sidebar (<code>Option-R</code>), and now test out the package. Below are a series of R console commands to familiarize you with the package development workflow in VS Code. We will load the package, document it, and create a new object in the R workspace that uses the new function we just loaded onto the package environment. To get familiar with the VS Code user interface, we will also print the object in the console, view it with the data viewer, and check out the help file for our new function.</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>() <span class="co"># or Shift-Command-0 using keyboard shortcuts above</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>() <span class="co"># or Shift-Command-9 using keyboard shortcuts above</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>mtcars_integerized <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">cast_integers</span>()</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>mtcars_integerized</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(mtcars_integerized)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>?cast_integers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="live-share-tutorial" class="level2">
+<h2 class="anchored" data-anchor-id="live-share-tutorial">Live share tutorial</h2>
+<p>Now that we’ve started writing our R package in VS Code, it’s time to Live Share! Microsoft has a handy walkthrough <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vscode">here</a>, but we will explain what we did and detail R project idiosyncrasies that we found.</p>
+<p>In order to host a Live Share collaboration session, first you’ll need to sign into Visual Studio Live Share. Click on the <code>Live Share</code> status bar item or press <code>Shift-Command-P</code> and navigate to <code>Live Share: Sign In With Browser</code>. A notification will appear asking you to sign into either a Microsoft or GitHub account using your default web browser.</p>
+<p>Once you are signed in, open a folder or file for pair programming. For package development, this would be the project folder for the package (e.g., the {mutagen} folder we created above). Click the <code>Live Share</code> status bar item or type <code>Shift-Command-P</code> and navigate to <code>Live Share: Start Collaboration Session (Share)</code>. An invite link will be copied automatically to your clipboard. You can send this link to your collaborator(s) and allow them to join a new session that shares the contents of the folder. Once a collaborator clicks the link, a notification will prompt you to approve the guest before they can join. Please note that guests do not necessarily need to be signed into to collaborate using Live Share, since anonymous guests are allowed; however, the host will need to be signed in. In fact, <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/browser-join">guests don’t even need to have VS Code installed and can join Live Share from a browser</a>!</p>
+<p>Once a guest has joined a collaboration session, all collaborators will immediately be able to see each other’s cursors, edits, and selections in real-time. You can pick a file from the Explorer (<code>Shift-Command-E</code>) and start editing. Both hosts and guests will see edits as they are made.</p>
+<p>As we worked on {mutagen} files, we noticed the usual loading of a package in development, via <code>devtools::load_all()</code>, or sourcing an entire file using <code>Shift-Command-S</code> (the VS Code version of RStudio’s <code>Shift-Command-Enter</code>), will not work for the guest. Why? Because the path to the folder directory is different for the host and guest. In our example, instead of the host’s path <code>~/Desktop/mutagen/R/cast_integers.R</code>, the guest’s path was an abbreviated <code>/R/cast_integers.R</code>, which led to errors when loading and sourcing from keyboard shortcuts. However, the guest can still run the code themselves (such as by selecting and running the source code in an R script, or using <code>Command-Enter</code> line by line) as long as they do not try to source the entire package. We did not try to abstract the path-generating rules for the guests’ Live Share instance into new keyboard shortcuts, but this seems like a solvable problem to allow guests to run <code>devtools::load_all()</code> or <code>source()</code> with minor modifications. Another gotcha was the R workspace; we tried to toggle the setting <code>"liveshare.publishWorkspaceInfo": true</code> in <code>settings.json</code>, but it did not let us share the R workspace between host and guest. It appears that for now host and guest(s) can only maintain separate R workspaces, though it would be useful to have the option to share the R s and its objects.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final thoughts</h2>
+<p>We’re excited for the future of R programming in VS Code. Live Share is an outstanding innovation for collaborative real-time editing, and is only one of the many amazing features in VS Code. Here we have only scratched the surface of use cases for Live Share. Microsoft keeps a running list of <a href="https://docs.microsoft.com/en-us/visualstudio/liveshare/reference/use-cases">many other Live Share use cases</a>.</p>
+<p>We are also huge fans of RStudio and the RStudio IDE. On our wish list for RStudio is that a live collaboration feature be supported in future versions of RStudio Desktop (not only the Pro version) and RStudio Cloud. Having many excellent options is a good thing! In the meantime, it is clear that VS Code is maturing into a capable IDE for R. Live Share is an attractive and free feature that enables real-time collaboration for the masses and that we hope others will enjoy as much as we have.</p>
+<center>
+<p><em>Liked this post? I’d love for you to retweet!</em></p>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+🎉📢🎉 Collaborating in <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>? Git got you down? Want to code with others remotely, in real-time, and for free (à la Google Docs)? Check out how to set up and use <a href="https://twitter.com/code?ref_src=twsrc%5Etfw"><span class="citation" data-cites="code">@code</span></a> (<a href="https://twitter.com/hashtag/vscode?src=hash&amp;ref_src=twsrc%5Etfw">#vscode</a>) and <a href="https://twitter.com/hashtag/vsliveshare?src=hash&amp;ref_src=twsrc%5Etfw">#vsliveshare</a> for remote <a href="https://twitter.com/hashtag/pairprogramming?src=hash&amp;ref_src=twsrc%5Etfw">#pairprogramming</a> 🤝 in R! 🤯. Tutorial here: <a href="https://t.co/Qbrw71V77Z">https://t.co/Qbrw71V77Z</a> <a href="https://t.co/3sy9hAJea7">pic.twitter.com/3sy9hAJea7</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1357136366568689664?ref_src=twsrc%5Etfw">February 4, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

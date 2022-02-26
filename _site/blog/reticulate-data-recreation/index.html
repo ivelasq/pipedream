@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.24">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2021-09-28">
+  <meta name="description" content="Using Python and R together with the reticulate package to create a dataset from an image.">
+  <title>%&gt;% dreams - Creating a dataset from an image in R Markdown using reticulate</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../logo.png" rel="icon" type="image/png">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Creating a dataset from an image in R Markdown using reticulate">
+<meta name="twitter:description" content="Using Python and R together with the reticulate package to create a dataset from an image.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//blog/reticulate-data-recreation/thumbnail.jpg">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">Creating a dataset from an image in R Markdown using reticulate</h1>
+<p class="date">2021-09-28</p>
+</header>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption><p></p>
+</figure>
+</div>
+<p>Last week, a paper started making the Twitter rounds. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf">Selective attention in hypothesis-driven data analysis</a> by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.</p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="main.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Cartoon gorilla and its recreation in ggplot2</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p>I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called ‘getpixel’, manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the <a href="https://rstudio.github.io/reticulate/">{reticulate}</a> package which allows R to interface with Python and thought this would be a fun exercise to try.</p>
+<p>With that, let’s recreate this dataset entirely within R Markdown! In addition to being able to copy/paste the code below, I have also provided it as a project on <a href="https://rstudio.cloud/project/2949291">RStudio Cloud</a> if you’d like to run the whole thing at once.</p>
+<section id="install-packages" class="level2">
+<h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
+<p>First up is installing the R packages:</p>
+<pre><code>```{r}
+# Install packages if not already installed
+# install.packages(c("tidyverse", "reticulate"))
+library(tidyverse)
+library(reticulate)
+```</code></pre>
+<p>In your project, create a folder called “image”. Save the image you would like to convert to a dataset in that folder. To recreate this paper’s dataset, go to <a href="https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm">this</a> page and download the cartoon gorilla.</p>
+<p>The paper mentions the ‘getpixel’ function. With a bit of digging, we find that is from the package <code>pillow</code> (a fork from a package called <code>PIL</code>). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} below.</p>
+<pre><code>```{r}
+use_python("/usr/local/bin/python")
+# If you haven't installed Python, the line below will prompt you!
+py_install("pillow")
+```</code></pre>
+<p>Since {reticulate} is the package that allows you to call Python, if you do not have Python installed, then you will get a message (which you would reply Y to):</p>
+<pre><code>No non-system installation of Python could be found.
+Would you like to download and install Miniconda?
+Miniconda is an open source environment management system for Python.
+See https://docs.conda.io/en/latest/miniconda.html for more details.</code></pre>
+</section>
+<section id="create-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="create-coordinates">Create coordinates</h2>
+<p><a href="https://stackoverflow.com/questions/58398300/find-all-coordinates-of-black-grey-pixels-in-image-using-python">This</a> Stack Overflow thread was very helpful to determine what we need to do with the ‘getpixel’ function in <code>pillow</code>. Again, like in R, we need to call the functions we need but this time, we are doing it in a <code>python</code> chunk.</p>
+<pre><code>```{python}
+import numpy as np
+from PIL import Image
+```</code></pre>
+<p>Then, we point to the image and create coordinates pixels for the outline of the cartoon. We can set a threshold level for which pixels to keep/discard.</p>
+<pre><code>```{python}
+# Thanks to Bart Huntley for pointing out a typo previously in this chunk!
+im = Image.open("/cloud/project/image/gorilla.jpg")
+pixels = np.asarray(im)
+
+# Set threshold level
+threshold_level = 50
+
+# Find coordinates of all pixels below threshold
+coords = np.column_stack(np.where(pixels &lt; threshold_level))
+```</code></pre>
+</section>
+<section id="bring-back-into-r" class="level2">
+<h2 class="anchored" data-anchor-id="bring-back-into-r">Bring back into R</h2>
+<p>This results in a NumPy ndarray called <code>coords</code> that contains the coordinates of the pixels of the outline. That’s great but… it’s in Python! How do we bring it back into R?</p>
+<p>The <a href="https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf">{reticulate} Cheat Sheet</a> was very helpful in figuring this out. The section “Python in R Markdown” shows that you can use the <code>py</code> object to access objects created in Python chunks from R chunks.</p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Python in R Markdown cheat sheet</figcaption><p></p>
+</figure>
+</div>
+</center>
+<p>Knowing that, we can create an R object from coords using <code>py</code>. Next, we follow the steps outlined in the paper for the data preparation.</p>
+<pre><code>```{r}
+coords &lt;-
+  as.data.frame(py$coords) %&gt;%
+  sample_n(1768) %&gt;%
+  mutate(bmi = V2 * 17 + 15,
+         steps = 15000 - V1 * 15000/max(V1)) %&gt;%
+  mutate(randvar = rnorm(n(), mean = 0, sd = 10),
+         randi = steps * (1 + randvar),
+         gender = case_when(randi &lt; median(steps) ~ "Female",
+                            TRUE ~ "Male"))
+```</code></pre>
+<p>If we’d like to see the distribution of data by male/female, we can use <code>count()</code>.</p>
+<pre><code>```{r}
+coords %&gt;%
+  count(gender)
+```</code></pre>
+</section>
+<section id="create-plots" class="level2">
+<h2 class="anchored" data-anchor-id="create-plots">Create plots</h2>
+<p>Now for the fun part - visualizing the plots (spoiler: one should always do this before starting an analysis)!</p>
+<pre><code>```{r}
+coords %&gt;%
+  ggplot(aes(x = bmi,
+              y = steps)) +
+  geom_point() +
+  theme_void() +
+  xlim(0, 15000)
+```</code></pre>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">ggplot2 image of pixel cartoon gorilla</figcaption><p></p>
+</figure>
+</div>
+</center>
+<pre><code>```{r}
+coords %&gt;%
+  ggplot(aes(x = bmi,
+             y = steps,
+             color = gender)) +
+  geom_point() +
+  theme_void() +
+  xlim(0, 15000)
+```</code></pre>
+<p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">ggplot2 image of pixel cartoon gorilla disaggregated by gender</figcaption><p></p>
+</figure>
+</div>
+</center>
+<center>
+<em>Liked this post? I’d love for you to retweet!</em>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Did you see the paper where a dataset was created from a cartoon and thought, how do I create that using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>? This blog post walks through using reticulate to use <a href="https://twitter.com/hashtag/Python?src=hash&amp;ref_src=twsrc%5Etfw">#Python</a> and ggplot2 in the same R markdown notebook 😎🐍 <a href="https://t.co/4CbXzRd3PN">https://t.co/4CbXzRd3PN</a> <a href="https://t.co/Kq4WsaKHMk">pic.twitter.com/Kq4WsaKHMk</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1443216191858769922?ref_src=twsrc%5Etfw">September 29, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>

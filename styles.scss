@@ -1,0 +1,27 @@
+/*-- scss:defaults --*/
+
+// Fonts
+$font-size-base:              1rem !default;
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif:      -apple-system, BlinkMacSystemFont, Inter !default;
+$font-family-serif:       Merriweather !default;
+
+// Typography
+
+h1.title.display-7 {
+  font-family: Righteous;
+}
+
+p.subtitle.lead {
+  text-align: center;
+}
+
+a:href {
+  color: #00ab6b;
+}
+
+a:hover {
+    color: #038252;
+    text-decoration: none;
+}

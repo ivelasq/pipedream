@@ -1,0 +1,24 @@
+---
+title: Around the World in a Single Table (gt Walkthrough)
+categories: [walkthroughs, packages]
+date: "2021-10-27"
+description: Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package.
+image: "thumbnail.png"
+---
+
+|            |                                                                                                                                         |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Abstract   | Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package. |
+| Date       | October 27, 2021                                                                                                                        |
+| Time       | 11:00AM CT                                                                                                                                 |
+| Location   | Remote                                                                                                                                  |
+| Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                                           |
+| Repository | [**Github**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                                           |
+| Recording  | [**YouTube**](https://www.youtube.com/watch?v=12ySKyWwX4Y)                                                                              |
+
+```{r, echo = FALSE}
+xaringanExtra::embed_xaringan(
+  url = "https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1",
+  ratio = "16:9"
+)
+```

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.24">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2021-03-08">
+  <meta name="description" content="Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.">
+  <title>%&gt;% dreams - Preparing a manuscript for publication using bookdown</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../logo.png" rel="icon" type="image/png">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Preparing a manuscript for publication using bookdown">
+<meta name="twitter:description" content="Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//blog/bookdown-manuscript/thumbnail.png">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:image-height" content="700">
+<meta name="twitter:image-width" content="700">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">Preparing a manuscript for publication using bookdown</h1>
+<p class="date">2021-03-08</p>
+</header>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption><p></p>
+</figure>
+</div>
+<p>My co-authors <a href="https://twitter.com/RyanEs">Ryan</a>, <a href="https://twitter.com/efreer20">Emily</a>, <a href="https://twitter.com/kierisi">Jesse</a>, <a href="https://twitter.com/jrosenberg6432">Josh</a>, and <a href="https://twitter.com/ivelasq3">I</a> published our book last year, but <a href="https://datascienceineducation.com/">Data Science in Education Using R</a> is also available online as a bookdown on a website, available to all.</p>
+<p><a href="https://www.bookdown.org/">{bookdown}</a> is an R package that facilitates writing books and long-form articles/reports with R Markdown. <a href="">R Markdown</a> is a file format that allows you to write using markdown, a language for formatted text, and integrate R code, analyses, and visualizations. By using R Markdown, my co-authors and I were able to collaborate using familiar scripts, share and run code, and edit our manuscript for publication. By using {bookdown}, we were able to publish these R Markdown files to the web so people could access our book as we were writing it.</p>
+<p>We have written <a href="https://education.rstudio.com/blog/2020/10/ds-in-edu/">a</a> <a href="https://rviews.rstudio.com/2020/05/26/community-and-collaboration-writing-our-book-in-the-open/">few</a> <a href="https://rviews.rstudio.com/2020/07/01/open-source-authorship-of-data-science-in-education-using-r/">times</a> about the open and collaborative nature of this work. This article will walk through the more technical aspects of using {bookdown} from our beginners’ standpoint. We hope it highlights the lessons we learned along the way. To peek at the actual files of our book, check out the <a href="https://github.com/data-edu/data-science-in-education">Github repo</a>.</p>
+<p>So without further ado, here are some tips about {bookdown} that may be helpful on your book manuscript creation:</p>
+<ul>
+<li><a href="#learning-r-markdown-and-bookdown">Learning R Markdown and {bookdown}</a></li>
+<li><a href="#snooping-on-others-github-files">Snooping on others’ Github files</a></li>
+<li><a href="#caching-code-chunks">Caching Code Chunks</a></li>
+<li><a href="#figuring-out-your-publishers-requirements">Figuring out your publisher’s requirements</a></li>
+<li><a href="#determining-how-to-collaborate">Determining how to collaborate</a></li>
+</ul>
+<section id="learning-r-markdown-and-bookdown" class="level2">
+<h2 class="anchored" data-anchor-id="learning-r-markdown-and-bookdown">Learning R Markdown and {bookdown}</h2>
+<p>The first place to start to learn {bookdown} is Yihui Xie’s <a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a>. In addition to going into {bookdown}, it provides some information on R Markdown and how to use it as well.</p>
+<p>If you are new to R Markdown, Yihui, J. J. Allaire, and Garrett Grolemund wrote a definitive guide, available <a href="https://bookdown.org/yihui/rmarkdown/">here</a>.</p>
+<p>These books offer great guidance on {bookdown} and R Markdown, but below are some details if you want to get started with a minimal example of a bookdown.</p>
+<section id="ok-you-installed-bookdown.-now-what" class="level3">
+<h3 class="anchored" data-anchor-id="ok-you-installed-bookdown.-now-what">OK, you installed {bookdown}. Now what?</h3>
+<p>You may notice that a lot of tutorials have you start using {bookdown} with a <a href="https://github.com/rstudio/bookdown-demo/blob/master/index.Rmd">demo project</a>. This is certainly one way to start - exploring the demo project and changing things to see how your book changes when it’s re-rendered. As far as I know, there is no standard template to begin a bookdown. The bare minimum of what you need is an <code>index.Rmd</code> file, your other R Markdown files, a <code>_bookdown.yml</code> file, and <code>_output.yml</code>.</p>
+<section id="index.rmd" class="level4">
+<h4 class="anchored" data-anchor-id="index.rmd">index.Rmd</h4>
+<p>In your project folder, start with an <code>index.Rmd</code> file with title, author, site, and output in the YAML header of the file (the YAML header is the top part of the R Markdown file, see <a href="https://github.com/data-edu/data-science-in-education/blob/master/index.Rmd">here</a> between the <code>---</code>).</p>
+<pre><code>---
+title: "Test Book"
+author: "Me"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+---</code></pre>
+<p>Below the YAML header, you can use regular R Markdown syntax. Start it off with a first-level header. If you do not want it to be numbered, write <code>{-}</code> beside the header.</p>
+<pre><code># Welcome {-}</code></pre>
+<p>This will be the <em>first page</em> of your rendered book.</p>
+</section>
+<section id="other-r-markdown-files" class="level4">
+<h4 class="anchored" data-anchor-id="other-r-markdown-files">Other R Markdown files</h4>
+<p>Besides <code>index.Rmd</code>, other R Markdown files will make up the chapters of your book. <a href="https://bookdown.org/yihui/bookdown/usage.html">By default, bookdown merges all Rmd files by the order of filenames, e.g., 01-intro.Rmd will appear before 02-literature.Rmd</a>. As referenced in Yihui’s book, we named our files with a number first (see <a href="https://github.com/data-edu/data-science-in-education">here</a>].</p>
+<p>Some tips:</p>
+<p>We recommend each R Markdown file have only <em>one</em> first-level header; otherwise, your chapters will be cut off at any first-level header if you use the K-M rendering approach (see <a href="https://bookdown.org/yihui/bookdown/new-session.html">here</a>). Do not use the same first-level header in the same bookdown!</p>
+</section>
+<section id="bookdown.yml" class="level4">
+<h4 class="anchored" data-anchor-id="bookdown.yml">_bookdown.yml</h4>
+<p>Hey, did you notice there’s an underscore in the file name? I didn’t and spent an hour trying to figure out why the book wouldn’t render. So another tip, underscores are important :)</p>
+<p>The <code>_bookdown.yml file</code> does not need much. Critical is the <code>book_filename</code> - we used <code>main.Rmd</code>. Here, you also specify the rendering method you would like (mentioned above), and also whether you want to delete the merged file (we recommend yes).</p>
+<pre><code>book_filename: "bookdown-demo"
+delete_merged_file: true
+new_session: yes</code></pre>
+<p>Besides this, you can add labels to figures and chapters, add scripts to run before each R Markdown file, change the order of your chapters manually (remember, by default it will be index.Rmd then by alphabetical order), and a lot more - but all of that is optional.</p>
+</section>
+<section id="output.yml" class="level4">
+<h4 class="anchored" data-anchor-id="output.yml">_output.yml</h4>
+<p>Oh heyy, another underscore!</p>
+<p>This file will output your file according to what is specified. It’s also how figure height/width is specified, allows you to specify the TOC, etc. But really, if you want a bookdown all it needs is to know what you want your output to be.</p>
+<pre><code>bookdown::gitbook</code></pre>
+</section>
+<section id="rendering-the-book" class="level4">
+<h4 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h4>
+<p>OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:</p>
+<pre><code>bookdown::serve_book()</code></pre>
+<p>So now you have a bookdown! And you eagerly look at your accomplishment and it is great. But how do we find out what else we can do with {bookdown}?</p>
+</section>
+</section>
+</section>
+<section id="snooping-on-others-github-files" class="level2">
+<h2 class="anchored" data-anchor-id="snooping-on-others-github-files">Snooping on others’ Github files</h2>
+<p>When I do not know how to do something in R, I look at people who I want to emulate and snoop on their Github repository pages. It is so incredibly handy (and wonderful) that others post their code for all to see.</p>
+<p>This is how we learned just how to even start using bookdown (copying people’s files, seeing what happened when we ran them), but also the creative ways that others went about customizing their books.</p>
+<p>While there’s an <a href="https://bookdown.org/home/archive/">archive</a> of many books using {bookdown}, here are some specific works we used during our bookdown development:</p>
+<ul>
+<li>Forecasting: Principles and Practice by Rob J Hyndman and George Athanasopoulos (<a href="https://otexts.com/fpp2/">book</a>, <a href="https://github.com/nealxun/Forecasting_Principle_and_Practices">repo</a>) for customizing CSS on a bookdown with custom fonts, colors, etc.</li>
+<li>Geocomputation with R by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow (<a href="https://geocompr.robinlovelace.net/">book</a>, <a href="https://github.com/Robinlovelace/geocompr">repo</a>) to learn how to give figures labels.</li>
+</ul>
+<p>We highly recommend seeing what others have done in the past and trying things out so your book reflects what you would like it to look like!</p>
+<section id="customizing-css" class="level3">
+<h3 class="anchored" data-anchor-id="customizing-css">Customizing CSS</h3>
+<p>Speaking of CSS, this is a nice way to make your bookdown your own. Once you add a <code>css/style.css</code> file in your bookdown repository, you can add <code>css: css/style.css</code> in your <code>_output.yml</code> file. Then, anytime your book renders, it will reference your CSS file. While not explicitly necessary for a manuscript (at least not ours), it is nice to customize one’s work.</p>
+<section id="wait-what-if-i-dont-know-css" class="level4">
+<h4 class="anchored" data-anchor-id="wait-what-if-i-dont-know-css">Wait, what if I don’t know CSS?</h4>
+<p>Do not fret, reader. I also do not know CSS. But thankfully, the <strong>Google Developer Tool</strong> exists.</p>
+<p>By right-clicking any part of a web page (including an existing bookdown) in Chrome, you can then click “Inspect Element” to see its HTML file and the hierarchy of the thing you just right-clicked on. Then, by clicking the arrow on the top left of your Inspector pane, you can click on anything to see its HTML file.</p>
+<p>This, and a combination of snooping on Github, allowed us to find ways to customize our bookdown. <a href="https://github.com/data-edu/data-science-in-education/blob/master/css/style.css">Here</a> is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text <code>#ffbc49</code>.</p>
+<pre><code>.book .book-summary ul.summary li a:hover {
+  background-color: #ffffff;
+  color: #ffbc49;
+}</code></pre>
+<p>This process takes a lot of trial and error, I will admit. It may be easier to pick up a bit of CSS if you have specific ideas in mind. However, if you need a quick edit of some pages, seeing how others have done it and exploring with the Developer Tools is very handy.</p>
+</section>
+</section>
+</section>
+<section id="caching-code-c-hunks" class="level2">
+<h2 class="anchored" data-anchor-id="caching-code-c-hunks">Caching code c hunks</h2>
+<p>As mentioned in Yihui’s book, you can <a href="https://bookdown.org/yihui/bookdown/some-tips.html">cache</a> certain code chunks so they do not have to rerun each time you render the book. We found this very handy, as some complex models took some time to run.</p>
+<p>Important to note though: if you use <code>set.seed</code>, you will need to include it in every code chunk; setting it in only one code chunk will not mean it is set for all code chunks.</p>
+</section>
+<section id="figuring-out-your-publishers-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="figuring-out-your-publishers-requirements">Figuring out your publisher’s requirements</h2>
+<p>Creating a book using R/R Studio/{bookdown} is great because all of these tools are so versatile and we were able to use each one to meet our publisher requirements, minimize manual work, and reduce redundancies.</p>
+<p>For example, here’s how {bookdown} helped us do what we had to do:</p>
+<ul>
+<li><strong>Our manuscript had to be in Word:</strong> we were able to render the bookdown using Word.</li>
+<li><strong>Our manuscript needed all tables and figures to be labeled:</strong> we were able to automate this using the <code>.yml</code> files.</li>
+<li><strong>Our figures had to be of a certain size and dimension:</strong> we were also able to automate this using the <code>.yml</code> files.</li>
+<li><strong>We needed to send all of our figures separately from the manuscript:</strong> they are all saved separately due to the rendering function of {bookdown}.</li>
+<li><strong>We needed a bibliography:</strong> we were able to create a bibliography of works and packages, all automated with {bookdown}.</li>
+</ul>
+<p>Because of R:</p>
+<ul>
+<li><strong>All tables had to be in Word format</strong>: at the time, we hadn’t seen this from <a href="https://cran.r-project.org/web/packages/gtsummary/vignettes/rmarkdown.html">{gtsummary}</a>, and we spent quite a bit of time trying to use {gt} for our tables before realizing that we wouldn’t be able to output using Word. We then switched to {sjPlot}, which got us exactly what we needed.</li>
+</ul>
+<center>
+<img src="https://ivelasq.rbind.io/images/gt.png" class="img-fluid">
+</center>
+<ul>
+<li><strong>Our bibliography had to be in APA format:</strong> thanks to a file that Josh had (saved <a href="https://github.com/data-edu/data-science-in-education/blob/master/apa_pl.csl">here</a>), all we had to do was save that file and add <code>biblio-style: "apalike"</code> to our <code>index.Rmd</code> file for everything to show up in the format we needed.</li>
+</ul>
+<p>And, thanks to R Studio:</p>
+<ul>
+<li>We were able to spell-check files within the IDE!</li>
+<li>We used its handy search function to create the index.</li>
+</ul>
+<p>So, we recommend gathering all of your publisher’s requirements and then mapping them to the different tools at your disposal. This saves a lot of time and headache when it’s finally time to send over the final manuscript.</p>
+</section>
+<section id="determining-how-to-collaborate" class="level2">
+<h2 class="anchored" data-anchor-id="determining-how-to-collaborate">Determining how to collaborate</h2>
+<p>Since my co-authors and I all knew Github, we decided to use Github to write the book. This was great because it was a transparent way of writing the book (non-authors added issues and contributed as they saw fit). We were able to go back in time if needed to fix errors or see what had been changed.</p>
+<p>We had to decide how updating the book would work. Ultimately, we decided that one person would be in charge of rendering the book - this helped reduce any code conflicts. However, there may be other ways of working that would be better for you.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, we chose to use {bookdown} to create a book manuscript because we wanted to be transparent in our work, leverage R and its many tools, and be as efficient as possible when writing a book across five people. Despite some technical lift (and a lot of trial and error), it eventually resulted in a smooth workflow for our group. Thanks to the many resources and code available out there, we were able to learn {bookdown} as we wrote. Thanks to {bookdown}, we output the final manuscript that resulted in our book!</p>
+<center>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+New blogpost! 🎉 We created our book's manuscript using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> and <a href="https://twitter.com/hashtag/bookdown?src=hash&amp;ref_src=twsrc%5Etfw">#bookdown</a>! How did we learn how to do it? #1 tip: snoop on other people's Github repos 👀 Read more here: <a href="https://t.co/jSozoz86gj">https://t.co/jSozoz86gj</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1369106413079851012?ref_src=twsrc%5Etfw">March 9, 2021</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+
+
+</section>
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+</body></html>
