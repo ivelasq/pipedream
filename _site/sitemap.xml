@@ -1,147 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ivelasq.rbind.io/blog.html</loc>
-    <lastmod>2022-02-26T22:05:19.944Z</lastmod>
+    <loc>https://ivelasq.rbind.io/talk.html</loc>
+    <lastmod>2022-02-26T23:11:12.696Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/index.html</loc>
-    <lastmod>2022-02-26T22:05:18.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/post-with-code/index.html</loc>
-    <lastmod>2022-02-18T19:37:19.649Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/welcome/index.html</loc>
-    <lastmod>2022-02-21T20:11:46.362Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</loc>
-    <lastmod>2022-02-24T00:20:42.644Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</loc>
-    <lastmod>2022-02-26T19:39:55.040Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/you-cran-do-it/you-cran-do-it.html</loc>
-    <lastmod>2022-02-26T19:39:57.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talks.html</loc>
-    <lastmod>2022-02-21T22:35:10.729Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/building-a-blog-with-r/index.html</loc>
-    <lastmod>2022-02-26T18:30:11.347Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk.html</loc>
-    <lastmod>2022-02-26T18:30:19.223Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/using-r-and-other-tools/index.html</loc>
-    <lastmod>2022-02-26T18:30:15.636Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</loc>
-    <lastmod>2022-02-26T19:39:52.271Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/average-hike/index.html</loc>
-    <lastmod>2022-02-26T20:56:22.376Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/modal-district/index.html</loc>
-    <lastmod>2022-02-26T20:42:20.334Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/things-i-google/index.html</loc>
-    <lastmod>2022-02-26T20:56:24.372Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/leaidr-shapefiles/leaid-shapefiles.html</loc>
-    <lastmod>2022-02-24T01:11:56.223Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</loc>
-    <lastmod>2022-02-26T21:07:14.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/party-with-R/index.html</loc>
-    <lastmod>2022-02-24T01:27:35.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/leaidr2/index.html</loc>
-    <lastmod>2022-02-26T21:37:26.067Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</loc>
-    <lastmod>2022-02-26T18:45:30.238Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</loc>
-    <lastmod>2022-02-26T21:37:23.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</loc>
-    <lastmod>2022-02-26T19:15:10.464Z</lastmod>
+    <lastmod>2022-02-26T23:11:13.663Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/other-geoms/index.html</loc>
-    <lastmod>2022-02-26T21:37:21.610Z</lastmod>
+    <lastmod>2022-02-26T23:11:15.183Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</loc>
+    <lastmod>2022-02-26T23:11:16.469Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</loc>
+    <lastmod>2022-02-26T23:11:18.331Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</loc>
-    <lastmod>2022-02-26T21:37:25.006Z</lastmod>
+    <lastmod>2022-02-26T23:11:19.722Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</loc>
+    <lastmod>2022-02-26T23:11:21.437Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</loc>
+    <lastmod>2022-02-26T23:11:22.873Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/average-hike/index.html</loc>
+    <lastmod>2022-02-26T23:11:24.545Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/leaidr2/index.html</loc>
+    <lastmod>2022-02-26T23:11:25.459Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</loc>
+    <lastmod>2022-02-26T23:11:26.607Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/modal-district/index.html</loc>
+    <lastmod>2022-02-26T23:11:28.101Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</loc>
-    <lastmod>2022-02-26T21:31:14.955Z</lastmod>
+    <lastmod>2022-02-26T23:11:30.044Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/you-cran-do-it/you-cran-do-it.html</loc>
+    <lastmod>2022-02-26T23:11:31.029Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/politely-scraping/index.html</loc>
-    <lastmod>2022-02-26T20:56:23.445Z</lastmod>
+    <lastmod>2022-02-26T23:11:32.148Z</lastmod>
   </url>
   <url>
-    <loc>https://ivelasq.rbind.io/blog/why-rstudio/index.html</loc>
-    <lastmod>2022-02-26T21:37:28.473Z</lastmod>
+    <loc>https://ivelasq.rbind.io/blog/things-i-google/index.html</loc>
+    <lastmod>2022-02-26T23:11:32.961Z</lastmod>
   </url>
   <url>
-    <loc>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</loc>
-    <lastmod>2022-02-26T22:05:17.503Z</lastmod>
+    <loc>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</loc>
+    <lastmod>2022-02-26T23:11:33.940Z</lastmod>
   </url>
   <url>
-    <loc>https://ivelasq.rbind.io/talk/gt-talk/index.html</loc>
-    <lastmod>2022-02-26T18:30:14.563Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/git-through-april/index.html</loc>
-    <lastmod>2022-02-26T18:04:27.727Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/longitudinal-analysis/index.html</loc>
-    <lastmod>2022-02-26T18:30:13.310Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/rladies-allyship/index.html</loc>
-    <lastmod>2022-02-26T18:07:36.674Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/package-mangement-in-r/index.html</loc>
-    <lastmod>2022-02-26T18:30:12.361Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/hiking-data/index.html</loc>
-    <lastmod>2022-02-26T17:56:27.493Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ivelasq.rbind.io/talk/blogdown-for-what/index.html</loc>
-    <lastmod>2022-02-26T18:00:17.726Z</lastmod>
+    <loc>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</loc>
+    <lastmod>2022-02-26T23:11:35.556Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</loc>
-    <lastmod>2022-02-26T21:37:27.267Z</lastmod>
+    <lastmod>2022-02-26T23:11:37.048Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/why-rstudio/index.html</loc>
+    <lastmod>2022-02-26T23:11:38.279Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/party-with-R/index.html</loc>
+    <lastmod>2022-02-26T23:11:40.342Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</loc>
+    <lastmod>2022-02-26T23:11:42.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog.html</loc>
+    <lastmod>2022-02-26T23:11:44.487Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/git-through-april/index.html</loc>
+    <lastmod>2022-02-26T23:11:45.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/blogdown-for-what/index.html</loc>
+    <lastmod>2022-02-26T23:11:47.897Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/building-a-blog-with-r/index.html</loc>
+    <lastmod>2022-02-26T23:11:48.438Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/hiking-data/index.html</loc>
+    <lastmod>2022-02-26T23:11:49.219Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/package-mangement-in-r/index.html</loc>
+    <lastmod>2022-02-26T23:11:50.058Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/rladies-allyship/index.html</loc>
+    <lastmod>2022-02-26T23:11:50.538Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/longitudinal-analysis/index.html</loc>
+    <lastmod>2022-02-26T23:11:51.089Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/gt-talk/index.html</loc>
+    <lastmod>2022-02-26T23:11:51.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/talk/using-r-and-other-tools/index.html</loc>
+    <lastmod>2022-02-26T23:11:52.027Z</lastmod>
   </url>
 </urlset>

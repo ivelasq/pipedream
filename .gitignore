@@ -6,3 +6,5 @@
 /resources/
 .DS_Store
 Thumbs.db
+
+/.quarto/
