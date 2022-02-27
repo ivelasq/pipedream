@@ -3,14 +3,15 @@
 // Fonts
 $font-size-base:              1rem !default;
 
-// stylelint-disable value-keyword-case
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Righteous&display=swap');
+
 $font-family-sans-serif:  -apple-system, BlinkMacSystemFont, "Inter" !default;
 $font-family-serif:       "Merriweather" !default;
 
 // Typography
 
 h1.title.display-7 {
-  font-family: Righteous;
+  font-family: "Righteous";
 }
 
 p.subtitle.lead {
