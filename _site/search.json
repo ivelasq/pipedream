@@ -686,6 +686,13 @@
     "text": "Extra credit for those who made it this far\nHow would you do this with the proposed native R pipe-bind => syntax? Respond to my tweet about this blog post once you have the answer!\n\n\n\nNew blog post 👩🏻‍💻📝 Understanding the native R pipe |>In this post, I attempted the native R #pipeoperator and was warped into the RHS, and emerged from my misadventuRe having learned all about the #magrittr and #rstats pipes.Post: https://t.co/VOC1C6WGvl pic.twitter.com/IDAHvwyE4K\n\n— Isabella Velásquez (@ivelasq3) January 18, 2022"
   },
   {
+    "objectID": "blog/understanding-the-r-pipe/index.html#acknowledgements",
+    "href": "blog/understanding-the-r-pipe/index.html#acknowledgements",
+    "title": "Understanding the native R pipe |>",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\nThe author thanks Gustavo E. for his comments on the first draft of this blog post."
+  },
+  {
     "objectID": "license.html",
     "href": "license.html",
     "title": "License",
@@ -761,26 +768,5 @@
     "title": "Packages for Using R With Python, Tableau, and Other Tools",
     "section": "",
     "text": "Abstract\nR is a powerful programming language for statistics and data science with an accompanying ecosystem that supports its use. Interoperability is part of what makes the R ecosystem so rich, enabling users to apply R in a variety of contexts. In this talk, I will discuss packages that allow you to integrate R together with other tools, including Python and Tableau.\n\n\nDate\nDecember 10, 2021\n\n\nTime\n10:00AM CT\n\n\nLocation\nRemote\n\n\nEvent\nWhy R? 2021 Conference\n\n\nRepository\nGithub\n\n\nRecording\nYouTube"
-  },
-  {
-    "objectID": "blog/understanding-the-r-pipe/index.html#acknowledgements",
-    "href": "blog/understanding-the-r-pipe/index.html#acknowledgements",
-    "title": "Understanding the native R pipe |>",
-    "section": "Acknowledgements",
-    "text": "Acknowledgements\nThe author thanks Gustavo E. for his comments on the first draft of this blog post."
-  },
-  {
-    "objectID": "project.html#packages",
-    "href": "project.html#packages",
-    "title": "Projects",
-    "section": "Packages",
-    "text": "Packages"
-  },
-  {
-    "objectID": "project.html#books",
-    "href": "project.html#books",
-    "title": "Projects",
-    "section": "Books",
-    "text": "Books"
   }
 ]
