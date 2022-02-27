@@ -214,7 +214,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <li id="fn3"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.↩︎</p></li>
 </ol>
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>program</category>
   <guid>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</guid>
   <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
@@ -365,7 +365,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>python</category>
   <category>visualize</category>
   <guid>https://ivelasq.rbind.io//blog/reticulate-data-recreation/index.html</guid>
@@ -462,7 +462,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 </section>
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>scrape</category>
   <category>tidy</category>
   <guid>https://ivelasq.rbind.io//blog/why-rstudio/index.html</guid>
@@ -564,7 +564,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>scrape</category>
   <guid>https://ivelasq.rbind.io//blog/politely-scraping/index.html</guid>
   <pubDate>Tue, 27 Jul 2021 00:00:00 GMT</pubDate>
@@ -918,7 +918,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 
 </section>
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category></category>
   <guid>https://ivelasq.rbind.io//blog/rtistry-intro/index.html</guid>
   <pubDate>Sun, 09 May 2021 00:00:00 GMT</pubDate>
@@ -1164,7 +1164,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>visualize</category>
   <guid>https://ivelasq.rbind.io//blog/other-geoms/index.html</guid>
   <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
@@ -1322,7 +1322,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category></category>
   <guid>https://ivelasq.rbind.io//blog/bookdown-manuscript/index.html</guid>
   <pubDate>Mon, 08 Mar 2021 00:00:00 GMT</pubDate>
@@ -1629,7 +1629,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>pair-program</category>
   <guid>https://ivelasq.rbind.io//blog/vscode-live-share/index.html</guid>
   <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
@@ -1739,7 +1739,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 
 </section>
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category></category>
   <guid>https://ivelasq.rbind.io//blog/get-tweet-likes/index.html</guid>
   <pubDate>Tue, 10 Nov 2020 00:00:00 GMT</pubDate>
@@ -1947,7 +1947,7 @@ It has 18 fields</code></pre>
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>package-development</category>
   <category>map</category>
   <category>shiny</category>
@@ -1998,7 +1998,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </center>
 
 
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>community</category>
   <guid>https://ivelasq.rbind.io//blog/party-with-R/index.html</guid>
   <pubDate>Mon, 13 Jul 2020 00:00:00 GMT</pubDate>
@@ -2273,7 +2273,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
@@ -2403,7 +2403,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>package-development</category>
   <category>map</category>
   <guid>https://ivelasq.rbind.io//blog/leaidr-shapefiles/index.html</guid>
@@ -2512,7 +2512,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>cran</category>
   <category>package-development</category>
   <guid>https://ivelasq.rbind.io//blog/you-cran-do-it/you-cran-do-it.html</guid>
@@ -2708,7 +2708,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>visualize</category>
   <guid>https://ivelasq.rbind.io//blog/things-i-google/index.html</guid>
   <pubDate>Mon, 27 Jan 2020 00:00:00 GMT</pubDate>
@@ -3584,7 +3584,7 @@ Curious what this would look like if you weighted by student population – in e
 
 </section>
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>tidy</category>
   <category>analyze</category>
   <guid>https://ivelasq.rbind.io//blog/modal-district/index.html</guid>
@@ -3939,7 +3939,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>import</category>
   <category>visualize</category>
   <category>analyze</category>
@@ -4190,7 +4190,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 </center>
 
 
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
@@ -4473,7 +4473,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
@@ -4575,7 +4575,7 @@ First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash
 
 
 </section>
-<p>Test body footer</p> ]]></description>
+ ]]></description>
   <category>general</category>
   <guid>https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/index.html</guid>
   <pubDate>Sat, 04 Aug 2018 00:00:00 GMT</pubDate>
