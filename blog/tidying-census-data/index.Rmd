@@ -6,7 +6,7 @@ image: thumbnail.jpg
 description: Census data is valuable, but stored in Excel spreadsheets. 
 ---
 
-![](thumbnail-wide.jpg)
+![Hendrick Avercamp, Ice-skating in a Village (1610)](thumbnail-wide.jpg)
 
 The U.S. Census releases aggregate data on their [Household Pulse Survey](https://www.census.gov/data/tables/2020/demo/hhp2.html). These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.
 

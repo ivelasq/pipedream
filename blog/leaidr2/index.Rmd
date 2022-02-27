@@ -1,9 +1,9 @@
 ---
-categories: ["package-development", "mapping", "shiny"]
+title: "An even easier-to-use R package for school district shapefiles"
+categories: ["package-development", "map", "shiny"]
 description: Thanks to contributions from Daniel Anderson, leaidr is even easier to use.
 date: "2020-08-30"
 image: thumbnail.jpg
-title: "An even easier-to-use R package for school district shapefiles"
 ---
 
 ![Piet Mondrian, Tableau No. 2/Composition No. VII (1913)](thumbnail-wide.jpg)

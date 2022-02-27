@@ -6,7 +6,7 @@ description: "Exploring why disaggregation of data is important by looking at di
 image: "thumbnail.jpg"
 ---
 
-![Kamisaka Sekka, One Thousand Butterflies](thumbnail-wide.jpg)
+![Samuel Colman, The Rock of Salvation (1837)](thumbnail-wide.jpg)
 
 I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.
 

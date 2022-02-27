@@ -1,7 +1,7 @@
 ---
 title: "Remote pair programming in R using Visual Studio Code and Live Share"
 date: '2021-02-03'
-categories: ["pair-programming"]
+categories: ["pair-program"]
 description: "Setting up a Google Docs-like coding environment in VS Code."
 image: thumbnail.jpg
 ---

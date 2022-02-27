@@ -215,7 +215,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </ol>
 </section>
  ]]></description>
-  <category>base"</category>
+  <category>program</category>
   <guid>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</guid>
   <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
@@ -1630,7 +1630,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 </section>
  ]]></description>
-  <category>pair-programming</category>
+  <category>pair-program</category>
   <guid>https://ivelasq.rbind.io//blog/vscode-live-share/index.html</guid>
   <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io//blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
@@ -1949,7 +1949,7 @@ It has 18 fields</code></pre>
 </section>
  ]]></description>
   <category>package-development</category>
-  <category>mapping</category>
+  <category>map</category>
   <category>shiny</category>
   <guid>https://ivelasq.rbind.io//blog/leaidr2/index.html</guid>
   <pubDate>Sun, 30 Aug 2020 00:00:00 GMT</pubDate>
@@ -2405,7 +2405,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 </section>
  ]]></description>
   <category>package-development</category>
-  <category>mapping</category>
+  <category>map</category>
   <guid>https://ivelasq.rbind.io//blog/leaidr-shapefiles/index.html</guid>
   <pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io//blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
