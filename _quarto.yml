@@ -14,7 +14,6 @@ website:
     pinned: true
     right:
       - blog.qmd
-      - project.qmd
       - talk.qmd
       - icon: twitter
         href: https://twitter.com/ivelasq3
