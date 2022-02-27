@@ -23,6 +23,10 @@ website:
         href: https://www.linkedin.com/in/ivelasq/
       - icon: rss
         href: index.xml
+  page-footer:
+    center: 
+      - href: license.qmd
+        text: License
 format:
   html:
     theme: [litera, styles.scss]

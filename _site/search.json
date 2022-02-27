@@ -686,6 +686,13 @@
     "text": "Extra credit for those who made it this far\nHow would you do this with the proposed native R pipe-bind => syntax? Respond to my tweet about this blog post once you have the answer!\n\n\n\nNew blog post 👩🏻‍💻📝 Understanding the native R pipe |>In this post, I attempted the native R #pipeoperator and was warped into the RHS, and emerged from my misadventuRe having learned all about the #magrittr and #rstats pipes.Post: https://t.co/VOC1C6WGvl pic.twitter.com/IDAHvwyE4K\n\n— Isabella Velásquez (@ivelasq3) January 18, 2022"
   },
   {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "© Copyright Isabella Velásquez\nThis is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a Creative Commons (CC-BY) 4.0 license. You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the MIT license and may be reused without restriction.\nMany thanks to Dr. Noam Ross for the language included here!"
+  },
+  {
     "objectID": "blog.html",
     "href": "blog.html",
     "title": "Blog",
