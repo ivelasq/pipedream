@@ -1,5 +1,5 @@
 ---
-title: "Creating a dataset from an image in R Markdown using reticulate"
+title: "Creating a dataset from an image using reticulate in R Markdown"
 date: 2021-09-28
 categories: ["python", "visualize"]
 description: I ran into a cool paper where the authors create a dataset from an image with a Python package and then plot it in ggplot2. We can do that in a single R Markdown file thanks to the reticulate package.
