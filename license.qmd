@@ -4,4 +4,4 @@ title: "License"
 
 © Copyright Isabella Velásquez
 
-This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a [Creative Commons (CC-BY) 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode). You may re-use this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the [MIT license](https://opensource.org/licenses/MIT) and may be reused without restriction.
+This is my personal website. Nothing here is endorsed by my employer or any organizations of which I am a part. Content on this site is provided under a [Creative Commons (CC-BY) 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode). You may reuse this content as long as you indicate my authorship and provide a link back to the original material. Source code of the site is provided under the [MIT license](https://opensource.org/licenses/MIT) and may be reused without restriction.
