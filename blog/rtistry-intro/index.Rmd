@@ -3,7 +3,7 @@ tags: ["visualize"]
 date: "2021-05-09"
 title: "Getting started in #rtistry"
 image: thumbnail.jpg
-description: Creating generative art with parametric equations in R.
+description: Generative art mixes randomness and order to create beautiful images. The \#rtistry package helps find work from other Rtists.
 ---
 
 ![E. A. Séguy, Vintage flower patterns (1925)](thumbnail-wide.jpg)
@@ -144,7 +144,7 @@ dat %>%
 
 We could also change the shape of each of the points, but I liked the circles more:
 
-```{r, fig.align='center'fig.alt="Parametric equation with xes instead of dots"}
+```{r, fig.align='center', fig.alt="Parametric equation with xes instead of dots"}
 dat %>% 
   ggplot(aes(x, y)) +
   geom_point(size = dat$rand_w,

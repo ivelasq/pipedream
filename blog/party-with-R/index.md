@@ -2,7 +2,7 @@
 title: "Party with R: How the community enabled us to write a book"
 date: 2020-07-13
 categories: ["community"]
-description: Thanks to the R community, we wrote a book. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
+description: Celebrating the R community. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
 image: thumbnail.jpg
 ---
 

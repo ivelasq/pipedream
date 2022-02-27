@@ -4,6 +4,9 @@ date: 2022-01-18
 categories: [program]
 description: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 image: thumbnail.jpg
+author:
+  - Gustavo E. Velásquez
+  - Isabella Velásquez
 ---
 
 ![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg)

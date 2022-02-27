@@ -2,7 +2,7 @@
 title: "Politely scraping Wikipedia tables"
 date: 2021-07-27
 categories: ["scrape"]
-description: Walkthrough on politely scraping Wikipedia tables and transforming them into analysis-ready datasets.
+description: Wikipedia has a lot of wonderful data stored in tables. Here's how to pull them into R.
 image: thumbnail.jpg
 ---
 

@@ -2,7 +2,7 @@
 title: "Disaggregating school district data"
 date: "2018-09-21"
 categories: ["import", "tidy", "visualize"]
-description: "Exploring why disaggregation of data is important by looking at district demographic data."
+description: "Exploring why disaggregation of data is important by looking at district demographics."
 image: "thumbnail.jpg"
 ---
 

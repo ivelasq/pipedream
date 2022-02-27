@@ -3,7 +3,7 @@ categories: ["import", "tidy", "visualize"]
 date: "2020-05-28"
 title: "What it takes to tidy Census data"
 image: thumbnail.jpg
-description: Census data is valuable, but stored in Excel spreadsheets. 
+description: Census data is valuable, but can be stored in messy Excel spreadsheets.
 ---
 
 ![Hendrick Avercamp, Ice-skating in a Village (1610)](thumbnail-wide.jpg)

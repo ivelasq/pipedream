@@ -2,7 +2,7 @@
 title: "Taking a peek into my hiking data"
 categories: ["import", "visualize", "analyze"]
 date: "2019-04-06"
-description: "Analyzing hiking data from GPX files."
+description: "I got my hands on a bunch of GPX files."
 image: thumbnail.jpg
 ---
 
