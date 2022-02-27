@@ -3,8 +3,6 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.24">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="author" content="Gustavo E. Velásquez">
-  <meta name="author" content="Isabella Velásquez">
   <meta name="dcterms.date" content="2022-01-18">
   <meta name="description" content="Or, why mtcars |> plot(hp, mpg) doesn’t work and what you can do about it.">
   <title>%&gt;% dreams - Understanding the native R pipe |&gt;</title>
@@ -141,6 +139,9 @@
     <a class="nav-link" href="../../blog.html">Blog</a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../project.html">Projects</a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../talk.html">Talks</a>
   </li>  
   <li class="nav-item compact">
@@ -178,8 +179,6 @@
 <main class="content" id="quarto-document-content">
 <header id="title-block-header">
 <h1 class="title display-7">Understanding the native R pipe |&gt;</h1>
-<p class="author">Gustavo E. Velásquez</p>
-<p class="author">Isabella Velásquez</p>
 <p class="date">2022-01-18</p>
 </header>
 <div class="quarto-figure quarto-figure-center">
@@ -368,6 +367,10 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The author thanks Gustavo E. for his comments on the first draft of this blog post.</p>
 
 
 </section>
@@ -375,7 +378,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 <ol>
 <li id="fn1" role="doc-endnote"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code> . See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>

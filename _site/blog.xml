@@ -13,8 +13,7 @@
 <lastBuildDate>Tue, 18 Jan 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Understanding the native R pipe |></title>
-  <dc:creator>Gustavo E. Velásquez</dc:creator>
-  <dc:creator>Isabella Velásquez</dc:creator>
+  <dc:creator></dc:creator>
   <link>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</link>
   <description><![CDATA[ 
 
@@ -204,6 +203,10 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>The author thanks Gustavo E. for his comments on the first draft of this blog post.</p>
 
 
 </section>
@@ -211,7 +214,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 <ol>
 <li id="fn1"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).↩︎</p></li>
-<li id="fn2"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code> . See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.↩︎</p></li>
+<li id="fn2"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.↩︎</p></li>
 <li id="fn3"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.↩︎</p></li>
 </ol>
 </section>
@@ -1331,8 +1334,8 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 </item>
 <item>
   <title>Remote pair programming in R using Visual Studio Code and Live Share</title>
-  <dc:creator>Gustavo E. Velásquez</dc:creator>
   <dc:creator>Isabella Velásquez</dc:creator>
+  <dc:creator>Gustavo E. Velásquez</dc:creator>
   <link>https://ivelasq.rbind.io//blog/vscode-live-share/index.html</link>
   <description><![CDATA[ 
 
