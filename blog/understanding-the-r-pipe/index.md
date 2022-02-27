@@ -4,9 +4,6 @@ date: 2022-01-18
 categories: [program]
 description: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 image: thumbnail.jpg
-author:
-  - Gustavo E. Velásquez
-  - Isabella Velásquez
 ---
 
 ![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg)
@@ -264,9 +261,12 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>In this post, I attempted the native R <a href="https://twitter.com/hashtag/pipeoperator?src=hash&amp;ref_src=twsrc%5Etfw">#pipeoperator</a> and was warped into the RHS, and emerged from my misadventuRe having learned all about the <a href="https://twitter.com/hashtag/magrittr?src=hash&amp;ref_src=twsrc%5Etfw">#magrittr</a> and <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> pipes.<br><br>Post: <a href="https://t.co/VOC1C6WGvl">https://t.co/VOC1C6WGvl</a> <a href="https://t.co/IDAHvwyE4K">pic.twitter.com/IDAHvwyE4K</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1483554890152439811?ref_src=twsrc%5Etfw">January 18, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>
 
+## Acknowledgements
+
+The author thanks Gustavo E. for his comments on the first draft of this blog post.
+
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
-[^2]: Curly braces for the first expression, `{}()`, work too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`
-    . See Ronak Shah’s reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063) for an example.
+[^2]: Curly braces for the first expression, `{}()`, work too: `mtcars |> {\(x) {x[which.max(x$mpg),]}}()`. See Ronak Shah’s reply in this [StackOverflow thread](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063) for an example.
 
 [^3]: Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of [Advanced R Solutions](https://advanced-r-solutions.rbind.io/functions.html).

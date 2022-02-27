@@ -4,9 +4,6 @@ date: '2021-02-03'
 categories: ["pair-program"]
 description: "Setting up a Google Docs-like coding environment in VS Code."
 image: thumbnail.jpg
-author:
-  - Gustavo E. Velásquez
-  - Isabella Velásquez
 ---
 
 ![Edgar Degas, Dancers Practicing at the Barre (1877)](thumbnail-wide.jpg)
@@ -354,3 +351,4 @@ We are also huge fans of RStudio and the RStudio IDE. On our wish list for RStud
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🎉📢🎉 Collaborating in <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>? Git got you down? Want to code with others remotely, in real-time, and for free (à la Google Docs)? Check out how to set up and use <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> (<a href="https://twitter.com/hashtag/vscode?src=hash&amp;ref_src=twsrc%5Etfw">#vscode</a>) and <a href="https://twitter.com/hashtag/vsliveshare?src=hash&amp;ref_src=twsrc%5Etfw">#vsliveshare</a> for remote <a href="https://twitter.com/hashtag/pairprogramming?src=hash&amp;ref_src=twsrc%5Etfw">#pairprogramming</a> 🤝 in R! 🤯. Tutorial here: <a href="https://t.co/Qbrw71V77Z">https://t.co/Qbrw71V77Z</a> <a href="https://t.co/3sy9hAJea7">pic.twitter.com/3sy9hAJea7</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1357136366568689664?ref_src=twsrc%5Etfw">February 4, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>
+
