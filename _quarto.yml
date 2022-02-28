@@ -15,6 +15,7 @@ website:
     right:
       - blog.qmd
       - talk.qmd
+      - project.qmd
       - icon: twitter
         href: https://twitter.com/ivelasq3
       - icon: github

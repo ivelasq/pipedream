@@ -1,0 +1,8 @@
+---
+title: "leaidr"
+description: "An R package for U.S. school district shapefiles."
+image: logo.png
+---
+
+![](logo.png)
+
