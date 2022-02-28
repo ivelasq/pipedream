@@ -19,12 +19,10 @@ listing:
 
 ## Packages
 
-This should show up on the page.
-
-:::{#packages}
+::: {#packages}
 :::
 
 ## Books
 
-:::{#books}
+::: {#books}
 :::
