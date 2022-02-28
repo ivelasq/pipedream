@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.24">
+  <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="dcterms.date" content="2022-01-18">
   <meta name="description" content="Or, why mtcars |> plot(hp, mpg) doesn’t work and what you can do about it.">
@@ -374,8 +374,8 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2>Footnotes</h2>
-
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

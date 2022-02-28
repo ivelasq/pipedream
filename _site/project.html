@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.24">
+  <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>%&gt;% dreams – Projects</title>
+  <title>%&gt;% dreams - Projects</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -53,20 +53,20 @@
   <script>
 
     window.document.addEventListener("DOMContentLoaded", function (_event) {
-      const listingTargetEl = window.document.querySelector('#packages .list');
+      const listingTargetEl = window.document.querySelector('#listing-packages .list');
       if (!listingTargetEl) {
         // No listing discovered, do not attach.
         return; 
       }
 
       const options = {
-        valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+        valueNames: ['listing-title','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
         
-        searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+        searchColumns: ["listing-title","listing-image","listing-description"],
       };
 
       window['quarto-listings'] = window['quarto-listings'] || {};
-      window['quarto-listings']['packages'] = new List('packages', options);
+      window['quarto-listings']['listing-packages'] = new List('listing-packages', options);
 
       if (window['quarto-listing-loaded']) {
         window['quarto-listing-loaded']();
@@ -75,20 +75,20 @@
     
 
     window.document.addEventListener("DOMContentLoaded", function (_event) {
-      const listingTargetEl = window.document.querySelector('#books .list');
+      const listingTargetEl = window.document.querySelector('#listing-books .list');
       if (!listingTargetEl) {
         // No listing discovered, do not attach.
         return; 
       }
 
       const options = {
-        valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+        valueNames: ['listing-title','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
         
-        searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+        searchColumns: ["listing-title","listing-image","listing-description"],
       };
 
       window['quarto-listings'] = window['quarto-listings'] || {};
-      window['quarto-listings']['books'] = new List('books', options);
+      window['quarto-listings']['listing-books'] = new List('listing-books', options);
 
       if (window['quarto-listing-loaded']) {
         window['quarto-listing-loaded']();
@@ -161,35 +161,32 @@
 <header id="title-block-header">
 <h1 class="title display-7">Projects</h1>
 </header>
-<section id="packages" class="level2 quarto-listing">
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<div id="listing-packages" class="quarto-listing">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-categories="" data-listing-file-modified-sort="1646013424718" data-listing-reading-time-sort="0.005">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1646013424718" data-listing-reading-time-sort="0.005">
 <a href="./project/package/dataedu/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="project/package/dataedu/logo.png" class="thumbnail-image card-img" style="height: 200px;">
+<img src="./project/package/dataedu/logo.png" class="thumbnail-image card-img" style="height: 200px;">
 </p>
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title" data-anchor-id="packages">
+<h5 class="no-anchor card-title listing-title">
 dataedu
 </h5>
 <div class="card-text listing-description">
 An R package for Data Science in Education Using R.
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="" data-listing-file-modified-sort="1646013415095" data-listing-reading-time-sort="0.005">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1646013415095" data-listing-reading-time-sort="0.005">
 <a href="./project/package/leaidr/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="project/package/leaidr/logo.png" class="thumbnail-image card-img" style="height: 200px;">
+<img src="./project/package/leaidr/logo.png" class="thumbnail-image card-img" style="height: 200px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -198,20 +195,15 @@ leaidr
 <div class="card-text listing-description">
 An R package for U.S. school district shapefiles.
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="" data-listing-file-modified-sort="1646013405970" data-listing-reading-time-sort="0.005">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1646013405970" data-listing-reading-time-sort="0.005">
 <a href="./project/package/roomba/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="project/package/roomba/logo.png" class="thumbnail-image card-img" style="height: 200px;">
+<img src="./project/package/roomba/logo.png" class="thumbnail-image card-img" style="height: 200px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -220,20 +212,15 @@ roomba
 <div class="card-text listing-description">
 An R package for tidying API responses.
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="" data-listing-file-modified-sort="1646013398891" data-listing-reading-time-sort="0.005">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1646013398891" data-listing-reading-time-sort="0.005">
 <a href="./project/package/wizehiver/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="project/package/wizehiver/logo.png" class="thumbnail-image card-img" style="height: 200px;">
+<img src="./project/package/wizehiver/logo.png" class="thumbnail-image card-img" style="height: 200px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -242,11 +229,6 @@ wizehiver
 <div class="card-text listing-description">
 An R wrapper for WizeHive’s Zengine API.
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
 </div>
 </div>
 </a>
@@ -255,27 +237,25 @@ An R wrapper for WizeHive’s Zengine API.
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+</div>
 </section>
-<section id="books" class="level2 quarto-listing">
+<section id="books" class="level2">
+<h2 class="anchored" data-anchor-id="books">Books</h2>
+<div id="listing-books" class="quarto-listing">
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="" data-listing-file-modified-sort="1646009998375" data-listing-reading-time-sort="0.04">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1646009998375" data-listing-reading-time-sort="0.04">
 <a href="./project/book/data-science-in-education-using-r/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="project/book/data-science-in-education-using-r/thumbnail.jpg" class="thumbnail-image card-img" style="height: 350px;">
+<img src="./project/book/data-science-in-education-using-r/thumbnail.jpg" class="thumbnail-image card-img" style="height: 350px;">
 </p>
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title" data-anchor-id="books">
+<h5 class="no-anchor card-title listing-title">
 Data Science in Education Using R
 </h5>
 <div class="card-text listing-description">
 Data Science in Education Using R is the go-to reference for learning data science in the education field.
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
 </div>
 </div>
 </a>
@@ -284,6 +264,10 @@ Data Science in Education Using R is the go-to reference for learning data scien
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+</div>
+
+
+
 </section>
 </main> <!-- /main -->
 <script type="application/javascript">
