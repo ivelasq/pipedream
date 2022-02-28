@@ -1,0 +1,236 @@
+---
+title: "Finding the modal school district"
+categories: ["tidy", "analyze"]
+date: "2019-09-11"
+description: "What's the most common type of district in the U.S.? Let's find out using R."
+image: thumbnail.jpg
+---
+
+![Village by the River, fourth quarter 19th century](thumbnail-wide.jpg)
+
+My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NPR Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
+
+Ben Casselman shared the [code](https://github.com/BenCasselman/planet_money) he ran for the analysis. Ryan suggested running a similar analysis to find the modal school district, which I thought was brilliant! The analysis is below, but if you are desperate for the answer, the modal school district in the U.S. is [drum roll please]: (1) Majority (>=50%) White, (2) Small, (3) Rural, and (4) Medium-Low FRPL (between 25% and 50% FRPL).
+
+## Downloading and parsing data
+
+I used NCES [Common Core of Data (CCD)](https://nces.ed.gov/ccd/ccddata.asp) to pull Local Educational Agency (LEA) (a.k.a. school districts) demographic data. I wanted to try Urban Institute's [{educationdata}](https://github.com/UrbanInstitute/education-data-package-r) R package. They have enrollment and racial demographic data available to download through their package. For Free/Reduced Price Lunch data, I had to pull the data directly from the CCD as it's not available via the Urban API.
+
+What buckets do you choose for analysis? This is a bit tricky. I chose buckets I typically refer to for work. I also looked at some [NCES reports](https://nces.ed.gov/pubs2011/2011301.pdf) to see how they typically think about districts. Ultimately, I decided on four buckets: urban-centric locale bucket, race/ethnicity bucket, size bucket, and FRPL bucket.
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(educationdata)
+library(janitor)
+library(ggalluvial)
+
+knitr::opts_chunk$set(out.width = '100%') 
+```
+
+### Urban-centric locale bucket
+
+First, we download the directory data using the Urban Institute's API. These data include the districts and their [urban-centric_locale](https://nces.ed.gov/pubs2007/ruraled/exhibit_a.asp). 
+
+```{r, message = FALSE, warning = FALSE, cache = TRUE}
+ccd_dir <- get_education_data(level = 'school-districts',
+                              source = 'ccd', 
+                              topic = 'directory', 
+                              filters = list(year = 2016),
+                              add_labels = TRUE)
+```
+
+Because there are so many options for urban-centric locale, let's collapse them to just the biggest buckets: City, Town, Rural, and Suburb.
+
+```{r, message = FALSE, warning = FALSE}
+ccd_urbanicity <-
+  ccd_dir %>% 
+  select(leaid, urban_centric_locale) %>% 
+  mutate(leaid = as.character(leaid),
+         geography = case_when(str_detect(urban_centric_locale, "City|city") ~ "City",
+                               str_detect(urban_centric_locale, "Town|town") ~ "Town",
+                               str_detect(urban_centric_locale, "Rural|rural") ~ "Rural",
+                               str_detect(urban_centric_locale, "Suburb|suburb") ~ "Suburb")) %>% 
+  select(-urban_centric_locale)
+```
+
+### Size & race/ethnicity buckets
+
+Then, we download the enrollment data from the Urban Institute.
+
+```{r, message = FALSE, warning = FALSE, cache = TRUE}
+ccd_enroll <- get_education_data(level = 'school-districts',
+                                 source = 'ccd', 
+                                 topic = 'enrollment', 
+                                 filters = list(year = 2016,
+                                             grade = 99),
+                                 by = list('race'),
+                                 add_labels = TRUE) 
+```
+
+We want to create two buckets here:
+
+* **Size:** Bucket districts by enrollment size, Small (less than 2500 students), Medium (between 2500 and 10,000 students), or Large (10,000 students or more). I used [MDR's](https://www.google.com/search?q=what+is+a+large+school+district&oq=what+is+a&aqs=chrome.0.69i59j69i57j35i39j69i60l3.1065j0j7&sourceid=chrome&ie=UTF-8) definition for this.
+* **Race/Ethnicity:** Bucket districts by Majority Non-White (50% or fewer of students are White) or Majority White (more than 50% of students are White).
+
+```{r, message = FALSE, warning = FALSE}
+ccd_enroll_buckets <-
+  ccd_enroll %>% 
+  select(leaid, race, enrollment) %>% 
+  spread(race, enrollment, -1) %>%
+  mutate(white_na = case_when(White == 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                              TRUE ~ White),
+         pct_white = white_na/Total,
+         enroll_na = case_when(Total < 0 ~ NA_real_, # districts with missing data loaded as 0 instead of NA for some reason
+                               TRUE ~ Total)) %>% 
+  mutate(demographics = case_when(pct_white >= .5 ~ "Majority White",
+                                  pct_white < .5 ~ "Majority Non-White",
+                                  TRUE ~ NA_character_),
+         size = case_when(enroll_na >= 10000 ~ "Large",
+                          enroll_na < 10000 & enroll_na >= 2500 ~ "Medium",
+                          enroll_na < 2500 ~ "Small"))
+```
+
+### Free/reduced price lunch bucket
+
+Now, we load the FRPL data.
+
+```{r, message = FALSE, warning = FALSE, cache = TRUE}
+ccd_frpl <-
+  read_csv("https://media.githubusercontent.com/media/ivelasq/modal_district/master/data/raw/ccd_sch_033_1617_l_2a_11212017.csv")
+```
+
+We want Free + Reduced Price Lunch numbers by district. This file also has Free Lunch and Reduced Lunch numbers, and it is school-level. We aggregate up Free + Reduced Price Lunch by district.
+
+```{r, message = FALSE, warning = FALSE}
+ccd_frpl_wide <-
+  ccd_frpl %>% 
+  clean_names() %>% 
+  mutate(leaid = as.character(leaid)) %>% 
+  filter(data_group == "Free and Reduced-price Lunch Table",
+         lunch_program == "No Category Codes") %>% 
+  select(leaid, student_count) %>% 
+  group_by(leaid) %>% 
+  summarise(frpl_student_count = sum(student_count))
+```
+
+Then, we merge with the enrollment data to calculate percent FRPL by district. Our buckets are Low FRPL (less than 25%), Medium-Low FRPL (between 25% and 50% FRPL), Medium-High FRPL (between 50% and 75% FRPL), and High FRPL (greater than 75% FRPL). I originally did not have Medium-Low and Medium High split out but that bucket was so large that I thought this would bring more nuance.
+
+```{r, message = FALSE, warning = FALSE}
+ccd_enroll_buckets <-
+  left_join(ccd_enroll_buckets, ccd_frpl_wide) %>% 
+  mutate(pct_frpl = frpl_student_count/enroll_na,
+         frpl = case_when(pct_frpl <= .25 ~ "Low FRPL",
+                          pct_frpl > .25 & pct_frpl <= .5 ~ "Medium-Low FRPL",
+                          pct_frpl > .5 & pct_frpl <= .75 ~ "Medium-High FRPL",
+                          pct_frpl > .75 ~ "High FRPL"))
+```
+
+### Bringing it all together
+
+Finally, we put all the datasets together. One question raised was what to do with missing data. Some districts, either because of small n-sizes or policy, do not report their demographic or FRPL numbers. In fact, some districts were missing enrollment data altogether! For the purposes of this analysis, I removed any district that was missing data in the FRPL or Race/Ethnicity Buckets. Any data without enrollment data is also excluded.
+
+```{r, message = FALSE, warning = FALSE}
+ccd_all <-
+  full_join(ccd_urbanicity, ccd_enroll_buckets, by = "leaid") %>% 
+  filter(!is.na(frpl),
+         !is.na(demographics))
+
+ccd_all <- # reordering factors
+  ccd_all %>% 
+  mutate(demographics = factor(demographics, c("Majority White", "Majority Non-White")),
+         size = factor(size, c("Small", "Medium", "Large")),
+         geography = factor(geography, c("Rural", "Suburb", "Town", "City")),
+         frpl = factor(frpl, c("Low FRPL", "Medium-Low FRPL", "Medium-High FRPL", "High FRPL")))
+```
+
+### Running the analysis
+
+We can see what is the modal school district - that is, the combination of our buckets that represents the most districts in the U.S. 
+
+**Update 2019-09-18:** Thanks to the input from [Alison Hill](https://twitter.com/apreshill) on Twitter, instead of the `grouper()` function in the original analysis I'm using `dplyr::count()`.
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">This is a great post! I think you don&#39;t need the grouper function- I think what you need is dplyr::count(sort = TRUE) (it also does the ungroup for you :) <a href="https://t.co/G6ccoQIHFC">https://t.co/G6ccoQIHFC</a></p>&mdash; Alison Presmanes Hill (@apreshill) <a href="https://twitter.com/apreshill/status/1174152252996501504?ref_src=twsrc%5Etfw">September 18, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
+
+The n shows how many districts fit these criteria. Here are the first four but the full table is in the [Appendix](#appendix).
+
+```{r, message = FALSE, warning = FALSE}
+modal <- 
+  ccd_all %>% 
+  count(demographics, frpl, geography, size, sort = TRUE)
+
+modal %>% 
+  top_n(4) %>% 
+  knitr::kable()
+```
+
+The modal school district ends up being: Majority White, Rural, Small, Medium-Low FRPL districts. **18%** (2484) of the 13,464 districts in our analysis fall within these criteria.
+
+## Takeaways
+
+### Some districts are all alike; every district is different in its own way
+
+If you run each bucket individually, you get the same results as all of the groups together (as in, when running only based on size, the result is that Rural districts are the modal districts). This is slightly different from the Modal American analysis from NPR - none of these demographics seem to 'split' the groups.
+
+### This makes sense
+
+- The U.S. is majority White and areas tend to be segregated.
+- Majority of districts fall in the Medium FRPL buckets. Majority Non-White districts tend to have higher levels of FRPL, but there are so few of them compared to Majority White Districts, that they do not change the modal district much.
+- The U.S. is very large and districts cannot get too geographically big in order to serve their students. In places with little population density, which is most of the U.S., these districts must remain small.
+- Similarly, there are not that many Cities/Towns compared to Rural districts, probably because you need many districts in Rural areas to serve the spread-out population of students.
+
+### It's really hard to visualize this
+
+It was interesting trying to visualize these data, especially since there ended up being 87 (!) combinations. I tried a Sankey chart but it is a bit bananas.
+
+```{r, message = FALSE, warning = FALSE}
+ggplot(as.data.frame(modal),
+       aes(y = n,
+           axis1 = demographics, 
+           axis2 = geography, 
+           axis3 = frpl,
+           axis4 = size)) +
+  stat_alluvium(aes(fill = n),
+                width = 1/6, 
+            alpha = 2/3,
+            aes.bind = FALSE) +
+  guides(fill = FALSE) +
+  geom_stratum(width = 1/12, fill = "black", color = "grey") +
+  geom_label(stat = "stratum", label.strata = TRUE, size = 2, hjust = "inward") +
+  scale_x_continuous(breaks = 1:4, labels = c("Demographics", "Geography", "FRPL", "Size")) +
+  ggtitle("Modal District Sankey Chart") +
+  theme_minimal()
+```
+
+I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it's better to just look at the table.
+
+```{r}
+ccd_all %>% 
+  select(leaid, demographics, geography, size, frpl) %>% 
+  mutate(count = 1) %>% 
+  ggplot(aes(count)) +
+  geom_bar() +
+  facet_grid(demographics + frpl ~ size + geography)
+```
+
+## Next steps
+
+In addition to analyzing more variables (perhaps data that are less likely to correlate), it would be interesting to cut the data using smaller grain size for the buckets. There are probably very interesting nuances between Majority White districts for example - we just need the data (and bandwidth!) to find out.
+
+I am in awe of social media, which allows us to learn and share in so many ways. My friend retweeted a news article, which prompted the person who wrote the code to share, and then we crafted an idea based on that. I think that's pretty great!
+
+**Update 2019-09-18:** [Ben Casselman](https://twitter.com/bencasselman) wrote a reply on how it would be interesting to conduct an analysis on the modal school experience. So exciting! Can't wait to continue the analysis (and always looking for collaborators!)
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Curious what this would look like if you weighted by student population -- in essence, the modal school *experience.* (More students attend this type of school than any other.) Suspect the results would look quite different.</p>&mdash; Ben Casselman (@bencasselman) <a href="https://twitter.com/bencasselman/status/1173577230997512198?ref_src=twsrc%5Etfw">September 16, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
+
+## Appendix
+
+### Full table
+```{r, message = FALSE, warning = FALSE}
+ccd_all %>% 
+  count(demographics, frpl, geography, size) %>% 
+  knitr::kable()
+```

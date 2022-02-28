@@ -1,0 +1,37 @@
+/*-- scss:defaults --*/
+
+// Fonts
+$font-size-base:              1rem !default;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Righteous&display=swap');
+
+$font-family-sans-serif:  -apple-system, BlinkMacSystemFont, "Inter" !default;
+$font-family-serif:       "Merriweather" !default;
+
+// Typography
+
+h1.title.display-7 {
+  font-family: "Righteous";
+}
+
+p.subtitle.lead {
+  text-align: center;
+}
+
+a:href {
+  color: #00ab6b;
+}
+
+a:hover {
+    color: #038252;
+    text-decoration: none;
+}
+
+//** Global textual link color.
+$link-color:            #E2402E !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%) !default;
+//** Link hover decoration.
+$link-hover-decoration: underline !default;
+
+$code-block-bg: #F7F7F7;

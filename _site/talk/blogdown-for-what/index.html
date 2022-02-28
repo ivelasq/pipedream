@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-99.9.9">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2018-07-23">
+  <meta name="description" content="A walkthrough on creating a website using the {blogdown} package.">
+  <title>%&gt;% dreams - Blogdown for What</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../favicon.png" rel="icon" type="image/png">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 2,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Blogdown for What">
+<meta name="twitter:description" content="A walkthrough on creating a website using the {blogdown} package.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io//talk/blogdown-for-what/thumbnail.png">
+<meta name="twitter:creator" content="@ivelasq3">
+<meta name="twitter:image-height" content="720">
+<meta name="twitter:image-width" content="1280">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html">Projects</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header">
+<h1 class="title display-7">Blogdown for What</h1>
+<p class="date">2018-07-23</p>
+</header>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>Abstract</td>
+<td>A walkthrough on creating a website using the {blogdown} package.</td>
+</tr>
+<tr class="even">
+<td>Date</td>
+<td>August 23, 2018</td>
+</tr>
+<tr class="odd">
+<td>Time</td>
+<td>6:30PM PT</td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>Seattle, WA</td>
+</tr>
+<tr class="odd">
+<td>Event</td>
+<td><a href="https://www.meetup.com/rladies-seattle/events/252412318/"><strong>R-Ladies Seattle Meetup</strong></a></td>
+</tr>
+</tbody>
+</table>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+</iframe>
+<p>Hello everybody. My name is Isabella Velasquez. I am very excited to talk to you today about the package blogdown. I’ve decided to call this presentation: BLOGDOWN FOR WHAT?</p>
+<p>A little about me: I’m Isabella. I’m a data analyst at the Bill &amp; Melinda Gates Foundation along with R-Ladies Seattle organizer, Chaya. I started learning R in 2015 when attending graduate school at the University of Chicago. We were pretty much thrust into the R world and had to sink or swim, which is how I approach this talk. I try to be as straightforward as possible in my work and hopefully that is reflected in this presentation. This is meant to be a simple introduction on blogdown, why you should use it, and how to get set up.</p>
+<p>Let’s start at the beginning. Why even have a website at all? It’s something that I think about a lot because sharing my thoughts and work is not something that comes naturally to me. Although I am not a prolific Twitter user or blogger, I do have accounts and try to keep up with the R world as best I can. Like I mentioned, I started learning R in graduate school. It’s been three years and I have vague recollections of my R journey. But with a website, I would have been able to clearly see how my analysis of data has evolved and improved. I could see how I moved from the data cleaning steps, summary statistics, visualization of different projects instead of just speculating when I go through all my various files. I also have all my projects in multiple places right now – on my laptop, on my work laptop, on my Github. If I wanted to find what I’ve done and share it with others, it would be quite a lift. A website can be the holder of all that information. And finally, there is nothing more valuable than sharing what you’ve done with others to get feedback. You get to see any gaps you missed, new ideas you may not have thought of, or how to continue your work and do more interesting, fun things. The R community is so vibrant and collaborative that you get to explore that with many many people around the world.</p>
+<p>Enter <a href="https://bookdown.org/yihui/blogdown/">blogdown</a>. Blogdown is an R package that makes websites using R Markdown, which is a file format for documents, and Hugo, which is a static website generator. You can create the website entirely in R Studio. If you use Github, then you can upload your work to a repository and have version control readily available. And if you use Github, you can link your blogdown website with Netlify, which will easily publish your website.</p>
+<p>So, blogdown for what? There are many options out there for creating websites. And that’s exactly the issue: there are many options out there for creating websites. There are many factors to consider, like whether your images will load quickly and how easy it is to create a new post. Blogdown considers all these factors and creates a fast, safe, easy to use website.</p>
+<p>Because we’re talking about using R, which presumably means there will be data analysis involved. R Markdown is a format that easily details data analysis. It has code chunks so that you can see the actual code that you write and then it also displays the output, whether it be a table or image. But then it’s also easy to write in your commentary in regular text. Therefore, if you are using your website to show off your analysis and R skills, then R Markdown is a great format to do that in. However, the other very commonly used website creator Jekyll does not display R Markdown files very easily and unfortunately R Markdown isn’t great for creating websites on its own. Blogdown puts all the necessary steps in place to create a website that easily displays R Markdown pages.</p>
+<p>The other great thing is that because blogdown also embeds Hugo, there are many themes available that are visually appealing even without customization. And if you do know how to customize websites, then the sky is the limit.</p>
+<p>So how do you actually make a website with blogdown? The creator of the package, Yihui Xie, and his coauthors Amber Thomas and Alison Presmanes Hill luckily wrote a guide that walks through every step in detail. When creating my website, I just went through each page and followed the instructions. It’s that easy! But like I mentioned earlier, I want to give you the most straightforward introduction that I can.</p>
+<p>Before we begin, make sure you already have RStudio and Github. Chaya recently gave a talk on Github and walked through creating a repository and linking to a project in R Studio. You can create a blogdown website without linking to Github, but in addition to all the benefits that Github provides, like version control, it will also allow you to host on Netlify easily later on.</p>
+<p>Once you have a project in R Studio, you want to have blogdown installed!</p>
+<p>And because the creators of blogdown have done such a good job making their package user friendly, once you have blogdown installed you actually don’t have to create a project with code although you can do whatever works for you. I just go into New Project then New Directory then create a Website using Blogdown. I like this add-in because if you use the same directory name as the project you cloned from R Studio, then all the blogdown folders will be created in that directory and then you can commit and push up to Github. This add-in also lets you install your theme if you don’t want the default one.</p>
+<p>Once you have your new website project, you must run serve site in order to preview it within R Studio. Then you can start customizing within the file config.toml which is created when you create a site. Here, you can put things like your name, your Twitter handle. And once you are ready to create a new post, type new post in the console and run. It will populate an R Markdown file that you can fill in to your liking. And once all that is ready, you can commit and push up to Github!</p>
+<p>Like I mentioned before, if you want an actual URL that people can go to, you can use Netlify for hosting. If you have pushed everything up to Github, you can connect netlify with your website repository and your webiste will update anytime you push up to Github. Netlify gives out a weird URL, which you can change but if you want to do even more things R, you can apply for an rbind.io URL. They have a request template where you list out your Netlify account and Github repo and desired URL and they got back to me in a day.</p>
+<p>In terms of troubleshooting, I ran into an issue where my website wasn’t loading the way that it did in the R Studio preview window. I ran a quick Google search saying just that and saw that there was already a thread about it. I read through it, followed the instructions, and was able to fix it.</p>
+<p>I mention that because there are so many resources for blogdown even in the few months it has been out. Beyond the official guide, Mara Averick works hard to compile resources and tutorials. StackOverflow has a blogdown tag. And many things are just a search away.</p>
+<p>Thanks all for listening. I hope this presentation showed you why you should have a site, in particular a blogdown one, and how to create one. Hopefully I’ve also shown you that there’s a lot of help out there and they continue to make blogdown more user friendly all the time. And finally <a href="https://ivelasq.rbind.io/">here</a> is my blogdown site…with all the neat Hugo functionalities!</p>
+
+
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
+
+
+</body></html>

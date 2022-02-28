@@ -1,0 +1,28 @@
+---
+title: "Projects"
+listing:
+  - id: packages
+    contents: project/package
+    type: grid
+    sort-ui: false
+    filter-ui: false
+    grid-columns: 4
+    image-height: 200px
+  - id: books
+    contents: project/book
+    type: grid
+    sort-ui: false
+    filter-ui: false
+    grid-columns: 2
+    image-height: 350px
+---
+
+## Packages
+
+::: {#packages}
+:::
+
+## Books
+
+::: {#books}
+:::

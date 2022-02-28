@@ -1,0 +1,8 @@
+---
+title: "dataedu"
+description: "An R package for Data Science in Education Using R."
+image: logo.png
+---
+
+![](logo.png)
+

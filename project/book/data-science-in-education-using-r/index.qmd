@@ -1,0 +1,7 @@
+---
+title: Data Science in Education Using R
+description: Data Science in Education Using R is the go-to reference for learning data science in the education field.
+image: "thumbnail.jpg"
+---
+
+![Cover of Data Science in Education Using R](thumbnail.jpg)

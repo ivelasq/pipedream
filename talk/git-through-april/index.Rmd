@@ -1,0 +1,23 @@
+---
+title: Git Through April
+categories: [github, rstudio]
+date: "2021-04-23"
+description: A walkthrough on using Git in the RStudio GUI.
+image: "thumbnail.png"
+---
+
+|            |                                                                                    |
+|------------|------------------------------------------------------------------------------------|
+| Abstract   | A walkthrough on using Git in the RStudio GUI.                                     |
+| Date       | April 23, 2021                                                                     |
+| Time       | 12:00PM  PT                                                                           |
+| Location   | Remote                                                                             |
+| Event      | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/276835843) |
+| Repository | [**Github**](https://github.com/kdillmcfarland/2021-04-02-r-ladies-seattle-online) |
+
+```{r, echo = FALSE}
+xaringanExtra::embed_xaringan(
+  url = "https://ivelasq.github.io/2021-04-14_git-through-april/r-studio-gui-deck.html#1",
+  ratio = "16:9"
+)
+```

@@ -1,0 +1,287 @@
+---
+title: "Transforming PDFs into useful tables"
+date: "2018-12-16"
+categories: ["import", "tidy", "visualize"]
+description: "Most of the time, data doesn't come in tidy spreadsheets. With R, though, you can pull data from PDFs to use in analyses."
+image: thumbnail.jpg
+---
+
+![Joseph Decker, Green Plums (1885)](thumbnail-wide.jpg)
+
+```{r, include = FALSE}
+library(showtext)
+font_add_google("Inter", "inter")
+showtext_auto()
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE)
+
+iv_palette <- c(
+  `blue`   = "#0081e8",
+  `purple1`  = "#9597f0",
+  `purple2`      = "#d4b4f6",
+  `purple3` = "#ffd6ff",
+  `pink1`     = "#ffa1d4",
+  `pink2` = "#ff688c",
+  `red` = "#fb372d"
+)
+
+iv_colors <- function(...) {
+  cols <- c(...)
+  
+  if (is.null(cols)) {
+    return(iv_palette)
+  }
+  
+  iv_palette[cols]
+}
+
+iv_colors()
+
+iv_palettes <- list(
+  `short` = iv_colors("blue", "purple2", "red"),
+  `main` = iv_colors("blue", "purple1", "purple2", "purple3", "pink1", "pink2", "red")
+)
+
+iv_pal <- function(palette = "main", reverse = FALSE, ...) {
+  pal <- iv_palettes[[palette]]
+  
+  if (reverse) pal <- rev(pal)
+  
+  grDevices::colorRampPalette(pal, ...)
+}
+
+scale_color_iv <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+  pal <- iv_pal(palette = palette, reverse = reverse)
+  
+  if (discrete) {
+    ggplot2::discrete_scale("colour", paste0("iv_", palette), palette = pal, ...)
+  } else {
+    ggplot2::scale_color_gradientn(colours = pal(256), ...)
+  }
+}
+
+scale_fill_iv <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
+  pal <- iv_pal(palette = palette, reverse = reverse)
+  
+  if (discrete) {
+    ggplot2::discrete_scale("fill", paste0("iv_", palette), palette = pal, ...)
+  } else {
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
+  }
+}
+
+theme_iv <- function() {
+  ggplot2::theme_minimal(base_size = 11,
+                         base_family = "Inter")
+}
+
+library(tidyverse)
+library(tabulizer)
+library(janitor)
+```
+
+Way back in 2016, the USDA released a [study](https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households) entitled "Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households" that included a summary, final report, and appendices. Per the USDA's description:
+
+*"This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households."*
+
+At the time though, I was most interested in looking at the [appendices data](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf) - _263_ pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with 'fancy' Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.
+
+I [emailed](mailto:SNAPHQ-WEB@fns.usda.gov) SNAP HQ to ask if they had the raw data available in CSVs and was told simply:
+
+*"Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file."*
+
+At the time, my R skills were pretty rudimentary and I couldn't figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the {tidyverse} and {tabulizer} packages.
+
+```{r, include = T, message = F, warning = F}
+library(tidyverse)
+library(tabulizer)
+```
+
+We use `tabulizer::extract_tables()` to extract the data from the [appendices PDF](https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf). Once we extract the tables, we are left with a list (which is slightly more manageable than the original PDFs).
+
+```{r, include = T, message = F, eval = T, cache = T}
+snap_pdf <-
+  extract_tables(
+    "https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"
+  )
+```
+
+Using the {purrr} package, we create a data frame from the lists while simultaneously removing the unnecessary rows.
+
+```{r, include = T, message = F, warning = F}
+snap_df <-
+  snap_pdf %>%
+  map(as_tibble) %>%
+  map_df( ~ slice(.,-2)) # slicing because of the unnecessary rows
+
+head(snap_df)
+```
+
+Due to the original formatting of the PDFs, we need to do a lot of cleaning to make the list into a usable table. Using `slice()`, we isolate only the rows from Appendix 1.
+
+```{r, include = T, message = F}
+snap_appendix1 <-
+  snap_df %>%
+  slice(1:244)
+```
+
+Now comes the fun part (yay, data cleaning!). When we look at the data frame, the data for each commodity are in two separate columns (`V2` and `V3`), but only one column or the other. There are several empty columns (`V4` through `V9`), probably created due to the funky original formatting.
+
+First things first: let's put all the data in a single column called `col_dat`. Then, we will remove all the empty rows in the newly created `col_dat` column.
+
+```{r, include = T, message = F}
+snap_appendix1_pt1 <-
+  snap_appendix1 %>%
+  mutate(col_dat = case_when(grepl("[0-9]", V2) ~ V2, # create a column that contains all the data
+                             grepl("[0-9]", V3) ~ V3,
+                             TRUE ~ "")) %>%
+  filter(col_dat != "") # some rows are empty
+
+head(snap_appendix1_pt1)
+```
+
+Now the numeric data we want is in a single column, we can select the columns `V1` and `col_dat`.
+
+```{r, include = T, message = F}
+snap_appendix1_pt2 <-
+  snap_appendix1_pt1 %>%
+  select(V1, col_dat)
+
+head(snap_appendix1_pt2)
+```
+
+The numeric data is still mushed in column `col_dat`. We can use `tidyr::separate()` to split the values that are separated by spaces into their own columns. We reference the original PDF to descriptively rename the columns (and the commodity column `V1` as well).
+
+```{r, include = T, message = F}
+snap_appendix1_pt3 <-
+  snap_appendix1_pt2 %>%
+  separate(
+    col_dat,
+    " ",
+    into = c(
+      "snap_rank",
+      "snap_dollars_in_millions",
+      "snap_pct_total_expenditures",
+      "nonsnap_rank",
+      "nonsnap_dollars_in_millions",
+      "nonsnap_pct_total_expenditures"
+    )
+  ) %>%
+  rename(commodity = V1)
+```
+
+The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can remove those unnecessary characters and transform those columns into truly numeric values.
+
+```{r}
+snap_appendix1_pt4 <-
+  snap_appendix1_pt3 %>%
+  mutate(across(
+    snap_rank:nonsnap_pct_total_expenditures,
+    ~ as.numeric(str_replace_all(.x, ",|%|\\$", ""))
+  ))
+
+head(snap_appendix1_pt4)
+```
+
+Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.
+
+```{r, include = T, message = F, fig.align='center'}
+snap_appendix1_clean <-
+  snap_appendix1_pt4 %>%
+  mutate(across(contains("pct"), ~ . / 100))
+```
+
+Tada! Now we have a clean dataset from the original not-very-usable PDFs.
+
+```{r}
+head(snap_appendix1_clean)
+```
+
+At some point, I would like to do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analyses using these data. For the purposes of this post, here is a quick ggplot that compare the rank of commodities between families served by SNAP and those who are not. Based on a Wilcox Signed-Rank Test, the two groups do not statistically differ in their food rankings.
+
+```{r}
+wilcox.test(snap_appendix1_clean$snap_rank,
+            snap_appendix1_clean$nonsnap_rank,
+            paired = TRUE)
+```
+
+Here is a ggplot that compare the rank of commodities between families served by SNAP and those who are not. The labels display which commodities differ by rank of 30 or more.
+
+```{r, fig.alt="Line plot showing difference in rank by families served and not served by SNAP", fig.align='center'}
+library(ggrepel)
+
+snap_appendix1_plot <-
+  snap_appendix1_clean %>%
+  select(commodity, snap_rank, nonsnap_rank) %>%
+  mutate(rank_diff = snap_rank - nonsnap_rank) %>%
+  pivot_longer(c("snap_rank", "nonsnap_rank"),
+               names_to = "variable",
+               values_to = "value")
+
+ggplot(snap_appendix1_plot, aes(x = variable, y = value)) +
+  geom_point(size = 1, col = "lightgrey", alpha = 0.2) +
+  geom_line(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff >= 30 | rank_diff <= -30),
+    aes(group = commodity),
+    color = "#00C3DA",
+    alpha = 0.6
+  ) +
+  geom_text_repel(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff >= 30,
+             variable == "nonsnap_rank"),
+    aes(label = commodity),
+    nudge_y = 0.25,
+    size = 2,
+    direction = "y"
+  ) +
+  geom_text_repel(
+    data = snap_appendix1_plot %>%
+      filter(rank_diff <= -30,
+             variable == "snap_rank"),
+    aes(label = commodity),
+    nudge_y = 0.25,
+    size = 2,
+    direction = "y"
+  ) +
+  ggtitle("Rank Comparison") +
+  xlab("Category") +
+  ylab("Rank") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_x_discrete(labels = c("Non-SNAP Expenditure Rank", "SNAP Expenditure Rank")) +
+  scale_y_reverse()
+```
+
+```{r, include = T, message = F, fig.align='center', include = FALSE}
+# https://stats.stackexchange.com/questions/51295/comparison-of-ranked-lists
+# Using this tutorial: https://drsimonj.svbtle.com/visualising-residuals
+
+d <- snap_appendix1_clean
+fit <- lm(snap_rank ~ nonsnap_rank, data = d)
+d$predicted <- predict(fit)   # Save the predicted values
+d$residuals <- residuals(fit) # Save the residual values
+
+d %>% select(snap_rank, predicted, residuals) %>% head()
+head(d)
+
+ggplot(d, aes(x = nonsnap_rank, y = snap_rank)) +
+  geom_smooth(method = "lm", se = FALSE, color = "lightgrey") +
+  geom_segment(aes(xend = nonsnap_rank, yend = predicted), alpha = .2) +
+  geom_point(color = "#00C3DA", size = 1) +
+  geom_point(aes(alpha = abs(residuals))) +  # Alpha mapped to abs(residuals)
+  guides(alpha = "none") +  # Alpha legend removed
+  theme_minimal() +
+  ggtitle("SNAP Expenditure Rank vs. Non-Snap Expenditure Rank") +
+  xlab("Non-SNAP Expenditure Rank") +
+  ylab("SNAP Expenditure Rank")
+```
+
+I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on [Github](https://github.com/ivelasq/snap).
+
+<center>
+*Liked this article? I'd love for you to retweet!*
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into Useful Tables 🥒🌶🥕 <a href="https://t.co/UP0hQaHJc9">https://t.co/UP0hQaHJc9</a> <a href="https://twitter.com/hashtag/tabulizer?src=hash&amp;ref_src=twsrc%5Etfw">#tabulizer</a> <a href="https://twitter.com/hashtag/dplyr?src=hash&amp;ref_src=twsrc%5Etfw">#dplyr</a> <a href="https://t.co/SYWbqMiIZh">pic.twitter.com/SYWbqMiIZh</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1074704678858973184?ref_src=twsrc%5Etfw">December 17, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
