@@ -15,4 +15,4 @@ about:
 ---
 
 I work at [RStudio](https://www.rstudio.com/). |
-[Resume](/resume.html) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
+[Resume](https://docs.google.com/document/d/14tJLqFuI9g6hDkP5IYQg0HPTZ05WVHxacedhajiilHo/edit?usp=sharing) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
