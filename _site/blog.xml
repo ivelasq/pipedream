@@ -379,7 +379,12 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
   <link>https://ivelasq.rbind.io//blog/why-rstudio/index.html</link>
   <description><![CDATA[ 
 
-<p><img src="https://ivelasq.rbind.io//blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io//blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><p></p>
+</figure>
+</div>
 <p>I am excited to announce that I’ve joined the RStudio Marketing team! I will be creating content on the <a href="https://blog.rstudio.com/">RStudio Blog</a> that will announce news and share stories from the company, users, and partners. I just started this week and, ready to jump in, I decided that I’d like to deep dive into previous blog posts.</p>
 <p>The RStudio blog is written using <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> and each blog entry contains metadata in the YAML header. Since there are hundreds of blog entries, I decided to use R to quickly pull all this information into an analyzable data frame. While figuring out how to do this, I was reminded of why I am so excited to join RStudio in the first place (and if you want to jump straight into the code, click here!)</p>
 <section id="the-awesomeness-that-is-the-r-community" class="level2">
@@ -427,7 +432,12 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 </div>
 <p>In this case, there are entries where there is a vector within categories or tags - this is because a single blog post can have multiple categories or tags (see example <a href="https://blog.rstudio.com/2021/08/30/rstudio-connect-2021-08-custom-branding/">here</a>, which has “rstudio connect” and “featured” as categories).</p>
 <center>
-<img src="https://ivelasq.rbind.io//blog/why-rstudio/https:/ivelasq.rbind.io/images/cells.png" class="img-fluid">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io//blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
+<p></p><p></p>
+</figure>
+</div>
 </center>
 <p>The following code separates the tags or categories with multiple values so that each value has its own column using a <code>pivot_longer()</code> followed by <code>unnest()</code>, then re-pivots the table to wide format using <code>pivot_wider()</code>.</p>
 <div class="cell">
