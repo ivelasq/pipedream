@@ -234,7 +234,12 @@ new_session: yes</code></pre>
 <li><strong>All tables had to be in Word format</strong>: at the time, we hadn’t seen this from <a href="https://cran.r-project.org/web/packages/gtsummary/vignettes/rmarkdown.html">{gtsummary}</a>, and we spent quite a bit of time trying to use {gt} for our tables before realizing that we wouldn’t be able to output using Word. We then switched to {sjPlot}, which got us exactly what we needed.</li>
 </ul>
 <center>
-<img src="https://ivelasq.rbind.io/images/gt.png" class="img-fluid">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gt.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Table of various table print engines, the functions for creating the tables, and whether they’re supported in HTML, PDF, RTF, or Word.</figcaption><p></p>
+</figure>
+</div>
 </center>
 <ul>
 <li><strong>Our bibliography had to be in APA format:</strong> thanks to a file that Josh had (saved <a href="https://github.com/data-edu/data-science-in-education/blob/master/apa_pl.csl">here</a>), all we had to do was save that file and add <code>biblio-style: "apalike"</code> to our <code>index.Rmd</code> file for everything to show up in the format we needed.</li>
