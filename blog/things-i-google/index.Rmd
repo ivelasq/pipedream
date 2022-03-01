@@ -2,7 +2,7 @@
 title: "Six things I always Google when using ggplot2"
 categories: ["visualize"]
 date: "2020-01-27"
-description: "My frequently-used reference for styling ggplot2 charts."
+description: "My frequently-used reference for styling {ggplot2} charts."
 image: thumbnail.jpg
 ---
 
