@@ -189,7 +189,7 @@
 </div>
 <p>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found <a href="https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851">this tutorial</a> that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</p>
 <section id="set-up-your-project" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-your-project">Set Up Your Project</h2>
+<h2 class="anchored" data-anchor-id="set-up-your-project">Set up your project</h2>
 <p>For this tutorial, I set up a project with the following structure. I walk through how to create <code>like.js</code> and <code>like_csv.csv</code> in the walkthrough.</p>
 <pre><code>+-- code.R
 +-- data
@@ -198,14 +198,14 @@
 |   +-- likes_csv.csv</code></pre>
 </section>
 <section id="getting-liked-tweets" class="level2">
-<h2 class="anchored" data-anchor-id="getting-liked-tweets">Getting Liked Tweets</h2>
+<h2 class="anchored" data-anchor-id="getting-liked-tweets">Getting liked Tweets</h2>
 <section id="step-1-download-your-twitter-archive" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-download-your-twitter-archive">Step 1: Download Your Twitter Archive</h3>
+<h3 class="anchored" data-anchor-id="step-1-download-your-twitter-archive">Step 1: Download your Twitter archive</h3>
 <p>Like the Python tutorial, you have to first download your Twitter archive. Go to https://twitter.com/settings/your_twitter_data, enter your password, and “Download Archive”. You will get an email when you can download your data - for me, it took a day.</p>
 <p>Once downloaded, open the ZIP file. Save the <code>like.js</code> file in your project’s <code>data</code> folder.</p>
 </section>
-<section id="step-2-load-the-js-file-and-convert-to-data-frame" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-load-the-js-file-and-convert-to-data-frame">Step 2: Load the JS File and Convert to Data Frame</h3>
+<section id="step-2-load-the-js-file-and-convert-it-to-a-data-frame" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-load-the-js-file-and-convert-it-to-a-data-frame">Step 2: Load the JS file and convert it to a data frame</h3>
 <p>Now, start an <code>R</code> script (I called mine <code>code.R</code>). Install (if you haven’t already) and load all the packages.</p>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -227,7 +227,7 @@
 <p>Now your likes, their status IDs, and URLs are stored in <code>likes_df</code>.</p>
 </section>
 <section id="step-3-authenticate-rtweet-and-get-tweet-info" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-authenticate-rtweet-and-get-tweet-info">Step 3: Authenticate {rtweet} and Get Tweet Info</h3>
+<h3 class="anchored" data-anchor-id="step-3-authenticate-rtweet-and-get-tweet-info">Step 3: Authenticate {rtweet} and get tweet info</h3>
 <p>To get the Tweet info, you have to authenticate your Twitter account and get the API keys. Go to your <a href="https://developer.twitter.com/en/portal/projects-and-apps">Twitter Developer Portal</a> to do this. The {rtweet} vignette <a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html">here</a> covers what to do pretty well, but one thing I noticed is now you have to enable “3-legged OAuth” and there, you can add the Callback URL of <code>http://127.0.0.1:1410</code> (otherwise you will get a 401 error when running the code below).</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>token <span class="ot">&lt;-</span></span>

@@ -10,7 +10,7 @@ image: thumbnail.jpg
 
 The other day, I was scrolling through my "liked" Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one's likes. I found [this tutorial](https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851) that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.
 
-## Set Up Your Project
+## Set up your project
 
 For this tutorial, I set up a project with the following structure. I walk through how to create `like.js` and `like_csv.csv` in the walkthrough.
 
@@ -22,16 +22,16 @@ For this tutorial, I set up a project with the following structure. I walk throu
 |   +-- likes_csv.csv
 ```
 
-## Getting Liked Tweets
+## Getting liked Tweets
 
-### Step 1: Download Your Twitter Archive
+### Step 1: Download your Twitter archive
 
 Like the Python tutorial, you have to first download your Twitter archive. 
 Go to https://twitter.com/settings/your_twitter_data, enter your password, and "Download Archive". You will get an email when you can download your data - for me, it took a day.
 
 Once downloaded, open the ZIP file. Save the `like.js` file in your project's `data` folder.
 
-### Step 2: Load the JS File and Convert to Data Frame
+### Step 2: Load the JS file and convert it to a data frame
 
 Now, start an `R` script (I called mine `code.R`). Install (if you haven't already) and load all the packages.
 
@@ -57,7 +57,7 @@ likes_df <-
 
 Now your likes, their status IDs, and URLs are stored in `likes_df`.
 
-### Step 3: Authenticate {rtweet} and Get Tweet Info
+### Step 3: Authenticate {rtweet} and get tweet info
 
 To get the Tweet info, you have to authenticate your Twitter account and get the API keys. Go to your [Twitter Developer Portal](https://developer.twitter.com/en/portal/projects-and-apps) to do this. The {rtweet} vignette [here](https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html) covers what to do pretty well, but one thing I noticed is now you have to enable "3-legged OAuth" and there, you can add the Callback URL of `http://127.0.0.1:1410` (otherwise you will get a 401 error when running the code below).
 
