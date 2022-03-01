@@ -209,8 +209,8 @@
 <p>{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
 <p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
+<section id="example-of-creating-a-school-district-map" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-creating-a-school-district-map">Example of creating a school district map</h2>
 <p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
 <p>First, let’s call our packages.</p>
 <div class="cell">
@@ -277,7 +277,12 @@
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(map_projected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="https://ivelasq.rbind.io/images/test_map.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="test_map.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Map of California school districts showing whether or not they contained COVID-related links on their website</figcaption><p></p>
+</figure>
+</div>
 <p>Tada! A full school district map for California.</p>
 </section>
 <section id="call-for-collaboration" class="level2">
@@ -294,6 +299,16 @@
 <li><a href="http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html"><strong>Joining Spatial Data</strong></a></li>
 <li><a href="https://rpubs.com/DanielSLee/censusMap"><strong>Analyzing U.S. Census Data Using R</strong></a></li>
 </ul>
+<center>
+<em>Liked this post? I’d love for you to retweet!</em>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>? Check out {leaidr}, which downloads the shapefile from GitHub using <a href="https://twitter.com/rOpenSci?ref_src=twsrc%5Etfw"><span class="citation" data-cites="rOpenSci">@rOpenSci</span></a> 's {piggyback} 🐷! Would love any thoughts on how to improve! Repo: <a href="https://t.co/yOszd4agYM">https://t.co/yOszd4agYM</a> Tutorial: <a href="https://t.co/JuqGQcVR7Z">https://t.co/JuqGQcVR7Z</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1259831120364888066?ref_src=twsrc%5Etfw">May 11, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
 
 
 </section>

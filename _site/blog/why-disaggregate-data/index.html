@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="dcterms.date" content="2018-09-21">
-  <meta name="description" content="Exploring why disaggregation of data is important by importing, tidying, and visualizing district demographic data.">
+  <meta name="description" content="Exploring why disaggregation of data is important by looking at district demographics.">
   <title>%&gt;% dreams - Disaggregating school district data</title>
   <style>
     code{white-space: pre-wrap;}
@@ -178,13 +178,13 @@
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <header id="title-block-header">
-<h1 class="title display-7">Disaggregating Minneapolis Public Schools data</h1>
+<h1 class="title display-7">Disaggregating school district data</h1>
 <p class="date">2018-09-21</p>
 </header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Edvard Munch, The Girls on the Bridge (1918)</figcaption><p></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Samuel Colman, The Rock of Salvation (1837)</figcaption><p></p>
 </figure>
 </div>
 <p>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.</p>
@@ -202,7 +202,7 @@
 <p>Because the definition of equity varies from team to team, it is important to decide which inequities to identify and focus on.</p>
 </section>
 <section id="what-is-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What Is Disaggregated Data</h2>
+<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What is disaggregated data</h2>
 <p>According to the <a href="https://www.edglossary.org/disaggregated-data/">Glossary of Education Reform</a>, the formal definition of disaggregated data is:</p>
 <blockquote class="blockquote">
 <p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
@@ -210,17 +210,17 @@
 <p>Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team’s definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.</p>
 </section>
 <section id="why-use-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why Use Disaggregated Data</h2>
+<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why use disaggregated data</h2>
 <p>Particularly in education, disaggregated data is essential in identifying where solutions are needed to solve inequities. Per NCES’ <a href="https://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=NFES2017017">Forum Guide to Collecting and Using Disaggregated Data on Racial/Ethnic Subgroups</a>:</p>
 <blockquote class="blockquote">
 <p>Educators need both high-level data summaries as well as disaggregated data that accurately describe smaller groups of students they serve. Access to and analysis of more detailed data—that is, disaggregated data—can be a useful tool for improving educational outcomes for small groups of students who otherwise would not be distinguishable in the aggregated data used for federal reporting. Disaggregating student data into subpopulations can help schools and communities plan appropriate programs; decide which interventions to implement; target limited resources; and recognize trends in educational participation, outcomes, and achievement.</p>
 </blockquote>
 </section>
 <section id="minneapolis-public-schools-example" class="level2">
-<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools Example</h2>
+<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools example</h2>
 <p>Minneapolis Public Schools (MPS) reports their student demographics in a robust, complete way. Not only do they report the percentage of students in a subgroup, but they also include the number of students in each subgroup. This allows a deep look into their individual school demographics and gives us the opportunity to explore equity in their district.</p>
 <section id="pulling-data" class="level3">
-<h3 class="anchored" data-anchor-id="pulling-data">Pulling Data</h3>
+<h3 class="anchored" data-anchor-id="pulling-data">Pulling data</h3>
 <p>MPS publishes their school data in PDFs. Thankfully, the {tabulizer} package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-4_5d0e6b13715b62a2bded88158d86cc05">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
@@ -315,7 +315,7 @@
 </div>
 </section>
 <section id="first-glance-mps-district-demographics" class="level3">
-<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First Glance: MPS District Demographics</h3>
+<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
 <p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
@@ -346,7 +346,7 @@
 <p>However, let’s explore if there’s more to this story.</p>
 </section>
 <section id="discover-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="discover-distributions">Discover Distributions</h3>
+<h3 class="anchored" data-anchor-id="discover-distributions">Discover distributions</h3>
 <p>Another view of the data can be visualizing the distribution of percentage of a demographic within schools. Here is a histogram for the percentage of White students within the 74 MPS schools for which we have data.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="sc">%&gt;%</span> </span>
@@ -372,7 +372,7 @@
 <p>The school race demographics are not representative of the district populations but does that hold for socioeconomic status as well?</p>
 </section>
 <section id="create-categories" class="level3">
-<h3 class="anchored" data-anchor-id="create-categories">Create Categories</h3>
+<h3 class="anchored" data-anchor-id="create-categories">Create categories</h3>
 <p>High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, <a href="https://nces.ed.gov/fastfacts/display.asp?id=898">24% of public school students attended high-poverty schools</a>. However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
@@ -400,7 +400,7 @@
 <p><strong>9% of White students</strong> attend high poverty schools, compared to <strong>46% of Black students</strong>, <strong>51% of Hispanic students</strong>, <strong>46% of Asian students</strong>, and <strong>49% of Native American students</strong>. These students are disproportionately attending high poverty schools.</p>
 </section>
 <section id="reveal-relationships" class="level3">
-<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal Relationships</h3>
+<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal relationships</h3>
 <p>Let’s explore what happens when we correlate race and FRPL percentage by school.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>merged_df <span class="sc">%&gt;%</span> </span>
@@ -431,7 +431,7 @@
 </section>
 </section>
 <section id="examples-of-disaggregated-data-reporting" class="level2">
-<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of Disaggregated Data Reporting</h2>
+<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of disaggregated data reporting</h2>
 <p>There are so many amazing examples out there using disaggregated data. These two are my favorites:</p>
 <ul>
 <li><a href="https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html">Money, Race and Success: How Your School District Compares</a></li>

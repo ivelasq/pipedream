@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="dcterms.date" content="2020-05-28">
-  <meta name="description" content="Census data is valuable, but stored in Excel spreadsheets.">
+  <meta name="description" content="Census data is valuable, but can be stored in messy Excel spreadsheets.">
   <title>%&gt;% dreams - What it takes to tidy Census data</title>
   <style>
     code{white-space: pre-wrap;}
@@ -181,7 +181,12 @@
 <h1 class="title display-7">What it takes to tidy Census data</h1>
 <p class="date">2020-05-28</p>
 </header>
-<p><img src="thumbnail-wide.jpg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption><p></p>
+</figure>
+</div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -211,11 +216,11 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">GET</span>(<span class="st">"https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx"</span>, <span class="fu">write_disk</span>(path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".xlsx"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
-  Date: 2022-02-26 21:06
+  Date: 2022-02-28 23:50
   Status: 200
   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
   Size: 442 kB
-&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpUwsymt/filedcfc27d56a2e.xlsx</code></pre>
+&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpYio7n3/file1d3573bd65cd.xlsx</code></pre>
 </div>
 </div>
 </section>

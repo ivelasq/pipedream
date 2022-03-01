@@ -1,5 +1,5 @@
 ---
-categories: ["package-development", "map"]
+categories: ["package", "map"]
 date: "2020-05-03"
 title: "Introducing an R package for school district shapefiles"
 description: "The {leaidr} package helps us easily create maps of U.S. school districts."
