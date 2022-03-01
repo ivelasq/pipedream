@@ -3,7 +3,7 @@ title: "You CRAN do it"
 author: "Isabella Velásquez"
 date: "2020-02-25"
 categories: ["cran", "package-development"]
-description: Recommendations for when you want to submit an R package to CRAN.
+description: Recommendations for when you want to submit a package to CRAN.
 image: "thumbnail.png"
 ---
 

@@ -163,7 +163,7 @@ ggplot(blockbusters, aes(x = genre, y = box_office, color = genre)) +
 
 Mosaic charts are incredibly helpful when displaying proportions of (multiple) categories. The {ggmosaic} package by Haley Jeppson (repo [here](https://github.com/haleyjeppson/ggmosaic)) uses `geom_mosaic` to create these visualizations.
 
-```{r,  fig.align='center'}
+```{r,  fig.align='center', warning=FALSE}
 # devtools::install_github("haleyjeppson/ggmosaic")
 library(ggmosaic)
 

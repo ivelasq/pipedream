@@ -1,7 +1,7 @@
 ---
 title: "An even easier-to-use R package for school district shapefiles"
-categories: ["package-development", "map", "shiny"]
-description: Thanks to contributions from Daniel Anderson, leaidr is even easier to use.
+categories: ["package", "map", "shiny"]
+description: Thanks to contributions from Daniel Anderson, {leaidr} is even easier to use.
 date: "2020-08-30"
 image: thumbnail.jpg
 ---
@@ -122,13 +122,12 @@ To get the information to bring it back into R and be able to use the map in a S
 
 I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.
 
-```{r}
+```{r, eval=FALSE}
 mapdeck(token = Sys.getenv("MAPBOX_PUBLIC_TOKEN"),
         style = "mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj",
         zoom = 4,
         location = c(-120.161, 45.843))
 ```
-
 
 ## Create a Shiny app with your beautiful map
 

@@ -950,7 +950,12 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <li>Mosaic charts using ggmosaic::geom_mosaic</li>
 </ul>
 <center>
-<img src="https://ivelasq.rbind.io//blog/other-geoms/https:/ivelasq.rbind.io/images/geoms.png" class="img-fluid">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io//blog/other-geoms/geoms.png" class="img-fluid figure-img"></p>
+<p></p><p></p>
+</figure>
+</div>
 </center>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
@@ -1130,12 +1135,6 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <span id="cb9-5">  <span class="fu" style="color: #4758AB;">geom_mosaic</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #677623;">x =</span> <span class="fu" style="color: #4758AB;">product</span>(Admit, Dept), <span class="at" style="color: #677623;">fill =</span> Gender, <span class="at" style="color: #677623;">weight =</span> Freq)) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb9-6">  <span class="fu" style="color: #4758AB;">scale_fill_manual</span>(<span class="at" style="color: #677623;">values =</span> <span class="fu" style="color: #4758AB;">wes_palette</span>(<span class="st" style="color: #20794D;">"Darjeeling2"</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb9-7">  <span class="fu" style="color: #4758AB;">theme_minimal</span>()</span></code></pre></div>
-<div class="cell-output-stderr">
-<pre><code>Warning: `unite_()` was deprecated in tidyr 1.2.0.
-Please use `unite()` instead.
-This warning is displayed once every 8 hours.
-Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1881,10 +1880,6 @@ It has 18 fields</code></pre>
 <span id="cb7-2">        <span class="at" style="color: #677623;">style =</span> <span class="st" style="color: #20794D;">"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj"</span>,</span>
 <span id="cb7-3">        <span class="at" style="color: #677623;">zoom =</span> <span class="dv" style="color: #AD0000;">4</span>,</span>
 <span id="cb7-4">        <span class="at" style="color: #677623;">location =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="sc" style="color: #5E5E5E;">-</span><span class="fl" style="color: #AD0000;">120.161</span>, <span class="fl" style="color: #AD0000;">45.843</span>))</span></code></pre></div>
-<div class="cell-output-display">
-<div id="htmlwidget-09ac2a810cf3f52af29c" style="width:100%;height:464px;" class="mapdeck html-widget"></div>
-<script type="application/json" data-for="htmlwidget-09ac2a810cf3f52af29c">{"x":{"access_token":"","style":"mapbox://styles/ivelasq3/ckehhzzld3l3p19mht1n8hksj","pitch":0,"zoom":4,"location":[-120.161,45.843],"bearing":0,"max_zoom":20,"min_zoom":0,"max_pitch":60,"min_pitch":0,"show_view_state":false,"repeat_view":false},"evals":[],"jsHooks":[]}</script>
-</div>
 </div>
 </section>
 </section>
@@ -1931,17 +1926,19 @@ It has 18 fields</code></pre>
 <p>In conclusion, {leaidr} can help you map your data as long as you have school district LEAID’s or names in there somewhere. I hope that it helps you in your education data projects!</p>
 <center>
 <p><em>Liked this article? I’d love for you to retweet!</em></p>
-<div class="cell">
-<div class="cell-output-display">
-<p>{{% tweet "1300446746955452416" %}}</p>
-</div>
-</div>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> pkg for school district shapefiles!<br><br>🤩 Major upgrade thx to <a href="https://twitter.com/datalorax?ref_src=twsrc%5Etfw"><span class="citation" data-cites="datalorax">@datalorax</span></a><br>📓 New docs: <a href="https://t.co/yOszd3SG7e">https://t.co/yOszd3SG7e</a><br>🗺️ Mapbox example thx to <a href="https://twitter.com/asmae_toumi?ref_src=twsrc%5Etfw"><span class="citation" data-cites="asmae_toumi">@asmae_toumi</span></a><br>🌐 Shiny app IN package thx to <a href="https://twitter.com/daattali?ref_src=twsrc%5Etfw"><span class="citation" data-cites="daattali">@daattali</span></a><br>ℹ️ Walkthrough: <a href="https://t.co/i2I121b6a3">https://t.co/i2I121b6a3</a><br><br>Happy mapping 🤓 <a href="https://t.co/4hIgJ9evoX">pic.twitter.com/4hIgJ9evoX</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1300446746955452416?ref_src=twsrc%5Etfw">August 31, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
 
 
 </section>
  ]]></description>
-  <category>package-development</category>
+  <category>package</category>
   <category>map</category>
   <category>shiny</category>
   <guid>https://ivelasq.rbind.io//blog/leaidr2/index.html</guid>
@@ -2001,7 +1998,12 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
   <link>https://ivelasq.rbind.io//blog/tidying-census-data/index.html</link>
   <description><![CDATA[ 
 
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p></p><p></p>
+</figure>
+</div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -2031,11 +2033,11 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">GET</span>(<span class="st" style="color: #20794D;">"https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx"</span>, <span class="fu" style="color: #4758AB;">write_disk</span>(path <span class="ot" style="color: #00769E;">&lt;-</span> <span class="fu" style="color: #4758AB;">tempfile</span>(<span class="at" style="color: #677623;">fileext =</span> <span class="st" style="color: #20794D;">".xlsx"</span>)))</span></code></pre></div>
 <div class="cell-output-stdout">
 <pre><code>Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
-  Date: 2022-02-26 21:06
+  Date: 2022-02-28 23:50
   Status: 200
   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
   Size: 442 kB
-&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpUwsymt/filedcfc27d56a2e.xlsx</code></pre>
+&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpYio7n3/file1d3573bd65cd.xlsx</code></pre>
 </div>
 </div>
 </section>
@@ -2305,8 +2307,8 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <p>{leaidr} downloads NCES’ U.S. district shapefile from Github using ROpenSci’s <a href="https://github.com/ropensci/piggyback">{piggyback}</a> package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn’t figure out how to use it for a package that others can use.</p>
 <p>The function <code>lea_get()</code> downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with <code>lea_prep()</code> by designating where the shapefiles exist and which state(s) you would like. <strong>Note:</strong> For now, you must use the state’s FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found <a href="https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm">here</a>.</p>
 <p>Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.</p>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
+<section id="example-of-creating-a-school-district-map" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-creating-a-school-district-map">Example of creating a school district map</h2>
 <p>Let’s walk through an example where we will merge external data to the shapefile and then map all the districts in California. The external data is from Josh’s <a href="https://github.com/making-data-science-count/covidedu"><code>covidedu</code> project</a>, which scrapes district websites for specific words. In this case, the search terms were “covid*”, “coron*”, and “closure”. I highly recommend using <code>covidedu</code> for easy scraping from a <strong>lot</strong> of district websites!</p>
 <p>First, let’s call our packages.</p>
 <div class="cell">
@@ -2373,7 +2375,12 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <span id="cb8-3"></span>
 <span id="cb8-4"><span class="fu" style="color: #4758AB;">print</span>(map_projected)</span></code></pre></div>
 </div>
-<p><img src="https://ivelasq.rbind.io//blog/leaidr-shapefiles/https:/ivelasq.rbind.io/images/test_map.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io//blog/leaidr-shapefiles/test_map.png" class="img-fluid figure-img"></p>
+<p></p><p></p>
+</figure>
+</div>
 <p>Tada! A full school district map for California.</p>
 </section>
 <section id="call-for-collaboration" class="level2">
@@ -2390,11 +2397,21 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <li><a href="http://www.nickeubank.com/wp-content/uploads/2015/10/RGIS2_MergingSpatialData_part1_Joins.html"><strong>Joining Spatial Data</strong></a></li>
 <li><a href="https://rpubs.com/DanielSLee/censusMap"><strong>Analyzing U.S. Census Data Using R</strong></a></li>
 </ul>
+<center>
+<em>Liked this post? I’d love for you to retweet!</em>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>? Check out {leaidr}, which downloads the shapefile from GitHub using <a href="https://twitter.com/rOpenSci?ref_src=twsrc%5Etfw"><span class="citation" data-cites="rOpenSci">@rOpenSci</span></a> 's {piggyback} 🐷! Would love any thoughts on how to improve! Repo: <a href="https://t.co/yOszd4agYM">https://t.co/yOszd4agYM</a> Tutorial: <a href="https://t.co/JuqGQcVR7Z">https://t.co/JuqGQcVR7Z</a>
+</p>
+— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1259831120364888066?ref_src=twsrc%5Etfw">May 11, 2020</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
 
 
 </section>
  ]]></description>
-  <category>package-development</category>
+  <category>package</category>
   <category>map</category>
   <guid>https://ivelasq.rbind.io//blog/leaidr-shapefiles/index.html</guid>
   <pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate>
@@ -2403,7 +2420,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <item>
   <title>You CRAN do it</title>
   <dc:creator>Isabella Velásquez</dc:creator>
-  <link>https://ivelasq.rbind.io//blog/you-cran-do-it/you-cran-do-it.html</link>
+  <link>https://ivelasq.rbind.io//blog/you-cran-do-it/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
@@ -2505,7 +2522,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>cran</category>
   <category>package-development</category>
-  <guid>https://ivelasq.rbind.io//blog/you-cran-do-it/you-cran-do-it.html</guid>
+  <guid>https://ivelasq.rbind.io//blog/you-cran-do-it/index.html</guid>
   <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io///blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
@@ -4185,7 +4202,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
   <media:content url="https://ivelasq.rbind.io///blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Disaggregating Minneapolis Public Schools data</title>
+  <title>Disaggregating school district data</title>
   <link>https://ivelasq.rbind.io//blog/why-disaggregate-data/index.html</link>
   <description><![CDATA[ 
 
@@ -4210,7 +4227,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <p>Because the definition of equity varies from team to team, it is important to decide which inequities to identify and focus on.</p>
 </section>
 <section id="what-is-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What Is Disaggregated Data</h2>
+<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What is disaggregated data</h2>
 <p>According to the <a href="https://www.edglossary.org/disaggregated-data/">Glossary of Education Reform</a>, the formal definition of disaggregated data is:</p>
 <blockquote class="blockquote">
 <p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
@@ -4218,17 +4235,17 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <p>Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team’s definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.</p>
 </section>
 <section id="why-use-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why Use Disaggregated Data</h2>
+<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why use disaggregated data</h2>
 <p>Particularly in education, disaggregated data is essential in identifying where solutions are needed to solve inequities. Per NCES’ <a href="https://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=NFES2017017">Forum Guide to Collecting and Using Disaggregated Data on Racial/Ethnic Subgroups</a>:</p>
 <blockquote class="blockquote">
 <p>Educators need both high-level data summaries as well as disaggregated data that accurately describe smaller groups of students they serve. Access to and analysis of more detailed data—that is, disaggregated data—can be a useful tool for improving educational outcomes for small groups of students who otherwise would not be distinguishable in the aggregated data used for federal reporting. Disaggregating student data into subpopulations can help schools and communities plan appropriate programs; decide which interventions to implement; target limited resources; and recognize trends in educational participation, outcomes, and achievement.</p>
 </blockquote>
 </section>
 <section id="minneapolis-public-schools-example" class="level2">
-<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools Example</h2>
+<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools example</h2>
 <p>Minneapolis Public Schools (MPS) reports their student demographics in a robust, complete way. Not only do they report the percentage of students in a subgroup, but they also include the number of students in each subgroup. This allows a deep look into their individual school demographics and gives us the opportunity to explore equity in their district.</p>
 <section id="pulling-data" class="level3">
-<h3 class="anchored" data-anchor-id="pulling-data">Pulling Data</h3>
+<h3 class="anchored" data-anchor-id="pulling-data">Pulling data</h3>
 <p>MPS publishes their school data in PDFs. Thankfully, the {tabulizer} package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.</p>
 <div class="cell" data-hash="index_cache/html/unnamed-chunk-4_5d0e6b13715b62a2bded88158d86cc05">
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># Load packages</span></span>
@@ -4323,7 +4340,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 </div>
 </section>
 <section id="first-glance-mps-district-demographics" class="level3">
-<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First Glance: MPS District Demographics</h3>
+<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
 <p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
@@ -4354,7 +4371,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <p>However, let’s explore if there’s more to this story.</p>
 </section>
 <section id="discover-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="discover-distributions">Discover Distributions</h3>
+<h3 class="anchored" data-anchor-id="discover-distributions">Discover distributions</h3>
 <p>Another view of the data can be visualizing the distribution of percentage of a demographic within schools. Here is a histogram for the percentage of White students within the 74 MPS schools for which we have data.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
@@ -4380,7 +4397,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <p>The school race demographics are not representative of the district populations but does that hold for socioeconomic status as well?</p>
 </section>
 <section id="create-categories" class="level3">
-<h3 class="anchored" data-anchor-id="create-categories">Create Categories</h3>
+<h3 class="anchored" data-anchor-id="create-categories">Create categories</h3>
 <p>High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, <a href="https://nces.ed.gov/fastfacts/display.asp?id=898">24% of public school students attended high-poverty schools</a>. However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb4-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
@@ -4408,7 +4425,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <p><strong>9% of White students</strong> attend high poverty schools, compared to <strong>46% of Black students</strong>, <strong>51% of Hispanic students</strong>, <strong>46% of Asian students</strong>, and <strong>49% of Native American students</strong>. These students are disproportionately attending high poverty schools.</p>
 </section>
 <section id="reveal-relationships" class="level3">
-<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal Relationships</h3>
+<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal relationships</h3>
 <p>Let’s explore what happens when we correlate race and FRPL percentage by school.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
@@ -4439,7 +4456,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 </section>
 </section>
 <section id="examples-of-disaggregated-data-reporting" class="level2">
-<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of Disaggregated Data Reporting</h2>
+<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of disaggregated data reporting</h2>
 <p>There are so many amazing examples out there using disaggregated data. These two are my favorites:</p>
 <ul>
 <li><a href="https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html">Money, Race and Success: How Your School District Compares</a></li>
