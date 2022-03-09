@@ -1,3 +1,3 @@
 # pipedreams
 
-Isabella Velásquez's personal blog, made in [Quarto](https://quarto.org/).
+Isabella Velásquez's personal blog, built with [Quarto](https://quarto.org/).
