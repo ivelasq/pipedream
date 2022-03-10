@@ -6,8 +6,7 @@ website:
   site-url: https://ivelasq.rbind.io/
   description: "Isabella Velásquez Personal Website"
   favicon: favicon.png
-  twitter-card: 
-    creator: "@ivelasq3"
+  twitter-card: true
   opengraph: true
   navbar:
     background: dark
