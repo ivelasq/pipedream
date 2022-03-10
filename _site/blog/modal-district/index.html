@@ -119,7 +119,6 @@
 <meta name="twitter:title" content="%>% dreams - Finding the modal school district">
 <meta name="twitter:description" content="What's the most common type of district in the U.S.? Let's find out using R.">
 <meta name="twitter:image" content="https://ivelasq.rbind.io//blog/modal-district/thumbnail.jpg">
-<meta name="twitter:creator" content="@ivelasq3">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="fullcontent">
@@ -177,10 +176,10 @@
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header">
-<h1 class="title display-7">Finding the modal school district</h1>
-<p class="date">2019-09-11</p>
-</header>
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">Finding the modal school district</h1><div class="quarto-description"><p>What's the most common type of district in the U.S.? Let's find out using R.</p></div></div><div class="quarto-categories"><div class="quarto-category">tidy</div><div class="quarto-category">analyze</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">September 10, 2019</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
@@ -329,7 +328,7 @@ This is a great post! I think you don't need the grouper function- I think what 
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">4</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -452,7 +451,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(demographics, frpl, geography, size) <span class="sc">%&gt;%</span> </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>

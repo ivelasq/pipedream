@@ -119,7 +119,6 @@
 <meta name="twitter:title" content="%>% dreams - Understanding the native R pipe |>">
 <meta name="twitter:description" content="Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.">
 <meta name="twitter:image" content="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/thumbnail.jpg">
-<meta name="twitter:creator" content="@ivelasq3">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="fullcontent">
@@ -177,10 +176,10 @@
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
-<header id="title-block-header">
-<h1 class="title display-7">Understanding the native R pipe |&gt;</h1>
-<p class="date">2022-01-18</p>
-</header>
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">Understanding the native R pipe |&gt;</h1><div class="quarto-description"><p>Or, why `mtcars |&gt; plot(hp, mpg)` doesn't work and what you can do about it.</p></div></div><div class="quarto-categories"><div class="quarto-category">program</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">January 17, 2022</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
@@ -374,15 +373,15 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
 <li id="fn1" role="doc-endnote"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section>
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";

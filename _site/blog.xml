@@ -209,15 +209,15 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 
 </section>
-<section class="footnotes footnotes-end-of-document">
-<hr>
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
 <ol>
 <li id="fn1"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).↩︎</p></li>
 <li id="fn2"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.↩︎</p></li>
 <li id="fn3"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.↩︎</p></li>
 </ol>
-</section>
- ]]></description>
+</section></div> ]]></description>
   <category>program</category>
   <guid>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</guid>
   <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
@@ -2898,7 +2898,7 @@ This is a great post! I think you don't need the grouper function- I think what 
 <span id="cb10-6">  <span class="fu" style="color: #4758AB;">top_n</span>(<span class="dv" style="color: #AD0000;">4</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
 <span id="cb10-7">  knitr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -3021,7 +3021,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb13-2">  <span class="fu" style="color: #4758AB;">count</span>(demographics, frpl, geography, size) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
 <span id="cb13-3">  knitr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table">
+<table class="table table-sm table-striped">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
