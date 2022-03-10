@@ -40,7 +40,7 @@ We have been following, with increasing [interest](https://github.com/issues?q=v
 So far, we only have a hex sticker — [\#hexdrivendevelopment](https://twitter.com/search?q=%23hexdrivendevelopment) in action!
 
 <center>
-{{% tweet "1022413631340912640" %}}
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">but... I... already... know... how... the... hexsticker... should... look...</p>&mdash; Thomas Lin Pedersen (@thomasp85) <a href="https://twitter.com/thomasp85/status/1022413631340912640?ref_src=twsrc%5Etfw">July 26, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>
 
 Embarrassingly, our last commit to the package was in December 2019. While it would be convenient to blame the pandemic, it was a mix of being busy and other ‘hobby’ projects. However, having a synchronous way of collaborating—where we could see the package being built in action—would enable us to truly get the project underway. Before we begin the tutorial, first we have a public service announcement: if you would like to see Microsoft devote additional resources to support R in VS Code, please upvote R in this `vscode-jupyter` [issue](https://github.com/microsoft/vscode-jupyter/issues/1536)!

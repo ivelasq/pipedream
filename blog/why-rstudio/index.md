@@ -42,6 +42,7 @@ And with that… I give you, the code!
 
 I intended to create a data frame from a blogdown where every row represents a blog entry, and where we will have columns for (1) its title, (2), its author(s), (3) associated tags, and (4) associated categories. If you are using this code on your blogdown, you can change them to whichever YAML fields you would like.
 
+````
 ```{r, eval=FALSE}
 # Load libraries
 library(tidyverse)
@@ -60,6 +61,7 @@ meta_df <- tibble(
   categories = map(meta_list, "categories"),
   tags = map(meta_list, "tags"))
 ```
+````
 
 In this case, there are entries where there is a vector within categories or tags - this is because a single blog post can have multiple categories or tags (see example [here](https://blog.rstudio.com/2021/08/30/rstudio-connect-2021-08-custom-branding/), which has “rstudio connect” and “featured” as categories).
 
@@ -69,6 +71,7 @@ In this case, there are entries where there is a vector within categories or tag
 
 The following code separates the tags or categories with multiple values so that each value has its own column using a `pivot_longer()` followed by `unnest()`, then re-pivots the table to wide format using `pivot_wider()`.
 
+````
 ```{r, eval=FALSE}
 meta_df_clean <-
   meta_df %>%
@@ -86,6 +89,7 @@ meta_df_clean <-
               names_glue = "{variable}_{id}",
               values_from = value)
 ```
+````
 
 And that’s it! Now we have a data frame with each row denoting a blog entry, with its associated metadata.
 

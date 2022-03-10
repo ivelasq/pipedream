@@ -412,24 +412,24 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 <section id="pulling-yaml-metadata-for-each-blog-post" class="level3">
 <h3 class="anchored" data-anchor-id="pulling-yaml-metadata-for-each-blog-post">Pulling YAML metadata for each blog post</h3>
 <p>I intended to create a data frame from a blogdown where every row represents a blog entry, and where we will have columns for (1) its title, (2), its author(s), (3) associated tags, and (4) associated categories. If you are using this code on your blogdown, you can change them to whichever YAML fields you would like.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># Load libraries</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
-<span id="cb1-3"></span>
-<span id="cb1-4"><span class="co" style="color: #5E5E5E;"># Find the folder with the blog posts</span></span>
-<span id="cb1-5">blogdown_content_path <span class="ot" style="color: #00769E;">&lt;-</span> here<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">here</span>(<span class="st" style="color: #20794D;">"content"</span>, <span class="st" style="color: #20794D;">"post"</span>)</span>
-<span id="cb1-6"></span>
-<span id="cb1-7"><span class="co" style="color: #5E5E5E;"># Scan yaml of all posts (make sure the blogdown project is open)</span></span>
-<span id="cb1-8">meta_list <span class="ot" style="color: #00769E;">&lt;-</span></span>
-<span id="cb1-9">  blogdown<span class="sc" style="color: #5E5E5E;">:::</span><span class="fu" style="color: #4758AB;">scan_yaml</span>(blogdown_content_path)</span>
-<span id="cb1-10"></span>
-<span id="cb1-11"><span class="co" style="color: #5E5E5E;"># Create a data frame that pulls out the title, date, categories, and tags for each entry</span></span>
-<span id="cb1-12">meta_df <span class="ot" style="color: #00769E;">&lt;-</span> <span class="fu" style="color: #4758AB;">tibble</span>(</span>
-<span id="cb1-13">  <span class="at" style="color: #677623;">title =</span> <span class="fu" style="color: #4758AB;">map_chr</span>(meta_list, <span class="st" style="color: #20794D;">"title"</span>),</span>
-<span id="cb1-14">  <span class="at" style="color: #677623;">date =</span> <span class="fu" style="color: #4758AB;">map</span>(meta_list, <span class="st" style="color: #20794D;">"date"</span>),</span>
-<span id="cb1-15">  <span class="at" style="color: #677623;">categories =</span> <span class="fu" style="color: #4758AB;">map</span>(meta_list, <span class="st" style="color: #20794D;">"categories"</span>),</span>
-<span id="cb1-16">  <span class="at" style="color: #677623;">tags =</span> <span class="fu" style="color: #4758AB;">map</span>(meta_list, <span class="st" style="color: #20794D;">"tags"</span>))</span></code></pre></div>
-</div>
+<pre><code>```{r, eval=FALSE}
+# Load libraries
+library(tidyverse)
+
+# Find the folder with the blog posts
+blogdown_content_path &lt;- here::here("content", "post")
+
+# Scan yaml of all posts (make sure the blogdown project is open)
+meta_list &lt;-
+  blogdown:::scan_yaml(blogdown_content_path)
+
+# Create a data frame that pulls out the title, date, categories, and tags for each entry
+meta_df &lt;- tibble(
+  title = map_chr(meta_list, "title"),
+  date = map(meta_list, "date"),
+  categories = map(meta_list, "categories"),
+  tags = map(meta_list, "tags"))
+```</code></pre>
 <p>In this case, there are entries where there is a vector within categories or tags - this is because a single blog post can have multiple categories or tags (see example <a href="https://blog.rstudio.com/2021/08/30/rstudio-connect-2021-08-custom-branding/">here</a>, which has “rstudio connect” and “featured” as categories).</p>
 <center>
 <div class="quarto-figure quarto-figure-center">
@@ -440,23 +440,23 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 </div>
 </center>
 <p>The following code separates the tags or categories with multiple values so that each value has its own column using a <code>pivot_longer()</code> followed by <code>unnest()</code>, then re-pivots the table to wide format using <code>pivot_wider()</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1">meta_df_clean <span class="ot" style="color: #00769E;">&lt;-</span></span>
-<span id="cb2-2">  meta_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-3">  <span class="co" style="color: #5E5E5E;"># Put the fields with multiple options into one column called variable</span></span>
-<span id="cb2-4">  <span class="fu" style="color: #4758AB;">pivot_longer</span>(<span class="at" style="color: #677623;">cols =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"categories"</span>, <span class="st" style="color: #20794D;">"tags"</span>),</span>
-<span id="cb2-5">               <span class="at" style="color: #677623;">names_to =</span> <span class="st" style="color: #20794D;">"variable"</span>,</span>
-<span id="cb2-6">               <span class="at" style="color: #677623;">values_to =</span> <span class="st" style="color: #20794D;">"value"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-7">  <span class="co" style="color: #5E5E5E;"># Split out the fields with multiple options into individual rows</span></span>
-<span id="cb2-8">  <span class="fu" style="color: #4758AB;">unnest</span>(<span class="at" style="color: #677623;">cols =</span> value) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-9">  <span class="co" style="color: #5E5E5E;"># For each blog entry, give each category or tag a number</span></span>
-<span id="cb2-10">  <span class="fu" style="color: #4758AB;">group_by</span>(title, variable) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-11">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #677623;">id =</span> <span class="fu" style="color: #4758AB;">row_number</span>()) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-12">  <span class="co" style="color: #5E5E5E;"># Pivot back to wide format</span></span>
-<span id="cb2-13">  <span class="fu" style="color: #4758AB;">pivot_wider</span>(<span class="at" style="color: #677623;">names_from =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"id"</span>, <span class="st" style="color: #20794D;">"variable"</span>),</span>
-<span id="cb2-14">              <span class="at" style="color: #677623;">names_glue =</span> <span class="st" style="color: #20794D;">"{variable}_{id}"</span>,</span>
-<span id="cb2-15">              <span class="at" style="color: #677623;">values_from =</span> value)</span></code></pre></div>
-</div>
+<pre><code>```{r, eval=FALSE}
+meta_df_clean &lt;-
+  meta_df %&gt;%
+  # Put the fields with multiple options into one column called variable
+  pivot_longer(cols = c("categories", "tags"),
+               names_to = "variable",
+               values_to = "value") %&gt;%
+  # Split out the fields with multiple options into individual rows
+  unnest(cols = value) %&gt;%
+  # For each blog entry, give each category or tag a number
+  group_by(title, variable) %&gt;%
+  mutate(id = row_number()) %&gt;%
+  # Pivot back to wide format
+  pivot_wider(names_from = c("id", "variable"),
+              names_glue = "{variable}_{id}",
+              values_from = value)
+```</code></pre>
 <p>And that’s it! Now we have a data frame with each row denoting a blog entry, with its associated metadata.</p>
 <p>Thank you so much for reading this article and I look forward to seeing you on the <a href="https://blog.rstudio.com">RStudio blog</a> or <a href="https://twitter.com/ivelasq3">Twitter</a>.</p>
 <center>
@@ -1376,7 +1376,13 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 </center>
 <p>So far, we only have a hex sticker — <a href="https://twitter.com/search?q=%23hexdrivendevelopment">#hexdrivendevelopment</a> in action!</p>
 <center>
-{{% tweet “1022413631340912640” %}}
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+but… I… already… know… how… the… hexsticker… should… look…
+</p>
+— Thomas Lin Pedersen (<span class="citation" data-cites="thomasp85">@thomasp85</span>) <a href="https://twitter.com/thomasp85/status/1022413631340912640?ref_src=twsrc%5Etfw">July 26, 2018</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
 <p>Embarrassingly, our last commit to the package was in December 2019. While it would be convenient to blame the pandemic, it was a mix of being busy and other ‘hobby’ projects. However, having a synchronous way of collaborating—where we could see the package being built in action—would enable us to truly get the project underway. Before we begin the tutorial, first we have a public service announcement: if you would like to see Microsoft devote additional resources to support R in VS Code, please upvote R in this <code>vscode-jupyter</code> <a href="https://github.com/microsoft/vscode-jupyter/issues/1536">issue</a>!</p>
 </section>
