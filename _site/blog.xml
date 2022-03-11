@@ -6,19 +6,19 @@
       version="2.0">
 <channel>
 <title>%>% dreams</title>
-<link>https://ivelasq.rbind.io//blog.html</link>
-<atom:link href="https://ivelasq.rbind.io//blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://ivelasq.rbind.io/blog.html</link>
+<atom:link href="https://ivelasq.rbind.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-99.9.9</generator>
 <lastBuildDate>Tue, 18 Jan 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Understanding the native R pipe |></title>
-  <link>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -58,7 +58,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/mario.gif" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario.gif" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -100,7 +100,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/padme.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/padme.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -159,7 +159,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/mario2.gif" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario2.gif" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -219,18 +219,18 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </ol>
 </section></div> ]]></description>
   <category>program</category>
-  <guid>https://ivelasq.rbind.io//blog/understanding-the-r-pipe/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</guid>
   <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Creating a dataset from an image in R Markdown using reticulate</title>
-  <link>https://ivelasq.rbind.io//blog/reticulate-data-recreation/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -238,7 +238,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/reticulate-data-recreation/main.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/main.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -294,7 +294,7 @@ coords = np.column_stack(np.where(pixels &lt; threshold_level))
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -331,7 +331,7 @@ coords %&gt;%
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/reticulate-data-recreation/index.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -349,7 +349,7 @@ coords %&gt;%
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/reticulate-data-recreation/index2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index2.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -370,18 +370,18 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>python</category>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/reticulate-data-recreation/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</guid>
   <pubDate>Tue, 28 Sep 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Why I’m excited to join RStudio, told through a blogdown metadata project</title>
-  <link>https://ivelasq.rbind.io//blog/why-rstudio/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/why-rstudio/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -434,7 +434,7 @@ meta_df &lt;- tibble(
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -476,18 +476,18 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>scrape</category>
   <category>tidy</category>
-  <guid>https://ivelasq.rbind.io//blog/why-rstudio/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/why-rstudio/index.html</guid>
   <pubDate>Mon, 13 Sep 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Politely scraping Wikipedia tables</title>
-  <link>https://ivelasq.rbind.io//blog/politely-scraping/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/politely-scraping/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -533,7 +533,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/politely-scraping/webpage.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/webpage.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -576,18 +576,18 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 </section>
  ]]></description>
   <category>scrape</category>
-  <guid>https://ivelasq.rbind.io//blog/politely-scraping/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/politely-scraping/index.html</guid>
   <pubDate>Tue, 27 Jul 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Getting started in #rtistry</title>
-  <link>https://ivelasq.rbind.io//blog/rtistry-intro/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -596,7 +596,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -630,7 +630,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Circle plot" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Circle plot" width="672"></p>
 </figure>
 </div>
 </div>
@@ -661,7 +661,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
 </figure>
 </div>
 </div>
@@ -675,7 +675,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
 </figure>
 </div>
 </div>
@@ -701,7 +701,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Parametric equation with an abstract look" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Parametric equation with an abstract look" width="672"></p>
 </figure>
 </div>
 </div>
@@ -719,7 +719,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Parametric equation with dots" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Parametric equation with dots" width="672"></p>
 </figure>
 </div>
 </div>
@@ -746,7 +746,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" alt="Parametric equation with dots closer together" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" alt="Parametric equation with dots closer together" width="672"></p>
 </figure>
 </div>
 </div>
@@ -764,7 +764,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" alt="Parametric equation with xes instead of dots" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" alt="Parametric equation with xes instead of dots" width="672"></p>
 </figure>
 </div>
 </div>
@@ -788,7 +788,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" alt="Parametric equation with mixed opacity" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" alt="Parametric equation with mixed opacity" width="672"></p>
 </figure>
 </div>
 </div>
@@ -818,7 +818,7 @@ To change them back, use invert_geom_defaults().</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" alt="Parametric equation with various colors on a black background" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" alt="Parametric equation with various colors on a black background" width="672"></p>
 </figure>
 </div>
 </div>
@@ -858,7 +858,7 @@ To change them back, use invert_geom_defaults().</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" alt="Parametric equation with varying dot sizes and colors repeated around the center" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" alt="Parametric equation with varying dot sizes and colors repeated around the center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -885,7 +885,7 @@ To change them back, use invert_geom_defaults().</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/rtistry-intro/index_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -928,18 +928,18 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 </section>
 </section>
  ]]></description>
-  <guid>https://ivelasq.rbind.io//blog/rtistry-intro/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</guid>
   <pubDate>Sun, 09 May 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Exploring other ggplot2 geoms</title>
-  <link>https://ivelasq.rbind.io//blog/other-geoms/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/other-geoms/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -962,7 +962,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/geoms.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/geoms.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -993,7 +993,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1013,7 +1013,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1041,7 +1041,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1059,7 +1059,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1086,7 +1086,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1107,7 +1107,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1128,7 +1128,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1148,7 +1148,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/other-geoms/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1172,18 +1172,18 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 </section>
  ]]></description>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/other-geoms/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/other-geoms/index.html</guid>
   <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Preparing a manuscript for publication using bookdown</title>
-  <link>https://ivelasq.rbind.io//blog/bookdown-manuscript/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1297,7 +1297,7 @@ new_session: yes</code></pre>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/bookdown-manuscript/gt.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1333,20 +1333,20 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 </section>
  ]]></description>
-  <guid>https://ivelasq.rbind.io//blog/bookdown-manuscript/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</guid>
   <pubDate>Mon, 08 Mar 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
+  <media:content url="https://ivelasq.rbind.io//blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Remote pair programming in R using Visual Studio Code and Live Share</title>
   <dc:creator>Isabella Velásquez</dc:creator>
   <dc:creator>Gustavo E. Velásquez</dc:creator>
-  <link>https://ivelasq.rbind.io//blog/vscode-live-share/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1372,7 +1372,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 <li><p>We wanted to start collaborating on an open-source R package <a href="https://github.com/gvelasq/mutagen">{mutagen}</a> which will (someday) provide useful extensions to <a href="https://dplyr.tidyverse.org/">{dplyr}</a>’s <a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>mutate()</code></a>:</p></li>
 </ol>
 <center>
-<img src="https://ivelasq.rbind.io//blog/vscode-live-share/https:/raw.githubusercontent.com/gvelasq/mutagen/master/man/figures/logo.jpeg" class="img-fluid">
+<img src="https://ivelasq.rbind.io/blog/vscode-live-share/https:/raw.githubusercontent.com/gvelasq/mutagen/master/man/figures/logo.jpeg" class="img-fluid">
 </center>
 <p>So far, we only have a hex sticker — <a href="https://twitter.com/search?q=%23hexdrivendevelopment">#hexdrivendevelopment</a> in action!</p>
 <center>
@@ -1647,18 +1647,18 @@ but… I… already… know… how… the… hexsticker… should… look…
 </section>
  ]]></description>
   <category>pair-program</category>
-  <guid>https://ivelasq.rbind.io//blog/vscode-live-share/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</guid>
   <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Browse and search liked Tweets using R</title>
-  <link>https://ivelasq.rbind.io//blog/get-tweet-likes/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1755,18 +1755,18 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 </section>
 </section>
  ]]></description>
-  <guid>https://ivelasq.rbind.io//blog/get-tweet-likes/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</guid>
   <pubDate>Tue, 10 Nov 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>An even easier-to-use R package for school district shapefiles</title>
-  <link>https://ivelasq.rbind.io//blog/leaidr2/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/leaidr2/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1791,7 +1791,7 @@ It has 18 fields</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Blank map of Tennessee school districts." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Blank map of Tennessee school districts." width="672"></p>
 </figure>
 </div>
 </div>
@@ -1865,21 +1865,21 @@ It has 18 fields</code></pre>
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1891,7 +1891,7 @@ It has 18 fields</code></pre>
 <p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr2/4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1962,18 +1962,18 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>package</category>
   <category>map</category>
   <category>shiny</category>
-  <guid>https://ivelasq.rbind.io//blog/leaidr2/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/leaidr2/index.html</guid>
   <pubDate>Sun, 30 Aug 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Party with R: How the community enabled us to write a book</title>
-  <link>https://ivelasq.rbind.io//blog/party-with-R/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/party-with-R/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2010,18 +2010,18 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 
  ]]></description>
   <category>community</category>
-  <guid>https://ivelasq.rbind.io//blog/party-with-R/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/party-with-R/index.html</guid>
   <pubDate>Mon, 13 Jul 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>What it takes to tidy Census data</title>
-  <link>https://ivelasq.rbind.io//blog/tidying-census-data/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2029,7 +2029,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census_image.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_image.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2077,7 +2077,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2090,7 +2090,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2105,7 +2105,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2117,7 +2117,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2132,7 +2132,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census5.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2148,7 +2148,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census6.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2157,7 +2157,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census7.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2185,7 +2185,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/census_list.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2268,7 +2268,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/tidying-census-data/index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" alt="Barplot showing percent of classes that were cancelled by income group, with lower income groups more likely to report cancelled classes" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" alt="Barplot showing percent of classes that were cancelled by income group, with lower income groups more likely to report cancelled classes" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2291,18 +2291,18 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/tidying-census-data/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</guid>
   <pubDate>Thu, 28 May 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Introducing an R package for school district shapefiles</title>
-  <link>https://ivelasq.rbind.io//blog/leaidr-shapefiles/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2320,7 +2320,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr-shapefiles/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Map of school districts from tigris, which is missing quite a few districts." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Map of school districts from tigris, which is missing quite a few districts." width="672"></p>
 </figure>
 </div>
 </div>
@@ -2398,7 +2398,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/leaidr-shapefiles/test_map.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/test_map.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2434,19 +2434,19 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>package</category>
   <category>map</category>
-  <guid>https://ivelasq.rbind.io//blog/leaidr-shapefiles/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</guid>
   <pubDate>Sun, 03 May 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>You CRAN do it</title>
   <dc:creator>Isabella Velásquez</dc:creator>
-  <link>https://ivelasq.rbind.io//blog/you-cran-do-it/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/you-cran-do-it/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2543,18 +2543,18 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>cran</category>
   <category>package-development</category>
-  <guid>https://ivelasq.rbind.io//blog/you-cran-do-it/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/index.html</guid>
   <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
+  <media:content url="https://ivelasq.rbind.io//blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
   <title>Six things I always Google when using ggplot2</title>
-  <link>https://ivelasq.rbind.io//blog/things-i-google/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/things-i-google/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2579,7 +2579,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb1-8">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #677623;">x =</span> playlist_genre)) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb1-9">  <span class="fu" style="color: #4758AB;">geom_histogram</span>(<span class="at" style="color: #677623;">stat =</span> <span class="st" style="color: #20794D;">"count"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <section id="remove-the-legend" class="level2">
@@ -2592,7 +2592,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb2-3">  <span class="fu" style="color: #4758AB;">geom_histogram</span>(<span class="at" style="color: #677623;">stat =</span> <span class="st" style="color: #20794D;">"count"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb2-4">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -2612,7 +2612,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb3-9">                                 <span class="st" style="color: #20794D;">"rap"</span> <span class="ot" style="color: #00769E;">=</span> <span class="st" style="color: #20794D;">"Rap"</span>, </span>
 <span id="cb3-10">                                 <span class="st" style="color: #20794D;">"rock"</span> <span class="ot" style="color: #00769E;">=</span> <span class="st" style="color: #20794D;">"Rock"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -2638,7 +2638,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb4-15">                               <span class="st" style="color: #20794D;">"rap"</span> <span class="ot" style="color: #00769E;">=</span> <span class="st" style="color: #20794D;">"#ffa1d4"</span>, </span>
 <span id="cb4-16">                               <span class="st" style="color: #20794D;">"rock"</span> <span class="ot" style="color: #00769E;">=</span> <span class="st" style="color: #20794D;">"#ff688c"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -2667,7 +2667,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb5-18">         <span class="at" style="color: #677623;">axis.text.x =</span> <span class="fu" style="color: #4758AB;">element_blank</span>(),</span>
 <span id="cb5-19">         <span class="at" style="color: #677623;">axis.ticks.x =</span> <span class="fu" style="color: #4758AB;">element_blank</span>())</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -2697,7 +2697,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb6-19">         <span class="at" style="color: #677623;">axis.ticks.x =</span> <span class="fu" style="color: #4758AB;">element_blank</span>()) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb6-20">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #677623;">name =</span> <span class="st" style="color: #20794D;">"Count"</span>, <span class="at" style="color: #677623;">limits =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">10000</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -2728,7 +2728,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <span id="cb7-20">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #677623;">name =</span> <span class="st" style="color: #20794D;">"Count"</span>, <span class="at" style="color: #677623;">limits =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">10000</span>),</span>
 <span id="cb7-21">                     <span class="at" style="color: #677623;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>comma)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/things-i-google/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!</p>
@@ -2747,18 +2747,18 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 </section>
  ]]></description>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/things-i-google/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/things-i-google/index.html</guid>
   <pubDate>Mon, 27 Jan 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Finding the modal school district</title>
-  <link>https://ivelasq.rbind.io//blog/modal-district/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/modal-district/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2986,7 +2986,7 @@ This is a great post! I think you don't need the grouper function- I think what 
 <span id="cb11-15">  <span class="fu" style="color: #4758AB;">ggtitle</span>(<span class="st" style="color: #20794D;">"Modal District Sankey Chart"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb11-16">  <span class="fu" style="color: #4758AB;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/modal-district/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it’s better to just look at the table.</p>
@@ -2998,7 +2998,7 @@ This is a great post! I think you don't need the grouper function- I think what 
 <span id="cb12-5">  <span class="fu" style="color: #4758AB;">geom_bar</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb12-6">  <span class="fu" style="color: #4758AB;">facet_grid</span>(demographics <span class="sc" style="color: #5E5E5E;">+</span> frpl <span class="sc" style="color: #5E5E5E;">~</span> size <span class="sc" style="color: #5E5E5E;">+</span> geography)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io//blog/modal-district/index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -3623,18 +3623,18 @@ Curious what this would look like if you weighted by student population – in e
  ]]></description>
   <category>tidy</category>
   <category>analyze</category>
-  <guid>https://ivelasq.rbind.io//blog/modal-district/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/modal-district/index.html</guid>
   <pubDate>Wed, 11 Sep 2019 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Taking a peek into my hiking data</title>
-  <link>https://ivelasq.rbind.io//blog/average-hike/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/average-hike/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3807,7 +3807,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/joyplot.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/joyplot.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3833,7 +3833,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/avg_hike.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/avg_hike.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3856,7 +3856,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/tot_dis_elev.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/tot_dis_elev.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3883,7 +3883,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/cluster_analysis.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cluster_analysis.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3903,7 +3903,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/dist_histogram.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3920,7 +3920,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/cum_dist.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3940,7 +3940,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/elev_histogram.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/elev_histogram.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3957,7 +3957,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/average-hike/cum_elev.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_elev.png" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3978,18 +3978,18 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
   <category>import</category>
   <category>visualize</category>
   <category>analyze</category>
-  <guid>https://ivelasq.rbind.io//blog/average-hike/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/average-hike/index.html</guid>
   <pubDate>Sat, 06 Apr 2019 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/average-hike/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/average-hike/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Transforming PDFs into useful tables</title>
-  <link>https://ivelasq.rbind.io//blog/snap-expenditures/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4206,7 +4206,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/snap-expenditures/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" alt="Line plot showing difference in rank by families served and not served by SNAP" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" alt="Line plot showing difference in rank by families served and not served by SNAP" width="672"></p>
 </figure>
 </div>
 </div>
@@ -4228,18 +4228,18 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/snap-expenditures/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
   <pubDate>Sun, 16 Dec 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Disaggregating school district data</title>
-  <link>https://ivelasq.rbind.io//blog/why-disaggregate-data/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4393,7 +4393,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students in MPS. Black students make up the most at almost 40%, then White students slightly less, and finally Hispanic, Asian, and Native American under 20%. Almost 60% of all students qualify for FRPL." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students in MPS. Black students make up the most at almost 40%, then White students slightly less, and finally Hispanic, Asian, and Native American under 20%. Almost 60% of all students qualify for FRPL." width="672"></p>
 </figure>
 </div>
 </div>
@@ -4419,7 +4419,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Histogram of number of schools by White pecentage of students. Most schools have less than 30%." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Histogram of number of schools by White pecentage of students. Most schools have less than 30%." width="672"></p>
 </figure>
 </div>
 </div>
@@ -4448,7 +4448,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students attending schools which high percentage of poverty. About 50% of Black, Hispanic, Native American, and Asian student attend high-poverty schools compared to 9% of White students." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students attending schools which high percentage of poverty. About 50% of Black, Hispanic, Native American, and Asian student attend high-poverty schools compared to 9% of White students." width="672"></p>
 </figure>
 </div>
 </div>
@@ -4473,7 +4473,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Scattershot showing the relationship of FRPL percentage and percentage of students that are White with a steep negative correlation." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Scattershot showing the relationship of FRPL percentage and percentage of students that are White with a steep negative correlation." width="672"></p>
 </figure>
 </div>
 </div>
@@ -4510,18 +4510,18 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
   <category>import</category>
   <category>tidy</category>
   <category>visualize</category>
-  <guid>https://ivelasq.rbind.io//blog/why-disaggregate-data/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</guid>
   <pubDate>Fri, 21 Sep 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>So you’re getting a Masters in Analytics</title>
-  <link>https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/index.html</link>
+  <link>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4544,7 +4544,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 <li>There’s also nothing better than having a filled up contribution graph.</li>
 </ul>
 <center>
-<img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/https:/i.imgur.com/7c6ss6v.jpg?style=centerme" alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious.">
+<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/i.imgur.com/7c6ss6v.jpg?style=centerme" alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious.">
 </center>
 </section>
 <section id="leave-each-class-with-an-example-that-you-can-show-a-potential-employer" class="level2">
@@ -4552,14 +4552,14 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 <p>These programs go <em>quickly.</em> I was a part-time student and took my sweet time and even then I felt like I was racing towards the end. Due to competing priorities, it’s easy to rush through homework assignments and projects. Instead of focusing on completion, remember the goal of this is to enter a new career/role/path in life and that everything you do is an example of a new skill you can showcase. So: document your work. Be clear in the intention behind it and how you went through your thought process. Make it presentable. Related to the advice above, link potential employers to your Github.</p>
 <p>Of course, I understand that not all homework applies to this — but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up — and be able to show how this project illustrates the value you can bring to your future company.</p>
 <center>
-<img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/https:/miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif" alt="Jamie from Outlander saying, I'm here and I'm ready.">
+<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif" alt="Jamie from Outlander saying, I'm here and I'm ready.">
 </center>
 </section>
 <section id="diversify-your-programming-languages" class="level2">
 <h2 class="anchored" data-anchor-id="diversify-your-programming-languages">3. Diversify your programming languages</h2>
 <p>My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python — and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.</p>
 <center>
-<img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/https:/media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme" alt="Ron Burgundy saying You know I dont speak Python In R please.">
+<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme" alt="Ron Burgundy saying You know I dont speak Python In R please.">
 </center>
 <p><br> Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I’d have to refresh myself on even the basics of the language — which is a shame considering how much effort I put in when I was in the class.</p>
 </section>
@@ -4579,7 +4579,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 <h2 class="anchored" data-anchor-id="keep-track-of-and-give-recommendations-on-how-the-program-can-improve">5. Keep track of and give recommendations on how the program can improve</h2>
 <p>I was in the second cohort of my Analytics program and even though it’s been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it’s offered to any student who may benefit from it.</p>
 <center>
-<img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/https:/media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme" alt="Tom Cruise saying Help me help you.">
+<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme" alt="Tom Cruise saying Help me help you.">
 </center>
 <p><br> As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.</p>
 </section>
@@ -4588,7 +4588,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 <p>As you progress through your Analytics or Data Science program, you will learn the nuance and complexity of data work. It is a fascinating journey that requires project management, client interaction and understanding, technical expertise, feedback loops, and trial and error. It’s all amazing and necessary but there will be parts that you enjoy more. I have always been into creating aesthetically pleasing work and knew I would love developing data visualizations. I didn’t know that I love the creativity and mind puzzles that come with data wrangling. Some people feel the opposite — that is their least favorite part of the data science routine. But they may enjoy business requirements gathering a lot more than I do.</p>
 <p>You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.</p>
 <center>
-<img src="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/https:/i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme" alt="Data from Star Trek playing with a cat">
+<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme" alt="Data from Star Trek playing with a cat">
 </center>
 </section>
 <section id="conclusion" class="level2">
@@ -4609,9 +4609,9 @@ First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash
 </section>
  ]]></description>
   <category>general</category>
-  <guid>https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/index.html</guid>
+  <guid>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</guid>
   <pubDate>Sat, 04 Aug 2018 00:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io///blog/so-youre-getting-a-masters/thumbnail.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -4,7 +4,7 @@ project:
 website:
   twitter-card: true
   title: "%>% dreams"
-  site-url: https://ivelasq.rbind.io/
+  site-url: https://ivelasq.rbind.io
   description: "Isabella Velásquez Personal Website"
   favicon: favicon.png
   opengraph: true
