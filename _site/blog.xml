@@ -122,7 +122,19 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">sqrt</span>() <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">head</span>()</span></code></pre></div>
 <p>Which is equivalent to:</p>
 <div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;">head</span>(<span class="fu" style="color: #4758AB;">sqrt</span>(mtcars))</span></code></pre></div>
-<p>An important note: on the RHS of <code>|&gt;</code>, you need to include the function as a function call, which means appending an <code>()</code> at the end of the function name, rather than just its name. For example, the square root function is called by writing <code>sqrt()</code>. If you try to run <code>mtcars |&gt; sqrt</code> without the <code>()</code> at the end, you will get an error: <code>Error: The pipe operator requires a function call as RHS</code>.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+An important note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On the RHS of <code>|&gt;</code>, you need to include the function as a function call, which means appending an <code>()</code> at the end of the function name, rather than just its name. For example, the square root function is called by writing <code>sqrt()</code>. If you try to run <code>mtcars |&gt; sqrt</code> without the <code>()</code> at the end, you will get an error: <code>Error: The pipe operator requires a function call as RHS</code>.</p>
+</div>
+</div>
 <p>So, the native R pipe pipes the LHS into the first argument of the function on the RHS (with an extra requirement of needing a function call on the RHS). <strong>But that’s all!</strong> If you want to do anything <em>beyond</em> piping the LHS into the first argument of the RHS function, then you need the special anonymous function syntax introduced above.</p>
 <p>A gotcha here is that we also needed to write parentheses around the anonymous function, such that a pseudocode version of the above is <code>mtcars |&gt; (anonymous-function-definition)()</code>. The reason for this is so that the second set of <code>()</code> properly points to the complex expression inside the first set of <code>()</code> as the function being called.<sup>2</sup><sup>3</sup></p>
 <div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> (\(x) {</span>
@@ -219,24 +231,19 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
   <media:content url="https://ivelasq.rbind.io//blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Creating a dataset from an image in R Markdown using reticulate</title>
+  <title>Creating a dataset from an image using reticulate in R Markdown</title>
   <link>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</link>
   <description><![CDATA[ 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with trees with a red sun"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>Last week, a paper started making the Twitter rounds. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf">Selective attention in hypothesis-driven data analysis</a> by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/main.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/main.png" class="img-fluid" alt="Cartoon gorilla and its recreation in ggplot2">
 </center>
 <p>I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called ‘getpixel’, manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the <a href="https://rstudio.github.io/reticulate/">{reticulate}</a> package which allows R to interface with Python and thought this would be a fun exercise to try.</p>
 <p>With that, let’s recreate this dataset entirely within R Markdown! In addition to being able to copy/paste the code below, I have also provided it as a project on <a href="https://rstudio.cloud/project/2949291">RStudio Cloud</a> if you’d like to run the whole thing at once.</p>
@@ -289,11 +296,12 @@ coords = np.column_stack(np.where(pixels &lt; threshold_level))
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
 <p></p><p></p>
 </figure>
 </div>
 </center>
+
 <p>Knowing that, we can create an R object from coords using <code>py</code>. Next, we follow the steps outlined in the paper for the data preparation.</p>
 <pre><code>```{r}
 coords &lt;-
@@ -324,12 +332,7 @@ coords %&gt;%
   xlim(0, 15000)
 ```</code></pre>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla">
 </center>
 <pre><code>```{r}
 coords %&gt;%
@@ -342,12 +345,7 @@ coords %&gt;%
 ```</code></pre>
 <p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index2.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index2.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender">
 </center>
 <center>
 <em>Liked this post? I’d love for you to retweet!</em>
@@ -429,7 +427,7 @@ meta_df &lt;- tibble(
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img" alt="Cell names"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -482,77 +480,65 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself <a href="https://en.wikipedia.org/wiki/Web_scraping">scraping</a> Wikipedia’s tables for information and then cleaning and using the data for whatever I am working on.</p>
 <p>However, scraping a website can create issues if not done properly. Though not required, I like to use the <a href="https://github.com/dmi3kno/polite">{polite} package</a> to introduce myself to the website and ask for permission to scrape.</p>
 <p>Recently, I submitted the <a href="https://en.wikipedia.org/wiki/List_of_national_independence_days#List">Wikipedia table on independence days around the world</a> to <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> - resulting in many beautiful and creative visualizations from the R Community! This post walks through how to “politely” scrape the table and pull it into a flat data frame so that it’s ready for use.</p>
-<section id="load-libraries" class="level1">
-<h1>Load libraries</h1>
-<p>There are several libraries needed for this walkthrough:</p>
-<div class="cell">
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># To clean data</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(lubridate)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(janitor)</span>
-<span id="cb1-5"></span>
-<span id="cb1-6"><span class="co" style="color: #5E5E5E;"># To scrape data</span></span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;">library</span>(rvest)</span>
-<span id="cb1-8"><span class="fu" style="color: #4758AB;">library</span>(httr)</span>
-<span id="cb1-9"><span class="fu" style="color: #4758AB;">library</span>(polite)</span></code></pre></div>
-</div>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>There are several packages needed for this walkthrough:</p>
+<pre><code>```{r, message=FALSE}
+# To clean data
+library(tidyverse)
+library(lubridate)
+library(janitor)
+
+# To scrape data
+library(rvest)
+library(httr)
+library(polite)
+```</code></pre>
 </section>
-<section id="scrape-table" class="level1">
-<h1>Scrape table</h1>
+<section id="scrape-table" class="level2">
+<h2 class="anchored" data-anchor-id="scrape-table">Scrape table</h2>
 <p>First, we save the web page with the table that we would like as <code>url</code>:</p>
-<div class="cell">
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1">url <span class="ot" style="color: #00769E;">&lt;-</span> <span class="st" style="color: #20794D;">"https://en.wikipedia.org/wiki/List_of_national_independence_days"</span></span></code></pre></div>
-</div>
+<pre><code>```{r}
+url &lt;- "https://en.wikipedia.org/wiki/List_of_national_independence_days"
+```</code></pre>
 <p>Next, we use <code>polite::bow()</code> to introduce ourselves to the host, Wikipedia. This reads the rules from <code>robots.txt</code> and makes sure we follow them. The object (<code>url_bow</code> in this case) is saved as an object of class <code>polite</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1">url_bow <span class="ot" style="color: #00769E;">&lt;-</span> polite<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">bow</span>(url)</span>
-<span id="cb3-2">url_bow</span></code></pre></div>
-<div class="cell-output-stdout">
-<pre><code>&lt;polite session&gt; https://en.wikipedia.org/wiki/List_of_national_independence_days
-    User-agent: polite R package - https://github.com/dmi3kno/polite
-    robots.txt: 456 rules are defined for 33 bots
-   Crawl delay: 5 sec
-  The path is scrapable for this user-agent</code></pre>
-</div>
-</div>
+<pre><code>```{r}
+url_bow &lt;- polite::bow(url)
+url_bow
+```</code></pre>
 <p>Next, we actually ‘scrape’ (pull the content of) the web page using <code>polite::scrape()</code>. This needs an object of class <code>polite</code> (created with <code>bow()</code> from before).</p>
 <p>Since we politely scraped the entire web page, we want to use {rvest} to specify what exact content we’d like to pull out. We can do this using <code>html_nodes()</code>.</p>
 <p>How do we know which node we want? There are probably other ways of doing this. As a Firefox and Mac user, I click Cmd + Shift + C which opens up the Developer Tools so that I can select a specific element from the web page. I hover over the table to determine what the HTML is called, in this case, <code>table.wikitable</code>.</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/webpage.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/politely-scraping/webpage.png" class="img-fluid" alt="Screenshot of Google's Inspector tool on Wikipedia">
 </center>
 <p>This object is saved as an HTML table which is great, but a data frame would be preferable for analysis. So the final step is to use <code>rvest::html_table()</code> to read this table as something with which we can use tidyverse tools. The parameter <code>fill = TRUE</code> allows you to fill empty rows with <code>NA</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb5-1">ind_html <span class="ot" style="color: #00769E;">&lt;-</span></span>
-<span id="cb5-2">  polite<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">scrape</span>(url_bow) <span class="sc" style="color: #5E5E5E;">%&gt;%</span>  <span class="co" style="color: #5E5E5E;"># scrape web page</span></span>
-<span id="cb5-3">  rvest<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">html_nodes</span>(<span class="st" style="color: #20794D;">"table.wikitable"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="co" style="color: #5E5E5E;"># pull out specific table</span></span>
-<span id="cb5-4">  rvest<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">html_table</span>(<span class="at" style="color: #677623;">fill =</span> <span class="cn" style="color: #8f5902;">TRUE</span>) </span></code></pre></div>
-</div>
+<pre><code>```{r}
+ind_html &lt;-
+  polite::scrape(url_bow) %&gt;%  # scrape web page
+  rvest::html_nodes("table.wikitable") %&gt;% # pull out specific table
+  rvest::html_table(fill = TRUE) 
+```</code></pre>
 </section>
-<section id="flatten-table" class="level1">
-<h1>Flatten table</h1>
+<section id="flatten-table" class="level2">
+<h2 class="anchored" data-anchor-id="flatten-table">Flatten table</h2>
 <p>You will notice that <code>ind_html</code> is saved as a single object (a list) in which each element is a data frame. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element <code>[[1]]</code>. We can then use <code>janitor::clean_names()</code> for nice, standardized column names.</p>
-<div class="cell">
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb6-1">ind_tab <span class="ot" style="color: #00769E;">&lt;-</span> </span>
-<span id="cb6-2">  ind_html[[<span class="dv" style="color: #AD0000;">1</span>]] <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb6-3">  <span class="fu" style="color: #4758AB;">clean_names</span>()</span></code></pre></div>
-</div>
+<pre><code>```{r}
+ind_tab &lt;- 
+  ind_html[[1]] %&gt;% 
+  clean_names()
+```</code></pre>
 <p>That’s it! Now we’ve “politely” scraped the Wikipedia table into an analysis-ready data frame.</p>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>Additional steps to clean the file can be found in my <a href="https://github.com/ivelasq/data-visualization-portfolio/blob/main/independence-days/independence_days.R">GitHub repo</a>. After doing so, I submitted to #TidyTuesday by submitting an <a href="https://github.com/rfordatascience/tidytuesday/issues">issue</a> on their page. Then they approved and shared the dataset!</p>
 <p>This was a very quick walkthrough. I recommend Ryo Nakagawara’s <a href="https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/">blog post on politely scraping websites</a>, especially if you would like (1) more in-depth explanations of what {polite} does and (2) more complex scraping examples.</p>
 <p>Which Wikipedia table will you analyze next?</p>
@@ -582,7 +568,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract pink flowerswith red centers on a background of an orange spiral with brown background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -591,7 +577,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img" alt="Generative art showing a repeated parametric equation"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -934,7 +920,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A person working in fields of colorful tulips with houses in the background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -955,12 +941,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <li>Mosaic charts using ggmosaic::geom_mosaic</li>
 </ul>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/geoms.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/other-geoms/geoms.png" class="img-fluid" alt="Waffle plot, steamgraph, density graph, beeswarm, and mosaic plot">
 </center>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
@@ -1178,7 +1159,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves at a rock"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1235,12 +1216,12 @@ new_session: yes</code></pre>
 <p>This file will output your file according to what is specified. It’s also how figure height/width is specified, allows you to specify the TOC, etc. But really, if you want a bookdown all it needs is to know what you want your output to be.</p>
 <pre><code>bookdown::gitbook</code></pre>
 </section>
-<section id="rendering-the-book" class="level4">
-<h4 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h4>
+</section>
+<section id="rendering-the-book" class="level3">
+<h3 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h3>
 <p>OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:</p>
 <pre><code>bookdown::serve_book()</code></pre>
 <p>So now you have a bookdown! And you eagerly look at your accomplishment and it is great. But how do we find out what else we can do with {bookdown}?</p>
-</section>
 </section>
 </section>
 <section id="snooping-on-others-github-files" class="level2">
@@ -1269,8 +1250,8 @@ new_session: yes</code></pre>
 </section>
 </section>
 </section>
-<section id="caching-code-c-hunks" class="level2">
-<h2 class="anchored" data-anchor-id="caching-code-c-hunks">Caching code c hunks</h2>
+<section id="caching-code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="caching-code-chunks">Caching code chunks</h2>
 <p>As mentioned in Yihui’s book, you can <a href="https://bookdown.org/yihui/bookdown/some-tips.html">cache</a> certain code chunks so they do not have to rerun each time you render the book. We found this very handy, as some complex models took some time to run.</p>
 <p>Important to note though: if you use <code>set.seed</code>, you will need to include it in every code chunk; setting it in only one code chunk will not mean it is set for all code chunks.</p>
 </section>
@@ -1292,7 +1273,7 @@ new_session: yes</code></pre>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1504,7 +1485,19 @@ but… I… already… know… how… the… hexsticker… should… look…
 <span id="cb16-22">    <span class="er" style="color: #AD0000;">//</span> <span class="er" style="color: #AD0000;">Terminal</span><span class="fu" style="color: #4758AB;">:</span> <span class="er" style="color: #AD0000;">Path</span> <span class="er" style="color: #AD0000;">to</span> <span class="er" style="color: #AD0000;">integrated</span> <span class="er" style="color: #AD0000;">shell</span> <span class="er" style="color: #AD0000;">on</span> <span class="er" style="color: #AD0000;">macOS</span></span>
 <span id="cb16-23">    <span class="st" style="color: #20794D;">"terminal.integrated.shell.osx"</span><span class="er" style="color: #AD0000;">:</span> <span class="st" style="color: #20794D;">"/bin/zsh"</span></span>
 <span id="cb16-24"><span class="fu" style="color: #4758AB;">}</span></span></code></pre></div>
-<p><em>NOTE:</em> The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+</div>
+</div>
 <ol type="1">
 <li>Below are some useful <a href="https://github.com/Ikuyadeu/vscode-R/wiki/Keyboard-shortcuts">keyboard shortcuts</a> for <code>keybindings.json</code>, found by using the Command Palette (<code>Shift-Command-P</code>) in VS Code and navigating to <code>Preferences: Open Keyboard Shortcuts (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/keybindings.json"><code>keybindings.json</code></a>:</li>
 </ol>
@@ -1653,7 +1646,7 @@ but… I… already… know… how… the… hexsticker… should… look…
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract white birds repeating on a blue background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1761,7 +1754,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1860,21 +1853,21 @@ It has 18 fields</code></pre>
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img" alt="Screenshot of Mapbox website with Tilesets"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img" alt="Screenshot of Mapbox choosing a template"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img" alt="Screenshot of Mapbox layers and how to add them"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1886,7 +1879,7 @@ It has 18 fields</code></pre>
 <p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img" alt="Screenshot of Mapbox sharing a map"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2016,18 +2009,13 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
 <p></p><p></p>
 </figure>
 </div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_image.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_image.png" class="img-fluid" alt="One of the Census Excel spreadsheets pointing out egregious formatting, like headers, merged cells, and categories in rows."></p>
 <p>However, this is not terribly surprising (and with public data, somewhat expected). As stated in the <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy data</a> paper:</p>
 <blockquote class="blockquote">
 <p>It is often said that 80% of data analysis is spent on cleaning and preparing data.</p>
@@ -2049,11 +2037,11 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">GET</span>(<span class="st" style="color: #20794D;">"https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx"</span>, <span class="fu" style="color: #4758AB;">write_disk</span>(path <span class="ot" style="color: #00769E;">&lt;-</span> <span class="fu" style="color: #4758AB;">tempfile</span>(<span class="at" style="color: #677623;">fileext =</span> <span class="st" style="color: #20794D;">".xlsx"</span>)))</span></code></pre></div>
 <div class="cell-output-stdout">
 <pre><code>Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
-  Date: 2022-02-28 23:50
+  Date: 2022-03-13 15:45
   Status: 200
   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
   Size: 442 kB
-&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpYio7n3/file1d3573bd65cd.xlsx</code></pre>
+&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpRY4m58/file2eca17a48009.xlsx</code></pre>
 </div>
 </div>
 </section>
@@ -2072,7 +2060,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2085,7 +2073,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2100,7 +2088,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2112,7 +2100,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2127,7 +2115,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2143,7 +2131,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2152,7 +2140,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2180,7 +2168,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2297,7 +2285,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2337,7 +2325,19 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <span id="cb2-7"><span class="co" style="color: #5E5E5E;"># install.packages("mapproj")</span></span></code></pre></div>
 </div>
 <p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
-<p><strong>Note:</strong> You must have a GitHub PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You must have a GitHub PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to get one if you do not have it already.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;"># download the shapefile into a designated folder</span></span>
 <span id="cb3-2">leaidr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">lea_get</span>(<span class="at" style="color: #677623;">path =</span> <span class="st" style="color: #20794D;">"./test"</span>)</span>
@@ -2391,12 +2391,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <span id="cb8-3"></span>
 <span id="cb8-4"><span class="fu" style="color: #4758AB;">print</span>(map_projected)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/test_map.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/test_map.png" class="img-fluid" alt="Map of California school districts showing whether or not they contained COVID-related links on their website"></p>
 <p>Tada! A full school district map for California.</p>
 </section>
 <section id="call-for-collaboration" class="level2">
@@ -2549,7 +2544,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful dots making up a painting of a garden with two women"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2753,7 +2748,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town showing green and yellow houses and a white church and trees"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3629,7 +3624,7 @@ Curious what this would look like if you weighted by student population – in e
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A horizon of snow-capped mountains"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3800,12 +3795,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb6-9">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb6-10">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/joyplot.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/joyplot.png" class="img-fluid" alt="Joyplot showing trail distance and height"></p>
 <p>I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance traveled.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;">ggplot</span>() <span class="sc" style="color: #5E5E5E;">+</span> </span>
@@ -3826,12 +3816,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb7-16">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb7-17">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/avg_hike.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/avg_hike.png" class="img-fluid" alt="Line chart showing distance and elevation of individual hikes with a darker line highlighting the average elevation by distance"></p>
 </section>
 <section id="aggregated-data-by-trail" class="level2">
 <h2 class="anchored" data-anchor-id="aggregated-data-by-trail">Aggregated Data by Trail</h2>
@@ -3849,12 +3834,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb8-10">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb8-11">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/tot_dis_elev.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/tot_dis_elev.png" class="img-fluid" alt="Scatterplot of total distance by total elevation"></p>
 </section>
 <section id="there-exist-clusters-of-hikes" class="level2">
 <h2 class="anchored" data-anchor-id="there-exist-clusters-of-hikes">There exist “clusters” of hikes</h2>
@@ -3876,12 +3856,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb9-8">  <span class="fu" style="color: #4758AB;">scale_fill_viridis</span>(<span class="at" style="color: #677623;">option =</span> <span class="st" style="color: #20794D;">"cividis"</span>, <span class="at" style="color: #677623;">discrete =</span> T) <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb9-9">  <span class="fu" style="color: #4758AB;">theme_minimal</span>()</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/cluster_analysis.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cluster_analysis.png" class="img-fluid" alt="Cluster analysis of hikes by elevation and distance showing four distinct clusters"></p>
 </section>
 <section id="i-dont-particularly-love-long-hikes" class="level2">
 <h2 class="anchored" data-anchor-id="i-dont-particularly-love-long-hikes">I don’t particularly love long hikes</h2>
@@ -3898,7 +3873,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img" alt="Histogram of hike total distance skewed right"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3915,7 +3890,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img" alt="Cumulative bar plot of distance increasing from the left to the right colored by a gradient"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -3933,12 +3908,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb12-7">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb12-8">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/elev_histogram.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/elev_histogram.png" class="img-fluid" alt="Histogram of hike total elevation skewed right"></p>
 <div class="cell">
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1">hiking_dat_by_trail <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
 <span id="cb13-2">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #677623;">cumelev =</span> <span class="fu" style="color: #4758AB;">cumsum</span>(tot_elev_gain)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
@@ -3950,12 +3920,7 @@ Curious what this would look like if you weighted by student population – in e
 <span id="cb13-8">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb13-9">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #677623;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_elev.png" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_elev.png" class="img-fluid" alt="Cumulative bar plot of elevation increasing from left to right and colored by a gradient"></p>
 <center>
 <p><em>Liked this article? I’d love for you to retweet!</em></p>
 <blockquote class="twitter-tweet blockquote">
@@ -3984,7 +3949,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plumbs on a brown table"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4234,7 +4199,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A sunset with dark clouds at a beach"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4367,7 +4332,20 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 </section>
 <section id="first-glance-mps-district-demographics" class="level3">
 <h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
-<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>).</p>
+<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.</p>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
 <span id="cb2-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>,</span>

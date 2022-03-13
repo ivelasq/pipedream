@@ -210,7 +210,9 @@ Save `~/.radian_profile` and restart your terminal for the settings to take effe
 }
 ```
 
-*NOTE:* The `r.rterm.mac` field above should be the path to `radian` if you followed the `radian` installation instructions above, otherwise it should be the path to your `R` executable (if you don’t know it, type `which R` in your terminal). Since we use Homebrew to install the latest `zsh` using `brew install zsh`, the path to our `zsh` is `/usr/local/bin/zsh`, but we have put `/bin/zsh` above since that is the default `zsh` location for most macOS users. You should run `which r` and `which zsh` to confirm your local settings are correct.
+:::{.callout-note}
+The `r.rterm.mac` field above should be the path to `radian` if you followed the `radian` installation instructions above, otherwise it should be the path to your `R` executable (if you don’t know it, type `which R` in your terminal). Since we use Homebrew to install the latest `zsh` using `brew install zsh`, the path to our `zsh` is `/usr/local/bin/zsh`, but we have put `/bin/zsh` above since that is the default `zsh` location for most macOS users. You should run `which r` and `which zsh` to confirm your local settings are correct.
+:::
 
 1.  Below are some useful [keyboard shortcuts](https://github.com/Ikuyadeu/vscode-R/wiki/Keyboard-shortcuts) for `keybindings.json`, found by using the Command Palette (`Shift-Command-P`) in VS Code and navigating to `Preferences: Open Keyboard Shortcuts (JSON)`. This is our [`keybindings.json`](https://github.com/gvelasq/dotfiles/blob/master/vscode/keybindings.json):
 

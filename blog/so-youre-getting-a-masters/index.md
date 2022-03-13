@@ -4,6 +4,9 @@ date: "2018-08-04"
 categories: [general]
 image: "thumbnail.jpg"
 description: My advice to aspiring data scientists and analysts entering these programs.
+aliases:
+  - creating-a-new-theme
+  - creating-a-new-theme.html
 ---
 
 ![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg){fig-alt="Violin and a skull still life"}

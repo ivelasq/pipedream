@@ -182,7 +182,7 @@
 <div class="quarto-title"><h1 class="title display-7">Disaggregating school district data</h1><div class="quarto-description"><p>Exploring why disaggregation of data is important by looking at district demographics.</p></div></div><div class="quarto-categories"><div class="quarto-category">import</div><div class="quarto-category">tidy</div><div class="quarto-category">visualize</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">September 21, 2018</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="A sunset with dark clouds at a beach"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Samuel Colman, The Rock of Salvation (1837)</figcaption><p></p>
 </figure>
 </div>
@@ -315,7 +315,20 @@
 </section>
 <section id="first-glance-mps-district-demographics" class="level3">
 <h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
-<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>).</p>
+<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.</p>
+</div>
+</div>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tidy_df <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(school_name <span class="sc">==</span> <span class="st">"Total"</span>,</span>

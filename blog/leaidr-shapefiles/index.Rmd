@@ -49,7 +49,9 @@ library(maptools)
 
 Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, `summary-of-table-of-links.csv`).
 
-**Note:** You must have a GitHub PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to do that.
+:::{.callout-note}
+You must have a GitHub PAT set to run `lea_get()`. [Happy git with R](https://happygitwithr.com/github-pat.html) has a great walkthrough on how to get one if you do not have it already.
+:::
 
 ```{r, eval = FALSE}
 # download the shapefile into a designated folder
@@ -118,7 +120,7 @@ map_projected <- ca_map +
 print(map_projected)
 ```
 
-![Map of California school districts showing whether or not they contained COVID-related links on their website](test_map.png)
+![](test_map.png){fig-alt="Map of California school districts showing whether or not they contained COVID-related links on their website"}
 
 Tada! A full school district map for California.
 

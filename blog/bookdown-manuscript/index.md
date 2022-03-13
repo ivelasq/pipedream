@@ -88,7 +88,7 @@ This file will output your file according to what is specified. It's also how fi
 bookdown::gitbook
 ```
 
-#### Rendering the book
+### Rendering the book
 
 OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:
 
@@ -133,7 +133,7 @@ This, and a combination of snooping on Github, allowed us to find ways to custom
 
 This process takes a lot of trial and error, I will admit. It may be easier to pick up a bit of CSS if you have specific ideas in mind. However, if you need a quick edit of some pages, seeing how others have done it and exploring with the Developer Tools is very handy.
 
-## Caching code c   hunks
+## Caching code chunks
 
 As mentioned in Yihui's book, you can [cache](https://bookdown.org/yihui/bookdown/some-tips.html) certain code chunks so they do not have to rerun each time you render the book. We found this very handy, as some complex models took some time to run.
 

@@ -66,7 +66,7 @@ meta_df <- tibble(
 In this case, there are entries where there is a vector within categories or tags - this is because a single blog post can have multiple categories or tags (see example [here](https://blog.rstudio.com/2021/08/30/rstudio-connect-2021-08-custom-branding/), which has “rstudio connect” and “featured” as categories).
 
 <center>
-![Cell names](cells.png)
+![Cell names](cells.png){fig-alt="Cell names"}
 </center>
 
 The following code separates the tags or categories with multiple values so that each value has its own column using a `pivot_longer()` followed by `unnest()`, then re-pivots the table to wide format using `pivot_wider()`.

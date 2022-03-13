@@ -121,7 +121,7 @@
 <div class="quarto-title"><h1 class="title display-7">Preparing a manuscript for publication using bookdown</h1><div class="quarto-description"><p>Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.</p></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">March 8, 2021</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves at a rock"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption><p></p>
 </figure>
 </div>
@@ -178,12 +178,12 @@ new_session: yes</code></pre>
 <p>This file will output your file according to what is specified. It’s also how figure height/width is specified, allows you to specify the TOC, etc. But really, if you want a bookdown all it needs is to know what you want your output to be.</p>
 <pre><code>bookdown::gitbook</code></pre>
 </section>
-<section id="rendering-the-book" class="level4">
-<h4 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h4>
+</section>
+<section id="rendering-the-book" class="level3">
+<h3 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h3>
 <p>OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:</p>
 <pre><code>bookdown::serve_book()</code></pre>
 <p>So now you have a bookdown! And you eagerly look at your accomplishment and it is great. But how do we find out what else we can do with {bookdown}?</p>
-</section>
 </section>
 </section>
 <section id="snooping-on-others-github-files" class="level2">
@@ -212,8 +212,8 @@ new_session: yes</code></pre>
 </section>
 </section>
 </section>
-<section id="caching-code-c-hunks" class="level2">
-<h2 class="anchored" data-anchor-id="caching-code-c-hunks">Caching code c hunks</h2>
+<section id="caching-code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="caching-code-chunks">Caching code chunks</h2>
 <p>As mentioned in Yihui’s book, you can <a href="https://bookdown.org/yihui/bookdown/some-tips.html">cache</a> certain code chunks so they do not have to rerun each time you render the book. We found this very handy, as some complex models took some time to run.</p>
 <p>Important to note though: if you use <code>set.seed</code>, you will need to include it in every code chunk; setting it in only one code chunk will not mean it is set for all code chunks.</p>
 </section>
@@ -235,8 +235,8 @@ new_session: yes</code></pre>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="gt.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Table of various table print engines, the functions for creating the tables, and whether they’re supported in HTML, PDF, RTF, or Word.</figcaption><p></p>
+<p><img src="gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">gtsummary Reference</figcaption><p></p>
 </figure>
 </div>
 </center>

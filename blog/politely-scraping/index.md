@@ -18,6 +18,7 @@ Recently, I submitted the [Wikipedia table on independence days around the world
 
 There are several packages needed for this walkthrough:
 
+````
 ```{r, message=FALSE}
 # To clean data
 library(tidyverse)
@@ -29,21 +30,26 @@ library(rvest)
 library(httr)
 library(polite)
 ```
+````
 
 ## Scrape table
 
 First, we save the web page with the table that we would like as `url`:
 
+````
 ```{r}
 url <- "https://en.wikipedia.org/wiki/List_of_national_independence_days"
 ```
+````
 
 Next, we use `polite::bow()` to introduce ourselves to the host, Wikipedia. This reads the rules from `robots.txt` and makes sure we follow them. The object (`url_bow` in this case) is saved as an object of class `polite`.
 
+````
 ```{r}
 url_bow <- polite::bow(url)
 url_bow
 ```
+````
 
 Next, we actually 'scrape' (pull the content of) the web page using `polite::scrape()`. This needs an object of class `polite` (created with `bow()` from before).
 
@@ -57,22 +63,26 @@ How do we know which node we want? There are probably other ways of doing this. 
 
 This object is saved as an HTML table which is great, but a data frame would be preferable for analysis. So the final step is to use `rvest::html_table()` to read this table as something with which we can use tidyverse tools. The parameter `fill = TRUE` allows you to fill empty rows with `NA`.
 
+````
 ```{r}
 ind_html <-
   polite::scrape(url_bow) %>%  # scrape web page
   rvest::html_nodes("table.wikitable") %>% # pull out specific table
   rvest::html_table(fill = TRUE) 
 ```
+````
 
 ## Flatten table
 
 You will notice that `ind_html` is saved as a single object (a list) in which each element is a data frame. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element `[[1]]`. We can then use `janitor::clean_names()` for nice, standardized column names.
 
+````
 ```{r}
 ind_tab <- 
   ind_html[[1]] %>% 
   clean_names()
 ```
+````
 
 That's it! Now we've "politely" scraped the Wikipedia table into an analysis-ready data frame.
 

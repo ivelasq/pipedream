@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="dcterms.date" content="2021-09-28">
-  <meta name="description" content="I ran into a cool paper that created a dataset from an image with a Python package and then plotted it in {ggplot2}. We can do that in a single R Markdown file thanks to the reticulate package.">
+  <meta name="description" content="I ran into a cool paper where the authors create a dataset from an image with a Python package and then plot it with ggplot2. We can do that in a single R Markdown file thanks to the reticulate package.">
   <title>%&gt;% dreams - Creating a dataset from an image using reticulate in R Markdown</title>
   <style>
     code{white-space: pre-wrap;}
@@ -116,21 +116,16 @@
 <header id="title-block-header" class="quarto-title-block default">
 
 
-<div class="quarto-title"><h1 class="title display-7">Creating a dataset from an image in R Markdown using reticulate</h1><div class="quarto-description"><p>I ran into a cool paper where the authors create a dataset from an image with a Python package and then plot it with ggplot2. We can do that in a single R Markdown file thanks to the reticulate package.</p></div></div><div class="quarto-categories"><div class="quarto-category">python</div><div class="quarto-category">visualize</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">September 28, 2021</p></div></div></div></header>
+<div class="quarto-title"><h1 class="title display-7">Creating a dataset from an image using reticulate in R Markdown</h1><div class="quarto-description"><p>I ran into a cool paper where the authors create a dataset from an image with a Python package and then plot it with ggplot2. We can do that in a single R Markdown file thanks to the reticulate package.</p></div></div><div class="quarto-categories"><div class="quarto-category">python</div><div class="quarto-category">visualize</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">September 28, 2021</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with trees with a red sun"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption><p></p>
 </figure>
 </div>
 <p>Last week, a paper started making the Twitter rounds. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf">Selective attention in hypothesis-driven data analysis</a> by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="main.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Cartoon gorilla and its recreation in ggplot2</figcaption><p></p>
-</figure>
-</div>
+<img src="main.png" class="img-fluid" alt="Cartoon gorilla and its recreation in ggplot2">
 </center>
 <p>I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called ‘getpixel’, manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the <a href="https://rstudio.github.io/reticulate/">{reticulate}</a> package which allows R to interface with Python and thought this would be a fun exercise to try.</p>
 <p>With that, let’s recreate this dataset entirely within R Markdown! In addition to being able to copy/paste the code below, I have also provided it as a project on <a href="https://rstudio.cloud/project/2949291">RStudio Cloud</a> if you’d like to run the whole thing at once.</p>
@@ -183,11 +178,12 @@ coords = np.column_stack(np.where(pixels &lt; threshold_level))
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Python in R Markdown cheat sheet</figcaption><p></p>
+<p><img src="Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Python Cheatsheet</figcaption><p></p>
 </figure>
 </div>
 </center>
+
 <p>Knowing that, we can create an R object from coords using <code>py</code>. Next, we follow the steps outlined in the paper for the data preparation.</p>
 <pre><code>```{r}
 coords &lt;-
@@ -218,12 +214,7 @@ coords %&gt;%
   xlim(0, 15000)
 ```</code></pre>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">ggplot2 image of pixel cartoon gorilla</figcaption><p></p>
-</figure>
-</div>
+<img src="index.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla">
 </center>
 <pre><code>```{r}
 coords %&gt;%
@@ -236,12 +227,7 @@ coords %&gt;%
 ```</code></pre>
 <p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index2.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">ggplot2 image of pixel cartoon gorilla disaggregated by gender</figcaption><p></p>
-</figure>
-</div>
+<img src="index2.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender">
 </center>
 <center>
 <em>Liked this post? I’d love for you to retweet!</em>

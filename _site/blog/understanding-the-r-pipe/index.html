@@ -286,7 +286,19 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Which is equivalent to:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sqrt</span>(mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>An important note: on the RHS of <code>|&gt;</code>, you need to include the function as a function call, which means appending an <code>()</code> at the end of the function name, rather than just its name. For example, the square root function is called by writing <code>sqrt()</code>. If you try to run <code>mtcars |&gt; sqrt</code> without the <code>()</code> at the end, you will get an error: <code>Error: The pipe operator requires a function call as RHS</code>.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+An important note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On the RHS of <code>|&gt;</code>, you need to include the function as a function call, which means appending an <code>()</code> at the end of the function name, rather than just its name. For example, the square root function is called by writing <code>sqrt()</code>. If you try to run <code>mtcars |&gt; sqrt</code> without the <code>()</code> at the end, you will get an error: <code>Error: The pipe operator requires a function call as RHS</code>.</p>
+</div>
+</div>
 <p>So, the native R pipe pipes the LHS into the first argument of the function on the RHS (with an extra requirement of needing a function call on the RHS). <strong>But that’s all!</strong> If you want to do anything <em>beyond</em> piping the LHS into the first argument of the RHS function, then you need the special anonymous function syntax introduced above.</p>
 <p>A gotcha here is that we also needed to write parentheses around the anonymous function, such that a pseudocode version of the above is <code>mtcars |&gt; (anonymous-function-definition)()</code>. The reason for this is so that the second set of <code>()</code> properly points to the complex expression inside the first set of <code>()</code> as the function being called.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> (\(x) {</span>

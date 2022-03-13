@@ -182,18 +182,13 @@
 <div class="quarto-title"><h1 class="title display-7">What it takes to tidy Census data</h1><div class="quarto-description"><p>Census data is valuable, but can be stored in messy Excel spreadsheets.</p></div></div><div class="quarto-categories"><div class="quarto-category">import</div><div class="quarto-category">tidy</div><div class="quarto-category">visualize</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">May 28, 2020</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption><p></p>
 </figure>
 </div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
 <p>First of all, let me clarify that I think that the work that the Census does is amazing and I am so glad that these data are available. But, when you download the data, you will see that it is a highly stylized Excel spreadsheet. There may be upsides for those who want to see the data quickly and easily. As an R user though, seeing all those merged cells, non-numeric numerics, and category names in rows makes me feel <code>emo::ji('unamused')</code>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="census_image.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">One of the Census Excel spreadsheets pointing out egregious formatting, like headers, merged cells, and categories in rows.</figcaption><p></p>
-</figure>
-</div>
+<p><img src="census_image.png" class="img-fluid" alt="One of the Census Excel spreadsheets pointing out egregious formatting, like headers, merged cells, and categories in rows."></p>
 <p>However, this is not terribly surprising (and with public data, somewhat expected). As stated in the <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy data</a> paper:</p>
 <blockquote class="blockquote">
 <p>It is often said that 80% of data analysis is spent on cleaning and preparing data.</p>
@@ -215,11 +210,11 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">GET</span>(<span class="st">"https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx"</span>, <span class="fu">write_disk</span>(path <span class="ot">&lt;-</span> <span class="fu">tempfile</span>(<span class="at">fileext =</span> <span class="st">".xlsx"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stdout">
 <pre><code>Response [https://www2.census.gov/programs-surveys/demo/tables/hhp/2020/wk2/educ2_week2.xlsx]
-  Date: 2022-02-28 23:50
+  Date: 2022-03-13 15:45
   Status: 200
   Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
   Size: 442 kB
-&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpYio7n3/file1d3573bd65cd.xlsx</code></pre>
+&lt;ON DISK&gt;  /var/folders/pj/nmg9b8_93dq4kwt8nt2d4cj40000gn/T//RtmpRY4m58/file2eca17a48009.xlsx</code></pre>
 </div>
 </div>
 </section>
@@ -238,7 +233,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census1.png" class="img-fluid figure-img"></p>
+<p><img src="census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">First three columns of the imported dataset</figcaption><p></p>
 </figure>
 </div>
@@ -251,7 +246,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census2.png" class="img-fluid figure-img"></p>
+<p><img src="census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Dataset with skipped lines</figcaption><p></p>
 </figure>
 </div>
@@ -266,7 +261,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census3.png" class="img-fluid figure-img"></p>
+<p><img src="census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Dataset with cleaned names</figcaption><p></p>
 </figure>
 </div>
@@ -278,7 +273,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census4.png" class="img-fluid figure-img"></p>
+<p><img src="census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Dataset with removed rows</figcaption><p></p>
 </figure>
 </div>
@@ -293,7 +288,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census5.png" class="img-fluid figure-img"></p>
+<p><img src="census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Dataset with filtered rows</figcaption><p></p>
 </figure>
 </div>
@@ -309,7 +304,7 @@
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census6.png" class="img-fluid figure-img"></p>
+<p><img src="census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Column with variable names</figcaption><p></p>
 </figure>
 </div>
@@ -318,7 +313,7 @@
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census7.png" class="img-fluid figure-img"></p>
+<p><img src="census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Column with numbers but with character type</figcaption><p></p>
 </figure>
 </div>
@@ -346,7 +341,7 @@
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census_list.png" class="img-fluid figure-img"></p>
+<p><img src="census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Viewing the list</figcaption><p></p>
 </figure>
 </div>

@@ -349,7 +349,19 @@ but… I… already… know… how… the… hexsticker… should… look…
 <span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>    <span class="er">//</span> <span class="er">Terminal</span><span class="fu">:</span> <span class="er">Path</span> <span class="er">to</span> <span class="er">integrated</span> <span class="er">shell</span> <span class="er">on</span> <span class="er">macOS</span></span>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"terminal.integrated.shell.osx"</span><span class="er">:</span> <span class="st">"/bin/zsh"</span></span>
 <span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>NOTE:</em> The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>r.rterm.mac</code> field above should be the path to <code>radian</code> if you followed the <code>radian</code> installation instructions above, otherwise it should be the path to your <code>R</code> executable (if you don’t know it, type <code>which R</code> in your terminal). Since we use Homebrew to install the latest <code>zsh</code> using <code>brew install zsh</code>, the path to our <code>zsh</code> is <code>/usr/local/bin/zsh</code>, but we have put <code>/bin/zsh</code> above since that is the default <code>zsh</code> location for most macOS users. You should run <code>which r</code> and <code>which zsh</code> to confirm your local settings are correct.</p>
+</div>
+</div>
 <ol type="1">
 <li>Below are some useful <a href="https://github.com/Ikuyadeu/vscode-R/wiki/Keyboard-shortcuts">keyboard shortcuts</a> for <code>keybindings.json</code>, found by using the Command Palette (<code>Shift-Command-P</code>) in VS Code and navigating to <code>Preferences: Open Keyboard Shortcuts (JSON)</code>. This is our <a href="https://github.com/gvelasq/dotfiles/blob/master/vscode/keybindings.json"><code>keybindings.json</code></a>:</li>
 </ol>

@@ -214,7 +214,11 @@ tidy_df <-
 
 ### First glance: MPS District demographics
 
-Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch. (Sidenote: Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but [there is debate as to whether it actually reflects the level of poverty among students](https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty)).
+Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch.
+
+:::{.callout-warning}
+Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but [there is debate as to whether it actually reflects the level of poverty among students](https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty).
+:::
 
 ```{r, fig.alt="Barplot showing demographic breakdown of students in MPS. Black students make up the most at almost 40%, then White students slightly less, and finally Hispanic, Asian, and Native American under 20%. Almost 60% of all students qualify for FRPL.", fig.align='center'}
 tidy_df %>%

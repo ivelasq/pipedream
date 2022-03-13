@@ -176,7 +176,11 @@ Which is equivalent to:
 head(sqrt(mtcars))
 ```
 
-An important note: on the RHS of `|>`, you need to include the function as a function call, which means appending an `()` at the end of the function name, rather than just its name. For example, the square root function is called by writing `sqrt()`. If you try to run `mtcars |> sqrt` without the `()` at the end, you will get an error: `Error: The pipe operator requires a function call as RHS`.
+:::{.callout-warning}
+## An important note
+
+On the RHS of `|>`, you need to include the function as a function call, which means appending an `()` at the end of the function name, rather than just its name. For example, the square root function is called by writing `sqrt()`. If you try to run `mtcars |> sqrt` without the `()` at the end, you will get an error: `Error: The pipe operator requires a function call as RHS`.
+:::
 
 So, the native R pipe pipes the LHS into the first argument of the function on the RHS (with an extra requirement of needing a function call on the RHS). **But that’s all!** If you want to do anything *beyond* piping the LHS into the first argument of the RHS function, then you need the special anonymous function syntax introduced above.
 

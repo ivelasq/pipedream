@@ -182,7 +182,7 @@
 <div class="quarto-title"><h1 class="title display-7">Taking a peek into my hiking data</h1><div class="quarto-description"><p>I got my hands on a bunch of GPX files.</p></div></div><div class="quarto-categories"><div class="quarto-category">import</div><div class="quarto-category">visualize</div><div class="quarto-category">analyze</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">April 6, 2019</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="A horizon of snow-capped mountains"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Thomas Moran, Winter in the Rockies (1867)</figcaption><p></p>
 </figure>
 </div>
@@ -353,12 +353,7 @@
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="joyplot.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Joyplot showing trail distance and height</figcaption><p></p>
-</figure>
-</div>
+<p><img src="joyplot.png" class="img-fluid" alt="Joyplot showing trail distance and height"></p>
 <p>I calculated my ‘average hike’ - that is, the average elevation given the cumulative distance traveled.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
@@ -379,12 +374,7 @@
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="avg_hike.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">line chart showing distance and elevation of individual hikes with a darker line highlighting the average elevation by distance</figcaption><p></p>
-</figure>
-</div>
+<p><img src="avg_hike.png" class="img-fluid" alt="Line chart showing distance and elevation of individual hikes with a darker line highlighting the average elevation by distance"></p>
 </section>
 <section id="aggregated-data-by-trail" class="level2">
 <h2 class="anchored" data-anchor-id="aggregated-data-by-trail">Aggregated Data by Trail</h2>
@@ -402,12 +392,7 @@
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="tot_dis_elev.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Scatterplot of total distance by total elevation</figcaption><p></p>
-</figure>
-</div>
+<p><img src="tot_dis_elev.png" class="img-fluid" alt="Scatterplot of total distance by total elevation"></p>
 </section>
 <section id="there-exist-clusters-of-hikes" class="level2">
 <h2 class="anchored" data-anchor-id="there-exist-clusters-of-hikes">There exist “clusters” of hikes</h2>
@@ -429,12 +414,7 @@
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">"cividis"</span>, <span class="at">discrete =</span> T) <span class="sc">+</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cluster_analysis.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Cluster analysis of hikes by elevation and distance</figcaption><p></p>
-</figure>
-</div>
+<p><img src="cluster_analysis.png" class="img-fluid" alt="Cluster analysis of hikes by elevation and distance showing four distinct clusters"></p>
 </section>
 <section id="i-dont-particularly-love-long-hikes" class="level2">
 <h2 class="anchored" data-anchor-id="i-dont-particularly-love-long-hikes">I don’t particularly love long hikes</h2>
@@ -451,7 +431,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="dist_histogram.png" class="img-fluid figure-img"></p>
+<p><img src="dist_histogram.png" class="img-fluid figure-img" alt="Histogram of hike total distance skewed right"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Histogram of hike total distance</figcaption><p></p>
 </figure>
 </div>
@@ -468,7 +448,7 @@
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cum_dist.png" class="img-fluid figure-img"></p>
+<p><img src="cum_dist.png" class="img-fluid figure-img" alt="Cumulative bar plot of distance increasing from the left to the right colored by a gradient"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Cumulative bar plot of distance</figcaption><p></p>
 </figure>
 </div>
@@ -486,12 +466,7 @@
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="elev_histogram.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Histogram of hike total elevation</figcaption><p></p>
-</figure>
-</div>
+<p><img src="elev_histogram.png" class="img-fluid" alt="Histogram of hike total elevation skewed right"></p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>hiking_dat_by_trail <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cumelev =</span> <span class="fu">cumsum</span>(tot_elev_gain)) <span class="sc">%&gt;%</span> </span>
@@ -503,12 +478,7 @@
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cum_elev.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Cumulative bar plot of elevation</figcaption><p></p>
-</figure>
-</div>
+<p><img src="cum_elev.png" class="img-fluid" alt="Cumulative bar plot of elevation increasing from left to right and colored by a gradient"></p>
 <center>
 <p><em>Liked this article? I’d love for you to retweet!</em></p>
 <blockquote class="twitter-tweet blockquote">

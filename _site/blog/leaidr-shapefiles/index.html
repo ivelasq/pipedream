@@ -182,7 +182,7 @@
 <div class="quarto-title"><h1 class="title display-7">Introducing an R package for school district shapefiles</h1><div class="quarto-description"><p>The {leaidr} package helps us easily create maps of U.S. school districts.</p></div></div><div class="quarto-categories"><div class="quarto-category">package</div><div class="quarto-category">map</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">May 3, 2020</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption><p></p>
 </figure>
 </div>
@@ -222,7 +222,19 @@
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("mapproj")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
-<p><strong>Note:</strong> You must have a GitHub PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to do that.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You must have a GitHub PAT set to run <code>lea_get()</code>. <a href="https://happygitwithr.com/github-pat.html">Happy git with R</a> has a great walkthrough on how to get one if you do not have it already.</p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download the shapefile into a designated folder</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>leaidr<span class="sc">::</span><span class="fu">lea_get</span>(<span class="at">path =</span> <span class="st">"./test"</span>)</span>
@@ -276,12 +288,7 @@
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(map_projected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="test_map.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Map of California school districts showing whether or not they contained COVID-related links on their website</figcaption><p></p>
-</figure>
-</div>
+<p><img src="test_map.png" class="img-fluid" alt="Map of California school districts showing whether or not they contained COVID-related links on their website"></p>
 <p>Tada! A full school district map for California.</p>
 </section>
 <section id="call-for-collaboration" class="level2">
