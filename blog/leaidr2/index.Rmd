@@ -13,7 +13,7 @@ image-alt: "Piet Mondrian, Tableau No. 2, an abstract painting of black rectangl
 
 A few months ago, I created [{leaidr}](https://github.com/ivelasq/leaidr) for easier download of U.S. school district shapefiles. [Daniel Anderson](https://github.com/datalorax) went through and greatly improved the package,  making it even easier to download and use the shapefiles (thanks Dan!).
 
-Now, instead of having to run `lea_prep()`, you can download the shapefiles from Dan's Github repository like so:
+Now, instead of having to run `lea_prep()`, you can download the shapefiles from Dan's GitHub repository like so:
 
 ```{r, message = FALSE, warning = FALSE, fig.align='center', fig.alt="Blank map of Tennessee school districts.", cache=TRUE}
 library(leaidr)
@@ -171,7 +171,7 @@ Now, say you would like to add the Shiny app to your package as well as upload i
 3. Create an R file to run your example (I used `usethis::use_r("runExample.R")`) to create this file.
 4. Don't forget to document! `devtools::document()`
 
-So, if you were to install and load {leaidr}, you can run `leaidr::runExample()` to launch the Shiny app. To see what the files look like, check out the Github repo files [here](https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox).
+So, if you were to install and load {leaidr}, you can run `leaidr::runExample()` to launch the Shiny app. To see what the files look like, check out the GitHub repo files [here](https://github.com/ivelasq/leaidr/tree/master/inst/shiny-examples/mapbox).
 
 ## Conclusion
 

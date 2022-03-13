@@ -13,12 +13,12 @@ My co-authors [Ryan](https://twitter.com/RyanEs), [Emily](https://twitter.com/ef
 
 [{bookdown}](https://www.bookdown.org/) is an R package that facilitates writing books and long-form articles/reports with R Markdown. [R Markdown]() is a file format that allows you to write using markdown, a language for formatted text, and integrate R code, analyses, and visualizations. By using R Markdown, my co-authors and I were able to collaborate using familiar scripts, share and run code, and edit our manuscript for publication. By using {bookdown}, we were able to publish these R Markdown files to the web so people could access our book as we were writing it.
 
-We have written [a](https://education.rstudio.com/blog/2020/10/ds-in-edu/) [few](https://rviews.rstudio.com/2020/05/26/community-and-collaboration-writing-our-book-in-the-open/) [times](https://rviews.rstudio.com/2020/07/01/open-source-authorship-of-data-science-in-education-using-r/) about the open and collaborative nature of this work. This article will walk through the more technical aspects of using {bookdown} from our beginners' standpoint. We hope it highlights the lessons we learned along the way. To peek at the actual files of our book, check out the [Github repo](https://github.com/data-edu/data-science-in-education).
+We have written [a](https://education.rstudio.com/blog/2020/10/ds-in-edu/) [few](https://rviews.rstudio.com/2020/05/26/community-and-collaboration-writing-our-book-in-the-open/) [times](https://rviews.rstudio.com/2020/07/01/open-source-authorship-of-data-science-in-education-using-r/) about the open and collaborative nature of this work. This article will walk through the more technical aspects of using {bookdown} from our beginners' standpoint. We hope it highlights the lessons we learned along the way. To peek at the actual files of our book, check out the [GitHub repo](https://github.com/data-edu/data-science-in-education).
 
 So without further ado, here are some tips about {bookdown} that may be helpful on your book manuscript creation:
 
 * [Learning R Markdown and {bookdown}](#learning-r-markdown-and-bookdown)
-* [Snooping on others' Github files](#snooping-on-others-github-files)
+* [Snooping on others' GitHub files](#snooping-on-others-github-files)
 * [Caching Code Chunks](#caching-code-chunks)
 * [Figuring out your publisher's requirements](#figuring-out-your-publishers-requirements)
 * [Determining how to collaborate](#determining-how-to-collaborate)
@@ -100,9 +100,9 @@ bookdown::serve_book()
 So now you have a bookdown! And you eagerly look at your accomplishment and it is great. But how do we find out what else we can do with {bookdown}?
 
 
-## Snooping on others' Github files
+## Snooping on others' GitHub files
  
-When I do not know how to do something in R, I look at people who I want to emulate and snoop on their Github repository pages. It is so incredibly handy (and wonderful) that others post their code for all to see.
+When I do not know how to do something in R, I look at people who I want to emulate and snoop on their GitHub repository pages. It is so incredibly handy (and wonderful) that others post their code for all to see.
 
 This is how we learned just how to even start using bookdown (copying people's files, seeing what happened when we ran them), but also the creative ways that others went about customizing their books.
 
@@ -123,7 +123,7 @@ Do not fret, reader. I also do not know CSS. But thankfully, the **Google Develo
 
 By right-clicking any part of a web page (including an existing bookdown) in Chrome, you can then click "Inspect Element" to see its HTML file and the hierarchy of the thing you just right-clicked on. Then, by clicking the arrow on the top left of your Inspector pane, you can click on anything to see its HTML file.
 
-This, and a combination of snooping on Github, allowed us to find ways to customize our bookdown. [Here](https://github.com/data-edu/data-science-in-education/blob/master/css/style.css) is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text `#ffbc49`.
+This, and a combination of snooping on GitHub, allowed us to find ways to customize our bookdown. [Here](https://github.com/data-edu/data-science-in-education/blob/master/css/style.css) is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text `#ffbc49`.
 
 ```
 .book .book-summary ul.summary li a:hover {
@@ -171,7 +171,7 @@ So, we recommend gathering all of your publisher's requirements and then mapping
  
 ## Determining how to collaborate
 
-Since my co-authors and I all knew Github, we decided to use Github to write the book. This was great because it was a transparent way of writing the book (non-authors added issues and contributed as they saw fit). We were able to go back in time if needed to fix errors or see what had been changed.
+Since my co-authors and I all knew GitHub, we decided to use GitHub to write the book. This was great because it was a transparent way of writing the book (non-authors added issues and contributed as they saw fit). We were able to go back in time if needed to fix errors or see what had been changed.
 
 We had to decide how updating the book would work. Ultimately, we decided that one person would be in charge of rendering the book - this helped reduce any code conflicts. However, there may be other ways of working that would be better for you.
 
@@ -180,5 +180,5 @@ We had to decide how updating the book would work. Ultimately, we decided that o
 In conclusion, we chose to use {bookdown} to create a book manuscript because we wanted to be transparent in our work, leverage R and its many tools, and be as efficient as possible when writing a book across five people. Despite some technical lift (and a lot of trial and error), it eventually resulted in a smooth workflow for our group. Thanks to the many resources and code available out there, we were able to learn {bookdown} as we wrote. Thanks to {bookdown}, we output the final manuscript that resulted in our book!
 
 <center>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">New blogpost! 🎉 We created our book&#39;s manuscript using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> and <a href="https://twitter.com/hashtag/bookdown?src=hash&amp;ref_src=twsrc%5Etfw">#bookdown</a>! How did we learn how to do it? #1 tip: snoop on other people&#39;s Github repos 👀 Read more here: <a href="https://t.co/jSozoz86gj">https://t.co/jSozoz86gj</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1369106413079851012?ref_src=twsrc%5Etfw">March 9, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">New blogpost! 🎉 We created our book&#39;s manuscript using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> and <a href="https://twitter.com/hashtag/bookdown?src=hash&amp;ref_src=twsrc%5Etfw">#bookdown</a>! How did we learn how to do it? #1 tip: snoop on other people&#39;s GitHub repos 👀 Read more here: <a href="https://t.co/jSozoz86gj">https://t.co/jSozoz86gj</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1369106413079851012?ref_src=twsrc%5Etfw">March 9, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>

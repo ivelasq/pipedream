@@ -279,7 +279,7 @@ ggplot(d, aes(x = nonsnap_rank, y = snap_rank)) +
   ylab("SNAP Expenditure Rank")
 ```
 
-I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on [Github](https://github.com/ivelasq/snap).
+I'd love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on [GitHub](https://github.com/ivelasq/snap).
 
 <center>
 *Liked this article? I'd love for you to retweet!*

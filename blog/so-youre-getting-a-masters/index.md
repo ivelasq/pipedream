@@ -21,14 +21,14 @@ I've tried to keep track of the different questions people ask and aggregate the
 
 Here is my advice to aspiring data scientists/analysts entering these programs and how I would have made an already great experience even better.
 
-## 1. Learn Git and put everything on Github (or equivalent)
+## 1. Learn Git and put everything on GitHub (or equivalent)
 
-Git and Github was not required for any classes (at least when I was in the program) and I really regret not using it with my classmates.
+Git and GitHub was not required for any classes (at least when I was in the program) and I really regret not using it with my classmates.
 
-* Github is a great way to show off your skills to potential employers.
+* GitHub is a great way to show off your skills to potential employers.
 * It's a much better collaboration tool than what we did (which was email each other with code changes).
 * It's also a good history so you remember things you've done (which I have forgotten already).
-* It's also way neater to have homework in projects in Github as opposed to a zillion folders on your Desktop (which is what I went with).
+* It's also way neater to have homework in projects in GitHub as opposed to a zillion folders on your Desktop (which is what I went with).
 * Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!
 * There's also nothing better than having a filled up contribution graph.
 
@@ -38,7 +38,7 @@ Git and Github was not required for any classes (at least when I was in the prog
 
 ## 2. Leave each class with an example that you can show a potential employer
 
-These programs go *quickly.* I was a part-time student and took my sweet time and even then I felt like I was racing towards the end. Due to competing priorities, it's easy to rush through homework assignments and projects. Instead of focusing on completion, remember the goal of this is to enter a new career/role/path in life and that everything you do is an example of a new skill you can showcase. So: document your work. Be clear in the intention behind it and how you went through your thought process. Make it presentable. Related to the advice above, link potential employers to your Github.
+These programs go *quickly.* I was a part-time student and took my sweet time and even then I felt like I was racing towards the end. Due to competing priorities, it's easy to rush through homework assignments and projects. Instead of focusing on completion, remember the goal of this is to enter a new career/role/path in life and that everything you do is an example of a new skill you can showcase. So: document your work. Be clear in the intention behind it and how you went through your thought process. Make it presentable. Related to the advice above, link potential employers to your GitHub.
 
 Of course, I understand that not all homework applies to this — but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up — and be able to show how this project illustrates the value you can bring to your future company.
 

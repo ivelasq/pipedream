@@ -14,7 +14,7 @@ image: "thumbnail.png"
 | Time       | 12:00PM  PT                                                                           |
 | Location   | Remote                                                                             |
 | Event      | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/276835843) |
-| Repository | [**Github**](https://github.com/kdillmcfarland/2021-04-02-r-ladies-seattle-online) |
+| Repository | [**GitHub**](https://github.com/kdillmcfarland/2021-04-02-r-ladies-seattle-online) |
 
 ```{r, echo = FALSE}
 xaringanExtra::embed_xaringan(

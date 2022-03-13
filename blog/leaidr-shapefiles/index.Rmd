@@ -26,9 +26,9 @@ ca <- tigris::school_districts(state = "06",
 plot(ca["GEOID"])
 ```
 
-{leaidr} downloads NCES' U.S. district shapefile from Github using ROpenSci's [{piggyback}](https://github.com/ropensci/piggyback) package. This is a super helpful package, as Github caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried Github Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn't figure out how to use it for a package that others can use.
+{leaidr} downloads NCES' U.S. district shapefile from GitHub using ROpenSci's [{piggyback}](https://github.com/ropensci/piggyback) package. This is a super helpful package, as GitHub caps file uploads at 100 MB (and the shapefile is ~170 MB). I originally tried GitHub Large File Storage (LFS), but it stores files as a hash, not as an actual file. Therefore, I couldn't figure out how to use it for a package that others can use.
 
-The function `lea_get()` downloads an R Data file from the Github repo to your designated path and then writes the necessary shapefiles. Then, create an object with `lea_prep()` by designating where the shapefiles exist and which state(s) you would like. **Note:** For now, you must use the state's FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found [here](https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm).
+The function `lea_get()` downloads an R Data file from the GitHub repo to your designated path and then writes the necessary shapefiles. Then, create an object with `lea_prep()` by designating where the shapefiles exist and which state(s) you would like. **Note:** For now, you must use the state's FIPS code. FIPS state codes are numeric and two-letter alphabetic codes to identify U.S. states and certain other associated areas. A reference table is found [here](https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm).
 
 Once you have the shapefile, then you can merge with other datasets and plot using packages like {leaflet} and {ggplot2}.
 

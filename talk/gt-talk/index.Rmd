@@ -14,7 +14,7 @@ image: "thumbnail.png"
 | Time       | 11:00AM CT                                                                                                                                 |
 | Location   | Remote                                                                                                                                  |
 | Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                                           |
-| Repository | [**Github**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                                           |
+| Repository | [**GitHub**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                                           |
 | Recording  | [**YouTube**](https://www.youtube.com/watch?v=12ySKyWwX4Y)                                                                              |
 
 ```{r, echo = FALSE}

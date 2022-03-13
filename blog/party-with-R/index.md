@@ -25,7 +25,7 @@ For us, it was exciting to meet on Twitter, talk about collaborating on an educa
 
 In our first blog post, we described what it’s like to learn by seeing someone do the thing you want to learn. One of the best things about the R community is you constantly get to see this in action. The R community not only holds open principles but actually exhibits them whenever possible. Users post their code, projects, and drafts constantly. Just by scanning the \#rstats hashtag, one can discover something new.
 
-Because others were open, we knew that we wanted to be open as well. We wrote our book on [Github](https://github.com/data-edu/data-science-in-education), showing all the many changes it went through until its final completion. By having it freely available on a [website](https://www.datascienceineducation.com/), we hope that it opens the door to others who’d like to learn what we did and work on their own open project as well.
+Because others were open, we knew that we wanted to be open as well. We wrote our book on [GitHub](https://github.com/data-edu/data-science-in-education), showing all the many changes it went through until its final completion. By having it freely available on a [website](https://www.datascienceineducation.com/), we hope that it opens the door to others who’d like to learn what we did and work on their own open project as well.
 
 **Food (for Thought)** 🍕
 
