@@ -6,7 +6,7 @@ description: "Tired of trying to search all your liked Tweets on your timeline? 
 image: thumbnail.jpg
 ---
 
-![Rijksmuseum, Pigeons in white and blue (1928)](thumbnail-wide.jpg)
+![Rijksmuseum, Pigeons in white and blue (1928)](thumbnail-wide.jpg){fig-alt="Abstract white birds repeating on a blue background"}
 
 The other day, I was scrolling through my "liked" Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one's likes. I found [this tutorial](https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851) that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.
 

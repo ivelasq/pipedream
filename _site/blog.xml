@@ -18,7 +18,7 @@
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night skys"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -98,12 +98,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;">plot</span>(mtcars<span class="sc" style="color: #5E5E5E;">$</span>hp, mtcars<span class="sc" style="color: #5E5E5E;">$</span>mpg)</span></code></pre></div>
 <p>OK! Now, we can apply what we’ve learned to the native R pipe. Right? …Right?</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/padme.jpg" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/padme.jpg" class="img-fluid" alt="Meme of Anakin and Padme with Anakin saying he understands the magrittr pipe, Padme asking if that means he understands the native pipe, and Anakin’s smirk implying that nope">
 </center>
 </section>
 <section id="actually-i-think-we-need-a-detour-to-explain-anonymous-lambda-functions-before-we-can-explain-how-works" class="level2">
@@ -381,7 +376,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Olive trees against a blue background"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1346,7 +1341,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Two ballerina dancers at the barre, one with her leg in the air"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -1973,7 +1968,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A dancer with a large skirt dancing at a dance hall"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -2446,7 +2441,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"></p>
 <p></p><p></p>
 </figure>
 </div>
@@ -4521,7 +4516,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Violin and a skull still life"></p>
 <p></p><p></p>
 </figure>
 </div>

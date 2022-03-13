@@ -6,7 +6,7 @@ image: "thumbnail.jpg"
 description: My advice to aspiring data scientists and analysts entering these programs.
 ---
 
-![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg)
+![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg){fig-alt="Violin and a skull still life"}
 
 The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analytics program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.
 

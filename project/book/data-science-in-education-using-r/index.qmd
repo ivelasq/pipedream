@@ -4,4 +4,4 @@ description: Data Science in Education Using R is the go-to reference for learni
 image: "thumbnail.jpg"
 ---
 
-![Cover of Data Science in Education Using R](thumbnail.jpg)
+![](thumbnail.jpg){fig-alt="Cover of Data Science in Education Using R with colored pencils of various heights arranged so that they look like a graph"}

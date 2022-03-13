@@ -7,7 +7,7 @@ description: Recommendations for when you want to submit a package to CRAN.
 image: "thumbnail.png"
 ---
 
-![J. Howard Miller, We Can Do It!](thumbnail-wide.jpg)
+![J. Howard Miller, We Can Do It!](thumbnail-wide.jpg){fig-alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"}
 
 As the @[WeAreRLadies](https://twitter.com/WeAreRLadies) curator, I [asked the Twitterverse](https://twitter.com/WeAreRLadies/status/1227937968117043200) for advice when submitting a package to the Comprehensive R Archive Network (CRAN) for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody's replies below. THANK YOU all for participating!
 

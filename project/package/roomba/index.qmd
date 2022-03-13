@@ -4,5 +4,5 @@ description: "An R package for tidying API responses."
 image: logo.png
 ---
 
-![](logo.png)
+![](logo.png){fig-alt="roomba hex with a cartoon roomba on a green background"}
 

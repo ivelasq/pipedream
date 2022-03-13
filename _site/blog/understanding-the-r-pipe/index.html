@@ -179,10 +179,10 @@
 <header id="title-block-header" class="quarto-title-block default">
 
 
-<div class="quarto-title"><h1 class="title display-7">Understanding the native R pipe |&gt;</h1><div class="quarto-description"><p>Or, why `mtcars |&gt; plot(hp, mpg)` doesn't work and what you can do about it.</p></div></div><div class="quarto-categories"><div class="quarto-category">program</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">January 17, 2022</p></div></div></div></header>
+<div class="quarto-title"><h1 class="title display-7">Understanding the native R pipe |&gt;</h1><div class="quarto-description"><p>Or, why `mtcars |&gt; plot(hp, mpg)` doesn't work and what you can do about it.</p></div></div><div class="quarto-categories"><div class="quarto-category">program</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">January 18, 2022</p></div></div></div></header>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night skys"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption><p></p>
 </figure>
 </div>
@@ -262,12 +262,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 <div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>hp, mtcars<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>OK! Now, we can apply what we’ve learned to the native R pipe. Right? …Right?</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="padme.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Meme of Anakin and Padme with Anakin saying he understands the magrittr pipe, Padme asking if that means he understands the native pipe, and Anakin’s smirk implying that nope</figcaption><p></p>
-</figure>
-</div>
+<img src="padme.jpg" class="img-fluid" alt="Meme of Anakin and Padme with Anakin saying he understands the magrittr pipe, Padme asking if that means he understands the native pipe, and Anakin’s smirk implying that nope">
 </center>
 </section>
 <section id="actually-i-think-we-need-a-detour-to-explain-anonymous-lambda-functions-before-we-can-explain-how-works" class="level2">

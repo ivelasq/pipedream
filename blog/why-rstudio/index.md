@@ -6,7 +6,7 @@ image: thumbnail.jpg
 description: I am now a Sr. Product Marketing Manager at RStudio!
 ---
 
-![Vincent van Gogh, The Olive Trees (1889)](thumbnail-wide.jpg)
+![Vincent van Gogh, The Olive Trees (1889)](thumbnail-wide.jpg){fig-alt="Olive trees against a blue background"}
 
 I am excited to announce that I've joined the RStudio Marketing team! I will be creating content on the [RStudio Blog](https://blog.rstudio.com/) that will announce news and share stories from the company, users, and partners. I just started this week and, ready to jump in, I decided that I’d like to deep dive into previous blog posts.
 

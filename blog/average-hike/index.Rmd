@@ -6,7 +6,7 @@ description: "I got my hands on a bunch of GPX files."
 image: thumbnail.jpg
 ---
 
-![Thomas Moran, Winter in the Rockies (1867)](thumbnail-wide.jpg)
+![Thomas Moran, Winter in the Rockies (1867)](thumbnail-wide.jpg){fig-alt="A horizon of snow-capped mountains"}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = FALSE)
@@ -184,7 +184,8 @@ ggplot() +
   theme(legend.position = "none")
 ```
 
-![Joyplot showing trail distance and height](joyplot.png)
+![](joyplot.png){fig-alt="Joyplot showing trail distance and height"}
+
 
 I calculated my 'average hike' - that is, the average elevation given the cumulative distance traveled.
 
@@ -208,7 +209,7 @@ ggplot() +
   theme(legend.position = "none")
 ```
 
-![line chart showing distance and elevation of individual hikes with a darker line highlighting the average elevation by distance](avg_hike.png)
+![](avg_hike.png){fig-alt="Line chart showing distance and elevation of individual hikes with a darker line highlighting the average elevation by distance"}
 
 ## Aggregated Data by Trail
   
@@ -229,7 +230,7 @@ ggplot() +
 ```
 
   
-![Scatterplot of total distance by total elevation](tot_dis_elev.png) 
+![](tot_dis_elev.png){fig-alt="Scatterplot of total distance by total elevation"}
 
 ## There exist "clusters" of hikes
 
@@ -252,7 +253,7 @@ fviz_cluster(k4, data = hiking_dat_by_trail)  +
   theme_minimal()
 ```
 
-![Cluster analysis of hikes by elevation and distance](cluster_analysis.png)
+![](cluster_analysis.png){fig-alt="Cluster analysis of hikes by elevation and distance showing four distinct clusters"}
 
 ## I don't particularly love long hikes
 
@@ -269,7 +270,7 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
-![Histogram of hike total distance](dist_histogram.png)
+![Histogram of hike total distance](dist_histogram.png){fig-alt="Histogram of hike total distance skewed right"}
 
 ```{r}
 hiking_dat_by_trail %>% 
@@ -283,7 +284,7 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
-![Cumulative bar plot of distance](cum_dist.png)
+![Cumulative bar plot of distance](cum_dist.png){fig-alt="Cumulative bar plot of distance increasing from the left to the right colored by a gradient"}
 
 ## I don't dislike high elevation hikes though
 
@@ -300,7 +301,7 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
-![Histogram of hike total elevation](elev_histogram.png)
+![](elev_histogram.png){fig-alt="Histogram of hike total elevation skewed right"}
 
 ```{r}
 hiking_dat_by_trail %>% 
@@ -314,7 +315,7 @@ hiking_dat_by_trail %>%
   theme(legend.position = "none")
 ```
 
-![Cumulative bar plot of elevation](cum_elev.png)
+![](cum_elev.png){fig-alt="Cumulative bar plot of elevation increasing from left to right and colored by a gradient"}
 
 <center>
 *Liked this article? I’d love for you to retweet!*

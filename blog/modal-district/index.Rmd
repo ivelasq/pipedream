@@ -6,7 +6,7 @@ description: "What's the most common type of district in the U.S.? Let's find ou
 image: thumbnail.jpg
 ---
 
-![Village by the River, fourth quarter 19th century](thumbnail-wide.jpg)
+![Village by the River, fourth quarter 19th century](thumbnail-wide.jpg){fig-alt="A town showing green and yellow houses and a white church and trees"}
 
 My good friend [Ryan Estrellado](https://twitter.com/RyanEs) recommended an [NPR Planet Money podcast episode](https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american) on the "Modal American." Working with Ben Casselman, Planet Money explored the most 'typical' American. It was a fantastic, engaging episode about a common statistical technique that I've never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it's pretty surprising!).
 

@@ -6,7 +6,7 @@ description: "The {leaidr} package helps us easily create maps of U.S. school di
 image: thumbnail.jpg
 ---
 
-![Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)](thumbnail-wide.jpg)
+![Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)](thumbnail-wide.jpg){fig-alt="Colorful flowers in a pot with a black background"}
 
 I would like to introduce [{leaidr}](https://github.com/ivelasq/leaidr), a package for mapping U.S. school district shapefiles!
 

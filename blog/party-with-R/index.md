@@ -6,7 +6,7 @@ description: Celebrating the R community. Originally posted on [RViews](https://
 image: thumbnail.jpg
 ---
 
-![Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)](thumbnail-wide.jpg)
+![Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)](thumbnail-wide.jpg){fig-alt="A dancer with a large skirt dancing at a dance hall"}
 
 > It is like a party all the time; nobody has to worry about giving one or being invited; it is going on every day in the street and you can go down or be part of it from your window. - Eleanor Clark
 

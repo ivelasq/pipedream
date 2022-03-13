@@ -6,7 +6,7 @@ description: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do 
 image: thumbnail.jpg
 ---
 
-![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg)
+![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg){fig-alt="Blue and yellow dots making up the night skys"}
 
 A while back, I wrote [this tweet](https://mobile.twitter.com/ivelasq3/status/1404947187155574787) showing many (not all!) of the ways one might search for a particular set of columns in a data frame using R. Several of these approaches used the {magrittr} pipe (`%>%`) and the native R pipe (`|>`), the latter of which has been available since R version 4.1.0. The {magrittr} and native R pipes work in different ways and one’s mental model of each requires some maintenance. This is the story of how I learned to understand the native R pipe.
 
@@ -134,7 +134,7 @@ plot(mtcars$hp, mtcars$mpg)
 OK! Now, we can apply what we’ve learned to the native R pipe. Right? …Right?
 
 <center>
-![Meme of Anakin and Padme with Anakin saying he understands the magrittr pipe, Padme asking if that means he understands the native pipe, and Anakin’s smirk implying that nope](padme.jpg)
+![](padme.jpg){fig-alt="Meme of Anakin and Padme with Anakin saying he understands the magrittr pipe, Padme asking if that means he understands the native pipe, and Anakin’s smirk implying that nope"}
 </center>
 
 ## ACTUALLY I THINK WE NEED A DETOUR TO EXPLAIN ANONYMOUS (LAMBDA) FUNCTIONS BEFORE WE CAN EXPLAIN HOW `|>` WORKS

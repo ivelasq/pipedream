@@ -6,12 +6,12 @@ description: I ran into a cool paper where the authors create a dataset from an 
 image: thumbnail.jpg
 ---
 
-![Henri Rousseau, Virgin Forest with Sunset (1910)](thumbnail-wide.jpg)
+![Henri Rousseau, Virgin Forest with Sunset (1910)](thumbnail-wide.jpg){fig-alt="Jungle with trees with a red sun"}
 
 Last week, a paper started making the Twitter rounds. [Selective attention in hypothesis-driven data analysis](https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf) by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.
 
 <center>
-![Cartoon gorilla and its recreation in ggplot2](main.png)
+![](main.png){fig-alt="Cartoon gorilla and its recreation in ggplot2"}
 </center>
 
 I will leave you to read the paper to find out the results but something that interested me was the dataset created from the image. The authors mentioned that they used a Python function called 'getpixel', manipulated the dataset into groups, and plotted it in {ggplot2}. I am learning the [{reticulate}](https://rstudio.github.io/reticulate/) package which allows R to interface with Python and thought this would be a fun exercise to try.
@@ -86,7 +86,8 @@ This results in a NumPy ndarray called `coords` that contains the coordinates of
 The [{reticulate} Cheat Sheet](https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf) was very helpful in figuring this out. The section "Python in R Markdown" shows that you can use the `py` object to access objects created in Python chunks from R chunks.
 
 <center>
-![Python in R Markdown cheat sheet](Screen Shot 2021-09-27 at 11.40.55 PM.png)
+![Python Cheatsheet](Screen Shot 2021-09-27 at 11.40.55 PM.png){fig-alt="Python in R Markdown cheat sheet"}
+</center>
 </center>
 
 Knowing that, we can create an R object from coords using `py`. Next, we follow the steps outlined in the paper for the data preparation.
@@ -130,7 +131,7 @@ coords %>%
 ````
 
 <center>
-![ggplot2 image of pixel cartoon gorilla](index.png)
+![](index.png){fig-alt="ggplot2 image of pixel cartoon gorilla"}
 </center>
 
 ````
@@ -148,7 +149,7 @@ coords %>%
 With that, we've seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!
 
 <center>
-![ggplot2 image of pixel cartoon gorilla disaggregated by gender](index2.png)
+![](index2.png){fig-alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender"}
 </center>
 
 <center>

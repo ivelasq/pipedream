@@ -4,5 +4,5 @@ description: "An R wrapper for WizeHive's Zengine API."
 image: logo.png
 ---
 
-![](logo.png)
+![Wizehiver Hex](logo.png){fig-alt="Wizehiver hex of a hive wearing a wizard hat on a blue blackground"}
 

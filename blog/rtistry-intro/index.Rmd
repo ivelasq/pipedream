@@ -6,14 +6,14 @@ image: thumbnail.jpg
 description: Generative art mixes randomness and order to create beautiful images. The \#rtistry package helps find work from other Rtists.
 ---
 
-![E. A. Séguy, Vintage flower patterns (1925)](thumbnail-wide.jpg)
+![E. A. Séguy, Vintage flower patterns (1925)](thumbnail-wide.jpg){fig-alt="Abstract pink flowerswith red centers on a background of an orange spiral with brown background"}
 
 Artists in the R community have been using the [`#rtistry`](https://twitter.com/hashtag/rtistry) hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.
 
 I am proud to showcase my first #rtistry plot ever! Kinda reminds me of [KidPix](https://www.reddit.com/r/nostalgia/comments/66s0hc/kid_pix/) (remember KidPix?!). I wanted to share how I did it and welcome any feedback or advice, as this is totally new and I'm not even sure if I am doing it right?
 
 <center>
-![Generative art showing a repeated parametric equation](rtistry2.png)
+![Final image](rtistry2.png){fig-alt="Generative art showing a repeated parametric equation"}
 </center>
 <br>
 As always, we start with the packages we will use:

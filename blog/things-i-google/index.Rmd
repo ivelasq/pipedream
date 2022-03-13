@@ -6,7 +6,7 @@ description: "My frequently-used reference for styling {ggplot2} charts."
 image: thumbnail.jpg
 ---
 
-![Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)](thumbnail-wide.jpg)
+![Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)](thumbnail-wide.jpg){fig-alt="Colorful dots making up a painting of a garden with two women"}
 
 ```{r, include = FALSE}
 library(showtext)

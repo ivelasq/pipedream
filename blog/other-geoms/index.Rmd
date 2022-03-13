@@ -6,7 +6,7 @@ title: "Exploring other ggplot2 geoms"
 image: thumbnail.jpg
 ---
 
-![Vincent Van Gogh, Flower Beds in Holland (1883)](thumbnail-wide.jpg)
+![Vincent Van Gogh, Flower Beds in Holland (1883)](thumbnail-wide.jpg){fig-alt="A person working in fields of colorful tulips with houses in the background"}
 
 R users are incredibly fortunate to work in an open-source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the [reference documents](https://ggplot2.tidyverse.org/reference/) for {ggplot2}. These include:
 
@@ -25,7 +25,7 @@ In addition, other amazing folks in the R Community have created geoms that can 
 * [Mosaic charts using ggmosaic::geom_mosaic](#mosaic-charts)
 
 <center>
-![Waffle plot, steamgraph, density graph, beeswarm, and mosaic plot](geoms.png)
+![](geoms.png){fig-alt="Waffle plot, steamgraph, density graph, beeswarm, and mosaic plot"}
 </center>
 
 ## Setup

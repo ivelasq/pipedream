@@ -6,7 +6,7 @@ date: "2020-08-30"
 image: thumbnail.jpg
 ---
 
-![Piet Mondrian, Tableau No. 2/Composition No. VII (1913)](thumbnail-wide.jpg)
+![Piet Mondrian, Tableau No. 2/Composition No. VII (1913)](thumbnail-wide.jpg){fig-alt="Abstract painting of black rectangles on a yellow background"}
 
 ## An update to leaidr
 
@@ -100,15 +100,15 @@ upload_tiles(input = "nw.mbtiles",
 
 This is the part that I had to figure out on the Mapbox website. [This](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/) walkthrough was helpful. Once you have uploaded the tiles using `upload_tiles()`, you should see them available under "Custom tileset" at the bottom of this webpage: https://studio.mapbox.com/tilesets/.
 
-![Screenshot of Mapbox website with Tilesets](1.png)
+![Mapbox Tilesets](1.png){fig-alt="Screenshot of Mapbox website with Tilesets"}
 
 Then, go to Styles on this webpage: https://studio.mapbox.com/. Click "New Style" and choose the template you want, then Customize. 
 
-![Screenshot of Mapbox choosing a template](2.png)
+![Mapbox Template](2.png){fig-alt="Screenshot of Mapbox choosing a template"}
 
 To add your tileset, go to Layers, click the Plus sign, then under "Source", find your uploaded tileset, or add the tileset by the ID given by `upload_tiles()`.
 
-![Screenshot of Mapbox layers and how to add them](3.png)
+![Mapbox Layers](3.png){fig-alt="Screenshot of Mapbox layers and how to add them"}
 
 I zoomed to where my tiles are located (Oregon and Washington) and started editing. [This section of the walkthrough](https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling) explains how to create a choropleth map, where each geography has a different color according to a value.
 
@@ -118,7 +118,7 @@ Once done styling, I clicked "Publish" on the top right of Mapbox Studio.
 
 To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked "Share" and scrolled to find the Style ID.
 
-![Screenshot of Mapbox sharing a map](4.png)
+![Mapbox Sharing](4.png){fig-alt="Screenshot of Mapbox sharing a map"}
 
 I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.
 

@@ -9,7 +9,7 @@ author:
   - "Gustavo E. Velásquez"
 ---
 
-![Edgar Degas, Dancers Practicing at the Barre (1877)](thumbnail-wide.jpg)
+![Edgar Degas, Dancers Practicing at the Barre (1877)](thumbnail-wide.jpg){fig-alt="Two ballerina dancers at the barre, one with her leg in the air"}
 
 -   [The Problem](#the-problem)
 -   [State of the Code Editors](#state-of-the-code-editors)

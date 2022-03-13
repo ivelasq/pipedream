@@ -6,7 +6,7 @@ description: "Most of the time, data doesn't come in tidy spreadsheets. With R, 
 image: thumbnail.jpg
 ---
 
-![Joseph Decker, Green Plums (1885)](thumbnail-wide.jpg)
+![Joseph Decker, Green Plums (1885)](thumbnail-wide.jpg){fig-alt="Several green plumbs on a brown table"}
 
 ```{r, include = FALSE}
 library(showtext)
