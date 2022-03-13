@@ -9,6 +9,7 @@ listing:
   sort: "date desc"
   categories: false
   fields: [image, title, date, description]
+title-block-banner: "banner.jpg"
 format: 
   html:
     page-layout: full
