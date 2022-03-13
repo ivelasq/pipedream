@@ -2,11 +2,11 @@ project:
   type: website
 
 website:
-  twitter-card: true
   title: "%>% dreams"
-  site-url: https://ivelasq.rbind.io
+  site-url: "https://ivelasq.rbind.io"
   description: "Isabella Velásquez Personal Website"
-  favicon: favicon.png
+  favicon: favicon.jpg
+  twitter-card: true
   opengraph: true
   navbar:
     background: dark
