@@ -2,8 +2,9 @@
 categories: ["import", "tidy", "visualize"]
 date: "2020-05-28"
 title: "What it takes to tidy Census data"
-image: thumbnail.jpg
 description: Census data is valuable, but can be stored in messy Excel spreadsheets.
+image: thumbnail.jpg
+image-alt: "Hendrick Avercamp, Ice-skating in a Village showing a town of people skating on a frozen lake"
 ---
 
 ![Hendrick Avercamp, Ice-skating in a Village (1610)](thumbnail-wide.jpg){fig-alt="A town of people skating on a frozen lake"}

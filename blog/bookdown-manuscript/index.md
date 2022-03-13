@@ -4,9 +4,10 @@ date: "2021-03-08"
 title: "Preparing a manuscript for publication using bookdown"
 description: Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.
 image: thumbnail.png
+image-alt: "Winslow Homer, Maine Coast, a painting of rough ocean waves crashing at a rock"
 ---
 
-![Winslow Homer, Maine Coast (1896)](thumbnail-wide.png){fig-alt="Rough ocean waves at a rock"}
+![Winslow Homer, Maine Coast (1896)](thumbnail-wide.png){fig-alt="Rough ocean waves crashing at a rock"}
 
 My co-authors [Ryan](https://twitter.com/RyanEs), [Emily](https://twitter.com/efreer20), [Jesse](https://twitter.com/kierisi), [Josh](https://twitter.com/jrosenberg6432), and [I](https://twitter.com/ivelasq3) published our book last year, but [Data Science in Education Using R](https://datascienceineducation.com/) is also available online as a  bookdown on a website, available to all.
 

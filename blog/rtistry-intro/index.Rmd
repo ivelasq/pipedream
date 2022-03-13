@@ -2,11 +2,12 @@
 tags: ["visualize"]
 date: "2021-05-09"
 title: "Getting started in #rtistry"
-image: thumbnail.jpg
 description: Generative art mixes randomness and order to create beautiful images. The \#rtistry package helps find work from other Rtists.
+image: thumbnail.jpg
+image-alt: "E. A. Séguy, Vintage flower patterns showing abstract pink flowers with red centers on a background of an orange spiral with brown background"
 ---
 
-![E. A. Séguy, Vintage flower patterns (1925)](thumbnail-wide.jpg){fig-alt="Abstract pink flowerswith red centers on a background of an orange spiral with brown background"}
+![E. A. Séguy, Vintage flower patterns (1925)](thumbnail-wide.jpg){fig-alt="Abstract pink flowers with red centers on a background of an orange spiral with brown background"}
 
 Artists in the R community have been using the [`#rtistry`](https://twitter.com/hashtag/rtistry) hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.
 

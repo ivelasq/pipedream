@@ -4,6 +4,7 @@ categories: ["visualize"]
 date: "2020-01-27"
 description: "My frequently-used reference for styling {ggplot2} charts."
 image: thumbnail.jpg
+image-alt: "Henri Edmond Cross, Two Women by the Shore, Mediterranean, a painting of colorful dots making up a painting of a garden with two women"
 ---
 
 ![Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)](thumbnail-wide.jpg){fig-alt="Colorful dots making up a painting of a garden with two women"}

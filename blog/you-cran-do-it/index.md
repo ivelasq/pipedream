@@ -5,6 +5,7 @@ date: "2020-02-25"
 categories: ["cran", "package-development"]
 description: Recommendations for when you want to submit a package to CRAN.
 image: "thumbnail.png"
+image-alt: "J. Howard Miller, We Can Do It, a painting of Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"
 ---
 
 ![J. Howard Miller, We Can Do It!](thumbnail-wide.jpg){fig-alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"}

@@ -4,9 +4,10 @@ date: 2022-01-18
 categories: [program]
 description: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 image: thumbnail.jpg
+image-alt: "Henri-Edmond Cross, Landscape with Stars, a painting of blue and yellow dots making up the night sky"
 ---
 
-![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg){fig-alt="Blue and yellow dots making up the night skys"}
+![Henri-Edmond Cross, Landscape with Stars, (1905–1908)](thumbnail-wide.jpg){fig-alt="Blue and yellow dots making up the night sky"}
 
 A while back, I wrote [this tweet](https://mobile.twitter.com/ivelasq3/status/1404947187155574787) showing many (not all!) of the ways one might search for a particular set of columns in a data frame using R. Several of these approaches used the {magrittr} pipe (`%>%`) and the native R pipe (`|>`), the latter of which has been available since R version 4.1.0. The {magrittr} and native R pipes work in different ways and one’s mental model of each requires some maintenance. This is the story of how I learned to understand the native R pipe.
 

@@ -4,9 +4,10 @@ date: "2018-12-16"
 categories: ["import", "tidy", "visualize"]
 description: "Most of the time, data doesn't come in tidy spreadsheets. With R, though, you can pull data from PDFs to use in analyses."
 image: thumbnail.jpg
+image-alt: "Joseph Decker, Green Plums showing several green plums on a brown table"
 ---
 
-![Joseph Decker, Green Plums (1885)](thumbnail-wide.jpg){fig-alt="Several green plumbs on a brown table"}
+![Joseph Decker, Green Plums (1885)](thumbnail-wide.jpg){fig-alt="Several green plums on a brown table"}
 
 ```{r, include = FALSE}
 library(showtext)

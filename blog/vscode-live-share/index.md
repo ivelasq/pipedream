@@ -4,6 +4,7 @@ date: '2021-02-03'
 categories: ["pair-program"]
 description: "Setting up a Google Docs-like coding environment in VS Code."
 image: thumbnail.jpg
+image-alt: "Edgar Degas, Dancers Practicing at the Barre, a painting of two ballerina dancers at the barre, one with her leg in the air"
 author:
   - "Isabella Velásquez"
   - "Gustavo E. Velásquez"

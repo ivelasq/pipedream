@@ -2,11 +2,12 @@
 title: "Why I’m excited to join RStudio, told through a blogdown metadata project"
 date: "2021-09-13"
 categories: ["scrape", "tidy"]
-image: thumbnail.jpg
 description: I am now a Sr. Product Marketing Manager at RStudio!
+image: thumbnail.jpg
+image-alt: "Vincent van Gogh, The Olive Trees showing olive trees against a blue background and a bright sun"
 ---
 
-![Vincent van Gogh, The Olive Trees (1889)](thumbnail-wide.jpg){fig-alt="Olive trees against a blue background"}
+![Vincent van Gogh, The Olive Trees (1889)](thumbnail-wide.jpg){fig-alt="Olive trees against a blue background  and a bright sun"}
 
 I am excited to announce that I've joined the RStudio Marketing team! I will be creating content on the [RStudio Blog](https://blog.rstudio.com/) that will announce news and share stories from the company, users, and partners. I just started this week and, ready to jump in, I decided that I’d like to deep dive into previous blog posts.
 

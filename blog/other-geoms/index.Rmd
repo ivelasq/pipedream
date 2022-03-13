@@ -4,6 +4,7 @@ date: "2021-03-28"
 description: "Let's explore some cool charts we can make in {ggplot2}."
 title: "Exploring other ggplot2 geoms"
 image: thumbnail.jpg
+image-alt: "Vincent Van Gogh, Flower Beds in Holland showing a person working in fields of colorful tulips with houses in the background"
 ---
 
 ![Vincent Van Gogh, Flower Beds in Holland (1883)](thumbnail-wide.jpg){fig-alt="A person working in fields of colorful tulips with houses in the background"}

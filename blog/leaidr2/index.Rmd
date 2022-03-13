@@ -4,6 +4,7 @@ categories: ["package", "map", "shiny"]
 description: Thanks to contributions from Daniel Anderson, {leaidr} is even easier to use.
 date: "2020-08-30"
 image: thumbnail.jpg
+image-alt: "Piet Mondrian, Tableau No. 2, an abstract painting of black rectangles on a yellow background"
 ---
 
 ![Piet Mondrian, Tableau No. 2/Composition No. VII (1913)](thumbnail-wide.jpg){fig-alt="Abstract painting of black rectangles on a yellow background"}

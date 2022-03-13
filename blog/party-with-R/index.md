@@ -4,9 +4,10 @@ date: 2020-07-13
 categories: ["community"]
 description: Celebrating the R community. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
 image: thumbnail.jpg
+image-alt: "Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric showing a dancer with a large skirt dancing at a dance hall with a crowd behind her"
 ---
 
-![Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)](thumbnail-wide.jpg){fig-alt="A dancer with a large skirt dancing at a dance hall"}
+![Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)](thumbnail-wide.jpg){fig-alt="A dancer with a large skirt dancing at a dance hall with a crowd behind her"}
 
 > It is like a party all the time; nobody has to worry about giving one or being invited; it is going on every day in the street and you can go down or be part of it from your window. - Eleanor Clark
 

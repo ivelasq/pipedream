@@ -4,6 +4,7 @@ date: 2021-07-27
 categories: ["scrape"]
 description: Wikipedia has a lot of wonderful data stored in tables. Here's how to pull them into R.
 image: thumbnail.jpg
+image-alt: "Pauline Powell Williams, Violets showing bunches of purple violets with a white background"
 ---
 
 ![Pauline Powell Williams, Violets (1890)](thumbnail-wide.jpg){fig-alt="Bunches of purple violets with a white background"}

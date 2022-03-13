@@ -4,6 +4,7 @@ date: "2018-09-21"
 categories: ["import", "tidy", "visualize"]
 description: "Exploring why disaggregation of data is important by looking at district demographics."
 image: "thumbnail.jpg"
+image-alt: "Samuel Colman, The Rock of Salvation showing a sunset with dark clouds at a beach"
 ---
 
 ![Samuel Colman, The Rock of Salvation (1837)](thumbnail-wide.jpg){fig-alt="A sunset with dark clouds at a beach"}

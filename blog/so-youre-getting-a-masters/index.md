@@ -2,14 +2,15 @@
 title: So you're getting a Masters in Analytics
 date: "2018-08-04"
 categories: [general]
-image: "thumbnail.jpg"
 description: My advice to aspiring data scientists and analysts entering these programs.
+image: "thumbnail.jpg"
+image-alt: "Pieter Claesz, Vanitas Still Life with the Spinario showing a still life with a book, statue, violin, skull, and other items arranged in a room"
 aliases:
   - creating-a-new-theme
   - creating-a-new-theme.html
 ---
 
-![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg){fig-alt="Violin and a skull still life"}
+![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg){fig-alt="A still life with a book, statue, violin, skull, and other items arranged in a room"}
 
 The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analytics program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.
 
