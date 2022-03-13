@@ -1,5 +1,6 @@
 ---
 title: Git Through April
+title-block-banner: "banner.jpg"
 categories: [github, rstudio]
 date: "2021-04-23"
 description: A walkthrough on using Git in the RStudio GUI.

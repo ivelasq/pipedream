@@ -1,5 +1,7 @@
 ---
 title: "Building a Blog With R"
+title-block-banner: "banner.png"
+title-block-banner-color: "black"
 categories: [walkthroughs, packages]
 date: "2022-01-25"
 description: A blog is a wonderful opportunity to record your data stories, gain exposure for your expertise, and support others in their R journey. In this talk, I discuss possible reasons for creating a blog and explore tools that make it easy to showcase your R skills.
