@@ -13,6 +13,69 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 
   <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -120,7 +183,7 @@
 
 
 <div class="quarto-title"><h1 class="title display-7">Preparing a manuscript for publication using bookdown</h1><div class="quarto-description"><p>Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.</p></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">March 8, 2021</p></div></div></div></header>
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
 <p></p><figcaption aria-hidden="true" class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption><p></p>
@@ -148,14 +211,14 @@
 <section id="index.rmd" class="level4">
 <h4 class="anchored" data-anchor-id="index.rmd">index.Rmd</h4>
 <p>In your project folder, start with an <code>index.Rmd</code> file with title, author, site, and output in the YAML header of the file (the YAML header is the top part of the R Markdown file, see <a href="https://github.com/data-edu/data-science-in-education/blob/master/index.Rmd">here</a> between the <code>---</code>).</p>
-<pre><code>---
-title: "Test Book"
-author: "Me"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
----</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Test Book"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Me"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> bookdown::bookdown_site</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> bookdown::gitbook</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Below the YAML header, you can use regular R Markdown syntax. Start it off with a first-level header. If you do not want it to be numbered, write <code>{-}</code> beside the header.</p>
-<pre><code># Welcome {-}</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Welcome {-}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will be the <em>first page</em> of your rendered book.</p>
 </section>
 <section id="other-r-markdown-files" class="level4">
@@ -168,22 +231,22 @@ output: bookdown::gitbook
 <h4 class="anchored" data-anchor-id="bookdown.yml">_bookdown.yml</h4>
 <p>Hey, did you notice there’s an underscore in the file name? I didn’t and spent an hour trying to figure out why the book wouldn’t render. So another tip, underscores are important :)</p>
 <p>The <code>_bookdown.yml file</code> does not need much. Critical is the <code>book_filename</code> - we used <code>main.Rmd</code>. Here, you also specify the rendering method you would like (mentioned above), and also whether you want to delete the merged file (we recommend yes).</p>
-<pre><code>book_filename: "bookdown-demo"
-delete_merged_file: true
-new_session: yes</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">"bookdown-demo"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">new_session</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Besides this, you can add labels to figures and chapters, add scripts to run before each R Markdown file, change the order of your chapters manually (remember, by default it will be index.Rmd then by alphabetical order), and a lot more - but all of that is optional.</p>
 </section>
 <section id="output.yml" class="level4">
 <h4 class="anchored" data-anchor-id="output.yml">_output.yml</h4>
 <p>Oh heyy, another underscore!</p>
 <p>This file will output your file according to what is specified. It’s also how figure height/width is specified, allows you to specify the TOC, etc. But really, if you want a bookdown all it needs is to know what you want your output to be.</p>
-<pre><code>bookdown::gitbook</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="at">bookdown::gitbook</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="rendering-the-book" class="level3">
 <h3 class="anchored" data-anchor-id="rendering-the-book">Rendering the book</h3>
 <p>OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:</p>
-<pre><code>bookdown::serve_book()</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">serve_book</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>So now you have a bookdown! And you eagerly look at your accomplishment and it is great. But how do we find out what else we can do with {bookdown}?</p>
 </section>
 </section>
@@ -205,10 +268,10 @@ new_session: yes</code></pre>
 <p>Do not fret, reader. I also do not know CSS. But thankfully, the <strong>Google Developer Tool</strong> exists.</p>
 <p>By right-clicking any part of a web page (including an existing bookdown) in Chrome, you can then click “Inspect Element” to see its HTML file and the hierarchy of the thing you just right-clicked on. Then, by clicking the arrow on the top left of your Inspector pane, you can click on anything to see its HTML file.</p>
 <p>This, and a combination of snooping on GitHub, allowed us to find ways to customize our bookdown. <a href="https://github.com/data-edu/data-science-in-education/blob/master/css/style.css">Here</a> is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text <code>#ffbc49</code>.</p>
-<pre><code>.book .book-summary ul.summary li a:hover {
-  background-color: #ffffff;
-  color: #ffbc49;
-}</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.book</span> <span class="fu">.book-summary</span> ul<span class="fu">.summary</span> li a<span class="in">:hover</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span>: <span class="cn">#ffffff</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">#ffbc49</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This process takes a lot of trial and error, I will admit. It may be easier to pick up a bit of CSS if you have specific ideas in mind. However, if you need a quick edit of some pages, seeing how others have done it and exploring with the Developer Tools is very handy.</p>
 </section>
 </section>

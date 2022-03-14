@@ -39,7 +39,7 @@ You may notice that a lot of tutorials have you start using {bookdown} with a [d
 
 In your project folder, start with an `index.Rmd` file with title, author, site, and output in the YAML header of the file (the YAML header is the top part of the R Markdown file, see [here](https://github.com/data-edu/data-science-in-education/blob/master/index.Rmd) between the `---`).
 
-```
+```{.yml}
 ---
 title: "Test Book"
 author: "Me"
@@ -50,7 +50,7 @@ output: bookdown::gitbook
 
 Below the YAML header, you can use regular R Markdown syntax. Start it off with a first-level header. If you do not want it to be numbered, write `{-}` beside the header.
 
-```
+```{.r}
 # Welcome {-}
 ```
 
@@ -71,7 +71,7 @@ Hey, did you notice there's an underscore in the file name? I didn't and spent a
 
 The `_bookdown.yml file` does not need much. Critical is the `book_filename` - we used `main.Rmd`. Here, you also specify the rendering method you would like (mentioned above), and also whether you want to delete the merged file (we recommend yes).
 
-```
+```{.yml}
 book_filename: "bookdown-demo"
 delete_merged_file: true
 new_session: yes
@@ -85,7 +85,7 @@ Oh heyy, another underscore!
 
 This file will output your file according to what is specified. It's also how figure height/width is specified, allows you to specify the TOC, etc. But really, if you want a bookdown all it needs is to know what you want your output to be.
 
-```
+```{.yml}
 bookdown::gitbook
 ```
 
@@ -93,7 +93,7 @@ bookdown::gitbook
 
 OKAY! So you have your files and the bare minimum of what you need to create a bookdown. To see it, go ahead and run:
 
-```
+```{.r}
 bookdown::serve_book()
 ```
 
@@ -125,7 +125,7 @@ By right-clicking any part of a web page (including an existing bookdown) in Chr
 
 This, and a combination of snooping on GitHub, allowed us to find ways to customize our bookdown. [Here](https://github.com/data-edu/data-science-in-education/blob/master/css/style.css) is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text `#ffbc49`.
 
-```
+```{.css}
 .book .book-summary ul.summary li a:hover {
   background-color: #ffffff;
   color: #ffbc49;

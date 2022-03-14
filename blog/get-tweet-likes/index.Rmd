@@ -15,7 +15,7 @@ The other day, I was scrolling through my "liked" Tweets and got maybe 100 deep 
 
 For this tutorial, I set up a project with the following structure. I walk through how to create `like.js` and `like_csv.csv` in the walkthrough.
 
-```
+```{.md}
 +-- code.R
 +-- data
 |   +-- like.js
