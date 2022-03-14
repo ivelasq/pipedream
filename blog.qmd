@@ -6,7 +6,7 @@ listing:
   filter-ui: false
   sort: "date desc"
   type: default
-  categories: true
+  categories: unnumbered
 format: 
   html:
     page-layout: full

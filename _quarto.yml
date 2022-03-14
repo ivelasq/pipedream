@@ -7,7 +7,6 @@ website:
   title: "%>% dreams"
   site-url: "https://ivelasq.rbind.io"
   description: "Isabella Velásquez Personal Website"
-  margin-header: plausible.html
   favicon: favicon.jpg
   twitter-card: true
   opengraph: true
