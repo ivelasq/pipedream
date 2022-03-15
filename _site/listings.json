@@ -47,5 +47,30 @@
       "/blog/why-disaggregate-data/index.html",
       "/blog/so-youre-getting-a-masters/index.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/understanding-the-r-pipe/index.html",
+      "/blog/reticulate-data-recreation/index.html",
+      "/blog/why-rstudio/index.html",
+      "/blog/politely-scraping/index.html",
+      "/blog/rtistry-intro/index.html",
+      "/blog/other-geoms/index.html",
+      "/blog/bookdown-manuscript/index.html",
+      "/blog/vscode-live-share/index.html",
+      "/blog/get-tweet-likes/index.html",
+      "/blog/leaidr2/index.html",
+      "/blog/party-with-R/index.html",
+      "/blog/tidying-census-data/index.html",
+      "/blog/leaidr-shapefiles/index.html",
+      "/blog/you-cran-do-it/index.html",
+      "/blog/things-i-google/index.html",
+      "/blog/modal-district/index.html",
+      "/blog/average-hike/index.html",
+      "/blog/snap-expenditures/index.html",
+      "/blog/why-disaggregate-data/index.html",
+      "/blog/so-youre-getting-a-masters/index.html"
+    ]
   }
 ]

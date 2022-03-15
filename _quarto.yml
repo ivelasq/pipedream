@@ -15,7 +15,8 @@ website:
     background: dark
     pinned: true
     right:
-      - blog.qmd
+      - text: "About"
+        file: about.qmd
       - talk.qmd
       - project.qmd
       - icon: twitter

@@ -1,18 +1,14 @@
 ---
-title: "%>% dreams"
-subtitle: "Isabella Velásquez"
-image: profile.png
-about:
-  template: jolla
-  image-shape: rectangle
-  links:
-    - icon: twitter
-      href: https://twitter.com/ivelasq3
-    - icon: linkedin
-      href: https://linkedin.com/in/ivelasq
-    - icon: github
-      href: https://github.com/ivelasq
+title: "Blog"
+listing:
+  contents: blog
+  sort-ui: false
+  filter-ui: false
+  sort: "date desc"
+  type: default
+  categories: unnumbered
+  feed: true
+format: 
+  html:
+    page-layout: full
 ---
-
-I work at [RStudio](https://www.rstudio.com/). |
-[Resume](/resume.html) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
