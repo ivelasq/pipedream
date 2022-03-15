@@ -2,7 +2,7 @@
 title: "You CRAN do it"
 author: "Isabella Velásquez"
 date: "2020-02-25"
-categories: ["cran", "package-development"]
+categories: ["community", "programming"]
 description: Recommendations for when you want to submit a package to CRAN.
 image: "thumbnail.png"
 image-alt: "J. Howard Miller, We Can Do It, a painting of Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"

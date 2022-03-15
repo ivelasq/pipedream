@@ -1,6 +1,6 @@
 ---
 title: "An even easier-to-use R package for school district shapefiles"
-categories: ["package", "map", "shiny"]
+categories: ["package", "analysis"]
 description: Thanks to contributions from Daniel Anderson, {leaidr} is even easier to use.
 date: "2020-08-30"
 image: thumbnail.jpg

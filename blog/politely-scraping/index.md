@@ -1,7 +1,7 @@
 ---
 title: "Politely scraping Wikipedia tables"
 date: 2021-07-27
-categories: ["scrape"]
+categories: ["analysis", "learn"]
 description: Wikipedia has a lot of wonderful data stored in tables. Here's how to pull them into R.
 image: thumbnail.jpg
 image-alt: "Pauline Powell Williams, Violets showing bunches of purple violets with a white background"

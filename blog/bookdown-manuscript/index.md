@@ -1,5 +1,5 @@
 ---
-tags: ["bookdown"]
+categories: ["learn"]
 date: "2021-03-08"
 title: "Preparing a manuscript for publication using bookdown"
 description: Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.

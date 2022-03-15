@@ -1,5 +1,5 @@
 ---
-tags: ["visualize"]
+tags: ["learn"]
 date: "2021-05-09"
 title: "Getting started in #rtistry"
 description: Generative art mixes randomness and order to create beautiful images. The \#rtistry package helps find work from other Rtists.
