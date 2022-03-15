@@ -2,7 +2,6 @@ project:
   type: website
   resources:
     - "_redirects.txt"
-    - "plausible.html"
 
 website:
   title: "%>% dreams"
@@ -11,7 +10,6 @@ website:
   favicon: favicon.jpg
   twitter-card: true
   opengraph: true
-  body-header: plausible.html
   navbar:
     background: dark
     pinned: true
@@ -38,3 +36,4 @@ website:
 format:
   html:
     theme: [litera, styles.scss]
+    include-in-header: plausible.html

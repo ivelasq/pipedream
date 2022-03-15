@@ -16,7 +16,7 @@
   <link>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night sky"></p>
 <p></p><p></p>
@@ -235,7 +235,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
   <link>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with green trees and a red sun"></p>
 <p></p><p></p>
@@ -371,7 +371,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
   <link>https://ivelasq.rbind.io/blog/why-rstudio/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Olive trees against a blue background  and a bright sun"></p>
 <p></p><p></p>
@@ -472,7 +472,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
   <link>https://ivelasq.rbind.io/blog/politely-scraping/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
 <p></p><p></p>
@@ -551,7 +551,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
   <link>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract pink flowerswith red centers on a background of an orange spiral with brown background"></p>
 <p></p><p></p>
@@ -903,7 +903,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
   <link>https://ivelasq.rbind.io/blog/other-geoms/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A person working in fields of colorful tulips with houses in the background"></p>
 <p></p><p></p>
@@ -1142,7 +1142,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
   <link>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
 <p></p><p></p>
@@ -1306,7 +1306,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
   <link>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Two ballerina dancers at the barre, one with her leg in the air"></p>
 <p></p><p></p>
@@ -1630,7 +1630,7 @@ Note
   <link>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract blue and white birds repeating on against a white and blue background"></p>
 <p></p><p></p>
@@ -1738,7 +1738,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
   <link>https://ivelasq.rbind.io/blog/leaidr2/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
 <p></p><p></p>
@@ -1944,7 +1944,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <link>https://ivelasq.rbind.io/blog/party-with-R/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A dancer with a large skirt dancing at a dance hall with a crowd behind her"></p>
 <p></p><p></p>
@@ -1992,7 +1992,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
   <link>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
 <p></p><p></p>
@@ -2266,7 +2266,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
   <link>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
 <p></p><p></p>
@@ -2416,7 +2416,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
   <link>https://ivelasq.rbind.io/blog/you-cran-do-it/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"></p>
 <p></p><p></p>
@@ -2524,7 +2524,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
   <link>https://ivelasq.rbind.io/blog/things-i-google/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful dots making up a painting of a garden with two women"></p>
 <p></p><p></p>
@@ -2728,7 +2728,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
   <link>https://ivelasq.rbind.io/blog/modal-district/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town showing green and yellow houses and a white church and trees"></p>
 <p></p><p></p>
@@ -3603,7 +3603,7 @@ Curious what this would look like if you weighted by student population – in e
   <link>https://ivelasq.rbind.io/blog/average-hike/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A horizon of snow-capped mountains"></p>
 <p></p><p></p>
@@ -3926,7 +3926,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
   <link>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plumbs on a brown table"></p>
 <p></p><p></p>
@@ -4174,7 +4174,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
   <link>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A sunset with dark clouds at a beach"></p>
 <p></p><p></p>
@@ -4467,7 +4467,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
   <link>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</link>
   <description><![CDATA[ 
 
-<p>plausible.html</p><div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A still life with a book, statue, violin, skull, and other items arranged in a room"></p>
 <p></p><p></p>
