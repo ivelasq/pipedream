@@ -34,6 +34,8 @@ website:
     right:
       - href: https://www.quarto.org
         text: Built with Quarto
+    center:
+      - href: plausible.html
 format:
   html:
     theme: [litera, styles.scss]
