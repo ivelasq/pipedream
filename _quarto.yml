@@ -15,6 +15,7 @@ website:
     background: dark
     pinned: true
     right:
+      - plausible.html
       - text: "About"
         file: about.qmd
       - talk.qmd
@@ -34,8 +35,6 @@ website:
     right:
       - href: https://www.quarto.org
         text: Built with Quarto
-    center:
-      - href: plausible.html
 format:
   html:
     theme: [litera, styles.scss]
