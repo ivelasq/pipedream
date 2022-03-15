@@ -11,11 +11,11 @@ website:
   favicon: favicon.jpg
   twitter-card: true
   opengraph: true
+  body-header: plausible.html
   navbar:
     background: dark
     pinned: true
     right:
-      - plausible.html
       - text: "About"
         file: about.qmd
       - talk.qmd
