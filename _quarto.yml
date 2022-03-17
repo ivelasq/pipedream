@@ -16,6 +16,7 @@ website:
     right:
       - text: "About"
         file: about.qmd
+      - file: index.qmd
       - talk.qmd
       - project.qmd
       - icon: twitter
