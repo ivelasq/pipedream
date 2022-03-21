@@ -1,7 +1,7 @@
 ---
 title: "Why I’m excited to join RStudio, told through a blogdown metadata project"
 date: "2021-09-13"
-categories: ["analysis"]
+categories: ["tutorial"]
 description: I am now a Sr. Product Marketing Manager at RStudio!
 image: thumbnail.jpg
 image-alt: "Vincent van Gogh, The Olive Trees showing olive trees against a blue background and a bright sun"

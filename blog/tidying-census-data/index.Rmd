@@ -1,7 +1,7 @@
 ---
-categories: ["analysis"]
-date: "2020-05-28"
 title: "What it takes to tidy Census data"
+date: "2020-05-28"
+categories: ["tutorial"]
 description: Census data is valuable, but can be stored in messy Excel spreadsheets.
 image: thumbnail.jpg
 image-alt: "Hendrick Avercamp, Ice-skating in a Village showing a town of people skating on a frozen lake"

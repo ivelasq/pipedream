@@ -1,7 +1,7 @@
 ---
-categories: ["learn"]
-date: "2021-03-08"
 title: "Preparing a manuscript for publication using bookdown"
+date: "2021-03-08"
+categories: ["how-to"]
 description: Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.
 image: thumbnail.png
 image-alt: "Winslow Homer, Maine Coast, a painting of rough ocean waves crashing at a rock"

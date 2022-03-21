@@ -1,6 +1,6 @@
 ---
 title: "Six things I always Google when using ggplot2"
-categories: ["learn"]
+categories: ["reference"]
 date: "2020-01-27"
 description: "My frequently-used reference for styling {ggplot2} charts."
 image: thumbnail.jpg

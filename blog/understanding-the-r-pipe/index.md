@@ -1,7 +1,7 @@
 ---
 title: "Understanding the native R pipe |>"
 date: 2022-01-18
-categories: ["learn"]
+categories: ["explanation"]
 description: Or, why `mtcars |> plot(hp, mpg)` doesn't work and what you can do about it.
 image: thumbnail.jpg
 image-alt: "Henri-Edmond Cross, Landscape with Stars, a painting of blue and yellow dots making up the night sky"

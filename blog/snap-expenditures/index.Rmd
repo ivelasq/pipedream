@@ -1,7 +1,7 @@
 ---
 title: "Transforming PDFs into useful tables"
 date: "2018-12-16"
-categories: ["analysis"]
+categories: ["tutorial"]
 description: "Most of the time, data doesn't come in tidy spreadsheets. With R, though, you can pull data from PDFs to use in analyses."
 image: thumbnail.jpg
 image-alt: "Joseph Decker, Green Plums showing several green plums on a brown table"

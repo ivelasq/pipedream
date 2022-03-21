@@ -1,7 +1,7 @@
 ---
 title: "Disaggregating school district data"
 date: "2018-09-21"
-categories: ["analysis"]
+categories: ["tutorial"]
 description: "Exploring why disaggregation of data is important by looking at district demographics."
 image: "thumbnail.jpg"
 image-alt: "Samuel Colman, The Rock of Salvation showing a sunset with dark clouds at a beach"

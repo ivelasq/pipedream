@@ -1,6 +1,6 @@
 ---
 title: "Finding the modal school district"
-categories: ["analysis"]
+categories: ["tutorial"]
 date: "2019-09-11"
 description: "What's the most common type of district in the U.S.? Let's find out using R."
 image: thumbnail.jpg

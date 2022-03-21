@@ -1,7 +1,7 @@
 ---
-tags: ["learn"]
-date: "2020-11-10"
 title: "Browse and search liked Tweets using R"
+date: "2020-11-10"
+categories: ["tutorial"]
 description: "Tired of trying to search all your liked Tweets on your timeline? Pull them into R instead!"
 image: thumbnail.jpg
 image-alt: "From the Rijksmuseum, pigeons in white and blue."

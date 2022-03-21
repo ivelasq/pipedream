@@ -1,7 +1,7 @@
 ---
 title: "Remote pair programming in R using Visual Studio Code and Live Share"
 date: '2021-02-03'
-categories: ["programming"]
+categories: ["how-to"]
 description: "Setting up a Google Docs-like coding environment in VS Code."
 image: thumbnail.jpg
 image-alt: "Edgar Degas, Dancers Practicing at the Barre, a painting of two ballerina dancers at the barre, one with her leg in the air"

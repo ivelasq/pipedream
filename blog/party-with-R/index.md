@@ -1,7 +1,7 @@
 ---
 title: "Party with R: How the community enabled us to write a book"
 date: 2020-07-13
-categories: ["community"]
+categories: ["explanation"]
 description: Celebrating the R community. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
 image: thumbnail.jpg
 image-alt: "Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric showing a dancer with a large skirt dancing at a dance hall with a crowd behind her"

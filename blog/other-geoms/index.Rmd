@@ -1,5 +1,5 @@
 ---
-categories: ["learn"]
+categories: ["reference"]
 date: "2021-03-28"
 description: "Let's explore some cool charts we can make in {ggplot2}."
 title: "Exploring other ggplot2 geoms"
