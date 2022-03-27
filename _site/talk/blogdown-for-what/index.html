@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
   <meta charset="utf-8">
-  <meta name="generator" content="quarto-99.9.9">
+  <meta name="generator" content="quarto-0.9.141">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="dcterms.date" content="2018-07-23">
   <meta name="description" content="A walkthrough on creating a website using the {blogdown} package.">
@@ -16,6 +16,7 @@
   </style>
 
   <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
   <script src="../../site_libs/clipboard/clipboard.min.js"></script>
   <meta name="quarto:offset" content="../../">
   <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -27,7 +28,7 @@
   <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
   <script src="../../site_libs/quarto-html/anchor.min.js"></script>
   <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
   <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
   <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -66,34 +67,23 @@
     background-color: black;
   
 }</style></head>
-<body class="fullcontent">
+<body class="docked fullcontent">
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">%&gt;% dreams</span>
+    <span class="navbar-title">Isabella Velásquez</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="dropdown-header">
+ pipe dreams</li>
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../index.html">Blog</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../til.html">TIL</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../talk.html">Talks</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../project.html">Projects</a>
-  </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
 </i> 
@@ -119,10 +109,59 @@
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Blogdown for What</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">About</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Blog</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../til.html" class="sidebar-item-text sidebar-link">TIL</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../talk.html" class="sidebar-item-text sidebar-link">Talks</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project.html" class="sidebar-item-text sidebar-link">Projects</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+    </ul>
+    </div>
+</nav>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -130,7 +169,7 @@
 <header id="title-block-header" class="quarto-title-block default page-columns page-full" data-sidebar-align="true">
 
 
-<div class="quarto-title-banner color-body-bg page-columns page-full"><div class="quarto-title column-body"><h1 class="title display-7">Blogdown for What</h1><div class="quarto-description"><p>A walkthrough on creating a website using the {blogdown} package.</p></div></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">July 23, 2018</p></div></div></div></header>
+<div class="quarto-title-banner color-body-bg page-columns page-full"><div class="quarto-title column-body"><h1 class="title d-none d-lg-block display-7">Blogdown for What</h1><div class="quarto-description"><p>A walkthrough on creating a website using the {blogdown} package.</p></div></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">July 23, 2018</p></div></div></div></header>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -155,8 +194,10 @@
 </tr>
 </tbody>
 </table>
+<center>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
 </iframe>
+</center>
 <p>Hello everybody. My name is Isabella Velasquez. I am very excited to talk to you today about the package blogdown. I’ve decided to call this presentation: BLOGDOWN FOR WHAT?</p>
 <p>A little about me: I’m Isabella. I’m a data analyst at the Bill &amp; Melinda Gates Foundation along with R-Ladies Seattle organizer, Chaya. I started learning R in 2015 when attending graduate school at the University of Chicago. We were pretty much thrust into the R world and had to sink or swim, which is how I approach this talk. I try to be as straightforward as possible in my work and hopefully that is reflected in this presentation. This is meant to be a simple introduction on blogdown, why you should use it, and how to get set up.</p>
 <p>Let’s start at the beginning. Why even have a website at all? It’s something that I think about a lot because sharing my thoughts and work is not something that comes naturally to me. Although I am not a prolific Twitter user or blogger, I do have accounts and try to keep up with the R world as best I can. Like I mentioned, I started learning R in graduate school. It’s been three years and I have vague recollections of my R journey. But with a website, I would have been able to clearly see how my analysis of data has evolved and improved. I could see how I moved from the data cleaning steps, summary statistics, visualization of different projects instead of just speculating when I go through all my various files. I also have all my projects in multiple places right now – on my laptop, on my work laptop, on my GitHub. If I wanted to find what I’ve done and share it with others, it would be quite a lift. A website can be the holder of all that information. And finally, there is nothing more valuable than sharing what you’ve done with others to get feedback. You get to see any gaps you missed, new ideas you may not have thought of, or how to continue your work and do more interesting, fun things. The R community is so vibrant and collaborative that you get to explore that with many many people around the world.</p>
@@ -173,6 +214,7 @@
 <p>In terms of troubleshooting, I ran into an issue where my website wasn’t loading the way that it did in the R Studio preview window. I ran a quick Google search saying just that and saw that there was already a thread about it. I read through it, followed the instructions, and was able to fix it.</p>
 <p>I mention that because there are so many resources for blogdown even in the few months it has been out. Beyond the official guide, Mara Averick works hard to compile resources and tutorials. StackOverflow has a blogdown tag. And many things are just a search away.</p>
 <p>Thanks all for listening. I hope this presentation showed you why you should have a site, in particular a blogdown one, and how to create one. Hopefully I’ve also shown you that there’s a lot of help out there and they continue to make blogdown more user friendly all the time. And finally <a href="https://ivelasq.rbind.io/">here</a> is my blogdown site…with all the neat Hugo functionalities!</p>
+
 
 
 </main> <!-- /main -->

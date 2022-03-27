@@ -14,7 +14,9 @@ image: thumbnail.png
 | Location | Seattle, WA                                                                             |
 | Event    | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/252412318/) |
 
+<center>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</center>
 
 Hello everybody. My name is Isabella Velasquez. I am very excited to talk to you today about the package blogdown. I’ve decided to call this presentation:
 BLOGDOWN FOR WHAT?

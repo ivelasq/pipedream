@@ -1,15 +1,14 @@
 ---
-title: Filter on conditions for more than one variable at the time
+title: "Filter on conditions for more than one variable at the time"
 date: "2022-03-21"
 image: thumbnail.png
-categories: dplyr
 ---
 
 ```{r, include=FALSE, message=FALSE}
 library(dplyr)
 ```
 
-TIL I learned that you can filter on conditions for more than one variable at a time using `if_any` or `if_all`.
+TIL I learned that you can filter on conditions for more than one variable at a time using `if_any()` or `if_all()`.
 
 <center>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just to add to the confusion (😅) I think you still do use it for mutate but not for filter?<br><br>⚠️ Using `across()` in `filter()` is deprecated, use `if_any()` or `if_all()`.</p>&mdash; Lucy D’Agostino McGowan (@LucyStats) <a href="https://twitter.com/LucyStats/status/1506026504618221579?ref_src=twsrc%5Etfw">March 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 

@@ -16,4 +16,6 @@ image: "thumbnail.png"
 | Repository | [**GitHub**](https://github.com/ivelasq/using-r-and-other-tools)                                                                                                                                                                                                                                                                                                            |
 | Recording  | [**YouTube**](https://youtu.be/vyA2EiIz4pI)                                                                                                                                                                                                                                                                                                                                 |
 
+<center>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRBl0BnhCqKTAmYeqzXZLsj7en_auyyxBc8ooWCdcZ9dIVxvFNSOqFsjf5h4-bvmt3HPF2NTw8R-4IO/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</center>

@@ -3,6 +3,7 @@ title: "%>% dreams"
 subtitle: "Isabella Velásquez"
 image: profile.png
 feed: true
+sidebar: false
 about:
   template: jolla
   image-shape: rectangle
