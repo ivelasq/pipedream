@@ -17,6 +17,7 @@ website:
       - text: "About"
         file: about.qmd
       - file: index.qmd
+      - file: til.qmd
       - talk.qmd
       - project.qmd
       - icon: twitter

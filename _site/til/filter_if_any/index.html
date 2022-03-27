@@ -3,9 +3,8 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-99.9.9">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <meta name="dcterms.date" content="2021-07-27">
-  <meta name="description" content="Wikipedia has a lot of wonderful data stored in tables. Here’s how to pull them into R.">
-  <title>%&gt;% dreams - Politely scraping Wikipedia tables</title>
+  <meta name="dcterms.date" content="2022-03-21">
+  <title>%&gt;% dreams - Filter on conditions for more than one variable at the time</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -117,10 +116,10 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-<meta name="twitter:title" content="%>% dreams - Politely scraping Wikipedia tables">
-<meta name="twitter:description" content="Wikipedia has a lot of wonderful data stored in tables. Here's how to pull them into R.">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg">
-<meta name="twitter:image:alt" content="Pauline Powell Williams, Violets showing bunches of purple violets with a white background">
+<meta name="twitter:title" content="%>% dreams - Filter on conditions for more than one variable at the time">
+<meta name="twitter:image" content="https://ivelasq.rbind.io/til/filter_if_any/thumbnail.png">
+<meta name="twitter:image-height" content="520">
+<meta name="twitter:image-width" content="1076">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="fullcontent">
@@ -187,74 +186,77 @@
 <header id="title-block-header" class="quarto-title-block default">
 
 
-<div class="quarto-title"><h1 class="title display-7">Politely scraping Wikipedia tables</h1><div class="quarto-description"><p>Wikipedia has a lot of wonderful data stored in tables. Here's how to pull them into R.</p></div></div><div class="quarto-categories"><div class="quarto-category">tutorial</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">July 27, 2021</p></div></div></div></header>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Pauline Powell Williams, Violets (1890)</figcaption><p></p>
-</figure>
-</div>
-<p><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself <a href="https://en.wikipedia.org/wiki/Web_scraping">scraping</a> Wikipedia’s tables for information and then cleaning and using the data for whatever I am working on.</p>
-<p>However, scraping a website can create issues if not done properly. Though not required, I like to use the <a href="https://github.com/dmi3kno/polite">{polite} package</a> to introduce myself to the website and ask for permission to scrape.</p>
-<p>Recently, I submitted the <a href="https://en.wikipedia.org/wiki/List_of_national_independence_days#List">Wikipedia table on independence days around the world</a> to <a href="https://github.com/rfordatascience/tidytuesday">TidyTuesday</a> - resulting in many beautiful and creative visualizations from the R Community! This post walks through how to “politely” scrape the table and pull it into a flat data frame so that it’s ready for use.</p>
-<section id="load-packages" class="level2">
-<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
-<p>There are several packages needed for this walkthrough:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To clean data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># To scrape data</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(polite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="scrape-table" class="level2">
-<h2 class="anchored" data-anchor-id="scrape-table">Scrape table</h2>
-<p>First, we save the web page with the table that we would like as <code>url</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://en.wikipedia.org/wiki/List_of_national_independence_days"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next, we use <code>polite::bow()</code> to introduce ourselves to the host, Wikipedia. This reads the rules from <code>robots.txt</code> and makes sure we follow them. The object (<code>url_bow</code> in this case) is saved as an object of class <code>polite</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url_bow <span class="ot">&lt;-</span> polite<span class="sc">::</span><span class="fu">bow</span>(url)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>url_bow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Next, we actually ‘scrape’ (pull the content of) the web page using <code>polite::scrape()</code>. This needs an object of class <code>polite</code> (created with <code>bow()</code> from before).</p>
-<p>Since we politely scraped the entire web page, we want to use {rvest} to specify what exact content we’d like to pull out. We can do this using <code>html_nodes()</code>.</p>
-<p>How do we know which node we want? There are probably other ways of doing this. As a Firefox and Mac user, I click Cmd + Shift + C which opens up the Developer Tools so that I can select a specific element from the web page. I hover over the table to determine what the HTML is called, in this case, <code>table.wikitable</code>.</p>
+<div class="quarto-title"><h1 class="title display-7">Filter on conditions for more than one variable at the time</h1></div><div class="quarto-categories"><div class="quarto-category">dplyr</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">March 21, 2022</p></div></div></div></header>
+<p>TIL I learned that you can filter on conditions for more than one variable at a time using <code>if_any</code> or <code>if_all</code>.</p>
 <center>
-<img src="webpage.png" class="img-fluid" alt="Screenshot of Google's Inspector tool on Wikipedia">
-</center>
-<p>This object is saved as an HTML table which is great, but a data frame would be preferable for analysis. So the final step is to use <code>rvest::html_table()</code> to read this table as something with which we can use tidyverse tools. The parameter <code>fill = TRUE</code> allows you to fill empty rows with <code>NA</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ind_html <span class="ot">&lt;-</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  polite<span class="sc">::</span><span class="fu">scrape</span>(url_bow) <span class="sc">%&gt;%</span>  <span class="co"># scrape web page</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_nodes</span>(<span class="st">"table.wikitable"</span>) <span class="sc">%&gt;%</span> <span class="co"># pull out specific table</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  rvest<span class="sc">::</span><span class="fu">html_table</span>(<span class="at">fill =</span> <span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="flatten-table" class="level2">
-<h2 class="anchored" data-anchor-id="flatten-table">Flatten table</h2>
-<p>You will notice that <code>ind_html</code> is saved as a single object (a list) in which each element is a data frame. If we want to convert it to a flat data frame, we can specify that we want the content from only the first element <code>[[1]]</code>. We can then use <code>janitor::clean_names()</code> for nice, standardized column names.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ind_tab <span class="ot">&lt;-</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ind_html[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>That’s it! Now we’ve “politely” scraped the Wikipedia table into an analysis-ready data frame.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Additional steps to clean the file can be found in my <a href="https://github.com/ivelasq/data-visualization-portfolio/blob/main/independence-days/independence_days.R">GitHub repo</a>. After doing so, I submitted to #TidyTuesday by submitting an <a href="https://github.com/rfordatascience/tidytuesday/issues">issue</a> on their page. Then they approved and shared the dataset!</p>
-<p>This was a very quick walkthrough. I recommend Ryo Nakagawara’s <a href="https://ryo-n7.github.io/2020-05-14-webscrape-soccer-data-with-R/">blog post on politely scraping websites</a>, especially if you would like (1) more in-depth explanations of what {polite} does and (2) more complex scraping examples.</p>
-<p>Which Wikipedia table will you analyze next?</p>
-<center>
-<em>Liked this post? I’d love for you to retweet!</em>
 <blockquote class="twitter-tweet blockquote">
 <p lang="en" dir="ltr">
-📢 A short blog post on how to "politely" scrape a Wikipedia table using <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>. Which page will you scrape next?!<a href="https://t.co/cTIy8UIFKm">https://t.co/cTIy8UIFKm</a>
+Just to add to the confusion (😅) I think you still do use it for mutate but not for filter?<br><br>⚠️ Using <code>across()</code> in <code>filter()</code> is deprecated, use <code>if_any()</code> or <code>if_all()</code>.
 </p>
-— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1420022159947096065?ref_src=twsrc%5Etfw">July 27, 2021</a>
+— Lucy D’Agostino McGowan (<span class="citation" data-cites="LucyStats">@LucyStats</span>) <a href="https://twitter.com/LucyStats/status/1506026504618221579?ref_src=twsrc%5Etfw">March 21, 2022</a>
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+<p>Turns out that <code>across()</code> is only for selecting functions (like <code>summarize()</code> and <code>mutate()</code>).</p>
+<p>You use <code>if_any()</code> vs.&nbsp;<code>if_all()</code> depending if you need to match some vs.&nbsp;all columns.</p>
+<p><code>if_any()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">contains</span>(<span class="st">"m"</span>), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 19 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    21     6   258   110     3     3    19     1     0     3     1
+ 2    18     8   360   175     3     3    17     0     0     3     2
+ 3    18     6   225   105     2     3    20     1     0     3     1
+ 4    14     8   360   245     3     3    15     0     0     3     4
+ 5    24     4   146    62     3     3    20     1     0     4     2
+ 6    22     4   140    95     3     3    22     1     0     4     2
+ 7    19     6   167   123     3     3    18     1     0     4     4
+ 8    17     6   167   123     3     3    18     1     0     4     4
+ 9    16     8   275   180     3     4    17     0     0     3     3
+10    17     8   275   180     3     3    17     0     0     3     3
+11    15     8   275   180     3     3    18     0     0     3     3
+12    10     8   472   205     2     5    17     0     0     3     4
+13    10     8   460   215     3     5    17     0     0     3     4
+14    14     8   440   230     3     5    17     0     0     3     4
+15    21     4   120    97     3     2    20     1     0     3     1
+16    15     8   318   150     2     3    16     0     0     3     2
+17    15     8   304   150     3     3    17     0     0     3     2
+18    13     8   350   245     3     3    15     0     0     3     4
+19    19     8   400   175     3     3    17     0     0     3     2</code></pre>
+</div>
+</div>
+<p><code>if_all()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 25 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    21     6   160   110     3     2    16     0     1     4     4
+ 2    21     6   160   110     3     2    17     0     1     4     4
+ 3    21     6   258   110     3     3    19     1     0     3     1
+ 4    18     8   360   175     3     3    17     0     0     3     2
+ 5    18     6   225   105     2     3    20     1     0     3     1
+ 6    14     8   360   245     3     3    15     0     0     3     4
+ 7    24     4   146    62     3     3    20     1     0     4     2
+ 8    22     4   140    95     3     3    22     1     0     4     2
+ 9    19     6   167   123     3     3    18     1     0     4     4
+10    17     6   167   123     3     3    18     1     0     4     4
+# … with 15 more rows</code></pre>
+</div>
+</div>
+<p>Any tidyselect usage is kosher inside <code>if_*()</code> just like inside <code>across()</code>, so they work very similarly.</p>
+<p><strong>Thanks to Gustavo E. for his explanation.</strong></p>
 
 
-</section>
 </main> <!-- /main -->
 <script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
