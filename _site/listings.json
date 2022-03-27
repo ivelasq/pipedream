@@ -47,5 +47,11 @@
       "/project/package/wizehiver/index.html",
       "/project/book/data-science-in-education-using-r/index.html"
     ]
+  },
+  {
+    "listing": "/til.html",
+    "items": [
+      "/til/filter_if_any/index.html"
+    ]
   }
 ]

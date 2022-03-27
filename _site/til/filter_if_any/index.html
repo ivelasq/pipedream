@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-99.9.9">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2022-03-21">
+  <title>%&gt;% dreams - Filter on conditions for more than one variable at the time</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../favicon.jpg" rel="icon" type="image/jpeg">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Filter on conditions for more than one variable at the time">
+<meta name="twitter:image" content="https://ivelasq.rbind.io/til/filter_if_any/thumbnail.png">
+<meta name="twitter:image-height" content="520">
+<meta name="twitter:image-width" content="1076">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">%&gt;% dreams</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../til.html">TIL</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talk.html">Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html">Projects</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">Filter on conditions for more than one variable at the time</h1></div><div class="quarto-categories"><div class="quarto-category">dplyr</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">March 21, 2022</p></div></div></div></header>
+<p>TIL I learned that you can filter on conditions for more than one variable at a time using <code>if_any</code> or <code>if_all</code>.</p>
+<center>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+Just to add to the confusion (😅) I think you still do use it for mutate but not for filter?<br><br>⚠️ Using <code>across()</code> in <code>filter()</code> is deprecated, use <code>if_any()</code> or <code>if_all()</code>.
+</p>
+— Lucy D’Agostino McGowan (<span class="citation" data-cites="LucyStats">@LucyStats</span>) <a href="https://twitter.com/LucyStats/status/1506026504618221579?ref_src=twsrc%5Etfw">March 21, 2022</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+<p>Turns out that <code>across()</code> is only for selecting functions (like <code>summarize()</code> and <code>mutate()</code>).</p>
+<p>You use <code>if_any()</code> vs.&nbsp;<code>if_all()</code> depending if you need to match some vs.&nbsp;all columns.</p>
+<p><code>if_any()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">contains</span>(<span class="st">"m"</span>), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 19 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    21     6   258   110     3     3    19     1     0     3     1
+ 2    18     8   360   175     3     3    17     0     0     3     2
+ 3    18     6   225   105     2     3    20     1     0     3     1
+ 4    14     8   360   245     3     3    15     0     0     3     4
+ 5    24     4   146    62     3     3    20     1     0     4     2
+ 6    22     4   140    95     3     3    22     1     0     4     2
+ 7    19     6   167   123     3     3    18     1     0     4     4
+ 8    17     6   167   123     3     3    18     1     0     4     4
+ 9    16     8   275   180     3     4    17     0     0     3     3
+10    17     8   275   180     3     3    17     0     0     3     3
+11    15     8   275   180     3     3    18     0     0     3     3
+12    10     8   472   205     2     5    17     0     0     3     4
+13    10     8   460   215     3     5    17     0     0     3     4
+14    14     8   440   230     3     5    17     0     0     3     4
+15    21     4   120    97     3     2    20     1     0     3     1
+16    15     8   318   150     2     3    16     0     0     3     2
+17    15     8   304   150     3     3    17     0     0     3     2
+18    13     8   350   245     3     3    15     0     0     3     4
+19    19     8   400   175     3     3    17     0     0     3     2</code></pre>
+</div>
+</div>
+<p><code>if_all()</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">everything</span>(), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 25 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1    21     6   160   110     3     2    16     0     1     4     4
+ 2    21     6   160   110     3     2    17     0     1     4     4
+ 3    21     6   258   110     3     3    19     1     0     3     1
+ 4    18     8   360   175     3     3    17     0     0     3     2
+ 5    18     6   225   105     2     3    20     1     0     3     1
+ 6    14     8   360   245     3     3    15     0     0     3     4
+ 7    24     4   146    62     3     3    20     1     0     4     2
+ 8    22     4   140    95     3     3    22     1     0     4     2
+ 9    19     6   167   123     3     3    18     1     0     4     4
+10    17     6   167   123     3     3    18     1     0     4     4
+# … with 15 more rows</code></pre>
+</div>
+</div>
+<p>Any tidyselect usage is kosher inside <code>if_*()</code> just like inside <code>across()</code>, so they work very similarly.</p>
+<p><strong>Thanks to Gustavo E. for his explanation.</strong></p>
+
+
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">Built with Quarto</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>
