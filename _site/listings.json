@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/til.html",
+    "items": [
+      "/til/filter_if_any/index.html"
+    ]
+  },
+  {
     "listing": "/talk.html",
     "items": [
       "/talk/building-a-blog-with-r/index.html",
@@ -46,12 +52,6 @@
       "/project/package/roomba/index.html",
       "/project/package/wizehiver/index.html",
       "/project/book/data-science-in-education-using-r/index.html"
-    ]
-  },
-  {
-    "listing": "/til.html",
-    "items": [
-      "/til/filter_if_any/index.html"
     ]
   }
 ]
