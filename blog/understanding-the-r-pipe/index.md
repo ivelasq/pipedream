@@ -55,7 +55,7 @@ Without any dot syntax (`.`), the {magrittr} pipe `%>%` is an [infix operator](h
 From the {magrittr} documentation, the pipe’s usage is thus: `LHS %>% RHS`. It might be easier to think of a ‘pipe’ as one of the famous ‘warp pipes’ from Super Mario Bros. — it warps Mario from the LHS into the first argument of the RHS function!
 
 <center>
-![GIF of Mario game where Mario is bouncing in and out of two pipes](mario.gif)
+![](mario.gif){fig-alt="GIF of Mario game where Mario is bouncing in and out of two pipes"}
 </center>
 
 So:
@@ -231,7 +231,7 @@ mtcars |> (\(data) plot(data$hp, data$mpg))()
 That’s it! 🎉 It can be done, but the initial attempt to be lazy ended up taking much more time than originally expected. As the saying goes, ‘a pipe in time saves nine.’
 
 <center>
-![GIF of Mario running across pipes avoiding piranha plants](mario2.gif)
+![](mario2.gif){fig-alt="GIF of Mario running across pipes avoiding piranha plants"}
 </center>
 
 ## The true lazy way

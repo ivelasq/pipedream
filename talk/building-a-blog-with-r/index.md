@@ -14,6 +14,6 @@ image: "thumbnail.png"
 | Location               | Remote                                                                                                                                                                                                                                                               |
 | Event                  | [**RStudio Enterprise Community Meetup**](https://www.meetup.com/RStudio-Enterprise-Community-Meetup/events/283184041/)                                                                                                                                                                  |
 | Repository             | [**GitHub**](https://github.com/ivelasq/2022-01-25_building-a-blog-with-r)                                                                                                                                                                                           |
-| Recording              | [**YouTube**](https://www.youtube.com/watch?v=MrW5XFf7aps)                                                                                                                                                                                                           |
-
+| Recording              | [**YouTube**](https://www.youtube.com/watch?v=MrW5XFf7aps)                                                                                            <center>
 <iframe src="https://colorado.rstudio.com/rsc/building-a-blog-with-r/Building%20a%20Blog%20With%20R.html#/section" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500" width="900" allowfullscreen></iframe>
+</center>

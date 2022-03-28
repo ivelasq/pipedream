@@ -9,7 +9,7 @@
 <link>https://ivelasq.rbind.io/index.html</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-99.9.9</generator>
+<generator>quarto-0.9.141</generator>
 <lastBuildDate>Tue, 18 Jan 2022 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Understanding the native R pipe |></title>
@@ -56,12 +56,7 @@ Before I learned case_when() 👀 <a href="https://t.co/khJpueqob2">pic.twitter.
 </center>
 <p>From the {magrittr} documentation, the pipe’s usage is thus: <code>LHS %&gt;% RHS</code>. It might be easier to think of a ‘pipe’ as one of the famous ‘warp pipes’ from Super Mario Bros.&nbsp;— it warps Mario from the LHS into the first argument of the RHS function!</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario.gif" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario.gif" class="img-fluid" alt="GIF of Mario game where Mario is bouncing in and out of two pipes">
 </center>
 <p>So:</p>
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">mtcars2 <span class="ot" style="color: #00769E;">&lt;-</span></span>
@@ -164,12 +159,7 @@ An important note
 <span id="cb21-11">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> (\(data) <span class="fu" style="color: #4758AB;">plot</span>(data<span class="sc" style="color: #5E5E5E;">$</span>hp, data<span class="sc" style="color: #5E5E5E;">$</span>mpg))()</span></code></pre></div>
 <p>That’s it! 🎉 It can be done, but the initial attempt to be lazy ended up taking much more time than originally expected. As the saying goes, ‘a pipe in time saves nine.’</p>
 <center>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario2.gif" class="img-fluid figure-img"></p>
-<p></p><p></p>
-</figure>
-</div>
+<img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario2.gif" class="img-fluid" alt="GIF of Mario running across pipes avoiding piranha plants">
 </center>
 </section>
 <section id="the-true-lazy-way" class="level2">
@@ -213,6 +203,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <section id="acknowledgements" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
 <p>The author thanks Gustavo E. for his comments on the first draft of this blog post.</p>
+
 
 
 </section>
@@ -359,6 +350,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 </center>
 
 
+
 </section>
  ]]></description>
   <category>tutorial</category>
@@ -459,6 +451,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 </center>
 
 
+
 </section>
 </section>
  ]]></description>
@@ -536,6 +529,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
@@ -890,6 +884,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 </center>
 
 
+
 </section>
 </section>
  ]]></description>
@@ -1130,6 +1125,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 </center>
 
 
+
 </section>
  ]]></description>
   <category>reference</category>
@@ -1290,6 +1286,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
@@ -1618,6 +1615,7 @@ Note
 </center>
 
 
+
 </section>
  ]]></description>
   <category>how-to</category>
@@ -1724,6 +1722,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
@@ -1932,6 +1931,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
 </center>
 
 
+
 </section>
  ]]></description>
   <category>tutorial</category>
@@ -1980,6 +1980,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
  ]]></description>
@@ -2255,6 +2256,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 </center>
 
 
+
 </section>
  ]]></description>
   <category>tutorial</category>
@@ -2404,6 +2406,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
 </center>
 
 
+
 </section>
  ]]></description>
   <category>reference</category>
@@ -2510,6 +2513,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
@@ -2714,6 +2718,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
@@ -3590,6 +3595,7 @@ Curious what this would look like if you weighted by student population – in e
 </div>
 
 
+
 </section>
 </section>
  ]]></description>
@@ -3914,6 +3920,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
 </center>
 
 
+
 </section>
  ]]></description>
   <category>tutorial</category>
@@ -4161,6 +4168,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
  ]]></description>
@@ -4455,6 +4463,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
 </center>
 
 
+
 </section>
  ]]></description>
   <category>tutorial</category>
@@ -4552,6 +4561,7 @@ First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </center>
+
 
 
 </section>
