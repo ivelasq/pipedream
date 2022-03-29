@@ -1,11 +1,10 @@
 ---
-title: "TIL"
+title: "TIL (Today I Learned)"
 listing:
   contents: til
   type: table
   sort-ui: false
   filter-ui: false
-  image-height: 150px
   sort: "date desc"
   fields: [image, title, date]
 format: 

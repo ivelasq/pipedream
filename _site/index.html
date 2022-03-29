@@ -14,7 +14,6 @@
   </style>
 
   <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="site_libs/quarto-nav/headroom.min.js"></script>
   <script src="site_libs/clipboard/clipboard.min.js"></script>
   <meta name="quarto:offset" content="./">
   <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -61,9 +60,9 @@
       }
 
       const options = {
-        valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+        valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
         
-        searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+        searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
       };
 
       window['quarto-listings'] = window['quarto-listings'] || {};
@@ -82,7 +81,7 @@
 <meta name="twitter:image" content="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="docked">
+<body>
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -99,6 +98,31 @@
  pipe dreams</li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-navigation" role="button" data-bs-toggle="dropdown" aria-expanded="false">Navigation</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-navigation">    
+        <li>
+    <a class="dropdown-item" href="./about.html">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./til.html">
+ <span class="dropdown-text">TIL (Today I Learned)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./talk.html">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./project.html">
+ <span class="dropdown-text">Projects</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
 </i> 
@@ -115,7 +139,7 @@
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="./index.xml"><i class="bi bi-rss" role="img">
+    <a class="nav-link" href="./index.xmls"><i class="bi bi-rss" role="img">
 </i> 
  </a>
   </li>  
@@ -124,73 +148,26 @@
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Blog</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-      </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Blog</a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./til.html" class="sidebar-item-text sidebar-link">TIL</a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./talk.html" class="sidebar-item-text sidebar-link">Talks</a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./project.html" class="sidebar-item-text sidebar-link">Projects</a>
-  </div>
-</li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-    </ul>
-    </div>
-</nav>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="explanation">explanation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="how-to">how-to <span class="quarto-category-count">(3)</span></div><div class="category" data-category="reference">reference <span class="quarto-category-count">(5)</span></div><div class="category" data-category="tutorial">tutorial <span class="quarto-category-count">(11)</span></div></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title d-none d-lg-block display-7">Blog</h1></div></header>
+<div class="quarto-title"><h1 class="title display-7">Blog</h1></div></header>
 
 
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="explanation" data-listing-date-sort="1642485600000" data-listing-file-modified-sort="1648420060440" data-listing-reading-time-sort="9.185">
+<div class="quarto-post image-right" data-index="0" data-categories="explanation" data-listing-date-sort="1642485600000" data-listing-file-modified-sort="1648440831797" data-listing-reading-time-sort="9.185">
 <div class="thumbnail">
 <p><a href="./blog/understanding-the-r-pipe/index.html"> <img src="./blog/understanding-the-r-pipe/thumbnail.jpg" class="thumnail-image" alt="Henri-Edmond Cross, Landscape with Stars, a painting of blue and yellow dots making up the night sky"> </a></p>
 </div>
@@ -202,6 +179,13 @@ Understanding the native R pipe |&gt;
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('explanation'); return false;">
+explanation
+</div>
+</div>
+<a href="./blog/understanding-the-r-pipe/index.html">
 <div class="listing-description">
 <p>Or, why <code>mtcars |&gt; plot(hp, mpg)</code> doesn’t work and what you can do about it.</p>
 </div>
@@ -215,7 +199,7 @@ Jan 18, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="tutorial" data-listing-date-sort="1632805200000" data-listing-file-modified-sort="1647872340177" data-listing-reading-time-sort="4.45">
+<div class="quarto-post image-right" data-index="1" data-categories="tutorial" data-listing-date-sort="1632805200000" data-listing-file-modified-sort="1648433755008" data-listing-reading-time-sort="4.45">
 <div class="thumbnail">
 <p><a href="./blog/reticulate-data-recreation/index.html"> <img src="./blog/reticulate-data-recreation/thumbnail.jpg" class="thumnail-image" alt="Henri Rousseau, Virgin Forest with Sunset of a jungle with green trees and a red sun."> </a></p>
 </div>
@@ -227,6 +211,13 @@ Creating a dataset from an image using reticulate in R Markdown
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/reticulate-data-recreation/index.html">
 <div class="listing-description">
 <p>I ran into a cool paper where the authors create a dataset from an image with a Python package and then plot it with ggplot2. We can do that in a single R Markdown file thanks to the reticulate package.</p>
 </div>
@@ -240,7 +231,7 @@ Sep 28, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="tutorial" data-listing-date-sort="1631509200000" data-listing-file-modified-sort="1647872371294" data-listing-reading-time-sort="4.91">
+<div class="quarto-post image-right" data-index="2" data-categories="tutorial" data-listing-date-sort="1631509200000" data-listing-file-modified-sort="1648433755206" data-listing-reading-time-sort="4.91">
 <div class="thumbnail">
 <p><a href="./blog/why-rstudio/index.html"> <img src="./blog/why-rstudio/thumbnail.jpg" class="thumnail-image" alt="Vincent van Gogh, The Olive Trees showing olive trees against a blue background and a bright sun"> </a></p>
 </div>
@@ -252,6 +243,13 @@ Why I’m excited to join RStudio, told through a blogdown metadata project
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/why-rstudio/index.html">
 <div class="listing-description">
 <p>I am now a Sr.&nbsp;Product Marketing Manager at RStudio!</p>
 </div>
@@ -265,7 +263,7 @@ Sep 13, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="tutorial" data-listing-date-sort="1627362000000" data-listing-file-modified-sort="1647872506765" data-listing-reading-time-sort="2.955">
+<div class="quarto-post image-right" data-index="3" data-categories="tutorial" data-listing-date-sort="1627362000000" data-listing-file-modified-sort="1648433754980" data-listing-reading-time-sort="2.955">
 <div class="thumbnail">
 <p><a href="./blog/politely-scraping/index.html"> <img src="./blog/politely-scraping/thumbnail.jpg" class="thumnail-image" alt="Pauline Powell Williams, Violets showing bunches of purple violets with a white background"> </a></p>
 </div>
@@ -277,6 +275,13 @@ Politely scraping Wikipedia tables
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/politely-scraping/index.html">
 <div class="listing-description">
 <p>Wikipedia has a lot of wonderful data stored in tables. Here’s how to pull them into R.</p>
 </div>
@@ -290,7 +295,7 @@ Jul 27, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="tutorial" data-listing-date-sort="1620536400000" data-listing-file-modified-sort="1647872486178" data-listing-reading-time-sort="7.68">
+<div class="quarto-post image-right" data-index="4" data-categories="tutorial" data-listing-date-sort="1620536400000" data-listing-file-modified-sort="1648433755033" data-listing-reading-time-sort="7.68">
 <div class="thumbnail">
 <p><a href="./blog/rtistry-intro/index.html"> <img src="./blog/rtistry-intro/thumbnail.jpg" class="thumnail-image" alt="E. A. Séguy, Vintage flower patterns showing abstract pink flowers with red centers on a background of an orange spiral with brown background"> </a></p>
 </div>
@@ -302,6 +307,13 @@ Getting started in #rtistry
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/rtistry-intro/index.html">
 <div class="listing-description">
 <p>Generative art mixes randomness and order to create beautiful images. The #rtistry package helps find work from other Rtists.</p>
 </div>
@@ -315,7 +327,7 @@ May 9, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="reference" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1647872529071" data-listing-reading-time-sort="4.96">
+<div class="quarto-post image-right" data-index="5" data-categories="reference" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1648433754950" data-listing-reading-time-sort="4.96">
 <div class="thumbnail">
 <p><a href="./blog/other-geoms/index.html"> <img src="./blog/other-geoms/thumbnail.jpg" class="thumnail-image" alt="Vincent Van Gogh, Flower Beds in Holland showing a person working in fields of colorful tulips with houses in the background"> </a></p>
 </div>
@@ -327,6 +339,13 @@ Exploring other ggplot2 geoms
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('reference'); return false;">
+reference
+</div>
+</div>
+<a href="./blog/other-geoms/index.html">
 <div class="listing-description">
 <p>Let’s explore some cool charts we can make in {ggplot2}.</p>
 </div>
@@ -340,7 +359,7 @@ Mar 28, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="how-to" data-listing-date-sort="1615183200000" data-listing-file-modified-sort="1647872669633" data-listing-reading-time-sort="9.475">
+<div class="quarto-post image-right" data-index="6" data-categories="how-to" data-listing-date-sort="1615183200000" data-listing-file-modified-sort="1648433754540" data-listing-reading-time-sort="9.475">
 <div class="thumbnail">
 <p><a href="./blog/bookdown-manuscript/index.html"> <img src="./blog/bookdown-manuscript/thumbnail.png" class="thumnail-image" alt="Winslow Homer, Maine Coast, a painting of rough ocean waves crashing at a rock"> </a></p>
 </div>
@@ -352,6 +371,13 @@ Preparing a manuscript for publication using bookdown
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('how-to'); return false;">
+how-to
+</div>
+</div>
+<a href="./blog/bookdown-manuscript/index.html">
 <div class="listing-description">
 <p>Lessons learned when we used {bookdown} to prepare a manuscript to submit for publishing.</p>
 </div>
@@ -365,7 +391,7 @@ Mar 8, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="how-to" data-listing-date-sort="1612332000000" data-listing-file-modified-sort="1647872397202" data-listing-reading-time-sort="17.545">
+<div class="quarto-post image-right" data-index="7" data-categories="how-to" data-listing-date-sort="1612332000000" data-listing-file-modified-sort="1648433755179" data-listing-reading-time-sort="17.545">
 <div class="thumbnail">
 <p><a href="./blog/vscode-live-share/index.html"> <img src="./blog/vscode-live-share/thumbnail.jpg" class="thumnail-image" alt="Edgar Degas, Dancers Practicing at the Barre, a painting of two ballerina dancers at the barre, one with her leg in the air"> </a></p>
 </div>
@@ -377,6 +403,13 @@ Remote pair programming in R using Visual Studio Code and Live Share
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('how-to'); return false;">
+how-to
+</div>
+</div>
+<a href="./blog/vscode-live-share/index.html">
 <div class="listing-description">
 <p>Setting up a Google Docs-like coding environment in VS Code.</p>
 </div>
@@ -393,7 +426,7 @@ Isabella Velásquez, Gustavo E. Velásquez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="tutorial" data-listing-date-sort="1604988000000" data-listing-file-modified-sort="1647872620162" data-listing-reading-time-sort="4.15">
+<div class="quarto-post image-right" data-index="8" data-categories="tutorial" data-listing-date-sort="1604988000000" data-listing-file-modified-sort="1648433754572" data-listing-reading-time-sort="4.15">
 <div class="thumbnail">
 <p><a href="./blog/get-tweet-likes/index.html"> <img src="./blog/get-tweet-likes/thumbnail.jpg" class="thumnail-image" alt="From the Rijksmuseum, pigeons in white and blue."> </a></p>
 </div>
@@ -405,6 +438,13 @@ Browse and search liked Tweets using R
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/get-tweet-likes/index.html">
 <div class="listing-description">
 <p>Tired of trying to search all your liked Tweets on your timeline? Pull them into R instead!</p>
 </div>
@@ -418,7 +458,7 @@ Nov 10, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="tutorial,reference" data-listing-date-sort="1598763600000" data-listing-file-modified-sort="1647872559136" data-listing-reading-time-sort="5.485">
+<div class="quarto-post image-right" data-index="9" data-categories="tutorial,reference" data-listing-date-sort="1598763600000" data-listing-file-modified-sort="1648433754626" data-listing-reading-time-sort="5.485">
 <div class="thumbnail">
 <p><a href="./blog/leaidr2/index.html"> <img src="./blog/leaidr2/thumbnail.jpg" class="thumnail-image" alt="Piet Mondrian, Tableau No. 2, an abstract painting of black rectangles on a yellow background"> </a></p>
 </div>
@@ -430,6 +470,16 @@ An even easier-to-use R package for school district shapefiles
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('reference'); return false;">
+reference
+</div>
+</div>
+<a href="./blog/leaidr2/index.html">
 <div class="listing-description">
 <p>Thanks to contributions from Daniel Anderson, {leaidr} is even easier to use.</p>
 </div>
@@ -443,7 +493,7 @@ Aug 30, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="explanation" data-listing-date-sort="1594616400000" data-listing-file-modified-sort="1647872514265" data-listing-reading-time-sort="4.635">
+<div class="quarto-post image-right" data-index="10" data-categories="explanation" data-listing-date-sort="1594616400000" data-listing-file-modified-sort="1648433754961" data-listing-reading-time-sort="4.635">
 <div class="thumbnail">
 <p><a href="./blog/party-with-R/index.html"> <img src="./blog/party-with-R/thumbnail.jpg" class="thumnail-image" alt="Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric showing a dancer with a large skirt dancing at a dance hall with a crowd behind her"> </a></p>
 </div>
@@ -455,6 +505,13 @@ Party with R: How the community enabled us to write a book
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('explanation'); return false;">
+explanation
+</div>
+</div>
+<a href="./blog/party-with-R/index.html">
 <div class="listing-description">
 <p>Celebrating the R community. Originally posted on <span>RViews</span>.</p>
 </div>
@@ -468,7 +525,7 @@ Jul 13, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="tutorial" data-listing-date-sort="1590642000000" data-listing-file-modified-sort="1647872422429" data-listing-reading-time-sort="12.465">
+<div class="quarto-post image-right" data-index="11" data-categories="tutorial" data-listing-date-sort="1590642000000" data-listing-file-modified-sort="1648433755143" data-listing-reading-time-sort="12.465">
 <div class="thumbnail">
 <p><a href="./blog/tidying-census-data/index.html"> <img src="./blog/tidying-census-data/thumbnail.jpg" class="thumnail-image" alt="Hendrick Avercamp, Ice-skating in a Village showing a town of people skating on a frozen lake"> </a></p>
 </div>
@@ -480,6 +537,13 @@ What it takes to tidy Census data
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/tidying-census-data/index.html">
 <div class="listing-description">
 <p>Census data is valuable, but can be stored in messy Excel spreadsheets.</p>
 </div>
@@ -493,7 +557,7 @@ May 28, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="reference" data-listing-date-sort="1588482000000" data-listing-file-modified-sort="1647872599969" data-listing-reading-time-sort="5.155">
+<div class="quarto-post image-right" data-index="12" data-categories="reference" data-listing-date-sort="1588482000000" data-listing-file-modified-sort="1648433754588" data-listing-reading-time-sort="5.155">
 <div class="thumbnail">
 <p><a href="./blog/leaidr-shapefiles/index.html"> <img src="./blog/leaidr-shapefiles/thumbnail.jpg" class="thumnail-image" alt="Abraham Mignon, Still Life with Flowers and a Watch showing colorful flowers in a pot with a black background."> </a></p>
 </div>
@@ -505,6 +569,13 @@ Introducing an R package for school district shapefiles
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('reference'); return false;">
+reference
+</div>
+</div>
+<a href="./blog/leaidr-shapefiles/index.html">
 <div class="listing-description">
 <p>The {leaidr} package helps us easily create maps of U.S. school districts.</p>
 </div>
@@ -518,7 +589,7 @@ May 3, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="how-to" data-listing-date-sort="1582610400000" data-listing-file-modified-sort="1647872721327" data-listing-reading-time-sort="2.955">
+<div class="quarto-post image-right" data-index="13" data-categories="how-to" data-listing-date-sort="1582610400000" data-listing-file-modified-sort="1648433755225" data-listing-reading-time-sort="2.955">
 <div class="thumbnail">
 <p><a href="./blog/you-cran-do-it/index.html"> <img src="./blog/you-cran-do-it/thumbnail.png" class="thumnail-image" alt="J. Howard Miller, We Can Do It, a painting of Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"> </a></p>
 </div>
@@ -530,6 +601,13 @@ You CRAN do it
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('how-to'); return false;">
+how-to
+</div>
+</div>
+<a href="./blog/you-cran-do-it/index.html">
 <div class="listing-description">
 <p>Recommendations for when you want to submit a package to CRAN.</p>
 </div>
@@ -546,7 +624,7 @@ Isabella Velásquez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="reference" data-listing-date-sort="1580104800000" data-listing-file-modified-sort="1647872437328" data-listing-reading-time-sort="14">
+<div class="quarto-post image-right" data-index="14" data-categories="reference" data-listing-date-sort="1580104800000" data-listing-file-modified-sort="1648433755101" data-listing-reading-time-sort="14">
 <div class="thumbnail">
 <p><a href="./blog/things-i-google/index.html"> <img src="./blog/things-i-google/thumbnail.jpg" class="thumnail-image" alt="Henri Edmond Cross, Two Women by the Shore, Mediterranean, a painting of colorful dots making up a painting of a garden with two women"> </a></p>
 </div>
@@ -558,6 +636,13 @@ Six things I always Google when using ggplot2
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('reference'); return false;">
+reference
+</div>
+</div>
+<a href="./blog/things-i-google/index.html">
 <div class="listing-description">
 <p>My frequently-used reference for styling {ggplot2} charts.</p>
 </div>
@@ -571,7 +656,7 @@ Jan 27, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="tutorial" data-listing-date-sort="1568178000000" data-listing-file-modified-sort="1647872540262" data-listing-reading-time-sort="12.705">
+<div class="quarto-post image-right" data-index="15" data-categories="tutorial" data-listing-date-sort="1568178000000" data-listing-file-modified-sort="1648433754792" data-listing-reading-time-sort="12.705">
 <div class="thumbnail">
 <p><a href="./blog/modal-district/index.html"> <img src="./blog/modal-district/thumbnail.jpg" class="thumnail-image" alt="Village by the River, fourth quarter 19th century painting of a town showing green and yellow houses and a white church and trees"> </a></p>
 </div>
@@ -583,6 +668,13 @@ Finding the modal school district
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/modal-district/index.html">
 <div class="listing-description">
 <p>What’s the most common type of district in the U.S.? Let’s find out using R.</p>
 </div>
@@ -596,7 +688,7 @@ Sep 11, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="tutorial" data-listing-date-sort="1554526800000" data-listing-file-modified-sort="1647872676997" data-listing-reading-time-sort="11.535">
+<div class="quarto-post image-right" data-index="16" data-categories="tutorial" data-listing-date-sort="1554526800000" data-listing-file-modified-sort="1648433754359" data-listing-reading-time-sort="11.535">
 <div class="thumbnail">
 <p><a href="./blog/average-hike/index.html"> <img src="./blog/average-hike/thumbnail.jpg" class="thumnail-image" alt="Thomas Moran, Winter in the Rockies, painting of a horizon of snow-capped mountains"> </a></p>
 </div>
@@ -608,6 +700,13 @@ Taking a peek into my hiking data
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/average-hike/index.html">
 <div class="listing-description">
 <p>I got my hands on a bunch of GPX files.</p>
 </div>
@@ -621,7 +720,7 @@ Apr 6, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="tutorial" data-listing-date-sort="1544940000000" data-listing-file-modified-sort="1647872462003" data-listing-reading-time-sort="8.335">
+<div class="quarto-post image-right" data-index="17" data-categories="tutorial" data-listing-date-sort="1544940000000" data-listing-file-modified-sort="1648433755079" data-listing-reading-time-sort="8.335">
 <div class="thumbnail">
 <p><a href="./blog/snap-expenditures/index.html"> <img src="./blog/snap-expenditures/thumbnail.jpg" class="thumnail-image" alt="Joseph Decker, Green Plums showing several green plums on a brown table"> </a></p>
 </div>
@@ -633,6 +732,13 @@ Transforming PDFs into useful tables
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/snap-expenditures/index.html">
 <div class="listing-description">
 <p>Most of the time, data doesn’t come in tidy spreadsheets. With R, though, you can pull data from PDFs to use in analyses.</p>
 </div>
@@ -646,7 +752,7 @@ Dec 16, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="tutorial" data-listing-date-sort="1537506000000" data-listing-file-modified-sort="1647872380752" data-listing-reading-time-sort="12.95">
+<div class="quarto-post image-right" data-index="18" data-categories="tutorial" data-listing-date-sort="1537506000000" data-listing-file-modified-sort="1648433755188" data-listing-reading-time-sort="12.95">
 <div class="thumbnail">
 <p><a href="./blog/why-disaggregate-data/index.html"> <img src="./blog/why-disaggregate-data/thumbnail.jpg" class="thumnail-image" alt="Samuel Colman, The Rock of Salvation showing a sunset with dark clouds at a beach"> </a></p>
 </div>
@@ -658,6 +764,13 @@ Disaggregating school district data
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tutorial'); return false;">
+tutorial
+</div>
+</div>
+<a href="./blog/why-disaggregate-data/index.html">
 <div class="listing-description">
 <p>Exploring why disaggregation of data is important by looking at district demographics.</p>
 </div>
@@ -671,7 +784,7 @@ Sep 21, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="reference" data-listing-date-sort="1533358800000" data-listing-file-modified-sort="1647872449968" data-listing-reading-time-sort="8.88">
+<div class="quarto-post image-right" data-index="19" data-categories="reference" data-listing-date-sort="1533358800000" data-listing-file-modified-sort="1648433755099" data-listing-reading-time-sort="8.88">
 <div class="thumbnail">
 <p><a href="./blog/so-youre-getting-a-masters/index.html"> <img src="./blog/so-youre-getting-a-masters/thumbnail.jpg" class="thumnail-image" alt="Pieter Claesz, Vanitas Still Life with the Spinario showing a still life with a book, statue, violin, skull, and other items arranged in a room"> </a></p>
 </div>
@@ -683,6 +796,13 @@ So you’re getting a Masters in Analytics
 <div class="listing-subtitle">
 
 </div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('reference'); return false;">
+reference
+</div>
+</div>
+<a href="./blog/so-youre-getting-a-masters/index.html">
 <div class="listing-description">
 <p>My advice to aspiring data scientists and analysts entering these programs.</p>
 </div>

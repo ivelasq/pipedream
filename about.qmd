@@ -17,4 +17,6 @@ about:
 ---
 
 I work at [RStudio](https://www.rstudio.com/). |
-[Resume](/resume.html) | [R-Bloggers](https://www.r-bloggers.com/author/dreams/)
+[Resume](/resume.html)
+
+<sup>Syndicated on <a href="https://www.r-bloggers.com/author/dreams/" target="_blank">R-Bloggers</a> & <a href="https://rweekly.org/" target="_blank">R Weekly</a>.</sup>

@@ -14,10 +14,19 @@ website:
     title: "Isabella Velásquez"
     background: "#000000"
     foreground: "#FFFFFF"
-    pinned: false
+    pinned: true
     left:
       - text: "pipe dreams"
     right:
+      - text: "Navigation"
+        menu:
+          - text: "About"
+            file: about.qmd
+          - text: "Blog"
+            file: index.qmd
+          - file: til.qmd
+          - file: talk.qmd
+          - file: project.qmd
       - icon: twitter
         href: https://twitter.com/ivelasq3
       - icon: github
@@ -25,28 +34,7 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/ivelasq/
       - icon: rss
-        href: index.xml
-  sidebar:
-    alignment: right
-    title: "Menu"
-    style: "docked"
-    pinned: false
-    search: true
-    background: "#2B2423"
-    type: "dark"
-    contents:
-      - text: "About"
-        file: about.qmd
-      - section: "---"
-      - file: index.qmd    
-      - section: "---"
-      - text: "TIL"
-        file: til.qmd
-      - section: "---"
-      - talk.qmd
-      - section: "---"
-      - project.qmd
-      - section: "---"
+        href: index.xmls
   page-footer:
     left: 
       - href: license.qmd
