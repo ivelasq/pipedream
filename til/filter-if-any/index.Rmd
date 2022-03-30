@@ -14,7 +14,7 @@ TIL I learned that you can filter on conditions for more than one variable at a 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just to add to the confusion (😅) I think you still do use it for mutate but not for filter?<br><br>⚠️ Using `across()` in `filter()` is deprecated, use `if_any()` or `if_all()`.</p>&mdash; Lucy D’Agostino McGowan (@LucyStats) <a href="https://twitter.com/LucyStats/status/1506026504618221579?ref_src=twsrc%5Etfw">March 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>
 
-Turns out that `across()` is only for selecting functions (like `summarize()` and `mutate()`).
+Turns out that `across()` is only for selecting functions (like `summarize()` and `mutate()`). This was announced in [dplyr 1.0.4](https://www.tidyverse.org/blog/2021/02/dplyr-1-0-4-if-any/).
 
 You use `if_any()` vs. `if_all()` depending if you need to match some vs. all columns.
 
@@ -33,9 +33,9 @@ mtcars %>%
 mtcars %>%
   as_tibble() %>%
   mutate(across(everything(), as.integer)) %>%
-  filter(if_any(everything(), ~ . == 0))
+  filter(if_all(contains("am"), ~ . == 0))
 ```
 
-Any tidyselect usage is kosher inside `if_*()` just like inside `across()`, so they work very similarly.
+Any tidyselect usage is allowable inside `if_*()` just like inside `across()`, so they work very similarly.
 
-**Thanks to Gustavo E. for his explanation.**
+**Thanks to [@gvelasq](https://github.com/gvelasq) for his explanation.**
