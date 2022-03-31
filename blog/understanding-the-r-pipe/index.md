@@ -268,7 +268,7 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 
 ## Acknowledgements
 
-The author thanks Gustavo E. for his comments on the first draft of this blog post.
+The author thanks [@gvelasq](https://github.com/gvelasq) for his comments on the first draft of this blog post.
 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 

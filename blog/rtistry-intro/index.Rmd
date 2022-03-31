@@ -247,7 +247,7 @@ dat %>%
   dark_theme_void() +
   theme(legend.position = "none") # remove legend
 
-# ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8) + # this sames the image
+# ggsave(here::here("public", "img", "rtistry2.png"), dpi = 320, height = 6, width = 8) # this saves the image
 ```
 
 Tada! My first ever #rtistry plot.
