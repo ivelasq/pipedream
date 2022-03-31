@@ -176,7 +176,7 @@ An important note
 <div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">mtcars <span class="sc" style="color: #5E5E5E;">|&gt;</span> <span class="fu" style="color: #4758AB;">with</span>(<span class="fu" style="color: #4758AB;">plot</span>(hp, mpg))</span></code></pre></div>
 <p>Is equivalent to:</p>
 <div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;">with</span>(mtcars, <span class="fu" style="color: #4758AB;">plot</span>(hp, mpg))</span></code></pre></div>
-<p>Since it passes <code>mtcars</code> to the LHS. This also creates the original plot we wanted, <code>plot(mtcars$hp, mtcars$mpg)</code>.</p>
+<p>Since it passes <code>mtcars</code> to the first argument on the RHS. This also creates the original plot we wanted, <code>plot(mtcars$hp, mtcars$mpg)</code>.</p>
 <p>Thanks all for sharing this alternative method!</p>
 </div>
 </div>

@@ -251,7 +251,7 @@ Is equivalent to:
 with(mtcars, plot(hp, mpg))
 ```
 
-Since it passes `mtcars` to the LHS. This also creates the original plot we wanted, `plot(mtcars$hp, mtcars$mpg)`.
+Since it passes `mtcars` to the first argument on the RHS. This also creates the original plot we wanted, `plot(mtcars$hp, mtcars$mpg)`.
 
 Thanks all for sharing this alternative method!
 :::
