@@ -237,7 +237,7 @@ That’s it! 🎉 It can be done, but the initial attempt to be lazy ended up ta
 :::{.callout-warning}
 ## 2022-03-31 Note
 
-While this post is meant to be an exploration of the new native R pipe to understand how it works, a few folks have shared a simpler method: `mtcars |> with(plot(hp, mpg))`. This is an alternative to `plot(mtcars$hp, mtcars$mpg)` and a way of using base R `with()` and the native R pipe.
+While this post is meant to be an exploration of the new native R pipe to understand how it works, a few folks have shared another solution: `mtcars |> with(plot(hp, mpg))`. This is an (admittedly simpler!) alternative to `mtcars |> (\(data) plot(data$hp, data$mpg))()`.
 
 Following what we have learned so far:
 
@@ -251,7 +251,7 @@ Is equivalent to:
 with(mtcars, plot(hp, mpg))
 ```
 
-Since it passes `mtcars` to the LHS.
+Since it passes `mtcars` to the LHS. This also creates the original plot we wanted, `plot(mtcars$hp, mtcars$mpg)`.
 
 Thanks all for sharing this alternative method!
 :::
