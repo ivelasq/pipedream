@@ -234,6 +234,28 @@ That’s it! 🎉 It can be done, but the initial attempt to be lazy ended up ta
 ![](mario2.gif){fig-alt="GIF of Mario running across pipes avoiding piranha plants"}
 </center>
 
+:::{.callout-warning}
+## 2022-03-31
+
+While this post is meant to be an exploration of the new native R pipe and how it works, a few folks have shared in their own method: `mtcars |> with(plot(hp, mpg))`. This is a fantastic alternative to `plot(mtcars$hp, mtcars$mpg)` and another way of using base R `with()` and the native R pipe.
+
+Following what we have learned so far:
+
+``` R
+mtcars |> with(plot(hp, mpg))
+```
+
+Is equivalent to:
+
+``` R
+with(mtcars, plot(hp, mpg))
+```
+
+Since it passes `mtcars` to the LHS.
+
+Thanks all for sharing this alternative method!
+:::
+
 ## The true lazy way
 
 This was an exploration of how the `%>%` and `|>` pipes work, but we also have another option! The {magrittr} **exposition pipe** `%$%` ‘exposes’ the names in the LHS to the RHS expression.
