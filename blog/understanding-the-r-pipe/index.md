@@ -252,8 +252,6 @@ with(mtcars, plot(hp, mpg))
 ```
 
 Since it passes `mtcars` to the first argument on the RHS. This also creates the original plot we wanted, `plot(mtcars$hp, mtcars$mpg)`.
-
-Thanks all for sharing this alternative method!
 :::
 
 ## The true lazy way
@@ -290,7 +288,7 @@ How would you do this with the proposed native R pipe-bind `=>` syntax? Respond 
 
 ## Acknowledgements
 
-The author thanks [@gvelasq](https://github.com/gvelasq) for his comments on the first draft of this blog post.
+The author thanks [@gvelasq](https://github.com/gvelasq) for his comments on the first draft of this blog post, and all who replied to the [Twitter thread](https://twitter.com/ivelasq3/status/1483554890152439811) with insights, alternatives, and feedback.
 
 [^1]: Running the same line without that argument, `mtcars %>% plot(.$hp)`, does run without an error (but is not the plot that we want since it is using `mtcars` as the first argument, as mentioned above).
 
