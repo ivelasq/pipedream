@@ -347,12 +347,31 @@ An important note
 <center>
 <img src="mario2.gif" class="img-fluid" alt="GIF of Mario running across pipes avoiding piranha plants">
 </center>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+2022-03-31
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While this post is meant to be an exploration of the new native R pipe to understand how it works, a few folks have shared in their own method: <code>mtcars |&gt; with(plot(hp, mpg))</code>. This is an alternative to <code>plot(mtcars$hp, mtcars$mpg)</code> and another way of using base R <code>with()</code> and the native R pipe.</p>
+<p>Following what we have learned so far:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> <span class="fu">with</span>(<span class="fu">plot</span>(hp, mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Is equivalent to:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(mtcars, <span class="fu">plot</span>(hp, mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Since it passes <code>mtcars</code> to the LHS.</p>
+<p>Thanks all for sharing this alternative method!</p>
+</div>
+</div>
 </section>
 <section id="the-true-lazy-way" class="level2">
 <h2 class="anchored" data-anchor-id="the-true-lazy-way">The true lazy way</h2>
 <p>This was an exploration of how the <code>%&gt;%</code> and <code>|&gt;</code> pipes work, but we also have another option! The {magrittr} <strong>exposition pipe</strong> <code>%$%</code> ‘exposes’ the names in the LHS to the RHS expression.</p>
 <p>So, the winner for lazy {magrittr} users like myself is:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%$%</span> <span class="fu">plot</span>(hp, mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%$%</span> <span class="fu">plot</span>(hp, mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>No dot syntax, no curly braces, no anonymous functions, no terminal function call, just a pipe and column names! It effectively emulates how <code>plot()</code> would work if it were a {tidyverse} function.</p>
 <p>Really though, all pipe users are winners here! As shown in the alignment chart tweet, we have many options of doing what we want to do with R.</p>
 <center>
