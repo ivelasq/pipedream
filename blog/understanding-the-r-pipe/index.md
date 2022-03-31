@@ -235,9 +235,9 @@ That’s it! 🎉 It can be done, but the initial attempt to be lazy ended up ta
 </center>
 
 :::{.callout-warning}
-## 2022-03-31
+## 2022-03-31 Note
 
-While this post is meant to be an exploration of the new native R pipe to understand how it works, a few folks have shared in their own method: `mtcars |> with(plot(hp, mpg))`. This is an alternative to `plot(mtcars$hp, mtcars$mpg)` and another way of using base R `with()` and the native R pipe.
+While this post is meant to be an exploration of the new native R pipe to understand how it works, a few folks have shared a simpler method: `mtcars |> with(plot(hp, mpg))`. This is an alternative to `plot(mtcars$hp, mtcars$mpg)` and a way of using base R `with()` and the native R pipe.
 
 Following what we have learned so far:
 
