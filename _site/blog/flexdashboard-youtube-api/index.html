@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.141">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="dcterms.date" content="2022-04-18">
+  <meta name="description" content="Walkthrough on building a simple flexdashboard that displays data from the YouTube API.">
+  <title>%&gt;% dreams - Building a flexdashboard that displays YouTube API data</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../favicon.jpg" rel="icon" type="image/jpeg">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+<meta name="twitter:title" content="%>% dreams - Building a flexdashboard that displays YouTube API data">
+<meta name="twitter:description" content="Walkthrough on building a simple flexdashboard that displays data from the YouTube API.">
+<meta name="twitter:image" content="https://ivelasq.rbind.io/blog/flexdashboard-youtube-api/thumbnail.jpg">
+<meta name="twitter:image:alt" content="Utagawa Yoshikazu, Early Foreign Photographer in Yokohama">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="fullcontent">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Isabella Velásquez</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="dropdown-header">
+ pipe dreams</li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-navigation" role="button" data-bs-toggle="dropdown" aria-expanded="false">Navigation</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-navigation">    
+        <li>
+    <a class="dropdown-item" href="../../about.html">
+ <span class="dropdown-text">About</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html">
+ <span class="dropdown-text">Blog</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../til.html">
+ <span class="dropdown-text">Today I Learned</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../talk.html">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../project.html">
+ <span class="dropdown-text">Projects</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ivelasq3"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ivelasq"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ivelasq/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xmls"><i class="bi bi-rss" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-title"><h1 class="title display-7">Building a flexdashboard that displays YouTube API data</h1><div class="quarto-description"><p>Walkthrough on building a simple flexdashboard that displays data from the YouTube API.</p></div></div><div class="quarto-categories"><div class="quarto-category">tutorial</div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">April 18, 2022</p></div></div></div></header>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="A group of people around a camera in a bright, colorful room"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Utagawa Yoshikazu, Early Foreign Photographer in Yokohama</figcaption><p></p>
+</figure>
+</div>
+<p><a href="https://rladies.org/">R-Ladies</a> hosts an amazing number of Meetups. It is so inspiring and exciting to learn from R users from around the globe. However, due to work, time zones, or other commitments, I am unable to attend all of the events. Thankfully, since the pandemic began, recording webinars have become more prevalent. This provides a great opportunity to catch up on things I’ve missed afterward.</p>
+<p>R-Ladies also have a variety of YouTube channels. The <a href="https://www.youtube.com/channel/UCDgj5-mFohWZ5irWSFMFcng">R-Ladies Global</a> channel has the most videos, but local chapters often have their own account. I wanted an easy way to see all the videos from all the chapters I could find at once. I also wanted to search by presenter, topic, etc.</p>
+<p>So, I set out to build a <a href="https://pkgs.rstudio.com/flexdashboard/">flexdashboard</a> that would display all this information for me. Since flexdashboard is built on R Markdown, I could use custom colors and styles. Finally, I linked it to an <a href="https://www.rstudio.com/products/connect/">RStudio Connect</a> account so that it could refresh daily.</p>
+<p>This post will walk through how I created a flexdashboard that pulls in YouTube API data. The code for the dashboard is on <a href="https://github.com/ivelasq/rladies-video-feed">GitHub</a> in case you want to reuse it with another set of channels!</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+YouTube RSS vs.&nbsp;YouTube API
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I originally used the <a href="">tidyRSS</a> package to pull the videos from YouTube. However, the YouTube RSS feed limits results to the latest 15 videos. The code is still available in the repo if you would like to take a look. This is a good option if you only want the most recent stream of content and do not want to set up Google credentials.</p>
+</div>
+</div>
+<section id="get-google-credentials" class="level2">
+<h2 class="anchored" data-anchor-id="get-google-credentials">Get Google credentials</h2>
+<p>As is often the case with anything to do with Google, first you must get credentials.</p>
+<ol type="1">
+<li>Create a <a href="https://console.cloud.google.com/projectcreate">new project</a></li>
+<li>Go to <a href="https://console.cloud.google.com/apis/credentials">APIs &amp; Services</a> and click “Credentials”</li>
+<li>At the top, click “Create Credentials” and choose “OAuth client ID”</li>
+</ol>
+<ul>
+<li>If it’s your first time, you have to configure consent</li>
+<li>I had to choose “External” on the consent screen</li>
+<li>Give your app a name, an email, and a developer contact email</li>
+<li>Go back to Credentials, click “Create Credentials” and choose “OAuth client ID”</li>
+</ul>
+<ol start="4" type="1">
+<li>Choose Web application and give your ID a descriptive name</li>
+</ol>
+<ul>
+<li>I also had to add a redirect URI so that I could preview the app on my computer (what you see when you render the flexdashboard), it looks like <code>https://localhost:4321/</code>. If you get a <code>400</code> error when you try to authenticate tuber later, you may have to do the same.</li>
+</ul>
+<ol start="5" type="1">
+<li>Your Client ID and Client Secret will pop up. I saved these in my R environment so I didn’t have to include them in my code. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+</section>
+<section id="pull-and-clean-data" class="level2">
+<h2 class="anchored" data-anchor-id="pull-and-clean-data">Pull and clean data</h2>
+<p>Woohoo, you are credentialed! It’s time for the fun part — pulling and cleaning data. I did this in a script called <code>data_processing.R</code>.</p>
+<p>I used the <a href="https://soodoku.github.io/tuber//index.html">tuber</a> package to access the YouTube API with R. Here are other packages that will aid you in your cleaning process:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tuber)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Create a spreadsheet with the channels you are interested in. I did not create this programmatically, just searched on YouTube to find all the R-Ladies channels I could. I tried to do as many things as programmatically as possible, so I only included the name of the chapter, its thumbnail, and the channel ID.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="st">"https://github.com/ivelasq/rladies-video-feed/blob/main/r-ladies_channels.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+YouTube Channel IDs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some YouTube channels have ‘custom IDs’ like RLadiesGlobal. These won’t work, you need the original IDs to put into tuber. The best way I found to get this ID is to click on a video from a channel. Then, scroll down to the description and click the channel name from that video. Then it will appear in the URL after <code>/channel/</code>. A good idea for a future Shiny app would be a way to pull this information from the YouTube API…</p>
+</div>
+</div>
+<p>Now, create a few more columns with <code>dplyr::mutate()</code> that expand the URLs in HTML format:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dat_urls <span class="ot">&lt;-</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  dat <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">feed =</span> <span class="fu">paste0</span>(<span class="st">"https://www.youtube.com/feeds/videos.xml?channel_id="</span>, id),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">feed_url =</span> <span class="fu">paste0</span>(<span class="st">"yt:channel:"</span>, id),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">channel_image_url =</span> <span class="fu">paste0</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;img src='"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      image,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">" &lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>      id,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"' target='_blank'&gt;"</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      chapter,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;/a&gt;&lt;br&gt;"</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Pull in the credential info that had you going through all those hoops earlier.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">yt_oauth</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">app_id =</span> <span class="fu">Sys.getenv</span>(<span class="st">"YOUTUBE_CLIENT"</span>),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">app_secret =</span> <span class="fu">Sys.getenv</span>(<span class="st">"YOUTUBE_CLIENT_SECRET"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You may see the message below and have to type in a <code>1</code> to open an authentication window (be sure to read and follow the instructions in the console).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Use</span> a local file <span class="er">(</span><span class="st">'.httr-oauth'</span><span class="kw">)</span><span class="ex">,</span> to cache OAuth access credentials between R sessions<span class="pp">?</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">1:</span> Yes</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">2:</span> No</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Great, now you have access to YouTube data! Let’s use the tuber package (finally).</p>
+<p>The <a href="https://soodoku.github.io/tuber/reference/index.html">documentation</a> describes the many functions available to you. Since I started with channel IDs, I wanted to use <code>list_channel_videos()</code> to get the list of videos from the channels. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit.</p>
+<p>For example, for the R-Ladies Global channel, you could run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list_channel_videos</span>(<span class="st">"UCDgj5-mFohWZ5irWSFMFcng"</span>, <span class="at">max_results =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What if you want the results for all the channels you have in our spreadsheet? I used a loop for this. This loop says: Starting with an empty data frame called <code>dat_videos</code> , for each row in <code>dat_urls</code> (which contains the channel IDs), find the channel ID, pull it out, run it through <code>list_channel_videos</code>, and then add the information as a row to <code>dat_videos</code>.</p>
+<p>The arguments in <code>list_channel_videos</code> give me all the columns I am interested in with <code>part = "snippet"</code> and up to 200 results from the channel.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dat_videos <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dat_urls)) {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    dat_urls[i, ][<span class="st">"id"</span>] <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list_channel_videos</span>(.,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">part =</span> <span class="st">"snippet"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">config =</span> <span class="fu">list</span>(<span class="st">'maxResults'</span> <span class="ot">=</span> <span class="dv">200</span>))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  dat_videos <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(dat_videos, tmp)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, I brought back the URL info:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dat_join <span class="ot">&lt;-</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  dat_videos <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(., dat_urls, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"snippet.channelId"</span> <span class="ot">=</span> <span class="st">"id"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This results in a <strong>lot</strong> of information for each video. I cleaned it up a little bit so that the data frame only contained the columns I was interested in and were in HTML format.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dat_dashboard_dat <span class="ot">&lt;-</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  dat_join <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">video_url =</span> <span class="fu">paste0</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;a href='https://www.youtube.com/watch?v="</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>      snippet.resourceId.videoId,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>      snippet.title,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;/a&gt;"</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">channel_url =</span> <span class="fu">paste0</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;img src='"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      image,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="st">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>      id,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      chapter,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"&lt;/a&gt;"</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">str_sub</span>(snippet.publishedAt, <span class="dv">1</span>, <span class="dv">10</span>))</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(snippet.publishedAt)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date, chapter, channel_url, video_url, channel_image_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="create-a-flexdashboard" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-flexdashboard">Create a flexdashboard</h2>
+<p>You have the YouTube data — time to create a pretty dashboard!</p>
+<p>My flexdashboard starts as it often does: with a YAML header. I specified an orientation (columns) and added the link to the GitHub repository in the navigation bar.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">  flexdashboard:</span><span class="fu">:flex_dashboard</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">orientation</span><span class="kw">:</span><span class="at"> columns</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> </span><span class="st">"fa-github"</span><span class="kw">,</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw">,</span><span class="at"> </span><span class="fu">align</span><span class="kw">:</span><span class="at"> right </span><span class="kw">}</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="add-customization" class="level3">
+<h3 class="anchored" data-anchor-id="add-customization">Add customization</h3>
+<p>If you’d like your dashboard to have a custom look, the <a href="https://rstudio.github.io/bslib/">bslib</a> package is a great option. Ir can add different colors and fonts all from the YAML header. Make sure to add <code>library(bslib)</code> in the actual code part of your <code>.Rmd</code> file. I used the R-Ladies style guide to fill out the rest of the YAML header:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">  flexdashboard:</span><span class="fu">:flex_dashboard</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">orientation</span><span class="kw">:</span><span class="at"> columns</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="kw">{</span><span class="at"> </span><span class="fu">icon</span><span class="kw">:</span><span class="at"> </span><span class="st">"fa-github"</span><span class="kw">,</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw">,</span><span class="at"> </span><span class="fu">align</span><span class="kw">:</span><span class="at"> right </span><span class="kw">}</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">bg</span><span class="kw">:</span><span class="at"> </span><span class="st">"#FDF7F7"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">fg</span><span class="kw">:</span><span class="at"> </span><span class="st">"#88398A"</span><span class="co"> # purple</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">primary</span><span class="kw">:</span><span class="at"> </span><span class="st">"#88398A"</span><span class="co"> # purple</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">base_font</span><span class="kw">:</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">google</span><span class="kw">:</span><span class="at"> </span><span class="st">"Lato"</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">code_font</span><span class="kw">:</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">google</span><span class="kw">:</span><span class="at"> </span><span class="st">"Inconsolata"</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="add-packages-for-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="add-packages-for-the-dashboard">Add packages for the dashboard</h3>
+<p>After the YAML header, add the packages you need. I used <code>source()</code> to read in the R script that pulls in, cleans, and saves the data for the dashboard.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flexdashboard)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bslib)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"data-processing.R"</span>, <span class="at">local =</span> knitr<span class="sc">::</span><span class="fu">knit_global</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="fill-out-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="fill-out-the-dashboard">Fill out the dashboard</h2>
+<p>I recommend checking out the flexdashboard documentation to create the look you would like. I went pretty straightforward with just a sidebar and the main section.</p>
+<p>This code builds out the sidebar section. I created a list of each chapter that I was able to find and arranged them by name. With <code>shiny::HTML()</code>, the dashboard can render the URLs (the reason for all that manipulation earlier on).</p>
+<pre><code>Sidebar {.sidebar}
+-----------------------------------------------------------------------
+
+The purpose of this dashboard is to provide a running feed of R-Ladies videos posted to YouTube. It is refreshed every six hours.
+
+Currently, the feed includes these channels:
+
+```{r}
+dat_join %&gt;% 
+  arrange(chapter) %&gt;% 
+  distinct(channel_image_url) %&gt;% 
+  pull() %&gt;% 
+  shiny::HTML()
+```</code></pre>
+<p>For the main body, I used the <a href="https://rstudio.github.io/DT/">DT</a> package to create a table for the information in our clean dataset. I added a bit of HTML to make it expand to the entire column height.</p>
+<p>A couple of fun tricks to notice:</p>
+<ul>
+<li><code>escape</code> lets us not escape HTML so that the URLs also render within the table</li>
+<li>The list within <code>options</code> aligns the text within columns</li>
+</ul>
+<p>There are a lot of customization options!</p>
+<pre><code>Column {data-width=900}
+-----------------------------------------------------------------------
+
+### By default, the list is sorted by latest video.
+
+&lt;style&gt;
+.dataTables_scrollBody {
+    max-height: 100% !important;
+}
+&lt;/style&gt;
+
+```{r}
+dat_dashboard_dat %&gt;%
+  select(-chapter,-channel_image_url) %&gt;%
+  datatable(
+    colnames = c('Date', 'Channel', 'Video'),
+    filter = 'top',
+    escape = FALSE,
+    height = '1000',
+    options = list(columnDefs = list(
+      list(className = 'dt-middle', targets = "_all")
+    ))
+  )
+```</code></pre>
+<p>And that’s it! Knit the flexdashboard to see the final dashboard.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dashboard.png" class="img-fluid figure-img" alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Final dashboard</figcaption><p></p>
+</figure>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>You can do this by running <code>usethis::edit_r_environ</code> and adding two rows with <code>YOUTUBE_CLIENT_ID=num1</code> and <code>YOUTUBE_CLIENT_SECRET=num2</code>, then restarting your R session.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    setTimeout(function() {
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.quarto.org">Built with Quarto</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+</body></html>

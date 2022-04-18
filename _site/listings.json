@@ -22,6 +22,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/flexdashboard-youtube-api/index.html",
       "/blog/understanding-the-r-pipe/index.html",
       "/blog/reticulate-data-recreation/index.html",
       "/blog/why-rstudio/index.html",

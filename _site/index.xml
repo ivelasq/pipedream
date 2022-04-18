@@ -10,7 +10,273 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-0.9.141</generator>
-<lastBuildDate>Tue, 18 Jan 2022 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 18 Apr 2022 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Building a flexdashboard that displays YouTube API data</title>
+  <link>https://ivelasq.rbind.io/blog/flexdashboard-youtube-api/index.html</link>
+  <description><![CDATA[ 
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/flexdashboard-youtube-api/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A group of people around a camera in a bright, colorful room"></p>
+<p></p><p></p>
+</figure>
+</div>
+<p><a href="https://rladies.org/">R-Ladies</a> hosts an amazing number of Meetups. It is so inspiring and exciting to learn from R users from around the globe. However, due to work, time zones, or other commitments, I am unable to attend all of the events. Thankfully, since the pandemic began, recording webinars have become more prevalent. This provides a great opportunity to catch up on things I’ve missed afterward.</p>
+<p>R-Ladies also have a variety of YouTube channels. The <a href="https://www.youtube.com/channel/UCDgj5-mFohWZ5irWSFMFcng">R-Ladies Global</a> channel has the most videos, but local chapters often have their own account. I wanted an easy way to see all the videos from all the chapters I could find at once. I also wanted to search by presenter, topic, etc.</p>
+<p>So, I set out to build a <a href="https://pkgs.rstudio.com/flexdashboard/">flexdashboard</a> that would display all this information for me. Since flexdashboard is built on R Markdown, I could use custom colors and styles. Finally, I linked it to an <a href="https://www.rstudio.com/products/connect/">RStudio Connect</a> account so that it could refresh daily.</p>
+<p>This post will walk through how I created a flexdashboard that pulls in YouTube API data. The code for the dashboard is on <a href="https://github.com/ivelasq/rladies-video-feed">GitHub</a> in case you want to reuse it with another set of channels!</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+YouTube RSS vs.&nbsp;YouTube API
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I originally used the <a href="">tidyRSS</a> package to pull the videos from YouTube. However, the YouTube RSS feed limits results to the latest 15 videos. The code is still available in the repo if you would like to take a look. This is a good option if you only want the most recent stream of content and do not want to set up Google credentials.</p>
+</div>
+</div>
+<section id="get-google-credentials" class="level2">
+<h2 class="anchored" data-anchor-id="get-google-credentials">Get Google credentials</h2>
+<p>As is often the case with anything to do with Google, first you must get credentials.</p>
+<ol type="1">
+<li>Create a <a href="https://console.cloud.google.com/projectcreate">new project</a></li>
+<li>Go to <a href="https://console.cloud.google.com/apis/credentials">APIs &amp; Services</a> and click “Credentials”</li>
+<li>At the top, click “Create Credentials” and choose “OAuth client ID”</li>
+</ol>
+<ul>
+<li>If it’s your first time, you have to configure consent</li>
+<li>I had to choose “External” on the consent screen</li>
+<li>Give your app a name, an email, and a developer contact email</li>
+<li>Go back to Credentials, click “Create Credentials” and choose “OAuth client ID”</li>
+</ul>
+<ol start="4" type="1">
+<li>Choose Web application and give your ID a descriptive name</li>
+</ol>
+<ul>
+<li>I also had to add a redirect URI so that I could preview the app on my computer (what you see when you render the flexdashboard), it looks like <code>https://localhost:4321/</code>. If you get a <code>400</code> error when you try to authenticate tuber later, you may have to do the same.</li>
+</ul>
+<ol start="5" type="1">
+<li>Your Client ID and Client Secret will pop up. I saved these in my R environment so I didn’t have to include them in my code. <sup>1</sup></li>
+</ol>
+</section>
+<section id="pull-and-clean-data" class="level2">
+<h2 class="anchored" data-anchor-id="pull-and-clean-data">Pull and clean data</h2>
+<p>Woohoo, you are credentialed! It’s time for the fun part — pulling and cleaning data. I did this in a script called <code>data_processing.R</code>.</p>
+<p>I used the <a href="https://soodoku.github.io/tuber//index.html">tuber</a> package to access the YouTube API with R. Here are other packages that will aid you in your cleaning process:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(tuber)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(readr)</span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(dplyr)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(stringr)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">library</span>(DT)</span></code></pre></div>
+<p>Create a spreadsheet with the channels you are interested in. I did not create this programmatically, just searched on YouTube to find all the R-Ladies channels I could. I tried to do as many things as programmatically as possible, so I only included the name of the chapter, its thumbnail, and the channel ID.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">dat <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb2-2">  <span class="fu" style="color: #4758AB;">read_csv</span>(<span class="st" style="color: #20794D;">"https://github.com/ivelasq/rladies-video-feed/blob/main/r-ladies_channels.csv"</span>)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4"><span class="fu" style="color: #4758AB;">head</span>(dat)</span></code></pre></div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+YouTube Channel IDs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some YouTube channels have ‘custom IDs’ like RLadiesGlobal. These won’t work, you need the original IDs to put into tuber. The best way I found to get this ID is to click on a video from a channel. Then, scroll down to the description and click the channel name from that video. Then it will appear in the URL after <code>/channel/</code>. A good idea for a future Shiny app would be a way to pull this information from the YouTube API…</p>
+</div>
+</div>
+<p>Now, create a few more columns with <code>dplyr::mutate()</code> that expand the URLs in HTML format:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">dat_urls <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb3-2">  dat <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb3-3">  dplyr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb3-4">    <span class="at" style="color: #677623;">feed =</span> <span class="fu" style="color: #4758AB;">paste0</span>(<span class="st" style="color: #20794D;">"https://www.youtube.com/feeds/videos.xml?channel_id="</span>, id),</span>
+<span id="cb3-5">    <span class="at" style="color: #677623;">feed_url =</span> <span class="fu" style="color: #4758AB;">paste0</span>(<span class="st" style="color: #20794D;">"yt:channel:"</span>, id),</span>
+<span id="cb3-6">    <span class="at" style="color: #677623;">channel_image_url =</span> <span class="fu" style="color: #4758AB;">paste0</span>(</span>
+<span id="cb3-7">      <span class="st" style="color: #20794D;">"&lt;img src='"</span>,</span>
+<span id="cb3-8">      image,</span>
+<span id="cb3-9">      <span class="st" style="color: #20794D;">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb3-10">      <span class="st" style="color: #20794D;">" &lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb3-11">      id,</span>
+<span id="cb3-12">      <span class="st" style="color: #20794D;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb3-13">      chapter,</span>
+<span id="cb3-14">      <span class="st" style="color: #20794D;">"&lt;/a&gt;&lt;br&gt;"</span></span>
+<span id="cb3-15">    ),</span>
+<span id="cb3-16">  )</span></code></pre></div>
+<p>Pull in the credential info that had you going through all those hoops earlier.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;">yt_oauth</span>(</span>
+<span id="cb4-2">  <span class="at" style="color: #677623;">app_id =</span> <span class="fu" style="color: #4758AB;">Sys.getenv</span>(<span class="st" style="color: #20794D;">"YOUTUBE_CLIENT"</span>),</span>
+<span id="cb4-3">  <span class="at" style="color: #677623;">app_secret =</span> <span class="fu" style="color: #4758AB;">Sys.getenv</span>(<span class="st" style="color: #20794D;">"YOUTUBE_CLIENT_SECRET"</span>)</span>
+<span id="cb4-4">)</span></code></pre></div>
+<p>You may see the message below and have to type in a <code>1</code> to open an authentication window (be sure to read and follow the instructions in the console).</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;">Use</span> a local file <span class="er" style="color: #AD0000;">(</span><span class="st" style="color: #20794D;">'.httr-oauth'</span><span class="kw" style="color: #00769E;">)</span><span class="ex" style="color: null;">,</span> to cache OAuth access credentials between R sessions<span class="pp" style="color: #AD0000;">?</span></span>
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="ex" style="color: null;">1:</span> Yes</span>
+<span id="cb5-4"><span class="ex" style="color: null;">2:</span> No</span></code></pre></div>
+<p>Great, now you have access to YouTube data! Let’s use the tuber package (finally).</p>
+<p>The <a href="https://soodoku.github.io/tuber/reference/index.html">documentation</a> describes the many functions available to you. Since I started with channel IDs, I wanted to use <code>list_channel_videos()</code> to get the list of videos from the channels. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit.</p>
+<p>For example, for the R-Ladies Global channel, you could run:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;">list_channel_videos</span>(<span class="st" style="color: #20794D;">"UCDgj5-mFohWZ5irWSFMFcng"</span>, <span class="at" style="color: #677623;">max_results =</span> <span class="dv" style="color: #AD0000;">200</span>)</span></code></pre></div>
+<p>What if you want the results for all the channels you have in our spreadsheet? I used a loop for this. This loop says: Starting with an empty data frame called <code>dat_videos</code> , for each row in <code>dat_urls</code> (which contains the channel IDs), find the channel ID, pull it out, run it through <code>list_channel_videos</code>, and then add the information as a row to <code>dat_videos</code>.</p>
+<p>The arguments in <code>list_channel_videos</code> give me all the columns I am interested in with <code>part = "snippet"</code> and up to 200 results from the channel.</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">dat_videos <span class="ot" style="color: #00769E;">&lt;-</span> <span class="cn" style="color: #8f5902;">NULL</span></span>
+<span id="cb7-2"></span>
+<span id="cb7-3"><span class="cf" style="color: #00769E;">for</span> (i <span class="cf" style="color: #00769E;">in</span> <span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="fu" style="color: #4758AB;">nrow</span>(dat_urls)) {</span>
+<span id="cb7-4">  tmp <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb7-5">    dat_urls[i, ][<span class="st" style="color: #20794D;">"id"</span>] <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb7-6">    <span class="fu" style="color: #4758AB;">pull</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb7-7">    <span class="fu" style="color: #4758AB;">list_channel_videos</span>(.,</span>
+<span id="cb7-8">                        <span class="at" style="color: #677623;">part =</span> <span class="st" style="color: #20794D;">"snippet"</span>,</span>
+<span id="cb7-9">                        <span class="at" style="color: #677623;">config =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="st" style="color: #20794D;">'maxResults'</span> <span class="ot" style="color: #00769E;">=</span> <span class="dv" style="color: #AD0000;">200</span>))</span>
+<span id="cb7-10">  </span>
+<span id="cb7-11">  dat_videos <span class="ot" style="color: #00769E;">&lt;-</span> <span class="fu" style="color: #4758AB;">bind_rows</span>(dat_videos, tmp)</span>
+<span id="cb7-12">}</span></code></pre></div>
+<p>Then, I brought back the URL info:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">dat_join <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb8-2">  dat_videos <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-3">  <span class="fu" style="color: #4758AB;">left_join</span>(., dat_urls, <span class="at" style="color: #677623;">by =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"snippet.channelId"</span> <span class="ot" style="color: #00769E;">=</span> <span class="st" style="color: #20794D;">"id"</span>))</span></code></pre></div>
+<p>This results in a <strong>lot</strong> of information for each video. I cleaned it up a little bit so that the data frame only contained the columns I was interested in and were in HTML format.</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">dat_dashboard_dat <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb9-2">  dat_join <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb9-3">  <span class="fu" style="color: #4758AB;">mutate</span>(</span>
+<span id="cb9-4">    <span class="at" style="color: #677623;">video_url =</span> <span class="fu" style="color: #4758AB;">paste0</span>(</span>
+<span id="cb9-5">      <span class="st" style="color: #20794D;">"&lt;a href='https://www.youtube.com/watch?v="</span>,</span>
+<span id="cb9-6">      snippet.resourceId.videoId,</span>
+<span id="cb9-7">      <span class="st" style="color: #20794D;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-8">      snippet.title,</span>
+<span id="cb9-9">      <span class="st" style="color: #20794D;">"&lt;/a&gt;"</span></span>
+<span id="cb9-10">    ),</span>
+<span id="cb9-11">    <span class="at" style="color: #677623;">channel_url =</span> <span class="fu" style="color: #4758AB;">paste0</span>(</span>
+<span id="cb9-12">      <span class="st" style="color: #20794D;">"&lt;img src='"</span>,</span>
+<span id="cb9-13">      image,</span>
+<span id="cb9-14">      <span class="st" style="color: #20794D;">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb9-15">      <span class="st" style="color: #20794D;">"&lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb9-16">      id,</span>
+<span id="cb9-17">      <span class="st" style="color: #20794D;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-18">      chapter,</span>
+<span id="cb9-19">      <span class="st" style="color: #20794D;">"&lt;/a&gt;"</span></span>
+<span id="cb9-20">    ),</span>
+<span id="cb9-21">    <span class="at" style="color: #677623;">date =</span> <span class="fu" style="color: #4758AB;">as.Date</span>(<span class="fu" style="color: #4758AB;">str_sub</span>(snippet.publishedAt, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">10</span>))</span>
+<span id="cb9-22">  ) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb9-23">  <span class="fu" style="color: #4758AB;">arrange</span>(<span class="fu" style="color: #4758AB;">desc</span>(snippet.publishedAt)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb9-24">  <span class="fu" style="color: #4758AB;">select</span>(date, chapter, channel_url, video_url, channel_image_url)</span></code></pre></div>
+</section>
+<section id="create-a-flexdashboard" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-flexdashboard">Create a flexdashboard</h2>
+<p>You have the YouTube data — time to create a pretty dashboard!</p>
+<p>My flexdashboard starts as it often does: with a YAML header. I specified an orientation (columns) and added the link to the GitHub repository in the navigation bar.</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><span class="pp" style="color: #AD0000;">---</span></span>
+<span id="cb10-2"><span class="fu" style="color: #4758AB;">title</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb10-3"><span class="fu" style="color: #4758AB;">output</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span></span>
+<span id="cb10-4"><span class="at" style="color: #677623;">  flexdashboard:</span><span class="fu" style="color: #4758AB;">:flex_dashboard</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb10-5"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">orientation</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> columns</span></span>
+<span id="cb10-6"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">navbar</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb10-7"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="kw" style="color: #00769E;">{</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">icon</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"fa-github"</span><span class="kw" style="color: #00769E;">,</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">href</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw" style="color: #00769E;">,</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">align</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> right </span><span class="kw" style="color: #00769E;">}</span></span>
+<span id="cb10-8"><span class="pp" style="color: #AD0000;">---</span></span></code></pre></div>
+<section id="add-customization" class="level3">
+<h3 class="anchored" data-anchor-id="add-customization">Add customization</h3>
+<p>If you’d like your dashboard to have a custom look, the <a href="https://rstudio.github.io/bslib/">bslib</a> package is a great option. Ir can add different colors and fonts all from the YAML header. Make sure to add <code>library(bslib)</code> in the actual code part of your <code>.Rmd</code> file. I used the R-Ladies style guide to fill out the rest of the YAML header:</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><span class="pp" style="color: #AD0000;">---</span></span>
+<span id="cb11-2"><span class="fu" style="color: #4758AB;">title</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb11-3"><span class="fu" style="color: #4758AB;">output</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span></span>
+<span id="cb11-4"><span class="at" style="color: #677623;">  flexdashboard:</span><span class="fu" style="color: #4758AB;">:flex_dashboard</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb11-5"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">orientation</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> columns</span></span>
+<span id="cb11-6"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">navbar</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb11-7"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="kw" style="color: #00769E;">{</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">icon</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"fa-github"</span><span class="kw" style="color: #00769E;">,</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">href</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw" style="color: #00769E;">,</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">align</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> right </span><span class="kw" style="color: #00769E;">}</span></span>
+<span id="cb11-8"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">theme</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb11-9"><span class="at" style="color: #677623;">      </span><span class="fu" style="color: #4758AB;">bg</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"#FDF7F7"</span></span>
+<span id="cb11-10"><span class="at" style="color: #677623;">      </span><span class="fu" style="color: #4758AB;">fg</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"#88398A"</span><span class="co" style="color: #5E5E5E;"> # purple</span></span>
+<span id="cb11-11"><span class="at" style="color: #677623;">      </span><span class="fu" style="color: #4758AB;">primary</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"#88398A"</span><span class="co" style="color: #5E5E5E;"> # purple</span></span>
+<span id="cb11-12"><span class="at" style="color: #677623;">      </span><span class="fu" style="color: #4758AB;">base_font</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb11-13"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">google</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"Lato"</span></span>
+<span id="cb11-14"><span class="at" style="color: #677623;">      </span><span class="fu" style="color: #4758AB;">code_font</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb11-15"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">google</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">"Inconsolata"</span></span>
+<span id="cb11-16"><span class="pp" style="color: #AD0000;">---</span></span></code></pre></div>
+</section>
+<section id="add-packages-for-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="add-packages-for-the-dashboard">Add packages for the dashboard</h3>
+<p>After the YAML header, add the packages you need. I used <code>source()</code> to read in the R script that pulls in, cleans, and saves the data for the dashboard.</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;">library</span>(flexdashboard)</span>
+<span id="cb12-2"><span class="fu" style="color: #4758AB;">library</span>(bslib)</span>
+<span id="cb12-3"><span class="fu" style="color: #4758AB;">source</span>(<span class="st" style="color: #20794D;">"data-processing.R"</span>, <span class="at" style="color: #677623;">local =</span> knitr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">knit_global</span>())</span></code></pre></div>
+</section>
+</section>
+<section id="fill-out-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="fill-out-the-dashboard">Fill out the dashboard</h2>
+<p>I recommend checking out the flexdashboard documentation to create the look you would like. I went pretty straightforward with just a sidebar and the main section.</p>
+<p>This code builds out the sidebar section. I created a list of each chapter that I was able to find and arranged them by name. With <code>shiny::HTML()</code>, the dashboard can render the URLs (the reason for all that manipulation earlier on).</p>
+<pre><code>Sidebar {.sidebar}
+-----------------------------------------------------------------------
+
+The purpose of this dashboard is to provide a running feed of R-Ladies videos posted to YouTube. It is refreshed every six hours.
+
+Currently, the feed includes these channels:
+
+```{r}
+dat_join %&gt;% 
+  arrange(chapter) %&gt;% 
+  distinct(channel_image_url) %&gt;% 
+  pull() %&gt;% 
+  shiny::HTML()
+```</code></pre>
+<p>For the main body, I used the <a href="https://rstudio.github.io/DT/">DT</a> package to create a table for the information in our clean dataset. I added a bit of HTML to make it expand to the entire column height.</p>
+<p>A couple of fun tricks to notice:</p>
+<ul>
+<li><code>escape</code> lets us not escape HTML so that the URLs also render within the table</li>
+<li>The list within <code>options</code> aligns the text within columns</li>
+</ul>
+<p>There are a lot of customization options!</p>
+<pre><code>Column {data-width=900}
+-----------------------------------------------------------------------
+
+### By default, the list is sorted by latest video.
+
+&lt;style&gt;
+.dataTables_scrollBody {
+    max-height: 100% !important;
+}
+&lt;/style&gt;
+
+```{r}
+dat_dashboard_dat %&gt;%
+  select(-chapter,-channel_image_url) %&gt;%
+  datatable(
+    colnames = c('Date', 'Channel', 'Video'),
+    filter = 'top',
+    escape = FALSE,
+    height = '1000',
+    options = list(columnDefs = list(
+      list(className = 'dt-middle', targets = "_all")
+    ))
+  )
+```</code></pre>
+<p>And that’s it! Knit the flexdashboard to see the final dashboard.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/flexdashboard-youtube-api/dashboard.png" class="img-fluid figure-img" alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"></p>
+<p></p><p></p>
+</figure>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>You can do this by running <code>usethis::edit_r_environ</code> and adding two rows with <code>YOUTUBE_CLIENT_ID=num1</code> and <code>YOUTUBE_CLIENT_SECRET=num2</code>, then restarting your R session.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>tutorial</category>
+  <guid>https://ivelasq.rbind.io/blog/flexdashboard-youtube-api/index.html</guid>
+  <pubDate>Mon, 18 Apr 2022 05:00:00 GMT</pubDate>
+  <media:content url="https://ivelasq.rbind.io//blog/flexdashboard-youtube-api/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Understanding the native R pipe |></title>
   <link>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</link>
@@ -4488,106 +4754,6 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
   <guid>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</guid>
   <pubDate>Fri, 21 Sep 2018 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io//blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>So you’re getting a Masters in Analytics</title>
-  <link>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</link>
-  <description><![CDATA[ 
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A still life with a book, statue, violin, skull, and other items arranged in a room"></p>
-<p></p><p></p>
-</figure>
-</div>
-<p>The new school year is right around the corner and I have gotten a few requests from new students entering a Data Science or Analytics program to talk about my experience in graduate school. I graduated with a Masters of Science in Analytics from the University of Chicago in June 2016. It was an amazing experience that helped propel me into a new career but there are definitely things I wish I had known or would have done differently.</p>
-<p>I’ve tried to keep track of the different questions people ask and aggregate them into a list. A few caveats:</p>
-<ul>
-<li>My program, homework, and projects were primarily in R.</li>
-<li>This is assuming that you are entering the program to find a new job or career.</li>
-</ul>
-<p>Here is my advice to aspiring data scientists/analysts entering these programs and how I would have made an already great experience even better.</p>
-<section id="learn-git-and-put-everything-on-github-or-equivalent" class="level2">
-<h2 class="anchored" data-anchor-id="learn-git-and-put-everything-on-github-or-equivalent">1. Learn Git and put everything on GitHub (or equivalent)</h2>
-<p>Git and GitHub was not required for any classes (at least when I was in the program) and I really regret not using it with my classmates.</p>
-<ul>
-<li>GitHub is a great way to show off your skills to potential employers.</li>
-<li>It’s a much better collaboration tool than what we did (which was email each other with code changes).</li>
-<li>It’s also a good history so you remember things you’ve done (which I have forgotten already).</li>
-<li>It’s also way neater to have homework in projects in GitHub as opposed to a zillion folders on your Desktop (which is what I went with).</li>
-<li>Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!</li>
-<li>There’s also nothing better than having a filled up contribution graph.</li>
-</ul>
-<center>
-<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/i.imgur.com/7c6ss6v.jpg?style=centerme" alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious.">
-</center>
-</section>
-<section id="leave-each-class-with-an-example-that-you-can-show-a-potential-employer" class="level2">
-<h2 class="anchored" data-anchor-id="leave-each-class-with-an-example-that-you-can-show-a-potential-employer">2. Leave each class with an example that you can show a potential employer</h2>
-<p>These programs go <em>quickly.</em> I was a part-time student and took my sweet time and even then I felt like I was racing towards the end. Due to competing priorities, it’s easy to rush through homework assignments and projects. Instead of focusing on completion, remember the goal of this is to enter a new career/role/path in life and that everything you do is an example of a new skill you can showcase. So: document your work. Be clear in the intention behind it and how you went through your thought process. Make it presentable. Related to the advice above, link potential employers to your GitHub.</p>
-<p>Of course, I understand that not all homework applies to this — but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up — and be able to show how this project illustrates the value you can bring to your future company.</p>
-<center>
-<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif" alt="Jamie from Outlander saying, I'm here and I'm ready.">
-</center>
-</section>
-<section id="diversify-your-programming-languages" class="level2">
-<h2 class="anchored" data-anchor-id="diversify-your-programming-languages">3. Diversify your programming languages</h2>
-<p>My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python — and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.</p>
-<center>
-<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme" alt="Ron Burgundy saying You know I dont speak Python In R please.">
-</center>
-<p><br> Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I’d have to refresh myself on even the basics of the language — which is a shame considering how much effort I put in when I was in the class.</p>
-</section>
-<section id="choose-your-capstone-project-and-advisor-carefully" class="level2">
-<h2 class="anchored" data-anchor-id="choose-your-capstone-project-and-advisor-carefully">4. Choose your Capstone project and advisor carefully</h2>
-<p>When it was Capstone time, the options were listed on a website and we were told to form a group, choose a project, and pick out an advisor. It seemed like those were the only variables but in actuality there were <em>many</em> other considerations that impacted the difficulty and complexity of the project. They directly affected whether or not someone graduated when they wanted so this is a decision to take very seriously.</p>
-<ul>
-<li><strong>Research Question</strong>: Is the research question defined (clearly) by the Capstone sponsor? If not, a lot of time will be dedicated to research question development, edits, rewrites, and eventual approval.</li>
-<li><strong>Data</strong>: The addition of a project to the Capstone list does not mean that the data will be readily available to you when you want to begin your project. Several students chose a project under the assumption that the Capstone sponsor would immediately send over the data and instead had to wait a quarter (!) before they actually received anything and could begin analysis. Ask: Is the data available, and if not, how will it be collected? Will you need to sign a confidentiality agreement and who is in charge of that? How will the data be transferred to you and in what format? How long will it take to get the data? Will you need to update or refresh it throughout the course of your Capstone? Will you refine your research question(s) once you have the data?</li>
-<li><strong>Sponsor Availability/Interaction</strong>: Some sponsors want to be involved in every step of the process. Some sponsors will see you once a quarter. There are pros and cons to each approach but generally speaking you want a sponsor that provides clear guidance and expectations without micromanaging. Try to find out the kind of sponsor you have so you know how to best work with them. You are in it together for the long haul!</li>
-<li><strong>Advisor Availability/Interaction</strong>: Similar to the sponsor, the Capstone advisor will vary in their expectations of how they will collaborate. Be mindful that some advisors are handling a heavy load — another job, classes, and several Capstone projects at the same time — and therefore you have to account for how you will get their time and attention. This can be frustrating if you need help or are struggling to meet a deadline. Decide your expectations early — my group set up a standing weekly call and biweekly in-person meeting with our advisor.</li>
-<li><strong>Advisor Specialty</strong>: Some advisors have more experience or insight in the particular analysis you are trying to do. My Capstone project dealt with survey respondents — and luckily my advisor was a marketing researcher! However, sometimes the advisor’s specialty differs from your analytic approach and your group will have to do more research on their own to fulfill the sponsor’s needs.</li>
-<li><strong>Group Availability/Interaction</strong>: In a sudden turn of events, one of the members of a Capstone group quit to start a new job in another state. This left their group in disarray as they tried to figure out how to manage the rest of their project. While I am happy for the person who got a job (that is the point of it all, anyway), they could have helped out their team by being open and honest. Ask your potential teammates: What happens if you were offered a new job? Is your graduation timeline fixed or flexible? How many other courses are you taking and how much time can you dedicate to this project? Along with these questions, figure out how everybody intends to interact and set clear expectations from the beginning so that the group can work towards success together.</li>
-</ul>
-</section>
-<section id="keep-track-of-and-give-recommendations-on-how-the-program-can-improve" class="level2">
-<h2 class="anchored" data-anchor-id="keep-track-of-and-give-recommendations-on-how-the-program-can-improve">5. Keep track of and give recommendations on how the program can improve</h2>
-<p>I was in the second cohort of my Analytics program and even though it’s been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it’s offered to any student who may benefit from it.</p>
-<center>
-<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme" alt="Tom Cruise saying Help me help you.">
-</center>
-<p><br> As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.</p>
-</section>
-<section id="learn-what-you-love-about-the-process" class="level2">
-<h2 class="anchored" data-anchor-id="learn-what-you-love-about-the-process">6. Learn what you love about the process</h2>
-<p>As you progress through your Analytics or Data Science program, you will learn the nuance and complexity of data work. It is a fascinating journey that requires project management, client interaction and understanding, technical expertise, feedback loops, and trial and error. It’s all amazing and necessary but there will be parts that you enjoy more. I have always been into creating aesthetically pleasing work and knew I would love developing data visualizations. I didn’t know that I love the creativity and mind puzzles that come with data wrangling. Some people feel the opposite — that is their least favorite part of the data science routine. But they may enjoy business requirements gathering a lot more than I do.</p>
-<p>You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.</p>
-<center>
-<img src="https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/https:/i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme" alt="Data from Star Trek playing with a cat">
-</center>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The purpose of these data science/analytics degrees is to serve as a means to an end but it’s been two years since I finished my Masters and I still reflect on the experience. Along the journey, there was a lot of change and improvement. My Analytics program impacted how I think, my career trajectory, and what I do outside of work. For that I am thankful, as I also realize that there is no definite end to learning.</p>
-<center>
-<p><em>Liked this article? I’d love for you to retweet!</em></p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash&amp;ref_src=twsrc%5Etfw">#blogdown</a> 🎉: So You're Getting a Masters in Analytics 👩🏽‍🎓👨🏽‍🎓‼️ Reflections from an R-Centric Program <a href="https://t.co/mvOPKbcSeG">https://t.co/mvOPKbcSeG</a> <a href="https://twitter.com/hashtag/datascience?src=hash&amp;ref_src=twsrc%5Etfw">#datascience</a> <a href="https://t.co/uaq721m2ZL">pic.twitter.com/uaq721m2ZL</a>
-</p>
-— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1027200743030149122?ref_src=twsrc%5Etfw">August 8, 2018</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
-
-
-
-</section>
- ]]></description>
-  <category>reference</category>
-  <guid>https://ivelasq.rbind.io/blog/so-youre-getting-a-masters/index.html</guid>
-  <pubDate>Sat, 04 Aug 2018 05:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io//blog/so-youre-getting-a-masters/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
