@@ -4,22 +4,22 @@ categories: ["tutorial"]
 date: '2022-04-18'
 description: "Got a bunch of YouTube video data to display on a dashboard? Here's how to create one with flexdashboard and tuber."
 image: "thumbnail.jpg"
-image-alt: "Utagawa Yoshikazu, Early Foreign Photographer in Yokohama"
+image-alt: "Utagawa Yoshikazu, Early Foreign Photographer in Yokohama, a painting with a group of people around a camera in a bright, colorful room."
 ---
 
 ![Utagawa Yoshikazu, Early Foreign Photographer in Yokohama](thumbnail-wide.jpg){fig-alt="A group of people around a camera in a bright, colorful room"}
 
-[R-Ladies](https://rladies.org/) hosts an amazing number of Meetups. It is so inspiring and exciting to learn from R users from around the globe. However, due to work, time zones, or other commitments, I am unable to attend all of the events. Thankfully, since the pandemic began, recording webinars have become more prevalent. This provides a great opportunity to catch up on things I've missed afterward.
+[R-Ladies](https://rladies.org/) hosts an amazing number of Meetups. It is so inspiring and exciting to learn from R users from around the globe. However, due to work, time zones, or other commitments, I am unable to attend all of the events. Thankfully, since the pandemic began, hosts have started to record webinars and post them online. This provides a great opportunity to catch up on things I've missed afterward.
 
 R-Ladies also have a variety of YouTube channels. The [R-Ladies Global](https://www.youtube.com/channel/UCDgj5-mFohWZ5irWSFMFcng) channel has the most videos, but local chapters often have their own account. I wanted an easy way to see all the videos from all the chapters I could find at once. I also wanted to search by presenter, topic, etc.
 
-So, I set out to build a [flexdashboard](https://pkgs.rstudio.com/flexdashboard/) that would display all this information for me. Since flexdashboard is built on R Markdown, I could use custom colors and styles. Finally, I linked it to an [RStudio Connect](https://www.rstudio.com/products/connect/) account so that it could refresh daily.
+So, I set out to build a [flexdashboard](https://pkgs.rstudio.com/flexdashboard/) that would display all this information for me. Since flexdashboard is built on R Markdown, I could use custom colors and styles. Finally, I used [GitHub Actions](https://github.com/features/actions) to refresh the list every few hours. You can find it here: [https://ivelasq.github.io/rladies-video-feed/](https://ivelasq.github.io/rladies-video-feed/).
 
-This post will walk through how I created a flexdashboard that pulls in YouTube API data. The code for the dashboard is on [GitHub](https://github.com/ivelasq/rladies-video-feed) in case you want to reuse it with another set of channels!
+This post will walk through how I created it. The code for the dashboard is on [GitHub](https://github.com/ivelasq/rladies-video-feed) in case you want to reuse it with another set of channels!
 
 :::{.callout-warning}
 ## YouTube RSS vs. YouTube API
-I originally used the [tidyRSS]() package to pull the videos from YouTube. However, the YouTube RSS feed limits results to the latest 15 videos. The code is still available in the repo if you would like to take a look. This is a good option if you only want the most recent stream of content and do not want to set up Google credentials.
+I originally used the [tidyRSS](https://robertmyles.github.io/tidyRSS/) package to pull the videos from YouTube. However, the YouTube RSS feed limits results to the latest 15 videos. The code is still available in the repo if you would like to take a look. This is a good option if you only want the most recent stream of content and do not want to set up Google credentials. Thanks to the [R4DS channel](http://r4ds.io/join) and [Tom Mock](https://twitter.com/thomas_mock) for pointing me in the right direction!
 :::
 
 ## Get Google credentials
@@ -52,21 +52,32 @@ library(stringr)
 library(DT)
 ```
 
-Create a spreadsheet with the channels you are interested in. I did not create this programmatically, just searched on YouTube to find all the R-Ladies channels I could. I tried to do as many things as programmatically as possible, so I only included the name of the chapter, its thumbnail, and the channel ID.
+Create a spreadsheet with the channels you are interested in. I created this manually (I just searched on YouTube to find all the R-Ladies channels I could). I tried to do as many things as programmatically as possible, so I only included the name of the chapter, its thumbnail, and the channel ID.
 
 ``` R
 dat <-
   read_csv("https://github.com/ivelasq/rladies-video-feed/blob/main/r-ladies_channels.csv")
-
+  
 head(dat)
+```
+
+```
+  chapter            image                                              id   
+  <chr>              <chr>                                              <chr>
+1 R-Ladies Global    https://yt3.ggpht.com/ytc/AKedOLRM4FPiPcPBdFUmYWR… UCDg…
+2 R-Ladies Baltimore https://yt3.ggpht.com/RQifC3qp_7AFeTc48-QV1i4WBNM… UC9U…
+3 R-Ladies Philly    https://yt3.ggpht.com/ytc/AKedOLShIKBvPUKqbvm_Cpu… UCPq…
+4 R-Ladies STL       https://yt3.ggpht.com/ytc/AKedOLSBA7rlz1yvbIJ7TVN… UCQ7…
+5 R-Ladies Sydney    https://yt3.ggpht.com/ytc/AKedOLQnaU-dJbb14j2RE6W… UCkr…
+6 R-Ladies Vancouver https://yt3.ggpht.com/3yf0Zo8-VKffrG-dRT_Gs85xX_x… UCX5…
 ```
 
 :::{.callout-warning}
 ## YouTube Channel IDs
-Some YouTube channels have 'custom IDs' like RLadiesGlobal. These won't work, you need the original IDs to put into tuber. The best way I found to get this ID is to click on a video from a channel. Then, scroll down to the description and click the channel name from that video. Then it will appear in the URL after `/channel/`. A good idea for a future Shiny app would be a way to pull this information from the YouTube API...
+Some YouTube channels have 'custom IDs' like RLadiesGlobal. These won't work in tuber, you need the original IDs. The best way I found to get this ID is to click on a video from a channel. Then, scroll down to the description and click the channel name from that video. Then it will appear in the URL after `/channel/`. A good idea for a future Shiny app would be a way to pull this information from the YouTube API...
 :::
 
-Now, create a few more columns with `dplyr::mutate()` that expand the URLs in HTML format:
+Now, create a few more columns with `dplyr::mutate()` that expand the URLs into HTML format:
 
 ``` R
 dat_urls <-
@@ -87,7 +98,7 @@ dat_urls <-
   )
 ```
 
-Pull in the credential info that had you going through all those hoops earlier.
+Pull in the credential info that had you going through all those hoops earlier by using the tuber package (finally!).
 
 ``` R
 yt_oauth(
@@ -104,20 +115,23 @@ Use a local file ('.httr-oauth'), to cache OAuth access credentials between R se
 2: No
 ```
 
-Great, now you have access to YouTube data! Let's use the tuber package (finally).
+:::{.callout-warning}
+## Error: HTTP failure: 401
 
+Sometimes, you may be running your script with no problems and then all of the sudden, you get a 401 error. This is a [known issue](https://github.com/soodoku/tuber/issues/30) and the only solution I found was to delete the `.httr-oauth` file and then re-authenticate following the directions above.
+:::
+
+Great, now you have access to YouTube data!
 The [documentation](https://soodoku.github.io/tuber/reference/index.html
-) describes the many functions available to you. Since I started with channel IDs, I wanted to use `list_channel_videos()` to get the list of videos from the channels. Notice that there's a default limit for the number of videos pulled from the API. I bumped that up a bit.
+) describes the many functions available to you. Since I had only the channel IDs, I wanted to use `list_channel_videos()` to get a full list of videos from the channels.
 
-For example, for the R-Ladies Global channel, you could run:
+For example, for the R-Ladies Global channel, you could run to get its (currently 140) videos:
 
 ``` R
 list_channel_videos("UCDgj5-mFohWZ5irWSFMFcng", max_results = 200)
 ```
 
 What if you want the results for all the channels you have in our spreadsheet? I used a loop for this. This loop says: Starting with an empty data frame called `dat_videos` , for each row in `dat_urls` (which contains the channel IDs), find the channel ID, pull it out, run it through `list_channel_videos`, and then add the information as a row to `dat_videos`.
-
-The arguments in `list_channel_videos` give me all the columns I am interested in with `part = "snippet"` and up to 200 results from the channel.
 
 ``` R
 dat_videos <- NULL
@@ -133,6 +147,8 @@ for (i in 1:nrow(dat_urls)) {
   dat_videos <- bind_rows(dat_videos, tmp)
 }
 ```
+
+The arguments in `list_channel_videos` give me all the columns I am interested in with `part = "snippet"`. Notice that there's a default limit for the number of videos pulled from the API. I bumped that up a bit with the `maxResults` argument.
 
 Then, I brought back the URL info:
 
@@ -160,7 +176,7 @@ dat_dashboard_dat <-
       image,
       "' alt='Hex Sticker for Chapter' width='40'></img>",
       "<a href='https://www.youtube.com/channel/",
-      id,
+      snippet.channelId,
       "' target='_blank'>",
       chapter,
       "</a>"
@@ -171,11 +187,13 @@ dat_dashboard_dat <-
   select(date, chapter, channel_url, video_url, channel_image_url)
 ```
 
+See the [final data processing file on GitHub](https://github.com/ivelasq/rladies-video-feed/blob/main/data-processing.R).
+
 ## Create a flexdashboard
 
 You have the YouTube data --- time to create a pretty dashboard!
 
-My flexdashboard starts as it often does: with a YAML header. I specified an orientation (columns) and added the link to the GitHub repository in the navigation bar.
+My flexdashboard started as R Markdown files often do: with a YAML header. I specified an orientation (columns) and added the link to the GitHub repository in the navigation bar.
 
 ``` YAML
 ---
@@ -213,7 +231,7 @@ output:
 
 ### Add packages for the dashboard
 
-After the YAML header, add the packages you need. I used `source()` to read in the R script that pulls in, cleans, and saves the data for the dashboard.
+After the YAML header, add the packages you need. I used `source()` to read in the `data-processing.R` script.
 
 ``` R
 library(flexdashboard)
@@ -223,11 +241,11 @@ source("data-processing.R", local = knitr::knit_global())
 
 ## Fill out the dashboard
 
-I recommend checking out the flexdashboard documentation to create the look you would like. This dashboard was simple: just a sidebar and the main section.
+This dashboard was simple: just a sidebar and the main section. I recommend checking out the flexdashboard documentation to see all the [layout options](https://pkgs.rstudio.com/flexdashboard/articles/layouts.html) available to you.
 
-This code builds out the sidebar section. I created a list of each chapter that I was able to find and arranged them by name. With `shiny::HTML()`, the dashboard can render the URLs as HTML (the reason for all that manipulation earlier on).
+This code builds out the sidebar section. I created a list of each R-Ladies chapter that I was able to find and arranged them by name. With `shiny::HTML()`, the dashboard can render the URLs as HTML (the reason for all that manipulation earlier on).
 
-````
+```` R
 Sidebar {.sidebar}
 -----------------------------------------------------------------------
 
@@ -249,11 +267,11 @@ For the main body, I used the [DT](https://rstudio.github.io/DT/) package to cre
 A couple of fun tricks to notice:
 
 * `escape = FALSE` renders the URLs within the table as HTML
-* The list within `options` aligns the text within columns (in this case, to be in the middle of the cell for all columns)^[I found out about this here: https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable.]
+* The list within `options` aligns the text within columns (in this case, to be in the middle of the cell for all columns)^[I found out about this here: [https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable](https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable).]
 
 There are a lot of customization options!
 
-````
+```` R
 Column {data-width=900}
 -----------------------------------------------------------------------
 
@@ -280,10 +298,62 @@ dat_dashboard_dat %>%
 ```
 ````
 
-And that's it! Knit the flexdashboard to see the final dashboard.
+And that's it! See the [final dashboard code](https://github.com/ivelasq/rladies-video-feed/blob/main/index.Rmd) on GitHub.
 
 ![Final dashboard](dashboard.png){fig-alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"}
 
-Try it out --- search "Shiny" to see any video with Shiny in the title!
+[Try it out](https://ivelasq.github.io/rladies-video-feed/) --- search "Shiny" to see any video with Shiny in the title, or "Ecuador" to see all the videos from R-Ladies Ecuador!
 
+## Schedule updates
 
+I am glad to have a dashboard with a list of R-Ladies videos. But, what about future ones?
+
+One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
+
+I am very new at GitHub Actions, but this script seems to work. It is saved as a .yml file within a folder called `.github/workflows/`. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the `.Rmd` file. You can use a [CRON calculator](https://crontab.guru/) to figure out how to write out the schedule (that `  - cron: '0 */12 * * *'` line at the top). I welcome feedback on how to improve this GitHub Action!
+
+``` YAML
+name: rladies_videos_bot
+
+on:
+  schedule:
+  - cron: '0 */12 * * *'
+
+jobs:
+  render:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Install tidyRSS package
+        run: Rscript -e 'install.packages("tidyRSS", dependencies = TRUE)'
+      - name: Install readr package
+        run: Rscript -e 'install.packages("readr", dependencies = TRUE)'
+      - name: Install dplyr package
+        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
+      - name: Install stringr package
+        run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
+      - name: Install DT package
+        run: Rscript -e 'install.packages("DT", dependencies = TRUE)'
+      - name: Install rmarkdown package
+        run: Rscript -e 'install.packages("rmarkdown", dependencies = TRUE)'  
+      - name: Install shiny package
+        run: Rscript -e 'install.packages("shiny", dependencies = TRUE)' 
+      - name: Install flexdashboard package
+        run: Rscript -e 'install.packages("flexdashboard", dependencies = TRUE)'  
+      - name: Install bslib package
+        run: Rscript -e 'install.packages("bslib", dependencies = TRUE)'  
+      - name: Create and update dashboard
+        run: Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'
+```
+
+To host the dashboard, I used GitHub Pages. In the repository of your dashboard, go to Settings, then Pages. Choose the branch and folder of your flexdashboard output, click Save, and then you will have a URL to showcase your work.
+
+Here is the final URL: [https://ivelasq.github.io/rladies-video-feed/](https://ivelasq.github.io/rladies-video-feed/).
+
+## Conclusion
+
+This was a fun pet project (and now I want to create one for the R User Groups, too).
+
+Feedback? Am I missing any channels? Let me know.
