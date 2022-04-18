@@ -310,7 +310,7 @@ I am glad to have a dashboard with a list of R-Ladies videos. But, what about fu
 
 One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
 
-I am very new at GitHub Actions, but this script seems to work. It is saved as a .yml file within a folder called `.github/workflows/`. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the `.Rmd` file. You can use a [CRON calculator](https://crontab.guru/) to figure out how to write out the schedule (that `  - cron: '0 */12 * * *'` line at the top). I welcome feedback on how to improve this GitHub Action!
+I am very new at GitHub Actions, but this script seems to work. It is saved as a `.yml` file within a folder called `.github/workflows/`. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the `.Rmd` file. You can use a [CRON calculator](https://crontab.guru/) to figure out how to write out the schedule (that `  - cron: '0 */12 * * *'` line at the top). I welcome feedback on how to improve this GitHub Action!
 
 ``` YAML
 name: rladies_videos_bot
@@ -350,7 +350,7 @@ jobs:
 
 To host the dashboard, I used GitHub Pages. In the repository of your dashboard, go to Settings, then Pages. Choose the branch and folder of your flexdashboard output, click Save, and then you will have a URL to showcase your work.
 
-Here is the final URL: [https://ivelasq.github.io/rladies-video-feed/](https://ivelasq.github.io/rladies-video-feed/).
+Here is the final link for this dashboard: [https://ivelasq.github.io/rladies-video-feed/](https://ivelasq.github.io/rladies-video-feed/).
 
 ## Conclusion
 

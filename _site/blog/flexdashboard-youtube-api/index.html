@@ -474,7 +474,7 @@ Error: HTTP failure: 401
 <h2 class="anchored" data-anchor-id="schedule-updates">Schedule updates</h2>
 <p>I am glad to have a dashboard with a list of R-Ladies videos. But, what about future ones?</p>
 <p>One option to keep your dashboard updated is to use <a href="https://github.com/features/actions">GitHub Actions</a>. By setting up a ‘workflow’, you can automate your workflow and refresh the data on a schedule.</p>
-<p>I am very new at GitHub Actions, but this script seems to work. It is saved as a .yml file within a folder called <code>.github/workflows/</code>. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the <code>.Rmd</code> file. You can use a <a href="https://crontab.guru/">CRON calculator</a> to figure out how to write out the schedule (that <code>- cron: '0 */12 * * *'</code> line at the top). I welcome feedback on how to improve this GitHub Action!</p>
+<p>I am very new at GitHub Actions, but this script seems to work. It is saved as a <code>.yml</code> file within a folder called <code>.github/workflows/</code>. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the <code>.Rmd</code> file. You can use a <a href="https://crontab.guru/">CRON calculator</a> to figure out how to write out the schedule (that <code>- cron: '0 */12 * * *'</code> line at the top). I welcome feedback on how to improve this GitHub Action!</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> rladies_videos_bot</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
@@ -509,7 +509,7 @@ Error: HTTP failure: 401
 <span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Create and update dashboard</span></span>
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To host the dashboard, I used GitHub Pages. In the repository of your dashboard, go to Settings, then Pages. Choose the branch and folder of your flexdashboard output, click Save, and then you will have a URL to showcase your work.</p>
-<p>Here is the final URL: <a href="https://ivelasq.github.io/rladies-video-feed/">https://ivelasq.github.io/rladies-video-feed/</a>.</p>
+<p>Here is the final link for this dashboard: <a href="https://ivelasq.github.io/rladies-video-feed/">https://ivelasq.github.io/rladies-video-feed/</a>.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
