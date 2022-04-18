@@ -326,8 +326,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@v2
       - uses: r-lib/actions/setup-pandoc@v1
-      - name: Install tidyRSS package
-        run: Rscript -e 'install.packages("tidyRSS", dependencies = TRUE)'
+      - name: Install remotes package
+        run: Rscript -e 'install.packages("remotes")'
+      - name: Install tuber package
+        run: Rscript -e 'install_github("soodoku/tuber")'
       - name: Install readr package
         run: Rscript -e 'install.packages("readr", dependencies = TRUE)'
       - name: Install dplyr package
