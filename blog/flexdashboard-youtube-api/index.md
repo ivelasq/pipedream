@@ -142,7 +142,7 @@ for (i in 1:nrow(dat_urls)) {
     pull() %>%
     list_channel_videos(.,
                         part = "snippet",
-                        config = list('maxResults' = 200))
+                        config = list("maxResults" = 200))
   
   dat_videos <- bind_rows(dat_videos, tmp)
 }
@@ -285,14 +285,14 @@ Column {data-width=900}
 
 ```{r}
 dat_dashboard_dat %>%
-  select(-chapter,-channel_image_url) %>%
+  select(-chapter, -channel_image_url) %>%
   datatable(
-    colnames = c('Date', 'Channel', 'Video'),
-    filter = 'top',
+    colnames = c("Date", "Channel", "Video"),
+    filter = "top",
     escape = FALSE,
-    height = '1000',
+    height = "1000",
     options = list(columnDefs = list(
-      list(className = 'dt-middle', targets = "_all")
+      list(className = "dt-middle", targets = "_all")
     ))
   )
 ```
@@ -308,47 +308,42 @@ And that's it! See the [final dashboard code](https://github.com/ivelasq/rladies
 
 I am glad to have a dashboard with a list of R-Ladies videos. But, what about future ones?
 
-One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
+One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). GitHub Actions are saved as a `.yml` file within a folder called `.github/workflows/`. It specifies the steps to take based on a certain action (with every push, every 12 hours, etc.). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
 
-I am very new at GitHub Actions, but this script seems to work. It is saved as a `.yml` file within a folder called `.github/workflows/`. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the `.Rmd` file. You can use a [CRON calculator](https://crontab.guru/) to figure out how to write out the schedule (that `  - cron: '0 */12 * * *'` line at the top). I welcome feedback on how to improve this GitHub Action!
+H/t to [@gvelasq](https://github.com/gvelasq) for this GitHub Action:
 
-``` YAML
-name: rladies_videos_bot
-
+``` yml
 on:
   schedule:
-  - cron: '0 */12 * * *'
+    - cron: '0 */12 * * *'
+
+name: rladies-videos-bot
 
 jobs:
-  render:
+  rladies-videos-bot:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
       - uses: r-lib/actions/setup-r@v2
-      - uses: r-lib/actions/setup-pandoc@v1
-      - name: Install remotes package
-        run: Rscript -e 'install.packages("remotes")'
-      - name: Install tuber package
-        run: Rscript -e 'install_github("soodoku/tuber")'
-      - name: Install readr package
-        run: Rscript -e 'install.packages("readr", dependencies = TRUE)'
-      - name: Install dplyr package
-        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
-      - name: Install stringr package
-        run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
-      - name: Install DT package
-        run: Rscript -e 'install.packages("DT", dependencies = TRUE)'
-      - name: Install rmarkdown package
-        run: Rscript -e 'install.packages("rmarkdown", dependencies = TRUE)'  
-      - name: Install shiny package
-        run: Rscript -e 'install.packages("shiny", dependencies = TRUE)' 
-      - name: Install flexdashboard package
-        run: Rscript -e 'install.packages("flexdashboard", dependencies = TRUE)'  
-      - name: Install bslib package
-        run: Rscript -e 'install.packages("bslib", dependencies = TRUE)'  
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 2
+
       - name: Create and update dashboard
-        run: Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'
+        run: |
+          Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'
 ```
+
+A couple of things to note:
+
+* The [DESCRIPTION](https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION) file needs to import all of the packages for your workflow under `Imports`.
+* You can use a [CRON calculator](https://crontab.guru/) to figure out how to write out the schedule (that `  - cron: '0 */12 * * *'` line at the top).
 
 To host the dashboard, I used GitHub Pages. In the repository of your dashboard, go to Settings, then Pages. Choose the branch and folder of your flexdashboard output, click Save, and then you will have a URL to showcase your work.
 
@@ -358,4 +353,4 @@ Here is the final link for this dashboard: [https://ivelasq.github.io/rladies-vi
 
 This was a fun pet project (and now I want to create one for the R User Groups, too).
 
-Feedback? Am I missing any channels? Let me know.
+Feedback? Am I missing any channels? Made your own dashboard with the YouTube API? Let me know!

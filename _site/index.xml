@@ -150,7 +150,7 @@ Error: HTTP failure: 401
 <span id="cb8-6">    <span class="fu" style="color: #4758AB;">pull</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
 <span id="cb8-7">    <span class="fu" style="color: #4758AB;">list_channel_videos</span>(.,</span>
 <span id="cb8-8">                        <span class="at" style="color: #677623;">part =</span> <span class="st" style="color: #20794D;">"snippet"</span>,</span>
-<span id="cb8-9">                        <span class="at" style="color: #677623;">config =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="st" style="color: #20794D;">'maxResults'</span> <span class="ot" style="color: #00769E;">=</span> <span class="dv" style="color: #AD0000;">200</span>))</span>
+<span id="cb8-9">                        <span class="at" style="color: #677623;">config =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="st" style="color: #20794D;">"maxResults"</span> <span class="ot" style="color: #00769E;">=</span> <span class="dv" style="color: #AD0000;">200</span>))</span>
 <span id="cb8-10">  </span>
 <span id="cb8-11">  dat_videos <span class="ot" style="color: #00769E;">&lt;-</span> <span class="fu" style="color: #4758AB;">bind_rows</span>(dat_videos, tmp)</span>
 <span id="cb8-12">}</span></code></pre></div>
@@ -265,14 +265,14 @@ font-style: italic;">### By default, the list is sorted by latest video.</span><
 <span id="cb15-11"></span>
 <span id="cb15-12"><span class="st" style="color: #20794D;">```</span><span class="at" style="color: #677623;">{r}</span></span>
 <span id="cb15-13"><span class="at" style="color: #677623;">dat_dashboard_dat %&gt;%</span></span>
-<span id="cb15-14"><span class="at" style="color: #677623;">  select(-chapter,-channel_image_url) %&gt;%</span></span>
+<span id="cb15-14"><span class="at" style="color: #677623;">  select(-chapter, -channel_image_url) %&gt;%</span></span>
 <span id="cb15-15"><span class="at" style="color: #677623;">  datatable(</span></span>
-<span id="cb15-16"><span class="at" style="color: #677623;">    colnames = c('Date', 'Channel', 'Video'),</span></span>
-<span id="cb15-17"><span class="at" style="color: #677623;">    filter = 'top',</span></span>
+<span id="cb15-16"><span class="at" style="color: #677623;">    colnames = c("Date", "Channel", "Video"),</span></span>
+<span id="cb15-17"><span class="at" style="color: #677623;">    filter = "top",</span></span>
 <span id="cb15-18"><span class="at" style="color: #677623;">    escape = FALSE,</span></span>
-<span id="cb15-19"><span class="at" style="color: #677623;">    height = '1000',</span></span>
+<span id="cb15-19"><span class="at" style="color: #677623;">    height = "1000",</span></span>
 <span id="cb15-20"><span class="at" style="color: #677623;">    options = list(columnDefs = list(</span></span>
-<span id="cb15-21"><span class="at" style="color: #677623;">      list(className = 'dt-middle', targets = "_all")</span></span>
+<span id="cb15-21"><span class="at" style="color: #677623;">      list(className = "dt-middle", targets = "_all")</span></span>
 <span id="cb15-22"><span class="at" style="color: #677623;">    ))</span></span>
 <span id="cb15-23"><span class="at" style="color: #677623;">  )</span></span>
 <span id="cb15-24"><span class="st" style="color: #20794D;">```</span></span></code></pre></div>
@@ -288,50 +288,45 @@ font-style: italic;">### By default, the list is sorted by latest video.</span><
 <section id="schedule-updates" class="level2">
 <h2 class="anchored" data-anchor-id="schedule-updates">Schedule updates</h2>
 <p>I am glad to have a dashboard with a list of R-Ladies videos. But, what about future ones?</p>
-<p>One option to keep your dashboard updated is to use <a href="https://github.com/features/actions">GitHub Actions</a>. By setting up a ‘workflow’, you can automate your workflow and refresh the data on a schedule.</p>
-<p>I am very new at GitHub Actions, but this script seems to work. It is saved as a <code>.yml</code> file within a folder called <code>.github/workflows/</code>. Essentially, I wrote out each package used for the dashboard creation then asked the workflow to run the <code>.Rmd</code> file. You can use a <a href="https://crontab.guru/">CRON calculator</a> to figure out how to write out the schedule (that <code>- cron: '0 */12 * * *'</code> line at the top). I welcome feedback on how to improve this GitHub Action!</p>
-<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> rladies_videos_bot</span></span>
-<span id="cb16-2"></span>
-<span id="cb16-3"><span class="fu" style="color: #4758AB;">on</span><span class="kw" style="color: #00769E;">:</span></span>
-<span id="cb16-4"><span class="at" style="color: #677623;">  </span><span class="fu" style="color: #4758AB;">schedule</span><span class="kw" style="color: #00769E;">:</span></span>
-<span id="cb16-5"><span class="at" style="color: #677623;">  </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">cron</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">'0 */12 * * *'</span></span>
+<p>One option to keep your dashboard updated is to use <a href="https://github.com/features/actions">GitHub Actions</a>. GitHub Actions are saved as a <code>.yml</code> file within a folder called <code>.github/workflows/</code>. It specifies the steps to take based on a certain action (with every push, every 12 hours, etc.). By setting up a ‘workflow’, you can automate your workflow and refresh the data on a schedule.</p>
+<p>H/t to <a href="https://github.com/gvelasq"><span class="citation" data-cites="gvelasq">@gvelasq</span></a> for this GitHub Action:</p>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><span class="fu" style="color: #4758AB;">on</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb16-2"><span class="at" style="color: #677623;">  </span><span class="fu" style="color: #4758AB;">schedule</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb16-3"><span class="at" style="color: #677623;">    </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">cron</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="st" style="color: #20794D;">'0 */12 * * *'</span></span>
+<span id="cb16-4"></span>
+<span id="cb16-5"><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> rladies-videos-bot</span></span>
 <span id="cb16-6"></span>
 <span id="cb16-7"><span class="fu" style="color: #4758AB;">jobs</span><span class="kw" style="color: #00769E;">:</span></span>
-<span id="cb16-8"><span class="at" style="color: #677623;">  </span><span class="fu" style="color: #4758AB;">render</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb16-8"><span class="at" style="color: #677623;">  </span><span class="fu" style="color: #4758AB;">rladies-videos-bot</span><span class="kw" style="color: #00769E;">:</span></span>
 <span id="cb16-9"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">runs-on</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> macOS-latest</span></span>
 <span id="cb16-10"><span class="at" style="color: #677623;">    </span><span class="fu" style="color: #4758AB;">steps</span><span class="kw" style="color: #00769E;">:</span></span>
 <span id="cb16-11"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> actions/checkout@v2</span></span>
-<span id="cb16-12"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> r-lib/actions/setup-r@v2</span></span>
-<span id="cb16-13"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> r-lib/actions/setup-pandoc@v1</span></span>
-<span id="cb16-14"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install remotes package</span></span>
-<span id="cb16-15"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("remotes")'</span></span>
-<span id="cb16-16"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install tuber package</span></span>
-<span id="cb16-17"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install_github("soodoku/tuber")'</span></span>
-<span id="cb16-18"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install readr package</span></span>
-<span id="cb16-19"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("readr", dependencies = TRUE)'</span></span>
-<span id="cb16-20"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install dplyr package</span></span>
-<span id="cb16-21"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("dplyr", dependencies = TRUE)'</span></span>
-<span id="cb16-22"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install stringr package</span></span>
-<span id="cb16-23"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("stringr", dependencies = TRUE)'</span></span>
-<span id="cb16-24"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install DT package</span></span>
-<span id="cb16-25"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("DT", dependencies = TRUE)'</span></span>
-<span id="cb16-26"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install rmarkdown package</span></span>
-<span id="cb16-27"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("rmarkdown", dependencies = TRUE)'  </span></span>
-<span id="cb16-28"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install shiny package</span></span>
-<span id="cb16-29"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("shiny", dependencies = TRUE)' </span></span>
-<span id="cb16-30"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install flexdashboard package</span></span>
-<span id="cb16-31"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("flexdashboard", dependencies = TRUE)'  </span></span>
-<span id="cb16-32"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Install bslib package</span></span>
-<span id="cb16-33"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'install.packages("bslib", dependencies = TRUE)'  </span></span>
-<span id="cb16-34"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Create and update dashboard</span></span>
-<span id="cb16-35"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">run</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'</span></span></code></pre></div>
+<span id="cb16-12"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">with</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb16-13"><span class="at" style="color: #677623;">          </span><span class="fu" style="color: #4758AB;">fetch-depth</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="dv" style="color: #AD0000;">0</span></span>
+<span id="cb16-14"></span>
+<span id="cb16-15"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> r-lib/actions/setup-pandoc@v2</span></span>
+<span id="cb16-16"></span>
+<span id="cb16-17"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> r-lib/actions/setup-r@v2</span></span>
+<span id="cb16-18"></span>
+<span id="cb16-19"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">uses</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> r-lib/actions/setup-r-dependencies@v2</span></span>
+<span id="cb16-20"><span class="at" style="color: #677623;">        </span><span class="fu" style="color: #4758AB;">with</span><span class="kw" style="color: #00769E;">:</span></span>
+<span id="cb16-21"><span class="at" style="color: #677623;">          </span><span class="fu" style="color: #4758AB;">cache-version</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> </span><span class="dv" style="color: #AD0000;">2</span></span>
+<span id="cb16-22"></span>
+<span id="cb16-23"><span class="at" style="color: #677623;">      </span><span class="kw" style="color: #00769E;">-</span><span class="at" style="color: #677623;"> </span><span class="fu" style="color: #4758AB;">name</span><span class="kw" style="color: #00769E;">:</span><span class="at" style="color: #677623;"> Create and update dashboard</span></span>
+<span id="cb16-24"><span class="fu" style="color: #4758AB;">        run</span><span class="kw" style="color: #00769E;">: </span><span class="ch" style="color: #20794D;">|</span></span>
+<span id="cb16-25">          Rscript -e 'rmarkdown::render("index.Rmd", output_format = "html_document")'</span></code></pre></div>
+<p>A couple of things to note:</p>
+<ul>
+<li>The <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION">DESCRIPTION</a> file needs to import all of the packages for your workflow under <code>Imports</code>.</li>
+<li>You can use a <a href="https://crontab.guru/">CRON calculator</a> to figure out how to write out the schedule (that <code>- cron: '0 */12 * * *'</code> line at the top).</li>
+</ul>
 <p>To host the dashboard, I used GitHub Pages. In the repository of your dashboard, go to Settings, then Pages. Choose the branch and folder of your flexdashboard output, click Save, and then you will have a URL to showcase your work.</p>
 <p>Here is the final link for this dashboard: <a href="https://ivelasq.github.io/rladies-video-feed/">https://ivelasq.github.io/rladies-video-feed/</a>.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>This was a fun pet project (and now I want to create one for the R User Groups, too).</p>
-<p>Feedback? Am I missing any channels? Let me know.</p>
+<p>Feedback? Am I missing any channels? Made your own dashboard with the YouTube API? Let me know!</p>
 
 
 
