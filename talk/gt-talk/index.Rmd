@@ -1,6 +1,5 @@
 ---
 title: Around the World in a Single Table (gt Walkthrough)
-title-block-banner: "banner.jpg"
 categories: [walkthroughs, packages]
 date: "2021-10-27"
 description: Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package.

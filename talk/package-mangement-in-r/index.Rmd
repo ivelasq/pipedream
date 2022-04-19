@@ -1,6 +1,5 @@
 ---
 title: Package Management for Reproducible Data Science in R
-title-block-banner: "#272822"
 author:
   - Mike Garcia
   - Isabella Velásquez

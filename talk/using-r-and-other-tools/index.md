@@ -1,6 +1,5 @@
 ---
 title: Packages for Using R With Python, Tableau, and Other Tools
-title-block-banner: "banner.png"
 date: "2021-12-10"
 description: R is a powerful programming language for statistics and data science with an accompanying ecosystem that supports its use. Interoperability is part of what makes the R ecosystem so rich, enabling users to apply R in a variety of contexts. In this talk, I discuss packages that allow you to integrate R together with other tools, including Python and Tableau.
 image: "thumbnail.png"
