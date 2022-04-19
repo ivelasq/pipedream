@@ -308,9 +308,9 @@ And that's it! See the [final dashboard code](https://github.com/ivelasq/rladies
 
 I am glad to have a dashboard with a list of R-Ladies videos. But, what about future ones?
 
-One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). GitHub Actions are saved as a `.yml` file within a folder called `.github/workflows/`. It specifies the steps to take based on a certain action (with every push, every 12 hours, etc.). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
+One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). GitHub Actions are saved as a `.yml` or `.yaml` file within a folder called `.github/workflows/`. It specifies the steps to take based on a certain action (with every push, every 12 hours, etc.). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
 
-h/t to [@gvelasq](https://github.com/gvelasq) for this GitHub Action:
+h/t to @gvelasq and this amazing [example](https://github.com/r-lib/actions/blob/v2/examples/render-rmarkdown.yaml) in the [r-lib/actions](https://github.com/r-lib/actions/tree/v2/examples#readme) repo for this GitHub Action:
 
 ``` yml
 on:
