@@ -310,7 +310,7 @@ I am glad to have a dashboard with a list of R-Ladies videos. But, what about fu
 
 One option to keep your dashboard updated is to use [GitHub Actions](https://github.com/features/actions). GitHub Actions are saved as a `.yml` file within a folder called `.github/workflows/`. It specifies the steps to take based on a certain action (with every push, every 12 hours, etc.). By setting up a 'workflow', you can automate your workflow and refresh the data on a schedule.
 
-H/t to [@gvelasq](https://github.com/gvelasq) for this GitHub Action:
+h/t to [@gvelasq](https://github.com/gvelasq) for this GitHub Action:
 
 ``` yml
 on:
