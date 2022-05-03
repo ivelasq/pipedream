@@ -1,0 +1,1 @@
+plot(mtcars$mpg, mtcars$am)
