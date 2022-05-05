@@ -259,19 +259,19 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <section id="install-packages" class="level2">
 <h2 class="anchored" data-anchor-id="install-packages">Install packages</h2>
 <p>First up is installing the R packages:</p>
-<pre><code>```{r}
-# Install packages if not already installed
-# install.packages(c("tidyverse", "reticulate"))
-library(tidyverse)
-library(reticulate)
-```</code></pre>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;"># Install packages if not already installed</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;"># install.packages(c("tidyverse", "reticulate"))</span></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;">library</span>(reticulate)</span>
+<span id="cb1-6"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <p>In your project, create a folder called “image”. Save the image you would like to convert to a dataset in that folder. To recreate this paper’s dataset, go to <a href="https://classroomclipart.com/clipart-view/Clipart/Black_and_White_Clipart/Animals/gorilla-waving-cartoon-black-white-outline-clipart-914_jpg.htm">this</a> page and download the cartoon gorilla.</p>
 <p>The paper mentions the ‘getpixel’ function. With a bit of digging, we find that is from the package <code>pillow</code> (a fork from a package called <code>PIL</code>). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} below.</p>
-<pre><code>```{r}
-use_python("/usr/local/bin/python")
-# If you haven't installed Python, the line below will prompt you!
-py_install("pillow")
-```</code></pre>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">use_python</span>(<span class="st" style="color: #20794D;">"/usr/local/bin/python"</span>)</span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;"># If you haven't installed Python, the line below will prompt you!</span></span>
+<span id="cb2-4"><span class="fu" style="color: #4758AB;">py_install</span>(<span class="st" style="color: #20794D;">"pillow"</span>)</span>
+<span id="cb2-5"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <p>Since {reticulate} is the package that allows you to call Python, if you do not have Python installed, then you will get a message (which you would reply Y to):</p>
 <pre><code>No non-system installation of Python could be found.
 Would you like to download and install Miniconda?
@@ -281,22 +281,22 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.</code></pre
 <section id="create-coordinates" class="level2">
 <h2 class="anchored" data-anchor-id="create-coordinates">Create coordinates</h2>
 <p><a href="https://stackoverflow.com/questions/58398300/find-all-coordinates-of-black-grey-pixels-in-image-using-python">This</a> Stack Overflow thread was very helpful to determine what we need to do with the ‘getpixel’ function in <code>pillow</code>. Again, like in R, we need to call the functions we need but this time, we are doing it in a <code>python</code> chunk.</p>
-<pre><code>```{python}
-import numpy as np
-from PIL import Image
-```</code></pre>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><span class="in" style="color: #5E5E5E;">```{python}</span></span>
+<span id="cb4-2"><span class="im" style="color: null;">import</span> numpy <span class="im" style="color: null;">as</span> np</span>
+<span id="cb4-3"><span class="im" style="color: null;">from</span> PIL <span class="im" style="color: null;">import</span> Image</span>
+<span id="cb4-4"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <p>Then, we point to the image and create coordinates pixels for the outline of the cartoon. We can set a threshold level for which pixels to keep/discard.</p>
-<pre><code>```{python}
-# Thanks to Bart Huntley for pointing out a typo previously in this chunk!
-im = Image.open("/cloud/project/image/gorilla.jpg")
-pixels = np.asarray(im)
-
-# Set threshold level
-threshold_level = 50
-
-# Find coordinates of all pixels below threshold
-coords = np.column_stack(np.where(pixels &lt; threshold_level))
-```</code></pre>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="in" style="color: #5E5E5E;">```{python}</span></span>
+<span id="cb5-2"><span class="co" style="color: #5E5E5E;"># Thanks to Bart Huntley for pointing out a typo previously in this chunk!</span></span>
+<span id="cb5-3">im <span class="op" style="color: #5E5E5E;">=</span> Image.<span class="bu" style="color: null;">open</span>(<span class="st" style="color: #20794D;">"/cloud/project/image/gorilla.jpg"</span>)</span>
+<span id="cb5-4">pixels <span class="op" style="color: #5E5E5E;">=</span> np.asarray(im)</span>
+<span id="cb5-5"></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;"># Set threshold level</span></span>
+<span id="cb5-7">threshold_level <span class="op" style="color: #5E5E5E;">=</span> <span class="dv" style="color: #AD0000;">50</span></span>
+<span id="cb5-8"></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;"># Find coordinates of all pixels below threshold</span></span>
+<span id="cb5-10">coords <span class="op" style="color: #5E5E5E;">=</span> np.column_stack(np.where(pixels <span class="op" style="color: #5E5E5E;">&lt;</span> threshold_level))</span>
+<span id="cb5-11"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 </section>
 <section id="bring-back-into-r" class="level2">
 <h2 class="anchored" data-anchor-id="bring-back-into-r">Bring back into R</h2>
@@ -312,46 +312,46 @@ coords = np.column_stack(np.where(pixels &lt; threshold_level))
 </center>
 
 <p>Knowing that, we can create an R object from coords using <code>py</code>. Next, we follow the steps outlined in the paper for the data preparation.</p>
-<pre><code>```{r}
-coords &lt;-
-  as.data.frame(py$coords) %&gt;%
-  sample_n(1768) %&gt;%
-  mutate(bmi = V2 * 17 + 15,
-         steps = 15000 - V1 * 15000/max(V1)) %&gt;%
-  mutate(randvar = rnorm(n(), mean = 0, sd = 10),
-         randi = steps * (1 + randvar),
-         gender = case_when(randi &lt; median(steps) ~ "Female",
-                            TRUE ~ "Male"))
-```</code></pre>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb6-2">coords <span class="ot" style="color: #00769E;">&lt;-</span></span>
+<span id="cb6-3">  <span class="fu" style="color: #4758AB;">as.data.frame</span>(py<span class="sc" style="color: #5E5E5E;">$</span>coords) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb6-4">  <span class="fu" style="color: #4758AB;">sample_n</span>(<span class="dv" style="color: #AD0000;">1768</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb6-5">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #677623;">bmi =</span> V2 <span class="sc" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">17</span> <span class="sc" style="color: #5E5E5E;">+</span> <span class="dv" style="color: #AD0000;">15</span>,</span>
+<span id="cb6-6">         <span class="at" style="color: #677623;">steps =</span> <span class="dv" style="color: #AD0000;">15000</span> <span class="sc" style="color: #5E5E5E;">-</span> V1 <span class="sc" style="color: #5E5E5E;">*</span> <span class="dv" style="color: #AD0000;">15000</span><span class="sc" style="color: #5E5E5E;">/</span><span class="fu" style="color: #4758AB;">max</span>(V1)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb6-7">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #677623;">randvar =</span> <span class="fu" style="color: #4758AB;">rnorm</span>(<span class="fu" style="color: #4758AB;">n</span>(), <span class="at" style="color: #677623;">mean =</span> <span class="dv" style="color: #AD0000;">0</span>, <span class="at" style="color: #677623;">sd =</span> <span class="dv" style="color: #AD0000;">10</span>),</span>
+<span id="cb6-8">         <span class="at" style="color: #677623;">randi =</span> steps <span class="sc" style="color: #5E5E5E;">*</span> (<span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">+</span> randvar),</span>
+<span id="cb6-9">         <span class="at" style="color: #677623;">gender =</span> <span class="fu" style="color: #4758AB;">case_when</span>(randi <span class="sc" style="color: #5E5E5E;">&lt;</span> <span class="fu" style="color: #4758AB;">median</span>(steps) <span class="sc" style="color: #5E5E5E;">~</span> <span class="st" style="color: #20794D;">"Female"</span>,</span>
+<span id="cb6-10">                            <span class="cn" style="color: #8f5902;">TRUE</span> <span class="sc" style="color: #5E5E5E;">~</span> <span class="st" style="color: #20794D;">"Male"</span>))</span>
+<span id="cb6-11"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <p>If we’d like to see the distribution of data by male/female, we can use <code>count()</code>.</p>
-<pre><code>```{r}
-coords %&gt;%
-  count(gender)
-```</code></pre>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb7-2">coords <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb7-3">  <span class="fu" style="color: #4758AB;">count</span>(gender)</span>
+<span id="cb7-4"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 </section>
 <section id="create-plots" class="level2">
 <h2 class="anchored" data-anchor-id="create-plots">Create plots</h2>
 <p>Now for the fun part - visualizing the plots (spoiler: one should always do this before starting an analysis)!</p>
-<pre><code>```{r}
-coords %&gt;%
-  ggplot(aes(x = bmi,
-              y = steps)) +
-  geom_point() +
-  theme_void() +
-  xlim(0, 15000)
-```</code></pre>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb8-2">coords <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #677623;">x =</span> bmi,</span>
+<span id="cb8-4">              <span class="at" style="color: #677623;">y =</span> steps)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb8-5">  <span class="fu" style="color: #4758AB;">geom_point</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb8-6">  <span class="fu" style="color: #4758AB;">theme_void</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb8-7">  <span class="fu" style="color: #4758AB;">xlim</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">15000</span>)</span>
+<span id="cb8-8"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <center>
 <img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla">
 </center>
-<pre><code>```{r}
-coords %&gt;%
-  ggplot(aes(x = bmi,
-             y = steps,
-             color = gender)) +
-  geom_point() +
-  theme_void() +
-  xlim(0, 15000)
-```</code></pre>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><span class="in" style="color: #5E5E5E;">```{r}</span></span>
+<span id="cb9-2">coords <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb9-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #677623;">x =</span> bmi,</span>
+<span id="cb9-4">             <span class="at" style="color: #677623;">y =</span> steps,</span>
+<span id="cb9-5">             <span class="at" style="color: #677623;">color =</span> gender)) <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-6">  <span class="fu" style="color: #4758AB;">geom_point</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-7">  <span class="fu" style="color: #4758AB;">theme_void</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
+<span id="cb9-8">  <span class="fu" style="color: #4758AB;">xlim</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">15000</span>)</span>
+<span id="cb9-9"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
 <p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
 <center>
 <img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index2.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender">

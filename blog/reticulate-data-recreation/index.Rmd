@@ -24,7 +24,7 @@ With that, let's recreate this dataset entirely within R Markdown! In addition t
 First up is installing the R packages:
 
 ````
-```{r}`r ''`
+```{{r}}
 # Install packages if not already installed
 # install.packages(c("tidyverse", "reticulate"))
 library(tidyverse)
@@ -37,7 +37,7 @@ In your project, create a folder called "image". Save the image you would like t
 The paper mentions the 'getpixel' function. With a bit of digging, we find that is from the package `pillow` (a fork from a package called `PIL`). Like in R, we need to install the package. In an R Markdown document, I run the functions from {reticulate} below.
 
 ````
-```{r}`r ''`
+```{{r}}
 use_python("/usr/local/bin/python")
 # If you haven't installed Python, the line below will prompt you!
 py_install("pillow")
@@ -58,7 +58,7 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.
 [This](https://stackoverflow.com/questions/58398300/find-all-coordinates-of-black-grey-pixels-in-image-using-python) Stack Overflow thread was very helpful to determine what we need to do with the 'getpixel' function in `pillow`. Again, like in R, we need to call the functions we need but this time, we are doing it in a `python` chunk.
 
 ````
-```{python}`r ''`
+```{{python}}
 import numpy as np
 from PIL import Image
 ```
@@ -67,7 +67,7 @@ from PIL import Image
 Then, we point to the image and create coordinates pixels for the outline of the cartoon. We can set a threshold level for which pixels to keep/discard.
 
 ````
-```{python}`r ''`
+```{{python}}
 # Thanks to Bart Huntley for pointing out a typo previously in this chunk!
 im = Image.open("/cloud/project/image/gorilla.jpg")
 pixels = np.asarray(im)
@@ -94,7 +94,7 @@ The [{reticulate} Cheat Sheet](https://ugoproto.github.io/ugo_r_doc/pdf/reticula
 Knowing that, we can create an R object from coords using `py`. Next, we follow the steps outlined in the paper for the data preparation.
 
 ````
-```{r}`r ''`
+```{{r}}
 coords <-
   as.data.frame(py$coords) %>%
   sample_n(1768) %>%
@@ -110,7 +110,7 @@ coords <-
 If we'd like to see the distribution of data by male/female, we can use `count()`.
 
 ````
-```{r}`r ''`
+```{{r}}
 coords %>%
   count(gender)
 ```
@@ -121,7 +121,7 @@ coords %>%
 Now for the fun part - visualizing the plots (spoiler: one should always do this before starting an analysis)!
 
 ````
-```{r}`r ''`
+```{{r}}
 coords %>%
   ggplot(aes(x = bmi,
               y = steps)) +
@@ -136,7 +136,7 @@ coords %>%
 </center>
 
 ````
-```{r}`r ''`
+```{{r}}
 coords %>%
   ggplot(aes(x = bmi,
              y = steps,
