@@ -352,10 +352,10 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.</code></pre
 <span id="cb9-7">  <span class="fu" style="color: #4758AB;">theme_void</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
 <span id="cb9-8">  <span class="fu" style="color: #4758AB;">xlim</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">15000</span>)</span>
 <span id="cb9-9"><span class="in" style="color: #5E5E5E;">```</span></span></code></pre></div>
-<p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
 <center>
 <img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/index2.png" class="img-fluid" alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender">
 </center>
+<p>With that, we’ve seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!</p>
 <center>
 <em>Liked this post? I’d love for you to retweet!</em>
 <blockquote class="twitter-tweet blockquote">

@@ -147,11 +147,11 @@ coords %>%
 ```
 ````
 
-With that, we've seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!
-
 <center>
 ![](index2.png){fig-alt="ggplot2 image of pixel cartoon gorilla with random dots colored by gender"}
 </center>
+
+With that, we've seamlessly gone from Python to R and created a dataset leveraging the power of both languages. Thanks to Professors Yanai and Lerche for their publication!
 
 <center>
 *Liked this post? I'd love for you to retweet!*
