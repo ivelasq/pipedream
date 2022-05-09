@@ -56,7 +56,7 @@ library(dplyr)
 ```
 :::
 
-Thanks to the [documentation](https://siuba.readthedocs.io/en/latest/) and [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, it's easy to see the parallels and differences with dplyr so that you can craft these functions yourself. 
+Thanks to the [documentation](https://siuba.readthedocs.io/en/latest/) and [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, it's easy to see the parallels and differences with dplyr so that you can craft these data manipulation tasks yourself. 
 
 ::: {.panel-tabset}
 ## Python
