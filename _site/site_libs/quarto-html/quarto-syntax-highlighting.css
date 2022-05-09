@@ -127,6 +127,10 @@ code span {
   color: #d8dee9;
 }
 
+code.sourceCode > span {
+  color: #d8dee9;
+}
+
 div.sourceCode,
 div.sourceCode pre.sourceCode {
   color: #d8dee9;
@@ -166,6 +170,10 @@ code span.vs {
 
 code span.wa {
   color: #bf616a;
+}
+
+.prevent-inlining {
+  content: "</";
 }
 
 /*# sourceMappingURL=debc5d5d77c3f9108843748ff7464032.css.map */

@@ -1,87 +1,93 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.141">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>%&gt;% dreams - Blog</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
 
-  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-  <script src="site_libs/clipboard/clipboard.min.js"></script>
-  <meta name="quarto:offset" content="./">
-  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-  <script src="site_libs/quarto-search/fuse.min.js"></script>
-  <script src="site_libs/quarto-search/quarto-search.js"></script>
-  <link href="./favicon.jpg" rel="icon" type="image/jpeg">
-  <script src="site_libs/quarto-listing/list.min.js"></script>
-  <script src="site_libs/quarto-listing/quarto-listing.js"></script>
-  <script src="site_libs/quarto-html/quarto.js"></script>
-  <script src="site_libs/quarto-html/popper.min.js"></script>
-  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="site_libs/quarto-html/anchor.min.js"></script>
-  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-  <link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
-  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-  <script id="quarto-search-options" type="application/json">{
-    "location": "navbar",
-    "copy-button": false,
-    "collapse-after": 3,
-    "panel-placement": "end",
-    "type": "overlay",
-    "limit": 20,
-    "language": {
-      "search-no-results-text": "No results",
-      "search-matching-documents-text": "matching documents",
-      "search-copy-link-title": "Copy link to search",
-      "search-hide-matches-text": "Hide additional matches",
-      "search-more-match-text": "more match in this document",
-      "search-more-matches-text": "more matches in this document",
-      "search-clear-button-title": "Clear",
-      "search-detached-cancel-button-title": "Cancel",
-      "search-submit-button-title": "Submit"
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.354">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>%&gt;% dreams - Blog</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<link href="./favicon.jpg" rel="icon" type="image/jpeg">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
     }
-  }</script>
-  <script>
 
-    window.document.addEventListener("DOMContentLoaded", function (_event) {
-      const listingTargetEl = window.document.querySelector('#listing-listing .list');
-      if (!listingTargetEl) {
-        // No listing discovered, do not attach.
-        return; 
-      }
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
 
-      const options = {
-        valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-        
-        searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-      };
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
 
-      window['quarto-listings'] = window['quarto-listings'] || {};
-      window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+  </script>
+<script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
 
-      if (window['quarto-listing-loaded']) {
-        window['quarto-listing-loaded']();
-      }
-    });
-    </script>
-  <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
 <link rel="alternate" type="application/rss+xml" title="%>% dreams" href="index.xml"><meta name="twitter:title" content="%>% dreams - Blog">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg">
+<meta name="twitter:image" content="https:/ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
+
+<body class="nav-fixed">
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -158,16 +164,32 @@
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(21)</span></div><div class="category" data-category="explanation">explanation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="how-to">how-to <span class="quarto-category-count">(3)</span></div><div class="category" data-category="reference">reference <span class="quarto-category-count">(6)</span></div><div class="category" data-category="tutorial">tutorial <span class="quarto-category-count">(11)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
-<header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title display-7">Blog</h1></div></header>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Blog</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
 
 
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="reference" data-listing-date-sort="1652072400000" data-listing-file-modified-sort="1652069766899" data-listing-reading-time-sort="1.505">
+<div class="quarto-post image-right" data-index="0" data-categories="reference" data-listing-date-sort="1652072400000" data-listing-file-modified-sort="1652106326118" data-listing-reading-time-sort="4.915">
 <div class="thumbnail">
 <p><a href="./blog/tidyverse-python-ports/index.html"> <img src="./blog/tidyverse-python-ports/thumbnail.jpg" class="thumnail-image" alt="Johannes Vermeer, The Allegory of Painting, a woman holding an instrument at a window and a man turned away from us painting her"> </a></p>
 </div>
@@ -187,7 +209,7 @@ reference
 </div>
 <a href="./blog/tidyverse-python-ports/index.html">
 <div class="listing-description">
-<p>Working in Python but miss tidyverse syntax? Turns out, these packages can help.</p>
+<p>Working in Python but miss tidyverse syntax? These packages can help.</p>
 </div>
 </a>
 </div>
@@ -199,7 +221,7 @@ May 9, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="explanation" data-listing-date-sort="1642485600000" data-listing-file-modified-sort="1648742716267" data-listing-reading-time-sort="9.64">
+<div class="quarto-post image-right" data-index="1" data-categories="explanation" data-listing-date-sort="1642485600000" data-listing-file-modified-sort="1649899563534" data-listing-reading-time-sort="9.64">
 <div class="thumbnail">
 <p><a href="./blog/understanding-the-r-pipe/index.html"> <img src="./blog/understanding-the-r-pipe/thumbnail.jpg" class="thumnail-image" alt="Henri-Edmond Cross, Landscape with Stars, a painting of blue and yellow dots making up the night sky"> </a></p>
 </div>
@@ -231,7 +253,7 @@ Jan 18, 2022
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="tutorial" data-listing-date-sort="1632805200000" data-listing-file-modified-sort="1651775844410" data-listing-reading-time-sort="4.41">
+<div class="quarto-post image-right" data-index="2" data-categories="tutorial" data-listing-date-sort="1632805200000" data-listing-file-modified-sort="1652070074364" data-listing-reading-time-sort="4.41">
 <div class="thumbnail">
 <p><a href="./blog/reticulate-data-recreation/index.html"> <img src="./blog/reticulate-data-recreation/thumbnail.jpg" class="thumnail-image" alt="Henri Rousseau, Virgin Forest with Sunset of a jungle with green trees and a red sun."> </a></p>
 </div>
@@ -263,7 +285,7 @@ Sep 28, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="tutorial" data-listing-date-sort="1631509200000" data-listing-file-modified-sort="1648433755206" data-listing-reading-time-sort="4.91">
+<div class="quarto-post image-right" data-index="3" data-categories="tutorial" data-listing-date-sort="1631509200000" data-listing-file-modified-sort="1649899563561" data-listing-reading-time-sort="4.91">
 <div class="thumbnail">
 <p><a href="./blog/why-rstudio/index.html"> <img src="./blog/why-rstudio/thumbnail.jpg" class="thumnail-image" alt="Vincent van Gogh, The Olive Trees showing olive trees against a blue background and a bright sun"> </a></p>
 </div>
@@ -295,7 +317,7 @@ Sep 13, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="tutorial" data-listing-date-sort="1627362000000" data-listing-file-modified-sort="1648433754980" data-listing-reading-time-sort="2.955">
+<div class="quarto-post image-right" data-index="4" data-categories="tutorial" data-listing-date-sort="1627362000000" data-listing-file-modified-sort="1649899563471" data-listing-reading-time-sort="2.955">
 <div class="thumbnail">
 <p><a href="./blog/politely-scraping/index.html"> <img src="./blog/politely-scraping/thumbnail.jpg" class="thumnail-image" alt="Pauline Powell Williams, Violets showing bunches of purple violets with a white background"> </a></p>
 </div>
@@ -327,7 +349,7 @@ Jul 27, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="tutorial" data-listing-date-sort="1620536400000" data-listing-file-modified-sort="1648670016372" data-listing-reading-time-sort="7.675">
+<div class="quarto-post image-right" data-index="5" data-categories="tutorial" data-listing-date-sort="1620536400000" data-listing-file-modified-sort="1649899563491" data-listing-reading-time-sort="7.675">
 <div class="thumbnail">
 <p><a href="./blog/rtistry-intro/index.html"> <img src="./blog/rtistry-intro/thumbnail.jpg" class="thumnail-image" alt="E. A. Séguy, Vintage flower patterns showing abstract pink flowers with red centers on a background of an orange spiral with brown background"> </a></p>
 </div>
@@ -359,7 +381,7 @@ May 9, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="reference" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1648433754950" data-listing-reading-time-sort="4.96">
+<div class="quarto-post image-right" data-index="6" data-categories="reference" data-listing-date-sort="1616907600000" data-listing-file-modified-sort="1649899563464" data-listing-reading-time-sort="4.96">
 <div class="thumbnail">
 <p><a href="./blog/other-geoms/index.html"> <img src="./blog/other-geoms/thumbnail.jpg" class="thumnail-image" alt="Vincent Van Gogh, Flower Beds in Holland showing a person working in fields of colorful tulips with houses in the background"> </a></p>
 </div>
@@ -391,7 +413,7 @@ Mar 28, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="how-to" data-listing-date-sort="1615183200000" data-listing-file-modified-sort="1648433754540" data-listing-reading-time-sort="9.475">
+<div class="quarto-post image-right" data-index="7" data-categories="how-to" data-listing-date-sort="1615183200000" data-listing-file-modified-sort="1649899563382" data-listing-reading-time-sort="9.475">
 <div class="thumbnail">
 <p><a href="./blog/bookdown-manuscript/index.html"> <img src="./blog/bookdown-manuscript/thumbnail.png" class="thumnail-image" alt="Winslow Homer, Maine Coast, a painting of rough ocean waves crashing at a rock"> </a></p>
 </div>
@@ -423,7 +445,7 @@ Mar 8, 2021
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="how-to" data-listing-date-sort="1612332000000" data-listing-file-modified-sort="1648433755179" data-listing-reading-time-sort="17.545">
+<div class="quarto-post image-right" data-index="8" data-categories="how-to" data-listing-date-sort="1612332000000" data-listing-file-modified-sort="1649899563542" data-listing-reading-time-sort="17.545">
 <div class="thumbnail">
 <p><a href="./blog/vscode-live-share/index.html"> <img src="./blog/vscode-live-share/thumbnail.jpg" class="thumnail-image" alt="Edgar Degas, Dancers Practicing at the Barre, a painting of two ballerina dancers at the barre, one with her leg in the air"> </a></p>
 </div>
@@ -458,7 +480,7 @@ Isabella Velásquez, Gustavo E. Velásquez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="tutorial" data-listing-date-sort="1604988000000" data-listing-file-modified-sort="1650385166738" data-listing-reading-time-sort="4.15">
+<div class="quarto-post image-right" data-index="9" data-categories="tutorial" data-listing-date-sort="1604988000000" data-listing-file-modified-sort="1649899563385" data-listing-reading-time-sort="4.15">
 <div class="thumbnail">
 <p><a href="./blog/get-tweet-likes/index.html"> <img src="./blog/get-tweet-likes/thumbnail.jpg" class="thumnail-image" alt="From the Rijksmuseum, pigeons in white and blue."> </a></p>
 </div>
@@ -490,7 +512,7 @@ Nov 10, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="tutorial,reference" data-listing-date-sort="1598763600000" data-listing-file-modified-sort="1648433754626" data-listing-reading-time-sort="5.485">
+<div class="quarto-post image-right" data-index="10" data-categories="tutorial,reference" data-listing-date-sort="1598763600000" data-listing-file-modified-sort="1649899563405" data-listing-reading-time-sort="5.485">
 <div class="thumbnail">
 <p><a href="./blog/leaidr2/index.html"> <img src="./blog/leaidr2/thumbnail.jpg" class="thumnail-image" alt="Piet Mondrian, Tableau No. 2, an abstract painting of black rectangles on a yellow background"> </a></p>
 </div>
@@ -525,7 +547,7 @@ Aug 30, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="explanation" data-listing-date-sort="1594616400000" data-listing-file-modified-sort="1648433754961" data-listing-reading-time-sort="4.635">
+<div class="quarto-post image-right" data-index="11" data-categories="explanation" data-listing-date-sort="1594616400000" data-listing-file-modified-sort="1649899563468" data-listing-reading-time-sort="4.635">
 <div class="thumbnail">
 <p><a href="./blog/party-with-R/index.html"> <img src="./blog/party-with-R/thumbnail.jpg" class="thumnail-image" alt="Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric showing a dancer with a large skirt dancing at a dance hall with a crowd behind her"> </a></p>
 </div>
@@ -557,7 +579,7 @@ Jul 13, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="tutorial" data-listing-date-sort="1590642000000" data-listing-file-modified-sort="1648433755143" data-listing-reading-time-sort="12.465">
+<div class="quarto-post image-right" data-index="12" data-categories="tutorial" data-listing-date-sort="1590642000000" data-listing-file-modified-sort="1649899563529" data-listing-reading-time-sort="12.465">
 <div class="thumbnail">
 <p><a href="./blog/tidying-census-data/index.html"> <img src="./blog/tidying-census-data/thumbnail.jpg" class="thumnail-image" alt="Hendrick Avercamp, Ice-skating in a Village showing a town of people skating on a frozen lake"> </a></p>
 </div>
@@ -589,7 +611,7 @@ May 28, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="reference" data-listing-date-sort="1588482000000" data-listing-file-modified-sort="1648433754588" data-listing-reading-time-sort="5.155">
+<div class="quarto-post image-right" data-index="13" data-categories="reference" data-listing-date-sort="1588482000000" data-listing-file-modified-sort="1649899563388" data-listing-reading-time-sort="5.155">
 <div class="thumbnail">
 <p><a href="./blog/leaidr-shapefiles/index.html"> <img src="./blog/leaidr-shapefiles/thumbnail.jpg" class="thumnail-image" alt="Abraham Mignon, Still Life with Flowers and a Watch showing colorful flowers in a pot with a black background."> </a></p>
 </div>
@@ -621,7 +643,7 @@ May 3, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="how-to" data-listing-date-sort="1582610400000" data-listing-file-modified-sort="1648433755225" data-listing-reading-time-sort="2.955">
+<div class="quarto-post image-right" data-index="14" data-categories="how-to" data-listing-date-sort="1582610400000" data-listing-file-modified-sort="1649899563571" data-listing-reading-time-sort="2.955">
 <div class="thumbnail">
 <p><a href="./blog/you-cran-do-it/index.html"> <img src="./blog/you-cran-do-it/thumbnail.png" class="thumnail-image" alt="J. Howard Miller, We Can Do It, a painting of Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"> </a></p>
 </div>
@@ -656,7 +678,7 @@ Isabella Velásquez
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="reference" data-listing-date-sort="1580104800000" data-listing-file-modified-sort="1648433755101" data-listing-reading-time-sort="14">
+<div class="quarto-post image-right" data-index="15" data-categories="reference" data-listing-date-sort="1580104800000" data-listing-file-modified-sort="1649899563510" data-listing-reading-time-sort="14">
 <div class="thumbnail">
 <p><a href="./blog/things-i-google/index.html"> <img src="./blog/things-i-google/thumbnail.jpg" class="thumnail-image" alt="Henri Edmond Cross, Two Women by the Shore, Mediterranean, a painting of colorful dots making up a painting of a garden with two women"> </a></p>
 </div>
@@ -688,7 +710,7 @@ Jan 27, 2020
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="tutorial" data-listing-date-sort="1568178000000" data-listing-file-modified-sort="1648433754792" data-listing-reading-time-sort="12.705">
+<div class="quarto-post image-right" data-index="16" data-categories="tutorial" data-listing-date-sort="1568178000000" data-listing-file-modified-sort="1649899563434" data-listing-reading-time-sort="12.705">
 <div class="thumbnail">
 <p><a href="./blog/modal-district/index.html"> <img src="./blog/modal-district/thumbnail.jpg" class="thumnail-image" alt="Village by the River, fourth quarter 19th century painting of a town showing green and yellow houses and a white church and trees"> </a></p>
 </div>
@@ -720,7 +742,7 @@ Sep 11, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="tutorial" data-listing-date-sort="1554526800000" data-listing-file-modified-sort="1648433754359" data-listing-reading-time-sort="11.535">
+<div class="quarto-post image-right" data-index="17" data-categories="tutorial" data-listing-date-sort="1554526800000" data-listing-file-modified-sort="1649899563377" data-listing-reading-time-sort="11.535">
 <div class="thumbnail">
 <p><a href="./blog/average-hike/index.html"> <img src="./blog/average-hike/thumbnail.jpg" class="thumnail-image" alt="Thomas Moran, Winter in the Rockies, painting of a horizon of snow-capped mountains"> </a></p>
 </div>
@@ -752,7 +774,7 @@ Apr 6, 2019
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="tutorial" data-listing-date-sort="1544940000000" data-listing-file-modified-sort="1648433755079" data-listing-reading-time-sort="8.335">
+<div class="quarto-post image-right" data-index="18" data-categories="tutorial" data-listing-date-sort="1544940000000" data-listing-file-modified-sort="1649899563502" data-listing-reading-time-sort="8.335">
 <div class="thumbnail">
 <p><a href="./blog/snap-expenditures/index.html"> <img src="./blog/snap-expenditures/thumbnail.jpg" class="thumnail-image" alt="Joseph Decker, Green Plums showing several green plums on a brown table"> </a></p>
 </div>
@@ -784,7 +806,7 @@ Dec 16, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="tutorial" data-listing-date-sort="1537506000000" data-listing-file-modified-sort="1648433755188" data-listing-reading-time-sort="12.95">
+<div class="quarto-post image-right" data-index="19" data-categories="tutorial" data-listing-date-sort="1537506000000" data-listing-file-modified-sort="1649899563547" data-listing-reading-time-sort="12.95">
 <div class="thumbnail">
 <p><a href="./blog/why-disaggregate-data/index.html"> <img src="./blog/why-disaggregate-data/thumbnail.jpg" class="thumnail-image" alt="Samuel Colman, The Rock of Salvation showing a sunset with dark clouds at a beach"> </a></p>
 </div>
@@ -816,7 +838,7 @@ Sep 21, 2018
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="reference" data-listing-date-sort="1533358800000" data-listing-file-modified-sort="1648433755099" data-listing-reading-time-sort="8.88">
+<div class="quarto-post image-right" data-index="20" data-categories="reference" data-listing-date-sort="1533358800000" data-listing-file-modified-sort="1649899563509" data-listing-reading-time-sort="8.88">
 <div class="thumbnail">
 <p><a href="./blog/so-youre-getting-a-masters/index.html"> <img src="./blog/so-youre-getting-a-masters/thumbnail.jpg" class="thumnail-image" alt="Pieter Claesz, Vanitas Still Life with the Spinario showing a still life with a book, statue, violin, skull, and other items arranged in a room"> </a></p>
 </div>
@@ -853,7 +875,7 @@ Aug 4, 2018
 No matching items
 </div>
 </div></main> <!-- /main -->
-<script type="application/javascript">
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -874,7 +896,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
     setTimeout(function() {
+      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -948,6 +973,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+
 
 
 </body></html>
