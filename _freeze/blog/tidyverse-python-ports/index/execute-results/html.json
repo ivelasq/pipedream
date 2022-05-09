@@ -1,7 +1,7 @@
 {
-  "hash": "ac76379fa045e31c85d0f8e566b30afe",
+  "hash": "ef6603a854144ccf6820c59af4800e11",
   "result": {
-    "markdown": "---\ntitle: Three Packages That Port the Tidyverse to Python\ntitle-banner: banner.jpg\n---\n\nJohannes Vermeer, The Allegory of Painting (ca. 1666 –1668)\n\n",
+    "markdown": "---\ntitle: Three packages that port the tidyverse to Python\ndate: '2022-05-09'\ncategories:\n  - reference\ndescription: >-\n  Working in Python but miss tidyverse syntax? Turns out, these packages can\n  help.\nimage: thumbnail.jpg\ntitle-block-banner: banner.jpg\nimage-alt: >-\n  Johannes Vermeer, The Allegory of Painting, a woman holding an instrument at a\n  window and a man turned away from us painting her\n---\n\nAs I've been saying every year for the past seven years or so, I am learning Python. (It's been a journey.)\n\nPython packages like pandas have several ways to work with data. There are several options for indexing, slicing, etc. They have a lot of flexibility but it's difficult to remember all the conventions. I am familiar with tidyverse syntax, which provides a consistent set of verbs to solve the most common data manipulation challenges. If you're like me, you may want to port the wonderful \"grammar\" of the tidyverse to use in your Python worak!\n\n## siuba\n\n[Siuba](https://github.com/machow/siuba), created by [Michael Chow](https://twitter.com/chowthedog), is a Python library for using dplyr-like syntax with pandas.\n\n::: {.panel-tabset}\n\n:::\n\nThanks to the amazing [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, \n\n## plotnine\n\n\n::: {.panel-tabset}\n\n\n:::\n\n## pandas\n\n::: {.panel-tabset}\n\n:::\n\n\nJohannes Vermeer, The Allegory of Painting (ca. 1666 –1668)\n\n",
     "supporting": [
       "index_files"
     ],

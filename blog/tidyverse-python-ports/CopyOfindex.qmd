@@ -1,0 +1,81 @@
+---
+title: "Three packages that port the tidyverse to Python"
+jupyter: python3
+date: "2022-05-09"
+categories: ["reference"]
+description: Working in Python but miss tidyverse syntax? Turns out, these packages can help.
+image: thumbnail.jpg
+title-block-banner: banner.jpg
+image-alt: "Johannes Vermeer, The Allegory of Painting, a woman holding an instrument at a window and a man turned away from us painting her"
+---
+
+As I've been saying every year for the past seven years or so, I am learning Python. (It's been a journey.)
+
+Python packages like pandas have several ways to work with data. There are several options for indexing, slicing, etc. They have a lot of flexibility but it's difficult to remember the different conventions.
+
+I am familiar with the grammar of the [tidyverse](https://www.tidyverse.org/), which provides a consistent set of verbs to solve common data manipulation challenges. If you're like me, you may want to port the tidyverse to use in your Python work (and hopefully make Python a little easier to grasp).
+
+Here are three packages that can do just that.
+
+## siuba
+
+The [siuba](https://github.com/machow/siuba) package, created by [Michael Chow](https://twitter.com/chowthedog), is a Python library for using dplyr-like syntax with pandas. Siuba ports over several functions, including `select()`, `filter()`, `mutate()`, `summarize()`, and `arrange()`. The package also allows you to use `group_by()` and a `>>` pipe.
+
+Let's check out a few examples using the palmerpenguins dataset ([R](https://allisonhorst.github.io/palmerpenguins/), [Python](https://github.com/mcnakhaee/palmerpenguins)).
+
+::: {.panel-tabset}
+## Python
+``` python
+from palmerpenguins import load_penguins
+penguins = load_penguins()
+from siuba import group_by, summarize, _
+
+(penguins
+  >> group_by(_.species)
+  >> summarize(n = _.species.count())
+)
+```
+  
+## R
+``` r
+library(palmerpenguins)
+library(dplyr)
+
+(penguins %>% 
+    group_by(species) %>%
+    summarize(n = n()))
+```
+:::
+
+Thanks to the amazing [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, it's easy to see the parallels with dplyr and learn how to craft these functions yourself. 
+
+::: {.panel-tabset}
+## Python
+``` python
+from siuba import select
+
+(penguins
+  >> select(-_.isalpha(), _.species)
+  >> group_by(_.species)
+  >> summarize(
+      bill_length_mm = _.bill_length_mm.mean(),
+      bill_depth_mm = _.bill_depth_mm.mean(),
+      flipper_length_mm = _.flipper_length_mm.mean(),
+      body_mass_g = _.body_mass_g.mean()
+  )
+)
+```
+
+## R
+``` r
+(penguins %>%
+  group_by(species) %>%
+  summarize(across(!where(is.character), mean, na.rm = TRUE)))
+```
+:::
+
+## plotnine
+
+The [plotnine](https://github.com/has2k1/plotnine) package, created by [Hassan Kibirige](https://twitter.com/HKibirige), provides Python users a grammar of graphics similar to ggplot2.
+
+

@@ -12,14 +12,74 @@
 <generator>quarto-0.9.141</generator>
 <lastBuildDate>Mon, 09 May 2022 05:00:00 GMT</lastBuildDate>
 <item>
-  <title>Three Packages That Port the Tidyverse to Python</title>
+  <title>Three packages that port the tidyverse to Python</title>
   <link>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</link>
   <description><![CDATA[ 
 
-<p>Johannes Vermeer, The Allegory of Painting (ca. 1666 –1668)</p>
+<p>As I’ve been saying every year for the past seven years or so, I am learning Python. (It’s been a journey.)</p>
+<p>Python packages like pandas have several ways to work with data. There are several options for indexing, slicing, etc. They have a lot of flexibility but it’s difficult to remember the different conventions.</p>
+<p>I am familiar with the grammar of the <a href="https://www.tidyverse.org/">tidyverse</a>, which provides a consistent set of verbs to solve common data manipulation challenges. If you’re like me, you may want to port the tidyverse to use in your Python work (and hopefully make Python a little easier to grasp).</p>
+<p>Here are three packages that can do just that.</p>
+<section id="siuba" class="level2">
+<h2 class="anchored" data-anchor-id="siuba">siuba</h2>
+<p>The <a href="https://github.com/machow/siuba">siuba</a> package, created by <a href="https://twitter.com/chowthedog">Michael Chow</a>, is a Python library for using dplyr-like syntax with pandas. Siuba ports over several functions, including <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>summarize()</code>, and <code>arrange()</code>. The package also allows you to use <code>group_by()</code> and a <code>&gt;&gt;</code> pipe.</p>
+<p>Let’s check out a few examples using the palmerpenguins dataset (<a href="https://allisonhorst.github.io/palmerpenguins/">R</a>, <a href="https://github.com/mcnakhaee/palmerpenguins">Python</a>).</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" aria-labeledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: null;">from</span> palmerpenguins <span class="im" style="color: null;">import</span> load_penguins</span>
+<span id="cb1-2">penguins <span class="op" style="color: #5E5E5E;">=</span> load_penguins()</span>
+<span id="cb1-3"><span class="im" style="color: null;">from</span> siuba <span class="im" style="color: null;">import</span> group_by, summarize, _</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">(penguins</span>
+<span id="cb1-6">  <span class="op" style="color: #5E5E5E;">&gt;&gt;</span> group_by(_.species)</span>
+<span id="cb1-7">  <span class="op" style="color: #5E5E5E;">&gt;&gt;</span> summarize(n <span class="op" style="color: #5E5E5E;">=</span> _.species.count())</span>
+<span id="cb1-8">)</span></code></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" aria-labeledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(palmerpenguins)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;">library</span>(dplyr)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">(penguins <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
+<span id="cb2-5">    <span class="fu" style="color: #4758AB;">group_by</span>(species) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb2-6">    <span class="fu" style="color: #4758AB;">summarize</span>(<span class="at" style="color: #677623;">n =</span> <span class="fu" style="color: #4758AB;">n</span>()))</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Thanks to the amazing <a href="https://learn.siuba.org/intro-data-science/01">interactive tutorials</a> available for siuba, it’s easy to see the parallels with dplyr and learn how to craft these functions yourself.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" aria-labeledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="im" style="color: null;">from</span> siuba <span class="im" style="color: null;">import</span> select</span>
+<span id="cb3-2"></span>
+<span id="cb3-3">(penguins</span>
+<span id="cb3-4">  <span class="op" style="color: #5E5E5E;">&gt;&gt;</span> select(<span class="op" style="color: #5E5E5E;">-</span>_.isalpha(), _.species)</span>
+<span id="cb3-5">  <span class="op" style="color: #5E5E5E;">&gt;&gt;</span> group_by(_.species)</span>
+<span id="cb3-6">  <span class="op" style="color: #5E5E5E;">&gt;&gt;</span> summarize(</span>
+<span id="cb3-7">      bill_length_mm <span class="op" style="color: #5E5E5E;">=</span> _.bill_length_mm.mean(),</span>
+<span id="cb3-8">      bill_depth_mm <span class="op" style="color: #5E5E5E;">=</span> _.bill_depth_mm.mean(),</span>
+<span id="cb3-9">      flipper_length_mm <span class="op" style="color: #5E5E5E;">=</span> _.flipper_length_mm.mean(),</span>
+<span id="cb3-10">      body_mass_g <span class="op" style="color: #5E5E5E;">=</span> _.body_mass_g.mean()</span>
+<span id="cb3-11">  )</span>
+<span id="cb3-12">)</span></code></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" aria-labeledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">(penguins <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;">group_by</span>(species) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;">summarize</span>(<span class="fu" style="color: #4758AB;">across</span>(<span class="sc" style="color: #5E5E5E;">!</span><span class="fu" style="color: #4758AB;">where</span>(is.character), mean, <span class="at" style="color: #677623;">na.rm =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)))</span></code></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotnine" class="level2">
+<h2 class="anchored" data-anchor-id="plotnine">plotnine</h2>
+<p>The <a href="https://github.com/has2k1/plotnine">plotnine</a> package, created by <a href="https://twitter.com/HKibirige">Hassan Kibirige</a>, provides Python users a grammar of graphics similar to ggplot2.</p>
 
 
 
+</section>
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</guid>

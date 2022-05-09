@@ -541,9 +541,16 @@
   {
     "objectID": "blog/tidyverse-python-ports/index.html",
     "href": "blog/tidyverse-python-ports/index.html",
-    "title": "Three Packages That Port the Tidyverse to Python",
+    "title": "Three packages that port the tidyverse to Python",
     "section": "",
-    "text": "Johannes Vermeer, The Allegory of Painting (ca. 1666 –1668)"
+    "text": "As I’ve been saying every year for the past seven years or so, I am learning Python. (It’s been a journey.)\nPython packages like pandas have several ways to work with data. There are several options for indexing, slicing, etc. They have a lot of flexibility but it’s difficult to remember the different conventions.\nI am familiar with the grammar of the tidyverse, which provides a consistent set of verbs to solve common data manipulation challenges. If you’re like me, you may want to port the tidyverse to use in your Python work (and hopefully make Python a little easier to grasp).\nHere are three packages that can do just that."
+  },
+  {
+    "objectID": "blog/tidyverse-python-ports/index.html#siuba",
+    "href": "blog/tidyverse-python-ports/index.html#siuba",
+    "title": "Three packages that port the tidyverse to Python",
+    "section": "siuba",
+    "text": "siuba\nThe siuba package, created by Michael Chow, is a Python library for using dplyr-like syntax with pandas. Siuba ports over several functions, including select(), filter(), mutate(), summarize(), and arrange(). The package also allows you to use group_by() and a >> pipe.\nLet’s check out a few examples using the palmerpenguins dataset (R, Python).\n\nPythonR\n\n\nfrom palmerpenguins import load_penguins\npenguins = load_penguins()\nfrom siuba import group_by, summarize, _\n\n(penguins\n  >> group_by(_.species)\n  >> summarize(n = _.species.count())\n)\n\n\nlibrary(palmerpenguins)\nlibrary(dplyr)\n\n(penguins %>% \n    group_by(species) %>%\n    summarize(n = n()))\n\n\n\nThanks to the amazing interactive tutorials available for siuba, it’s easy to see the parallels with dplyr and learn how to craft these functions yourself.\n\nPythonR\n\n\nfrom siuba import select\n\n(penguins\n  >> select(-_.isalpha(), _.species)\n  >> group_by(_.species)\n  >> summarize(\n      bill_length_mm = _.bill_length_mm.mean(),\n      bill_depth_mm = _.bill_depth_mm.mean(),\n      flipper_length_mm = _.flipper_length_mm.mean(),\n      body_mass_g = _.body_mass_g.mean()\n  )\n)\n\n\n(penguins %>%\n  group_by(species) %>%\n  summarize(across(!where(is.character), mean, na.rm = TRUE)))"
   },
   {
     "objectID": "blog/politely-scraping/index.html",
@@ -957,5 +964,26 @@
     "title": "Packages for Using R With Python, Tableau, and Other Tools",
     "section": "",
     "text": "Abstract\nR is a powerful programming language for statistics and data science with an accompanying ecosystem that supports its use. Interoperability is part of what makes the R ecosystem so rich, enabling users to apply R in a variety of contexts. In this talk, I will discuss packages that allow you to integrate R together with other tools, including Python and Tableau.\n\n\nDate\nDecember 10, 2021\n\n\nTime\n10:00AM CT\n\n\nLocation\nRemote\n\n\nEvent\nWhy R? 2021 Conference\n\n\nRepository\nGitHub\n\n\nRecording\nYouTube"
+  },
+  {
+    "objectID": "blog/tidyverse-python-ports/index.html#r-1",
+    "href": "blog/tidyverse-python-ports/index.html#r-1",
+    "title": "Three packages that port the tidyverse to Python",
+    "section": "R",
+    "text": "R\npenguins %>% \n  group_by(species) %>% \n  summarize(across(where(is.numeric), mean, na.rm = TRUE))\nJohannes Vermeer, The Allegory of Painting (ca. 1666 –1668)"
+  },
+  {
+    "objectID": "blog/tidyverse-python-ports/index.html#python-1",
+    "href": "blog/tidyverse-python-ports/index.html#python-1",
+    "title": "Three packages that port the tidyverse to Python",
+    "section": "Python",
+    "text": "Python\nfrom siuba import select\n\n(penguins\n  >> select(-_.isalpha(), _.species)\n  >> group_by(_.species)\n  >> summarize(\n      bill_length_mm = _.bill_length_mm.mean(),\n      bill_depth_mm = _.bill_depth_mm.mean(),\n      flipper_length_mm = _.flipper_length_mm.mean(),\n      body_mass_g = _.body_mass_g.mean()\n  )\n)"
+  },
+  {
+    "objectID": "blog/tidyverse-python-ports/index.html#plotnine",
+    "href": "blog/tidyverse-python-ports/index.html#plotnine",
+    "title": "Three packages that port the tidyverse to Python",
+    "section": "plotnine",
+    "text": "plotnine\nThe plotnine package, created by Hassan Kibirige, provides Python users a grammar of graphics similar to ggplot2."
   }
 ]
