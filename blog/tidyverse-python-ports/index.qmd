@@ -129,7 +129,7 @@ Folks have [heuristics](https://datascienceworkshops.com/blog/heuristics-for-tra
 
 ## pyjanitor
 
-One more package that uses tidyverse-like verbs is [pyjanitor](https://github.com/pyjanitor-devs/pyjanitor), which ports the [janitor](https://github.com/sfirke/janitor) package by [Sam Firke](https://twitter.com/samfirke) (please note that the janitor package is not part of the tidyverse). With pyjanitor, you can clean column names, identify duplicate entries, and more.
+OK, this one is cheating a bit because the [janitor](https://github.com/sfirke/janitor) package by [Sam Firke](https://twitter.com/samfirke) is not part of the tidyverse. One more package that uses 'tidyverse-like' verbs is [pyjanitor](https://github.com/pyjanitor-devs/pyjanitor). With pyjanitor, you can clean column names, identify duplicate entries, and more.
 
 ```{python}
 #| message: false
@@ -146,10 +146,10 @@ example_df = {
 
 pd.DataFrame.from_dict(example_df).clean_names()
 ```
-Pandas allows you to [method chain](https://tomaugspurger.github.io/method-chaining.html) with [pipes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html). They can be used with pyjanitor, as well.
+
+Python's pandas allows you to [method chain](https://tomaugspurger.github.io/method-chaining.html) with [pipes](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html). They can be used with pyjanitor, as well.
 
 ```{python}
-#| dpi: 300
 #| message: false
 #| warning: false
 from janitor import clean_names, remove_empty

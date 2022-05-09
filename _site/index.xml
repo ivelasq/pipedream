@@ -202,14 +202,14 @@
 <p><img src="https://ivelasq.rbind.io/blog/tidyverse-python-ports/index_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;ggplot: (318908398)&gt;</code></pre>
+<pre><code>&lt;ggplot: (326970103)&gt;</code></pre>
 </div>
 </div>
 <p>Folks have <a href="https://datascienceworkshops.com/blog/heuristics-for-translating-ggplot2-to-plotnine/">heuristics</a> to translate ggplot2 code to plotnine. These help understand the nuances between the two.</p>
 </section>
 <section id="pyjanitor" class="level2">
 <h2 class="anchored" data-anchor-id="pyjanitor">pyjanitor</h2>
-<p>One more package that uses tidyverse-like verbs is <a href="https://github.com/pyjanitor-devs/pyjanitor">pyjanitor</a>, which ports the <a href="https://github.com/sfirke/janitor">janitor</a> package by <a href="https://twitter.com/samfirke">Sam Firke</a> (please note that the janitor package is not part of the tidyverse). With pyjanitor, you can clean column names, identify duplicate entries, and more.</p>
+<p>OK, this one is cheating a bit because the <a href="https://github.com/sfirke/janitor">janitor</a> package by <a href="https://twitter.com/samfirke">Sam Firke</a> is not part of the tidyverse. One more package that uses ‘tidyverse-like’ verbs is <a href="https://github.com/pyjanitor-devs/pyjanitor">pyjanitor</a>. With pyjanitor, you can clean column names, identify duplicate entries, and more.</p>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;">from</span> janitor <span class="im" style="color: #00769E;">import</span> clean_names</span>
 <span id="cb9-2"><span class="im" style="color: #00769E;">import</span> pandas <span class="im" style="color: #00769E;">as</span> pd</span>
@@ -264,8 +264,8 @@
 </div>
 </div>
 </div>
-<p>Pandas allows you to <a href="https://tomaugspurger.github.io/method-chaining.html">method chain</a> with <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html">pipes</a>. They can be used with pyjanitor, as well.</p>
-<div class="cell" data-dpi="300" data-execution_count="5">
+<p>Python’s pandas allows you to <a href="https://tomaugspurger.github.io/method-chaining.html">method chain</a> with <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html">pipes</a>. They can be used with pyjanitor, as well.</p>
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;">from</span> janitor <span class="im" style="color: #00769E;">import</span> clean_names, remove_empty</span>
 <span id="cb10-2"><span class="im" style="color: #00769E;">import</span> pandas <span class="im" style="color: #00769E;">as</span> pd</span>
 <span id="cb10-3"><span class="im" style="color: #00769E;">import</span> numpy <span class="im" style="color: #00769E;">as</span> np</span>
