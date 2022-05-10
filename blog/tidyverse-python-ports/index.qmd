@@ -24,8 +24,9 @@ The [siuba](https://github.com/machow/siuba) package, created by [Michael Chow](
 
 Let's check out a few examples using the palmerpenguins dataset ([R](https://allisonhorst.github.io/palmerpenguins/), [Python](https://github.com/mcnakhaee/palmerpenguins)).
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Python
+
 ```{python}
 from palmerpenguins import load_penguins
 penguins = load_penguins()
@@ -36,8 +37,9 @@ from siuba import group_by, summarize, _
   >> summarize(n = _.species.count())
 )
 ```
-  
+
 ## R
+
 ``` r
 library(palmerpenguins)
 library(dplyr)
@@ -46,20 +48,20 @@ library(dplyr)
     group_by(species) %>%
     summarize(n = n()))
 ```
-```
-# A tibble: 3 × 2
-  species       n
-  <fct>     <int>
-1 Adelie      152
-2 Chinstrap    68
-3 Gentoo      124
-```
+
+    # A tibble: 3 × 2
+      species       n
+      <fct>     <int>
+    1 Adelie      152
+    2 Chinstrap    68
+    3 Gentoo      124
 :::
 
-Thanks to the [documentation](https://siuba.readthedocs.io/en/latest/) and [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, it's easy to see the parallels and differences with dplyr so that you can craft these data manipulation tasks yourself. 
+Thanks to the [documentation](https://siuba.readthedocs.io/en/latest/) and [interactive tutorials](https://learn.siuba.org/intro-data-science/01) available for siuba, it's easy to see the parallels and differences with dplyr so that you can craft these data manipulation tasks yourself.
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Python
+
 ```{python}
 from palmerpenguins import load_penguins
 penguins = load_penguins()
@@ -78,20 +80,20 @@ from siuba import select
 ```
 
 ## R
+
 ``` r
 (penguins %>%
   group_by(species) %>%
   summarize(across(!where(is.character), mean, na.rm = TRUE)))
 ```
-```
-# A tibble: 3 × 8
-  species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-  <fct>      <dbl>          <dbl>         <dbl>             <dbl>       <dbl>
-1 Adelie        NA           38.8          18.3              190.       3701.
-2 Chinstrap     NA           48.8          18.4              196.       3733.
-3 Gentoo        NA           47.5          15.0              217.       5076.
-# … with 2 more variables: sex <dbl>, year <dbl>
-```
+
+    # A tibble: 3 × 8
+      species   island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+      <fct>      <dbl>          <dbl>         <dbl>             <dbl>       <dbl>
+    1 Adelie        NA           38.8          18.3              190.       3701.
+    2 Chinstrap     NA           48.8          18.4              196.       3733.
+    3 Gentoo        NA           47.5          15.0              217.       5076.
+    # … with 2 more variables: sex <dbl>, year <dbl>
 :::
 
 ## plotnine
@@ -176,11 +178,25 @@ While Python syntax and conventions are still on my "to-learn" list, it is helpf
 
 I came across other packages that port the tidyverse to Python. I didn't investigate them deeply but wanted to share in case they are helpful.
 
-* [tidypandas](https://github.com/talegari/tidypandas)
-* [plydata](https://github.com/has2k1/plydata)
-* [tidypolars](https://github.com/markfairbanks/tidypolars)
-* [datar](https://github.com/pwwang/datar)
+-   [tidypandas](https://github.com/talegari/tidypandas)
+-   [plydata](https://github.com/has2k1/plydata)
+-   [tidypolars](https://github.com/markfairbanks/tidypolars)
+-   [datar](https://github.com/pwwang/datar)
 
 If you recommend these packages or know of others, please let me know on Twitter!
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>&#39; tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your <a href="https://twitter.com/hashtag/pydata?src=hash&amp;ref_src=twsrc%5Etfw">#pydata</a> work.<br><br>Blog post: <a href="https://t.co/ScGycjYyOo">https://t.co/ScGycjYyOo</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1523810181854859265?ref_src=twsrc%5Etfw">May 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet">
+
+<p lang="en" dir="ltr">
+
+Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>' tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your <a href="https://twitter.com/hashtag/pydata?src=hash&amp;ref_src=twsrc%5Etfw">#pydata</a> work.<br><br>Blog post: <a href="https://t.co/ScGycjYyOo">https://t.co/ScGycjYyOo</a>
+
+</p>
+
+--- Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1523810181854859265?ref_src=twsrc%5Etfw">May 9, 2022</a>
+
+</blockquote>
+
+```{=html}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+```
