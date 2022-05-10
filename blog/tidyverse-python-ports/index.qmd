@@ -185,18 +185,6 @@ I came across other packages that port the tidyverse to Python. I didn't investi
 
 If you recommend these packages or know of others, please let me know on Twitter!
 
-<blockquote class="twitter-tweet">
-
-<p lang="en" dir="ltr">
-
-Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>' tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your <a href="https://twitter.com/hashtag/pydata?src=hash&amp;ref_src=twsrc%5Etfw">#pydata</a> work.<br><br>Blog post: <a href="https://t.co/ScGycjYyOo">https://t.co/ScGycjYyOo</a>
-
-</p>
-
---- Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1523810181854859265?ref_src=twsrc%5Etfw">May 9, 2022</a>
-
-</blockquote>
-
-```{=html}
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-```
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>&#39; tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your <a href="https://twitter.com/hashtag/pydata?src=hash&amp;ref_src=twsrc%5Etfw">#pydata</a> work.<br><br>Blog post: <a href="https://t.co/ScGycjYyOo">https://t.co/ScGycjYyOo</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1523810181854859265?ref_src=twsrc%5Etfw">May 9, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+</center>
