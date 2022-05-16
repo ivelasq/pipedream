@@ -1,80 +1,75 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.141">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Mike Garcia">
+  <meta name="author" content="Isabella Velásquez">
+  <meta name="dcterms.date" content="2020-05-07">
+  <meta name="description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
+  <title>%&gt;% dreams - Package Management for Reproducible Data Science in R</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.354">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Mike Garcia">
-<meta name="author" content="Isabella Velásquez">
-<meta name="dcterms.date" content="2020-05-07">
-<meta name="description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
-
-<title>%&gt;% dreams - Package Management for Reproducible Data Science in R</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-</style>
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<link href="../../favicon.jpg" rel="icon" type="image/jpeg">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
-  }
-}</script>
-<style>
-    .quarto-title-banner {
-      background: #272822;
+  <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="../../site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="../../">
+  <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="../../site_libs/quarto-search/fuse.min.js"></script>
+  <script src="../../site_libs/quarto-search/quarto-search.js"></script>
+  <link href="../../favicon.jpg" rel="icon" type="image/jpeg">
+  <script src="../../site_libs/quarto-html/quarto.js"></script>
+  <script src="../../site_libs/quarto-html/popper.min.js"></script>
+  <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="../../site_libs/quarto-html/anchor.min.js"></script>
+  <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
     }
-    </style>
-<script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
-<script src="../../site_libs/fitvids-2.1.1/fitvids.min.js"></script>
-
-
+  }</script>
+  <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
+  <script src="../../site_libs/fitvids-2.1.1/fitvids.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 <meta name="twitter:title" content="%>% dreams - Package Management for Reproducible Data Science in R">
 <meta name="twitter:description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
-<meta name="twitter:image" content="https:/ivelasq.rbind.io/talk/package-mangement-in-r/thumbnail.png">
+<meta name="twitter:image" content="https://ivelasq.rbind.io/talk/package-mangement-in-r/thumbnail.png">
 <meta name="twitter:image-height" content="720">
 <meta name="twitter:image-width" content="1277">
 <meta name="twitter:card" content="summary_large_image">
-</head>
+<style>
+  main.quarto-banner-title-block .quarto-title-banner {
 
-<body class="nav-fixed fullcontent">
-
+    background-color: #272822;
+  
+}</style></head>
+<body class="fullcontent">
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
@@ -143,55 +138,18 @@ ul.task-list{list-style: none;}
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Package Management for Reproducible Data Science in R</h1>
-                          <div class="quarto-categories">
-                <div class="quarto-category">package</div>
-              </div>
-                  </div>
-  </div>
-    
-  <div>
-    <div class="description">
-      Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.
-    </div>
-  </div>
-
-
-
-
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Authors</div>
-      <div class="quarto-title-meta-contents">
-               <p>Mike Garcia </p>
-               <p>Isabella Velásquez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 7, 2020</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full" data-sidebar-align="true">
 
 
 
 
+<div class="quarto-title-banner color-body-bg page-columns page-full"><div class="quarto-title column-body"><h1 class="title display-7">Package Management for Reproducible Data Science in R</h1><div class="quarto-description"><p>Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.</p></div></div></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Authors</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div>Mike Garcia</div><div>Isabella Velásquez</div></div></div></div><div><div class="quarto-title-meta-heading">Published</div><div class="quarto-title-meta-contents"><p class="date">May 7, 2020</p></div></div></div></header>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -258,7 +216,7 @@ ul.task-list{list-style: none;}
 
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
   const anchorJS = new window.AnchorJS();
@@ -279,10 +237,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
     setTimeout(function() {
-      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
@@ -356,7 +311,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-
 
 
 </body></html>
