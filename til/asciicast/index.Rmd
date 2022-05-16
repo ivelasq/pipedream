@@ -1,0 +1,61 @@
+---
+title: "Create a GIF of code and its output"
+date: '2022-05-10'
+image: thumbnail.png
+output: html_document
+---
+
+We can create a GIF of code and its output using [asciicast](https://github.com/r-lib/asciicast). 
+
+Install the development version:
+
+```{r, eval=FALSE}
+remotes::install_github('r-lib/asciicast', ref = remotes::github_pull(24)) 
+```
+
+Create a file called `nzchar.R` with specifications for the GIF and the code to run.
+
+```{r, eval = FALSE}
+#' Title: Using nzchar
+#' Columns: 60
+#' Rows: 18
+
+# This is not empty
+Sys.getenv("R_LIBS_USER")
+
+# This is empty
+Sys.getenv("test")
+
+# This returns TRUE
+nzchar(Sys.getenv("R_LIBS_USER"))
+
+# This returns FALSE
+nzchar(Sys.getenv("test"))
+```
+
+Create another file that creates the GIF:
+
+```{r, eval = FALSE}
+#' Title: Using nzchar
+
+src <- "nzchar.R"
+cast <- asciicast::record(src)
+
+# <<
+# `cast` is an `asciicast` object, which has some metadata and the
+# recording itself:
+# <<
+
+cast
+
+# <<
+# You can write `cast` to a GIF file with the version installed above.
+# <<
+
+svg <- tempfile(fileext = "gif")
+asciicast::write_gif(cast, svg, theme = "monokai")
+```
+
+Really fun for adding to tweets!
+
+![](example.gif){fig-alt="An animation created with asciicast that shows that nzchar() returns TRUE when a string is nonempty and FALSE when a string is empty, using Sys.getenv() to query existing 'R_LIBS_USER' and nonexisting 'test' environment variables."}

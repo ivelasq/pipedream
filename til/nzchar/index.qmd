@@ -1,0 +1,39 @@
+---
+title: "Count the number of characters (or bytes or width)"
+date: '2022-05-10'
+image: thumbnail.png
+output: html_document
+---
+
+From the [documentation](https://rdrr.io/r/base/nchar.html), `nzchar()` is a fast way to find out if elements of a character vector are non-empty strings. It returns `TRUE` for non-empty strings and `FALSE` for empty strings.
+
+::: {.panel-tabset}
+
+### Not Empty Vector
+
+```{r}
+# This is not empty
+Sys.getenv("R_LIBS_USER")
+```
+
+```{r}
+# This returns TRUE
+nzchar(Sys.getenv("R_LIBS_USER"))
+```
+
+### Empty Vector
+
+```{r}
+# This is empty
+Sys.getenv("test")
+```
+
+```{r}
+# This returns FALSE
+nzchar(Sys.getenv("test"))
+```
+
+:::
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL: nzchar(). Super useful when working with environment variables in R.<br><br>also, <a href="https://twitter.com/hashtag/asciicast?src=hash&amp;ref_src=twsrc%5Etfw">#asciicast</a> is amazing! install the GIF converter with remotes::install_github(&#39;r-lib/asciicast&#39;, ref = remotes::github_pull(24)) <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> h/t <a href="https://twitter.com/GaborCsardi?ref_src=twsrc%5Etfw">@GaborCsardi</a> <a href="https://t.co/pCZQLCNaDl">pic.twitter.com/pCZQLCNaDl</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1524193394037342211?ref_src=twsrc%5Etfw">May 11, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>

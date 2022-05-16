@@ -1,0 +1,14 @@
+{
+  "hash": "0bcbb17418a40776caaaabcc6d46d552",
+  "result": {
+    "markdown": "---\ntitle: \"Count the number of characters (or bytes or width)\"\ndate: '2022-05-10'\nimage: thumbnail.png\noutput: html_document\n---\n\nFrom the [documentation](https://rdrr.io/r/base/nchar.html), `nzchar()` is a fast way to find out if elements of a character vector are non-empty strings. It returns `TRUE` for non-empty strings and `FALSE` for empty strings.\n\n::: {.panel-tabset}\n\n### Not Empty Vector\n\n::: {.cell}\n\n```{.r .cell-code}\n# This is not empty\nSys.getenv(\"R_LIBS_USER\")\n```\n\n::: {.cell-output-stdout}\n```\n[1] \"~/Library/R/x86_64/4.1/library\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# This returns TRUE\nnzchar(Sys.getenv(\"R_LIBS_USER\"))\n```\n\n::: {.cell-output-stdout}\n```\n[1] TRUE\n```\n:::\n:::\n\n### Empty Vector\n\n::: {.cell}\n\n```{.r .cell-code}\n# This is empty\nSys.getenv(\"test\")\n```\n\n::: {.cell-output-stdout}\n```\n[1] \"\"\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\n# This returns FALSE\nnzchar(Sys.getenv(\"test\"))\n```\n\n::: {.cell-output-stdout}\n```\n[1] FALSE\n```\n:::\n:::\n\n:::\n\n<center>\n<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">TIL: nzchar(). Super useful when working with environment variables in R.<br><br>also, <a href=\"https://twitter.com/hashtag/asciicast?src=hash&amp;ref_src=twsrc%5Etfw\">#asciicast</a> is amazing! install the GIF converter with remotes::install_github(&#39;r-lib/asciicast&#39;, ref = remotes::github_pull(24)) <a href=\"https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw\">#rstats</a> h/t <a href=\"https://twitter.com/GaborCsardi?ref_src=twsrc%5Etfw\">@GaborCsardi</a> <a href=\"https://t.co/pCZQLCNaDl\">pic.twitter.com/pCZQLCNaDl</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href=\"https://twitter.com/ivelasq3/status/1524193394037342211?ref_src=twsrc%5Etfw\">May 11, 2022</a></blockquote> <script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script></center>",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": [],
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": null
+  }
+}

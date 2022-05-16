@@ -2,6 +2,8 @@
   {
     "listing": "/til.html",
     "items": [
+      "/til/nzchar/index.html",
+      "/til/asciicast/index.html",
       "/til/filter-if-any/index.html"
     ]
   },
