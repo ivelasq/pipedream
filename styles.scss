@@ -21,7 +21,7 @@ $font-size-base:              1.0rem !default;
 // Typography
 
 h1.title.display-7 {
-  font-family: "Righteous";
+  font-family: "Merriweather";
 }
 
 p.subtitle.lead {
@@ -41,8 +41,9 @@ a:hover {
 $link-color:            #E2402E !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
-//** Link hover decoration.
-$link-hover-decoration: underline !default;
+//** Link decoration.
+$link-decoration: none;
+$link-hover-decoration: none;
 
 $code-block-bg: #2B2423;
 

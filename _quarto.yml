@@ -18,15 +18,22 @@ website:
     left:
       - text: "pipe dreams"
     right:
-      - text: "Navigation"
-        menu:
-          - text: "About"
-            file: about.qmd
-          - text: "Blog"
-            file: index.qmd
-          - file: til.qmd
-          - file: talk.qmd
-          - file: project.qmd
+      - text: "About"
+        file: about.qmd
+      - text: "Blog"
+        file: index.qmd
+      - file: til.qmd
+      - file: talk.qmd
+      - file: project.qmd
+  page-footer:
+    left:
+      - href: https://www.quarto.org
+        text: Built with Quarto
+      - href: https:www/tidyverse.org/blog
+        text: Theme inspired by the tidyverse blog
+    right: 
+      - href: license.qmd
+        text: License
       - icon: twitter
         href: https://twitter.com/ivelasq3
       - icon: github
@@ -35,13 +42,6 @@ website:
         href: https://www.linkedin.com/in/ivelasq/
       - icon: rss
         href: index.xml
-  page-footer:
-    left: 
-      - href: license.qmd
-        text: License
-    right:
-      - href: https://www.quarto.org
-        text: Built with Quarto
 format:
   html:
     theme: [litera, styles.scss]

@@ -1,0 +1,36 @@
+```{=html}
+<% for (const item of items) { %>
+
+<div id="container" style="height:100%; width:100%; overflow: hidden; display: flex; margin-bottom: 50px;">
+
+   <div id="itemImage" style="width:150px; height:150px; background-size:contain; background-position:center; margin: 0px 30px 15px 0px;">
+      <a href="<%- item.path %>">
+      <img src="<%- item.image %>" width="150" height="150" />
+      </a>
+   </div>
+   
+   <div id="itemDetails" style="width:100%;">
+   
+   <div id="itemHeader" style="justify-content: space-between; line-height:30px; margin-bottom:3px; align-items:flex-start;">
+    
+    <div id="itemTitle" style="display:block; width:95%">
+      <p style="font-size:24px"><a href="<%- item.path %>"><%= item.title %></a></p>
+    </div>
+
+  <div id="itemDescription" style="margin-bottom:8px">
+   <%= item['description'] %>
+  </div>
+  
+  <div id="created" style="margin-top:8px">
+   <p style="font-size:12px"><%= item['date'] %></p>
+  </div>
+  
+  </div>
+  
+  </div>
+  
+</div>
+
+<% } %>
+
+```

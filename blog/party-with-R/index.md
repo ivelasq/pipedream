@@ -2,7 +2,7 @@
 title: "Party with R: How the community enabled us to write a book"
 date: 2020-07-13
 categories: ["explanation"]
-description: Celebrating the R community. Originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/).
+description: Celebrating the R community.
 image: thumbnail.jpg
 image-alt: "Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric showing a dancer with a large skirt dancing at a dance hall with a crowd behind her"
 ---
@@ -47,3 +47,5 @@ Thank you for reading! 🎉 We’ll be back with the fourth post on “One Write
 *Liked this post? I'd love for you to retweet!*
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/NnGqM9Ux2X">https://t.co/NnGqM9Ux2X</a></p>&mdash; RStudio (@rstudio) <a href="https://twitter.com/rstudio/status/1290688259182526466?ref_src=twsrc%5Etfw">August 4, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 </center>
+
+<i>This was originally posted on [RViews](https://rviews.rstudio.com/2020/08/03/party-with-r-how-the-community-enabled-us-to-write-a-book/)</i>.
