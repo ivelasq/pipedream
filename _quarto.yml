@@ -34,7 +34,7 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/ivelasq/
       - icon: rss
-        href: index.xmls
+        href: index.xml
   page-footer:
     left: 
       - href: license.qmd
