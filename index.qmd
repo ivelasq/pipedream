@@ -1,13 +1,16 @@
 ---
-title: "Blog"
+title: "Posts"
 listing:
   contents: blog
-  sort-ui: false
-  filter-ui: false
-  sort: "date desc"
-  type: default
   categories: true
+  date-format: "YYYY-MM-DD"
   feed: true
+  filter-ui: false
+  image-align: "left"
+  sort: "date desc"
+  sort-ui: false
+  type: default
+  template: custom.ejs
 format: 
   html:
     page-layout: full

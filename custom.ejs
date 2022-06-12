@@ -1,0 +1,28 @@
+```{=html}
+<% for (const item of items) { %>
+<div id="container" style="height:100%; width:100%; overflow: hidden;">
+   <div id="itemImage" width = "25%">
+      <a href="<%- item.path %>">
+      <img src="<%- item.image %>" width="150" height="150" />
+      </a>
+   </div>
+   <div id="itemInfo" width = "50%" >
+      <h4><a href="<%- item.path %>"><%= item.title %></a></h4>
+      <% if (item.author) { %> 
+      <p style="font-size:16px"><%= item['author'] %></p>
+      <% } %>
+      <div style="line-height:8px">
+      <br>
+      </div>
+      <%= item['description'] %>
+      <div style="line-height:12px">
+      <br>
+      </div>
+      <p style="font-size:12px"><%= item['date'] %></p>
+   </div>
+   <div id="itemCategory" width = "25%">
+      <a href="#category=<%= item.categories %>"><%= item.categories %></a>
+   </div>
+</div>
+<% } %>
+```

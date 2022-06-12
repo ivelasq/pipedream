@@ -10,10 +10,12 @@ about:
   links:
     - icon: twitter
       href: https://twitter.com/ivelasq3
-    - icon: linkedin
-      href: https://linkedin.com/in/ivelasq
     - icon: github
       href: https://github.com/ivelasq
+    - icon: linkedin
+      href: https://www.linkedin.com/in/ivelasq/
+    - icon: rss
+      href: index.xml
 ---
 
 I work at [RStudio](https://www.rstudio.com/). |
