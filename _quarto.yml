@@ -29,8 +29,6 @@ website:
     left:
       - href: https://www.quarto.org
         text: Built with Quarto
-      - href: https:www/tidyverse.org/blog
-        text: Theme inspired by the tidyverse blog
     right: 
       - href: license.qmd
         text: License
