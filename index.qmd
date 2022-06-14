@@ -2,7 +2,7 @@
 title: "Posts"
 listing:
   contents: blog
-  categories: true
+  categories: false
   date-format: "YYYY-MM-DD"
   feed: true
   filter-ui: false
@@ -13,5 +13,5 @@ listing:
   template: custom.ejs
 format: 
   html:
-    page-layout: full
+    page-layout: article
 ---
