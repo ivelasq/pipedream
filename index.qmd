@@ -2,7 +2,7 @@
 title: "Posts"
 listing:
   contents: blog
-  categories: false
+  categories: true
   date-format: "YYYY-MM-DD"
   feed: true
   filter-ui: false

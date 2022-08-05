@@ -6,7 +6,7 @@
 $font-family-sans-serif:  -apple-system, BlinkMacSystemFont, "Inter" !default;
 $font-family-serif:       "Merriweather" !default;
 
-$font-size-base:              1.0rem !default;
+$font-size-base:              0.9rem !default;
 
 // Nav bar
 
@@ -19,6 +19,11 @@ $font-size-base:              1.0rem !default;
 }
 
 // Typography
+
+h1.title {
+  font-family: "Merriweather";
+  font-size: 30px;
+}
 
 h1.title.display-7 {
   font-family: "Merriweather";
@@ -60,6 +65,14 @@ a.sidebar-item-text.sidebar-link {
     color: #FFFFFF;
 }
 
-li.dropdown-header {
-  text-transform: lowercase;
+.navbar li.dropdown-header {
+  text-transform: none;
+}
+
+.quarto-listing-category {
+    font-family: "Inter";
+}
+
+.quarto-listing-category-title {
+    font-family: "Merriweather";
 }
