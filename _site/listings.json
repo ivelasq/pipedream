@@ -1,17 +1,8 @@
 [
   {
-    "listing": "/project.html",
-    "items": [
-      "/project/package/dataedu/index.html",
-      "/project/package/leaidr/index.html",
-      "/project/package/roomba/index.html",
-      "/project/package/wizehiver/index.html",
-      "/project/book/data-science-in-education-using-r/index.html"
-    ]
-  },
-  {
     "listing": "/til.html",
     "items": [
+      "/til/gitkeep/Untitled.html",
       "/til/nzchar/index.html",
       "/til/asciicast/index.html",
       "/til/filter-if-any/index.html"
@@ -55,6 +46,16 @@
       "/blog/snap-expenditures/index.html",
       "/blog/why-disaggregate-data/index.html",
       "/blog/so-youre-getting-a-masters/index.html"
+    ]
+  },
+  {
+    "listing": "/project.html",
+    "items": [
+      "/project/package/dataedu/index.html",
+      "/project/package/leaidr/index.html",
+      "/project/package/roomba/index.html",
+      "/project/package/wizehiver/index.html",
+      "/project/book/data-science-in-education-using-r/index.html"
     ]
   }
 ]

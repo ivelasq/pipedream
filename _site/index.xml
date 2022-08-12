@@ -9,7 +9,7 @@
 <link>https://ivelasq.rbind.io/index.html</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-1.0.37</generator>
+<generator>quarto-1.0.38</generator>
 <lastBuildDate>Mon, 09 May 2022 07:00:00 GMT</lastBuildDate>
 <item>
   <title>Three packages that port the tidyverse to Python</title>
