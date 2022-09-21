@@ -11,15 +11,16 @@
   {
     "listing": "/talk.html",
     "items": [
-      "/talk/building-a-blog-with-r/index.html",
-      "/talk/using-r-and-other-tools/index.html",
-      "/talk/gt-talk/index.html",
-      "/talk/git-through-april/index.html",
-      "/talk/longitudinal-analysis/index.html",
-      "/talk/rladies-allyship/index.html",
-      "/talk/package-mangement-in-r/index.html",
-      "/talk/hiking-data/index.html",
-      "/talk/blogdown-for-what/index.html"
+      "talk/building-a-blog-with-quarto/index.html",
+      "talk/building-a-blog-with-r/index.html",
+      "talk/using-r-and-other-tools/index.html",
+      "talk/gt-talk/index.html",
+      "talk/git-through-april/index.html",
+      "talk/longitudinal-analysis/index.html",
+      "talk/rladies-allyship/index.html",
+      "talk/package-mangement-in-r/index.html",
+      "talk/hiking-data/index.html",
+      "talk/blogdown-for-what/index.html"
     ]
   },
   {

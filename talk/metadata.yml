@@ -1,0 +1,52 @@
+# Internal slide decks
+- title: "Blogdown for What"
+  subtitle: "R-Ladies Seattle"
+  date: 2018-07-23
+  image: ./talk/blogdown-for-what/thumbnail.png
+  path: ./talk/blogdown-for-what/index.md
+- title: "Building a Blog With R"
+  subtitle: "RStudio Enterprise Community"
+  date: 2022-01-25
+  image: ./talk/building-a-blog-with-r/thumbnail.png
+  path: ./talk/building-a-blog-with-r/index.md
+- title: "Git Through April"
+  subtitle: "R-Ladies Seattle"
+  date: 2021-04-23
+  image: ./talk/git-through-april/thumbnail.png
+  path:  ./talk/git-through-april/index.Rmd
+- title: "Around the World in a Single Table (gt Walkthrough)"
+  subtitle: "R-Ladies Johannesburg"
+  date: 2021-10-27
+  image: ./talk/gt-talk/thumbnail.png
+  path: ./talk/gt-talk/index.Rmd
+- title: "Taking a Peek at Hiking Data Using R"
+  subtitle: "R-Ladies Seattle"
+  date: 2019-07-16
+  image: ./talk/hiking-data/thumbnail.png
+  path: ./talk/hiking-data/index.md
+- title: "Longitudinal Analysis with Federal Students with Disabilities Data"
+  subtitle: "R4DS"
+  date: 2021-03-31
+  image: ./talk/longitudinal-analysis/thumbnail.png
+  path: ./talk/longitudinal-analysis/index.Rmd
+- title: "Package Management for Reproducible Data Science in R"
+  subtitle: "Seattle useR Group"
+  date: 2020-05-07
+  image: ./talk/package-mangement-in-r/thumbnail.png
+  path: ./talk/package-mangement-in-r/index.Rmd
+- title: "What do penguins have to do with being anti-racist?"
+  subtitle: "R-Ladies Seattle"
+  date: 2020-08-05
+  image: ./talk/rladies-allyship/thumbnail.png
+  path: ./talk/rladies-allyship/index.md
+- title: "Packages for Using R With Python, Tableau, and Other Tools"
+  subtitle: "Why R? 2021 Conference"
+  date: 2021-12-10
+  image: ./talk/using-r-and-other-tools/thumbnail.png
+  path: ./talk/using-r-and-other-tools/index.md
+- title: "Building a Blog With Quarto"
+  subtitle: "RStudio Enterprise Community"
+  date: 2022-08-30
+  image: ./talk/building-a-blog-with-quarto/thumbnail.png
+  path: ./talk/building-a-blog-with-quarto/index.md
+  

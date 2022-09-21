@@ -1,15 +1,11 @@
 ---
 title: "Talks"
 listing:
-  contents: talk
-  type: table
-  sort-ui: false
-  filter-ui: false
-  image-height: 150px
+  contents:
+    - "metadata.yml"
+  type: grid
+  fields: [date, title, subtitle, image]
   sort: "date desc"
-  categories: false
-  fields: [image, title, date, description]
-format: 
-  html:
-    page-layout: full
+  image-height: 100%
+page-layout: full
 ---

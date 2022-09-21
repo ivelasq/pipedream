@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.0.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -65,9 +65,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-subtitle','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-title","listing-subtitle","listing-date","listing-image","listing-path"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -89,7 +89,7 @@ ul.task-list{list-style: none;}
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="%>% dreams - Talks">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/talk/building-a-blog-with-r/thumbnail.png">
+<meta name="twitter:image" content="https://ivelasq.rbind.io/talk/building-a-blog-with-quarto/thumbnail.png">
 <meta name="twitter:image-height" content="720">
 <meta name="twitter:image-width" content="1280">
 <meta name="twitter:card" content="summary_large_image">
@@ -162,156 +162,229 @@ ul.task-list{list-style: none;}
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Title
-</th>
-<th>
-Date
-</th>
-<th>
-Description
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1643097600000" data-listing-file-modified-sort="1659317177964" data-listing-reading-time-sort="6.93" data-listing-title-sort="Building a Blog With R" data-listing-filename-sort="index.md">
-<td class="listing-image">
-<img src="./talk/building-a-blog-with-r/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/building-a-blog-with-r/index.html" class="title">Building a Blog With R</a>
-</td>
-<td class="listing-date">
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="2022-08-30">
+<a href="./talk/building-a-blog-with-quarto/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/building-a-blog-with-quarto/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Building a Blog With Quarto
+</h5>
+<div class="card-subtitle listing-subtitle">
+RStudio Enterprise Community
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Aug 30, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="2022-01-25">
+<a href="./talk/building-a-blog-with-r/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/building-a-blog-with-r/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Building a Blog With R
+</h5>
+<div class="card-subtitle listing-subtitle">
+RStudio Enterprise Community
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Jan 25, 2022
-</td>
-<td class="listing-description">
-A blog is a wonderful opportunity to record your data stories, gain exposure for your expertise, and support others in their R journey. In this talk, I discuss possible reasons for creating a blog and explore tools that make it easy to showcase your R skills.
-</td>
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1639123200000" data-listing-file-modified-sort="1659317178001" data-listing-reading-time-sort="12.45" data-listing-title-sort="Packages for Using R With Python, Tableau, and Other Tools" data-listing-filename-sort="index.md">
-<td class="listing-image">
-<img src="./talk/using-r-and-other-tools/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/using-r-and-other-tools/index.html" class="title">Packages for Using R With Python, Tableau, and Other Tools</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="2021-12-10">
+<a href="./talk/using-r-and-other-tools/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/using-r-and-other-tools/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Packages for Using R With Python, Tableau, and Other Tools
+</h5>
+<div class="card-subtitle listing-subtitle">
+Why R? 2021 Conference
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Dec 10, 2021
-</td>
-<td class="listing-description">
-R is a powerful programming language for statistics and data science with an accompanying ecosystem that supports its use. Interoperability is part of what makes the R ecosystem so rich, enabling users to apply R in a variety of contexts. In this talk, I discuss packages that allow you to integrate R together with other tools, including Python and Tableau.
-</td>
-</tr>
-
-<tr data-index="2" data-categories="walkthroughs,packages" data-listing-date-sort="1635318000000" data-listing-file-modified-sort="1659317177978" data-listing-reading-time-sort="3.94" data-listing-title-sort="Around the World in a Single Table (gt Walkthrough)" data-listing-filename-sort="index.Rmd">
-<td class="listing-image">
-<img src="./talk/gt-talk/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/gt-talk/index.html" class="title">Around the World in a Single Table (gt Walkthrough)</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-date-sort="2021-10-27">
+<a href="./talk/gt-talk/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/gt-talk/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Around the World in a Single Table (gt Walkthrough)
+</h5>
+<div class="card-subtitle listing-subtitle">
+R-Ladies Johannesburg
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Oct 27, 2021
-</td>
-<td class="listing-description">
-Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package.
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1619161200000" data-listing-file-modified-sort="1659317177969" data-listing-reading-time-sort="2.105" data-listing-title-sort="Git Through April" data-listing-filename-sort="index.Rmd">
-<td class="listing-image">
-<img src="./talk/git-through-april/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/git-through-april/index.html" class="title">Git Through April</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-date-sort="2021-04-23">
+<a href="./talk/git-through-april/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/git-through-april/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Git Through April
+</h5>
+<div class="card-subtitle listing-subtitle">
+R-Ladies Seattle
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Apr 23, 2021
-</td>
-<td class="listing-description">
-A walkthrough on using Git in the RStudio GUI.
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1617174000000" data-listing-file-modified-sort="1659317177990" data-listing-reading-time-sort="2.21" data-listing-title-sort="Longitudinal Analysis with Federal Students with Disabilities Data" data-listing-filename-sort="index.Rmd">
-<td class="listing-image">
-<img src="./talk/longitudinal-analysis/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/longitudinal-analysis/index.html" class="title">Longitudinal Analysis with Federal Students with Disabilities Data</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-date-sort="2021-03-31">
+<a href="./talk/longitudinal-analysis/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/longitudinal-analysis/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Longitudinal Analysis with Federal Students with Disabilities Data
+</h5>
+<div class="card-subtitle listing-subtitle">
+R4DS
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Mar 31, 2021
-</td>
-<td class="listing-description">
-A Data Science in Education Using R bookclub session on longitudinal data analysis.
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1596610800000" data-listing-file-modified-sort="1659317177999" data-listing-reading-time-sort="2.085" data-listing-title-sort="What do penguins have to do with being anti-racist?" data-listing-filename-sort="index.md">
-<td class="listing-image">
-<img src="./talk/rladies-allyship/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/rladies-allyship/index.html" class="title">What do penguins have to do with being anti-racist?</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-date-sort="2020-08-05">
+<a href="./talk/rladies-allyship/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/rladies-allyship/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+What do penguins have to do with being anti-racist?
+</h5>
+<div class="card-subtitle listing-subtitle">
+R-Ladies Seattle
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Aug 5, 2020
-</td>
-<td class="listing-description">
-A talk on why being anti-racist matters in data science.
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1588834800000" data-listing-file-modified-sort="1659317177997" data-listing-reading-time-sort="27.765" data-listing-title-sort="Package Management for Reproducible Data Science in R" data-listing-filename-sort="index.Rmd">
-<td class="listing-image">
-<img src="./talk/package-mangement-in-r/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/package-mangement-in-r/index.html" class="title">Package Management for Reproducible Data Science in R</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-date-sort="2020-05-07">
+<a href="./talk/package-mangement-in-r/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/package-mangement-in-r/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Package Management for Reproducible Data Science in R
+</h5>
+<div class="card-subtitle listing-subtitle">
+Seattle useR Group
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 May 7, 2020
-</td>
-<td class="listing-description">
-Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1563260400000" data-listing-file-modified-sort="1659317177988" data-listing-reading-time-sort="2.23" data-listing-title-sort="Taking a Peek at Hiking Data Using R" data-listing-filename-sort="index.md">
-<td class="listing-image">
-<img src="./talk/hiking-data/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/hiking-data/index.html" class="title">Taking a Peek at Hiking Data Using R</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-listing-date-sort="2019-07-16">
+<a href="./talk/hiking-data/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/hiking-data/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Taking a Peek at Hiking Data Using R
+</h5>
+<div class="card-subtitle listing-subtitle">
+R-Ladies Seattle
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Jul 16, 2019
-</td>
-<td class="listing-description">
-An analysis of hiking routes and metrics.
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1532329200000" data-listing-file-modified-sort="1659317177963" data-listing-reading-time-sort="8.55" data-listing-title-sort="Blogdown for What" data-listing-filename-sort="index.md">
-<td class="listing-image">
-<img src="./talk/blogdown-for-what/thumbnail.png" style="height: 150px;">
-</td>
-<td class="listing-title">
-<a href="./talk/blogdown-for-what/index.html" class="title">Blogdown for What</a>
-</td>
-<td class="listing-date">
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="9" data-listing-date-sort="2018-07-23">
+<a href="./talk/blogdown-for-what/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./talk/blogdown-for-what/thumbnail.png" class="thumbnail-image card-img" style="height: 100%;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Blogdown for What
+</h5>
+<div class="card-subtitle listing-subtitle">
+R-Ladies Seattle
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
 Jul 23, 2018
-</td>
-<td class="listing-description">
-A walkthrough on creating a website using the {blogdown} package.
-</td>
-</tr>
-</tbody>
-
-</table>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
