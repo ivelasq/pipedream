@@ -11,6 +11,7 @@
   {
     "listing": "/talk.html",
     "items": [
+      "talk/intro-to-quarto/index.html",
       "talk/building-a-blog-with-quarto/index.html",
       "talk/building-a-blog-with-r/index.html",
       "talk/using-r-and-other-tools/index.html",

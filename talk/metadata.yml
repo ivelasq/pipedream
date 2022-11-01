@@ -53,5 +53,5 @@
   subtitle: "R-Ladies St. Louis"
   date: 2022-10-27
   image: ./talk/intro-to-quarto/thumbnail.png
-  path: ./talk/intro-to-quarto/index.md
+  path: ./talk/intro-to-quarto/index.qmd
   
