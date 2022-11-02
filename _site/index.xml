@@ -10,7 +10,7 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.0.38</generator>
-<lastBuildDate>Mon, 09 May 2022 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 09 May 2022 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Three packages that port the tidyverse to Python</title>
   <link>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</link>
@@ -352,7 +352,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</guid>
-  <pubDate>Mon, 09 May 2022 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 09 May 2022 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -582,7 +582,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</guid>
-  <pubDate>Tue, 18 Jan 2022 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jan 2022 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -721,7 +721,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</guid>
-  <pubDate>Tue, 28 Sep 2021 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Sep 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -825,7 +825,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-rstudio/index.html</guid>
-  <pubDate>Mon, 13 Sep 2021 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Sep 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -906,7 +906,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/politely-scraping/index.html</guid>
-  <pubDate>Tue, 27 Jul 2021 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 27 Jul 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1262,7 +1262,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</guid>
-  <pubDate>Sun, 09 May 2021 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 09 May 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1504,7 +1504,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/other-geoms/index.html</guid>
-  <pubDate>Sun, 28 Mar 2021 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 28 Mar 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1669,7 +1669,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</guid>
-  <pubDate>Mon, 08 Mar 2021 08:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Mar 2021 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -1998,7 +1998,7 @@ Note
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</guid>
-  <pubDate>Wed, 03 Feb 2021 08:00:00 GMT</pubDate>
+  <pubDate>Wed, 03 Feb 2021 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2110,7 +2110,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</guid>
-  <pubDate>Tue, 10 Nov 2020 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Nov 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2319,7 +2319,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>tutorial</category>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr2/index.html</guid>
-  <pubDate>Sun, 30 Aug 2020 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Aug 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2371,7 +2371,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
  ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/party-with-R/index.html</guid>
-  <pubDate>Mon, 13 Jul 2020 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Jul 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2648,7 +2648,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</guid>
-  <pubDate>Thu, 28 May 2020 07:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 May 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2800,7 +2800,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</guid>
-  <pubDate>Sun, 03 May 2020 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 03 May 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2911,7 +2911,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/index.html</guid>
-  <pubDate>Tue, 25 Feb 2020 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
@@ -3118,7 +3118,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/things-i-google/index.html</guid>
-  <pubDate>Mon, 27 Jan 2020 08:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3996,7 +3996,7 @@ Curious what this would look like if you weighted by student population – in e
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/modal-district/index.html</guid>
-  <pubDate>Wed, 11 Sep 2019 07:00:00 GMT</pubDate>
+  <pubDate>Wed, 11 Sep 2019 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4322,7 +4322,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/average-hike/index.html</guid>
-  <pubDate>Sat, 06 Apr 2019 07:00:00 GMT</pubDate>
+  <pubDate>Sat, 06 Apr 2019 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/average-hike/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4573,7 +4573,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
-  <pubDate>Sun, 16 Dec 2018 08:00:00 GMT</pubDate>
+  <pubDate>Sun, 16 Dec 2018 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4869,7 +4869,7 @@ New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀�
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</guid>
-  <pubDate>Fri, 21 Sep 2018 07:00:00 GMT</pubDate>
+  <pubDate>Fri, 21 Sep 2018 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

@@ -18,7 +18,7 @@ about:
       href: index.xml
 ---
 
-I work at [RStudio](https://www.rstudio.com/). |
+I work at [Posit](https://posit.co/). |
 [Resume](https://docs.google.com/document/d/14tJLqFuI9g6hDkP5IYQg0HPTZ05WVHxacedhajiilHo/edit?usp=sharing)
 
-<sup><a href="https://www.rstudio.com/authors/isabella-vel%C3%A1squez/" target="_blank">RStudio Blog</a> | <a href="https://rviews.rstudio.com/" target="_blank">RViews</a> | Syndicated on <a href="https://www.r-bloggers.com/author/dreams/" target="_blank">R-Bloggers</a> & <a href="https://rweekly.org/" target="_blank">R Weekly</a>.</sup>
+<sup><a href="https://www.rstudio.com/authors/isabella-vel%C3%A1squez/" target="_blank">RStudio Blog</a> | <a href="https://rviews.rstudio.com/" target="_blank">R Views</a> | Syndicated on <a href="https://www.r-bloggers.com/author/dreams/" target="_blank">R-Bloggers</a> & <a href="https://rweekly.org/" target="_blank">R Weekly</a>.</sup>
