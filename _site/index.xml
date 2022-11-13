@@ -5,11 +5,11 @@
       xmlns:dc="http://purl.org/dc/elements/1.1/" 
       version="2.0">
 <channel>
-<title>%>% dreams</title>
+<title>%&gt;% dreams</title>
 <link>https://ivelasq.rbind.io/index.html</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-1.0.38</generator>
+<generator>quarto-1.2.262</generator>
 <lastBuildDate>Mon, 09 May 2022 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Three packages that port the tidyverse to Python</title>
@@ -356,7 +356,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>Understanding the native R pipe |></title>
+  <title>Understanding the native R pipe |&gt;</title>
   <link>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</link>
   <description><![CDATA[ 
 
