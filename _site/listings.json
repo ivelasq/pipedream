@@ -27,6 +27,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/not-basic-base-r-functions/index.html",
       "/blog/tidyverse-python-ports/index.html",
       "/blog/understanding-the-r-pipe/index.html",
       "/blog/reticulate-data-recreation/index.html",

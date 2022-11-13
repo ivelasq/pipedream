@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/index.html</loc>
-    <lastmod>2022-11-13T00:08:35.665Z</lastmod>
+    <lastmod>2022-11-13T18:56:13.701Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/other-geoms/index.html</loc>
@@ -98,7 +98,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/about.html</loc>
-    <lastmod>2022-11-13T00:04:44.414Z</lastmod>
+    <lastmod>2022-11-13T00:12:36.887Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/project/book/data-science-in-education-using-r/index.html</loc>
@@ -187,5 +187,9 @@
   <url>
     <loc>https://ivelasq.rbind.io/talk/using-r-and-other-tools/index.html</loc>
     <lastmod>2022-11-01T06:31:16.576Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ivelasq.rbind.io/blog/not-basic-base-r-functions/index.html</loc>
+    <lastmod>2022-11-13T18:56:12.996Z</lastmod>
   </url>
 </urlset>

@@ -10,7 +10,183 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.2.262</generator>
-<lastBuildDate>Mon, 09 May 2022 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 13 Nov 2022 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Not-basic base R functions</title>
+  <link>https://ivelasq.rbind.io/blog/not-basic-base-r-functions/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/not-basic-base-r-functions/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A man in red clothes holding up a latern at a window, overlooking a city."></p>
+<p></p><figcaption class="figure-caption">Leonetto Cappiello, Benedictine</figcaption><p></p>
+</figure>
+</div>
+<p>What if I told you that you could do some pretty amazing things, not loading any packages at all?</p>
+<p>Admittedly, some of these functions are not from base R but from stats, which are also imported when you open up R.</p>
+<ul>
+<li>invisible(): Return a temporarily invisible copy of an object</li>
+</ul>
+<section id="invisible" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="invisible">1. invisible()</h2>
+<p>The <code>invisible()</code> function “returns a temporarily invisible copy of an object”. For a quick example from the documentation:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://rdrr.io/github/robertzk/monadicbase/man/invisible.html">invisible documentation</a></li>
+<li><a href="https://stackoverflow.com/questions/11653127/what-does-the-function-invisible-do">StackOverflow discussion</a></li>
+<li><a href="https://design.tidyverse.org/out-invisible.html">Tidyverse design guide</a></li>
+</ul>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># These functions both return their argument</span></span>
+<span id="cb1-2">f1 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(x) x</span>
+<span id="cb1-3">f2 <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(x) <span class="fu" style="color: #4758AB;">invisible</span>(x)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;">f1</span>(<span class="dv" style="color: #AD0000;">1</span>)  <span class="co" style="color: #5E5E5E;"># This prints</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;">f2</span>(<span class="dv" style="color: #AD0000;">1</span>)  <span class="co" style="color: #5E5E5E;"># This does not</span></span></code></pre></div>
+</div>
+<p>The way to see invisible output is by saving to a variable or running <code>print()</code>. These will print:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">a <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">f2</span>(<span class="dv" style="color: #AD0000;">1</span>)</span>
+<span id="cb4-2">a <span class="co" style="color: #5E5E5E;"># This prints</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;">print</span>(<span class="fu" style="color: #4758AB;">f2</span>(<span class="dv" style="color: #AD0000;">1</span>)) <span class="co" style="color: #5E5E5E;"># This prints</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Many of your favorite functions use <code>invisible()</code>. For example, <code>readr::write_csv()</code> <a href="https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214">invisibly returns</a> the data frame that was saved.</p>
+<p>If you’re writing functions, then <code>invisible()</code> can be very helpful.</p>
+<ul>
+<li>In the example below, using {purrr} and <code>tidytab::tab_run())</code> together results in two <code>NULL</code> list items that I do not need.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;">library</span>(purrr)</span>
+<span id="cb8-2"></span>
+<span id="cb8-3">dat <span class="ot" style="color: #003B4F;">&lt;-</span></span>
+<span id="cb8-4">  tibble<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">tibble</span>(</span>
+<span id="cb8-5">    <span class="at" style="color: #657422;">col1 =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">1</span>),</span>
+<span id="cb8-6">    <span class="at" style="color: #657422;">col2 =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="dv" style="color: #AD0000;">3</span>, <span class="dv" style="color: #AD0000;">2</span>),</span>
+<span id="cb8-7">    <span class="at" style="color: #657422;">ct =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>, <span class="dv" style="color: #AD0000;">2</span>)</span>
+<span id="cb8-8">  )</span>
+<span id="cb8-9"></span>
+<span id="cb8-10">vars <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"col1"</span>, <span class="st" style="color: #20794D;">"col2"</span>)</span>
+<span id="cb8-11"></span>
+<span id="cb8-12"><span class="co" style="color: #5E5E5E;"># Install from devtools::install_github("gvelasq/tidytab")</span></span>
+<span id="cb8-13">tab_run <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="cf" style="color: #003B4F;">function</span>(.x){</span>
+<span id="cb8-14">  dat <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
+<span id="cb8-15">    tidytab<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">tab2</span>(.x, ct)</span>
+<span id="cb8-16">}</span>
+<span id="cb8-17"></span>
+<span id="cb8-18">purrr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">map</span>(<span class="at" style="color: #657422;">.x =</span> vars,</span>
+<span id="cb8-19">           <span class="at" style="color: #657422;">.f =</span> tab_run)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           │        ct │           
+      col1 │         2 │     Total 
+───────────┼───────────┼──────────
+         1 │         2 │         2 
+         2 │         3 │         3 
+         3 │         1 │         1 
+───────────┼───────────┼──────────
+     Total │         6 │         6 
+
+           │        ct │           
+      col2 │         2 │     Total 
+───────────┼───────────┼──────────
+         1 │         3 │         3 
+         2 │         2 │         2 
+         3 │         1 │         1 
+───────────┼───────────┼──────────
+     Total │         6 │         6 </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+NULL
+
+[[2]]
+NULL</code></pre>
+</div>
+</div>
+<p>Running <code>invisible()</code> eliminates that!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;">invisible</span>(purrr<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">map</span>(<span class="at" style="color: #657422;">.x =</span> vars,</span>
+<span id="cb11-2">                     <span class="at" style="color: #657422;">.f =</span> tab_run))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           │        ct │           
+      col1 │         2 │     Total 
+───────────┼───────────┼──────────
+         1 │         2 │         2 
+         2 │         3 │         3 
+         3 │         1 │         1 
+───────────┼───────────┼──────────
+     Total │         6 │         6 
+
+           │        ct │           
+      col2 │         2 │     Total 
+───────────┼───────────┼──────────
+         1 │         3 │         3 
+         2 │         2 │         2 
+         3 │         1 │         1 
+───────────┼───────────┼──────────
+     Total │         6 │         6 </code></pre>
+</div>
+</div>
+<ul>
+<li>When writing a function, R can print a lot of stuff implictly. Per the <a href="https://design.tidyverse.org/out-invisible.html">Tidyverse design guide</a>, “if a function is called primarily for its side-effects, it should invisibly return a useful output”.</li>
+</ul>
+<p>This is useful for generating intermediate diagnostics or for saving multiple output formats. <!--add more--></p>
+</section>
+<section id="noquote" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="noquote">2. noquote</h2>
+<p>The <code>noquote()</code> function “prints character strings without quotes.”</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://www.educative.io/answers/what-is-the-noquote-function-in-r">noquote documentation</a></li>
+</ul>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;">print</span>(<span class="st" style="color: #20794D;">"This is the print() function"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "This is the print() function"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;">paste</span>(<span class="st" style="color: #20794D;">"This is the paste() function"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "This is the paste() function"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="co" style="color: #5E5E5E;"># implementing the noquote() function </span></span>
+<span id="cb17-2"></span>
+<span id="cb17-3"><span class="fu" style="color: #4758AB;">noquote</span>(<span class="st" style="color: #20794D;">"This is the noquote() function"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] This is the noquote() function</code></pre>
+</div>
+</div>
+</section>
+<section id="coplot" class="level2">
+<h2 class="anchored" data-anchor-id="coplot">3. coplot</h2>
+<p>split</p>
+<p>encodeString</p>
+<p>nzchar</p>
+<p>file.choose()</p>
+<p>lengths</p>
+<p>with</p>
+
+
+</section>
+
+ ]]></description>
+  <category>reference</category>
+  <guid>https://ivelasq.rbind.io/blog/not-basic-base-r-functions/index.html</guid>
+  <pubDate>Sun, 13 Nov 2022 06:00:00 GMT</pubDate>
+  <media:content url="https://ivelasq.rbind.io/blog/not-basic-base-r-functions/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Three packages that port the tidyverse to Python</title>
   <link>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</link>
@@ -4575,302 +4751,6 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
   <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
   <pubDate>Sun, 16 Dec 2018 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Disaggregating school district data</title>
-  <link>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A sunset with dark clouds at a beach"></p>
-<p></p><figcaption class="figure-caption">Samuel Colman, The Rock of Salvation (1837)</figcaption><p></p>
-</figure>
-</div>
-<p>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.</p>
-<p>In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.</p>
-<p>Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.</p>
-<section id="what-is-equity" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-equity">What is Equity</h2>
-<p>Inequities are <a href="http://www.yourdictionary.com/racial-inequality">disparities in opportunity, resources, and treatment.</a> Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. <a href="https://www.allsides.com/dictionary/racial-inequity">Examples include:</a></p>
-<ul>
-<li>Racial attitudes/bias that act subtly to undermine and exclude,</li>
-<li>Continued redlining in lending,</li>
-<li>Embedded biases in education (images, language, school discipline),</li>
-<li>Long term ramifications of poor health/healthcare.</li>
-</ul>
-<p>Because the definition of equity varies from team to team, it is important to decide which inequities to identify and focus on.</p>
-</section>
-<section id="what-is-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What is disaggregated data</h2>
-<p>According to the <a href="https://www.edglossary.org/disaggregated-data/">Glossary of Education Reform</a>, the formal definition of disaggregated data is:</p>
-<blockquote class="blockquote">
-<p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
-</blockquote>
-<p>Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team’s definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.</p>
-</section>
-<section id="why-use-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why use disaggregated data</h2>
-<p>Particularly in education, disaggregated data is essential in identifying where solutions are needed to solve inequities. Per NCES’ <a href="https://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=NFES2017017">Forum Guide to Collecting and Using Disaggregated Data on Racial/Ethnic Subgroups</a>:</p>
-<blockquote class="blockquote">
-<p>Educators need both high-level data summaries as well as disaggregated data that accurately describe smaller groups of students they serve. Access to and analysis of more detailed data—that is, disaggregated data—can be a useful tool for improving educational outcomes for small groups of students who otherwise would not be distinguishable in the aggregated data used for federal reporting. Disaggregating student data into subpopulations can help schools and communities plan appropriate programs; decide which interventions to implement; target limited resources; and recognize trends in educational participation, outcomes, and achievement.</p>
-</blockquote>
-</section>
-<section id="minneapolis-public-schools-example" class="level2">
-<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools example</h2>
-<p>Minneapolis Public Schools (MPS) reports their student demographics in a robust, complete way. Not only do they report the percentage of students in a subgroup, but they also include the number of students in each subgroup. This allows a deep look into their individual school demographics and gives us the opportunity to explore equity in their district.</p>
-<section id="pulling-data" class="level3">
-<h3 class="anchored" data-anchor-id="pulling-data">Pulling data</h3>
-<p>MPS publishes their school data in PDFs. Thankfully, the {tabulizer} package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_3299a15d25d7a0db744d74ba439285f4">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># Load packages</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(tabulizer)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(janitor)</span>
-<span id="cb1-5"></span>
-<span id="cb1-6"><span class="co" style="color: #5E5E5E;"># Extract tables with race data</span></span>
-<span id="cb1-7">race_pdf <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-8">  <span class="fu" style="color: #4758AB;">extract_tables</span>(<span class="st" style="color: #20794D;">"http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf"</span>)</span>
-<span id="cb1-9"></span>
-<span id="cb1-10"><span class="co" style="color: #5E5E5E;"># Create data frame</span></span>
-<span id="cb1-11">race_df <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="co" style="color: #5E5E5E;"># many thanks to my brother @gvelasq for purrrifying this</span></span>
-<span id="cb1-12">  race_pdf <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-13">  <span class="fu" style="color: #4758AB;">map</span>(as_tibble) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-14">  <span class="fu" style="color: #4758AB;">map_df</span>(<span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">slice</span>(., <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:-</span><span class="dv" style="color: #AD0000;">2</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-15">  <span class="fu" style="color: #4758AB;">set_names</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_group"</span>,</span>
-<span id="cb1-16">              <span class="st" style="color: #20794D;">"school_name"</span>,</span>
-<span id="cb1-17">              <span class="st" style="color: #20794D;">"grade"</span>, <span class="st" style="color: #20794D;">"na_num"</span>,</span>
-<span id="cb1-18">              <span class="st" style="color: #20794D;">"na_pct"</span>,</span>
-<span id="cb1-19">              <span class="st" style="color: #20794D;">"aa_num"</span>,</span>
-<span id="cb1-20">              <span class="st" style="color: #20794D;">"aa_pct"</span>,</span>
-<span id="cb1-21">              <span class="st" style="color: #20794D;">"as_num"</span>,</span>
-<span id="cb1-22">              <span class="st" style="color: #20794D;">"as_pct"</span>,</span>
-<span id="cb1-23">              <span class="st" style="color: #20794D;">"hi_num"</span>,</span>
-<span id="cb1-24">              <span class="st" style="color: #20794D;">"hi_pct"</span>,</span>
-<span id="cb1-25">              <span class="st" style="color: #20794D;">"wh_num"</span>,</span>
-<span id="cb1-26">              <span class="st" style="color: #20794D;">"wh_pct"</span>,</span>
-<span id="cb1-27">              <span class="st" style="color: #20794D;">"pi_pct"</span>,</span>
-<span id="cb1-28">              <span class="st" style="color: #20794D;">"blank_col"</span>,</span>
-<span id="cb1-29">              <span class="st" style="color: #20794D;">"tot"</span>))</span>
-<span id="cb1-30"></span>
-<span id="cb1-31">race_filter <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-32">  race_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-33">  <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>school_group, <span class="sc" style="color: #5E5E5E;">-</span>grade, <span class="sc" style="color: #5E5E5E;">-</span>pi_pct, <span class="sc" style="color: #5E5E5E;">-</span>blank_col) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="co" style="color: #5E5E5E;"># Remove unnecessary or blank columns</span></span>
-<span id="cb1-34">  <span class="fu" style="color: #4758AB;">filter</span>(<span class="fu" style="color: #4758AB;">str_detect</span>(school_name, <span class="st" style="color: #20794D;">"Total"</span>),</span>
-<span id="cb1-35">         school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Grand Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="co" style="color: #5E5E5E;"># otherwise totals are duplicated</span></span>
-<span id="cb1-36">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">school_name =</span> <span class="fu" style="color: #4758AB;">str_replace</span>(school_name, <span class="st" style="color: #20794D;">"Total"</span>, <span class="st" style="color: #20794D;">""</span>),</span>
-<span id="cb1-37">         <span class="fu" style="color: #4758AB;">across</span>(<span class="fu" style="color: #4758AB;">where</span>(is.character), trimws))</span>
-<span id="cb1-38"></span>
-<span id="cb1-39"><span class="co" style="color: #5E5E5E;"># Extract tables with FRPL data</span></span>
-<span id="cb1-40">frpl_pdf <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-41">  <span class="fu" style="color: #4758AB;">extract_tables</span>(<span class="st" style="color: #20794D;">"https://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017_2.pdf"</span>)</span>
-<span id="cb1-42"></span>
-<span id="cb1-43"><span class="co" style="color: #5E5E5E;"># Create data frame</span></span>
-<span id="cb1-44">frpl_df <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="co" style="color: #5E5E5E;"># many thanks to my brother @gvelasq for purrrifying this</span></span>
-<span id="cb1-45">  frpl_pdf <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-46">  <span class="fu" style="color: #4758AB;">map</span>(as_tibble) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-47">  <span class="fu" style="color: #4758AB;">map_df</span>(<span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">slice</span>(., <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span>  </span>
-<span id="cb1-48">  <span class="fu" style="color: #4758AB;">set_names</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_grades"</span>,</span>
-<span id="cb1-49">              <span class="st" style="color: #20794D;">"school_name"</span>,</span>
-<span id="cb1-50">              <span class="st" style="color: #20794D;">"total_students"</span>,</span>
-<span id="cb1-51">              <span class="st" style="color: #20794D;">"frpl_pct"</span>,</span>
-<span id="cb1-52">              <span class="st" style="color: #20794D;">"free_num"</span>,</span>
-<span id="cb1-53">              <span class="st" style="color: #20794D;">"reduce_num"</span>,</span>
-<span id="cb1-54">              <span class="st" style="color: #20794D;">"not_eligible_num"</span>))</span>
-<span id="cb1-55"></span>
-<span id="cb1-56">frpl_filter <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-57">  frpl_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-58">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">""</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-59">  <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>school_grades)</span>
-<span id="cb1-60"></span>
-<span id="cb1-61"><span class="co" style="color: #5E5E5E;"># Merged data</span></span>
-<span id="cb1-62">merged_df <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-63">  <span class="fu" style="color: #4758AB;">left_join</span>(race_filter, frpl_filter, <span class="at" style="color: #657422;">by =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_name"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-64">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="fu" style="color: #4758AB;">across</span>(<span class="dv" style="color: #AD0000;">2</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">17</span>, as.numeric)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-65">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">frpl_pct =</span> (free_num <span class="sc" style="color: #5E5E5E;">+</span> reduce_num)<span class="sc" style="color: #5E5E5E;">/</span>total_students,</span>
-<span id="cb1-66">         <span class="at" style="color: #657422;">hi_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> hi_num),</span>
-<span id="cb1-67">         <span class="at" style="color: #657422;">aa_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> aa_num),</span>
-<span id="cb1-68">         <span class="at" style="color: #657422;">wh_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> wh_num),</span>
-<span id="cb1-69">         <span class="at" style="color: #657422;">as_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> as_num),</span>
-<span id="cb1-70">         <span class="at" style="color: #657422;">na_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> na_num)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-71">  <span class="fu" style="color: #4758AB;">adorn_totals</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-72">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">na_pct =</span> na_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-73">         <span class="at" style="color: #657422;">aa_pct =</span> aa_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-74">         <span class="at" style="color: #657422;">as_pct =</span> as_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-75">         <span class="at" style="color: #657422;">hi_pct =</span> hi_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-76">         <span class="at" style="color: #657422;">wh_pct =</span> wh_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-77">         <span class="at" style="color: #657422;">frpl_pct =</span> (free_num <span class="sc" style="color: #5E5E5E;">+</span> reduce_num)<span class="sc" style="color: #5E5E5E;">/</span>total_students, <span class="co" style="color: #5E5E5E;"># otherwise total frpl_pct is off</span></span>
-<span id="cb1-78">         <span class="at" style="color: #657422;">hi_povsch =</span> hi_povnum<span class="sc" style="color: #5E5E5E;">/</span>hi_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-79">         <span class="at" style="color: #657422;">aa_povsch =</span> aa_povnum<span class="sc" style="color: #5E5E5E;">/</span>aa_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-80">         <span class="at" style="color: #657422;">as_povsch =</span> as_povnum<span class="sc" style="color: #5E5E5E;">/</span>as_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-81">         <span class="at" style="color: #657422;">wh_povsch =</span> wh_povnum<span class="sc" style="color: #5E5E5E;">/</span>wh_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-82">         <span class="at" style="color: #657422;">na_povsch =</span> na_povnum<span class="sc" style="color: #5E5E5E;">/</span>na_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)])</span>
-<span id="cb1-83"></span>
-<span id="cb1-84"><span class="co" style="color: #5E5E5E;"># Finish up the data frame</span></span>
-<span id="cb1-85">tidy_df <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-86">  merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-87">  <span class="fu" style="color: #4758AB;">pivot_longer</span>(<span class="at" style="color: #657422;">cols =</span> na_num<span class="sc" style="color: #5E5E5E;">:</span>na_povsch,</span>
-<span id="cb1-88">               <span class="at" style="color: #657422;">names_to =</span> <span class="st" style="color: #20794D;">"category"</span>,</span>
-<span id="cb1-89">               <span class="at" style="color: #657422;">values_to =</span> <span class="st" style="color: #20794D;">"value"</span>)</span></code></pre></div>
-</div>
-</section>
-<section id="first-glance-mps-district-demographics" class="level3">
-<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
-<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.</p>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>,</span>
-<span id="cb2-3">         <span class="fu" style="color: #4758AB;">str_detect</span>(category, <span class="st" style="color: #20794D;">"pct"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-4">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">category =</span> <span class="fu" style="color: #4758AB;">factor</span>(</span>
-<span id="cb2-5">    category,</span>
-<span id="cb2-6">    <span class="at" style="color: #657422;">levels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"aa_pct"</span>, <span class="st" style="color: #20794D;">"wh_pct"</span>, <span class="st" style="color: #20794D;">"hi_pct"</span>, <span class="st" style="color: #20794D;">"as_pct"</span>, <span class="st" style="color: #20794D;">"na_pct"</span>, <span class="st" style="color: #20794D;">"frpl_pct"</span>)</span>
-<span id="cb2-7">  )) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-8">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> category, <span class="at" style="color: #657422;">y =</span> value)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-9">  <span class="fu" style="color: #4758AB;">geom_bar</span>(<span class="at" style="color: #657422;">stat =</span> <span class="st" style="color: #20794D;">"identity"</span>, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">fill =</span> <span class="fu" style="color: #4758AB;">factor</span>(category))) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-10">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"Subgroup"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-11">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Percentage of Population"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-12">  <span class="fu" style="color: #4758AB;">scale_x_discrete</span>(<span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Black"</span>, <span class="st" style="color: #20794D;">"White"</span>, <span class="st" style="color: #20794D;">"Hispanic"</span>, <span class="st" style="color: #20794D;">"Asian"</span>, <span class="st" style="color: #20794D;">"Native Am."</span>, <span class="st" style="color: #20794D;">"FRPL"</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-13">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-14">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-15">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-16">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students in MPS. Black students make up the most at almost 40%, then White students slightly less, and finally Hispanic, Asian, and Native American under 20%. Almost 60% of all students qualify for FRPL." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>When we look at these data, MPS looks like a diverse school district. Almost <strong>40% of students are Black</strong> and around <strong>35% are White</strong>. <strong>60% of the students are eligible for FRPL</strong>, which is <a href="https://nces.ed.gov/programs/digest/d17/tables/dt17_204.10.asp?current=yes">high for Minnesota but close to the US average of 52.1%</a>.</p>
-<p>However, let’s explore if there’s more to this story.</p>
-</section>
-<section id="discover-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="discover-distributions">Discover distributions</h3>
-<p>Another view of the data can be visualizing the distribution of percentage of a demographic within schools. Here is a histogram for the percentage of White students within the 74 MPS schools for which we have data.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> wh_pct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;">geom_histogram</span>(<span class="at" style="color: #657422;">fill =</span> <span class="st" style="color: #20794D;">"#00C3DA"</span>, <span class="at" style="color: #657422;">breaks=</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">by =</span> .<span class="dv" style="color: #AD0000;">1</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-5">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"White Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-6">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Count"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-7">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-8">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-9">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-10">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-11">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Histogram of number of schools by White pecentage of students. Most schools have less than 30%." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>27 of the 74 (36%) of schools have between 0-10% White students.</strong> This implies that even though the school district may be diverse, the demographics are not evenly distributed across the schools. More than half of schools enroll fewer than 30% of White students even though White students make up 35% of the district student population.</p>
-<p>The school race demographics are not representative of the district populations but does that hold for socioeconomic status as well?</p>
-</section>
-<section id="create-categories" class="level3">
-<h3 class="anchored" data-anchor-id="create-categories">Create categories</h3>
-<p>High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, <a href="https://nces.ed.gov/fastfacts/display.asp?id=898">24% of public school students attended high-poverty schools</a>. However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>,</span>
-<span id="cb4-3">         <span class="fu" style="color: #4758AB;">str_detect</span>(category, <span class="st" style="color: #20794D;">"povsch"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb4-4">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">category =</span> <span class="fu" style="color: #4758AB;">factor</span>(category, <span class="at" style="color: #657422;">levels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"hi_povsch"</span>, <span class="st" style="color: #20794D;">"na_povsch"</span>, <span class="st" style="color: #20794D;">"aa_povsch"</span>, <span class="st" style="color: #20794D;">"as_povsch"</span>, <span class="st" style="color: #20794D;">"wh_povsch"</span>))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span>  </span>
-<span id="cb4-5">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> category, <span class="at" style="color: #657422;">y =</span> value)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-6">  <span class="fu" style="color: #4758AB;">geom_bar</span>(<span class="at" style="color: #657422;">stat =</span> <span class="st" style="color: #20794D;">"identity"</span>, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">fill =</span> <span class="fu" style="color: #4758AB;">factor</span>(category))) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-7">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"Subgroup"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-8">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Percentage in High Poverty Schools"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-9">  <span class="fu" style="color: #4758AB;">scale_x_discrete</span>(<span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Hispanic"</span>, <span class="st" style="color: #20794D;">"Native Am."</span>, <span class="st" style="color: #20794D;">"Black"</span>, <span class="st" style="color: #20794D;">"Asian"</span>, <span class="st" style="color: #20794D;">"White"</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-10">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-11">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-12">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-13">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-14">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students attending schools which high percentage of poverty. About 50% of Black, Hispanic, Native American, and Asian student attend high-poverty schools compared to 9% of White students." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>9% of White students</strong> attend high poverty schools, compared to <strong>46% of Black students</strong>, <strong>51% of Hispanic students</strong>, <strong>46% of Asian students</strong>, and <strong>49% of Native American students</strong>. These students are disproportionately attending high poverty schools.</p>
-</section>
-<section id="reveal-relationships" class="level3">
-<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal relationships</h3>
-<p>Let’s explore what happens when we correlate race and FRPL percentage by school.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb5-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb5-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> wh_pct, <span class="at" style="color: #657422;">y =</span> frpl_pct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-4">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">color =</span> <span class="st" style="color: #20794D;">"#00C3DA"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-5">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"White Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-6">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"FRPL Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-7">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-8">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-9">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-10">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-11">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Scattershot showing the relationship of FRPL percentage and percentage of students that are White with a steep negative correlation." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Similarly to the result above, <strong>there is a strong negative correlation between FRPL percentage and the percentage of White students in a school.</strong> High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students.</p>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>According to the Urban Institute, the disproportionate percentage of students of color attending high poverty schools “is a defining feature of almost all Midwestern and northeastern metropolitan school systems.” Among other issues, high poverty schools <a href="https://www.urban.org/urban-wire/high-poverty-schools-undermine-education-children-color">tend to lack the educational resources—like highly qualified and experienced teachers, low student-teacher ratios, college prerequisite and advanced placement courses, and extracurricular activities—available in low-poverty schools.</a> This has a huge impact on these students and their futures.</p>
-<p>Because of the disaggregated data Minneapolis Public Schools provides, we can go deeper than the average of demographics across the district and see what it looks like on the school level. These views display that (1) there exists a distribution of race/ethnicity within schools that are not representative of the district, (2) that students of color are overrepresented in high poverty schools, and (3) there is a relationship between the percentage of White students in a school and the percentage of students eligible for FRPL.</p>
-</section>
-</section>
-<section id="examples-of-disaggregated-data-reporting" class="level2">
-<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of disaggregated data reporting</h2>
-<p>There are so many amazing examples out there using disaggregated data. These two are my favorites:</p>
-<ul>
-<li><a href="https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html">Money, Race and Success: How Your School District Compares</a></li>
-<li><a href="http://www.tampabay.com/projects/2015/investigations/pinellas-failure-factories/chart-failing-black-students/">Why Pinellas County is the worst place in Florida to be black and go to public school</a></li>
-</ul>
-<center>
-<p><em>Liked this article? I’d love for you to retweet!</em></p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀️📊 A Look at Minneapolis Public Schools using the awesome packages <a href="https://twitter.com/hashtag/tabulizer?src=hash&amp;ref_src=twsrc%5Etfw">#tabulizer</a> 📑 and <a href="https://twitter.com/hashtag/janitor?src=hash&amp;ref_src=twsrc%5Etfw">#janitor</a> ✨ <a href="https://t.co/w4WiuDo0Bl">https://t.co/w4WiuDo0Bl</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/2MnY3ctFYH">pic.twitter.com/2MnY3ctFYH</a>
-</p>
-— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1044233934865752064?ref_src=twsrc%5Etfw">September 24, 2018</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
-
-
-</section>
-
- ]]></description>
-  <category>tutorial</category>
-  <guid>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</guid>
-  <pubDate>Fri, 21 Sep 2018 05:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -1,0 +1,121 @@
+---
+title: "Not-basic base R functions"
+date: "2022-11-13"
+categories: ["reference"]
+description: "There are so many goodies in base R. Let's explore some functions you may not know."
+image: thumbnail.jpg
+image-alt: "Leonetto Cappiello, Benedictine."
+---
+
+![Leonetto Cappiello, Benedictine](thumbnail-wide.jpg){fig-alt="A man in red clothes holding up a latern at a window, overlooking a city."}
+
+What if I told you that you could do some pretty amazing things, not loading any packages at all?
+
+Admittedly, some of these functions are not from base R but from stats, which are also imported when you open up R.
+
+* [invisible()](#invisible): Return a temporarily invisible copy of an object
+
+## 1. invisible()
+
+The `invisible()` function "returns a temporarily invisible copy of an object". For a quick example from the documentation:
+
+::: {.column-margin}
+**Resources**
+
+* [invisible documentation](https://rdrr.io/github/robertzk/monadicbase/man/invisible.html)
+* [StackOverflow discussion](https://stackoverflow.com/questions/11653127/what-does-the-function-invisible-do)
+* [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html)
+:::
+
+```{r}
+# These functions both return their argument
+f1 <- function(x) x
+f2 <- function(x) invisible(x)
+f1(1)  # This prints
+f2(1)  # This does not
+```
+
+The way to see invisible output is by saving to a variable or running `print()`. These will print:
+
+```{r}
+a <- f2(1)
+a # This prints
+
+print(f2(1)) # This prints
+```
+
+Many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the data frame that was saved.
+
+If you're writing functions, then `invisible()` can be very helpful. 
+
+* In the example below, using {purrr} and `tidytab::tab_run())` together results in two `NULL` list items that I do not need. 
+
+```{r}
+#| warning: false
+library(purrr)
+
+dat <-
+  tibble::tibble(
+    col1 = c(3, 2, 2, 1, 2, 1),
+    col2 = c(1, 2, 1, 1, 3, 2),
+    ct = c(2, 2, 2, 2, 2, 2)
+  )
+
+vars <- c("col1", "col2")
+
+# Install from devtools::install_github("gvelasq/tidytab")
+tab_run <- function(.x){
+  dat %>%
+    tidytab::tab2(.x, ct)
+}
+
+purrr::map(.x = vars,
+           .f = tab_run)
+```
+
+Running `invisible()` eliminates that!
+
+```{r}
+invisible(purrr::map(.x = vars,
+                     .f = tab_run))
+```
+
+* When writing a function, R can print a lot of stuff implictly. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output".
+
+This is useful for generating intermediate diagnostics or for saving multiple output formats. <!--add more-->
+
+## 2. noquote
+
+The `noquote()` function "prints character strings without quotes." 
+
+::: {.column-margin}
+**Resources**
+
+* [noquote documentation](https://www.educative.io/answers/what-is-the-noquote-function-in-r)
+:::
+
+```{r}
+print("This is the print() function")
+paste("This is the paste() function")
+
+# implementing the noquote() function 
+
+noquote("This is the noquote() function")
+```
+
+
+## 3. coplot
+
+
+
+split
+
+encodeString
+
+nzchar
+
+file.choose()
+
+lengths
+
+with
