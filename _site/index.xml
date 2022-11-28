@@ -572,7 +572,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).↩︎</p></li>
@@ -653,7 +653,7 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.</code></pre
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen Shot 2021-09-27 at 11.40.55 PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
 <p></p><figcaption class="figure-caption">Python Cheatsheet</figcaption><p></p>
 </figure>
 </div>
