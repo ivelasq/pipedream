@@ -48,7 +48,7 @@ Many of your favorite functions use `invisible()`. For example, `readr::write_cs
 
 If you're writing functions, then `invisible()` can be very helpful. 
 
-* In the example below, using {purrr} and `tidytab::tab_run())` together results in two `NULL` list items that I do not need. 
+* In the example below, using {purrr} and `tidytab::tab_run()` together results in two `NULL` list items that I do not need. 
 
 ```{r}
 #| warning: false
@@ -66,7 +66,7 @@ vars <- c("col1", "col2")
 # Install from devtools::install_github("gvelasq/tidytab")
 tab_run <- function(.x){
   dat %>%
-    tidytab::tab2(.x, ct)
+    tidytab::tab2(all_of(.x), "ct")
 }
 
 purrr::map(.x = vars,
@@ -102,7 +102,6 @@ paste("This is the paste() function")
 
 noquote("This is the noquote() function")
 ```
-
 
 ## 3. coplot
 
