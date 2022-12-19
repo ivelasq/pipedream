@@ -49,4 +49,9 @@
   date: 2022-08-30
   image: ./talk/building-a-blog-with-quarto/thumbnail.png
   path: ./talk/building-a-blog-with-quarto/index.md
+- title: "Intro to Quarto"
+  subtitle: "R-Ladies St. Louis"
+  date: 2022-10-27
+  image: ./talk/intro-to-quarto/thumbnail.png
+  path: ./talk/intro-to-quarto/index.qmd
   

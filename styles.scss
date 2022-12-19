@@ -4,10 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=Merriweather&family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Inconsolata');
 
-$font-family-sans-serif:  -apple-system, BlinkMacSystemFont, "Inter" !default;
-$font-family-serif:       "Merriweather" !default;
+$font-family-sans-serif:  "Crimson Text" !default;
+$font-family-serif:       "Crimson Text" !default;
+$font-family-monospace: "Fira Code" !default;
 
-$font-size-base:              0.9rem !default;
+$font-size-base:              1.1rem !default;
 
 $font-family-monospace: "Inconsolata" !default;
 
@@ -24,12 +25,12 @@ $font-family-monospace: "Inconsolata" !default;
 // Typography
 
 h1.title {
-  font-family: "Merriweather";
+  font-family: "Crimson Text";
   font-size: 30px;
 }
 
 h1.title.display-7 {
-  font-family: "Merriweather";
+  font-family: "Crimson Text";
 }
 
 p.subtitle.lead {
@@ -61,7 +62,7 @@ $code-block-bg: #2B2423;
 
 .navbar-title {
   color: #FFFFFF;
-  font-family: "Righteous";
+  font-family: "Crimson Text";
 }
 
 a.sidebar-item-text.sidebar-link {
@@ -73,9 +74,9 @@ a.sidebar-item-text.sidebar-link {
 }
 
 .quarto-listing-category {
-    font-family: "Inter";
+    font-family: "Crimson Text";
 }
 
 .quarto-listing-category-title {
-    font-family: "Merriweather";
+    font-family: "Crimson Text";
 }

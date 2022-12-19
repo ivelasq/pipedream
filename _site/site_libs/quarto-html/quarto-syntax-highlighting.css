@@ -33,7 +33,7 @@
 
 /* other quarto variables */
 :root {
-  --quarto-font-monospace: "Inconsolata";
+  --quarto-font-monospace: "Fira Code";
 }
 
 code span.al {

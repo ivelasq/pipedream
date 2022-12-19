@@ -9,7 +9,7 @@ website:
   description: "Isabella Velásquez Personal Website"
   favicon: favicon.jpg
   twitter-card: true
-  opengraph: true
+  open-graph: true
   navbar:
     title: "Isabella Velásquez"
     background: "#000000"
