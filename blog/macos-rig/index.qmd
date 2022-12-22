@@ -1,0 +1,232 @@
+---
+title: "Setting up macOS as an R data science rig in 2023"
+date: "2022-12-19"
+categories: ["tutorial"]
+description: "Let’s fall together into a pit of success (when configuring macOS)."
+image: thumbnail.jpg
+image-alt: "Georges Seurat's A Sunday on La Grande Jatte. People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."
+---
+
+![](thumbnail-wide.jpg){fig-alt="People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."}
+
+## TL;DR
+
+In this post, we cover our preferred setup for R on macOS going into 2023. We highlight these awesome tools: [Homebrew](https://brew.sh/), [Git](https://git-scm.com/download/linux), [zsh](https://zsh.sourceforge.io/), [Oh My Zsh](https://ohmyz.sh/#install), [rig](https://github.com/r-lib/rig), the R packages {[usethis](https://usethis.r-lib.org/)} and {[gitcreds](https://gitcreds.r-lib.org/)}, and [Quarto](https://quarto.org).
+
+If you prefer to look at a short list than read through a long-form blog post, much of the information below is summarized in this [dotfiles](https://github.com/gvelasq/dotfiles/tree/main/macos) repository. Keeping your own [dotfiles](https://dotfiles.github.io) repository, or bookmarking this post or [others](https://www.garrickadenbuie.com/blog/setting-up-a-new-macbook-pro), will help you stay sane next time you are setting yourself up for data science in R on a brand new macOS installation.
+
+- [The Problem](#the-problem)
+- [Installation](#installation)
+- [Final Thoughts](#final-thoughts)
+- [Related Work](#related-work)
+
+## The Problem
+
+
+Like a new year 🗓️, a new computer 🖥️ (or a fresh reinstall) can bring so many opportunities. A clear desktop! So much memory! And then you remember that you have to install and configure all of your programs again, and that initial excitement gives way to despair and hopelessness. 😱
+
+Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using 'dotfiles,' or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like GitHub. By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle.
+
+In this post, we’ll share some helpful dotfiles for all you RStudio users who are rocking a new macOS 🍎installation in 2023. This post is geared towards you if:
+
+* You’ve been installing R and RStudio on macOS and setting them up in your own way already, but either forget the many steps (Git, etc.) or are always having to relearn them;
+* You do a lot of point-and-click downloading of files for installation, and have been considering jumping into command-line adventures 👩🏻‍💻 with Homebrew;
+* You’ve never heard of rig;
+* You want a one-stop-shop for setting up your rig next time;
+* You have a well-oiled, well-defined workflow but are interested in seeing how others set up their machines, to perhaps learn something new!
+
+We did ask [ChatGPT](#chat-gpt) its suggested setup, but we thought we could do better (at least in 2022, maybe not in 2024)! 🤗
+
+Let’s fall into a pit of success :tm: (when configuring macOS)!
+
+![](https://imgur.com/7J1bEaJ){fig-align="center" width="400" fig-alt="Hadley Wickham miming typing; in the background is a presentation that says My goal is to make a pit of success"}
+
+## Installation
+
+We’re going to use [Homebrew](https://brew.sh) to facilitate installation steps on macOS. Homebrew styles itself as 'the missing package manager for macOS.'
+
+1. Open Applications > Utilities > Terminal. Install Homebrew using the terminal command below, also provided on the Homebrew landing page. Paste this code into your terminal and hit enter:
+
+``` bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+2. Install [Git](https://git-scm.com). This version control system is going to come in handy for future projects on your new installation.
+
+``` bash
+brew install git
+```
+
+3. Configure [global Git settings](https://github.com/gvelasq/git-reference#setup).
+
+Run the below (replacing the text in the quotation marks with your information) to adjust your Git settings.
+
+```bash
+git config --global user.name "<full-name>"
+git config --global user.email "<email>"
+```
+
+4. Install [zsh](https://zsh.sourceforge.io).
+
+Z shell, or zsh, is a useful tool for interactive use in the Terminal. Several years back, macOS switched from using the bash shell to using zsh as the default shell. Installing the latest version of zsh from Homebrew is to have the latest version — otherwise, zsh and Git are both stuck at the version bundled with the last time you have updated macOS — which makes them open to vulnerabilities and/or don't have the latest features.
+
+```bash
+brew install zsh
+```
+
+5. Install [Oh My Zsh](https://ohmyz.sh/#install).
+
+Oh My Zsh (OMZ) is 'a delightful & open source framework for Zsh.' Or as ChatGPT succinctly put it:
+
+{{< tweet robbyrussell 1599596073282342914 >}}
+
+It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But, the real value is [all the built-in OMZ plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, `gs` is `git status`, `bubo` is `brew update && brew outdated` (very helpful), etc. Here are some you should know:
+
+* The brew plugin and its aliases:[ https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew)
+* The git plugin:[ https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
+* The macos plugin for easier living through the Terminal: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos) 
+* There's even a plugin that reminds you what your aliases are![ ](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)-- for maximum discoverability: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)
+
+You can also hand-code your themes into your `.zshrc` dotfile instead of using the OMZ themes. The aliases not provided by OMZ can be added to the custom.zsh dotfile, such as the ones in the dotfiles linked below.
+
+Install OMZ with:
+
+```bash
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+6. Configure [Oh My Zsh](https://github.com/gvelasq/dotfiles/tree/main/zsh).
+
+To configure oh-my-zsh, you can:
+
+1. **Edit your settings: **Navigate to your home directory `~/` and edit the `.zshrc` file.
+1. **Use preconfigured settings: **Navigate to your home directory `~/`. Replace the default `.zshrc` file with [this file](https://github.com/gvelasq/dotfiles/blob/main/zsh/.zshrc). Then, navigate to the hidden folder `~/.oh-my-zsh/custom` and drop [this file](https://github.com/gvelasq/dotfiles/blob/main/zsh/custom.zsh) in the folder.
+
+:::{.callout-tip}
+On a Mac, you can press Command + Shift + . to see your hidden folders.
+:::
+
+A `custom.zsh` file might be helpful because you can add many more commands for OMZ plugins than what are built in. For instance,
+
+```bash
+alias bog="brew outdated --greedy"
+```
+
+Allows you to use `bog` to run `brew outdated --greedy`, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.
+
+![](image1.jpg){fig-align="center" fig-alt="Keep Calm and bubo bog bupc bc" fig-width="400"}
+
+7. Go back to the Terminal and install [rig](https://github.com/r-lib/rig#linux).
+
+[rig](https://github.com/r-lib/rig#linux), the 'R Installation Manager,' is an amazing tool. It not only lets you download R, but install, configure, switch between, and remove _multiple_ R versions. It also allows you to manage _user-level package libraries_ (meaning you can delete a version of R without losing all your packages!). Mara Averick wrote a great summary on [Day 10 of Tidy Advent 2022](https://mara.quarto.pub/tidy-advent-2022/posts/10-rig.html).
+
+Install rig by running these commands in the Terminal:
+
+```bash
+brew tap r-lib/rig
+brew install --cask rig
+```
+
+8. Install R.
+
+Install the latest version of R using rig:
+
+```bash
+rig add release
+```
+
+9. Install [RStudio Desktop](https://posit.co/download/rstudio-desktop).
+
+You want the latest and greatest RStudio, no? Use Homebrew to download and install the latest version. Once a new version is released, the community is very quick at updating the cask entry for RStudio in Homebrew.
+
+```bash
+brew install --cask rstudio
+```
+
+10. Configure [`.Rprofile](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile)`.
+
+In RStudio, install the {[usethis](https://usethis.r-lib.org/)} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis} 😀.
+
+```r
+install.packages(“usethis”)
+```
+
+Once installed, open your `.Rprofile` by running:
+
+```r
+usethis::edit_r_profile()
+```
+
+[Here's an example of an `.Rprofile` script.](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile) This script [1] sets {devtools} and {usethis} to load with each R session (to write `install_github()` without a `library(devtools)`), [2] sets [RSPM](https://packagemanager.rstudio.com/client/#/) as the default repo for Linux (not relevant for this macOS guide), [3] sets a bunch of {usethis} defaults for package development which need to be overridden with personal details for each person, [4] sets `vsc.rstudioapi = TRUE` for VS Code (again not relevant for this guide), [5] sets several strict warnings which are helpful when developing packages (e.g., not using partial argument matching).
+
+For your rig configuration, you would create a similar script, edit the `.Rprofile`, and restart the session.
+
+11. Configure [RStudio](https://github.com/gvelasq/dotfiles/tree/main/rstudio).
+
+[Snippets](https://support.posit.co/hc/en-us/articles/204463668-Code-Snippets-in-the-RStudio-IDE) help quickly insert common short pieces of code. Open RStudio’s snippet config for R scripts:
+
+```r
+usethis::edit_rstudio_snippets("r")
+```
+
+Append [this script](https://github.com/gvelasq/dotfiles/blob/main/rstudio/r.snippets) to the bottom of the file for some useful examples.
+
+:::{.callout-note}
+Change the prefix of your snippets to your initials. The default in these examples is `gv`.
+:::
+
+Try a snippet out! After appending the script to your snippet file, type `dml` in the Console and press tab:
+
+![](gif1.gif){fig-align="center"}
+
+For whenever you want to remember De Morgan's laws 😉
+
+Now, open RStudio's preference file by running:
+
+```r
+usethis::edit_rstudio_prefs()
+```
+
+Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json) to the `rstudio-prefs.json` file. This file configures RStudio to look and act the way that you’d like.
+
+:::{.callout-note}
+* Change `default_project_location` to your preferred directory. The default in this example is `~/code`.
+* Change `git_exe_path` to the location of your Git executable, which can be found by typing `which git` in a terminal. The default in this example is `/usr/local/bin/git`.
+* Change document_author to your name. The default in this example is `gvelasq`.
+:::
+
+Finally, add the contents of [`rstudio_bindings.json`](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json)` to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):
+
+```bash
+~/.config/rstudio/keybindings/rstudio_bindings.json
+```
+
+12. Set Git credentials in R.
+
+The {[gitcreds](https://gitcreds.r-lib.org/)} package allows you to set your GitHub token once and use it everywhere (Git, R, and the RStudio IDE). Use it to set up RStudio with a [Personal Access Token](https://happygitwithr.com/https-pat.html#store-pat) (PAT) with GitHub and have it work every time. 
+
+Install the {gitcreds} package:
+
+```r
+install.packages("gitcreds")
+```
+ Manage your GitHub tokens or passwords:
+
+```r
+gitcreds::gitcreds_set()
+```
+
+13. Install [Quarto](https://quarto.org/docs/get-started/).
+
+Quarto is a (kinda new) open-source scientific and technical publishing system built on Pandoc. It allows you to create dynamic content with R and Python, like documents, websites (like this blog!), and [presentations](https://ivelasq.rbind.io/talk/intro-to-quarto/).
+
+Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in [10] should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:
+
+```bash
+brew install --cask quarto
+```
+You’ve done it! Congratulations on your configured, custom R data science setup.
+
+
+
+
