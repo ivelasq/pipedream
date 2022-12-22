@@ -68,7 +68,7 @@ git config --global user.email "<email>"
 
 4. Install [zsh](https://zsh.sourceforge.io).
 
-Z shell, or zsh, is a useful tool for interactive use in the Terminal. Several years back, macOS switched from using the bash shell to using zsh as the default shell. Installing the latest version of zsh from Homebrew is to have the latest version — otherwise, zsh and Git are both stuck at the version bundled with the last time you have updated macOS — which makes them open to vulnerabilities and/or don't have the latest features.
+Z shell, or zsh, is a useful tool for interactive use in the Terminal. Several years back, macOS switched from using the bash shell to using zsh as the default shell. Installing the latest version of zsh from Homebrew gives you the *latest* version — otherwise, zsh and Git are both stuck at the version bundled with the last time you have updated macOS — which makes them open to vulnerabilities and/or don't have the latest features.
 
 ```bash
 brew install zsh
