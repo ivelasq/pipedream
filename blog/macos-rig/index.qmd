@@ -34,7 +34,7 @@ In this post, we’ll share some helpful dotfiles for all you RStudio users who 
 * You want a one-stop-shop for setting up your rig next time;
 * You have a well-oiled, well-defined workflow but are interested in seeing how others set up their machines, to perhaps learn something new!
 
-We did ask [ChatGPT](#chat-gpt) its suggested setup, but we thought we could do better (at least in 2022, maybe not in 2024)! 🤗
+Since it is the year of [ChatGPT](https://openai.com/blog/chatgpt/), [we did ask its suggested setup](#chat-gpt). We thought we could do better (at least in 2022, maybe not in 2024)! 🤗
 
 Let’s fall into a pit of success <sup>TM</sup> (when configuring macOS)!
 
@@ -228,4 +228,82 @@ brew install --cask quarto
 ```
 You’ve done it! Congratulations on your configured, custom R data science setup.
 
+## Final Thoughts
 
+We hope that this post is helpful in setting up an R data science rig on your Mac! We know there were a lot of steps. In summary:
+
+* Dotfiles are hidden configuration files where you can store your user preferences and use them across machines and installations.
+* The configuration steps above ensure that you're using the best tools for the Mac terminal: Homebrew (for package management) and zsh (for execution).
+* They also ensure you're using the best tools for running analyses: Git (for version control), rig (for R versioning), R (the best programming language [in our humble opinion]), RStudio (the GOAT), {usethis} (for project setup and development), {gitcreds} (for managing Git), and Quarto (for content creation and publishing).
+* Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.
+
+We know there are a ton of ways of setting up a data science rig, and we'd love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!
+
+## Related Work
+
+- [RSwitch](https://github.com/hrbrmstr/RSwitch) was a menubar app that let you switch between different R versions; it is now archived.
+- @grrrck’s [guide](https://www.garrickadenbuie.com/blog/setting-up-a-new-macbook-pro), published in 2020, documents an epic adventure of setting up a Macbook Pro.
+- {[pak](https://pak.r-lib.org/)} is an awesome R package and the only reason we didn't use it is [because it doesn't yet work with renv](https://github.com/r-lib/pak/issues/436). Since we use {[renv](https://rstudio.github.io/renv/articles/renv.html)}, we’re holding off on {pak} for now, but we do look forward to using both tools together!
+
+## Where we have ChatGPT write our blog post for us {#chat-gpt}
+
+Here’s ChatGPT’s not bad (but still unnerving) response to: 'Write a blog post, for a technical blog about the R programming language, entitled "Setting up macOS as an R data science rig in 2023." Include installation and configuration examples for Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto.'
+
+<details><summary>See response.</summary>
+
+As a data scientist, it is important to have a reliable and efficient setup for your work environment. In this tutorial, we will walk through the steps of setting up macOS as an R data science rig in 2023. We will cover the installation and configuration of Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto. By the end of this tutorial, you will have a fully functional and customizable R development environment on your Mac.
+
+Step 1: Install Homebrew
+
+Homebrew is a package manager for macOS that makes it easy to install and manage software on your Mac. To install Homebrew, open a terminal window and paste the following command:
+
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Hit enter and follow the prompts to complete the installation.
+
+Step 2: Install Git
+
+Git is a version control system that allows you to track changes to your code and collaborate with others. To install Git using Homebrew, run the following command in the terminal:
+
+```
+brew install git
+```
+
+Step 3: Install zsh and oh-my-zsh
+
+zsh is a shell (command line interface) that allows you to execute commands on your computer. oh-my-zsh is a framework for managing your zsh configuration. To install zsh and oh-my-zsh, run the following commands in the terminal:
+
+```
+brew install zsh
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Step 4: Install R
+
+To install the latest version of R on your Mac, run the following command in the terminal:
+
+```
+brew install r
+```
+
+Step 5: Install RStudio
+
+RStudio is a popular integrated development environment (IDE) for R. To install RStudio, visit the RStudio website (https://rstudio.com/) and download the latest version for Mac. Once the download is complete, open the downloaded file and follow the prompts to complete the installation.
+
+Step 6: Install Quarto
+
+Quarto is a powerful tool for creating reproducible research documents in R. To install Quarto, run the following command in the terminal:
+
+```r
+install.packages("quarto")
+```
+
+Conclusion:
+
+By following the steps outlined in this tutorial, you should now have a fully functional and customizable R development environment on your Mac. With Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto installed and configured, you are ready to start your data science journey with R on macOS. Happy coding!
+
+We told you it was unnerving 👀
+</details>

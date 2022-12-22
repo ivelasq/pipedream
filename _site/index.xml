@@ -42,7 +42,7 @@
 <li>You want a one-stop-shop for setting up your rig next time;</li>
 <li>You have a well-oiled, well-defined workflow but are interested in seeing how others set up their machines, to perhaps learn something new!</li>
 </ul>
-<p>We did ask ChatGPT its suggested setup, but we thought we could do better (at least in 2022, maybe not in 2024)! 🤗</p>
+<p>Since it is the year of <a href="https://openai.com/blog/chatgpt/">ChatGPT</a>, we did ask its suggested setup. We thought we could do better (at least in 2022, maybe not in 2024)! 🤗</p>
 <p>Let’s fall into a pit of success <sup>TM</sup> (when configuring macOS)!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -76,7 +76,7 @@
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-57754"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-57754").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-22822"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-22822").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The brew plugin and its aliases:<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew</a></li>
@@ -206,6 +206,58 @@ Note
 <p>Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in 10 should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:</p>
 <div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> quarto</span></code></pre></div>
 <p>You’ve done it! Congratulations on your configured, custom R data science setup.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>We hope that this post is helpful in setting up an R data science rig on your Mac! We know there were a lot of steps. In summary:</p>
+<ul>
+<li>Dotfiles are hidden configuration files where you can store your user preferences and use them across machines and installations.</li>
+<li>The configuration steps above ensure that you’re using the best tools for the Mac terminal: Homebrew (for package management) and zsh (for execution).</li>
+<li>They also ensure you’re using the best tools for running analyses: Git (for version control), rig (for R versioning), R (the best programming language [in our humble opinion]), RStudio (the GOAT), {usethis} (for project setup and development), {gitcreds} (for managing Git), and Quarto (for content creation and publishing).</li>
+<li>Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.</li>
+</ul>
+<p>We know there are a ton of ways of setting up a data science rig, and we’d love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!</p>
+</section>
+<section id="related-work" class="level2">
+<h2 class="anchored" data-anchor-id="related-work">Related Work</h2>
+<ul>
+<li><a href="https://github.com/hrbrmstr/RSwitch">RSwitch</a> was a menubar app that let you switch between different R versions; it is now archived.</li>
+<li><span class="citation" data-cites="grrrck">@grrrck</span>’s <a href="https://www.garrickadenbuie.com/blog/setting-up-a-new-macbook-pro">guide</a>, published in 2020, documents an epic adventure of setting up a Macbook Pro.</li>
+<li>{<a href="https://pak.r-lib.org/">pak</a>} is an awesome R package and the only reason we didn’t use it is <a href="https://github.com/r-lib/pak/issues/436">because it doesn’t yet work with renv</a>. Since we use {<a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>}, we’re holding off on {pak} for now, but we do look forward to using both tools together!</li>
+</ul>
+</section>
+<section id="chat-gpt" class="level2">
+<h2 class="anchored" data-anchor-id="chat-gpt">Where we have ChatGPT write our blog post for us</h2>
+<p>Here’s ChatGPT’s not bad (but still unnerving) response to: ‘Write a blog post, for a technical blog about the R programming language, entitled “Setting up macOS as an R data science rig in 2023.” Include installation and configuration examples for Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto.’</p>
+<details>
+<summary>
+See response.
+</summary>
+<p>As a data scientist, it is important to have a reliable and efficient setup for your work environment. In this tutorial, we will walk through the steps of setting up macOS as an R data science rig in 2023. We will cover the installation and configuration of Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto. By the end of this tutorial, you will have a fully functional and customizable R development environment on your Mac.</p>
+<p>Step 1: Install Homebrew</p>
+<p>Homebrew is a package manager for macOS that makes it easy to install and manage software on your Mac. To install Homebrew, open a terminal window and paste the following command:</p>
+<pre><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+<p>Hit enter and follow the prompts to complete the installation.</p>
+<p>Step 2: Install Git</p>
+<p>Git is a version control system that allows you to track changes to your code and collaborate with others. To install Git using Homebrew, run the following command in the terminal:</p>
+<pre><code>brew install git</code></pre>
+<p>Step 3: Install zsh and oh-my-zsh</p>
+<p>zsh is a shell (command line interface) that allows you to execute commands on your computer. oh-my-zsh is a framework for managing your zsh configuration. To install zsh and oh-my-zsh, run the following commands in the terminal:</p>
+<pre><code>brew install zsh
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></pre>
+<p>Step 4: Install R</p>
+<p>To install the latest version of R on your Mac, run the following command in the terminal:</p>
+<pre><code>brew install r</code></pre>
+<p>Step 5: Install RStudio</p>
+<p>RStudio is a popular integrated development environment (IDE) for R. To install RStudio, visit the RStudio website (https://rstudio.com/) and download the latest version for Mac. Once the download is complete, open the downloaded file and follow the prompts to complete the installation.</p>
+<p>Step 6: Install Quarto</p>
+<p>Quarto is a powerful tool for creating reproducible research documents in R. To install Quarto, run the following command in the terminal:</p>
+<div class="sourceCode" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"quarto"</span>)</span></code></pre></div>
+<p>Conclusion:</p>
+<p>By following the steps outlined in this tutorial, you should now have a fully functional and customizable R development environment on your Mac. With Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto installed and configured, you are ready to start your data science journey with R on macOS. Happy coding!</p>
+We told you it was unnerving 👀
+</details>
 
 
 </section>
