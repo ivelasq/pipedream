@@ -147,7 +147,7 @@ brew install --cask rstudio
 
 10. Configure [`.Rprofile`](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile).
 
-In RStudio, install the {[usethis](https://usethis.r-lib.org/)} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis} 😀.
+In RStudio, install the {[usethis](https://usethis.r-lib.org/)} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis}. 😀
 
 ```r
 install.packages(“usethis”)
@@ -187,7 +187,7 @@ Now, open RStudio's preference file by running:
 usethis::edit_rstudio_prefs()
 ```
 
-Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json) to the `rstudio-prefs.json` file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody? 🌈).
+Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json) to the `rstudio-prefs.json` file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody?). 🌈
 
 :::{.callout-note}
 * Change `default_project_location` to your preferred directory. The default in this example is `~/code`.
@@ -215,7 +215,7 @@ install.packages("gitcreds")
 
 Then, run `usethis::create_github_token()` to open a browser window to the GitHub form to generate a PAT with suggested, pre-selected scopes. This helps you make the right choice of scopes every time.
 
-```
+```bash
 usethis::create_github_token()
 ```
 
