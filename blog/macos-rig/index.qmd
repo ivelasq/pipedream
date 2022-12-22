@@ -22,7 +22,6 @@ If you prefer to look at a short list than read through a long-form blog post, m
 
 ## The Problem
 
-
 Like a new year 🗓️, a new computer 🖥️ (or a fresh reinstall) can bring so many opportunities. A clear desktop! So much memory! And then you remember that you have to install and configure all of your programs again, and that initial excitement gives way to despair and hopelessness. 😱
 
 Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using 'dotfiles,' or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like GitHub. By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle.
@@ -37,7 +36,7 @@ In this post, we’ll share some helpful dotfiles for all you RStudio users who 
 
 We did ask [ChatGPT](#chat-gpt) its suggested setup, but we thought we could do better (at least in 2022, maybe not in 2024)! 🤗
 
-Let’s fall into a pit of success :tm: (when configuring macOS)!
+Let’s fall into a pit of success <sup>TM</sup> (when configuring macOS)!
 
 ![](https://imgur.com/7J1bEaJ){fig-align="center" width="400" fig-alt="Hadley Wickham miming typing; in the background is a presentation that says My goal is to make a pit of success"}
 
@@ -85,7 +84,7 @@ It comes with a ton of plugins, themes, and functions. For most users, having th
 * The brew plugin and its aliases:[ https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew)
 * The git plugin:[ https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git)
 * The macos plugin for easier living through the Terminal: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos) 
-* There's even a plugin that reminds you what your aliases are![ ](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)-- for maximum discoverability: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)
+* There's even a plugin that reminds you what your aliases are! -- for maximum discoverability: [https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases)
 
 You can also hand-code your themes into your `.zshrc` dotfile instead of using the OMZ themes. The aliases not provided by OMZ can be added to the custom.zsh dotfile, such as the ones in the dotfiles linked below.
 
@@ -112,7 +111,7 @@ A `custom.zsh` file might be helpful because you can add many more commands for 
 alias bog="brew outdated --greedy"
 ```
 
-Allows you to use `bog` to run `brew outdated --greedy`, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.
+This allows you to use `bog` to run `brew outdated --greedy`, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.
 
 ![](image1.jpg){fig-align="center" fig-alt="Keep Calm and bubo bog bupc bc" fig-width="400"}
 
@@ -143,7 +142,7 @@ You want the latest and greatest RStudio, no? Use Homebrew to download and insta
 brew install --cask rstudio
 ```
 
-10. Configure [`.Rprofile](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile)`.
+10. <a name="abcd">Configure [`.Rprofile`](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile).</a>
 
 In RStudio, install the {[usethis](https://usethis.r-lib.org/)} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis} 😀.
 
@@ -187,7 +186,7 @@ Now, open RStudio's preference file by running:
 usethis::edit_rstudio_prefs()
 ```
 
-Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json) to the `rstudio-prefs.json` file. This file configures RStudio to look and act the way that you’d like.
+Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json) to the `rstudio-prefs.json` file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody? 🌈).
 
 :::{.callout-note}
 * Change `default_project_location` to your preferred directory. The default in this example is `~/code`.
@@ -195,11 +194,13 @@ Add the content of [this file](https://github.com/gvelasq/dotfiles/blob/main/rst
 * Change document_author to your name. The default in this example is `gvelasq`.
 :::
 
-Finally, add the contents of [`rstudio_bindings.json`](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json)` to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):
+Finally, add the contents of [`rstudio_bindings.json`](https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json) to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):
 
 ```bash
 ~/.config/rstudio/keybindings/rstudio_bindings.json
 ```
+
+Now, anytime you want to make sure you're using the most current version of RStudio, you just have to run <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>R</kbd>!
 
 12. Set Git credentials in R.
 
@@ -220,13 +221,11 @@ gitcreds::gitcreds_set()
 
 Quarto is a (kinda new) open-source scientific and technical publishing system built on Pandoc. It allows you to create dynamic content with R and Python, like documents, websites (like this blog!), and [presentations](https://ivelasq.rbind.io/talk/intro-to-quarto/).
 
-Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in [10] should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:
+Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in [10](#abcd) should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:
 
 ```bash
 brew install --cask quarto
 ```
 You’ve done it! Congratulations on your configured, custom R data science setup.
-
-
 
 

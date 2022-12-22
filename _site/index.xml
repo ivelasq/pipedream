@@ -43,7 +43,7 @@
 <li>You have a well-oiled, well-defined workflow but are interested in seeing how others set up their machines, to perhaps learn something new!</li>
 </ul>
 <p>We did ask ChatGPT its suggested setup, but we thought we could do better (at least in 2022, maybe not in 2024)! 🤗</p>
-<p>Let’s fall into a pit of success :tm: (when configuring macOS)!</p>
+<p>Let’s fall into a pit of success <sup>TM</sup> (when configuring macOS)!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/macos-rig/https:/imgur.com/7J1bEaJ.png" class="img-fluid figure-img" alt="Hadley Wickham miming typing; in the background is a presentation that says My goal is to make a pit of success" width="400"></p>
@@ -76,13 +76,13 @@
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-63534"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-63534").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-57754"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-57754").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The brew plugin and its aliases:<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew</a></li>
 <li>The git plugin:<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git</a></li>
 <li>The macos plugin for easier living through the Terminal: <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos</a></li>
-<li>There’s even a plugin that reminds you what your aliases are<img src="https://ivelasq.rbind.io/blog/macos-rig/https:/github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases.png" class="img-fluid">– for maximum discoverability: <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases</a></li>
+<li>There’s even a plugin that reminds you what your aliases are! – for maximum discoverability: <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases</a></li>
 </ul>
 <p>You can also hand-code your themes into your <code>.zshrc</code> dotfile instead of using the OMZ themes. The aliases not provided by OMZ can be added to the custom.zsh dotfile, such as the ones in the dotfiles linked below.</p>
 <p>Install OMZ with:</p>
@@ -110,7 +110,7 @@ Tip
 </div>
 <p>A <code>custom.zsh</code> file might be helpful because you can add many more commands for OMZ plugins than what are built in. For instance,</p>
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="bu" style="color: null;">alias</span> bog=<span class="st" style="color: #20794D;">"brew outdated --greedy"</span></span></code></pre></div>
-<p>Allows you to use <code>bog</code> to run <code>brew outdated --greedy</code>, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.</p>
+<p>This allows you to use <code>bog</code> to run <code>brew outdated --greedy</code>, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/macos-rig/image1.jpg" class="img-fluid figure-img" alt="Keep Calm and bubo bog bupc bc"></p>
@@ -134,7 +134,7 @@ Tip
 <p>You want the latest and greatest RStudio, no? Use Homebrew to download and install the latest version. Once a new version is released, the community is very quick at updating the cask entry for RStudio in Homebrew.</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> rstudio</span></code></pre></div>
 <ol start="10" type="1">
-<li>Configure [<code>.Rprofile](https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile)</code>.</li>
+<li><a name="abcd">Configure </a><a href="https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile"><code>.Rprofile</code></a>.</li>
 </ol>
 <p>In RStudio, install the {<a href="https://usethis.r-lib.org/">usethis</a>} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis} 😀.</p>
 <div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;">install.packages</span>(“usethis”)</span></code></pre></div>
@@ -170,7 +170,7 @@ Note
 <p>For whenever you want to remember De Morgan’s laws 😉</p>
 <p>Now, open RStudio’s preference file by running:</p>
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_rstudio_prefs</span>()</span></code></pre></div>
-<p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like.</p>
+<p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody? 🌈).</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -188,8 +188,9 @@ Note
 </ul>
 </div>
 </div>
-<p>Finally, add the contents of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json"><code>rstudio_bindings.json</code></a>` to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):</p>
+<p>Finally, add the contents of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json"><code>rstudio_bindings.json</code></a> to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):</p>
 <div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="ex" style="color: null;">~/.config/rstudio/keybindings/rstudio_bindings.json</span></span></code></pre></div>
+<p>Now, anytime you want to make sure you’re using the most current version of RStudio, you just have to run <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>R</kbd>!</p>
 <ol start="12" type="1">
 <li>Set Git credentials in R.</li>
 </ol>
@@ -202,7 +203,7 @@ Note
 <li>Install <a href="https://quarto.org/docs/get-started/">Quarto</a>.</li>
 </ol>
 <p>Quarto is a (kinda new) open-source scientific and technical publishing system built on Pandoc. It allows you to create dynamic content with R and Python, like documents, websites (like this blog!), and <a href="https://ivelasq.rbind.io/talk/intro-to-quarto/">presentations</a>.</p>
-<p>Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in [10] should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:</p>
+<p>Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in 10 should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:</p>
 <div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> quarto</span></code></pre></div>
 <p>You’ve done it! Congratulations on your configured, custom R data science setup.</p>
 
