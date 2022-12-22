@@ -2,6 +2,9 @@
 title: "Setting up macOS as an R data science rig in 2023"
 date: "2022-12-19"
 categories: ["tutorial"]
+author: 
+  - Isabella Velásquez
+  - Gustavo E. Velásquez
 description: "Let’s fall together into a pit of success (when configuring macOS)."
 image: thumbnail.jpg
 image-alt: "Georges Seurat's A Sunday on La Grande Jatte. People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."
@@ -176,9 +179,7 @@ Change the prefix of your snippets to your initials. The default in these exampl
 
 Try a snippet out! After appending the script to your snippet file, type `dml` in the Console and press tab:
 
-![](gif1.gif){fig-align="center"}
-
-For whenever you want to remember De Morgan's laws 😉
+![For whenever you want to remember De Morgan's laws 😉](gif1.gif){fig-align="center" fig-alt="Typing dml in the RStudio Console pane and then pressing tab to enable a snippet that lists out De Morgan's laws."}
 
 Now, open RStudio's preference file by running:
 
@@ -250,7 +251,7 @@ We know there are a ton of ways of setting up a data science rig, and we'd love 
 Here’s ChatGPT’s not bad (but still unnerving) response to: 'Write a blog post, for a technical blog about the R programming language, entitled "Setting up macOS as an R data science rig in 2023." Include installation and configuration examples for Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto.'
 
 <details><summary>See response.</summary>
-
+<i>
 As a data scientist, it is important to have a reliable and efficient setup for your work environment. In this tutorial, we will walk through the steps of setting up macOS as an R data science rig in 2023. We will cover the installation and configuration of Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto. By the end of this tutorial, you will have a fully functional and customizable R development environment on your Mac.
 
 Step 1: Install Homebrew
@@ -303,7 +304,7 @@ install.packages("quarto")
 
 Conclusion:
 
-By following the steps outlined in this tutorial, you should now have a fully functional and customizable R development environment on your Mac. With Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto installed and configured, you are ready to start your data science journey with R on macOS. Happy coding!
+By following the steps outlined in this tutorial, you should now have a fully functional and customizable R development environment on your Mac. With Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto installed and configured, you are ready to start your data science journey with R on macOS. Happy coding!</i>
 
 We told you it was unnerving 👀
 </details>
