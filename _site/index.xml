@@ -35,7 +35,7 @@
 <section id="the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
 <p>Like a new year 🗓️, a new computer 🖥️ (or a fresh reinstall) can bring so many opportunities. A clear desktop! So much memory! And then you remember that you have to install and configure all of your programs again, and that initial excitement gives way to despair and hopelessness. 😱</p>
-<p>Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using dotfiles, or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like <a href="https://www.google.com/search?client=firefox-b-1-d&amp;q=GitHub">GitHub</a>. By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle.</p>
+<p>Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using dotfiles, or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like <a href="https://github.com/">GitHub</a>. By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle. ♻️</p>
 <p>In this post, we’ll share some helpful dotfiles for all you RStudio users who are rocking a new macOS 🍎 installation in 2023. This post is geared towards you if:</p>
 <ul>
 <li>You’ve been installing R and RStudio on macOS and setting them up in your own way already, but either forget the many steps (Git, etc.) or are always having to relearn them;</li>
@@ -78,7 +78,7 @@
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-70156"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-70156").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-14153"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-14153").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -131,14 +131,14 @@ Tip
 <p>Install the latest version of R using rig:</p>
 <div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;">rig</span> add release</span></code></pre></div>
 <ol start="9" type="1">
-<li><a name="abcd">Install </a><a href="https://posit.co/download/rstudio-desktop">RStudio Desktop</a>.</li>
+<li>Install <a name="abcd"></a><a href="https://posit.co/download/rstudio-desktop">RStudio Desktop</a>.</li>
 </ol>
 <p>You want the latest and greatest RStudio, no? Use Homebrew to download and install the latest version. Once a new version is released, the community is very quick at updating the cask entry for RStudio in Homebrew.</p>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> rstudio</span></code></pre></div>
 <ol start="10" type="1">
 <li>Configure <a href="https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile"><code>.Rprofile</code></a>.</li>
 </ol>
-<p>In RStudio, install the {<a href="https://usethis.r-lib.org/">usethis</a>} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis} 😀.</p>
+<p>In RStudio, install the {<a href="https://usethis.r-lib.org/">usethis</a>} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis}. 😀</p>
 <div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;">install.packages</span>(“usethis”)</span></code></pre></div>
 <p>Once installed, open your <code>.Rprofile</code> by running:</p>
 <div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_r_profile</span>()</span></code></pre></div>
@@ -172,7 +172,7 @@ Note
 </div>
 <p>Now, open RStudio’s preference file by running:</p>
 <div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_rstudio_prefs</span>()</span></code></pre></div>
-<p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody? 🌈).</p>
+<p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody?). 🌈</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -200,7 +200,7 @@ Note
 <p>Install the {gitcreds} package:</p>
 <div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"gitcreds"</span>)</span></code></pre></div>
 <p>Then, run <code>usethis::create_github_token()</code> to open a browser window to the GitHub form to generate a PAT with suggested, pre-selected scopes. This helps you make the right choice of scopes every time.</p>
-<pre><code>usethis::create_github_token()</code></pre>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="fu" style="color: #4758AB;">usethis::create_github_token()</span></span></code></pre></div>
 <p>Then, the command will suggest to use <code>gitcreds::gitcreds_set()</code> to save the PAT locally using the macOS Git credential manager (after copying it from GitHub):</p>
 <div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">gitcreds<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">gitcreds_set</span>()</span></code></pre></div>
 <ol start="13" type="1">
@@ -216,7 +216,7 @@ Note
 <p>We hope that this post is helpful in setting up an R data science rig on macOS! We know there were a lot of steps. In summary:</p>
 <ul>
 <li>Dotfiles are hidden configuration files where you can store your user preferences and use them across machines and installations.</li>
-<li>The configuration steps above ensure that you’re using the best tools for the Mac terminal: Homebrew (for package management) and zsh (for execution).</li>
+<li>The configuration steps above ensure that you’re using the best tools for the macOS terminal: Homebrew (for package management) and zsh (for execution).</li>
 <li>They also ensure you’re using the best tools for running analyses: Git (for version control), rig (for R versioning), R (the best programming language [in our humble opinion]), RStudio (the GOAT), {usethis} (for project setup and development), {gitcreds} (for managing Git), and Quarto (for content creation and publishing).</li>
 <li>Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.</li>
 </ul>

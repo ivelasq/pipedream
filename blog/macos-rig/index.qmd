@@ -27,7 +27,7 @@ If you prefer to look at a short list than read through a long-form blog post, m
 
 Like a new year 🗓️, a new computer 🖥️ (or a fresh reinstall) can bring so many opportunities. A clear desktop! So much memory! And then you remember that you have to install and configure all of your programs again, and that initial excitement gives way to despair and hopelessness. 😱
 
-Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using dotfiles, or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like [GitHub](https://www.google.com/search?client=firefox-b-1-d&q=GitHub). By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle.
+Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using dotfiles, or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like [GitHub](https://github.com/). By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle. ♻️
 
 In this post, we’ll share some helpful dotfiles for all you RStudio users who are rocking a new macOS 🍎 installation in 2023. This post is geared towards you if:
 
@@ -137,7 +137,7 @@ Install the latest version of R using rig:
 rig add release
 ```
 
-9. <a name="abcd">Install [RStudio Desktop](https://posit.co/download/rstudio-desktop).</a>
+9. Install <a name="abcd">[RStudio Desktop](https://posit.co/download/rstudio-desktop).</a>
 
 You want the latest and greatest RStudio, no? Use Homebrew to download and install the latest version. Once a new version is released, the community is very quick at updating the cask entry for RStudio in Homebrew.
 
@@ -241,7 +241,7 @@ You’ve done it! Congratulations on your configured, custom R data science setu
 We hope that this post is helpful in setting up an R data science rig on macOS! We know there were a lot of steps. In summary:
 
 * Dotfiles are hidden configuration files where you can store your user preferences and use them across machines and installations.
-* The configuration steps above ensure that you're using the best tools for the Mac terminal: Homebrew (for package management) and zsh (for execution).
+* The configuration steps above ensure that you're using the best tools for the macOS terminal: Homebrew (for package management) and zsh (for execution).
 * They also ensure you're using the best tools for running analyses: Git (for version control), rig (for R versioning), R (the best programming language [in our humble opinion]), RStudio (the GOAT), {usethis} (for project setup and development), {gitcreds} (for managing Git), and Quarto (for content creation and publishing).
 * Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.
 
