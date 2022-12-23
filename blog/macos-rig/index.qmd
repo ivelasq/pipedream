@@ -253,7 +253,7 @@ We know there are a ton of ways of setting up a data science rig, and we'd love 
 
 ## Mastodon
 
-<iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
+[Mastodon Toot Link](https://fosstodon.org/@ivelasq3/109560318292130074)
 
 :::
 
