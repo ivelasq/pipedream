@@ -9,8 +9,269 @@
 <link>https://ivelasq.rbind.io/index.html</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-1.0.38</generator>
-<lastBuildDate>Mon, 09 May 2022 05:00:00 GMT</lastBuildDate>
+<generator>quarto-1.0.37</generator>
+<lastBuildDate>Thu, 22 Dec 2022 06:00:00 GMT</lastBuildDate>
+<item>
+  <title>Setting up macOS as an R data science rig in 2023</title>
+  <dc:creator>Isabella Velásquez</dc:creator>
+  <dc:creator>Gustavo E. Velásquez</dc:creator>
+  <link>https://ivelasq.rbind.io/blog/macos-rig/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<p><img src="https://ivelasq.rbind.io/blog/macos-rig/thumbnail-wide.jpg" class="img-fluid" alt="People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."></p>
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">TL;DR</h2>
+<p>In this post, we cover our preferred setup for R on macOS going into 2023. We highlight these awesome tools: <a href="https://brew.sh/">Homebrew</a>, <a href="https://git-scm.com/download/linux">Git</a>, <a href="https://zsh.sourceforge.io/">zsh</a>, <a href="https://ohmyz.sh/#install">Oh My Zsh</a>, <a href="https://github.com/r-lib/rig">rig</a>, the R packages {<a href="https://usethis.r-lib.org/">usethis</a>} and {<a href="https://gitcreds.r-lib.org/">gitcreds</a>}, and <a href="https://quarto.org">Quarto</a>.</p>
+<p>If you prefer to look at a short list than read through a long-form blog post, much of the information below is summarized in this <a href="https://github.com/gvelasq/dotfiles/tree/main/macos">dotfiles</a> repository. Keeping your own <a href="https://dotfiles.github.io">dotfiles</a> repository, or bookmarking this post or <a href="https://www.garrickadenbuie.com/blog/setting-up-a-new-macbook-pro">others</a>, will help you stay sane next time you are setting yourself up for data science in R on a brand new macOS installation.</p>
+<ul>
+<li>The Problem</li>
+<li>Installation</li>
+<li>Final Thoughts</li>
+<li>Related Work</li>
+</ul>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Like a new year 🗓️, a new computer 🖥️ (or a fresh reinstall) can bring so many opportunities. A clear desktop! So much memory! And then you remember that you have to install and configure all of your programs again, and that initial excitement gives way to despair and hopelessness. 😱</p>
+<p>Okay, that’s a bit of an exaggeration, 🤭 but it can be tedious to reconfigure your setup the way that you like it. However, by using dotfiles, or hidden configuration files (whose names start with a dot/period, which on macOS hides them from view in the Finder), you can store your user preferences on a hosted version control service like <a href="https://github.com/">GitHub</a>. By dropping dotfiles in the correct directory, you can access and reuse your exact configuration and settings across machines, saving time and hassle. ♻️</p>
+<p>In this post, we’ll share some helpful dotfiles for all you RStudio users who are rocking a new macOS 🍎 installation in 2023. This post is geared towards you if:</p>
+<ul>
+<li>You’ve been installing R and RStudio on macOS and setting them up in your own way already, but either forget the many steps (Git, etc.) or are always having to relearn them;</li>
+<li>You do a lot of point-and-click downloading of files for installation, and have been considering jumping into command-line adventures 👩🏻‍💻 with Homebrew;</li>
+<li>You’ve never heard of rig;</li>
+<li>You want a one-stop-shop for setting up your rig next time;</li>
+<li>You have a well-oiled, well-defined workflow but are interested in seeing how others set up their machines, to perhaps learn something new!</li>
+</ul>
+<p>Since it is the year of <a href="https://openai.com/blog/chatgpt/">ChatGPT</a>, we did ask its suggested setup. We thought we could do better (at least for now, maybe not in 2024)! 🤗</p>
+<p>Let’s fall into a <a href="https://blog.codinghorror.com/falling-into-the-pit-of-success">pit of success</a> <sup>TM</sup> (when configuring macOS)!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/macos-rig/https:/imgur.com/7J1bEaJ.png" class="img-fluid figure-img" alt="Hadley Wickham miming typing; in the background is a presentation that says My goal is to make a pit of success" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>We’re going to use <a href="https://brew.sh">Homebrew</a> to facilitate installation steps on macOS. Homebrew styles itself as ‘the missing package manager for macOS.’</p>
+<ol type="1">
+<li>Open Applications &gt; Utilities &gt; Terminal. Install Homebrew using the terminal command below, also provided on the Homebrew landing page. Paste this code into your terminal and hit enter:</li>
+</ol>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;">/bin/bash</span> <span class="at" style="color: #657422;">-c</span> <span class="st" style="color: #20794D;">"</span><span class="va" style="color: #111111;">$(</span><span class="ex" style="color: null;">curl</span> <span class="at" style="color: #657422;">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="va" style="color: #111111;">)</span><span class="st" style="color: #20794D;">"</span></span></code></pre></div>
+<ol start="2" type="1">
+<li>Install <a href="https://git-scm.com">Git</a>. This version control system is going to come in handy for future projects on your new installation.</li>
+</ol>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;">brew</span> install git</span></code></pre></div>
+<ol start="3" type="1">
+<li>Configure <a href="https://github.com/gvelasq/git-reference#setup">global Git settings</a>.</li>
+</ol>
+<p>Run the code below (replacing the text in the quotation marks with your information) to adjust your Git settings.</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="fu" style="color: #4758AB;">git</span> config <span class="at" style="color: #657422;">--global</span> user.name <span class="st" style="color: #20794D;">"&lt;full-name&gt;"</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;">git</span> config <span class="at" style="color: #657422;">--global</span> user.email <span class="st" style="color: #20794D;">"&lt;email&gt;"</span></span></code></pre></div>
+<ol start="4" type="1">
+<li>Install <a href="https://zsh.sourceforge.io">zsh</a>.</li>
+</ol>
+<p>Several years back, macOS switched from using the bash shell to using zsh as the default shell. Installing the latest version of zsh from Homebrew gives you the <em>latest</em> version — otherwise, zsh and Git are both stuck at the version bundled the last time you updated macOS — which makes them open to vulnerabilities and/or don’t have the latest features.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;">brew</span> install zsh</span></code></pre></div>
+<ol start="5" type="1">
+<li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
+</ol>
+<p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
+<p></p><div id="tweet-14153"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-14153").innerHTML = tweet["html"];</script><p></p>
+<p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
+<ul>
+<li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
+<li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git">git</a> plugin</li>
+<li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos">macos</a> plugin for easier living through the Terminal</li>
+<li>There’s even a plugin that <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/aliases">reminds you what your aliases are</a>! – for maximum discoverability</li>
+</ul>
+<p>You can also hand-code your themes into your <code>.zshrc</code> dotfile instead of using the OMZ themes. The aliases not provided by OMZ can be added to the <code>custom.zsh</code> dotfile, such as the ones in the dotfiles linked below.</p>
+<p>Install OMZ with:</p>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="fu" style="color: #4758AB;">sh</span> <span class="at" style="color: #657422;">-c</span> <span class="st" style="color: #20794D;">"</span><span class="va" style="color: #111111;">$(</span><span class="ex" style="color: null;">curl</span> <span class="at" style="color: #657422;">-fsSL</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="va" style="color: #111111;">)</span><span class="st" style="color: #20794D;">"</span></span></code></pre></div>
+<ol start="6" type="1">
+<li>Configure <a href="https://github.com/gvelasq/dotfiles/tree/main/zsh">Oh My Zsh</a>.</li>
+</ol>
+<p>To configure oh-my-zsh, you can:</p>
+<ol type="1">
+<li><strong>Edit your settings: </strong>Navigate to your home directory <code>~/</code> and edit the <code>.zshrc</code> file.</li>
+<li><strong>Use preconfigured settings: </strong>Navigate to your home directory <code>~/</code>. Replace the default <code>.zshrc</code> file with <a href="https://github.com/gvelasq/dotfiles/blob/main/zsh/.zshrc">this file</a>. Then, navigate to the hidden folder <code>~/.oh-my-zsh/custom</code> and drop <a href="https://github.com/gvelasq/dotfiles/blob/main/zsh/custom.zsh">this file</a> in the folder.</li>
+</ol>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>On a Mac, you can press Command + Shift + . to see your hidden folders.</p>
+</div>
+</div>
+<p>A <code>custom.zsh</code> file might be helpful because you can add many more commands for OMZ plugins than what are built in. For instance,</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="bu" style="color: null;">alias</span> bog=<span class="st" style="color: #20794D;">"brew outdated --greedy"</span></span></code></pre></div>
+<p>This allows you to use <code>bog</code> to run <code>brew outdated --greedy</code>, instead of having to type the whole command out. That particular command is helpful if you want to find ALL the programs that could potentially be upgraded.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/macos-rig/image1.jpg" class="img-fluid figure-img" alt="Keep Calm and bubo bog bupc bc"></p>
+</figure>
+</div>
+<ol start="7" type="1">
+<li>Go back to the Terminal and install <a href="https://github.com/r-lib/rig#macos-homebrew">rig</a>.</li>
+</ol>
+<p><a href="https://github.com/r-lib/rig">rig</a>, the ‘R Installation Manager,’ is an amazing tool. It not only lets you download R, but install, configure, switch between, and remove <em>multiple</em> R versions. It also allows you to manage <em>user-level package libraries</em> (meaning you can delete a version of R without losing all your packages!). Mara Averick wrote a great summary on <a href="https://mara.quarto.pub/tidy-advent-2022/posts/10-rig.html">Day 10 of Tidy Advent 2022</a>.</p>
+<p>Install rig by running these commands in the Terminal:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;">brew</span> tap r-lib/rig</span>
+<span id="cb7-2"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> rig</span></code></pre></div>
+<ol start="8" type="1">
+<li>Install <a href="https://www.r-project.org">R</a>.</li>
+</ol>
+<p>Install the latest version of R using rig:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;">rig</span> add release</span></code></pre></div>
+<ol start="9" type="1">
+<li>Install <a name="abcd"></a><a href="https://posit.co/download/rstudio-desktop">RStudio Desktop</a>.</li>
+</ol>
+<p>You want the latest and greatest RStudio, no? Use Homebrew to download and install the latest version. Once a new version is released, the community is very quick at updating the cask entry for RStudio in Homebrew.</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> rstudio</span></code></pre></div>
+<ol start="10" type="1">
+<li>Configure <a href="https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile"><code>.Rprofile</code></a>.</li>
+</ol>
+<p>In RStudio, install the {<a href="https://usethis.r-lib.org/">usethis</a>} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis}. 😀</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;">install.packages</span>(“usethis”)</span></code></pre></div>
+<p>Once installed, open your <code>.Rprofile</code> by running:</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_r_profile</span>()</span></code></pre></div>
+<p><a href="https://github.com/gvelasq/dotfiles/blob/main/R/.Rprofile">Here’s an example of an <code>.Rprofile</code> script.</a> This script [1] sets {devtools} and {usethis} to load with each R session (to write <code>install_github()</code> without a <code>library(devtools)</code>), [2] sets <a href="https://packagemanager.rstudio.com/client/#/">Posit Public Package Manager (P3M)</a> as the default repo for Linux (not relevant for this macOS guide), [3] sets a bunch of {usethis} defaults for package development which need to be overridden with personal details for each person, [4] sets <code>vsc.rstudioapi = TRUE</code> for VS Code (again not relevant for this guide), [5] sets several strict warnings which are helpful when developing packages (e.g., not using partial argument matching).</p>
+<p>For your rig configuration, you would create a similar script, edit the <code>.Rprofile</code>, and restart the session.</p>
+<ol start="11" type="1">
+<li>Configure <a href="https://github.com/gvelasq/dotfiles/tree/main/rstudio">RStudio</a>.</li>
+</ol>
+<p><a href="https://support.posit.co/hc/en-us/articles/204463668-Code-Snippets-in-the-RStudio-IDE">Snippets</a> help quickly insert common short pieces of code. Open RStudio’s snippet config for R scripts:</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_rstudio_snippets</span>(<span class="st" style="color: #20794D;">"r"</span>)</span></code></pre></div>
+<p>Append <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/r.snippets">this script</a> to the bottom of the file for some useful examples.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Change the prefix of your snippets to your initials. The default in these examples is <code>gv</code>.</p>
+</div>
+</div>
+<p>Try a snippet out! After appending the script to your snippet file, type <code>dml</code> in the Console and press tab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/macos-rig/gif1.gif" class="img-fluid figure-img" alt="Typing dml in the RStudio Console pane and then pressing tab to enable a snippet that lists out De Morgan's laws."></p>
+<p></p><figcaption class="figure-caption">For whenever you want to remember De Morgan’s laws. 😉</figcaption><p></p>
+</figure>
+</div>
+<p>Now, open RStudio’s preference file by running:</p>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">usethis<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">edit_rstudio_prefs</span>()</span></code></pre></div>
+<p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody?). 🌈</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Change <code>default_project_location</code> to your preferred directory. The default in this example is <code>~/code</code>.</li>
+<li>Change <code>git_exe_path</code> to the location of your Git executable, which can be found by typing <code>which git</code> in a terminal. The default in this example is <code>/usr/local/bin/git</code>.</li>
+<li>Change document_author to your name. The default in this example is <code>gvelasq</code>.</li>
+</ul>
+</div>
+</div>
+<p>Finally, add the contents of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio_bindings.json"><code>rstudio_bindings.json</code></a> to the local version found in this hidden folder (I don’t think there’s a {usethis} command for this, unfortunately!):</p>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="ex" style="color: null;">~/.config/rstudio/keybindings/rstudio_bindings.json</span></span></code></pre></div>
+<p>Now, anytime you want to make sure you’re using the most current version of RStudio, you just have to run <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>R</kbd>!</p>
+<ol start="12" type="1">
+<li>Set Git credentials in R.</li>
+</ol>
+<p>The {<a href="https://gitcreds.r-lib.org/">gitcreds</a>} package allows you to set your GitHub token once and use it everywhere (Git, R, and the RStudio IDE). Use it to set up RStudio with a <a href="https://happygitwithr.com/https-pat.html#store-pat">Personal Access Token</a> (PAT) with GitHub and have it work every time.</p>
+<p>Install the {gitcreds} package:</p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"gitcreds"</span>)</span></code></pre></div>
+<p>Then, run <code>usethis::create_github_token()</code> to open a browser window to the GitHub form to generate a PAT with suggested, pre-selected scopes. This helps you make the right choice of scopes every time.</p>
+<div class="sourceCode" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><span class="fu" style="color: #4758AB;">usethis::create_github_token()</span></span></code></pre></div>
+<p>Then, the command will suggest to use <code>gitcreds::gitcreds_set()</code> to save the PAT locally using the macOS Git credential manager (after copying it from GitHub):</p>
+<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1">gitcreds<span class="sc" style="color: #5E5E5E;">::</span><span class="fu" style="color: #4758AB;">gitcreds_set</span>()</span></code></pre></div>
+<ol start="13" type="1">
+<li>Install <a href="https://quarto.org/docs/get-started/">Quarto</a>.</li>
+</ol>
+<p>Quarto is a (kinda new) open-source scientific and technical publishing system built on Pandoc. It allows you to create dynamic content with R and Python, like documents, websites (like this blog!), and <a href="https://ivelasq.rbind.io/talk/intro-to-quarto/">presentations</a>.</p>
+<p>Quarto comes bundled with RStudio v. 2022.07 and later, so the installation in step 9 above should have this covered. But, if you’d like to install Quarto yourself, run this in your Terminal:</p>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><span class="ex" style="color: null;">brew</span> install <span class="at" style="color: #657422;">--cask</span> quarto</span></code></pre></div>
+<p>You’ve done it! Congratulations on your configured, custom R data science setup.</p>
+</section>
+<section id="final-thoughts" class="level2">
+<h2 class="anchored" data-anchor-id="final-thoughts">Final Thoughts</h2>
+<p>We hope that this post is helpful in setting up an R data science rig on macOS! We know there were a lot of steps. In summary:</p>
+<ul>
+<li>Dotfiles are hidden configuration files where you can store your user preferences and use them across machines and installations.</li>
+<li>The configuration steps above ensure that you’re using the best tools for the macOS terminal: Homebrew (for package management) and zsh (for execution).</li>
+<li>They also ensure you’re using the best tools for running analyses: Git (for version control), rig (for R versioning), R (the best programming language [in our humble opinion]), RStudio (the GOAT), {usethis} (for project setup and development), {gitcreds} (for managing Git), and Quarto (for content creation and publishing).</li>
+<li>Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.</li>
+</ul>
+<p>We know there are a ton of ways of setting up a data science rig, and we’d love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!</p>
+</section>
+<section id="related-work" class="level2">
+<h2 class="anchored" data-anchor-id="related-work">Related Work</h2>
+<ul>
+<li><a href="https://github.com/hrbrmstr/RSwitch">RSwitch</a> was a menubar app that let you switch between different R versions; it is now archived.</li>
+<li><span class="citation" data-cites="grrrck">@grrrck</span>’s <a href="https://www.garrickadenbuie.com/blog/setting-up-a-new-macbook-pro">guide</a>, published in 2020, documents an epic adventure of setting up a Macbook Pro.</li>
+<li>{<a href="https://pak.r-lib.org/">pak</a>} is an awesome R package and the only reason we didn’t use it is <a href="https://github.com/r-lib/pak/issues/436">because it doesn’t yet work with renv</a>. Since we use {<a href="https://rstudio.github.io/renv/articles/renv.html">renv</a>}, we’re holding off on {pak} for now, but we do look forward to using both tools together!</li>
+</ul>
+</section>
+<section id="chat-gpt" class="level2">
+<h2 class="anchored" data-anchor-id="chat-gpt">Where we have ChatGPT write our blog post for us</h2>
+<p>Here’s ChatGPT’s not bad (but still unnerving) response to: ‘Write a blog post, for a technical blog about the R programming language, entitled “Setting up macOS as an R data science rig in 2023.” Include installation and configuration examples for Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto.’</p>
+<details>
+<summary>
+See response.
+</summary>
+<p><i> As a data scientist, it is important to have a reliable and efficient setup for your work environment. In this tutorial, we will walk through the steps of setting up macOS as an R data science rig in 2023. We will cover the installation and configuration of Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto. By the end of this tutorial, you will have a fully functional and customizable R development environment on your Mac.</i></p><i>
+<p>Step 1: Install Homebrew</p>
+<p>Homebrew is a package manager for macOS that makes it easy to install and manage software on your Mac. To install Homebrew, open a terminal window and paste the following command:</p>
+<pre><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+<p>Hit enter and follow the prompts to complete the installation.</p>
+<p>Step 2: Install Git</p>
+<p>Git is a version control system that allows you to track changes to your code and collaborate with others. To install Git using Homebrew, run the following command in the terminal:</p>
+<pre><code>brew install git</code></pre>
+<p>Step 3: Install zsh and oh-my-zsh</p>
+<p>zsh is a shell (command line interface) that allows you to execute commands on your computer. oh-my-zsh is a framework for managing your zsh configuration. To install zsh and oh-my-zsh, run the following commands in the terminal:</p>
+<pre><code>brew install zsh
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></pre>
+<p>Step 4: Install R</p>
+<p>To install the latest version of R on your Mac, run the following command in the terminal:</p>
+<pre><code>brew install r</code></pre>
+<p>Step 5: Install RStudio</p>
+<p>RStudio is a popular integrated development environment (IDE) for R. To install RStudio, visit the RStudio website (https://rstudio.com/) and download the latest version for Mac. Once the download is complete, open the downloaded file and follow the prompts to complete the installation.</p>
+<p>Step 6: Install Quarto</p>
+<p>Quarto is a powerful tool for creating reproducible research documents in R. To install Quarto, run the following command in the terminal:</p>
+<div class="sourceCode" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><span class="fu" style="color: #4758AB;">install.packages</span>(<span class="st" style="color: #20794D;">"quarto"</span>)</span></code></pre></div>
+<p>Conclusion:</p>
+</i><p><i>By following the steps outlined in this tutorial, you should now have a fully functional and customizable R development environment on your Mac. With Homebrew, Git, zsh, oh-my-zsh, R, RStudio, and Quarto installed and configured, you are ready to start your data science journey with R on macOS. Happy coding!</i></p>
+We told you it was unnerving 👀
+</details>
+
+
+</section>
+
+ ]]></description>
+  <category>tutorial</category>
+  <guid>https://ivelasq.rbind.io/blog/macos-rig/index.html</guid>
+  <pubDate>Thu, 22 Dec 2022 06:00:00 GMT</pubDate>
+  <media:content url="https://ivelasq.rbind.io/blog/macos-rig/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Three packages that port the tidyverse to Python</title>
   <link>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</link>
@@ -4575,302 +4836,6 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
   <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
   <pubDate>Sun, 16 Dec 2018 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Disaggregating school district data</title>
-  <link>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A sunset with dark clouds at a beach"></p>
-<p></p><figcaption class="figure-caption">Samuel Colman, The Rock of Salvation (1837)</figcaption><p></p>
-</figure>
-</div>
-<p>I am a data analyst committed to nonprofit work with the aim of reducing racial and socioeconomic inequities. Data, and in particular disaggregated data, can provide measures of the equity of a system, process, or program. Displaying data by subgroups is an important step in any data team’s equity journey, and exploring these data beyond averages can highlight the most prominent equity needs.</p>
-<p>In this post, I define what disaggregated data is and how it can inform teams on their equity work. Then, I run various cuts on Minneapolis Public Schools data. The district’s reporting of the composition of their schools provides an excellent opportunity to explore inequities in a system.</p>
-<p>Although this post heavily references education and student data, the principle of using distributions is paramount in any field that strives to close equity gaps.</p>
-<section id="what-is-equity" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-equity">What is Equity</h2>
-<p>Inequities are <a href="http://www.yourdictionary.com/racial-inequality">disparities in opportunity, resources, and treatment.</a> Racial and socioeconomic inequities are those that are as a result of one’s race or socioeconomic status. The unequal distribution of opportunity, resource, and treatment can be due to many factors, including patterns in society. <a href="https://www.allsides.com/dictionary/racial-inequity">Examples include:</a></p>
-<ul>
-<li>Racial attitudes/bias that act subtly to undermine and exclude,</li>
-<li>Continued redlining in lending,</li>
-<li>Embedded biases in education (images, language, school discipline),</li>
-<li>Long term ramifications of poor health/healthcare.</li>
-</ul>
-<p>Because the definition of equity varies from team to team, it is important to decide which inequities to identify and focus on.</p>
-</section>
-<section id="what-is-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-disaggregated-data">What is disaggregated data</h2>
-<p>According to the <a href="https://www.edglossary.org/disaggregated-data/">Glossary of Education Reform</a>, the formal definition of disaggregated data is:</p>
-<blockquote class="blockquote">
-<p>Disaggregated data refers to numerical or non-numerical information that has been (1) collected from multiple sources and/or on multiple measures, variables, or individuals; (2) compiled into aggregate data—i.e., summaries of data—typically for the purposes of public reporting or statistical analysis; and then (3) broken down in component parts or smaller units of data.</p>
-</blockquote>
-<p>Aggregate population numbers are broken down into smaller groupings that analysts can compare and contrast. These groupings depend on your team’s definition of equity, whether it be focused on race, socioeconomic status, race AND socioeconomic status, age, ethnicity, etc.</p>
-</section>
-<section id="why-use-disaggregated-data" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-disaggregated-data">Why use disaggregated data</h2>
-<p>Particularly in education, disaggregated data is essential in identifying where solutions are needed to solve inequities. Per NCES’ <a href="https://nces.ed.gov/pubsearch/pubsinfo.asp?pubid=NFES2017017">Forum Guide to Collecting and Using Disaggregated Data on Racial/Ethnic Subgroups</a>:</p>
-<blockquote class="blockquote">
-<p>Educators need both high-level data summaries as well as disaggregated data that accurately describe smaller groups of students they serve. Access to and analysis of more detailed data—that is, disaggregated data—can be a useful tool for improving educational outcomes for small groups of students who otherwise would not be distinguishable in the aggregated data used for federal reporting. Disaggregating student data into subpopulations can help schools and communities plan appropriate programs; decide which interventions to implement; target limited resources; and recognize trends in educational participation, outcomes, and achievement.</p>
-</blockquote>
-</section>
-<section id="minneapolis-public-schools-example" class="level2">
-<h2 class="anchored" data-anchor-id="minneapolis-public-schools-example">Minneapolis Public Schools example</h2>
-<p>Minneapolis Public Schools (MPS) reports their student demographics in a robust, complete way. Not only do they report the percentage of students in a subgroup, but they also include the number of students in each subgroup. This allows a deep look into their individual school demographics and gives us the opportunity to explore equity in their district.</p>
-<section id="pulling-data" class="level3">
-<h3 class="anchored" data-anchor-id="pulling-data">Pulling data</h3>
-<p>MPS publishes their school data in PDFs. Thankfully, the {tabulizer} package exists! It easily and quickly pulled the data into lists which I then transformed to data frames and tidied up.</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-4_3299a15d25d7a0db744d74ba439285f4">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;"># Load packages</span></span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(tidyverse)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(tabulizer)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;">library</span>(janitor)</span>
-<span id="cb1-5"></span>
-<span id="cb1-6"><span class="co" style="color: #5E5E5E;"># Extract tables with race data</span></span>
-<span id="cb1-7">race_pdf <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-8">  <span class="fu" style="color: #4758AB;">extract_tables</span>(<span class="st" style="color: #20794D;">"http://studentaccounting.mpls.k12.mn.us/uploads/racial_ethnic_school_gradefall2017.pdf"</span>)</span>
-<span id="cb1-9"></span>
-<span id="cb1-10"><span class="co" style="color: #5E5E5E;"># Create data frame</span></span>
-<span id="cb1-11">race_df <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="co" style="color: #5E5E5E;"># many thanks to my brother @gvelasq for purrrifying this</span></span>
-<span id="cb1-12">  race_pdf <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-13">  <span class="fu" style="color: #4758AB;">map</span>(as_tibble) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-14">  <span class="fu" style="color: #4758AB;">map_df</span>(<span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">slice</span>(., <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:-</span><span class="dv" style="color: #AD0000;">2</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-15">  <span class="fu" style="color: #4758AB;">set_names</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_group"</span>,</span>
-<span id="cb1-16">              <span class="st" style="color: #20794D;">"school_name"</span>,</span>
-<span id="cb1-17">              <span class="st" style="color: #20794D;">"grade"</span>, <span class="st" style="color: #20794D;">"na_num"</span>,</span>
-<span id="cb1-18">              <span class="st" style="color: #20794D;">"na_pct"</span>,</span>
-<span id="cb1-19">              <span class="st" style="color: #20794D;">"aa_num"</span>,</span>
-<span id="cb1-20">              <span class="st" style="color: #20794D;">"aa_pct"</span>,</span>
-<span id="cb1-21">              <span class="st" style="color: #20794D;">"as_num"</span>,</span>
-<span id="cb1-22">              <span class="st" style="color: #20794D;">"as_pct"</span>,</span>
-<span id="cb1-23">              <span class="st" style="color: #20794D;">"hi_num"</span>,</span>
-<span id="cb1-24">              <span class="st" style="color: #20794D;">"hi_pct"</span>,</span>
-<span id="cb1-25">              <span class="st" style="color: #20794D;">"wh_num"</span>,</span>
-<span id="cb1-26">              <span class="st" style="color: #20794D;">"wh_pct"</span>,</span>
-<span id="cb1-27">              <span class="st" style="color: #20794D;">"pi_pct"</span>,</span>
-<span id="cb1-28">              <span class="st" style="color: #20794D;">"blank_col"</span>,</span>
-<span id="cb1-29">              <span class="st" style="color: #20794D;">"tot"</span>))</span>
-<span id="cb1-30"></span>
-<span id="cb1-31">race_filter <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-32">  race_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-33">  <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>school_group, <span class="sc" style="color: #5E5E5E;">-</span>grade, <span class="sc" style="color: #5E5E5E;">-</span>pi_pct, <span class="sc" style="color: #5E5E5E;">-</span>blank_col) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="co" style="color: #5E5E5E;"># Remove unnecessary or blank columns</span></span>
-<span id="cb1-34">  <span class="fu" style="color: #4758AB;">filter</span>(<span class="fu" style="color: #4758AB;">str_detect</span>(school_name, <span class="st" style="color: #20794D;">"Total"</span>),</span>
-<span id="cb1-35">         school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Grand Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> <span class="co" style="color: #5E5E5E;"># otherwise totals are duplicated</span></span>
-<span id="cb1-36">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">school_name =</span> <span class="fu" style="color: #4758AB;">str_replace</span>(school_name, <span class="st" style="color: #20794D;">"Total"</span>, <span class="st" style="color: #20794D;">""</span>),</span>
-<span id="cb1-37">         <span class="fu" style="color: #4758AB;">across</span>(<span class="fu" style="color: #4758AB;">where</span>(is.character), trimws))</span>
-<span id="cb1-38"></span>
-<span id="cb1-39"><span class="co" style="color: #5E5E5E;"># Extract tables with FRPL data</span></span>
-<span id="cb1-40">frpl_pdf <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-41">  <span class="fu" style="color: #4758AB;">extract_tables</span>(<span class="st" style="color: #20794D;">"https://studentaccounting.mpls.k12.mn.us/uploads/free_reduced_meal_fall_2017_2.pdf"</span>)</span>
-<span id="cb1-42"></span>
-<span id="cb1-43"><span class="co" style="color: #5E5E5E;"># Create data frame</span></span>
-<span id="cb1-44">frpl_df <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="co" style="color: #5E5E5E;"># many thanks to my brother @gvelasq for purrrifying this</span></span>
-<span id="cb1-45">  frpl_pdf <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-46">  <span class="fu" style="color: #4758AB;">map</span>(as_tibble) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-47">  <span class="fu" style="color: #4758AB;">map_df</span>(<span class="sc" style="color: #5E5E5E;">~</span> <span class="fu" style="color: #4758AB;">slice</span>(., <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span>  </span>
-<span id="cb1-48">  <span class="fu" style="color: #4758AB;">set_names</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_grades"</span>,</span>
-<span id="cb1-49">              <span class="st" style="color: #20794D;">"school_name"</span>,</span>
-<span id="cb1-50">              <span class="st" style="color: #20794D;">"total_students"</span>,</span>
-<span id="cb1-51">              <span class="st" style="color: #20794D;">"frpl_pct"</span>,</span>
-<span id="cb1-52">              <span class="st" style="color: #20794D;">"free_num"</span>,</span>
-<span id="cb1-53">              <span class="st" style="color: #20794D;">"reduce_num"</span>,</span>
-<span id="cb1-54">              <span class="st" style="color: #20794D;">"not_eligible_num"</span>))</span>
-<span id="cb1-55"></span>
-<span id="cb1-56">frpl_filter <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-57">  frpl_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-58">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">""</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-59">  <span class="fu" style="color: #4758AB;">select</span>(<span class="sc" style="color: #5E5E5E;">-</span>school_grades)</span>
-<span id="cb1-60"></span>
-<span id="cb1-61"><span class="co" style="color: #5E5E5E;"># Merged data</span></span>
-<span id="cb1-62">merged_df <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-63">  <span class="fu" style="color: #4758AB;">left_join</span>(race_filter, frpl_filter, <span class="at" style="color: #657422;">by =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"school_name"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb1-64">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="fu" style="color: #4758AB;">across</span>(<span class="dv" style="color: #AD0000;">2</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">17</span>, as.numeric)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-65">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">frpl_pct =</span> (free_num <span class="sc" style="color: #5E5E5E;">+</span> reduce_num)<span class="sc" style="color: #5E5E5E;">/</span>total_students,</span>
-<span id="cb1-66">         <span class="at" style="color: #657422;">hi_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> hi_num),</span>
-<span id="cb1-67">         <span class="at" style="color: #657422;">aa_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> aa_num),</span>
-<span id="cb1-68">         <span class="at" style="color: #657422;">wh_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> wh_num),</span>
-<span id="cb1-69">         <span class="at" style="color: #657422;">as_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> as_num),</span>
-<span id="cb1-70">         <span class="at" style="color: #657422;">na_povnum =</span> <span class="fu" style="color: #4758AB;">case_when</span>(frpl_pct <span class="sc" style="color: #5E5E5E;">&gt;</span> .<span class="dv" style="color: #AD0000;">75</span> <span class="sc" style="color: #5E5E5E;">~</span> na_num)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-71">  <span class="fu" style="color: #4758AB;">adorn_totals</span>() <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-72">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">na_pct =</span> na_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-73">         <span class="at" style="color: #657422;">aa_pct =</span> aa_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-74">         <span class="at" style="color: #657422;">as_pct =</span> as_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-75">         <span class="at" style="color: #657422;">hi_pct =</span> hi_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-76">         <span class="at" style="color: #657422;">wh_pct =</span> wh_num<span class="sc" style="color: #5E5E5E;">/</span>tot,</span>
-<span id="cb1-77">         <span class="at" style="color: #657422;">frpl_pct =</span> (free_num <span class="sc" style="color: #5E5E5E;">+</span> reduce_num)<span class="sc" style="color: #5E5E5E;">/</span>total_students, <span class="co" style="color: #5E5E5E;"># otherwise total frpl_pct is off</span></span>
-<span id="cb1-78">         <span class="at" style="color: #657422;">hi_povsch =</span> hi_povnum<span class="sc" style="color: #5E5E5E;">/</span>hi_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-79">         <span class="at" style="color: #657422;">aa_povsch =</span> aa_povnum<span class="sc" style="color: #5E5E5E;">/</span>aa_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-80">         <span class="at" style="color: #657422;">as_povsch =</span> as_povnum<span class="sc" style="color: #5E5E5E;">/</span>as_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-81">         <span class="at" style="color: #657422;">wh_povsch =</span> wh_povnum<span class="sc" style="color: #5E5E5E;">/</span>wh_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)],</span>
-<span id="cb1-82">         <span class="at" style="color: #657422;">na_povsch =</span> na_povnum<span class="sc" style="color: #5E5E5E;">/</span>na_num[<span class="fu" style="color: #4758AB;">which</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>)])</span>
-<span id="cb1-83"></span>
-<span id="cb1-84"><span class="co" style="color: #5E5E5E;"># Finish up the data frame</span></span>
-<span id="cb1-85">tidy_df <span class="ot" style="color: #003B4F;">&lt;-</span></span>
-<span id="cb1-86">  merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb1-87">  <span class="fu" style="color: #4758AB;">pivot_longer</span>(<span class="at" style="color: #657422;">cols =</span> na_num<span class="sc" style="color: #5E5E5E;">:</span>na_povsch,</span>
-<span id="cb1-88">               <span class="at" style="color: #657422;">names_to =</span> <span class="st" style="color: #20794D;">"category"</span>,</span>
-<span id="cb1-89">               <span class="at" style="color: #657422;">values_to =</span> <span class="st" style="color: #20794D;">"value"</span>)</span></code></pre></div>
-</div>
-</section>
-<section id="first-glance-mps-district-demographics" class="level3">
-<h3 class="anchored" data-anchor-id="first-glance-mps-district-demographics">First glance: MPS District demographics</h3>
-<p>Here is a barplot which shows the percentage of different subgroups in the school district. FRPL stands for Free/Reduced Price Lunch, often used as a proxy for poverty. Students from a household with an income up to 185 percent of the poverty threshold are eligible for free or reduced price lunch.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Definitions are very important in disaggregated data. FRPL is used because it’s ubiquitous and reporting is mandated but <a href="https://nces.ed.gov/blogs/nces/post/free-or-reduced-price-lunch-a-proxy-for-poverty">there is debate as to whether it actually reflects the level of poverty among students</a>.</p>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>,</span>
-<span id="cb2-3">         <span class="fu" style="color: #4758AB;">str_detect</span>(category, <span class="st" style="color: #20794D;">"pct"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-4">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">category =</span> <span class="fu" style="color: #4758AB;">factor</span>(</span>
-<span id="cb2-5">    category,</span>
-<span id="cb2-6">    <span class="at" style="color: #657422;">levels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"aa_pct"</span>, <span class="st" style="color: #20794D;">"wh_pct"</span>, <span class="st" style="color: #20794D;">"hi_pct"</span>, <span class="st" style="color: #20794D;">"as_pct"</span>, <span class="st" style="color: #20794D;">"na_pct"</span>, <span class="st" style="color: #20794D;">"frpl_pct"</span>)</span>
-<span id="cb2-7">  )) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb2-8">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> category, <span class="at" style="color: #657422;">y =</span> value)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-9">  <span class="fu" style="color: #4758AB;">geom_bar</span>(<span class="at" style="color: #657422;">stat =</span> <span class="st" style="color: #20794D;">"identity"</span>, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">fill =</span> <span class="fu" style="color: #4758AB;">factor</span>(category))) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-10">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"Subgroup"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-11">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Percentage of Population"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-12">  <span class="fu" style="color: #4758AB;">scale_x_discrete</span>(<span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Black"</span>, <span class="st" style="color: #20794D;">"White"</span>, <span class="st" style="color: #20794D;">"Hispanic"</span>, <span class="st" style="color: #20794D;">"Asian"</span>, <span class="st" style="color: #20794D;">"Native Am."</span>, <span class="st" style="color: #20794D;">"FRPL"</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-13">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-14">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-15">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb2-16">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students in MPS. Black students make up the most at almost 40%, then White students slightly less, and finally Hispanic, Asian, and Native American under 20%. Almost 60% of all students qualify for FRPL." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>When we look at these data, MPS looks like a diverse school district. Almost <strong>40% of students are Black</strong> and around <strong>35% are White</strong>. <strong>60% of the students are eligible for FRPL</strong>, which is <a href="https://nces.ed.gov/programs/digest/d17/tables/dt17_204.10.asp?current=yes">high for Minnesota but close to the US average of 52.1%</a>.</p>
-<p>However, let’s explore if there’s more to this story.</p>
-</section>
-<section id="discover-distributions" class="level3">
-<h3 class="anchored" data-anchor-id="discover-distributions">Discover distributions</h3>
-<p>Another view of the data can be visualizing the distribution of percentage of a demographic within schools. Here is a histogram for the percentage of White students within the 74 MPS schools for which we have data.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> wh_pct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;">geom_histogram</span>(<span class="at" style="color: #657422;">fill =</span> <span class="st" style="color: #20794D;">"#00C3DA"</span>, <span class="at" style="color: #657422;">breaks=</span> <span class="fu" style="color: #4758AB;">seq</span>(<span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">1</span>, <span class="at" style="color: #657422;">by =</span> .<span class="dv" style="color: #AD0000;">1</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-5">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"White Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-6">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Count"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-7">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-8">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-9">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-10">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb3-11">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Histogram of number of schools by White pecentage of students. Most schools have less than 30%." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>27 of the 74 (36%) of schools have between 0-10% White students.</strong> This implies that even though the school district may be diverse, the demographics are not evenly distributed across the schools. More than half of schools enroll fewer than 30% of White students even though White students make up 35% of the district student population.</p>
-<p>The school race demographics are not representative of the district populations but does that hold for socioeconomic status as well?</p>
-</section>
-<section id="create-categories" class="level3">
-<h3 class="anchored" data-anchor-id="create-categories">Create categories</h3>
-<p>High-poverty schools are defined as public schools where more than 75% of the students are eligible for FRPL. According to NCES, <a href="https://nces.ed.gov/fastfacts/display.asp?id=898">24% of public school students attended high-poverty schools</a>. However, different subgroups were overrepresented and underrepresented within the high poverty schools. Is this the case for MPS?</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">tidy_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">==</span> <span class="st" style="color: #20794D;">"Total"</span>,</span>
-<span id="cb4-3">         <span class="fu" style="color: #4758AB;">str_detect</span>(category, <span class="st" style="color: #20794D;">"povsch"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb4-4">  <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">category =</span> <span class="fu" style="color: #4758AB;">factor</span>(category, <span class="at" style="color: #657422;">levels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"hi_povsch"</span>, <span class="st" style="color: #20794D;">"na_povsch"</span>, <span class="st" style="color: #20794D;">"aa_povsch"</span>, <span class="st" style="color: #20794D;">"as_povsch"</span>, <span class="st" style="color: #20794D;">"wh_povsch"</span>))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span>  </span>
-<span id="cb4-5">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> category, <span class="at" style="color: #657422;">y =</span> value)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-6">  <span class="fu" style="color: #4758AB;">geom_bar</span>(<span class="at" style="color: #657422;">stat =</span> <span class="st" style="color: #20794D;">"identity"</span>, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">fill =</span> <span class="fu" style="color: #4758AB;">factor</span>(category))) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-7">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"Subgroup"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-8">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"Percentage in High Poverty Schools"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-9">  <span class="fu" style="color: #4758AB;">scale_x_discrete</span>(<span class="at" style="color: #657422;">labels =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Hispanic"</span>, <span class="st" style="color: #20794D;">"Native Am."</span>, <span class="st" style="color: #20794D;">"Black"</span>, <span class="st" style="color: #20794D;">"Asian"</span>, <span class="st" style="color: #20794D;">"White"</span>)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-10">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-11">  <span class="fu" style="color: #4758AB;">scale_fill_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-12">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-13">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb4-14">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" alt="Barplot showing demographic breakdown of students attending schools which high percentage of poverty. About 50% of Black, Hispanic, Native American, and Asian student attend high-poverty schools compared to 9% of White students." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>9% of White students</strong> attend high poverty schools, compared to <strong>46% of Black students</strong>, <strong>51% of Hispanic students</strong>, <strong>46% of Asian students</strong>, and <strong>49% of Native American students</strong>. These students are disproportionately attending high poverty schools.</p>
-</section>
-<section id="reveal-relationships" class="level3">
-<h3 class="anchored" data-anchor-id="reveal-relationships">Reveal relationships</h3>
-<p>Let’s explore what happens when we correlate race and FRPL percentage by school.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">merged_df <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb5-2">  <span class="fu" style="color: #4758AB;">filter</span>(school_name <span class="sc" style="color: #5E5E5E;">!=</span> <span class="st" style="color: #20794D;">"Total"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span> </span>
-<span id="cb5-3">  <span class="fu" style="color: #4758AB;">ggplot</span>(<span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> wh_pct, <span class="at" style="color: #657422;">y =</span> frpl_pct)) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-4">  <span class="fu" style="color: #4758AB;">geom_point</span>(<span class="at" style="color: #657422;">color =</span> <span class="st" style="color: #20794D;">"#00C3DA"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-5">  <span class="fu" style="color: #4758AB;">xlab</span>(<span class="st" style="color: #20794D;">"White Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-6">  <span class="fu" style="color: #4758AB;">ylab</span>(<span class="st" style="color: #20794D;">"FRPL Percentage"</span>) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-7">  <span class="fu" style="color: #4758AB;">scale_y_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-8">  <span class="fu" style="color: #4758AB;">scale_x_continuous</span>(<span class="at" style="color: #657422;">labels =</span> scales<span class="sc" style="color: #5E5E5E;">::</span>percent) <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-9">  <span class="fu" style="color: #4758AB;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-10">  <span class="fu" style="color: #4758AB;">theme_iv</span>() <span class="sc" style="color: #5E5E5E;">+</span></span>
-<span id="cb5-11">  <span class="fu" style="color: #4758AB;">theme</span>(<span class="at" style="color: #657422;">legend.position =</span> <span class="st" style="color: #20794D;">"none"</span>)</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-disaggregate-data/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" alt="Scattershot showing the relationship of FRPL percentage and percentage of students that are White with a steep negative correlation." width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Similarly to the result above, <strong>there is a strong negative correlation between FRPL percentage and the percentage of White students in a school.</strong> High poverty schools have a lower percentage of White students and low poverty schools have a higher percentage of White students.</p>
-</section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>According to the Urban Institute, the disproportionate percentage of students of color attending high poverty schools “is a defining feature of almost all Midwestern and northeastern metropolitan school systems.” Among other issues, high poverty schools <a href="https://www.urban.org/urban-wire/high-poverty-schools-undermine-education-children-color">tend to lack the educational resources—like highly qualified and experienced teachers, low student-teacher ratios, college prerequisite and advanced placement courses, and extracurricular activities—available in low-poverty schools.</a> This has a huge impact on these students and their futures.</p>
-<p>Because of the disaggregated data Minneapolis Public Schools provides, we can go deeper than the average of demographics across the district and see what it looks like on the school level. These views display that (1) there exists a distribution of race/ethnicity within schools that are not representative of the district, (2) that students of color are overrepresented in high poverty schools, and (3) there is a relationship between the percentage of White students in a school and the percentage of students eligible for FRPL.</p>
-</section>
-</section>
-<section id="examples-of-disaggregated-data-reporting" class="level2">
-<h2 class="anchored" data-anchor-id="examples-of-disaggregated-data-reporting">Examples of disaggregated data reporting</h2>
-<p>There are so many amazing examples out there using disaggregated data. These two are my favorites:</p>
-<ul>
-<li><a href="https://www.nytimes.com/interactive/2016/04/29/upshot/money-race-and-success-how-your-school-district-compares.html">Money, Race and Success: How Your School District Compares</a></li>
-<li><a href="http://www.tampabay.com/projects/2015/investigations/pinellas-failure-factories/chart-failing-black-students/">Why Pinellas County is the worst place in Florida to be black and go to public school</a></li>
-</ul>
-<center>
-<p><em>Liked this article? I’d love for you to retweet!</em></p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-New blog post 🎉: Why Equity Requires Looking Beyond Averages 🕵🏽‍♀️📊 A Look at Minneapolis Public Schools using the awesome packages <a href="https://twitter.com/hashtag/tabulizer?src=hash&amp;ref_src=twsrc%5Etfw">#tabulizer</a> 📑 and <a href="https://twitter.com/hashtag/janitor?src=hash&amp;ref_src=twsrc%5Etfw">#janitor</a> ✨ <a href="https://t.co/w4WiuDo0Bl">https://t.co/w4WiuDo0Bl</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/2MnY3ctFYH">pic.twitter.com/2MnY3ctFYH</a>
-</p>
-— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1044233934865752064?ref_src=twsrc%5Etfw">September 24, 2018</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
-
-
-</section>
-
- ]]></description>
-  <category>tutorial</category>
-  <guid>https://ivelasq.rbind.io/blog/why-disaggregate-data/index.html</guid>
-  <pubDate>Fri, 21 Sep 2018 05:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io/blog/why-disaggregate-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
