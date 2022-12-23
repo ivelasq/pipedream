@@ -247,6 +247,14 @@ We hope that this post is helpful in setting up an R data science rig on macOS! 
 
 We know there are a ton of ways of setting up a data science rig, and we'd love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!
 
+::: {.panel-tabset}
+## Twitter
+{{< tweet ivelasq3 1606094450643435520 >}}
+
+## Mastodon
+{{< mastodon https://fosstodon.org/@ivelasq3/109560318292130074 >}}
+:::
+
 ## Related Work
 
 - [RSwitch](https://github.com/hrbrmstr/RSwitch) was a menubar app that let you switch between different R versions; it is now archived.
