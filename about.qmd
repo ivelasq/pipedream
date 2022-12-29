@@ -15,7 +15,7 @@ about:
     - icon: linkedin
       href: https://www.linkedin.com/in/ivelasq/
     - icon: mastodon
-      href: https://mastodon.social/@ivelasq3/
+      href: https://fosstodon.org/@ivelasq3
     - icon: rss
       href: index.xml
 ---
