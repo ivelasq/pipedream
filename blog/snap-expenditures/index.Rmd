@@ -103,7 +103,7 @@ We use `tabulizer::extract_tables()` to extract the data from the [appendices PD
 ```{r, include = T, message = F, eval = T, cache = T}
 snap_pdf <-
   extract_tables(
-    "https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"
+    "https://fns-prod.azureedge.us/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"
   )
 ```
 

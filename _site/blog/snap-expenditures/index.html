@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.37">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -184,9 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title">
 <h1 class="title">Transforming PDFs into useful tables</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">import</div>
-    <div class="quarto-category">tidy</div>
-    <div class="quarto-category">visualize</div>
+    <div class="quarto-category">tutorial</div>
   </div>
   </div>
 
@@ -214,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plumbs on a brown table"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plums on a brown table"></p>
 <p></p><figcaption class="figure-caption">Joseph Decker, Green Plums (1885)</figcaption><p></p>
 </figure>
 </div>
@@ -229,10 +227,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tabulizer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once we extract the tables, we are left with a list (which is slightly more manageable than the original PDFs).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-6_3cf540c1e755ec4dea2e1ab8f0340109">
+<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_f75a05bd7adddda84f4325aa8a93fd9f">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>snap_pdf <span class="ot">&lt;-</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">extract_tables</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://fns-prod.azureedge.us/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Using the {purrr} package, we create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
@@ -243,7 +241,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>( <span class="sc">~</span> <span class="fu">slice</span>(.,<span class="sc">-</span><span class="dv">2</span>)) <span class="co"># slicing because of the unnecessary rows</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snap_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 9
   V1                    V2    V3             V4    V5    V6    V7    V8    V9   
   &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -272,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(col_dat <span class="sc">!=</span> <span class="st">""</span>) <span class="co"># some rows are empty</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snap_appendix1_pt1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
   V1                  V2    V3       V4    V5    V6    V7    V8    V9    col_dat
   &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
@@ -291,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(V1, col_dat)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snap_appendix1_pt2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   V1                  col_dat                        
   &lt;chr&gt;               &lt;chr&gt;                          
@@ -331,18 +329,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  ))</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snap_appendix1_pt4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
-  commodity           snap_rank snap_dollars_in_m… snap_pct_total_… nonsnap_rank
-  &lt;chr&gt;                   &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-1 Soft drinks                 1               358.             5.44            2
-2 Fluid milk products         2               254.             3.85            1
-3 Beef:grinds                 3               201              3.05            6
-4 Bag snacks                  4               199.             3.03            5
-5 Cheese                      5               186.             2.83            3
-6 Baked breads                6               164.             2.49            4
-# … with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
-#   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
+  commodity           snap_rank snap_dollars_i…¹ snap_…² nonsn…³ nonsn…⁴ nonsn…⁵
+  &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Soft drinks                 1             358.    5.44       2   1263.    4.01
+2 Fluid milk products         2             254.    3.85       1   1270.    4.03
+3 Beef:grinds                 3             201     3.05       6    621.    1.97
+4 Bag snacks                  4             199.    3.03       5    794.    2.52
+5 Cheese                      5             186.    2.83       3    949.    3.01
+6 Baked breads                6             164.    2.49       4    875.    2.78
+# … with abbreviated variable names ¹​snap_dollars_in_millions,
+#   ²​snap_pct_total_expenditures, ³​nonsnap_rank, ⁴​nonsnap_dollars_in_millions,
+#   ⁵​nonsnap_pct_total_expenditures</code></pre>
 </div>
 </div>
 <p>Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.</p>
@@ -354,18 +353,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Tada! Now we have a clean dataset from the original not-very-usable PDFs.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(snap_appendix1_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
-  commodity           snap_rank snap_dollars_in_m… snap_pct_total_… nonsnap_rank
-  &lt;chr&gt;                   &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-1 Soft drinks                 1               358.           0.0544            2
-2 Fluid milk products         2               254.           0.0385            1
-3 Beef:grinds                 3               201            0.0305            6
-4 Bag snacks                  4               199.           0.0303            5
-5 Cheese                      5               186.           0.0283            3
-6 Baked breads                6               164.           0.0249            4
-# … with 2 more variables: nonsnap_dollars_in_millions &lt;dbl&gt;,
-#   nonsnap_pct_total_expenditures &lt;dbl&gt;</code></pre>
+  commodity           snap_rank snap_dollars_i…¹ snap_…² nonsn…³ nonsn…⁴ nonsn…⁵
+  &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Soft drinks                 1             358.  0.0544       2   1263.  0.0401
+2 Fluid milk products         2             254.  0.0385       1   1270.  0.0403
+3 Beef:grinds                 3             201   0.0305       6    621.  0.0197
+4 Bag snacks                  4             199.  0.0303       5    794.  0.0252
+5 Cheese                      5             186.  0.0283       3    949.  0.0301
+6 Baked breads                6             164.  0.0249       4    875.  0.0278
+# … with abbreviated variable names ¹​snap_dollars_in_millions,
+#   ²​snap_pct_total_expenditures, ³​nonsnap_rank, ⁴​nonsnap_dollars_in_millions,
+#   ⁵​nonsnap_pct_total_expenditures</code></pre>
 </div>
 </div>
 <p>At some point, I would like to do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analyses using these data. For the purposes of this post, here is a quick ggplot that compare the rank of commodities between families served by SNAP and those who are not. Based on a Wilcox Signed-Rank Test, the two groups do not statistically differ in their food rankings.</p>
@@ -373,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(snap_appendix1_clean<span class="sc">$</span>snap_rank,</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>            snap_appendix1_clean<span class="sc">$</span>nonsnap_rank,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon signed rank test with continuity correction
 
@@ -431,12 +431,12 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" alt="Line plot showing difference in rank by families served and not served by SNAP" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" alt="Line plot showing difference in rank by families served and not served by SNAP" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on <a href="https://github.com/ivelasq/snap">Github</a>.</p>
+<p>I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on <a href="https://github.com/ivelasq/snap">GitHub</a>.</p>
 <center>
 <p><em>Liked this article? I’d love for you to retweet!</em></p>
 <blockquote class="twitter-tweet blockquote">
