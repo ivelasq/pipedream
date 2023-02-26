@@ -1,7 +1,5 @@
 ---
 title: Git Through April
-date: "2021-04-23"
-description: A walkthrough on using Git in the RStudio GUI.
 image: "thumbnail.png"
 ---
 

@@ -22,7 +22,6 @@ website:
         file: about.qmd
       - text: "Blog"
         file: index.qmd
-      - file: til.qmd
       - file: talk.qmd
       - file: project.qmd
   page-footer:

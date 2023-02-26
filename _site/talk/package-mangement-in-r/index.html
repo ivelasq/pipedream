@@ -9,7 +9,6 @@
 <meta name="author" content="Mike Garcia">
 <meta name="author" content="Isabella Velásquez">
 <meta name="dcterms.date" content="2020-05-07">
-<meta name="description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
 
 <title>%&gt;% dreams - Package Management for Reproducible Data Science in R</title>
 <style>
@@ -57,23 +56,18 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<style>
-    .quarto-title-block .quarto-title-banner {
-      background: #272822;
-    }
-    </style>
 <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
 <script src="../../site_libs/fitvids-2.1.1/fitvids.min.js"></script>
 
 
 <meta property="og:title" content="%>% dreams - Package Management for Reproducible Data Science in R">
-<meta property="og:description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
+<meta property="og:description" content="Upgrading R in the time of coronavirus">
 <meta property="og:image" content="https://ivelasq.rbind.io/talk/package-mangement-in-r/thumbnail.png">
 <meta property="og:site-name" content="%>% dreams">
 <meta property="og:image:height" content="720">
 <meta property="og:image:width" content="1277">
 <meta name="twitter:title" content="%>% dreams - Package Management for Reproducible Data Science in R">
-<meta name="twitter:description" content="Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.">
+<meta name="twitter:description" content="Upgrading R in the time of coronavirus">
 <meta name="twitter:image" content="https://ivelasq.rbind.io/talk/package-mangement-in-r/thumbnail.png">
 <meta name="twitter:image-height" content="720">
 <meta name="twitter:image-width" content="1277">
@@ -105,9 +99,6 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="../../index.html">Blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../til.html">Today I Learned</a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../talk.html">Talks</a>
   </li>  
   <li class="nav-item">
@@ -120,51 +111,41 @@ ul.task-list{list-style: none;}
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Package Management for Reproducible Data Science in R</h1>
-                  <div>
-        <div class="description">
-          Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">package</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Authors</div>
-      <div class="quarto-title-meta-contents">
-               <p>Mike Garcia </p>
-               <p>Isabella Velásquez </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">May 7, 2020</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Package Management for Reproducible Data Science in R</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mike Garcia </p>
+             <p>Isabella Velásquez </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 7, 2020</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
 
 <table class="table">
 <tbody>
@@ -190,13 +171,13 @@ ul.task-list{list-style: none;}
 </tr>
 <tr class="even">
 <td>Repository</td>
-<td><a href="https://github.com/garciamikep/useR-webinar"><strong>Github</strong></a></td>
+<td><a href="https://github.com/garciamikep/useR-webinar"><strong>GitHub</strong></a></td>
 </tr>
 </tbody>
 </table>
 <div class="cell">
 <div class="cell-output-display">
-<div class="shareagain" style="min-width:300px;margin:1em auto;">
+<div class="shareagain" style="min-width:300px;margin:1em auto;" data-exeternal="1">
 <iframe src="https://garciamikep.github.io/useR-webinar/useR-slides.html#1" width="1600" height="900" style="border:2px solid currentColor;" loading="lazy" allowfullscreen=""></iframe>
 <script>fitvids('.shareagain', {players: 'iframe'});</script>
 </div>
@@ -217,7 +198,7 @@ ul.task-list{list-style: none;}
 <p>Then, it creates a function called install_all that installs packages. Finally, it installs all the packages in the list of packages, purring all the way</p>
 <p>Again, that is just one of the many options available to you. Here is another script that garnered a lot of attention on Twitter. There are also functions in formal packages that will reinstall your packages for you.</p>
 <p>There are a few things to note. You have to make sure that whatever script or function works for you - for example, {installr} only works on Windows. If you use Homebrew, the default Homebrew behavior is to delete the old R .libPaths() folder when upgrading, so then there won’t be a 3.x folder from which to build a list of pkgs to install in 4.0.</p>
-<p>Also, some of these options will not redownload your Bioconductor or Github dev packages. You may have to find other ways of getting these packages in R 4.0.0.</p>
+<p>Also, some of these options will not redownload your Bioconductor or GitHub dev packages. You may have to find other ways of getting these packages in R 4.0.0.</p>
 <p>Finally, when you reinstall packages, they will download the latest version of the package. If your scripts rely on an older version of the package, your code may no longer run. So, if having old packages is important to you, you can…</p>
 <p>Upgrade R but use your old packages. So full disclosure, I have not done this before. As far as I can tell, it’s not very encouraged. The idea behind this option is to upgrade R, keep the old library folders, change .libPaths() to the old R version library, and try to call the library() function from there. Another way is to try to copy the folders from the old package library to the new library and that is not a good plan. If the packages were built on 3.x, then there’s no guarantee they’d work in 4.x. This is because R and packages have system dependencies, and some of the packages may break if installed on R 4.0.0 and maintainers haven’t upgraded their code yet.</p>
 <p>So, if you’ve ever tried to download RJava even in the best of times, you may know what dependency hell is - so try to avoid that by not creating too much chaos with your packages.</p>

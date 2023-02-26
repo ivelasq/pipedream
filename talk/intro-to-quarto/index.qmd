@@ -11,7 +11,10 @@ image: "thumbnail.png"
 | Time     | 04:00PM PT                                                                                  |
 | Location | Remote                                                                                  |
 | Event    | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
+| Repository    | [**GitHub**](https://github.com/ivelasq/2022-10-27_intro-to-quarto/) |
+| Recording    | [**YouTube**](https://www.youtube.com/watch?v=y6_xMIBKuP4/) |
 
 <center>
-<iframe width="800" height="600" src="https://www.youtube.com/embed/y6_xMIBKuP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://ivelasq.quarto.pub/intro-to-quarto/" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500" width="900" allowfullscreen></iframe>
+</center>
 </center>

@@ -1,6 +1,5 @@
 ---
 title: What do penguins have to do with being anti-racist?
-title-block-banner: "black"
 date: "2020-08-05"
 description: A talk on why being anti-racist matters in data science.
 image: "thumbnail.png"
