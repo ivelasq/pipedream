@@ -1,8 +1,8 @@
 ---
-title: Intro to Quarto
+title: "Intro to Quarto"
 date: "2022-10-27"
-description: A workshop introducing Quarto, an open-source scientific and technical publishing system.
 image: "thumbnail.png"
+image-alt: "Intro to Quarto"
 ---
 
 |          |                                                                                         |
@@ -16,5 +16,4 @@ image: "thumbnail.png"
 
 <center>
 <iframe src="https://ivelasq.quarto.pub/intro-to-quarto/" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500" width="900" allowfullscreen></iframe>
-</center>
 </center>

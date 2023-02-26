@@ -1,8 +1,8 @@
 ---
-title: Longitudinal Analysis with Federal Students with Disabilities Data
+title: "Longitudinal Analysis with Federal Students with Disabilities Data"
 date: "2021-03-31"
-description: A Data Science in Education Using R bookclub session on longitudinal data analysis.
 image: "thumbnail.png"
+image-alt: "Longitudinal Analysis with Federal Students with Disabilities Data"
 ---
 
 |           |                                                                                     |

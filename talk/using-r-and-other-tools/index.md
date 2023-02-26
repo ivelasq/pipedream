@@ -1,7 +1,8 @@
 ---
-title: Packages for Using R With Python, Tableau, and Other Tools
+title: "Packages for Using R With Python, Tableau, and Other Tools"
 date: "2021-12-10"
 image: "thumbnail.png"
+image-alt: "Packages for Using R With Python, Tableau, and Other Tools"
 ---
 
 |            |                                                                                                                                                                                                                                                                                                                                                                             |

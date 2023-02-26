@@ -1,6 +1,7 @@
 ---
-title: Git Through April
+title: "Git Through April"
 image: "thumbnail.png"
+image-alt: "Git Through April"
 ---
 
 |            |                                                                                    |

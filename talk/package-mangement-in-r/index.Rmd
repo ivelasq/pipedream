@@ -1,10 +1,11 @@
 ---
-title: Package Management for Reproducible Data Science in R
+title: "Package Management for Reproducible Data Science in R"
 author:
   - Mike Garcia
   - Isabella Velásquez
 date: "2020-05-07"
 image: "thumbnail.png"
+image-alt: "Package Management for Reproducible Data Science in R"
 ---
 
 |            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |

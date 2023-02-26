@@ -1,6 +1,7 @@
 ---
-title: Blogdown for What
+title: "Blogdown for What"
 image: thumbnail.png
+image-alt: "Blogdown for What"
 ---
 
 |          |                                                                                         |

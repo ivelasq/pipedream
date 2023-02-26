@@ -1,6 +1,7 @@
 ---
 title: "Building a Blog With Quarto"
 image: "thumbnail.png"
+image-alt: "Building a Blog With Quarto"
 ---
 
 |
@@ -14,5 +15,5 @@ image: "thumbnail.png"
 | Recording              | [**YouTube**](https://www.youtube.com/watch?v=CVcvXfRyfE0)                        
 
 <center>
-<a href="https://ivelasq.quarto.pub/building-a-blog-with-quarto/"><img src="thumbnail.png" target="_blank" style="width:800px;height:450px;"></a>
+<a href="https://ivelasq.quarto.pub/building-a-blog-with-quarto/"><img src="thumbnail2.png" target="_blank" style="width:800px;height:450px;"></a>
 </center>
