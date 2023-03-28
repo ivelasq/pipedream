@@ -1,19 +1,23 @@
 ---
 title: "Intro to Quarto"
-date: "2022-10-27"
 image: "thumbnail.png"
 image-alt: "Intro to Quarto"
 ---
 
-|          |                                                                                         |
-|----------|-----------------------------------------------------------------------------------------|
-| Date     | October 28, 2022
-| Time     | 04:00PM PT                                                                                  |
-| Location | Remote                                                                                  |
-| Event    | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
-| Repository    | [**GitHub**](https://github.com/ivelasq/2022-10-27_intro-to-quarto/) |
-| Recording    | [**YouTube**](https://www.youtube.com/watch?v=y6_xMIBKuP4/) |
+|            |                                                                                            |
+|------------------|----------------------------------------------------------|
+| Date       | October 28, 2022                                                                           |
+| Time       | 04:00PM PT                                                                                 |
+| Location   | Remote                                                                                     |
+| Event      | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
+| Repository | [**GitHub**](https://github.com/ivelasq/2022-10-27_intro-to-quarto/)                       |
+| Slides     | [**QuartoPub**](https://ivelasq.quarto.pub/intro-to-quarto)                                |
+| Recording  | [**YouTube**](https://www.youtube.com/watch?v=y6_xMIBKuP4/)                                |
 
 <center>
-<iframe src="https://ivelasq.quarto.pub/intro-to-quarto/" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500" width="900" allowfullscreen></iframe>
+
+<iframe src="https://ivelasq.quarto.pub/intro-to-quarto/" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="500" width="900" allowfullscreen>
+
+</iframe>
+
 </center>

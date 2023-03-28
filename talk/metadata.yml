@@ -54,4 +54,9 @@
   date: 2022-10-27
   image: ./talk/intro-to-quarto/thumbnail.png
   path: ./talk/intro-to-quarto/index.qmd
+- title: "What's new in the tidyverse"
+  subtitle: "R-Ladies Rome"
+  date: 2023-03-22
+  image: ./talk/whats-new-in-the-tidyverse/thumbnail.png
+  path: ./talk/whats-new-in-the-tidyverse/index.md
   

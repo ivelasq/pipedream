@@ -11,6 +11,7 @@
   {
     "listing": "/talk.html",
     "items": [
+      "talk/whats-new-in-the-tidyverse/index.html",
       "talk/intro-to-quarto/index.html",
       "talk/building-a-blog-with-quarto/index.html",
       "talk/building-a-blog-with-r/index.html",
