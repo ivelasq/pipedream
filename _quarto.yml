@@ -37,6 +37,8 @@ website:
         href: https://github.com/ivelasq
       - icon: linkedin
         href: https://www.linkedin.com/in/ivelasq/
+      - icon: mastodon
+        href: https://fosstodon.org/@ivelasq3
       - icon: rss
         href: index.xml
 format:
