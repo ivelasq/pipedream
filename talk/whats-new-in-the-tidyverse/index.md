@@ -34,18 +34,13 @@ editor_options:
 +---------------+---------------------------------------------+
 | Location      | Remote                                      |
 +---------------+---------------------------------------------+
-| Event         | [**R-Ladies                                 |
-|               | Rome**](https://w%20ww                      |
-|               | .meetup.com/rladies-rome/events/291643998/) |
+| Event         | [**R-Ladies Rome**](https://www.meetup.com/rladies-rome/events/291643998/) 
 +---------------+---------------------------------------------+
-| Repository    | [**GitHub**](https://github.co%20m/i%20ve   |
-|               | lasq/2023-03-22_whats-new-in-the-tidyverse) |
+| Repository    | [**GitHub**](https://github.com/ivelasq/2023-03-22_whats-new-in-the-tidyverse) 
 +---------------+---------------------------------------------+
-| Website       | [**Site**](https://ivelasq.gith%20ub        |
-|               | .io/2023-03-22_whats-new-in-the-tidyverse/) |
+| Website       | [**Site**](https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/) 
 +---------------+---------------------------------------------+
-| Recording     | [**YouTube**](h                             |
-|               | ttps://www.youtube.com/watch?v=qyaQXGzhhZg) |
+| Recording     | [**YouTube**](https://www.youtube.com/watch?v=qyaQXGzhhZg)                             |
 +---------------+---------------------------------------------+
 
 <center><a href="https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/"><img src="profile2.png" target="_blank" style="width:800px;height:450px;"/></a></center>
