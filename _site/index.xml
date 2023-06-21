@@ -9,8 +9,8 @@
 <link>https://ivelasq.rbind.io/index.html</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-1.3.340</generator>
-<lastBuildDate>Thu, 22 Dec 2022 06:00:00 GMT</lastBuildDate>
+<generator>quarto-1.3.361</generator>
+<lastBuildDate>Thu, 22 Dec 2022 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Setting up macOS as an R data science rig in 2023</title>
   <dc:creator>Isabella Velásquez</dc:creator>
@@ -110,7 +110,7 @@ font-style: inherit;">brew</span> install zsh</span></code></pre></div>
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-55350"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell.rb","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell.rb (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-55350").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-69544"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-69544").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -145,12 +145,12 @@ font-style: inherit;">"</span></span></code></pre></div>
 <li><strong>Edit your settings: </strong>Navigate to your home directory <code>~/</code> and edit the <code>.zshrc</code> file.</li>
 <li><strong>Use preconfigured settings: </strong>Navigate to your home directory <code>~/</code>. Replace the default <code>.zshrc</code> file with <a href="https://github.com/gvelasq/dotfiles/blob/main/zsh/.zshrc">this file</a>. Then, navigate to the hidden folder <code>~/.oh-my-zsh/custom</code> and drop <a href="https://github.com/gvelasq/dotfiles/blob/main/zsh/custom.zsh">this file</a> in the folder.</li>
 </ol>
-<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Tip
 </div>
 </div>
@@ -226,12 +226,12 @@ font-style: inherit;">edit_rstudio_snippets</span>(<span class="st" style="color
 background-color: null;
 font-style: inherit;">"r"</span>)</span></code></pre></div>
 <p>Append <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/r.snippets">this script</a> to the bottom of the file for some useful examples.</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -243,7 +243,7 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/macos-rig/gif1.gif" class="img-fluid figure-img" alt="Typing dml in the RStudio Console pane and then pressing tab to enable a snippet that lists out De Morgan's laws."></p>
-<p></p><figcaption class="figure-caption">For whenever you want to remember De Morgan’s laws. 😉</figcaption><p></p>
+<figcaption class="figure-caption">For whenever you want to remember De Morgan’s laws. 😉</figcaption>
 </figure>
 </div>
 <p>Now, open RStudio’s preference file by running:</p>
@@ -253,12 +253,12 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">edit_rstudio_prefs</span>()</span></code></pre></div>
 <p>Add the content of <a href="https://github.com/gvelasq/dotfiles/blob/main/rstudio/rstudio-prefs.json">this file</a> to the <code>rstudio-prefs.json</code> file. This file configures RStudio to look and act the way that you’d like (rainbow parentheses, anybody?). 🌈</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -317,11 +317,11 @@ font-style: inherit;">--cask</span> quarto</span></code></pre></div>
 <li>Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.</li>
 </ul>
 <p>We know there are a ton of ways of setting up a data science rig, and we’d love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-89756"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-89756").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-26895"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-26895").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <p><a href="https://fosstodon.org/@ivelasq3/109560318292130074">Mastodon Toot Link</a></p>
@@ -380,7 +380,7 @@ We told you it was unnerving 👀
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/macos-rig/index.html</guid>
-  <pubDate>Thu, 22 Dec 2022 06:00:00 GMT</pubDate>
+  <pubDate>Thu, 22 Dec 2022 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/macos-rig/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -393,7 +393,7 @@ We told you it was unnerving 👀
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A woman holding an instrument while a man who is facing away from us paints her, the room has luxurious decorations."></p>
-<p></p><figcaption class="figure-caption">Johannes Vermeer, The Allegory of Painting (1666)</figcaption><p></p>
+<figcaption class="figure-caption">Johannes Vermeer, The Allegory of Painting (1666)</figcaption>
 </figure>
 </div>
 <p>As I’ve been saying every year for the past seven years or so, I am learning Python. (It’s been a journey.)</p>
@@ -404,7 +404,7 @@ We told you it was unnerving 👀
 <h2 class="anchored" data-anchor-id="siuba">siuba</h2>
 <p>The <a href="https://github.com/machow/siuba">siuba</a> package, created by <a href="https://twitter.com/chowthedog">Michael Chow</a>, allows you to use dplyr-like syntax with pandas. Siuba ports over several functions, including <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>summarize()</code>, and <code>arrange()</code>. The package also allows you to use <code>group_by()</code> and a <code>&gt;&gt;</code> pipe.</p>
 <p>Let’s check out a few examples using the palmerpenguins dataset (<a href="https://allisonhorst.github.io/palmerpenguins/">R</a>, <a href="https://github.com/mcnakhaee/palmerpenguins">Python</a>).</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
@@ -434,35 +434,36 @@ background-color: null;
 font-style: inherit;">=</span> _.species.count())</span>
 <span id="cb1-8">)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>species</th>
-      <th>n</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Adelie</td>
-      <td>152</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Chinstrap</td>
-      <td>68</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Gentoo</td>
-      <td>124</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>152</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Chinstrap</td>
+<td>68</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Gentoo</td>
+<td>124</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -500,7 +501,7 @@ font-style: inherit;">n</span>()))</span></code></pre></div>
 </div>
 </div>
 <p>Thanks to the <a href="https://siuba.readthedocs.io/en/latest/">documentation</a> and <a href="https://learn.siuba.org/intro-data-science/01">interactive tutorials</a> available for siuba, it’s easy to see the parallels and differences with dplyr so that you can craft these data manipulation tasks yourself.</p>
-<div class="panel-tabset">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
@@ -546,47 +547,48 @@ font-style: inherit;">=</span> _.body_mass_g.mean()</span>
 <span id="cb4-13">  )</span>
 <span id="cb4-14">)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>species</th>
-      <th>bill_length_mm</th>
-      <th>bill_depth_mm</th>
-      <th>flipper_length_mm</th>
-      <th>body_mass_g</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Adelie</td>
-      <td>38.791391</td>
-      <td>18.346358</td>
-      <td>189.953642</td>
-      <td>3700.662252</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Chinstrap</td>
-      <td>48.833824</td>
-      <td>18.420588</td>
-      <td>195.823529</td>
-      <td>3733.088235</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Gentoo</td>
-      <td>47.504878</td>
-      <td>14.982114</td>
-      <td>217.186992</td>
-      <td>5076.016260</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>38.791391</td>
+<td>18.346358</td>
+<td>189.953642</td>
+<td>3700.662252</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Chinstrap</td>
+<td>48.833824</td>
+<td>18.420588</td>
+<td>195.823529</td>
+<td>3733.088235</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Gentoo</td>
+<td>47.504878</td>
+<td>14.982114</td>
+<td>217.186992</td>
+<td>5076.016260</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -787,45 +789,46 @@ font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, n
 <span id="cb9-10"></span>
 <span id="cb9-11">pd.DataFrame.from_dict(example_df).clean_names()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>terrible_name_1</th>
-      <th>pascalcase</th>
-      <th>this_has_punctuation_</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>name1</td>
-      <td>150.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>name2</td>
-      <td>200.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>name3</td>
-      <td>300.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>name4</td>
-      <td>400.0</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">terrible_name_1</th>
+<th data-quarto-table-cell-role="th">pascalcase</th>
+<th data-quarto-table-cell-role="th">this_has_punctuation_</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>name1</td>
+<td>150.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>name2</td>
+<td>200.0</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>name3</td>
+<td>300.0</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>name4</td>
+<td>400.0</td>
+<td>NaN</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -882,40 +885,41 @@ font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, n
 <span id="cb10-13">    .pipe(remove_empty)</span>
 <span id="cb10-14">)</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>terrible_name_1</th>
-      <th>pascalcase</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>name1</td>
-      <td>150.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>name2</td>
-      <td>200.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>name3</td>
-      <td>300.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>name4</td>
-      <td>400.0</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">terrible_name_1</th>
+<th data-quarto-table-cell-role="th">pascalcase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>name1</td>
+<td>150.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>name2</td>
+<td>200.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>name3</td>
+<td>300.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>name4</td>
+<td>400.0</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -950,7 +954,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/index.html</guid>
-  <pubDate>Mon, 09 May 2022 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 08 May 2022 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -963,7 +967,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night sky"></p>
-<p></p><figcaption class="figure-caption">Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption><p></p>
+<figcaption class="figure-caption">Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption>
 </figure>
 </div>
 <p>A while back, I wrote <a href="https://mobile.twitter.com/ivelasq3/status/1404947187155574787">this tweet</a> showing many (not all!) of the ways one might search for a particular set of columns in a data frame using R. Several of these approaches used the {magrittr} pipe (<code>%&gt;%</code>) and the native R pipe (<code>|&gt;</code>), the latter of which has been available since R version 4.1.0. The {magrittr} and native R pipes work in different ways and one’s mental model of each requires some maintenance. This is the story of how I learned to understand the native R pipe.</p>
@@ -1235,12 +1239,12 @@ background-color: null;
 font-style: inherit;">head</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sqrt</span>(mtcars))</span></code></pre></div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 An important note
 </div>
 </div>
@@ -1341,12 +1345,12 @@ font-style: inherit;">$</span>mpg))()</span></code></pre></div>
 <center>
 <img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario2.gif" class="img-fluid" alt="GIF of Mario running across pipes avoiding piranha plants">
 </center>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 2022-03-31 Note
 </div>
 </div>
@@ -1430,7 +1434,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</guid>
-  <pubDate>Tue, 18 Jan 2022 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jan 2022 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1443,7 +1447,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with green trees and a red sun"></p>
-<p></p><figcaption class="figure-caption">Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption><p></p>
+<figcaption class="figure-caption">Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption>
 </figure>
 </div>
 <p>Last week, a paper started making the Twitter rounds. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf">Selective attention in hypothesis-driven data analysis</a> by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.</p>
@@ -1566,7 +1570,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen Shot 2021-09-27 at 11.40.55 PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
-<p></p><figcaption class="figure-caption">Python Cheatsheet</figcaption><p></p>
+<figcaption class="figure-caption">Python Cheatsheet</figcaption>
 </figure>
 </div>
 </center>
@@ -1791,7 +1795,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/index.html</guid>
-  <pubDate>Tue, 28 Sep 2021 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Sep 2021 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1804,7 +1808,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Olive trees against a blue background  and a bright sun"></p>
-<p></p><figcaption class="figure-caption">Vincent van Gogh, The Olive Trees (1889)</figcaption><p></p>
+<figcaption class="figure-caption">Vincent van Gogh, The Olive Trees (1889)</figcaption>
 </figure>
 </div>
 <p>I am excited to announce that I’ve joined the RStudio Marketing team! I will be creating content on the <a href="https://blog.rstudio.com/">RStudio Blog</a> that will announce news and share stories from the company, users, and partners. I just started this week and, ready to jump in, I decided that I’d like to deep dive into previous blog posts.</p>
@@ -1909,7 +1913,7 @@ font-style: inherit;">"tags"</span>))</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img" alt="Cell names"></p>
-<p></p><figcaption class="figure-caption">Cell names</figcaption><p></p>
+<figcaption class="figure-caption">Cell names</figcaption>
 </figure>
 </div>
 </center>
@@ -2015,7 +2019,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-rstudio/index.html</guid>
-  <pubDate>Mon, 13 Sep 2021 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 12 Sep 2021 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2028,7 +2032,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
-<p></p><figcaption class="figure-caption">Pauline Powell Williams, Violets (1890)</figcaption><p></p>
+<figcaption class="figure-caption">Pauline Powell Williams, Violets (1890)</figcaption>
 </figure>
 </div>
 <p><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself <a href="https://en.wikipedia.org/wiki/Web_scraping">scraping</a> Wikipedia’s tables for information and then cleaning and using the data for whatever I am working on.</p>
@@ -2158,7 +2162,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/politely-scraping/index.html</guid>
-  <pubDate>Tue, 27 Jul 2021 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 26 Jul 2021 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2171,7 +2175,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract pink flowers with red centers on a background of an orange spiral with brown background"></p>
-<p></p><figcaption class="figure-caption">E. A. Séguy, Vintage flower patterns (1925)</figcaption><p></p>
+<figcaption class="figure-caption">E. A. Séguy, Vintage flower patterns (1925)</figcaption>
 </figure>
 </div>
 <p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.</p>
@@ -2180,7 +2184,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img" alt="Generative art showing a repeated parametric equation"></p>
-<p></p><figcaption class="figure-caption">Final image</figcaption><p></p>
+<figcaption class="figure-caption">Final image</figcaption>
 </figure>
 </div>
 </center>
@@ -3398,7 +3402,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</guid>
-  <pubDate>Sun, 09 May 2021 05:00:00 GMT</pubDate>
+  <pubDate>Sat, 08 May 2021 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3411,7 +3415,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A person working in fields of colorful tulips with houses in the background"></p>
-<p></p><figcaption class="figure-caption">Vincent Van Gogh, Flower Beds in Holland (1883)</figcaption><p></p>
+<figcaption class="figure-caption">Vincent Van Gogh, Flower Beds in Holland (1883)</figcaption>
 </figure>
 </div>
 <p>R users are incredibly fortunate to work in an open-source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the <a href="https://ggplot2.tidyverse.org/reference/">reference documents</a> for {ggplot2}. These include:</p>
@@ -3982,7 +3986,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/other-geoms/index.html</guid>
-  <pubDate>Sun, 28 Mar 2021 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 28 Mar 2021 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3995,7 +3999,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
-<p></p><figcaption class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption><p></p>
+<figcaption class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption>
 </figure>
 </div>
 <p>My co-authors <a href="https://twitter.com/RyanEs">Ryan</a>, <a href="https://twitter.com/efreer20">Emily</a>, <a href="https://twitter.com/kierisi">Jesse</a>, <a href="https://twitter.com/jrosenberg6432">Josh</a>, and <a href="https://twitter.com/ivelasq3">I</a> published our book last year, but <a href="https://datascienceineducation.com/">Data Science in Education Using R</a> is also available online as a bookdown on a website, available to all.</p>
@@ -4193,7 +4197,7 @@ font-style: inherit;">;</span></span>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
-<p></p><figcaption class="figure-caption">gtsummary Reference</figcaption><p></p>
+<figcaption class="figure-caption">gtsummary Reference</figcaption>
 </figure>
 </div>
 </center>
@@ -4231,7 +4235,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/index.html</guid>
-  <pubDate>Mon, 08 Mar 2021 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Mar 2021 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -4246,7 +4250,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Two ballerina dancers at the barre, one with her leg in the air"></p>
-<p></p><figcaption class="figure-caption">Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption><p></p>
+<figcaption class="figure-caption">Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption>
 </figure>
 </div>
 <ul>
@@ -4836,12 +4840,12 @@ font-style: inherit;">"/bin/zsh"</span></span>
 <span id="cb16-24"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -5482,7 +5486,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/vscode-live-share/index.html</guid>
-  <pubDate>Wed, 03 Feb 2021 06:00:00 GMT</pubDate>
+  <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5495,7 +5499,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract blue and white birds repeating on against a white and blue background"></p>
-<p></p><figcaption class="figure-caption">Rijksmuseum, Pigeons in white and blue (1928)</figcaption><p></p>
+<figcaption class="figure-caption">Rijksmuseum, Pigeons in white and blue (1928)</figcaption>
 </figure>
 </div>
 <p>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found <a href="https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851">this tutorial</a> that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</p>
@@ -5692,7 +5696,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/index.html</guid>
-  <pubDate>Tue, 10 Nov 2020 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Nov 2020 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5705,7 +5709,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
-<p></p><figcaption class="figure-caption">Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption><p></p>
+<figcaption class="figure-caption">Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption>
 </figure>
 </div>
 <section id="an-update-to-leaidr" class="level2">
@@ -5934,21 +5938,21 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img" alt="Screenshot of Mapbox website with Tilesets"></p>
-<p></p><figcaption class="figure-caption">Mapbox Tilesets</figcaption><p></p>
+<figcaption class="figure-caption">Mapbox Tilesets</figcaption>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img" alt="Screenshot of Mapbox choosing a template"></p>
-<p></p><figcaption class="figure-caption">Mapbox Template</figcaption><p></p>
+<figcaption class="figure-caption">Mapbox Template</figcaption>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img" alt="Screenshot of Mapbox layers and how to add them"></p>
-<p></p><figcaption class="figure-caption">Mapbox Layers</figcaption><p></p>
+<figcaption class="figure-caption">Mapbox Layers</figcaption>
 </figure>
 </div>
 <p>I zoomed to where my tiles are located (Oregon and Washington) and started editing. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling">This section of the walkthrough</a> explains how to create a choropleth map, where each geography has a different color according to a value.</p>
@@ -5960,7 +5964,7 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img" alt="Screenshot of Mapbox sharing a map"></p>
-<p></p><figcaption class="figure-caption">Mapbox Sharing</figcaption><p></p>
+<figcaption class="figure-caption">Mapbox Sharing</figcaption>
 </figure>
 </div>
 <p>I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.</p>
@@ -6109,7 +6113,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>tutorial</category>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr2/index.html</guid>
-  <pubDate>Sun, 30 Aug 2020 05:00:00 GMT</pubDate>
+  <pubDate>Sat, 29 Aug 2020 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6122,7 +6126,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A dancer with a large skirt dancing at a dance hall with a crowd behind her"></p>
-<p></p><figcaption class="figure-caption">Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)</figcaption><p></p>
+<figcaption class="figure-caption">Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)</figcaption>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -6161,7 +6165,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
  ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/party-with-R/index.html</guid>
-  <pubDate>Mon, 13 Jul 2020 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 12 Jul 2020 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6174,7 +6178,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
-<p></p><figcaption class="figure-caption">Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption><p></p>
+<figcaption class="figure-caption">Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption>
 </figure>
 </div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
@@ -6255,7 +6259,7 @@ font-style: inherit;">View</span>(census_sheet1)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
-<p></p><figcaption class="figure-caption">First three columns of the imported dataset</figcaption><p></p>
+<figcaption class="figure-caption">First three columns of the imported dataset</figcaption>
 </figure>
 </div>
 <p>Immediately, we see that the top lines are superfluous rows (the headers from the original dataset). We can use <code>skip</code> in <code>read_excel()</code> to not have them read in.</p>
@@ -6282,7 +6286,7 @@ font-style: inherit;"># View(census_sheet1)</span></span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
-<p></p><figcaption class="figure-caption">Dataset with skipped lines</figcaption><p></p>
+<figcaption class="figure-caption">Dataset with skipped lines</figcaption>
 </figure>
 </div>
 <p>Now that the unnecessary rows are gone, we see that the column names aren’t reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with <code>set_names()</code>.</p>
@@ -6323,7 +6327,7 @@ font-style: inherit;">set_names</span>(new_names)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
-<p></p><figcaption class="figure-caption">Dataset with cleaned names</figcaption><p></p>
+<figcaption class="figure-caption">Dataset with cleaned names</figcaption>
 </figure>
 </div>
 <p>We still have some empty rows (and also a row at the very bottom which is a note in the original dataset). We can eliminate these rows using <code>slice()</code>. Here, we’re saying to ‘slice’ rows 1 through 3 and 60.</p>
@@ -6357,7 +6361,7 @@ font-style: inherit;">61</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
-<p></p><figcaption class="figure-caption">Dataset with removed rows</figcaption><p></p>
+<figcaption class="figure-caption">Dataset with removed rows</figcaption>
 </figure>
 </div>
 <p>Now to deal with the fact that the category names are embedded within the first column <code>select_characteristics</code>. There may be other ways to do this, but again I manually create a vector with all the values that I want to get rid of and use <code>filter()</code> to keep only the rows that do <strong>not</strong> contain the items in the vector.</p>
@@ -6408,7 +6412,7 @@ font-style: inherit;">%in%</span> filter_var) </span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
-<p></p><figcaption class="figure-caption">Dataset with filtered rows</figcaption><p></p>
+<figcaption class="figure-caption">Dataset with filtered rows</figcaption>
 </figure>
 </div>
 <p>Even though we removed the characteristic names from the rows, they contain very useful information. Also, we run into an issue in which two of the characteristic categories had the same options (“yes” and “no”). If we don’t address this, we’ll forget which rows are for which characteristic. To fix this, we manually create a column with the characteristics for each of the response options and append it to the data.</p>
@@ -6524,7 +6528,7 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
-<p></p><figcaption class="figure-caption">Column with variable names</figcaption><p></p>
+<figcaption class="figure-caption">Column with variable names</figcaption>
 </figure>
 </div>
 </center>
@@ -6533,7 +6537,7 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
-<p></p><figcaption class="figure-caption">Column with numbers but with character type</figcaption><p></p>
+<figcaption class="figure-caption">Column with numbers but with character type</figcaption>
 </figure>
 </div>
 </center>
@@ -6607,7 +6611,7 @@ font-style: inherit;">"Sheet"</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
-<p></p><figcaption class="figure-caption">Viewing the list</figcaption><p></p>
+<figcaption class="figure-caption">Viewing the list</figcaption>
 </figure>
 </div>
 <p>Using the same thinking as we did with the single sheet example, let’s go through and clean up this list - without having to go into each tibble!</p>
@@ -6956,7 +6960,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/tidying-census-data/index.html</guid>
-  <pubDate>Thu, 28 May 2020 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 27 May 2020 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6969,7 +6973,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
-<p></p><figcaption class="figure-caption">Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption><p></p>
+<figcaption class="figure-caption">Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption>
 </figure>
 </div>
 <p>I would like to introduce <a href="https://github.com/ivelasq/leaidr">{leaidr}</a>, a package for mapping U.S. school district shapefiles!</p>
@@ -7042,12 +7046,12 @@ background-color: null;
 font-style: inherit;"># install.packages("mapproj")</span></span></code></pre></div>
 </div>
 <p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -7270,7 +7274,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/index.html</guid>
-  <pubDate>Sun, 03 May 2020 05:00:00 GMT</pubDate>
+  <pubDate>Sat, 02 May 2020 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -7284,7 +7288,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"></p>
-<p></p><figcaption class="figure-caption">J. Howard Miller, We Can Do It!</figcaption><p></p>
+<figcaption class="figure-caption">J. Howard Miller, We Can Do It!</figcaption>
 </figure>
 </div>
 <p>As the @<a href="https://twitter.com/WeAreRLadies">WeAreRLadies</a> curator, I <a href="https://twitter.com/WeAreRLadies/status/1227937968117043200">asked the Twitterverse</a> for advice when submitting a package to the Comprehensive R Archive Network (CRAN) for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!</p>
@@ -7381,7 +7385,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/index.html</guid>
-  <pubDate>Tue, 25 Feb 2020 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2020 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
@@ -7394,7 +7398,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful dots making up a painting of a garden with two women"></p>
-<p></p><figcaption class="figure-caption">Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)</figcaption><p></p>
+<figcaption class="figure-caption">Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)</figcaption>
 </figure>
 </div>
 <p>I often use {ggplot2} to create graphs but there are certain things I <em>always</em> have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!</p>
@@ -8216,7 +8220,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/things-i-google/index.html</guid>
-  <pubDate>Mon, 27 Jan 2020 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2020 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8229,7 +8233,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town showing green and yellow houses and a white church and trees"></p>
-<p></p><figcaption class="figure-caption">Village by the River, fourth quarter 19th century</figcaption><p></p>
+<figcaption class="figure-caption">Village by the River, fourth quarter 19th century</figcaption>
 </figure>
 </div>
 <p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NPR Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
@@ -8844,7 +8848,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -9135,7 +9139,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -9732,7 +9736,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/modal-district/index.html</guid>
-  <pubDate>Wed, 11 Sep 2019 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Sep 2019 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9745,7 +9749,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A horizon of snow-capped mountains"></p>
-<p></p><figcaption class="figure-caption">Thomas Moran, Winter in the Rockies (1867)</figcaption><p></p>
+<figcaption class="figure-caption">Thomas Moran, Winter in the Rockies (1867)</figcaption>
 </figure>
 </div>
 <p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
@@ -10722,7 +10726,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img" alt="Histogram of hike total distance skewed right"></p>
-<p></p><figcaption class="figure-caption">Histogram of hike total distance</figcaption><p></p>
+<figcaption class="figure-caption">Histogram of hike total distance</figcaption>
 </figure>
 </div>
 <div class="cell">
@@ -10787,7 +10791,7 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img" alt="Cumulative bar plot of distance increasing from the left to the right colored by a gradient"></p>
-<p></p><figcaption class="figure-caption">Cumulative bar plot of distance</figcaption><p></p>
+<figcaption class="figure-caption">Cumulative bar plot of distance</figcaption>
 </figure>
 </div>
 </section>
@@ -10930,7 +10934,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/average-hike/index.html</guid>
-  <pubDate>Sat, 06 Apr 2019 05:00:00 GMT</pubDate>
+  <pubDate>Fri, 05 Apr 2019 23:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/average-hike/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -10943,7 +10947,7 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plums on a brown table"></p>
-<p></p><figcaption class="figure-caption">Joseph Decker, Green Plums (1885)</figcaption><p></p>
+<figcaption class="figure-caption">Joseph Decker, Green Plums (1885)</figcaption>
 </figure>
 </div>
 <p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households” that included a summary, final report, and appendices. Per the USDA’s description:</p>
@@ -11571,7 +11575,7 @@ New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into U
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
-  <pubDate>Sun, 16 Dec 2018 06:00:00 GMT</pubDate>
+  <pubDate>Sun, 16 Dec 2018 00:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

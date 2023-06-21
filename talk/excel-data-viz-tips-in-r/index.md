@@ -7,14 +7,38 @@ editor_options:
     wrap: 72
 ---
 
-| Abstract   | Have you ever seen a nifty Excel data visualization and wondered,  “Can I do that with R?” The answer is likely yes! With R, you can  create stunning, customizable visuals that elevate your data analysis.   In this talk, we will cover seven data visualization tips that are  achievable in Excel, but also demonstrate how (and why) to create them  in R. From sparklines to heat maps, if Excel can do it, R can do it,  too! Best of all, your work will be reproducible and repeatable. This  means that you can share your code with others and remake your charts  anytime, making your work more transparent and streamlined. Join us to  learn the tools for making impactful and reproducible dataviz in R! |   |   |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
-| Date       | June 07, 2023                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |   |   |
-| Time       | 12:00 PM MT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |   |   |
-| Location   | Remote                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |   |   |
-| Event      | **[Salt Lake City R Users Group](https://www.meetup.com/slc-rug/events/293359518)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |   |   |
-| Repository | **[GitHub](https://github.com/ivelasq/excel-data-viz-tips-in-r)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |   |   |
-| Slides     | **[Quarto Pub](https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |   |   |
-| Recording  | **[YouTube](https://www.youtube.com/watch?v=XEDOfUp_O7w)**
++------------+-------------------------------------------------------+
+| Abstract   | Have you ever seen a nifty Excel data visualization   |
+|            | and wondered, "Can I do that with R?" The answer is   |
+|            | likely yes! With R, you can create stunning,          |
+|            | customizable visuals that elevate your data analysis. |
+|            |                                                       |
+|            | In this talk, we will cover seven data visualization  |
+|            | tips that are achievable in Excel, but also           |
+|            | demonstrate how (and why) to create them in R. From   |
+|            | sparklines to heat maps, if Excel can do it, R can do |
+|            | it, too! Best of all, your work will be reproducible  |
+|            | and repeatable. This means that you can share your    |
+|            | code with others and remake your charts anytime,      |
+|            | making your work more transparent and streamlined.    |
+|            | Join us to learn the tools for making impactful and   |
+|            | reproducible dataviz in R!                            |
++------------+-------------------------------------------------------+
+| Date       | June 07, 2023                                         |
++------------+-------------------------------------------------------+
+| Time       | 12:00 PM MT                                           |
++------------+-------------------------------------------------------+
+| Location   | Remote                                                |
++------------+-------------------------------------------------------+
+| Event      | **Salt Lake City R Users Group**                      |
++------------+-------------------------------------------------------+
+| Repository | [**GitHub**](ht                                       |
+|            | tps://github.com%20/ivelasq/excel-data-viz-tips-in-r) |
++------------+-------------------------------------------------------+
+| Slides     | **QuartoPub**                                         |
++------------+-------------------------------------------------------+
+| Recording  | **YouTube**                                           |
++------------+-------------------------------------------------------+
+
 <center><a href="https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/">![](promo.jpg){target="_blank"
 width="800" height="450"}</a></center>
