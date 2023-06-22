@@ -30,14 +30,13 @@ editor_options:
 +------------+-------------------------------------------------------+
 | Location   | Remote                                                |
 +------------+-------------------------------------------------------+
-| Event      | **Salt Lake City R Users Group**                      |
+| Event      | [**Salt Lake City R Users Group**](https://www.meetup.com/slc-rug/events/293359518)                    
 +------------+-------------------------------------------------------+
-| Repository | [**GitHub**](ht                                       |
-|            | tps://github.com%20/ivelasq/excel-data-viz-tips-in-r) |
+| Repository | [**GitHub**](https://github.com/ivelasq/excel-data-viz-tips-in-r) 
 +------------+-------------------------------------------------------+
-| Slides     | **QuartoPub**                                         |
+| Slides     | [**QuartoPub**](https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/)                                         |
 +------------+-------------------------------------------------------+
-| Recording  | **YouTube**                                           |
+| Recording  | [**YouTube**](https://www.youtube.com/watch?v=XEDOfUp_O7w)
 +------------+-------------------------------------------------------+
 
 <center><a href="https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/">![](promo.jpg){target="_blank"
