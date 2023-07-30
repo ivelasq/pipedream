@@ -346,27 +346,27 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-8" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="1" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-8" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="2" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-8" data-code-lines="5">Find the channel ID,</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="3" data-code-lines="5">Find the channel ID,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-8" data-code-lines="6">Pull the expanded URL,</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="4" data-code-lines="6">Pull the expanded URL,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-cell="annotated-cell-8" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="5" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-cell="annotated-cell-8" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
+<span data-code-cell="annotated-cell-8" data-code-annotation="6" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
 </dd>
 </dl>
 <p>The arguments in <code>list_channel_videos()</code> gave me all the columns I am interested in with <code>part = "snippet"</code>. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit with the <code>maxResults</code> argument.</p>
@@ -546,15 +546,15 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-16" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
+<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-16" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
+<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-16" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
+<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
@@ -599,8 +599,8 @@ YouTube Channel IDs
 <p>Give this tutorial a try and unlock the potential of automated dashboards for your favorite YouTube channels! I’d love to see what you create!</p>
 <section id="coda" class="level3">
 <h3 class="anchored" data-anchor-id="coda">Coda</h3>
-<p>If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): <a href="https://posit.co/products/enterprise/connect/">Posit Connect!</a>. Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and – you guessed it – dashboards made with {flexdashboard}!</p>
-<p>Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications. <em>Never write another CRON job again</em>.</p>
+<p>If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): <a href="https://posit.co/products/enterprise/connect/">Posit Connect</a>! Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and – you guessed it – dashboards made with {flexdashboard}!</p>
+<p>Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications. <em>Never write another Cron job again</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/posit-connect.gif" class="img-fluid figure-img"></p>

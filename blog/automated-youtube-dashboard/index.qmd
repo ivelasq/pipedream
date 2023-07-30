@@ -426,9 +426,9 @@ Give this tutorial a try and unlock the potential of automated dashboards for yo
 
 ### Coda
 
-If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): [Posit Connect!](https://posit.co/products/enterprise/connect/). Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and -- you guessed it -- dashboards made with {flexdashboard}!
+If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): [Posit Connect](https://posit.co/products/enterprise/connect/)! Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and -- you guessed it -- dashboards made with {flexdashboard}!
 
-Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications.  *Never write another CRON job again*.
+Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications.  *Never write another Cron job again*.
 
 ![](img/posit-connect.gif){fig-align="center"}
 
