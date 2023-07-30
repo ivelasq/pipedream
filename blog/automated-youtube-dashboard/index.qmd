@@ -283,14 +283,7 @@ dat_join %>%
 ```
 ````
 
-For the main body, I used [{DT}](https://rstudio.github.io/DT) to create a table for the information in our clean dataset. I added a bit of HTML to make it expand to the entire column height.
-
-A couple of fun tricks to notice:
-
-* `escape = FALSE` renders the URLs within the table as HTML.
-* The list within `options` aligns the text within columns (in this case, to be in the middle of the cell for all columns).^[I found out about this here: [https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable](https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable).]
-
-There are a lot of customization options!
+For the main body, I used [{DT}](https://rstudio.github.io/DT) to create a table for the information in our clean dataset.
 
 ````md
 Column {data-width=900}
@@ -308,17 +301,23 @@ Column {data-width=900}
 dat_dashboard %>%
   dplyr::select(-chapter, -channel_image_url) %>%
   DT::datatable(
-    colnames = c('Date', 'Channel', 'Video'),
-    filter = 'top',
-    escape = FALSE,
-    height = '1000',
-    elementId = 'dashboard',
-    options = list(columnDefs = list(
-      list(className = 'dt-middle', targets = "_all")
+    colnames = c("Date", "Channel", "Video"),
+    filter = "top",
+    escape = FALSE, # <1>
+    height = "1000", # <2>
+    elementId = "dashboard",
+    options = list(columnDefs = list( # <3>
+      list(className = "dt-middle", targets = "_all")
     ))
   )
 ```
 ````
+
+There are a lot of customization options! A couple of fun tricks to notice:
+
+1. `escape = FALSE` renders the URLs within the table as HTML.
+2. `height = "1000"` makes it expand to the entire column height.
+3. The list within `options` aligns the text within columns (in this case, to be in the middle of the cell for all columns).^[I found out about this here: [https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable](https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable).]
 
 And that's it! See the [final dashboard code](https://github.com/ivelasq/rladies-video-feed/blob/main/index.Rmd) on GitHub.
 
