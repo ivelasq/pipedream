@@ -207,7 +207,7 @@
     "href": "blog/automated-youtube-dashboard/index.html#host-the-dashboard",
     "title": "Using flexdashboard to create a GitHub Actions-powered YouTube feed",
     "section": "Host the dashboard",
-    "text": "Host the dashboard\nTo host the dashboard, I used GitHub Pages. In the GitHub repository for your dashboard, go to ‘Settings’, then ‘Pages’. Choose the branch and folder of your flexdashboard `index.html1 output file, click ‘Save’, and then you will have a URL to showcase your work.\nHere is the final link for this dashboard: https://ivelasq.github.io/rladies-video-feed."
+    "text": "Host the dashboard\nTo host the dashboard, I used GitHub Pages. In the GitHub repository for your dashboard, go to ‘Settings’, then ‘Pages’. Choose the branch and folder of your flexdashboard index.html output file, click ‘Save’, and then you will have a URL to showcase your work.\nHere is the final link for this dashboard: https://ivelasq.github.io/rladies-video-feed."
   },
   {
     "objectID": "blog/automated-youtube-dashboard/index.html#conclusion",

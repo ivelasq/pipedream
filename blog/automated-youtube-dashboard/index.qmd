@@ -408,7 +408,7 @@ Now your GitHub repository is configured to run the workflow script. Your GitHub
 
 ## Host the dashboard
 
-To host the dashboard, I used GitHub Pages. In the GitHub repository for your dashboard, go to 'Settings', then 'Pages'. Choose the branch and folder of your flexdashboard `index.html1 output file, click 'Save', and then you will have a URL to showcase your work.
+To host the dashboard, I used GitHub Pages. In the GitHub repository for your dashboard, go to 'Settings', then 'Pages'. Choose the branch and folder of your flexdashboard `index.html` output file, click 'Save', and then you will have a URL to showcase your work.
 
 Here is the final link for this dashboard: [https://ivelasq.github.io/rladies-video-feed](https://ivelasq.github.io/rladies-video-feed).
 
