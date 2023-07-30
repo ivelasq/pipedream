@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2023-07-29">
-<meta name="description" content="Interested in a custom feed of YouTube videos? Here’s how to create an automated dashboard with flexdashboard and GitHub Actions.">
+<meta name="description" content="Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️.">
 
-<title>%&gt;% dreams - Using flexdashboard and GitHub Actions to create an automated YouTube dashboard</title>
+<title>%&gt;% dreams - Using flexdashboard to create a GitHub Actions-powered YouTube feed</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,13 +98,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script defer="" data-domain="ivelasq.rbind.io" src="https://plausible.io/js/plausible.js"></script>
 
 
-<meta property="og:title" content="%>% dreams - Using flexdashboard and GitHub Actions to create an automated YouTube dashboard">
-<meta property="og:description" content="Interested in a custom feed of YouTube videos? Here’s how to create an automated dashboard with flexdashboard and GitHub Actions.">
+<meta property="og:title" content="%>% dreams - Using flexdashboard to create a GitHub Actions-powered YouTube feed">
+<meta property="og:description" content="Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️.">
 <meta property="og:image" content="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg">
 <meta property="og:site-name" content="%>% dreams">
 <meta property="og:image:alt" content="Utagawa Yoshikazu, Early Foreign Photographer in Yokohama, a painting with a group of people around a camera in a bright, colorful room.">
-<meta name="twitter:title" content="%>% dreams - Using flexdashboard and GitHub Actions to create an automated YouTube dashboard">
-<meta name="twitter:description" content="Interested in a custom feed of YouTube videos? Here’s how to create an automated dashboard with flexdashboard and GitHub Actions.">
+<meta name="twitter:title" content="%>% dreams - Using flexdashboard to create a GitHub Actions-powered YouTube feed">
+<meta name="twitter:description" content="Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️.">
 <meta name="twitter:image" content="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg">
 <meta name="twitter:image:alt" content="Utagawa Yoshikazu, Early Foreign Photographer in Yokohama, a painting with a group of people around a camera in a bright, colorful room.">
 <meta name="twitter:card" content="summary_large_image">
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Using flexdashboard and GitHub Actions to create an automated YouTube dashboard</h1>
+<h1 class="title">Using flexdashboard to create a GitHub Actions-powered YouTube feed</h1>
   <div class="quarto-categories">
     <div class="quarto-category">tutorial</div>
   </div>
@@ -172,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div>
   <div class="description">
-    Interested in a custom feed of YouTube videos? Here’s how to create an automated dashboard with flexdashboard and GitHub Actions.
+    Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️.
   </div>
 </div>
 
@@ -333,7 +333,7 @@ YouTube Channel IDs
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dat_urls)) {</span>
 <span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    dat_urls[i,][<span class="st">"id"</span>] <span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    dat_urls[i, ][<span class="st">"id"</span>] <span class="sc">%&gt;%</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">pull</span>() <span class="sc">%&gt;%</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-8-7" class="code-annotation-target"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>    tuber<span class="sc">::</span><span class="fu">list_channel_videos</span>(</span>
 <span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a>      .,</span>
@@ -346,27 +346,27 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="1" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-8" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="2" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-8" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="3" data-code-lines="5">Find the channel ID,</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-8" data-code-lines="5">Find the channel ID,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="4" data-code-lines="6">Pull the expanded URL,</span>
+<span data-code-annotation="4" data-code-cell="annotated-cell-8" data-code-lines="6">Pull the expanded URL,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="5" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
+<span data-code-annotation="5" data-code-cell="annotated-cell-8" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="6" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
+<span data-code-annotation="6" data-code-cell="annotated-cell-8" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
 </dd>
 </dl>
 <p>The arguments in <code>list_channel_videos()</code> gave me all the columns I am interested in with <code>part = "snippet"</code>. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit with the <code>maxResults</code> argument.</p>
@@ -546,15 +546,15 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
+<span data-code-annotation="1" data-code-cell="annotated-cell-16" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
+<span data-code-annotation="2" data-code-cell="annotated-cell-16" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
+<span data-code-annotation="3" data-code-cell="annotated-cell-16" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
@@ -599,14 +599,14 @@ YouTube Channel IDs
 <p>Give this tutorial a try and unlock the potential of automated dashboards for your favorite YouTube channels! I’d love to see what you create!</p>
 <section id="coda" class="level3">
 <h3 class="anchored" data-anchor-id="coda">Coda</h3>
-<p>If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): <a href="https://posit.co/products/enterprise/connect/">Posit Connect!</a>. Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and – you guessed it – flexdashboards!</p>
+<p>If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): <a href="https://posit.co/products/enterprise/connect/">Posit Connect!</a>. Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and – you guessed it – dashboards made with {flexdashboard}!</p>
 <p>Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications. <em>Never write another CRON job again</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/posit-connect.gif" class="img-fluid figure-img"></p>
 </figure>
 </div>
-<p>Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting…</p>
+<p>Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting…😇</p>
 
 
 </section>

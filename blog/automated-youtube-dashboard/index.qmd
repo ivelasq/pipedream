@@ -1,8 +1,8 @@
 ---
-title: "Using flexdashboard and GitHub Actions to create an automated YouTube dashboard"
+title: "Using flexdashboard to create a GitHub Actions-powered YouTube feed"
 categories: ["tutorial"]
 date: today
-description: "Interested in a custom feed of YouTube videos? Here's how to create an automated dashboard with flexdashboard and GitHub Actions."
+description: "Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️."
 image: "img/thumbnail.jpg"
 image-alt: "Utagawa Yoshikazu, Early Foreign Photographer in Yokohama, a painting with a group of people around a camera in a bright, colorful room."
 ---
@@ -152,7 +152,7 @@ dat_videos <- NULL # <1>
 
 for (i in 1:nrow(dat_urls)) { # <2>
   tmp <-
-    dat_urls[i,]["id"] %>% # <3>
+    dat_urls[i, ]["id"] %>% # <3>
     dplyr::pull() %>% # <4>
     tuber::list_channel_videos(  # <5>
       .,
@@ -426,10 +426,10 @@ Give this tutorial a try and unlock the potential of automated dashboards for yo
 
 ### Coda
 
-If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): [Posit Connect!](https://posit.co/products/enterprise/connect/). Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and -- you guessed it -- flexdashboards!
+If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): [Posit Connect!](https://posit.co/products/enterprise/connect/). Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and -- you guessed it -- dashboards made with {flexdashboard}!
 
 Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications.  *Never write another CRON job again*.
 
 ![](img/posit-connect.gif){fig-align="center"}
 
-Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting...
+Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting...😇
