@@ -10,7 +10,7 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.3.361</generator>
-<lastBuildDate>Sat, 29 Jul 2023 07:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 31 Jul 2023 07:00:00 GMT</lastBuildDate>
 <item>
   <title>Using flexdashboard to create a GitHub Actions-powered YouTube feed</title>
   <link>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/index.html</link>
@@ -65,7 +65,7 @@ YouTube RSS vs.&nbsp;YouTube API
 <li>At the top, click ‘Create Credentials’ and choose ‘API key’.</li>
 <li>Your API key will pop up. Save it for reference later in this walkthrough.</li>
 <li>In the pop-up window (or in the hamburger menu for the API key), click ‘Edit API key’.</li>
-<li>Scroll to the bottom and under ‘API restrictions’, select ‘Restrict key’, select ‘YouTube Data API v3’ from the dropdown menu, click ‘OK’ to exit the dropdown menu, then click ‘Save’. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness if anyone gets ahold of your key.</li>
+<li>Scroll to the bottom and under ‘API restrictions’, select ‘Restrict key’, select ‘YouTube Data API v3’ from the dropdown menu, click ‘OK’ to exit the dropdown menu, then click ‘Save’. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness should anyone get ahold of your key.</li>
 </ol>
 </section>
 <section id="store-your-youtube-api-key" class="level2">
@@ -307,27 +307,27 @@ font-style: inherit;">bind_rows</span>(dat_videos, tmp)</span>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="1" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-8">Starting with an empty data frame called <code>dat_videos</code>,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="2" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
+<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-8">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="3" data-code-lines="5">Find the channel ID,</span>
+<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-8">Find the channel ID,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="4" data-code-lines="6">Pull the expanded URL,</span>
+<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-8">Pull the expanded URL,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="5" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
+<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-8">Run it through <code>list_channel_videos()</code>, and</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-annotation="6" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
+<span data-code-lines="13" data-code-annotation="6" data-code-cell="annotated-cell-8">Add the information as rows to <code>dat_videos</code>.</span>
 </dd>
 </dl>
 <p>The arguments in <code>list_channel_videos()</code> gave me all the columns I am interested in with <code>part = "snippet"</code>. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit with the <code>maxResults</code> argument.</p>
@@ -879,7 +879,6 @@ font-style: inherit;">"_all"</span>)</span>
 <span id="cb14-25"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
-<p>There are a lot of customization options! A couple of fun tricks to notice:</p>
 <ol type="1">
 <li><code>escape = FALSE</code> renders the URLs within the table as HTML.</li>
 <li><code>height = "1000"</code> makes it expand to the entire column height.</li>
@@ -1129,15 +1128,15 @@ font-style: inherit;">|</span></span>
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
+<span data-code-lines="3" data-code-annotation="1" data-code-cell="annotated-cell-16">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
+<span data-code-lines="21" data-code-annotation="2" data-code-cell="annotated-cell-16">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
+<span data-code-lines="23" data-code-annotation="3" data-code-cell="annotated-cell-16">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
@@ -1206,7 +1205,7 @@ font-style: inherit;">:</span> </span>
 </section></div> ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/index.html</guid>
-  <pubDate>Sat, 29 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Jul 2023 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1308,7 +1307,7 @@ font-style: inherit;">brew</span> install zsh</span></code></pre></div>
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-53218"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-53218").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-44221"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-44221").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -1519,10 +1518,12 @@ font-style: inherit;">--cask</span> quarto</span></code></pre></div>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-31812"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-31812").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-65664"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-65664").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<p><a href="https://fosstodon.org/@ivelasq3/109560318292130074">Mastodon Toot Link</a></p>
+<iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
+</iframe>
+<script src="https://fosstodon.org/embed.js" async="async"></script>
 </div>
 </div>
 </div>
