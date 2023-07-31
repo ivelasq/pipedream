@@ -312,9 +312,6 @@ dat_dashboard %>%
   )
 ```
 ````
-
-There are a lot of customization options! A couple of fun tricks to notice:
-
 1. `escape = FALSE` renders the URLs within the table as HTML.
 2. `height = "1000"` makes it expand to the entire column height.
 3. The list within `options` aligns the text within columns (in this case, to be in the middle of the cell for all columns).^[I found out about this here: [https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable](https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable).]
