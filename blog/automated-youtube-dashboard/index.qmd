@@ -44,7 +44,7 @@ As is often the case with anything to do with Google, first, you must get creden
 4. At the top, click 'Create Credentials' and choose 'API key'.
 5. Your API key will pop up. Save it for reference later in this walkthrough.
 6. In the pop-up window (or in the hamburger menu for the API key), click 'Edit API key'.
-7. Scroll to the bottom and under 'API restrictions', select 'Restrict key', select 'YouTube Data API v3' from the dropdown menu, click 'OK' to exit the dropdown menu, then click 'Save'. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness if anyone gets ahold of your key.
+7. Scroll to the bottom and under 'API restrictions', select 'Restrict key', select 'YouTube Data API v3' from the dropdown menu, click 'OK' to exit the dropdown menu, then click 'Save'. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness should anyone get ahold of your key.
 
 ## Store your YouTube API key
 

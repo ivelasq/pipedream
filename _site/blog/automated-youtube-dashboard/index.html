@@ -240,7 +240,7 @@ YouTube RSS vs.&nbsp;YouTube API
 <li>At the top, click ‘Create Credentials’ and choose ‘API key’.</li>
 <li>Your API key will pop up. Save it for reference later in this walkthrough.</li>
 <li>In the pop-up window (or in the hamburger menu for the API key), click ‘Edit API key’.</li>
-<li>Scroll to the bottom and under ‘API restrictions’, select ‘Restrict key’, select ‘YouTube Data API v3’ from the dropdown menu, click ‘OK’ to exit the dropdown menu, then click ‘Save’. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness if anyone gets ahold of your key.</li>
+<li>Scroll to the bottom and under ‘API restrictions’, select ‘Restrict key’, select ‘YouTube Data API v3’ from the dropdown menu, click ‘OK’ to exit the dropdown menu, then click ‘Save’. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness should anyone get ahold of your key.</li>
 </ol>
 </section>
 <section id="store-your-youtube-api-key" class="level2">
@@ -346,27 +346,27 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
+<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-8">Starting with an empty data frame called <code>dat_videos</code>,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
+<span data-code-lines="3" data-code-annotation="2" data-code-cell="annotated-cell-8">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="3">Find the channel ID,</span>
+<span data-code-lines="5" data-code-annotation="3" data-code-cell="annotated-cell-8">Find the channel ID,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="6" data-code-annotation="4">Pull the expanded URL,</span>
+<span data-code-lines="6" data-code-annotation="4" data-code-cell="annotated-cell-8">Pull the expanded URL,</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="7" data-code-annotation="5">Run it through <code>list_channel_videos()</code>, and</span>
+<span data-code-lines="7" data-code-annotation="5" data-code-cell="annotated-cell-8">Run it through <code>list_channel_videos()</code>, and</span>
 </dd>
 <dt data-target-cell="annotated-cell-8" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="13" data-code-annotation="6">Add the information as rows to <code>dat_videos</code>.</span>
+<span data-code-lines="13" data-code-annotation="6" data-code-cell="annotated-cell-8">Add the information as rows to <code>dat_videos</code>.</span>
 </dd>
 </dl>
 <p>The arguments in <code>list_channel_videos()</code> gave me all the columns I am interested in with <code>part = "snippet"</code>. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit with the <code>maxResults</code> argument.</p>
@@ -545,15 +545,15 @@ YouTube Channel IDs
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="3" data-code-annotation="1">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
+<span data-code-lines="3" data-code-annotation="1" data-code-cell="annotated-cell-16">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="21" data-code-annotation="2">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
+<span data-code-lines="21" data-code-annotation="2" data-code-cell="annotated-cell-16">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
 </dd>
 <dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="23" data-code-annotation="3">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
+<span data-code-lines="23" data-code-annotation="3" data-code-cell="annotated-cell-16">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
