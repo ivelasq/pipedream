@@ -10,7 +10,1205 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.3.361</generator>
-<lastBuildDate>Thu, 22 Dec 2022 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 29 Jul 2023 07:00:00 GMT</lastBuildDate>
+<item>
+  <title>Using flexdashboard to create a GitHub Actions-powered YouTube feed</title>
+  <link>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A group of people around a camera in a bright, colorful room"></p>
+<figcaption class="figure-caption">Utagawa Yoshikazu, Early Foreign Photographer in Yokohama</figcaption>
+</figure>
+</div>
+<p><a href="https://rladies.org">R-Ladies</a> organizes a multitude of inspiring and exciting <a href="https://www.meetup.com/pro/rladies">Meetups</a> worldwide. However, due to work, time zones, or other commitments, I can’t attend them all. Fortunately, since the pandemic began, many Meetup hosts have started to record webinars and post them online. This provides a great opportunity to catch up on things I’ve missed afterward.</p>
+<p>In addition to the Meetups, R-Ladies also maintains a variety of YouTube channels. The primary channel, <a href="https://www.youtube.com/channel/UCDgj5-mFohWZ5irWSFMFcng">R-Ladies Global</a>, offers the largest collection of videos. Local chapters often have their individual accounts as well. To simplify the process of accessing videos from multiple chapters, I wanted a convenient tool for viewing an aggregated list of videos. I also thought it would be helpful to have the ability to search videos based on presenters, topics, and other criteria.</p>
+<p>So, I set out to build a dashboard with <a href="https://pkgs.rstudio.com/flexdashboard">{flexdashboard}</a> that would display all this information. {flexdashboard} is built on <a href="https://rmarkdown.rstudio.com">R Markdown</a>, which allowed me to use R to personalize a dashboard with custom colors and styles. And, of course, I used R to pull in the data. <a href="https://github.com/soodoku/tuber/#sweet_potato-tuber-access-youtube-api-via-r">{tuber}</a> provides access to the <a href="https://developers.google.com/youtube/v3/getting-started">YouTube Data API v3</a> with R, a straightforward tool for getting the data I needed.</p>
+<p>There were challenges along the way. Since Meetups happen fairly often, I hoped to use <a href="https://github.com/features/actions">GitHub Actions</a> to automatically refresh the dashboard every 24 hours. Unfortunately, I encountered difficulties due to the authentication options provided by {tuber}, which supports YouTube’s <a href="https://developers.google.com/youtube/v3/guides/authentication">OAuth 2.0</a> authorization process. I reached out to my <a href="https://github.com/gvelasq">brother</a> for help since we’d previously collaborated on an <a href="https://github.com/ivelasq/wizehiver">API wrapper</a> in R. The project <a href="https://github.com/ivelasq/rladies-video-feed/graphs/contributors">stalled</a> as we tried unsuccessfully to get YouTube’s OAuth 2.0 flow to work with GitHub Actions.</p>
+<p>We had a breakthrough when we realized that videos could be accessed relatively painlessly by skipping OAuth 2.0 and using an <a href="https://cloud.google.com/api-keys/docs/overview">API key</a> instead. After two <a href="https://github.com/soodoku/tuber/pulls?q=is%3Apr+author%3Agvelasq">pull requests</a> to add API key authentication to {tuber}, we are delighted to announce that the GitHub version of {tuber} now contains functions that work well with GitHub Actions. You can find the finished (and automated!) dashboard here:</p>
+<p><a href="https://ivelasq.github.io/rladies-video-feed">https://ivelasq.github.io/rladies-video-feed</a></p>
+<p>The <a href="https://github.com/ivelasq/rladies-video-feed">code</a> for the dashboard is on GitHub in case you want to reuse it for another set of channels!</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+YouTube RSS vs.&nbsp;YouTube API
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I originally used the <a href="https://robertmyles.github.io/tidyRSS">tidyRSS</a> package to pull the list of videos from YouTube. However, the YouTube RSS feed limits results to the latest 15 videos. The code is still available in the repo if you would like to take a look. This is a good option if you only want the most recent stream of content and would like to avoid setting up any Google credentials. Thanks to the <a href="http://r4ds.io/join">R4DS channel</a> and <a href="https://twitter.com/thomas_mock">Tom Mock</a> for pointing me in the right direction!</p>
+</div>
+</div>
+<p>The rest of the post describes how we built the dashboard. We learned quite a bit in the process!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/meme2.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<section id="get-a-youtube-api-key" class="level2">
+<h2 class="anchored" data-anchor-id="get-a-youtube-api-key">Get a YouTube API key</h2>
+<p>As is often the case with anything to do with Google, first, you must get credentials. In this example, we were interested in an API key that would work with the YouTube Data API v3.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/meme1.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<ol type="1">
+<li>Log into the <a href="https://console.cloud.google.com">Google Cloud Platform Console</a>.</li>
+<li>Create a <a href="https://console.cloud.google.com/projectcreate">new project</a>.</li>
+<li>From your dashboard, click to ‘Go to APIs Overview’ and navigate to ‘<a href="https://console.cloud.google.com/apis/credentials">Credentials</a>’ in the sidebar.</li>
+<li>At the top, click ‘Create Credentials’ and choose ‘API key’.</li>
+<li>Your API key will pop up. Save it for reference later in this walkthrough.</li>
+<li>In the pop-up window (or in the hamburger menu for the API key), click ‘Edit API key’.</li>
+<li>Scroll to the bottom and under ‘API restrictions’, select ‘Restrict key’, select ‘YouTube Data API v3’ from the dropdown menu, click ‘OK’ to exit the dropdown menu, then click ‘Save’. This will restrict your API key so that it can only be used with the YouTube Data API v3, which will limit its usefulness if anyone gets ahold of your key.</li>
+</ol>
+</section>
+<section id="store-your-youtube-api-key" class="level2">
+<h2 class="anchored" data-anchor-id="store-your-youtube-api-key">Store your YouTube API key</h2>
+<p>Now that you have an API key, you will want to save it in your R environment (<code>.Renviron</code>) using <a href="https://usethis.r-lib.org/reference/edit.html"><code>usethis::edit_r_environ()</code></a> if working interactively or in your <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">repository secrets</a> if using GitHub Actions. Storing the API key as an environment variable allows you to access it easily without the need to manually input it every time you run your code. GitHub Actions can interact with the API without manual intervention, and storing it as a repository secret keeps the key separate from your source code so it is not exposed to others.</p>
+<p>To do this, follow the instructions below:</p>
+<ol type="1">
+<li>Install the CRAN version of <a href="https://httr2.r-lib.org">{httr2}</a> and the GitHub version of <a href="https://github.com/soodoku/tuber/blob/master/NEWS.md">{tuber}</a>. <a href="https://pak.r-lib.org">{pak}</a> allows for easy installation of packages, whether they are on CRAN, GitHub, pull requests, etc.</li>
+</ol>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install.packages("pak")      # Install {pak} if not yet installed</span></span>
+<span id="cb1-2">pak<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pak</span>(httr2, soodoku<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>tuber) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># CRAN and GitHub syntax side by side!</span></span></code></pre></div>
+<ol start="2" type="1">
+<li>On your local machine, save your YouTube API key in <code>.Renviron</code>. Running the code below will prompt you to save the API key. Paste your API key into the pop-up window:</li>
+</ol>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">tuber<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">yt_set_key</span>()</span></code></pre></div>
+<p>Now your YouTube API key is saved as <code>YOUTUBE_KEY</code> in <code>.Renviron</code>!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+API key security
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using an API key is considered <a href="https://httr2.r-lib.org/articles/wrapping-apis.html#security-considerations">relatively insecure</a> since the key itself will be included in queries sent over the Internet and thus could be intercepted. If you are considering including an API key in a package or in public source code, we recommend using the <a href="https://httr2.r-lib.org/articles/wrapping-apis.html#secret-management">secret management</a> functions provided by {httr2}.</p>
+<p>If you would like to encrypt your API key, you can do so using {httr2} and a few arguments we built into {tuber}. You can first create a {tuber} package key stored as <code>TUBER_KEY</code> with <code>tuber::yt_set_key(httr2::secret_make_key(), type = "package")</code> and an encrypted <code>YOUTUBE_KEY</code> with <code>tuber::yt_set_key(httr2::secret_encrypt("YOUR_UNENCRYPTED_API_KEY", key = "TUBER_KEY"))</code>. To retrieve a decrypted <code>YOUTUBE_KEY</code> in your code, you can then run <code>tuber::yt_get_key(decrypt = TRUE)</code>.</p>
+<p>Please note that encrypting your API key will keep it safe if others don’t have your <code>TUBER_KEY</code> to decrypt it, but it will still need to be included unencrypted in queries to interact with the YouTube Data API.</p>
+</div>
+</div>
+</section>
+<section id="pull-and-clean-data" class="level2">
+<h2 class="anchored" data-anchor-id="pull-and-clean-data">Pull and clean data</h2>
+<p>Woohoo, you are credentialed! It’s time for the fun part — pulling and cleaning data. I did this in a script called <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/data-processing.R"><code>data_processing.R</code></a>.</p>
+<p>In addition to {tuber}, here are other packages that will aid you in the cleaning process:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tuber) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># GitHub version, installed with pak::pak(soodoku/tuber)</span></span>
+<span id="cb3-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(readr)</span>
+<span id="cb3-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(stringr)</span>
+<span id="cb3-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(DT)</span></code></pre></div>
+<p>Create a spreadsheet with the channels you are interested in. I created this manually — I just searched on YouTube for all the R-Ladies channels I could find. To make this workflow as programmatic as possible, I only included the chapter name, thumbnail, and channel ID.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span></span>
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_csv</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/ivelasq/rladies-video-feed/blob/main/r-ladies_channels.csv"</span>)</span>
+<span id="cb4-3">  </span>
+<span id="cb4-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(dat)</span></code></pre></div>
+<pre><code>  chapter            image                                              id   
+  &lt;chr&gt;              &lt;chr&gt;                                              &lt;chr&gt;
+1 R-Ladies Global    https://yt3.ggpht.com/ytc/AKedOLRM4FPiPcPBdFUmYWR… UCDg…
+2 R-Ladies Baltimore https://yt3.ggpht.com/RQifC3qp_7AFeTc48-QV1i4WBNM… UC9U…
+3 R-Ladies Philly    https://yt3.ggpht.com/ytc/AKedOLShIKBvPUKqbvm_Cpu… UCPq…
+4 R-Ladies STL       https://yt3.ggpht.com/ytc/AKedOLSBA7rlz1yvbIJ7TVN… UCQ7…
+5 R-Ladies Sydney    https://yt3.ggpht.com/ytc/AKedOLQnaU-dJbb14j2RE6W… UCkr…
+6 R-Ladies Vancouver https://yt3.ggpht.com/3yf0Zo8-VKffrG-dRT_Gs85xX_x… UCX5…</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+YouTube Channel IDs
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some YouTube channels have ‘custom IDs’ like RLadiesGlobal. These won’t work in {tuber}; you need the original IDs. The best way I found to get this ID is to click on a video from a channel. Then, scroll down to the description and click the channel name from that video. The original ID will appear in the URL after <code>/channel/</code>. A good idea for a future Shiny app would be a way to pull this information from the YouTube API…</p>
+</div>
+</div>
+<p>Now, create a few more columns with <code>dplyr::mutate()</code> that expand the URLs into HTML format:</p>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">dat_urls <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span></span>
+<span id="cb6-2">  dat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-3">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(</span>
+<span id="cb6-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">feed =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://www.youtube.com/feeds/videos.xml?channel_id="</span>, id),</span>
+<span id="cb6-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">feed_url =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"yt:channel:"</span>, id),</span>
+<span id="cb6-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">channel_image_url =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(</span>
+<span id="cb6-7">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;img src='"</span>,</span>
+<span id="cb6-8">      image,</span>
+<span id="cb6-9">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb6-10">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" &lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb6-11">      id,</span>
+<span id="cb6-12">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb6-13">      chapter,</span>
+<span id="cb6-14">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;/a&gt;&lt;br&gt;"</span></span>
+<span id="cb6-15">    ),</span>
+<span id="cb6-16">  )</span></code></pre></div>
+<p>The {tuber} <a href="https://soodoku.github.io/tuber/reference/index.html">documentation</a> describes the many functions available to you. Many of these require OAuth 2.0 authentication. Since I had only the channel IDs, I wanted to use <code>list_channel_videos()</code> to get a complete list of videos from the channels, which thankfully works with an API key!</p>
+<p>For example, for the R-Ladies Global channel, you could run <code>list_channel_videos()</code> to get its (currently 165) videos:</p>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">tuber<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list_channel_videos</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"UCDgj5-mFohWZ5irWSFMFcng"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max_results =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">auth =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"key"</span>)</span></code></pre></div>
+<p>What if you want the results for all the channels we have in our spreadsheet? I used a loop for this.</p>
+<div class="sourceCode" id="annotated-cell-8" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target">dat_videos <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NULL</span></span>
+<span id="annotated-cell-8-2"></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">nrow</span>(dat_urls)) {</span>
+<span id="annotated-cell-8-4">  tmp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target">    dat_urls[i, ][<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target">    dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-8-7" class="code-annotation-target">    tuber<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list_channel_videos</span>(</span>
+<span id="annotated-cell-8-8">      .,</span>
+<span id="annotated-cell-8-9">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">part =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"snippet"</span>,</span>
+<span id="annotated-cell-8-10">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">config =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'maxResults'</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>),</span>
+<span id="annotated-cell-8-11">      <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">auth =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"key"</span></span>
+<span id="annotated-cell-8-12">    )</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="6" onclick="event.preventDefault();">6</a><span id="annotated-cell-8-13" class="code-annotation-target">  dat_videos <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(dat_videos, tmp)</span>
+<span id="annotated-cell-8-14">}</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="1" data-code-lines="1">Starting with an empty data frame called <code>dat_videos</code>,</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="2" data-code-lines="3">For each row in <code>dat_urls</code> (which contains the channel IDs),</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="3" data-code-lines="5">Find the channel ID,</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="4" data-code-lines="6">Pull the expanded URL,</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="5">5</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="5" data-code-lines="7">Run it through <code>list_channel_videos()</code>, and</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="6">6</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-annotation="6" data-code-lines="13">Add the information as rows to <code>dat_videos</code>.</span>
+</dd>
+</dl>
+<p>The arguments in <code>list_channel_videos()</code> gave me all the columns I am interested in with <code>part = "snippet"</code>. Notice that there’s a default limit for the number of videos pulled from the API. I bumped that up a bit with the <code>maxResults</code> argument.</p>
+<p>Then, I brought back the URL info:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">dat_join <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span></span>
+<span id="cb8-2">  dat_videos <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb8-3">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">left_join</span>(., dat_urls, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">join_by</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"snippet.channelId"</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"id"</span>))</span></code></pre></div>
+<p>This results in a <strong>lot</strong> of information for each video. I cleaned it up a bit so that the data frame contained only the relevant columns in HTML format.</p>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">dat_dashboard <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span></span>
+<span id="cb9-2">  dat_join <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-3">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(</span>
+<span id="cb9-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">video_url =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(</span>
+<span id="cb9-5">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;a href='https://www.youtube.com/watch?v="</span>,</span>
+<span id="cb9-6">      snippet.resourceId.videoId,</span>
+<span id="cb9-7">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-8">      snippet.title,</span>
+<span id="cb9-9">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;/a&gt;"</span></span>
+<span id="cb9-10">    ),</span>
+<span id="cb9-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">channel_url =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(</span>
+<span id="cb9-12">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;img src='"</span>,</span>
+<span id="cb9-13">      image,</span>
+<span id="cb9-14">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"' alt='Hex Sticker for Chapter' width='40'&gt;&lt;/img&gt;"</span>,</span>
+<span id="cb9-15">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;a href='https://www.youtube.com/channel/"</span>,</span>
+<span id="cb9-16">      snippet.channelId,</span>
+<span id="cb9-17">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"' target='_blank'&gt;"</span>,</span>
+<span id="cb9-18">      chapter,</span>
+<span id="cb9-19">      <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&lt;/a&gt;"</span></span>
+<span id="cb9-20">    ),</span>
+<span id="cb9-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">date =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.Date</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_sub</span>(snippet.publishedAt, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>))</span>
+<span id="cb9-22">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-23">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">desc</span>(snippet.publishedAt)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb9-24">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(date, chapter, channel_url, video_url, channel_image_url)</span></code></pre></div>
+<p>See the <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/data-processing.R">final data processing file on GitHub</a>.</p>
+</section>
+<section id="create-a-flexdashboard" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-flexdashboard">Create a flexdashboard</h2>
+<p>You have the YouTube data — time to create a pretty dashboard!</p>
+<p>My flexdashboard started as R Markdown files often do: with a YAML header. I specified an orientation (columns) and added the link to the GitHub repository in the navigation bar.</p>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb10-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb10-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">output</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb10-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  flexdashboard:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:flex_dashboard</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb10-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">orientation</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> columns</span></span>
+<span id="cb10-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">navbar</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb10-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icon</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fa-github"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">href</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">align</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> right </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb10-8"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+<section id="add-customization" class="level3">
+<h3 class="anchored" data-anchor-id="add-customization">Add customization</h3>
+<p>If you’d like your dashboard to have a custom look, the <a href="https://rstudio.github.io/bslib">{bslib}</a> package is a great option. It can add different colors and fonts directly in the YAML header. Make sure to add <code>library(bslib)</code> in the actual code part of your <code>.Rmd</code> file. I used the R-Ladies style guide to fill out the rest of the YAML header:</p>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span>
+<span id="cb11-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">title</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"R-Ladies YouTube Video Feed"</span></span>
+<span id="cb11-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">output</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span></span>
+<span id="cb11-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  flexdashboard:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">:flex_dashboard</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">orientation</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> columns</span></span>
+<span id="cb11-6"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">navbar</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">{</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">icon</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fa-github"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">href</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/ivelasq/rladies-video-feed"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">,</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">align</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> right </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">}</span></span>
+<span id="cb11-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">version</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb11-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bg</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#FDF7F7"</span></span>
+<span id="cb11-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fg</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#88398A"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> # purple</span></span>
+<span id="cb11-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">primary</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#88398A"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"> # purple</span></span>
+<span id="cb11-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">base_font</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="cb11-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">google</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Lato"</span></span>
+<span id="cb11-15"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">---</span></span></code></pre></div>
+</section>
+<section id="add-packages-for-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="add-packages-for-the-dashboard">Add packages for the dashboard</h3>
+<p>Below the YAML header, add the packages you need. I used <code>source()</code> to read the <code>data-processing.R</code> script.</p>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(flexdashboard)</span>
+<span id="cb12-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(bslib)</span>
+<span id="cb12-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">source</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data-processing.R"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">local =</span> knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">knit_global</span>())</span></code></pre></div>
+</section>
+</section>
+<section id="design-the-flexdashboard-layout" class="level2">
+<h2 class="anchored" data-anchor-id="design-the-flexdashboard-layout">Design the flexdashboard layout</h2>
+<p>This dashboard has a simple layout: just a sidebar and the main section. I recommend checking out the flexdashboard documentation to see all the <a href="https://pkgs.rstudio.com/flexdashboard/articles/layouts.html">layout options</a> available to you.</p>
+<p>This code builds out the sidebar section. I created a list of each R-Ladies chapter that I was able to find and arranged them by name. With <code>htmltools::HTML()</code>, the dashboard can render the URLs as HTML (the reason for all that manipulation earlier on). We learned that the <code>.noWS = "outside"</code> argument is crucial for deploying the dashboard with GitHub Actions. It omits extra whitespace around the HTML, which ensures that the dashboard is committed only when the number of videos has changed (rather than creating spurious commits each time data is pulled, even if the number of videos is unchanged).</p>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb13-1">Channels {.sidebar}</span>
+<span id="cb13-2">-----------------------------------------------------------------------</span>
+<span id="cb13-3"></span>
+<span id="cb13-4">The purpose of this dashboard is to provide a running feed of R-Ladies videos posted to YouTube. It is refreshed every 24 hours.</span>
+<span id="cb13-5"></span>
+<span id="cb13-6">Currently, the feed includes these channels:</span>
+<span id="cb13-7"></span>
+<span id="cb13-8"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```{r}</span></span>
+<span id="cb13-9">dat_join <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb13-10">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(chapter) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb13-11">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">distinct</span>(channel_image_url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb13-12">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pull</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb13-13">  htmltools<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">HTML</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.noWS =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"outside"</span>)</span>
+<span id="cb13-14"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```</span></span></code></pre></div>
+<p>For the main body, I used <a href="https://rstudio.github.io/DT">{DT}</a> to create a table for the information in our clean dataset.</p>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1">Column {data-width=900}</span>
+<span id="cb14-2">-----------------------------------------------------------------------</span>
+<span id="cb14-3"></span>
+<span id="cb14-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">### By default, the list is sorted by latest video.</span></span>
+<span id="cb14-5"></span>
+<span id="cb14-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;style&gt;</span></span>
+<span id="cb14-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">.dataTables_scrollBody</span> {</span>
+<span id="cb14-8">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">max-height</span>: <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">%</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">!important</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb14-9">}</span>
+<span id="cb14-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;/style&gt;</span></span>
+<span id="cb14-11"></span>
+<span id="cb14-12"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```{r}</span></span>
+<span id="cb14-13">dat_dashboard <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb14-14">  dplyr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>chapter, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>channel_image_url) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb14-15">  DT<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">datatable</span>(</span>
+<span id="cb14-16">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">colnames =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Channel"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Video"</span>),</span>
+<span id="cb14-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">filter =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"top"</span>,</span>
+<span id="cb14-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">escape =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">FALSE</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;1&gt;</span></span>
+<span id="cb14-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">height =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1000"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;2&gt;</span></span>
+<span id="cb14-20">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">elementId =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dashboard"</span>,</span>
+<span id="cb14-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">columnDefs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>( <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># &lt;3&gt;</span></span>
+<span id="cb14-22">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">className =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dt-middle"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">targets =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"_all"</span>)</span>
+<span id="cb14-23">    ))</span>
+<span id="cb14-24">  )</span>
+<span id="cb14-25"><span class="in" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">```</span></span></code></pre></div>
+<p>There are a lot of customization options! A couple of fun tricks to notice:</p>
+<ol type="1">
+<li><code>escape = FALSE</code> renders the URLs within the table as HTML.</li>
+<li><code>height = "1000"</code> makes it expand to the entire column height.</li>
+<li>The list within <code>options</code> aligns the text within columns (in this case, to be in the middle of the cell for all columns).<sup>1</sup></li>
+</ol>
+<p>And that’s it! See the <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/index.Rmd">final dashboard code</a> on GitHub.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/dashboard.png" class="img-fluid figure-img" alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"></p>
+<figcaption class="figure-caption">Final dashboard</figcaption>
+</figure>
+</div>
+<p><a href="https://ivelasq.github.io/rladies-video-feed/">Try it out</a> — search “Shiny” to see any video with Shiny in the title, or “Ecuador” to see all the videos from R-Ladies Ecuador!</p>
+</section>
+<section id="create-a-github-action-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-github-action-workflow">Create a GitHub Action workflow</h2>
+<p>Great, we have a completed dashboard! Now, what if we want to keep it updated without manually re-knitting the dashboard? The next step is to create a GitHub Action. GitHub Actions are workflows that you create and configure to automate various tasks within your GitHub repositories. They are event-driven and can be triggered by actions such as code commits, pull requests, issue updates, or scheduled intervals.</p>
+<section id="create-a-github-action-workflow-file-in-your-project" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-github-action-workflow-file-in-your-project">Create a GitHub Action workflow file in your project</h3>
+<p>GitHub Actions use <a href="https://yaml.org/">YAML syntax</a> and are saved as <code>.yml</code> or <code>.yaml</code> files within a folder called <code>.github/workflows/</code>. We can use GitHub Actions to create a bot that refreshes the dashboard on a regular basis. You can see an <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/.github/workflows/rladies-videos-bot.yaml">example workflow in the GitHub repository</a>. H/T to <a href="https://github.com/gvelasq"><span class="citation" data-cites="gvelasq">@gvelasq</span></a> and this amazing <a href="https://github.com/r-lib/actions/blob/v2/examples/render-rmarkdown.yaml">example</a> in the <a href="https://github.com/r-lib/actions/tree/v2/examples#readme">r-lib/actions</a> repo for inspiration.</p>
+<p>To create a GitHub Action:</p>
+<ol type="1">
+<li>Create a folder in your repository called <code>.github</code>.</li>
+<li>Within <code>.github</code>, add a folder called <code>workflows</code>.</li>
+<li>Create a file called <code>rladies-videos-bot.yaml</code>.</li>
+<li>Copy and paste the workflow below in <code>rladies-videos-bot.yaml</code>.</li>
+</ol>
+<div class="sourceCode" id="annotated-cell-16" style="background: #f1f3f5;"><pre class="sourceCode yaml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><span id="annotated-cell-16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">schedule</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cron</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'0 0 * * *'</span></span>
+<span id="annotated-cell-16-4"></span>
+<span id="annotated-cell-16-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> rladies-videos-bot</span></span>
+<span id="annotated-cell-16-6"></span>
+<span id="annotated-cell-16-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">jobs</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rladies-videos-bot</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-9"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">runs-on</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ubuntu-latest</span></span>
+<span id="annotated-cell-16-10"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">env</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-11"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">GITHUB_PAT</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ secrets.GITHUB_TOKEN }}</span></span>
+<span id="annotated-cell-16-12"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">YOUTUBE_KEY</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> ${{ secrets.YOUTUBE_KEY }}</span></span>
+<span id="annotated-cell-16-13"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">steps</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-14"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> actions/checkout@v3</span></span>
+<span id="annotated-cell-16-15"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-16"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fetch-depth</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="annotated-cell-16-17"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> r-lib/actions/setup-pandoc@v2</span></span>
+<span id="annotated-cell-16-18"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> r-lib/actions/setup-r@v2</span></span>
+<span id="annotated-cell-16-19"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<span id="annotated-cell-16-20"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">use-public-rspm</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">true</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-21" class="code-annotation-target"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">uses</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> r-lib/actions/setup-r-dependencies@v2</span></span>
+<span id="annotated-cell-16-22"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">        </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-23" class="code-annotation-target"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">extra-packages</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> soodoku/tuber</span></span>
+<span id="annotated-cell-16-24"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">name</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> Render and commit dashboard</span></span>
+<span id="annotated-cell-16-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">        run</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">|</span></span>
+<span id="annotated-cell-16-26">          Rscript -e 'rmarkdown::render("index.Rmd")'</span>
+<span id="annotated-cell-16-27">          git config --local user.name "$GITHUB_ACTOR"</span>
+<span id="annotated-cell-16-28">          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"</span>
+<span id="annotated-cell-16-29">          git add index.html</span>
+<span id="annotated-cell-16-30">          git commit -m '[Bot] Render and commit dashboard' || echo "No changes to commit"</span>
+<span id="annotated-cell-16-31">          git push origin || echo "No changes to commit"</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="1" data-code-lines="3">The workflow uses <a href="https://en.wikipedia.org/wiki/Cron">cron</a> syntax to trigger the workflow to start at midnight every day, running through all the tasks detailed in the workflow: pulling the secret keys, setting up R and required packages, rendering <code>index.Rmd</code>, and committing the resulting <code>index.html</code> file only if there are any changes to commit. Matt Dray’s <a href="https://github.com/matt-dray/dialga">{dialga}</a> package is helpful in building cron expressions.</span>
+</dd>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="2" data-code-lines="21">The GitHub Action <a href="https://github.com/r-lib/actions/tree/v2-branch/setup-r-dependencies#setup-r-dependencies"><code>r-lib/actions/setup-r-dependencies@v2</code></a> installs R packages that are declared in a <code>DESCRIPTION</code> file. In our case, since our RStudio project name is not a valid R package name due to the hyphens in <code>rladies-video-feed</code>, we created a <code>DESCRIPTION</code> file using <code>usethis::use_description(check_name = FALSE)</code> and added the dependencies to <code>Imports:</code> below using <code>usethis::use_package()</code> for each required R package.</span>
+</dd>
+<dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-16" data-code-annotation="3" data-code-lines="23">To get <code>r-lib/actions/setup-r-dependencies@v2</code> to install the GitHub version of {tuber}, we specified it using the <code>extra-packages</code> parameter.</span>
+</dd>
+</dl>
+<p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">Imports<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> </span>
+<span id="cb15-2">    bslib,</span>
+<span id="cb15-3">    dplyr,</span>
+<span id="cb15-4">    DT,</span>
+<span id="cb15-5">    flexdashboard,</span>
+<span id="cb15-6">    htmltools,</span>
+<span id="cb15-7">    httr2,</span>
+<span id="cb15-8">    jsonlite,</span>
+<span id="cb15-9">    readr,</span>
+<span id="cb15-10">    rmarkdown,</span>
+<span id="cb15-11">    stringr</span></code></pre></div>
+</section>
+<section id="configure-keys-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="configure-keys-on-github">Configure keys on GitHub</h3>
+<p>Now that we have the workflow set up, we need to let GitHub know what our YouTube API key is so that it can be accessed each time the workflow is triggered.</p>
+<ol type="1">
+<li>In your GitHub repository, click the ‘Settings’ tab.</li>
+<li>Under ‘Security’ on the left-hand side, click ‘Secrets and variables’ then ‘Actions’.</li>
+<li>Click the ‘Secrets’ tab, then click ‘New repository secret’.</li>
+<li>Give your new secret the name <code>YOUTUBE_KEY</code> and in the ‘Secret’ textbox, paste your YouTube API key, then select ‘Add secret’.</li>
+</ol>
+<p>Now your GitHub repository is configured to run the workflow script. Your GitHub Action is ready to go!</p>
+</section>
+</section>
+<section id="host-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="host-the-dashboard">Host the dashboard</h2>
+<p>To host the dashboard, I used GitHub Pages. In the GitHub repository for your dashboard, go to ‘Settings’, then ‘Pages’. Choose the branch and folder of your flexdashboard <code>index.html</code> output file, click ‘Save’, and then you will have a URL to showcase your work.</p>
+<p>Here is the final link for this dashboard: <a href="https://ivelasq.github.io/rladies-video-feed">https://ivelasq.github.io/rladies-video-feed</a>.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>In summary, we have explored the powerful combination of {flexdashboard}, GitHub Actions (via <code>r-lib/actions</code>), and {tuber} to create an automated YouTube dashboard.</p>
+<ul>
+<li>With {flexdashboard}’s customizability and R Markdown support, we can create a visually appealing, interactive dashboard.</li>
+<li>The {tuber} package’s integration with the YouTube Data API and new functions we contributed to permit YouTube API key authentication allow us to easily fetch data and keep track of YouTube videos.</li>
+<li>With the automation capabilities of GitHub Actions, we can schedule dashboard updates and stay up-to-date with new YouTube videos.</li>
+</ul>
+<p>It took a while, but we got there! Many thanks to <a href="https://github.com/gvelasq"><span class="citation" data-cites="gvelasq">@gvelasq</span></a>’s support in getting this through the finish line.</p>
+<p>Give this tutorial a try and unlock the potential of automated dashboards for your favorite YouTube channels! I’d love to see what you create!</p>
+<section id="coda" class="level3">
+<h3 class="anchored" data-anchor-id="coda">Coda</h3>
+<p>If you made it all the way to the end of this tutorial, I need to plug (as an employee of Posit, formerly RStudio 😁): <a href="https://posit.co/products/enterprise/connect/">Posit Connect</a>! Posit Connect is a platform that allows you to publish and share data products like Quarto docs, Shiny apps, and – you guessed it – dashboards made with {flexdashboard}!</p>
+<p>Automating reports and dashboards is easy on Posit Connect. The scheduler is built into the interface and can be adjusted to your specifications. <em>Never write another Cron job again</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/posit-connect.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting…😇</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>I found out about this here: <a href="https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable">https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable</a>.↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>tutorial</category>
+  <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/index.html</guid>
+  <pubDate>Sat, 29 Jul 2023 07:00:00 GMT</pubDate>
+  <media:content url="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Setting up macOS as an R data science rig in 2023</title>
   <dc:creator>Isabella Velásquez</dc:creator>
@@ -110,7 +1308,7 @@ font-style: inherit;">brew</span> install zsh</span></code></pre></div>
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-53675"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-53675").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-53218"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"robbyrussell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; robbyrussell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-53218").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -321,12 +1519,10 @@ font-style: inherit;">--cask</span> quarto</span></code></pre></div>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-96537"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-96537").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-31812"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-31812").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
-<iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
-</iframe>
-<script src="https://fosstodon.org/embed.js" async="async"></script>
+<p><a href="https://fosstodon.org/@ivelasq3/109560318292130074">Mastodon Toot Link</a></p>
 </div>
 </div>
 </div>
@@ -10938,647 +12134,6 @@ New blog post 🎉: Taking A Peek into My Hiking Data accessing Google Maps API 
   <guid>https://ivelasq.rbind.io/blog/average-hike/index.html</guid>
   <pubDate>Sat, 06 Apr 2019 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/average-hike/thumbnail.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
-  <title>Transforming PDFs into useful tables</title>
-  <link>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</link>
-  <description><![CDATA[ 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Several green plums on a brown table"></p>
-<figcaption class="figure-caption">Joseph Decker, Green Plums (1885)</figcaption>
-</figure>
-</div>
-<p>Way back in 2016, the USDA released a <a href="https://www.fns.usda.gov/snap/foods-typically-purchased-supplemental-nutrition-assistance-program-snap-households">study</a> entitled “Foods Typically Purchased by Supplemental Nutrition Assistance Program (SNAP) Households” that included a summary, final report, and appendices. Per the USDA’s description:</p>
-<p><em>“This study uses calendar year 2011 point-of-sale transaction data from a leading grocery retailer to examine the food choices of SNAP and non-SNAP households.”</em></p>
-<p>At the time though, I was most interested in looking at the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices data</a> - <em>263</em> pages full of tables detailing the commodities and categories of food bought by both families served and not served by SNAP. Unfortunately, these wonderful data are in PDF format, with ‘fancy’ Excel formatting (merged cells, unnecessary column names), where the formatting varies depending on which appendix you are looking at.</p>
-<p>I <a href="mailto:SNAPHQ-WEB@fns.usda.gov">emailed</a> SNAP HQ to ask if they had the raw data available in CSVs and was told simply:</p>
-<p><em>“Thank you for your inquiry. Unfortunately we do not have the data tables in a CSV file.”</em></p>
-<p>At the time, my R skills were pretty rudimentary and I couldn’t figure out how to easily and efficiently pull the data into usable tables. Two years later and with a little more experience with R and scraping and cleaning ugly files, I decided to try again using the {tidyverse} and {tabulizer} packages.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tabulizer)</span></code></pre></div>
-</div>
-<p>We use <code>tabulizer::extract_tables()</code> to extract the data from the <a href="https://fns-prod.azureedge.net/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf">appendices PDF</a>. Once we extract the tables, we are left with a list (which is slightly more manageable than the original PDFs).</p>
-<div class="cell" data-hash="index_cache/html/unnamed-chunk-3_f75a05bd7adddda84f4325aa8a93fd9f">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">snap_pdf <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb2-2">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">extract_tables</span>(</span>
-<span id="cb2-3">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"https://fns-prod.azureedge.us/sites/default/files/ops/SNAPFoodsTypicallyPurchased-Appendices.pdf"</span></span>
-<span id="cb2-4">  )</span></code></pre></div>
-</div>
-<p>Using the {purrr} package, we create a data frame from the lists while simultaneously removing the unnecessary rows.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">snap_df <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb3-2">  snap_pdf <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb3-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map</span>(as_tibble) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb3-4">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">map_df</span>( <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">slice</span>(.,<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>)) <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># slicing because of the unnecessary rows</span></span>
-<span id="cb3-5"></span>
-<span id="cb3-6"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(snap_df)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 9
-  V1                    V2    V3             V4    V5    V6    V7    V8    V9   
-  &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
-1 ""                    ""    SNAP Househol… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-2 "Soft drinks"         ""    1 $357.7 5.44… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-3 "Fluid milk products" ""    2 $253.7 3.85… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-4 "Beef:grinds"         ""    3 $201.0 3.05… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-5 "Bag snacks"          ""    4 $199.3 3.03… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; 
-6 "Cheese"              ""    5 $186.4 2.83… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt; </code></pre>
-</div>
-</div>
-<p>Due to the original formatting of the PDFs, we need to do a lot of cleaning to make the list into a usable table. Using <code>slice()</code>, we isolate only the rows from Appendix 1.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">snap_appendix1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb5-2">  snap_df <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb5-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">slice</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">244</span>)</span></code></pre></div>
-</div>
-<p>Now comes the fun part (yay, data cleaning!). When we look at the data frame, the data for each commodity are in two separate columns (<code>V2</code> and <code>V3</code>), but only one column or the other. There are several empty columns (<code>V4</code> through <code>V9</code>), probably created due to the funky original formatting.</p>
-<p>First things first: let’s put all the data in a single column called <code>col_dat</code>. Then, we will remove all the empty rows in the newly created <code>col_dat</code> column.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">snap_appendix1_pt1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb6-2">  snap_appendix1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">col_dat =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">case_when</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"[0-9]"</span>, V2) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> V2, <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># create a column that contains all the data</span></span>
-<span id="cb6-4">                             <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">grepl</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"[0-9]"</span>, V3) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> V3,</span>
-<span id="cb6-5">                             <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(col_dat <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">!=</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>) <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># some rows are empty</span></span>
-<span id="cb6-7"></span>
-<span id="cb6-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(snap_appendix1_pt1)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 10
-  V1                  V2    V3       V4    V5    V6    V7    V8    V9    col_dat
-  &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
-1 Soft drinks         ""    1 $357.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  1 $357…
-2 Fluid milk products ""    2 $253.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  2 $253…
-3 Beef:grinds         ""    3 $201.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  3 $201…
-4 Bag snacks          ""    4 $199.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  4 $199…
-5 Cheese              ""    5 $186.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  5 $186…
-6 Baked breads        ""    6 $163.… &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  &lt;NA&gt;  6 $163…</code></pre>
-</div>
-</div>
-<p>Now the numeric data we want is in a single column, we can select the columns <code>V1</code> and <code>col_dat</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">snap_appendix1_pt2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb8-2">  snap_appendix1_pt1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb8-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">select</span>(V1, col_dat)</span>
-<span id="cb8-4"></span>
-<span id="cb8-5"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(snap_appendix1_pt2)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 2
-  V1                  col_dat                        
-  &lt;chr&gt;               &lt;chr&gt;                          
-1 Soft drinks         1 $357.7 5.44% 2 $1,263.3 4.01%
-2 Fluid milk products 2 $253.7 3.85% 1 $1,270.3 4.03%
-3 Beef:grinds         3 $201.0 3.05% 6 $621.1 1.97%  
-4 Bag snacks          4 $199.3 3.03% 5 $793.9 2.52%  
-5 Cheese              5 $186.4 2.83% 3 $948.9 3.01%  
-6 Baked breads        6 $163.7 2.49% 4 $874.8 2.78%  </code></pre>
-</div>
-</div>
-<p>The numeric data is still mushed in column <code>col_dat</code>. We can use <code>tidyr::separate()</code> to split the values that are separated by spaces into their own columns. We reference the original PDF to descriptively rename the columns (and the commodity column <code>V1</code> as well).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1">snap_appendix1_pt3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb10-2">  snap_appendix1_pt2 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb10-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span>(</span>
-<span id="cb10-4">    col_dat,</span>
-<span id="cb10-5">    <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">" "</span>,</span>
-<span id="cb10-6">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">into =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(</span>
-<span id="cb10-7">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"snap_rank"</span>,</span>
-<span id="cb10-8">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"snap_dollars_in_millions"</span>,</span>
-<span id="cb10-9">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"snap_pct_total_expenditures"</span>,</span>
-<span id="cb10-10">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"nonsnap_rank"</span>,</span>
-<span id="cb10-11">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"nonsnap_dollars_in_millions"</span>,</span>
-<span id="cb10-12">      <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"nonsnap_pct_total_expenditures"</span></span>
-<span id="cb10-13">    )</span>
-<span id="cb10-14">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb10-15">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rename</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">commodity =</span> V1)</span></code></pre></div>
-</div>
-<p>The numeric values have retained their original formatting, with dollar signs and commas and percentage signs, oh my! We can remove those unnecessary characters and transform those columns into truly numeric values.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">snap_appendix1_pt4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb11-2">  snap_appendix1_pt3 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">across</span>(</span>
-<span id="cb11-4">    snap_rank<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span>nonsnap_pct_total_expenditures,</span>
-<span id="cb11-5">    <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">as.numeric</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">str_replace_all</span>(.x, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">",|%|</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">\\</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">$"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">""</span>))</span>
-<span id="cb11-6">  ))</span>
-<span id="cb11-7"></span>
-<span id="cb11-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(snap_appendix1_pt4)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  commodity           snap_rank snap_dollars_i…¹ snap_…² nonsn…³ nonsn…⁴ nonsn…⁵
-  &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1 Soft drinks                 1             358.    5.44       2   1263.    4.01
-2 Fluid milk products         2             254.    3.85       1   1270.    4.03
-3 Beef:grinds                 3             201     3.05       6    621.    1.97
-4 Bag snacks                  4             199.    3.03       5    794.    2.52
-5 Cheese                      5             186.    2.83       3    949.    3.01
-6 Baked breads                6             164.    2.49       4    875.    2.78
-# … with abbreviated variable names ¹​snap_dollars_in_millions,
-#   ²​snap_pct_total_expenditures, ³​nonsnap_rank, ⁴​nonsnap_dollars_in_millions,
-#   ⁵​nonsnap_pct_total_expenditures</code></pre>
-</div>
-</div>
-<p>Last but not least, we convert all the columns with percentages into actual percentages by dividing by 100.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1">snap_appendix1_clean <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb13-2">  snap_appendix1_pt4 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb13-3">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">contains</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pct"</span>), <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> . <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span>))</span></code></pre></div>
-</div>
-<p>Tada! Now we have a clean dataset from the original not-very-usable PDFs.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(snap_appendix1_clean)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 7
-  commodity           snap_rank snap_dollars_i…¹ snap_…² nonsn…³ nonsn…⁴ nonsn…⁵
-  &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1 Soft drinks                 1             358.  0.0544       2   1263.  0.0401
-2 Fluid milk products         2             254.  0.0385       1   1270.  0.0403
-3 Beef:grinds                 3             201   0.0305       6    621.  0.0197
-4 Bag snacks                  4             199.  0.0303       5    794.  0.0252
-5 Cheese                      5             186.  0.0283       3    949.  0.0301
-6 Baked breads                6             164.  0.0249       4    875.  0.0278
-# … with abbreviated variable names ¹​snap_dollars_in_millions,
-#   ²​snap_pct_total_expenditures, ³​nonsnap_rank, ⁴​nonsnap_dollars_in_millions,
-#   ⁵​nonsnap_pct_total_expenditures</code></pre>
-</div>
-</div>
-<p>At some point, I would like to do a full analysis of what these data show. My hope is that now some of it is available, others can create and share amazing analyses using these data. For the purposes of this post, here is a quick ggplot that compare the rank of commodities between families served by SNAP and those who are not. Based on a Wilcox Signed-Rank Test, the two groups do not statistically differ in their food rankings.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">wilcox.test</span>(snap_appendix1_clean<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>snap_rank,</span>
-<span id="cb16-2">            snap_appendix1_clean<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>nonsnap_rank,</span>
-<span id="cb16-3">            <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">paired =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Wilcoxon signed rank test with continuity correction
-
-data:  snap_appendix1_clean$snap_rank and snap_appendix1_clean$nonsnap_rank
-V = 13954, p-value = 0.7538
-alternative hypothesis: true location shift is not equal to 0</code></pre>
-</div>
-</div>
-<p>Here is a ggplot that compare the rank of commodities between families served by SNAP and those who are not. The labels display which commodities differ by rank of 30 or more.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggrepel)</span>
-<span id="cb18-2"></span>
-<span id="cb18-3">snap_appendix1_plot <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb18-4">  snap_appendix1_clean <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">select</span>(commodity, snap_rank, nonsnap_rank) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">rank_diff =</span> snap_rank <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> nonsnap_rank) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">pivot_longer</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"snap_rank"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"nonsnap_rank"</span>),</span>
-<span id="cb18-8">               <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">names_to =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"variable"</span>,</span>
-<span id="cb18-9">               <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">values_to =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"value"</span>)</span>
-<span id="cb18-10"></span>
-<span id="cb18-11"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(snap_appendix1_plot, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> variable, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> value)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-12">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">col =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lightgrey"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_line</span>(</span>
-<span id="cb18-14">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> snap_appendix1_plot <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-15">      <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(rank_diff <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> rank_diff <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>),</span>
-<span id="cb18-16">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">group =</span> commodity),</span>
-<span id="cb18-17">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"#00C3DA"</span>,</span>
-<span id="cb18-18">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.6</span></span>
-<span id="cb18-19">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-20">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_text_repel</span>(</span>
-<span id="cb18-21">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> snap_appendix1_plot <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-22">      <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(rank_diff <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>,</span>
-<span id="cb18-23">             variable <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"nonsnap_rank"</span>),</span>
-<span id="cb18-24">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label =</span> commodity),</span>
-<span id="cb18-25">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">nudge_y =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.25</span>,</span>
-<span id="cb18-26">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,</span>
-<span id="cb18-27">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">direction =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"y"</span></span>
-<span id="cb18-28">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-29">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_text_repel</span>(</span>
-<span id="cb18-30">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">data =</span> snap_appendix1_plot <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb18-31">      <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">filter</span>(rank_diff <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;=</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">30</span>,</span>
-<span id="cb18-32">             variable <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">==</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"snap_rank"</span>),</span>
-<span id="cb18-33">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">label =</span> commodity),</span>
-<span id="cb18-34">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">nudge_y =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.25</span>,</span>
-<span id="cb18-35">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>,</span>
-<span id="cb18-36">    <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">direction =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"y"</span></span>
-<span id="cb18-37">  ) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-38">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggtitle</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Rank Comparison"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-39">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Category"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-40">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Rank"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-41">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-42">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-43">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_x_discrete</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Non-SNAP Expenditure Rank"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"SNAP Expenditure Rank"</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb18-44">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">scale_y_reverse</span>()</span></code></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/snap-expenditures/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" alt="Line plot showing difference in rank by families served and not served by SNAP" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>I’d love to collaborate with others to finish up this project and find more efficient ways of cleaning these data. The repo with the code and final dataset are on <a href="https://github.com/ivelasq/snap">GitHub</a>.</p>
-<center>
-<p><em>Liked this article? I’d love for you to retweet!</em></p>
-<blockquote class="twitter-tweet blockquote">
-<p lang="en" dir="ltr">
-New blog post 🎉 Extracting SNAP Expenditures Data by Transforming PDFs into Useful Tables 🥒🌶🥕 <a href="https://t.co/UP0hQaHJc9">https://t.co/UP0hQaHJc9</a> <a href="https://twitter.com/hashtag/tabulizer?src=hash&amp;ref_src=twsrc%5Etfw">#tabulizer</a> <a href="https://twitter.com/hashtag/dplyr?src=hash&amp;ref_src=twsrc%5Etfw">#dplyr</a> <a href="https://t.co/SYWbqMiIZh">pic.twitter.com/SYWbqMiIZh</a>
-</p>
-— Isabella Velásquez (<span class="citation" data-cites="ivelasq3">@ivelasq3</span>) <a href="https://twitter.com/ivelasq3/status/1074704678858973184?ref_src=twsrc%5Etfw">December 17, 2018</a>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</center>
-
-
-
- ]]></description>
-  <category>tutorial</category>
-  <guid>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</guid>
-  <pubDate>Sun, 16 Dec 2018 08:00:00 GMT</pubDate>
-  <media:content url="https://ivelasq.rbind.io/blog/snap-expenditures/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

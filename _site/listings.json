@@ -29,6 +29,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/blog/automated-youtube-dashboard/index.html",
       "/blog/macos-rig/index.html",
       "/blog/tidyverse-python-ports/index.html",
       "/blog/understanding-the-r-pipe/index.html",
