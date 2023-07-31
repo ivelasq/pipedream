@@ -1,7 +1,7 @@
 ---
 title: "Using flexdashboard to create a GitHub Actions-powered YouTube feed"
 categories: ["tutorial"]
-date: today
+date: 2023-07-31
 description: "Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️."
 image: "img/thumbnail.jpg"
 image-alt: "Utagawa Yoshikazu, Early Foreign Photographer in Yokohama, a painting with a group of people around a camera in a bright, colorful room."
