@@ -46,3 +46,6 @@ format:
     theme: [litera, styles.scss]
     include-in-header: plausible.html
     highlight-style: nord
+    
+execute:
+  freeze: auto
