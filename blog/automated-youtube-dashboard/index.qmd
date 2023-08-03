@@ -429,3 +429,8 @@ Automating reports and dashboards is easy on Posit Connect. The scheduler is bui
 ![](img/posit-connect.gif){fig-align="center"}
 
 Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting...😇
+<center>
+*Liked this article? I’d love for you to retoot!*
+
+<iframe src="https://fosstodon.org/@ivelasq3/110822815087956079/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
+</center>
