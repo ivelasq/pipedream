@@ -247,6 +247,8 @@ We hope that this post is helpful in setting up an R data science rig on macOS! 
 
 We know there are a ton of ways of setting up a data science rig, and we'd love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!
 
+*Liked this article? I’d love for you to share!*
+
 ::: {.panel-tabset}
 ## Twitter
 {{< tweet ivelasq3 1606094450643435520 >}}
