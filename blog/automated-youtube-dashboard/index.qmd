@@ -19,7 +19,8 @@ There were challenges along the way. Since Meetups happen fairly often, I hoped 
 
 We had a breakthrough when we realized that videos could be accessed relatively painlessly by skipping OAuth 2.0 and using an [API key](https://cloud.google.com/api-keys/docs/overview) instead. After two [pull requests](https://github.com/soodoku/tuber/pulls?q=is%3Apr+author%3Agvelasq) to add API key authentication to {tuber}, we are delighted to announce that the GitHub version of {tuber} now contains functions that work well with GitHub Actions. You can find the finished (and automated!) dashboard here:
 
-[https://ivelasq.github.io/rladies-video-feed](https://ivelasq.github.io/rladies-video-feed)
+<center><a href="https://ivelasq.github.io/rladies-video-feed"><img src="img/dashboard-gif.gif"  style="width:70%"></a><br><caption><https://ivelasq.github.io/rladies-video-feed></caption></center>
+<br>
 
 The [code](https://github.com/ivelasq/rladies-video-feed) for the dashboard is on GitHub in case you want to reuse it for another set of channels!
 
@@ -430,7 +431,7 @@ Automating reports and dashboards is easy on Posit Connect. The scheduler is bui
 
 Since this is a pet project, I opted not to use Posit Connect, but it certainly was tempting...😇
 
-*Liked this article? I’d love for you to share!*
+<center><i>Liked this article? I’d love for you to share!</i></center>
 
 ::: {.panel-tabset}
 ## Twitter
