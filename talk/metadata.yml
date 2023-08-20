@@ -64,4 +64,9 @@
   date: 2023-06-07
   image: ./talk/excel-data-viz-tips-in-r/thumbnail.png
   path: ./talk/excel-data-viz-tips-in-r/index.md
+- title: "The Medium is the Message: R Programmers as Content Creators"
+  subtitle: "Cascadia R Conference"
+  date: 2023-08-19
+  image: ./talk/you-r-a-content-creator/thumbnail.gif
+  path: ./talk/you-r-a-content-creator/index.md
   
