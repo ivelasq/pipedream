@@ -1,23 +1,31 @@
 ---
-title: "Not-basic base R functions"
+title: "Not-so-basic base R functions"
 date: "2022-11-13"
 categories: ["reference"]
 description: "There are so many goodies in base R. Let's explore some functions you may not know."
 image: thumbnail.jpg
 image-alt: "Leonetto Cappiello, Benedictine."
+filters:
+  - webr
 ---
 
 ![Leonetto Cappiello, Benedictine](thumbnail-wide.jpg){fig-alt="A man in red clothes holding up a latern at a window, overlooking a city."}
 
-What if I told you that you could do some pretty amazing things, not loading any packages at all?
+R is a popular programming language known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
-Admittedly, some of these functions are not from base R but from stats, which are also imported when you open up R.
+In this blog post, I will explore a few of my favorite not-so-basic base R functions using [webR](https://docs.r-wasm.org/webr/latest/). Click 'Run code' to see them in action!
+
+![](https://media.tenor.com/no6cN-AO0HcAAAAC/basic.gif){fig-align="center"}
+
+::: {.callout-note}
+Some of these functions are not from base R but from [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html), which is also imported when you open up R.
+:::
 
 * [invisible()](#invisible): Return a temporarily invisible copy of an object
 
 ## 1. invisible()
 
-The `invisible()` function "returns a temporarily invisible copy of an object". For a quick example from the documentation:
+The `invisible()` function "returns a temporarily invisible copy of an object". Below, we have examples where the functions return their argument, but one does so invisibly.
 
 ::: {.column-margin}
 **Resources**
@@ -27,32 +35,38 @@ The `invisible()` function "returns a temporarily invisible copy of an object". 
 * [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html)
 :::
 
-```{r}
-# These functions both return their argument
+```{webr-r}
 f1 <- function(x) x
+f1("This prints")
+```
+
+
+```{webr-r}
 f2 <- function(x) invisible(x)
-f1(1)  # This prints
-f2(1)  # This does not
+f2("This does not print")
 ```
 
-The way to see invisible output is by saving to a variable or running `print()`. These will print:
+The way to see invisible output is by saving to a variable or running `print()`. Both of the below will print:
 
-```{r}
-a <- f2(1)
-a # This prints
+```{webr-r}
+a <- f2("This is a saved variable")
+a
 
-print(f2(1)) # This prints
+print(f2("This is print()"))
 ```
 
-Many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the data frame that was saved.
-
-If you're writing functions, then `invisible()` can be very helpful. 
+If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the data frame that was saved.
 
 * In the example below, using {purrr} and `tidytab::tab_run()` together results in two `NULL` list items that I do not need. 
 
-```{r}
+```{webr-r}
 #| warning: false
+webr::install("purrr")
+webr::shim_install()
+install.packages("tidytab", repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
+
 library(purrr)
+library(tidytab)
 
 dat <-
   tibble::tibble(
@@ -75,7 +89,7 @@ purrr::map(.x = vars,
 
 Running `invisible()` eliminates that!
 
-```{r}
+```{webr-r}
 invisible(purrr::map(.x = vars,
                      .f = tab_run))
 ```
@@ -94,13 +108,13 @@ The `noquote()` function "prints character strings without quotes."
 * [noquote documentation](https://www.educative.io/answers/what-is-the-noquote-function-in-r)
 :::
 
-```{r}
-print("This is the print() function")
-paste("This is the paste() function")
+```{webr-r}
+print("Notice the quotation marks?")
+```
 
-# implementing the noquote() function 
-
-noquote("This is the noquote() function")
+```{webr-r}
+# Implementing the noquote() function 
+noquote("Get rid of them using noquote()!")
 ```
 
 ## 3. coplot
