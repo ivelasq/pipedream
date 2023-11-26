@@ -1,9 +1,8 @@
 ---
-title: Taking a Peek at Hiking Data Using R
-title-block-banner: "#31394D"
+title: "Taking a Peek at Hiking Data Using R"
 date: "2019-07-16"
-description: An analysis of hiking routes and metrics.
 image: thumbnail.png
+image-alt: "Taking a Peek at Hiking Data Using R"
 ---
 
 |           |                                                                                         |

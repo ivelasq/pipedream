@@ -23,7 +23,6 @@ website:
         file: about.qmd
       - text: "Blog"
         file: index.qmd
-      - file: til.qmd
       - file: talk.qmd
       - file: project.qmd
   page-footer:
@@ -39,6 +38,8 @@ website:
         href: https://github.com/ivelasq
       - icon: linkedin
         href: https://www.linkedin.com/in/ivelasq/
+      - icon: mastodon
+        href: https://fosstodon.org/@ivelasq3
       - icon: rss
         href: index.xml
 format:
@@ -46,3 +47,6 @@ format:
     theme: [litera, styles.scss]
     include-in-header: plausible.html
     highlight-style: nord
+    
+execute:
+  freeze: auto

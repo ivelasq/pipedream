@@ -1,18 +1,14 @@
 {
-  "hash": "4a8adde7a8effcba51f1df4961c603c0",
+  "hash": "abb8f89c921a3a480c081a5010430f8a",
   "result": {
-    "markdown": "---\ntitle: Around the World in a Single Table (gt Walkthrough)\ntitle-block-banner: \"banner.jpg\"\ncategories: [walkthroughs, packages]\ndate: \"2021-10-27\"\ndescription: Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package.\nimage: \"thumbnail.png\"\n---\n\n|            |                                                                                                                                         |\n|------------|-----------------------------------------------------------------------------------------------------------------------------------------|\n| Abstract   | Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package. |\n| Date       | October 27, 2021                                                                                                                        |\n| Time       | 11:00AM CT                                                                                                                                 |\n| Location   | Remote                                                                                                                                  |\n| Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                                           |\n| Repository | [**Github**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                                           |\n| Recording  | [**YouTube**](https://www.youtube.com/watch?v=12ySKyWwX4Y)                                                                              |\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div class=\"shareagain\" style=\"min-width:300px;margin:1em auto;\">\n<iframe src=\"https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1\" width=\"1600\" height=\"900\" style=\"border:2px solid currentColor;\" loading=\"lazy\" allowfullscreen></iframe>\n<script>fitvids('.shareagain', {players: 'iframe'});</script>\n</div>\n```\n:::\n:::",
+    "markdown": "---\ntitle: \"Around the World in a Single Table (gt Walkthrough)\"\ndate: \"2021-10-27\"\nimage: \"thumbnail.png\"\nimage-alt: \"Around the World in a Single Table\"\n---\n\n\n|            |                                                                                                                          |\n|-------------|-----------------------------------------------------------|\n| Abstract   | Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package. |\n| Date       | October 27, 2021                                                                                                         |\n| Time       | 11:00AM CT                                                                                                               |\n| Location   | Remote                                                                                                                   |\n| Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                        |\n| Repository | [**GitHub**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                            |\n| Slides     | [**GitHub**](https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1)                               |\n| Recording  | [**YouTube**](https://www.youtube.com/watch?v=12ySKyWwX4Y)                                                               |\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
-    "includes": {
-      "include-in-header": [
-        "<script src=\"../../site_libs/fitvids-2.1.1/fitvids.min.js\"></script>\n"
-      ]
-    },
+    "includes": {},
     "engineDependencies": {},
     "preserve": {},
-    "postProcess": null
+    "postProcess": true
   }
 }

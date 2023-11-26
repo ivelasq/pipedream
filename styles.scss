@@ -1,12 +1,11 @@
 /*-- scss:defaults --*/
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Fira+Code');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Inconsolata');
 
 $font-family-sans-serif:  "Crimson Text" !default;
 $font-family-serif:       "Crimson Text" !default;
-$font-family-monospace: "Fira Code" !default;
-
+$font-family-monospace: "Inconsolata" !default;
 $font-size-base:              1.1rem !default;
 
 // Nav bar

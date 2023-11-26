@@ -1,9 +1,7 @@
 ---
-title: Blogdown for What
-title-block-banner: "black"
-date: "2018-07-23"
-description: A walkthrough on creating a website using the {blogdown} package.
+title: "Blogdown for What"
 image: thumbnail.png
+image-alt: "Blogdown for What"
 ---
 
 |          |                                                                                         |

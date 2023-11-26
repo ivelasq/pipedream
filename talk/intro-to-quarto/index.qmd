@@ -1,17 +1,17 @@
 ---
-title: Intro to Quarto
-date: "2022-10-27"
-description: A workshop introducing Quarto, an open-source scientific and technical publishing system.
+title: "Intro to Quarto"
 image: "thumbnail.png"
+image-alt: "Intro to Quarto"
 ---
 
-|          |                                                                                         |
-|----------|-----------------------------------------------------------------------------------------|
-| Date     | October 28, 2022
-| Time     | 04:00PM PT                                                                                  |
-| Location | Remote                                                                                  |
-| Event    | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
+|            |                                                                                            |
+|------------------|----------------------------------------------------------|
+| Date       | October 28, 2022                                                                           |
+| Time       | 04:00PM PT                                                                                 |
+| Location   | Remote                                                                                     |
+| Event      | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
+| Repository | [**GitHub**](https://github.com/ivelasq/2022-10-27_intro-to-quarto/)                       |
+| Slides     | [**QuartoPub**](https://ivelasq.quarto.pub/intro-to-quarto)                                |
+| Recording  | [**YouTube**](https://www.youtube.com/watch?v=y6_xMIBKuP4/)                                |
 
-<center>
-<iframe width="800" height="600" src="https://www.youtube.com/embed/y6_xMIBKuP4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
+<center><a href="https://ivelasq.quarto.pub/intro-to-quarto"><img src="promo.jpg" target="_blank" style="width:800px;height:450px;"/></a></center>

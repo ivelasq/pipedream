@@ -90,6 +90,8 @@ dat <-
 
 vars <- c("col1", "col2")
 
+mtcars %>% tab(cyl)
+
 # Install from devtools::install_github("gvelasq/tidytab")
 # tab_run <- function(.x){
 #   dat |>

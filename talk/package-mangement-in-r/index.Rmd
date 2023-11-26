@@ -1,12 +1,11 @@
 ---
-title: Package Management for Reproducible Data Science in R
-title-block-banner: "#272822"
+title: "Package Management for Reproducible Data Science in R"
 author:
   - Mike Garcia
   - Isabella Velásquez
 date: "2020-05-07"
-description: Reproducible data science encompasses a broad range of practices including, but not limited to, version control and literate programming. One practice that is often overlooked is proper management of packages. Code that works with software or package version you have installed may break when run with different software or package version. In this webinar, we will discuss R package management solutions for two scenarios. Isabella will show how to maintain installed packages when upgrading to a new version of R, using the recent release of R 4.0 as an example. Mike will demonstrate how the renv package can be used to maintain packages within individual data science projects.
 image: "thumbnail.png"
+image-alt: "Package Management for Reproducible Data Science in R"
 ---
 
 |            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
