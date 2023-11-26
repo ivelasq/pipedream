@@ -3212,6 +3212,7 @@ TIL about coplots in base <a href="https://twitter.com/hashtag/RStats?src=hash&a
 <p>file.choose()</p>
 <p>lengths</p>
 <p>with</p>
+<p>https://blog.theapricot.io/posts/quarto-headers/</p>
 
 
 </section>
@@ -3808,10 +3809,11 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night sky"></p>
-<p></p><figcaption class="figure-caption">Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption>
 </figure>
 </div>
 <p>A while back, I wrote <a href="https://mobile.twitter.com/ivelasq3/status/1404947187155574787">this tweet</a> showing many (not all!) of the ways one might search for a particular set of columns in a data frame using R. Several of these approaches used the {magrittr} pipe (<code>%&gt;%</code>) and the native R pipe (<code>|&gt;</code>), the latter of which has been available since R version 4.1.0. The {magrittr} and native R pipes work in different ways and one’s mental model of each requires some maintenance. This is the story of how I learned to understand the native R pipe.</p>
@@ -4083,12 +4085,12 @@ background-color: null;
 font-style: inherit;">head</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sqrt</span>(mtcars))</span></code></pre></div>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 An important note
 </div>
 </div>
@@ -4189,12 +4191,12 @@ font-style: inherit;">$</span>mpg))()</span></code></pre></div>
 <center>
 <img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/mario2.gif" class="img-fluid" alt="GIF of Mario running across pipes avoiding piranha plants">
 </center>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 2022-03-31 Note
 </div>
 </div>
@@ -4268,14 +4270,14 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).↩︎</p></li>
 <li id="fn2"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.↩︎</p></li>
 <li id="fn3"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.↩︎</p></li>
 </ol>
-</section></div> ]]></description>
+</aside></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/</guid>
   <pubDate>Tue, 18 Jan 2022 08:00:00 GMT</pubDate>
@@ -4288,10 +4290,11 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with green trees and a red sun"></p>
-<p></p><figcaption class="figure-caption">Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption>
 </figure>
 </div>
 <p>Last week, a paper started making the Twitter rounds. <a href="https://www.biorxiv.org/content/10.1101/2020.07.30.228916v1.full.pdf">Selective attention in hypothesis-driven data analysis</a> by Professors Itai Yanai and Martin Lerche looked into whether providing specific hypotheses prevented students from fully exploring a dataset. The authors artificially created a dataset that, when plotted, clearly showed the outline of a cartoon gorilla.</p>
@@ -4306,18 +4309,18 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+<span id="cb1-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Install packages if not already installed</span></span>
-<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+<span id="cb1-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># install.packages(c("tidyverse", "reticulate"))</span></span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
+<span id="cb1-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">library</span>(tidyverse)</span>
-<span id="cb1-5"><span class="fu" style="color: #4758AB;
+font-style: inherit;">library(tidyverse)</span></span>
+<span id="cb1-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">library</span>(reticulate)</span>
+font-style: inherit;">library(reticulate)</span></span>
 <span id="cb1-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4326,19 +4329,15 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
+<span id="cb2-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">use_python</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/usr/local/bin/python"</span>)</span>
-<span id="cb2-3"><span class="co" style="color: #5E5E5E;
+font-style: inherit;">use_python("/usr/local/bin/python")</span></span>
+<span id="cb2-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># If you haven't installed Python, the line below will prompt you!</span></span>
-<span id="cb2-4"><span class="fu" style="color: #4758AB;
+<span id="cb2-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">py_install</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"pillow"</span>)</span>
+font-style: inherit;">py_install("pillow")</span></span>
 <span id="cb2-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4354,16 +4353,12 @@ See https://docs.conda.io/en/latest/miniconda.html for more details.</code></pre
 <div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{python}</span></span>
-<span id="cb4-2"><span class="im" style="color: #00769E;
+<span id="cb4-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+font-style: inherit;">import numpy as np</span></span>
+<span id="cb4-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb4-3"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">from</span> PIL <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> Image</span>
+font-style: inherit;">from PIL import Image</span></span>
 <span id="cb4-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4371,37 +4366,29 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{python}</span></span>
-<span id="cb5-2"><span class="co" style="color: #5E5E5E;
+<span id="cb5-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Thanks to Bart Huntley for pointing out a typo previously in this chunk!</span></span>
-<span id="cb5-3">im <span class="op" style="color: #5E5E5E;
+<span id="cb5-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> Image.<span class="bu" style="color: null;
+font-style: inherit;">im = Image.open("/cloud/project/image/gorilla.jpg")</span></span>
+<span id="cb5-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">open</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"/cloud/project/image/gorilla.jpg"</span>)</span>
-<span id="cb5-4">pixels <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.asarray(im)</span>
+font-style: inherit;">pixels = np.asarray(im)</span></span>
 <span id="cb5-5"></span>
-<span id="cb5-6"><span class="co" style="color: #5E5E5E;
+<span id="cb5-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set threshold level</span></span>
-<span id="cb5-7">threshold_level <span class="op" style="color: #5E5E5E;
+<span id="cb5-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">50</span></span>
+font-style: inherit;">threshold_level = 50</span></span>
 <span id="cb5-8"></span>
-<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+<span id="cb5-9"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Find coordinates of all pixels below threshold</span></span>
-<span id="cb5-10">coords <span class="op" style="color: #5E5E5E;
+<span id="cb5-10"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> np.column_stack(np.where(pixels <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> threshold_level))</span>
+font-style: inherit;">coords = np.column_stack(np.where(pixels &lt; threshold_level))</span></span>
 <span id="cb5-11"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4413,8 +4400,8 @@ font-style: inherit;">```</span></span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen%20Shot%202021-09-27%20at%2011.40.55%20PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
-<p></p><figcaption class="figure-caption">Python Cheatsheet</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen Shot 2021-09-27 at 11.40.55 PM.png" class="img-fluid figure-img"></p>
+<figcaption>Python Cheatsheet</figcaption>
 </figure>
 </div>
 </center>
@@ -4423,99 +4410,33 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb6-2">coords <span class="ot" style="color: #003B4F;
+<span id="cb6-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&lt;-</span></span>
-<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">coords &lt;-</span></span>
+<span id="cb6-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">as.data.frame</span>(py<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">  as.data.frame(py$coords) %&gt;%</span></span>
+<span id="cb6-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>coords) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">  sample_n(1768) %&gt;%</span></span>
+<span id="cb6-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">  mutate(bmi = V2 * 17 + 15,</span></span>
+<span id="cb6-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">sample_n</span>(<span class="dv" style="color: #AD0000;
+font-style: inherit;">         steps = 15000 - V1 * 15000/max(V1)) %&gt;%</span></span>
+<span id="cb6-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">1768</span>) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">  mutate(randvar = rnorm(n(), mean = 0, sd = 10),</span></span>
+<span id="cb6-8"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-5">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">         randi = steps * (1 + randvar),</span></span>
+<span id="cb6-9"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+font-style: inherit;">         gender = case_when(randi &lt; median(steps) ~ "Female",</span></span>
+<span id="cb6-10"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">bmi =</span> V2 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">17</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15</span>,</span>
-<span id="cb6-6">         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">steps =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15000</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> V1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15000</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(V1)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb6-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">randvar =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">n</span>(), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>),</span>
-<span id="cb6-8">         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">randi =</span> steps <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> (<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> randvar),</span>
-<span id="cb6-9">         <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">gender =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">case_when</span>(randi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&lt;</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">median</span>(steps) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Female"</span>,</span>
-<span id="cb6-10">                            <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Male"</span>))</span>
+font-style: inherit;">                            TRUE ~ "Male"))</span></span>
 <span id="cb6-11"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4523,12 +4444,12 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb7-2">coords <span class="sc" style="color: #5E5E5E;
+<span id="cb7-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">coords %&gt;%</span></span>
+<span id="cb7-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">count</span>(gender)</span>
+font-style: inherit;">  count(gender)</span></span>
 <span id="cb7-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4539,38 +4460,24 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb8-2">coords <span class="sc" style="color: #5E5E5E;
+<span id="cb8-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb8-3">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">coords %&gt;%</span></span>
+<span id="cb8-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">  ggplot(aes(x = bmi,</span></span>
+<span id="cb8-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+font-style: inherit;">              y = steps)) +</span></span>
+<span id="cb8-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">x =</span> bmi,</span>
-<span id="cb8-4">              <span class="at" style="color: #657422;
+font-style: inherit;">  geom_point() +</span></span>
+<span id="cb8-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">y =</span> steps)) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">  theme_void() +</span></span>
+<span id="cb8-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-5">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb8-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">xlim</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15000</span>)</span>
+font-style: inherit;">  xlim(0, 15000)</span></span>
 <span id="cb8-8"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4580,41 +4487,27 @@ font-style: inherit;">```</span></span></code></pre></div>
 <div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb9-2">coords <span class="sc" style="color: #5E5E5E;
+<span id="cb9-2"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb9-3">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">coords %&gt;%</span></span>
+<span id="cb9-3"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+font-style: inherit;">  ggplot(aes(x = bmi,</span></span>
+<span id="cb9-4"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+font-style: inherit;">             y = steps,</span></span>
+<span id="cb9-5"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">x =</span> bmi,</span>
-<span id="cb9-4">             <span class="at" style="color: #657422;
+font-style: inherit;">             color = gender)) +</span></span>
+<span id="cb9-6"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">y =</span> steps,</span>
-<span id="cb9-5">             <span class="at" style="color: #657422;
+font-style: inherit;">  geom_point() +</span></span>
+<span id="cb9-7"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">color =</span> gender)) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">  theme_void() +</span></span>
+<span id="cb9-8"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-6">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-7">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_void</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb9-8">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">xlim</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">15000</span>)</span>
+font-style: inherit;">  xlim(0, 15000)</span></span>
 <span id="cb9-9"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
@@ -4649,10 +4542,11 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Olive trees against a blue background  and a bright sun"></p>
-<p></p><figcaption class="figure-caption">Vincent van Gogh, The Olive Trees (1889)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Vincent van Gogh, The Olive Trees (1889)</figcaption>
 </figure>
 </div>
 <p>I am excited to announce that I’ve joined the RStudio Marketing team! I will be creating content on the <a href="https://blog.rstudio.com/">RStudio Blog</a> that will announce news and share stories from the company, users, and partners. I just started this week and, ready to jump in, I decided that I’d like to deep dive into previous blog posts.</p>
@@ -4756,8 +4650,8 @@ font-style: inherit;">"tags"</span>))</span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img" alt="Cell names"></p>
-<p></p><figcaption class="figure-caption">Cell names</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
+<figcaption>Cell names</figcaption>
 </figure>
 </div>
 </center>
@@ -4873,10 +4767,11 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
-<p></p><figcaption class="figure-caption">Pauline Powell Williams, Violets (1890)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Pauline Powell Williams, Violets (1890)</figcaption>
 </figure>
 </div>
 <p><a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a> is such an amazing website, and also a fantastic source of data for analysis projects. I often find myself <a href="https://en.wikipedia.org/wiki/Web_scraping">scraping</a> Wikipedia’s tables for information and then cleaning and using the data for whatever I am working on.</p>
@@ -5016,10 +4911,11 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract pink flowers with red centers on a background of an orange spiral with brown background"></p>
-<p></p><figcaption class="figure-caption">E. A. Séguy, Vintage flower patterns (1925)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>E. A. Séguy, Vintage flower patterns (1925)</figcaption>
 </figure>
 </div>
 <p>Artists in the R community have been using the <a href="https://twitter.com/hashtag/rtistry"><code>#rtistry</code></a> hashtag to demonstrate their gorgeous, dynamic art using only the R programming language. Their creations are amazing and they inspired me to try out generative art this dreary Sunday.</p>
@@ -5027,8 +4923,8 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img" alt="Generative art showing a repeated parametric equation"></p>
-<p></p><figcaption class="figure-caption">Final image</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img"></p>
+<figcaption>Final image</figcaption>
 </figure>
 </div>
 </center>
@@ -5161,7 +5057,7 @@ font-style: inherit;">geom_path</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Circle plot" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Circle plot" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5334,7 +5230,7 @@ font-style: inherit;">geom_path</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Different shapes of a parametric equation" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5390,7 +5286,7 @@ font-style: inherit;">geom_path</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" alt="Different shapes of a parametric equation" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Different shapes of a parametric equation" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5440,7 +5336,7 @@ font-style: inherit;">geom_line</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" alt="Parametric equation with an abstract look" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with an abstract look" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5488,7 +5384,7 @@ font-style: inherit;">geom_point</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" alt="Parametric equation with dots" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with dots" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5567,7 +5463,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" alt="Parametric equation with dots closer together" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with dots closer together" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5607,7 +5503,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" alt="Parametric equation with xes instead of dots" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with xes instead of dots" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5673,7 +5569,7 @@ font-style: inherit;">theme_void</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" alt="Parametric equation with mixed opacity" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with mixed opacity" width="672"></p>
 </figure>
 </div>
 </div>
@@ -5761,7 +5657,7 @@ To change them back, use invert_geom_defaults().</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" alt="Parametric equation with various colors on a black background" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with various colors on a black background" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6071,7 +5967,7 @@ font-style: inherit;"># remove legend</span></span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" alt="Parametric equation with varying dot sizes and colors repeated around the center" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Parametric equation with varying dot sizes and colors repeated around the center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6198,7 +6094,7 @@ font-style: inherit;"># remove legend</span></span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6256,10 +6152,11 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A person working in fields of colorful tulips with houses in the background"></p>
-<p></p><figcaption class="figure-caption">Vincent Van Gogh, Flower Beds in Holland (1883)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Vincent Van Gogh, Flower Beds in Holland (1883)</figcaption>
 </figure>
 </div>
 <p>R users are incredibly fortunate to work in an open-source community that creates and shares resources that make our work even better. The {ggplot2} package comes with incredibly useful geoms (geometric objects) to create visualizations. A full list of these can be found in the <a href="https://ggplot2.tidyverse.org/reference/">reference documents</a> for {ggplot2}. These include:</p>
@@ -6341,7 +6238,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6397,7 +6294,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6465,7 +6362,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6529,7 +6426,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6620,7 +6517,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6691,7 +6588,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6748,7 +6645,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6804,7 +6701,7 @@ font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -6840,10 +6737,11 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
-<p></p><figcaption class="figure-caption">Winslow Homer, Maine Coast (1896)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img"></p>
+<figcaption>Winslow Homer, Maine Coast (1896)</figcaption>
 </figure>
 </div>
 <p>My co-authors <a href="https://twitter.com/RyanEs">Ryan</a>, <a href="https://twitter.com/efreer20">Emily</a>, <a href="https://twitter.com/kierisi">Jesse</a>, <a href="https://twitter.com/jrosenberg6432">Josh</a>, and <a href="https://twitter.com/ivelasq3">I</a> published our book last year, but <a href="https://datascienceineducation.com/">Data Science in Education Using R</a> is also available online as a bookdown on a website, available to all.</p>
@@ -7040,8 +6938,8 @@ font-style: inherit;">;</span></span>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
-<p></p><figcaption class="figure-caption">gtsummary Reference</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img"></p>
+<figcaption>gtsummary Reference</figcaption>
 </figure>
 </div>
 </center>
@@ -7091,10 +6989,11 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Two ballerina dancers at the barre, one with her leg in the air"></p>
-<p></p><figcaption class="figure-caption">Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption>
 </figure>
 </div>
 <ul>
@@ -7684,12 +7583,12 @@ font-style: inherit;">"/bin/zsh"</span></span>
 <span id="cb16-24"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">}</span></span></code></pre></div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -8340,10 +8239,11 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract blue and white birds repeating on against a white and blue background"></p>
-<p></p><figcaption class="figure-caption">Rijksmuseum, Pigeons in white and blue (1928)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Rijksmuseum, Pigeons in white and blue (1928)</figcaption>
 </figure>
 </div>
 <p>The other day, I was scrolling through my “liked” Tweets and got maybe 100 deep when I accidentally clicked a hyperlink and had to restart scrolling from the beginning. The experience made me so frustrated that I started looking up easier ways of perusing one’s likes. I found <a href="https://medium.com/@xoelop/how-to-browse-and-search-your-liked-tweets-711fc1b70851">this tutorial</a> that walked through how to pull liked Tweets into a CSV using Python - so I decided to give it a shot using R.</p>
@@ -8550,10 +8450,11 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
-<p></p><figcaption class="figure-caption">Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption>
 </figure>
 </div>
 <section id="an-update-to-leaidr" class="level2">
@@ -8603,7 +8504,7 @@ font-style: inherit;">geom_sf</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Blank map of Tennessee school districts." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Blank map of Tennessee school districts." width="672"></p>
 </figure>
 </div>
 </div>
@@ -8781,22 +8682,22 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img" alt="Screenshot of Mapbox website with Tilesets"></p>
-<p></p><figcaption class="figure-caption">Mapbox Tilesets</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img"></p>
+<figcaption>Mapbox Tilesets</figcaption>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img" alt="Screenshot of Mapbox choosing a template"></p>
-<p></p><figcaption class="figure-caption">Mapbox Template</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img"></p>
+<figcaption>Mapbox Template</figcaption>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img" alt="Screenshot of Mapbox layers and how to add them"></p>
-<p></p><figcaption class="figure-caption">Mapbox Layers</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img"></p>
+<figcaption>Mapbox Layers</figcaption>
 </figure>
 </div>
 <p>I zoomed to where my tiles are located (Oregon and Washington) and started editing. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/#data-driven-styling">This section of the walkthrough</a> explains how to create a choropleth map, where each geography has a different color according to a value.</p>
@@ -8807,8 +8708,8 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img" alt="Screenshot of Mapbox sharing a map"></p>
-<p></p><figcaption class="figure-caption">Mapbox Sharing</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img"></p>
+<figcaption>Mapbox Sharing</figcaption>
 </figure>
 </div>
 <p>I copied the Share URL to include in the function below. For the location parameter, I used the latitude/longitude listed in the browser URL. I played around with the zoom level until I found one I liked.</p>
@@ -8967,10 +8868,11 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A dancer with a large skirt dancing at a dance hall with a crowd behind her"></p>
-<p></p><figcaption class="figure-caption">Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)</figcaption>
 </figure>
 </div>
 <blockquote class="blockquote">
@@ -9019,10 +8921,11 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
-<p></p><figcaption class="figure-caption">Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption>
 </figure>
 </div>
 <p>The U.S. Census releases aggregate data on their <a href="https://www.census.gov/data/tables/2020/demo/hhp2.html">Household Pulse Survey</a>. These data are valuable and cover a range of important topics, particularly those related to the COVID-19 pandemic.</p>
@@ -9102,8 +9005,8 @@ font-style: inherit;">View</span>(census_sheet1)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
-<p></p><figcaption class="figure-caption">First three columns of the imported dataset</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img"></p>
+<figcaption>First three columns of the imported dataset</figcaption>
 </figure>
 </div>
 <p>Immediately, we see that the top lines are superfluous rows (the headers from the original dataset). We can use <code>skip</code> in <code>read_excel()</code> to not have them read in.</p>
@@ -9129,8 +9032,8 @@ font-style: inherit;"># View(census_sheet1)</span></span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
-<p></p><figcaption class="figure-caption">Dataset with skipped lines</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img"></p>
+<figcaption>Dataset with skipped lines</figcaption>
 </figure>
 </div>
 <p>Now that the unnecessary rows are gone, we see that the column names aren’t reading in super well because of the merged cells in the original sheet. In this case, we manually create a vector of the column names and replace the old ones with <code>set_names()</code>.</p>
@@ -9170,8 +9073,8 @@ font-style: inherit;">set_names</span>(new_names)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
-<p></p><figcaption class="figure-caption">Dataset with cleaned names</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img"></p>
+<figcaption>Dataset with cleaned names</figcaption>
 </figure>
 </div>
 <p>We still have some empty rows (and also a row at the very bottom which is a note in the original dataset). We can eliminate these rows using <code>slice()</code>. Here, we’re saying to ‘slice’ rows 1 through 3 and 60.</p>
@@ -9204,8 +9107,8 @@ font-style: inherit;">61</span>)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
-<p></p><figcaption class="figure-caption">Dataset with removed rows</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img"></p>
+<figcaption>Dataset with removed rows</figcaption>
 </figure>
 </div>
 <p>Now to deal with the fact that the category names are embedded within the first column <code>select_characteristics</code>. There may be other ways to do this, but again I manually create a vector with all the values that I want to get rid of and use <code>filter()</code> to keep only the rows that do <strong>not</strong> contain the items in the vector.</p>
@@ -9255,8 +9158,8 @@ font-style: inherit;">%in%</span> filter_var) </span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
-<p></p><figcaption class="figure-caption">Dataset with filtered rows</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img"></p>
+<figcaption>Dataset with filtered rows</figcaption>
 </figure>
 </div>
 <p>Even though we removed the characteristic names from the rows, they contain very useful information. Also, we run into an issue in which two of the characteristic categories had the same options (“yes” and “no”). If we don’t address this, we’ll forget which rows are for which characteristic. To fix this, we manually create a column with the characteristics for each of the response options and append it to the data.</p>
@@ -9371,8 +9274,8 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
-<p></p><figcaption class="figure-caption">Column with variable names</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img"></p>
+<figcaption>Column with variable names</figcaption>
 </figure>
 </div>
 </center>
@@ -9380,8 +9283,8 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
-<p></p><figcaption class="figure-caption">Column with numbers but with character type</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img"></p>
+<figcaption>Column with numbers but with character type</figcaption>
 </figure>
 </div>
 </center>
@@ -9454,8 +9357,8 @@ font-style: inherit;">"Sheet"</span>)</span></code></pre></div>
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
-<p></p><figcaption class="figure-caption">Viewing the list</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img"></p>
+<figcaption>Viewing the list</figcaption>
 </figure>
 </div>
 <p>Using the same thinking as we did with the single sheet example, let’s go through and clean up this list - without having to go into each tibble!</p>
@@ -9781,7 +9684,7 @@ font-style: inherit;">"Source: U.S. Census"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" alt="Barplot showing percent of classes that were cancelled by income group, with lower income groups more likely to report cancelled classes" width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/index_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Barplot showing percent of classes that were cancelled by income group, with lower income groups more likely to report cancelled classes" width="672"></p>
 </figure>
 </div>
 </div>
@@ -9814,10 +9717,11 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
-<p></p><figcaption class="figure-caption">Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption>
 </figure>
 </div>
 <p>I would like to introduce <a href="https://github.com/ivelasq/leaidr">{leaidr}</a>, a package for mapping U.S. school district shapefiles!</p>
@@ -9854,7 +9758,7 @@ font-style: inherit;">"GEOID"</span>])</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" alt="Map of school districts from tigris, which is missing quite a few districts." width="672"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Map of school districts from tigris, which is missing quite a few districts." width="672"></p>
 </figure>
 </div>
 </div>
@@ -9890,12 +9794,12 @@ background-color: null;
 font-style: inherit;"># install.packages("mapproj")</span></span></code></pre></div>
 </div>
 <p>Time to get your data! Use {leaidr} to download and prep your shapefiles for California (FIPS == 06). Read in the external data (in this case, <code>summary-of-table-of-links.csv</code>).</p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -10129,10 +10033,11 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"></p>
-<p></p><figcaption class="figure-caption">J. Howard Miller, We Can Do It!</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>J. Howard Miller, We Can Do It!</figcaption>
 </figure>
 </div>
 <p>As the @<a href="https://twitter.com/WeAreRLadies">WeAreRLadies</a> curator, I <a href="https://twitter.com/WeAreRLadies/status/1227937968117043200">asked the Twitterverse</a> for advice when submitting a package to the Comprehensive R Archive Network (CRAN) for the first time. Many people replied and offer their tips, experience, and well wishes. I have summarized everybody’s replies below. THANK YOU all for participating!</p>
@@ -10239,10 +10144,11 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful dots making up a painting of a garden with two women"></p>
-<p></p><figcaption class="figure-caption">Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)</figcaption>
 </figure>
 </div>
 <p>I often use {ggplot2} to create graphs but there are certain things I <em>always</em> have to Google. I figured I’d create a post for quick reference for myself but I’d love to hear what you always have to look up!</p>
@@ -10294,7 +10200,11 @@ font-style: inherit;">stat =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"count"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <section id="remove-the-legend" class="level2">
@@ -10333,7 +10243,11 @@ font-style: inherit;">legend.position =</span> <span class="st" style="color: #2
 background-color: null;
 font-style: inherit;">"none"</span>)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -10419,7 +10333,11 @@ font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Rock"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -10551,7 +10469,11 @@ font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"#ff688c"</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -10702,7 +10624,11 @@ font-style: inherit;">axis.ticks.x =</span> <span class="fu" style="color: #4758
 background-color: null;
 font-style: inherit;">element_blank</span>())</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -10870,7 +10796,11 @@ font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10000</span>))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -11043,7 +10973,11 @@ font-style: inherit;">labels =</span> scales<span class="sc" style="color: #5E5E
 background-color: null;
 font-style: inherit;">::</span>comma)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>There we have it! Six things I always eventually end up Googling when I am making plots using {ggplot2}. Hopefully now I can just look at this page instead of searching each and every time!</p>
@@ -11074,10 +11008,11 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town showing green and yellow houses and a white church and trees"></p>
-<p></p><figcaption class="figure-caption">Village by the River, fourth quarter 19th century</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Village by the River, fourth quarter 19th century</figcaption>
 </figure>
 </div>
 <p>My good friend <a href="https://twitter.com/RyanEs">Ryan Estrellado</a> recommended an <a href="https://www.npr.org/2019/08/28/755191639/episode-936-the-modal-american">NPR Planet Money podcast episode</a> on the “Modal American.” Working with Ben Casselman, Planet Money explored the most ‘typical’ American. It was a fantastic, engaging episode about a common statistical technique that I’ve never seen applied in this way before. They ran the numbers on a variety of demographic variables to see what group is the most common in the U.S. (I highly recommend the episode - it’s pretty surprising!).</p>
@@ -11692,7 +11627,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -11900,7 +11835,11 @@ font-style: inherit;">+</span></span>
 background-color: null;
 font-style: inherit;">theme_minimal</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>I tried to visualize the data another way - using bar plots. Again, this gets a bit unruly with all the variables. This leads me to think it’s better to just look at the table.</p>
@@ -11944,7 +11883,11 @@ font-style: inherit;">~</span> size <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> geography)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/index_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -11983,7 +11926,7 @@ font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>()</span></code></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">demographics</th>
@@ -12590,10 +12533,11 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 
 
 
+
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A horizon of snow-capped mountains"></p>
-<p></p><figcaption class="figure-caption">Thomas Moran, Winter in the Rockies (1867)</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<figcaption>Thomas Moran, Winter in the Rockies (1867)</figcaption>
 </figure>
 </div>
 <p>I moved to Seattle at the end of 2016 and since then have done over 100 hikes (depending on your definition of ‘a hike’). I must admit I’ve been abysmal at tracking any data regarding my hiking activity beyond a <a href="https://docs.google.com/spreadsheets/d/1Y3NdGea6yVuoDS7ewUKmuKGZouzU62FHK-aY813TafA/edit?usp=sharing">Google spreadsheet</a>, despite the ubiquity of trail tracking apps that exist.</p>
@@ -13569,8 +13513,8 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img" alt="Histogram of hike total distance skewed right"></p>
-<p></p><figcaption class="figure-caption">Histogram of hike total distance</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/dist_histogram.png" class="img-fluid figure-img"></p>
+<figcaption>Histogram of hike total distance</figcaption>
 </figure>
 </div>
 <div class="cell">
@@ -13634,8 +13578,8 @@ font-style: inherit;">"none"</span>)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img" alt="Cumulative bar plot of distance increasing from the left to the right colored by a gradient"></p>
-<p></p><figcaption class="figure-caption">Cumulative bar plot of distance</figcaption><p></p>
+<p><img src="https://ivelasq.rbind.io/blog/average-hike/cum_dist.png" class="img-fluid figure-img"></p>
+<figcaption>Cumulative bar plot of distance</figcaption>
 </figure>
 </div>
 </section>

@@ -1,30 +1,5 @@
 [
   {
-    "listing": "/til.html",
-    "items": [
-      "/til/gitkeep/Untitled.html",
-      "/til/nzchar/index.html",
-      "/til/asciicast/index.html",
-      "/til/filter-if-any/index.html"
-    ]
-  },
-  {
-    "listing": "/talk.html",
-    "items": [
-      "talk/intro-to-quarto/index.html",
-      "talk/building-a-blog-with-quarto/index.html",
-      "talk/building-a-blog-with-r/index.html",
-      "talk/using-r-and-other-tools/index.html",
-      "talk/gt-talk/index.html",
-      "talk/git-through-april/index.html",
-      "talk/longitudinal-analysis/index.html",
-      "talk/rladies-allyship/index.html",
-      "talk/package-mangement-in-r/index.html",
-      "talk/hiking-data/index.html",
-      "talk/blogdown-for-what/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/blog/not-so-basic-base-r-functions/index.html",
@@ -59,6 +34,31 @@
       "/project/package/roomba/index.html",
       "/project/package/wizehiver/index.html",
       "/project/book/data-science-in-education-using-r/index.html"
+    ]
+  },
+  {
+    "listing": "/til.html",
+    "items": [
+      "/til/gitkeep/Untitled.html",
+      "/til/nzchar/index.html",
+      "/til/asciicast/index.html",
+      "/til/filter-if-any/index.html"
+    ]
+  },
+  {
+    "listing": "/talk.html",
+    "items": [
+      "talk/intro-to-quarto/index.html",
+      "talk/building-a-blog-with-quarto/index.html",
+      "talk/building-a-blog-with-r/index.html",
+      "talk/using-r-and-other-tools/index.html",
+      "talk/gt-talk/index.html",
+      "talk/git-through-april/index.html",
+      "talk/longitudinal-analysis/index.html",
+      "talk/rladies-allyship/index.html",
+      "talk/package-mangement-in-r/index.html",
+      "talk/hiking-data/index.html",
+      "talk/blogdown-for-what/index.html"
     ]
   }
 ]
