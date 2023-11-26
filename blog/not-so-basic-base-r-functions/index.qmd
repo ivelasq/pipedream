@@ -5,6 +5,7 @@ categories: ["reference"]
 description: "There are so many goodies in base R. Let's explore some functions you may not know."
 image: thumbnail.jpg
 image-alt: "Leonetto Cappiello, Benedictine."
+draft: true
 filters:
   - webr
 ---

@@ -1,0 +1,10 @@
+---
+filters:
+  - webr
+---
+
+```{webr-r}
+#| warning: true
+#| message: true
+webr::install("tidytab", repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
+```
