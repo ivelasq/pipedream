@@ -1,0 +1,183 @@
+---
+title: "Not-so-basic base R functions"
+date: "2023-11-13"
+categories: ["reference"]
+description: "There are so many goodies in base R. Let's explore some functions you may not know."
+image: thumbnail.jpg
+image-alt: "Leonetto Cappiello, Benedictine."
+filters:
+  - webr
+---
+
+R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
+
+There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, I will explore a few of my favorite not-so-basic base R functions using [webR](https://docs.r-wasm.org/webr/latest/). Click 'Run code' to see them in action!
+
+![](https://media.tenor.com/no6cN-AO0HcAAAAC/basic.gif){fig-align="center"}
+
+::: {.callout-note}
+Some of these functions are not from base R but from [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html), which is also imported when you open up R.
+:::
+
+1. [invisible()](#invisible): Return a temporarily invisible copy of an object
+2. [noquote()](#noquote): Print a character string without quotes
+3. [coplot()](#coplot): Visualize interactions
+
+## 1. invisible()
+
+The `invisible()` function "returns a temporarily invisible copy of an object". Below, we have examples where the functions return their argument, but one does so invisibly.
+
+::: {.column-margin}
+**Resources**
+
+* [invisible documentation](https://rdrr.io/github/robertzk/monadicbase/man/invisible.html)
+* [StackOverflow discussion](https://stackoverflow.com/questions/11653127/what-does-the-function-invisible-do)
+* [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html)
+:::
+
+```{webr-r}
+f1 <- function(x) x
+f1("This prints")
+```
+
+
+```{webr-r}
+f2 <- function(x) invisible(x)
+f2("This does not print")
+```
+
+The way to see invisible output is by saving to a variable or running `print()`. Both of the below will print:
+
+```{webr-r}
+a <- f2("This prints because it's a saved variable")
+a
+
+print(f2("This prints because of print()"))
+```
+
+If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the data frame that was saved.
+
+* In the example below, using {purrr} and `tidytab::tab2()` together results in two `NULL` list items that I do not need. 
+
+First, let's install the required R packages. This should be quick, not enough time to go get a cup of coffee! Installing purrr from the [webR binary repository](https://docs.r-wasm.org/webr/latest/packages.html) is as easy as calling `webr::install()`.
+
+```{webr-r}
+#| warning: true
+#| message: true
+webr::install("purrr")
+```
+
+For a slightly more difficult installation, let's install the R package tidytab, which is compiled into a WebAssembly binary on [r-universe](https://gvelasq.r-universe.dev/tidytab#).
+
+```{webr-r}
+#| warning: true
+#| message: true
+webr::install("tidytab", repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
+```
+
+```{webr-r}
+#| warning: true
+#| message: true
+library(purrr)
+library(tidytab)
+
+dat <-
+  data.frame(
+    col1 = c(3, 2, 2, 1, 2, 1),
+    col2 = c(1, 2, 1, 1, 3, 2),
+    ct = c(2, 2, 2, 2, 2, 2)
+  )
+
+vars <- c("col1", "col2")
+
+mtcars %>% tab(cyl)
+
+# Install from devtools::install_github("gvelasq/tidytab")
+# tab_run <- function(.x){
+#   dat |>
+#     tidytab::tab2(all_of(.x), "ct")
+# }
+# 
+# purrr::map(.x = vars,
+#            .f = tab_run)
+```
+
+Running `invisible()` eliminates that!
+
+```{webr-r}
+invisible(purrr::map(.x = vars,
+                     .f = tab_run))
+```
+
+* When writing a function, R can print a lot of stuff implictly. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output".
+
+This is useful for generating intermediate diagnostics or for saving multiple output formats. <!--add more-->
+
+## 2. noquote
+
+The `noquote()` function "prints character strings without quotes." 
+
+::: {.column-margin}
+**Resources**
+
+* [noquote documentation](https://www.educative.io/answers/what-is-the-noquote-function-in-r)
+:::
+
+```{webr-r}
+print("Notice the quotation marks?")
+```
+
+```{webr-r}
+# Implementing the noquote() function 
+noquote("Now they're gone, thanks to noquote()!")
+```
+
+I use `noquote()` in a function that converts Markdown reference-style links into HTML links. Below, I pipe a Markdown reference-style link (`"[Isabella's blog](ivelasq.rbind.io)"`) into an anonymous function to get the HTML version that's not surrounded by quotes, allowing me to paste it directly in the text (`<a href="ivelasq.rbind.io" target = "_blank">Isabella's blog</a>`).
+
+::: {.column-margin}
+Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io/blog/understanding-the-r-pipe/)!
+:::
+
+```{webr-r}
+#| output: asis
+"[Isabella's blog](https://ivelasq.rbind.io)" |> (\(.) {
+  text <- sub("\\].*", "", sub(".*\\[", "", .))
+  url <- sub("\\).*", "", sub(".*\\(", "", .))
+  
+  writeLines(noquote(paste0('<a href="', url, '" target = "_blank">', text, '</a>')))
+})()
+```
+
+## 3. coplot
+
+The `coplot()` function allows you to create conditioning plots. With these plots, you can quickly explore pairs of variables conditioned on a third.
+
+::: {.column-margin}
+**Resources**
+
+* [An introduction to R](https://intro2r.com/simple-base-r-plots.html#coplots)
+:::
+
+```{webr-r}
+coplot(mpg ~ hp|wt, data = mtcars)
+```
+
+I first learned about `coplot()` thanks to Eric Leung's tweet:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL about coplots in base <a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a>. in my nearly decade use of R, i&#39;ve never come across this function to quickly explore pairs of variables conditioned on a third<br><br>library(palmerpenguins)<br>coplot(body_mass_g ~ bill_length_mm|species, data = penguins)<a href="https://t.co/EVpI738VzO">https://t.co/EVpI738VzO</a> <a href="https://t.co/zcTw4HGvnZ">pic.twitter.com/zcTw4HGvnZ</a></p>&mdash; Eric Leung 梁挺亮 (@erictleung) <a href="https://twitter.com/erictleung/status/1555656643056058369?ref_src=twsrc%5Etfw">August 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+## 4. split
+
+
+
+encodeString
+
+nzchar
+
+file.choose()
+
+lengths
+
+with
+
+https://blog.theapricot.io/posts/quarto-headers/
