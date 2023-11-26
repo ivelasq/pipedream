@@ -9,8 +9,6 @@ filters:
   - webr
 ---
 
-![Leonetto Cappiello, Benedictine](thumbnail-wide.jpg){fig-alt="A man in red clothes holding up a latern at a window, overlooking a city."}
-
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
 There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, I will explore a few of my favorite not-so-basic base R functions using [webR](https://docs.r-wasm.org/webr/latest/). Click 'Run code' to see them in action!
