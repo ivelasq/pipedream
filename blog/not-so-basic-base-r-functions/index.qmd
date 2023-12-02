@@ -5,13 +5,16 @@ categories: ["reference"]
 description: "There are so many goodies in base R. Let's explore some functions you may not know."
 image: thumbnail.jpg
 image-alt: "Leonetto Cappiello, Benedictine."
+webr:
+  show-startup-message: false
+  packages: [purrr]
 filters:
   - webr
 ---
 
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
-There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, I will explore a few of my favorite not-so-basic base R functions using [webR](https://docs.r-wasm.org/webr/latest/). Click 'Run code' to see them in action!
+There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite not-so-basic base R functions. Click 'Run code' to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/)![^longnote]
 
 ![](https://media.tenor.com/no6cN-AO0HcAAAAC/basic.gif){fig-align="center"}
 
@@ -22,6 +25,7 @@ Some of these functions are not from base R but from [stats](https://stat.ethz.c
 1. [invisible()](#invisible): Return a temporarily invisible copy of an object
 2. [noquote()](#noquote): Print a character string without quotes
 3. [coplot()](#coplot): Visualize interactions
+4. [nzchar()](#nzchar): Find out if elements of a character vector are non-empty strings
 
 ## 1. invisible()
 
@@ -55,29 +59,17 @@ a
 print(f2("This prints because of print()"))
 ```
 
-If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the data frame that was saved.
+If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.
 
-* In the example below, using {purrr} and `tidytab::tab2()` together results in two `NULL` list items that I do not need. 
-
-First, let's install the required R packages. This should be quick, not enough time to go get a cup of coffee! Installing purrr from the [webR binary repository](https://docs.r-wasm.org/webr/latest/packages.html) is as easy as calling `webr::install()`.
+Let's see another example. First, we'll install an R package, tidytab, which is compiled into a WebAssembly binary on [r-universe](https://gvelasq.r-universe.dev/tidytab#).
 
 ```{webr-r}
-#| warning: true
-#| message: true
-webr::install("purrr")
-```
-
-For a slightly more difficult installation, let's install the R package tidytab, which is compiled into a WebAssembly binary on [r-universe](https://gvelasq.r-universe.dev/tidytab#).
-
-```{webr-r}
-#| warning: true
-#| message: true
 webr::install("tidytab", repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
 ```
 
+In the example below, using purrr and `tidytab::tab2()` together results in two `NULL` list items that we do not need.
+
 ```{webr-r}
-#| warning: true
-#| message: true
 library(purrr)
 library(tidytab)
 
@@ -92,14 +84,13 @@ vars <- c("col1", "col2")
 
 mtcars %>% tab(cyl)
 
-# Install from devtools::install_github("gvelasq/tidytab")
-# tab_run <- function(.x){
-#   dat |>
-#     tidytab::tab2(all_of(.x), "ct")
-# }
-# 
-# purrr::map(.x = vars,
-#            .f = tab_run)
+tab_run <- function(.x){
+  dat |>
+    tidytab::tab2(all_of(.x), "ct")
+}
+
+purrr::map(.x = vars,
+           .f = tab_run)
 ```
 
 Running `invisible()` eliminates that!
@@ -109,7 +100,7 @@ invisible(purrr::map(.x = vars,
                      .f = tab_run))
 ```
 
-* When writing a function, R can print a lot of stuff implictly. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output".
+When writing a function, R can print a lot of stuff implictly. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output".
 
 This is useful for generating intermediate diagnostics or for saving multiple output formats. <!--add more-->
 
@@ -121,6 +112,7 @@ The `noquote()` function "prints character strings without quotes."
 **Resources**
 
 * [noquote documentation](https://www.educative.io/answers/what-is-the-noquote-function-in-r)
+
 :::
 
 ```{webr-r}
@@ -132,19 +124,21 @@ print("Notice the quotation marks?")
 noquote("Now they're gone, thanks to noquote()!")
 ```
 
-I use `noquote()` in a function that converts Markdown reference-style links into HTML links. Below, I pipe a Markdown reference-style link (`"[Isabella's blog](ivelasq.rbind.io)"`) into an anonymous function to get the HTML version that's not surrounded by quotes, allowing me to paste it directly in the text (`<a href="ivelasq.rbind.io" target = "_blank">Isabella's blog</a>`).
+I use `noquote()` in a function `url_make` that converts Markdown reference-style links into HTML links. The input is a character string of a Markdown reference-style link `mdUrl` and the output is the HTML version of that URL. With `noquote()`, I can paste the output directly in my text. 
+
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Very proud of my little <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> function to turn a Markdown URL to HTML ☺️ (and save it to your clipboard too). <a href="https://t.co/TsddtTDn9R">pic.twitter.com/TsddtTDn9R</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1519366644782583813?ref_src=twsrc%5Etfw">April 27, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center> 
+
+Try it out in an anonymous function below!
 
 ::: {.column-margin}
 Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io/blog/understanding-the-r-pipe/)!
 :::
 
 ```{webr-r}
-#| output: asis
 "[Isabella's blog](https://ivelasq.rbind.io)" |> (\(.) {
   text <- sub("\\].*", "", sub(".*\\[", "", .))
   url <- sub("\\).*", "", sub(".*\\(", "", .))
-  
-  writeLines(noquote(paste0('<a href="', url, '" target = "_blank">', text, '</a>')))
+  HTML(noquote(paste0('Thanks for checking out <a href="', url, '" target = "_blank">', text, '</a>!')))
 })()
 ```
 
@@ -164,20 +158,44 @@ coplot(mpg ~ hp|wt, data = mtcars)
 
 I first learned about `coplot()` thanks to Eric Leung's tweet:
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL about coplots in base <a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a>. in my nearly decade use of R, i&#39;ve never come across this function to quickly explore pairs of variables conditioned on a third<br><br>library(palmerpenguins)<br>coplot(body_mass_g ~ bill_length_mm|species, data = penguins)<a href="https://t.co/EVpI738VzO">https://t.co/EVpI738VzO</a> <a href="https://t.co/zcTw4HGvnZ">pic.twitter.com/zcTw4HGvnZ</a></p>&mdash; Eric Leung 梁挺亮 (@erictleung) <a href="https://twitter.com/erictleung/status/1555656643056058369?ref_src=twsrc%5Etfw">August 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL about coplots in base <a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a>. in my nearly decade use of R, i&#39;ve never come across this function to quickly explore pairs of variables conditioned on a third<br><br>library(palmerpenguins)<br>coplot(body_mass_g ~ bill_length_mm|species, data = penguins)<a href="https://t.co/EVpI738VzO">https://t.co/EVpI738VzO</a> <a href="https://t.co/zcTw4HGvnZ">pic.twitter.com/zcTw4HGvnZ</a></p>&mdash; Eric Leung 梁挺亮 (@erictleung) <a href="https://twitter.com/erictleung/status/1555656643056058369?ref_src=twsrc%5Etfw">August 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center> 
 
 ## 4. split
 
+## 5. encodeString
 
+## 6. nzchar
 
-encodeString
+From the [documentation](https://rdrr.io/r/base/nchar.html), `nzchar()` is a fast way to find out if elements of a character vector are non-empty strings. It returns `TRUE` for non-empty strings and `FALSE` for empty strings. This function is particularly helpful when working with environment variables! See an example in the [tuber](https://github.com/gojiplus/tuber/blob/4ccf5879b6a3017e88588e65d53ab1e1afce4769/R/delete_channel_sections.R#L21) documentation.
 
-nzchar
+```{webr-r}
+# This is not empty
+Sys.getenv("R_LIBS_USER")
 
-file.choose()
+# This returns TRUE
+nzchar(Sys.getenv("R_LIBS_USER"))
+```
 
-lengths
+```{webr-r}
+# This is empty
+Sys.getenv("test")
 
-with
+# This returns FALSE
+nzchar(Sys.getenv("test"))
+```
 
-https://blog.theapricot.io/posts/quarto-headers/
+I have written about nzchar [in the past](https://ivelasq.rbind.io/til/asciicast/) - check out the page to see how to create a GIF with code!
+
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL: nzchar(). Super useful when working with environment variables in R.<br><br>also, <a href="https://twitter.com/hashtag/asciicast?src=hash&amp;ref_src=twsrc%5Etfw">#asciicast</a> is amazing! install the GIF converter with remotes::install_github(&#39;r-lib/asciicast&#39;, ref = remotes::github_pull(24)) <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> h/t <a href="https://twitter.com/GaborCsardi?ref_src=twsrc%5Etfw">@GaborCsardi</a> <a href="https://t.co/pCZQLCNaDl">pic.twitter.com/pCZQLCNaDl</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1524193394037342211?ref_src=twsrc%5Etfw">May 11, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+
+## 7. lengths()
+
+## 8. with()
+
+x %>% filter(foo > 7) %>% with(smoothScatter(foo, bar))
+
+[^longnote]: I want to give a big shout out to:
+
+    - James Joseph Balamuta's [Quarto extension for webR](https://quarto-webr.thecoatlessprofessor.com/). 
+    - Brian Kent's [blog post](https://blog.theapricot.io/posts/quarto-headers/) on adding headers to a Quarto blog on Netlify.
