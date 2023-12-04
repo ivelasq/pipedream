@@ -4,7 +4,7 @@ date: "2018-08-04"
 categories: ["reference"]
 description: My advice to aspiring data scientists and analysts entering these programs.
 image: "thumbnail.jpg"
-image-alt: "Pieter Claesz, Vanitas Still Life with the Spinario showing a still life with a book, statue, violin, skull, and other items arranged in a room"
+image-alt: "Pieter Claesz, Vanitas Still Life with the Spinario showing a still life with a book, statue, violin, skull, and other items arranged in a room."
 ---
 
 ![Pieter Claesz, Vanitas Still Life with the Spinario (1628)](thumbnail-wide.jpg){fig-alt="A still life with a book, statue, violin, skull, and other items arranged in a room"}
