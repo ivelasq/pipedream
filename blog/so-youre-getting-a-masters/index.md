@@ -26,12 +26,10 @@ Git and GitHub was not required for any classes (at least when I was in the prog
 * It's a much better collaboration tool than what we did (which was email each other with code changes).
 * It's also a good history so you remember things you've done (which I have forgotten already).
 * It's also way neater to have homework in projects in GitHub as opposed to a zillion folders on your Desktop (which is what I went with).
-* Git[hub] is also a great skill to have, as many data analysis/science teams use it regularly!
+* Git[Hub] is also a great skill to have, as many data analysis/science teams use it regularly!
 * There's also nothing better than having a filled up contribution graph.
 
-<center>
-<img src="https://i.imgur.com/7c6ss6v.jpg?style=centerme" alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious."></img>
-</center>
+![](https://i.imgur.com/7c6ss6v.jpg){fig-align="center" fig-alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious."}
 
 ## 2. Leave each class with an example that you can show a potential employer
 
@@ -39,18 +37,14 @@ These programs go *quickly.* I was a part-time student and took my sweet time an
 
 Of course, I understand that not all homework applies to this — but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up — and be able to show how this project illustrates the value you can bring to your future company.
 
-<center>
-<img src="https://miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif" alt="Jamie from Outlander saying, I'm here and I'm ready."></img>
-</center>
+![](https://miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif){fig-align="center" fig-alt="Jamie from Outlander saying, I'm here and I'm ready."}
 
 ## 3. Diversify your programming languages
 
 My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python — and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.
 
-<center>
-<img src="https://media.makeameme.org/created/you-know-i-5b67d1.jpg?style=centerme" alt="Ron Burgundy saying You know I dont speak Python In R please."></img>
-</center>
-<br>
+![](https://media.makeameme.org/created/you-know-i-5b67d1.jpg){fig-align="center" fig-alt="Ron Burgundy saying You know I dont speak Python In R please."}
+
 Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I'd have to refresh myself on even the basics of the language — which is a shame considering how much effort I put in when I was in the class.
 
 ## 4. Choose your Capstone project and advisor carefully
@@ -68,10 +62,8 @@ When it was Capstone time, the options were listed on a website and we were told
 
 I was in the second cohort of my Analytics program and even though it's been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it's offered to any student who may benefit from it.
 
-<center>
-<img src="https://media.giphy.com/media/uRb2p09vY8lEs/giphy.gif?style=centerme" alt="Tom Cruise saying Help me help you."></img>
-</center>
-<br>
+![](https://i.giphy.com/uRb2p09vY8lEs.gif){fig-align="center" fig-alt="Tom Cruise saying Help me help you."}
+
 As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.
 
 ## 6. Learn what you love about the process
@@ -80,9 +72,7 @@ As you progress through your Analytics or Data Science program, you will learn t
 
 You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.
 
-<center>
-<img src="https://i.chzbgr.com/full/7462068736/h27B781F0/?style=centerme" alt="Data from Star Trek playing with a cat"></img>
-</center>
+![](https://i.chzbgr.com/full/7462068736/h27B781F0/){fig-alt="Data from Star Trek playing with a cat" fig-align="center"}
 
 ## Conclusion
 

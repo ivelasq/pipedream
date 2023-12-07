@@ -50,3 +50,4 @@ format:
     
 execute:
   freeze: auto
+  fig-align: center
