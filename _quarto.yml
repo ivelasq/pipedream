@@ -47,6 +47,8 @@ format:
     theme: [litera, styles.scss]
     include-in-header: plausible.html
     highlight-style: nord
+    filters: 
+      - social-embeds
     
 execute:
   freeze: auto
