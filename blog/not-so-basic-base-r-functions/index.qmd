@@ -60,15 +60,17 @@ print(f2("This prints because of print()"))
 
 If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.
 
-Let's see another example. Run the chunk below to install the purrr and tidytab packages. Tidytab is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#).
+Let's see another example. Run the chunk below to install the purrr and tidytab packages. Tidytab is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument!
 
 ```{webr-r}
 webr::install("purrr")
 
-webr::install("tidytab", mount = FALSE, repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
+webr::install("tidytab", 
+              mount = FALSE, 
+              repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
 ```
 
-In the example below, using purrr and `tidytab::tab2()` together results in two `NULL` list items that we do not need.
+Using purrr and `tidytab::tab2()` together results in two `NULL` list items that we do not need.
 
 ```{webr-r}
 library(purrr)
