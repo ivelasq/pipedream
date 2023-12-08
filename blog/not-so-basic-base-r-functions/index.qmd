@@ -13,9 +13,7 @@ filters:
 
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
-There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite not-so-basic base R functions. Click 'Run code' to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/)![^longnote]
-
-![](https://media.tenor.com/no6cN-AO0HcAAAAC/basic.gif){fig-align="center"}
+There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite not-so-basic base R functions. Click 'Run code' to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/) and the [quarto-webr extension](https://quarto-webr.thecoatlessprofessor.com/)![^longnote]
 
 ::: {.callout-note}
 Some of these functions are not from base R but from [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html), which is also imported when you open up R.
@@ -28,7 +26,9 @@ Some of these functions are not from base R but from [stats](https://stat.ethz.c
 
 ## 1. invisible
 
-The `invisible()` function "returns a temporarily invisible copy of an object". Below, we have examples where the functions return their argument, but one does so invisibly.
+The `invisible()` function "returns a temporarily invisible copy of an object" by hiding the output of a function in the console. When you wrap a function in `invisible()`, it will execute normally and can be assigned to a variable or used in other operations, but the result isn't printed out.
+
+Below, we have examples where the functions return their argument `x`, but one does so invisibly.
 
 ::: {.column-margin}
 **Resources**
@@ -58,9 +58,7 @@ a
 print(f2("This prints because of print()"))
 ```
 
-If you're writing functions, then `invisible()` can be very helpful. In fact, many of your favorite functions use `invisible()`. For example, `readr::write_csv()` [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.
-
-Let's see another example. Run the chunk below to install the purrr and tidytab packages. Tidytab is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument!
+Let's try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling `webr::install()`. The tidytab package is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and needs the `repos` argument to find it. `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument!
 
 ```{webr-r}
 webr::install("purrr")
@@ -103,9 +101,9 @@ invisible(purrr::map(.x = vars,
                      .f = tab_run))
 ```
 
-When writing a function, R can print a lot of stuff implictly. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output".
+When writing a function, R can print a lot of stuff implictly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results. In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame. 
 
-This is useful for generating intermediate diagnostics or for saving multiple output formats. <!--add more-->
+For example, `invisible()` can help with generating intermediate diagnostics. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output". You can use `invisible()` when you want to understand how your function is working by printing results but then hiding the details in the final version of the function.
 
 ## 2. noquote
 
