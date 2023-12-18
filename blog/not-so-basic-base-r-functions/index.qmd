@@ -101,9 +101,9 @@ invisible(purrr::map(.x = vars,
                      .f = tab_run))
 ```
 
-When writing a function, R can print a lot of stuff implictly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results. In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame. 
+When writing a function, R can print a lot of stuff implictly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.
 
-For example, `invisible()` can help with generating intermediate diagnostics. Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output". You can use `invisible()` when you want to understand how your function is working by printing results but then hiding the details in the final version of the function.
+Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output". In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.  
 
 ## 2. noquote
 
@@ -139,7 +139,7 @@ Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io
 "[Isabella's blog](https://ivelasq.rbind.io)" |> (\(.) {
   text <- sub("\\].*", "", sub(".*\\[", "", .))
   url <- sub("\\).*", "", sub(".*\\(", "", .))
-  cat(noquote(paste0('Thanks for checking out <a href="', url, '" target = "_blank">', text, '</a>!')))
+  noquote(paste0('Thanks for checking out <a href="', url, '" target = "_blank">', text, '</a>!'))
 })()
 ```
 
