@@ -31,7 +31,7 @@ Git and GitHub was not required for any classes (at least when I was in the prog
 * Git[Hub] is also a great skill to have, as many data analysis/science teams use it regularly!
 * There's also nothing better than having a filled up contribution graph.
 
-![](https://i.imgur.com/7c6ss6v.jpg){fig-align="center" fig-alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious."}
+![](images/commit.png){fig-align="center" fig-alt="Character from Napolean Dynamite saying Created repo and made an initial commit, so I guess you could say things are getting pretty serious."}
 
 ## 2. Leave each class with an example that you can show a potential employer
 
@@ -80,9 +80,6 @@ You should know how to successfully accomplish the data science methodology but 
 
 The purpose of these data science/analytics degrees is to serve as a means to an end but it's been two years since I finished my Masters and I still reflect on the experience. Along the journey, there was a lot of change and improvement. My Analytics program impacted how I think, my career trajectory, and what I do outside of work. For that I am thankful, as I also realize that there is no definite end to learning.
 
-<center>
 *Liked this article? I'd love for you to retweet!*
 
 {{< tweet ivelasq3 1027200743030149122 >}}
-
-</center>
