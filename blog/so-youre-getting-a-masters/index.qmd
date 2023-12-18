@@ -39,13 +39,13 @@ These programs go *quickly.* I was a part-time student and took my sweet time an
 
 Of course, I understand that not all homework applies to this — but a lot of it does, in particular your final projects. Are you going to put on your resume that you can produce dashboards with data visualizations? You must have an example to back that up — and be able to show how this project illustrates the value you can bring to your future company.
 
-![](https://miro.medium.com/max/1838/1*5U_4FZ82_Lf4p6o82VTGuQ.gif){fig-align="center" fig-alt="Jamie from Outlander saying, I'm here and I'm ready."}
+![](images/ready.gif){fig-align="center" fig-alt="Jamie from Outlander saying, I'm here and I'm ready."}
 
 ## 3. Diversify your programming languages
 
 My classes were primarily in R, with only one course requiring Python. In a short amount of time, I picked up and could use Python — and I lost my skills in about the same amount of time once the course was over! Without the discipline of practicing and keeping up my programming skills in languages other than R, they quickly were put on the backburner and eventually forgotten.
 
-![](https://media.makeameme.org/created/you-know-i-5b67d1.jpg){fig-align="center" fig-alt="Ron Burgundy saying You know I dont speak Python In R please."}
+![](images/speak.jpg){fig-align="center" fig-alt="Ron Burgundy saying You know I dont speak Python In R please."}
 
 Once I was finishing up school and applying for jobs, I had to admit to potential employers that my R skills were much stronger. This ultimately worked out but it did put me out of the running for any Python shops. To replicate the work I did in Python, I'd have to refresh myself on even the basics of the language — which is a shame considering how much effort I put in when I was in the class.
 
@@ -64,7 +64,7 @@ When it was Capstone time, the options were listed on a website and we were told
 
 I was in the second cohort of my Analytics program and even though it's been a couple of years since then, most data science curriculum are relatively new. There are still kinks to work out in terms of what should be required, what should be optional, what order to take courses in, etc. For example, we were thrust into the world of R because our homework had to be done in R, even though many of us had never even installed a package before! We made the recommendation to administration that they should create a short course covering the basics and now it's offered to any student who may benefit from it.
 
-![](https://i.giphy.com/uRb2p09vY8lEs.gif){fig-align="center" fig-alt="Tom Cruise saying Help me help you."}
+![](images/help.gif){fig-align="center" fig-alt="Tom Cruise saying Help me help you."}
 
 As you go through your program, everything will seem to go so quickly. The details will get lost in the blur unless you intentionally think about how to improve your experience and the experience of those who will come after you.
 
@@ -74,7 +74,7 @@ As you progress through your Analytics or Data Science program, you will learn t
 
 You should know how to successfully accomplish the data science methodology but graduate school is also an opportunity to learn which part excites you. Because of the enormous world of data analytics out there, this will help hone in on the role that can bring joy to your work as much as possible.
 
-![](https://i.chzbgr.com/full/7462068736/h27B781F0/){fig-alt="Data from Star Trek playing with a cat" fig-align="center"}
+![](images/data.gif){fig-alt="Data from Star Trek playing with a cat" fig-align="center"}
 
 ## Conclusion
 
@@ -82,4 +82,8 @@ The purpose of these data science/analytics degrees is to serve as a means to an
 
 *Liked this article? I'd love for you to retweet!*
 
-{{< tweet ivelasq3 1027200743030149122 >}}
+<center>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash&amp;ref_src=twsrc%5Etfw">#blogdown</a> 🎉: So You&#39;re Getting a Masters in Analytics 👩🏽‍🎓👨🏽‍🎓‼️ Reflections from an R-Centric Program <a href="https://t.co/mvOPKbcSeG">https://t.co/mvOPKbcSeG</a> <a href="https://twitter.com/hashtag/datascience?src=hash&amp;ref_src=twsrc%5Etfw">#datascience</a> <a href="https://t.co/uaq721m2ZL">pic.twitter.com/uaq721m2ZL</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1027200743030149122?ref_src=twsrc%5Etfw">August 8, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+</center>
