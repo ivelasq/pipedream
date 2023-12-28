@@ -147,7 +147,7 @@ Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io
 
 ## 3. coplot
 
-The `coplot()` function allows you to create conditioning plots, with which you can quickly explore pairs of variables conditioned on a third.
+The `coplot()` function allows you to create conditioning plots to quickly explore pairs of variables conditioned on a third.
 
 ::: {.column-margin}
 **Resources**
