@@ -11,9 +11,11 @@ filters:
   - webr
 ---
 
+![](thumbnail-wide.jpg)
+
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
-There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite not-so-basic base R functions. Click 'Run code' to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/) and the [quarto-webr extension](https://quarto-webr.thecoatlessprofessor.com/)![^longnote]
+There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite "not-so-basic" (i.e., maybe new to you!) base R functions. Click 'Run code' in order to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/) and the [quarto-webr extension](https://quarto-webr.thecoatlessprofessor.com/)![^longnote]
 
 ::: {.callout-note}
 Some of these functions are not from base R but from [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html), which is also imported when you open up R.
@@ -28,7 +30,7 @@ Some of these functions are not from base R but from [stats](https://stat.ethz.c
 
 The `invisible()` function "returns a temporarily invisible copy of an object" by hiding the output of a function in the console. When you wrap a function in `invisible()`, it will execute normally and can be assigned to a variable or used in other operations, but the result isn't printed out.
 
-Below, we have examples where the functions return their argument `x`, but one does so invisibly.
+Below are examples where the functions return their argument `x`, but one does so invisibly.
 
 ::: {.column-margin}
 **Resources**
@@ -58,7 +60,7 @@ a
 print(f2("This prints because of print()"))
 ```
 
-Let's try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling `webr::install()`. The tidytab package is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and needs the `repos` argument to find it. `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument!
+Let's try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling `webr::install()`. The tidytab package is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and needs the `repos` argument to find it. `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument! (Note: this might take a few seconds.)
 
 ```{webr-r}
 webr::install("purrr")
@@ -68,7 +70,7 @@ webr::install("tidytab",
               repos = c("https://gvelasq.r-universe.dev", "https://repo.r-wasm.org"))
 ```
 
-Using purrr and `tidytab::tab2()` together results in two `NULL` list items that we do not need.
+Using purrr and `tidytab::tab2()` together results in two `NULL` list items we do not need.
 
 ```{webr-r}
 library(purrr)
@@ -101,7 +103,7 @@ invisible(purrr::map(.x = vars,
                      .f = tab_run))
 ```
 
-When writing a function, R can print a lot of stuff implictly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.
+When writing a function, R can print a lot of stuff implicitly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.
 
 Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output". In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.  
 
@@ -145,7 +147,7 @@ Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io
 
 ## 3. coplot
 
-The `coplot()` function allows you to create conditioning plots. With these plots, you can quickly explore pairs of variables conditioned on a third.
+The `coplot()` function allows you to create conditioning plots, with which you can quickly explore pairs of variables conditioned on a third.
 
 ::: {.column-margin}
 **Resources**
