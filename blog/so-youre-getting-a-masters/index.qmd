@@ -84,6 +84,7 @@ The purpose of these data science/analytics degrees is to serve as a means to an
 
 <center>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash&amp;ref_src=twsrc%5Etfw">#blogdown</a> 🎉: So You&#39;re Getting a Masters in Analytics 👩🏽‍🎓👨🏽‍🎓‼️ Reflections from an R-Centric Program <a href="https://t.co/mvOPKbcSeG">https://t.co/mvOPKbcSeG</a> <a href="https://twitter.com/hashtag/datascience?src=hash&amp;ref_src=twsrc%5Etfw">#datascience</a> <a href="https://t.co/uaq721m2ZL">pic.twitter.com/uaq721m2ZL</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1027200743030149122?ref_src=twsrc%5Etfw">August 8, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">First blog post on my new <a href="https://twitter.com/hashtag/blogdown?src=hash&amp;ref_src=twsrc%5Etfw">#blogdown</a> 🎉: So You&#39;re Getting a Masters in Analytics 👩🏽‍🎓👨🏽‍🎓‼️ Reflections from an R-Centric Program <a href="https://t.co/mvOPKbcSeG">https://t.co/mvOPKbcSeG</a> <a href="https://twitter.com/hashtag/datascience?src=hash&amp;ref_src=twsrc%5Etfw">#datascience</a> <a href="https://t.co/uaq721m2ZL">pic.twitter.com/uaq721m2ZL</a>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1027200743030149122?ref_src=twsrc%5Etfw">August 8, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+</center>
 
 </center>
