@@ -45,7 +45,9 @@ website:
 format:
   html:
     theme: [litera, styles.scss]
-    include-in-header: plausible.html
+    include-in-header:
+      - plausible.html
+      - https://platform.twitter.com/widgets.js
     highlight-style: nord
     filters: 
       - social-embeds
