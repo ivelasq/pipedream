@@ -18,27 +18,28 @@ R is known for its versatility and extensive collection of packages. As of the p
 There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite "not-so-basic" (i.e., maybe new to you!) base R functions. Click 'Run code' in order to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/) and the [quarto-webr extension](https://quarto-webr.thecoatlessprofessor.com/)![^longnote]
 
 ::: {.callout-note}
-Some of these functions are not from base R but from [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html), which is also imported when you open up R.
+This post includes functions from the [base](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html), [graphics](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html), and [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html) packages, which are imported when you open up R. Other packages are grDevices, utils, datasets, and methods.[^packages]
 :::
 
 1. [invisible()](#invisible): Return a temporarily invisible copy of an object
 2. [noquote()](#noquote): Print a character string without quotes
 3. [coplot()](#coplot): Visualize interactions
 4. [nzchar()](#nzchar): Find out if elements of a character vector are non-empty strings
+5. [with()](#with): Evaluate an expression in a data environment
 
 ## 1. invisible
 
 The `invisible()` function "returns a temporarily invisible copy of an object" by hiding the output of a function in the console. When you wrap a function in `invisible()`, it will execute normally and can be assigned to a variable or used in other operations, but the result isn't printed out.
 
-Below are examples where the functions return their argument `x`, but one does so invisibly.
-
 ::: {.column-margin}
 **Resources**
 
 * [invisible documentation](https://rdrr.io/github/robertzk/monadicbase/man/invisible.html)
-* [StackOverflow discussion](https://stackoverflow.com/questions/11653127/what-does-the-function-invisible-do)
+* [What does the function invisible() do?](https://stackoverflow.com/questions/11653127/what-does-the-function-invisible-do)
 * [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html)
 :::
+
+Below are examples where the functions return their argument `x`, but one does so invisibly.
 
 ```{webr-r}
 f1 <- function(x) x
@@ -147,29 +148,59 @@ Learn more about this syntax in my [previous blog post](https://ivelasq.rbind.io
 
 ## 3. coplot
 
-The `coplot()` function allows you to create conditioning plots to quickly explore pairs of variables conditioned on a third.
+The `coplot()` function creates conditioning plots, which are helpful in multivariate analysis. They allow you to explore pairs of variables conditioned on a third so you can understand how relationships change across different conditions.
 
 ::: {.column-margin}
 **Resources**
 
+* [coplot documentation](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/coplot.html)
 * [An introduction to R](https://intro2r.com/simple-base-r-plots.html#coplots)
+* [How to read a coplot() graph](https://stackoverflow.com/questions/29472360/how-to-read-a-coplot-graph)
 :::
 
+The syntax of `coplot()` is `coplot(y ~ x | a, data)`, where `y` and `x` are the variables you want to plot, `a` is the conditioning variable, and `data` is the data frame. The variables provided to `coplot()` can be either numeric or factors.
+
+Using the built-in `quakes` dataset, let's look at the relationship between the latitude (`lat`) and the longitude (`long`) and how it varies depending on the depth in km of seismic events (`depth`).
+
 ```{webr-r}
-coplot(mpg ~ hp|wt, data = mtcars)
+coplot(lat ~ long | depth, data = quakes)
 ```
 
-I first learned about `coplot()` thanks to Eric Leung's tweet:
+To interpret this plot:
+
+* Latitude is plotted on the y-axis
+* Longitude is plotted on the x-axis
+* The six plots show the relationship of these two variables for different values of depth
+* The bar plot at the top indicates the range of depth values for each of the plots
+* The plots in the lower left have the lowest range of depth values and the plots in the top right have the highest range of depth values
+
+The orientation of plots might not be the most intuitive. Set `rows = 1` to make the coplot easier to read.
+
+```{webr-r}
+coplot(lat ~ long | depth, data = quakes,  rows = 1)
+```
+
+Here, you can see how the area of Fiji earthquakes grows smaller with increasing depth.
+
+You can also condition on two variables with the syntax `coplot(y ~ x| a * b)`, where the plots of `y` versus `x` are produced conditional on the two variables `a` and `b`. Below, the coplot shows the relationship with depth from left to right and the relationship with magnitude (`mag`) from top to bottom. Check out a more in-depth explanation of this plot on [StackOverflow](https://stackoverflow.com/questions/29472360/how-to-read-a-coplot-graph).
+
+```{webr}
+coplot(lat ~ long | depth * mag, data = quakes, number = c(3, 4))
+```
+
+I first learned about `coplot()` thanks to Eric Leung's tweet. Thanks, Eric!
 
 <center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL about coplots in base <a href="https://twitter.com/hashtag/RStats?src=hash&amp;ref_src=twsrc%5Etfw">#RStats</a>. in my nearly decade use of R, i&#39;ve never come across this function to quickly explore pairs of variables conditioned on a third<br><br>library(palmerpenguins)<br>coplot(body_mass_g ~ bill_length_mm|species, data = penguins)<a href="https://t.co/EVpI738VzO">https://t.co/EVpI738VzO</a> <a href="https://t.co/zcTw4HGvnZ">pic.twitter.com/zcTw4HGvnZ</a></p>&mdash; Eric Leung 梁挺亮 (@erictleung) <a href="https://twitter.com/erictleung/status/1555656643056058369?ref_src=twsrc%5Etfw">August 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center> 
 
-## 4. split
+## 4. nzchar
 
-## 5. encodeString
+From the [documentation](https://rdrr.io/r/base/nchar.html), "`nzchar()` is a fast way to find out if elements of a character vector are non-empty strings". It returns `TRUE` for non-empty strings and `FALSE` for empty strings. This function is particularly helpful when working with environment variables - see an example in the [tuber](https://github.com/gojiplus/tuber/blob/4ccf5879b6a3017e88588e65d53ab1e1afce4769/R/delete_channel_sections.R#L21) documentation!
 
-## 6. nzchar
+::: {.column-margin}
+**Resources**
 
-From the [documentation](https://rdrr.io/r/base/nchar.html), `nzchar()` is a fast way to find out if elements of a character vector are non-empty strings. It returns `TRUE` for non-empty strings and `FALSE` for empty strings. This function is particularly helpful when working with environment variables! See an example in the [tuber](https://github.com/gojiplus/tuber/blob/4ccf5879b6a3017e88588e65d53ab1e1afce4769/R/delete_channel_sections.R#L21) documentation.
+* [nzchar documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/nchar.html)
+:::
 
 ```{webr-r}
 # This is not empty
@@ -187,20 +218,77 @@ Sys.getenv("test")
 nzchar(Sys.getenv("test"))
 ```
 
-I have written about nzchar [in the past](https://ivelasq.rbind.io/til/asciicast/) - check out the page to see how to create a GIF with code!
+I have written about nzchar [in the past](https://ivelasq.rbind.io/til/asciicast/) - also included how to create a GIF with [asciicast](https://github.com/r-lib/asciicast)!
 
 <center>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">TIL: nzchar(). Super useful when working with environment variables in R.<br><br>also, <a href="https://twitter.com/hashtag/asciicast?src=hash&amp;ref_src=twsrc%5Etfw">#asciicast</a> is amazing! install the GIF converter with remotes::install_github(&#39;r-lib/asciicast&#39;, ref = remotes::github_pull(24)) <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> h/t <a href="https://twitter.com/GaborCsardi?ref_src=twsrc%5Etfw">@GaborCsardi</a> <a href="https://t.co/pCZQLCNaDl">pic.twitter.com/pCZQLCNaDl</a></p>&mdash; Isabella Velásquez (@ivelasq3) <a href="https://twitter.com/ivelasq3/status/1524193394037342211?ref_src=twsrc%5Etfw">May 11, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
 
-## 7. lengths
+## 5. with
 
-## 8. with
+If you're a base R user, you are probably aware of the dollar signs `$` that you need to use to evaluate expressions with variables from a data frame. The `with()` function, you can reference columns directly without having to rewrite the data frame name multiple times, making your code more concise and easier to read.
 
-x %>% filter(foo > 7) %>% with(smoothScatter(foo, bar))
+::: {.column-margin}
+**Resources**
 
-Want even more functions (base R or not)? Check out [Maëlle Salmon's blog](https://masalmon.eu/tags/useful-functions/), [Neil Wright's post](https://www.neilwright.uk/posts/five-r-functions), and [Yihui Xie's list](https://yihui.org/en/2023/10/three-functions/)! I find these lists very helpful. What is on yours?
+* [with documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/with.html)
+* [When to use 'with' function and why is it good?](https://stackoverflow.com/questions/42283479/when-to-use-with-function-and-why-is-it-good)
+:::
+
+So, instead of writing `plot(mtcars$hp, mtcars$mpg)`, you can write:
+
+```{webr}
+with(mtcars, plot(hp, mpg))
+```
+
+This is particularly handy to use with the base R pipe `|>`:
+
+```{webr}
+mtcars |> with(plot(hp, mpg))
+```
+
+[Michael Love's Tweet](https://twitter.com/mikelove/status/1197190835994943489) shows how to connect a dplyr chain to a base plot function:
+
+```{webr}
+webr::install("dplyr")
+library(dplyr)
+        
+mtcars |> dplyr::filter(hp > 100) |> with(plot(hp, mpg))
+```
+
+## 6. lengths
+
+`lengths()` is a more efficient version of `sapply(df, length)`. `length()` determines the number of elements in an object, and `lengths()` will provide the lengths of elements across columns in the data frame.
+
+::: {.column-margin}
+**Resources**
+
+* [lengths documentation](https://stat.ethz.ch/R-manual/R-devel/library/base/html/lengths.html)
+* [Summing the lengths of lists inside a list in R](https://stackoverflow.com/questions/71969291/summing-the-lengths-of-lists-inside-a-list-in-r)
+:::
+
+```{webr}
+df <- data.frame(A = c(1, 2, 3), B = c(4, 5, 6), C = c(7, 8, 9))
+
+lengths(df)
+```
+
+
+## The fun-ctions never stop
+
+Want even more functions (base R or not)? Here are some other resources to check out:
+
+* [Maëlle Salmon's blog](https://masalmon.eu/tags/useful-functions/)
+* [Neil Wright's post](https://www.neilwright.uk/posts/five-r-functions)
+* [Yihui Xie's list](https://yihui.org/en/2023/10/three-functions/)! 
+* [Ella Kaye's Advent of Code walkthroughs](https://adventofcode.ellakaye.co.uk/2023/day/1/)
+* [Ihaddaden M. EL Fodil, Ph.D's Twitter thread](https://twitter.com/moh_fodil/status/1537078271501905920)
+
+Thank you to the community members sharing their favorite functions and code walkthroughs!
 
 [^longnote]: Many thanks to the following resources for making this post possible:
 
-    - James Joseph Balamuta's [Quarto extension for webR](https://quarto-webr.thecoatlessprofessor.com/). 
+    - webR and the [webR documentation](https://docs.r-wasm.org/webr/latest/) by George Stagg.
+    - James Joseph Balamuta's [Quarto extension for webR](https://quarto-webr.thecoatlessprofessor.com/).
     - Brian Kent's [blog post](https://blog.theapricot.io/posts/quarto-headers/) on adding headers to a Quarto blog on Netlify.
+    
+[^packages]: This is a [handy guide](https://rpubs.com/Mentors_Ubiqum/list_packages) for seeing the packages loaded in your R session!
