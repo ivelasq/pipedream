@@ -46,13 +46,7 @@ format:
   html:
     theme: [litera, styles.scss]
     include-in-header: plausible.html
-    include-after-body: 
-      text: |
-        <script type="application/javascript" src="https://platform.twitter.com/widgets.js"></script>
     highlight-style: nord
-    filters: 
-      - social-embeds
     
 execute:
   freeze: auto
-  fig-align: center
