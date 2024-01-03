@@ -1,5 +1,5 @@
 ---
-title: "Not-so-basic base R functions"
+title: "Six base R functions you should know"
 date: "2023-11-13"
 categories: ["reference"]
 description: "There are so many goodies in base R. Let's explore some functions you may not know."
@@ -11,7 +11,7 @@ filters:
   - webr
 ---
 
-![](thumbnail-wide.jpg)
+![](thumbnail-wide.jpg){fig-alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."}
 
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 
@@ -26,6 +26,7 @@ This post includes examples from the [base](https://stat.ethz.ch/R-manual/R-deve
 3. [coplot()](#coplot): Visualize interactions
 4. [nzchar()](#nzchar): Find out if elements of a character vector are non-empty strings
 5. [with()](#with): Evaluate an expression in a data environment
+6. [Null coalescing operator `%||%`](#null-coalescing-operator-in-r): Return first input if not `NULL`, otherwise return second input
 
 ## 1. invisible
 
@@ -274,12 +275,48 @@ lengths(df)
 
 Pretty straightforward but I think it is a neat function :)
 
-## 7. %||%
+## 7. Null-coalescing operator in R, %||%
 
-```{webr}
-1 %||% 2
+OK, this one isn't in base R -- yet! In the [upcoming release](https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26), R will automatically provide the [null-coalescing operator]((https://en.m.wikipedia.org/wiki/Null_coalescing_operator), `%||%`. Per the release notes:
+
+> ‘L %||% R’ newly in base is an expressive idiom for the ‘if(!is.null(L)) L else R’ or ‘if(is.null(L)) R else L’ phrases.
+
+Or, in code:
+
+```r
+`%||%` <- function(x, y) {
+   if (is_null(x)) y else x
+}
 ```
 
+Essentially, this means: if the first (left-hand) input `x` is `NULL`, return `y`. If `x` is not `NULL`, return the input.
+
+It was great to see Jenny Bryan and the R community celebrate the formal inclusion of the null-coalescing operator into the R language on [Mastodon](https://fosstodon.org/@jennybryan/111302964025298493). The null-coalescing operator is particularly useful for R package developers, as highlighted by Jenny in her [useR! 2018 keynote](https://www.youtube.com/watch?v=7oyiPBjLAWY), used when the tidyverse team needs to assess whether an argument has been supplied, or if the default value which is commonly `NULL` has been passed, meaning that the default argument has been supplied.
+
+![](example.png){fig-alt="Jenny Bryan's Code smell and feels talk, showing the slide showing an example of the use of the null-coalescing operator."}
+<center><caption><a href="https://speakerdeck.com/jennybc/code-smells-and-feels?slide=69" target=_blank>Jenny Bryan's Code smell and feels null-coalescing operator example</a></caption></center>
+<br>
+However, the null-coalescing operator can also be useful in interactive use, for functions that take `NULL` as a valid argument. In this case, if supplied in the argument itself it can yield different interesting behaviors. For example:
+
+```{webr}
+# rlang must be loaded because the operator is not available in base R yet
+webr::install("rlang")
+library(rlang)
+
+add_commas <- function(x) {
+  if (length(x) <= 1) {
+    collapse_arg <- NULL
+  } else {
+    collapse_arg <- ", "
+  }
+  print(paste0(x, collapse = collapse_arg %||% ""))
+}
+
+add_commas(c("apples"))
+add_commas(c("apples", "bananas"))
+```
+
+There's more [discussion](https://fosstodon.org/@eddelbuettel@mastodon.social/111295691967509884) about the utility of the function.
 
 ## The fun-ctions never stop
 
@@ -292,7 +329,7 @@ Want even more functions (base R or not)? Here are some other resources to check
 * [Ihaddaden M. EL Fodil, Ph.D's Twitter thread](https://twitter.com/moh_fodil/status/1537078271501905920)
 * TidyX Screencasts, such as [this one](https://www.youtube.com/watch?v=bh-2JONnJ0k)
 
-Thank you to the community members sharing their code and function compilations!
+Thanks to all community members sharing their code and functions!
 
 [^longnote]: Many thanks to the following resources for making this post possible:
 
