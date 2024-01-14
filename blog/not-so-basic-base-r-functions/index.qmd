@@ -18,10 +18,10 @@ R is known for its versatility and extensive collection of packages. As of the p
 There's a lot of [love](https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/) for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite "not-so-basic" (i.e., maybe new to you!) base R functions. Click 'Run code' in order to see them in action, made possible by [webR](https://docs.r-wasm.org/webr/latest/) and the [quarto-webr extension](https://quarto-webr.thecoatlessprofessor.com/)![^longnote]
 
 ::: {.callout-note}
-This post includes examples from the [base](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html), [graphics](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html), [datasets](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html), and [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html) packages, which are automatically imported when you open R. Additional base R packages include grDevices, utils, and methods.[^packages]
+This post includes examples from the [base](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html), [graphics](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html), [datasets](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html), and [stats](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html) packages, which are automatically loaded when you open R. Additional base R packages include grDevices, utils, and methods.[^packages]
 :::
 
-1. [invisible()](#invisible): Return a temporarily invisible copy of an object
+1. [invisible()](#invisible): Return an invisible copy of an object
 2. [noquote()](#noquote): Print a character string without quotes
 3. [coplot()](#coplot): Visualize interactions
 4. [nzchar()](#nzchar): Find out if elements of a character vector are non-empty strings

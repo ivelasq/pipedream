@@ -10,7 +10,7 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.4.504</generator>
-<lastBuildDate>Mon, 13 Nov 2023 06:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 13 Nov 2023 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Six base R functions you should know</title>
   <link>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</link>
@@ -174,11 +174,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically imported when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
+<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically loaded when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
 </div>
 </div>
 <ol type="1">
-<li>invisible(): Return a temporarily invisible copy of an object</li>
+<li>invisible(): Return an invisible copy of an object</li>
 <li>noquote(): Print a character string without quotes</li>
 <li>coplot(): Visualize interactions</li>
 <li>nzchar(): Find out if elements of a character vector are non-empty strings</li>
@@ -801,7 +801,7 @@ add_commas(c("apples", "bananas"))`,
 </aside></div> ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</guid>
-  <pubDate>Mon, 13 Nov 2023 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Nov 2023 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1988,7 +1988,7 @@ font-style: inherit;">:</span> </span>
 </aside></div> ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/</guid>
-  <pubDate>Mon, 31 Jul 2023 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2364,7 +2364,7 @@ We told you it was unnerving 👀
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/macos-rig/</guid>
-  <pubDate>Thu, 22 Dec 2022 06:00:00 GMT</pubDate>
+  <pubDate>Thu, 22 Dec 2022 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/macos-rig/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2943,7 +2943,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/</guid>
-  <pubDate>Mon, 09 May 2022 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 09 May 2022 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3424,7 +3424,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </aside></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/</guid>
-  <pubDate>Tue, 18 Jan 2022 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jan 2022 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3676,7 +3676,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/</guid>
-  <pubDate>Tue, 28 Sep 2021 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Sep 2021 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3901,7 +3901,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-rstudio/</guid>
-  <pubDate>Mon, 13 Sep 2021 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Sep 2021 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4045,7 +4045,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/politely-scraping/</guid>
-  <pubDate>Tue, 27 Jul 2021 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 27 Jul 2021 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5286,7 +5286,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/rtistry-intro/</guid>
-  <pubDate>Sun, 09 May 2021 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 09 May 2021 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5871,7 +5871,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/other-geoms/</guid>
-  <pubDate>Sun, 28 Mar 2021 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 28 Mar 2021 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6121,7 +6121,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/</guid>
-  <pubDate>Mon, 08 Mar 2021 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Mar 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -7373,7 +7373,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/vscode-live-share/</guid>
-  <pubDate>Wed, 03 Feb 2021 06:00:00 GMT</pubDate>
+  <pubDate>Wed, 03 Feb 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -7584,7 +7584,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/</guid>
-  <pubDate>Tue, 10 Nov 2020 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Nov 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8002,7 +8002,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>tutorial</category>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr2/</guid>
-  <pubDate>Sun, 30 Aug 2020 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Aug 2020 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8055,7 +8055,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
  ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/party-with-R/</guid>
-  <pubDate>Mon, 13 Jul 2020 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Jul 2020 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8851,7 +8851,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/tidying-census-data/</guid>
-  <pubDate>Thu, 28 May 2020 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 May 2020 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9166,7 +9166,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/</guid>
-  <pubDate>Sun, 03 May 2020 05:00:00 GMT</pubDate>
+  <pubDate>Sun, 03 May 2020 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9278,7 +9278,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/</guid>
-  <pubDate>Tue, 25 Feb 2020 06:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
@@ -10142,7 +10142,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/things-i-google/</guid>
-  <pubDate>Mon, 27 Jan 2020 06:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -11667,7 +11667,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/modal-district/</guid>
-  <pubDate>Wed, 11 Sep 2019 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 11 Sep 2019 04:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
