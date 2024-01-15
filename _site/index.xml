@@ -12,7 +12,7 @@
 <generator>quarto-1.4.504</generator>
 <lastBuildDate>Mon, 13 Nov 2023 05:00:00 GMT</lastBuildDate>
 <item>
-  <title>Six base R functions you should know</title>
+  <title>Not-so-basic base R functions</title>
   <link>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</link>
   <description><![CDATA[ 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/loader.js"></script>
@@ -161,7 +161,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 
 
-<p><img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail-wide.jpg" class="img-fluid" alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."></p>
+<p><img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail-wide.jpg" class="img-fluid"></p>
 <p>R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on <a href="https://r-universe.dev/search/">R-universe</a>. But what if I told you that you could do some pretty amazing things without loading any packages at all?</p>
 <p>There’s a lot of <a href="https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/">love</a> for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by <a href="https://docs.r-wasm.org/webr/latest/">webR</a> and the <a href="https://quarto-webr.thecoatlessprofessor.com/">quarto-webr extension</a>!<sup>1</sup></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -174,16 +174,15 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically loaded when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
+<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically imported when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
 </div>
 </div>
 <ol type="1">
-<li>invisible(): Return an invisible copy of an object</li>
+<li>invisible(): Return a temporarily invisible copy of an object</li>
 <li>noquote(): Print a character string without quotes</li>
 <li>coplot(): Visualize interactions</li>
 <li>nzchar(): Find out if elements of a character vector are non-empty strings</li>
 <li>with(): Evaluate an expression in a data environment</li>
-<li>Null coalescing operator <code>%||%</code>: Return first input if not <code>NULL</code>, otherwise return second input</li>
 </ol>
 <section id="invisible" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="invisible">1. invisible</h2>
@@ -699,41 +698,8 @@ lengths(df)`,
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Pretty straightforward but I think it is a neat function :)</p>
 </section>
-<section id="null-coalescing-operator-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="null-coalescing-operator-in-r">7. Null-coalescing operator in R, %||%</h2>
-<p>OK, this one isn’t in base R – yet! In the <a href="https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26">upcoming release</a>, R will automatically provide the [null-coalescing operator]((https://en.m.wikipedia.org/wiki/Null_coalescing_operator), <code>%||%</code>. Per the release notes:</p>
-<blockquote class="blockquote">
-<p>‘L %||% R’ newly in base is an expressive idiom for the ‘if(!is.null(L)) L else R’ or ‘if(is.null(L)) R else L’ phrases.</p>
-</blockquote>
-<p>Or, in code:</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span><span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">%||%</span><span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">function</span>(x, y) {</span>
-<span id="cb1-2">   <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">is_null</span>(x)) y <span class="cf" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">else</span> x</span>
-<span id="cb1-3">}</span></code></pre></div>
-<p>Essentially, this means: if the first (left-hand) input <code>x</code> is <code>NULL</code>, return <code>y</code>. If <code>x</code> is not <code>NULL</code>, return the input.</p>
-<p>It was great to see Jenny Bryan and the R community celebrate the formal inclusion of the null-coalescing operator into the R language on <a href="https://fosstodon.org/@jennybryan/111302964025298493">Mastodon</a>. The null-coalescing operator is particularly useful for R package developers, as highlighted by Jenny in her <a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">useR! 2018 keynote</a>, used when the tidyverse team needs to assess whether an argument has been supplied, or if the default value which is commonly <code>NULL</code> has been passed, meaning that the default argument has been supplied.</p>
-<img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/example.png" class="img-fluid" alt="Jenny Bryan's Code smell and feels talk, showing the slide showing an example of the use of the null-coalescing operator.">
-<center>
-
-<a href="https://speakerdeck.com/jennybc/code-smells-and-feels?slide=69" target="_blank">Jenny Bryan’s Code smell and feels null-coalescing operator example</a>
-
-</center>
-<p><br> However, the null-coalescing operator can also be useful in interactive use, for functions that take <code>NULL</code> as a valid argument. In this case, if supplied in the argument itself it can yield different interesting behaviors. For example:</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">7. %||%</h2>
 <div id="qwebr-insertion-location-19"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -749,25 +715,10 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `# rlang must be loaded because the operator is not available in base R yet
-webr::install("rlang")
-library(rlang)
-
-add_commas <- function(x) {
-  if (length(x) <= 1) {
-    collapse_arg <- NULL
-  } else {
-    collapse_arg <- ", "
-  }
-  print(paste0(x, collapse = collapse_arg %||% ""))
-}
-
-add_commas(c("apples"))
-add_commas(c("apples", "bananas"))`, 
+  `1 %||% 2`, 
   19);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>There’s more <a href="https://fosstodon.org/@eddelbuettel@mastodon.social/111295691967509884">discussion</a> about the utility of the function.</p>
 </section>
 <section id="the-fun-ctions-never-stop" class="level2">
 <h2 class="anchored" data-anchor-id="the-fun-ctions-never-stop">The fun-ctions never stop</h2>
@@ -780,7 +731,7 @@ add_commas(c("apples", "bananas"))`,
 <li><a href="https://twitter.com/moh_fodil/status/1537078271501905920">Ihaddaden M. EL Fodil, Ph.D’s Twitter thread</a></li>
 <li>TidyX Screencasts, such as <a href="https://www.youtube.com/watch?v=bh-2JONnJ0k">this one</a></li>
 </ul>
-<p>Thanks to all community members sharing their code and functions!</p>
+<p>Thank you to the community members sharing their code and function compilations!</p>
 
 
 </section>
@@ -2393,7 +2344,7 @@ We told you it was unnerving 👀
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<div class="cell" data-execution_count="1">
+<div id="a9d032bb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> palmerpenguins <span class="im" style="color: #00769E;
@@ -2418,7 +2369,7 @@ font-style: inherit;">&gt;&gt;</span> summarize(n <span class="op" style="color:
 background-color: null;
 font-style: inherit;">=</span> _.species.count())</span>
 <span id="cb1-8">)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -2490,7 +2441,7 @@ font-style: inherit;">n</span>()))</span></code></pre></div>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" aria-controls="tabset-2-1" aria-selected="true">Python</a></li><li class="nav-item"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" aria-controls="tabset-2-2" aria-selected="false">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" aria-labelledby="tabset-2-1-tab">
-<div class="cell" data-execution_count="2">
+<div id="f0288ada" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> palmerpenguins <span class="im" style="color: #00769E;
@@ -2531,7 +2482,7 @@ background-color: null;
 font-style: inherit;">=</span> _.body_mass_g.mean()</span>
 <span id="cb4-13">  )</span>
 <span id="cb4-14">)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -2615,7 +2566,7 @@ font-style: inherit;">TRUE</span>)))</span></code></pre></div>
 <h2 class="anchored" data-anchor-id="plotnine">plotnine</h2>
 <p>The <a href="https://github.com/has2k1/plotnine">plotnine</a> package, created by <a href="https://twitter.com/HKibirige">Hassan Kibirige</a>, lets you use a grammar of graphics for Python.</p>
 <p>You can use siuba and plotnine together, similar to how you would use dplyr and ggplot2 together.</p>
-<div class="cell" data-dpi="300" data-execution_count="3">
+<div id="15369332" class="cell" data-dpi="300" data-message="false" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> siuba <span class="im" style="color: #00769E;
@@ -2720,36 +2671,33 @@ font-style: inherit;">"Penguin species"</span>))</span></code></pre></div>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>&lt;ggplot: (314581751)&gt;</code></pre>
-</div>
 </div>
 <p>Folks have <a href="https://datascienceworkshops.com/blog/heuristics-for-translating-ggplot2-to-plotnine/">heuristics</a> to translate ggplot2 code to plotnine. These help understand the nuances between the two.</p>
 </section>
 <section id="pyjanitor" class="level2">
 <h2 class="anchored" data-anchor-id="pyjanitor">pyjanitor</h2>
 <p>OK, this one is cheating a bit because the <a href="https://github.com/sfirke/janitor">janitor</a> package by <a href="https://twitter.com/samfirke">Sam Firke</a> is not part of the tidyverse. One more package that uses ‘tidyverse-like’ verbs is <a href="https://github.com/pyjanitor-devs/pyjanitor">pyjanitor</a>. With pyjanitor, you can clean column names, identify duplicate entries, and more.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
+<div id="a4e36241" class="cell" data-message="false" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> janitor <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> clean_names</span>
-<span id="cb9-2"><span class="im" style="color: #00769E;
+<span id="cb8-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> pd</span>
-<span id="cb9-3"><span class="im" style="color: #00769E;
+<span id="cb8-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> np</span>
-<span id="cb9-4"></span>
-<span id="cb9-5">example_df <span class="op" style="color: #5E5E5E;
+<span id="cb8-4"></span>
+<span id="cb8-5">example_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
-<span id="cb9-6">    <span class="st" style="color: #20794D;
+<span id="cb8-6">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Terrible Name 1'</span>: [<span class="st" style="color: #20794D;
 background-color: null;
@@ -2760,7 +2708,7 @@ background-color: null;
 font-style: inherit;">'name3'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'name4'</span>],</span>
-<span id="cb9-7">    <span class="st" style="color: #20794D;
+<span id="cb8-7">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'PascalCase'</span>: [<span class="fl" style="color: #AD0000;
 background-color: null;
@@ -2771,13 +2719,13 @@ background-color: null;
 font-style: inherit;">300.0</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">400.0</span>],</span>
-<span id="cb9-8">    <span class="st" style="color: #20794D;
+<span id="cb8-8">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, np.nan],</span>
-<span id="cb9-9">}</span>
-<span id="cb9-10"></span>
-<span id="cb9-11">pd.DataFrame.from_dict(example_df).clean_names()</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<span id="cb8-9">}</span>
+<span id="cb8-10"></span>
+<span id="cb8-11">pd.DataFrame.from_dict(example_df).clean_names()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -2822,27 +2770,27 @@ font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, n
 </div>
 </div>
 <p>Python’s pandas allows you to <a href="https://tomaugspurger.github.io/method-chaining.html">method chain</a> with <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html">pipes</a>. They can be used with pyjanitor, as well.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="im" style="color: #00769E;
+<div id="fc5be98b" class="cell" data-message="false" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> janitor <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> clean_names, remove_empty</span>
-<span id="cb10-2"><span class="im" style="color: #00769E;
+<span id="cb9-2"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> pd</span>
-<span id="cb10-3"><span class="im" style="color: #00769E;
+<span id="cb9-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">as</span> np</span>
-<span id="cb10-4"></span>
-<span id="cb10-5">example_df <span class="op" style="color: #5E5E5E;
+<span id="cb9-4"></span>
+<span id="cb9-5">example_df <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> {</span>
-<span id="cb10-6">    <span class="st" style="color: #20794D;
+<span id="cb9-6">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Terrible Name 1'</span>: [<span class="st" style="color: #20794D;
 background-color: null;
@@ -2853,7 +2801,7 @@ background-color: null;
 font-style: inherit;">'name3'</span>, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'name4'</span>],</span>
-<span id="cb10-7">    <span class="st" style="color: #20794D;
+<span id="cb9-7">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'PascalCase'</span>: [<span class="fl" style="color: #AD0000;
 background-color: null;
@@ -2864,16 +2812,16 @@ background-color: null;
 font-style: inherit;">300.0</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">400.0</span>],</span>
-<span id="cb10-8">    <span class="st" style="color: #20794D;
+<span id="cb9-8">    <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, np.nan],</span>
-<span id="cb10-9">}</span>
-<span id="cb10-10"></span>
-<span id="cb10-11">(pd.DataFrame.from_dict(example_df)</span>
-<span id="cb10-12">    .pipe(clean_names)</span>
-<span id="cb10-13">    .pipe(remove_empty)</span>
-<span id="cb10-14">)</span></code></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<span id="cb9-9">}</span>
+<span id="cb9-10"></span>
+<span id="cb9-11">(pd.DataFrame.from_dict(example_df)</span>
+<span id="cb9-12">    .pipe(clean_names)</span>
+<span id="cb9-13">    .pipe(remove_empty)</span>
+<span id="cb9-14">)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 
 
@@ -2926,6 +2874,19 @@ font-style: inherit;">'this_has_punctuation?'</span>: [np.nan, np.nan, np.nan, n
 <li><a href="https://github.com/pwwang/datar">datar</a></li>
 </ul>
 <p>If you recommend these packages or know of others, please let me know on Twitter!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+2024-01-13 Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adam Austin started a <a href="https://fosstodon.org/deck/@ataustin/111664896223556142">thread of dplyr-alike Python packages</a> on Mastodon.</p>
+</div>
+</div>
 <center>
 <blockquote class="twitter-tweet blockquote">
 <p lang="en" dir="ltr">

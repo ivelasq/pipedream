@@ -235,7 +235,7 @@
     "href": "blog/tidyverse-python-ports/index.html#plotnine",
     "title": "Three packages that port the tidyverse to Python",
     "section": "plotnine",
-    "text": "plotnine\nThe plotnine package, created by Hassan Kibirige, lets you use a grammar of graphics for Python.\nYou can use siuba and plotnine together, similar to how you would use dplyr and ggplot2 together.\n\nfrom siuba import *\nfrom plotnine import *\nfrom palmerpenguins import load_penguins\npenguins = load_penguins()\n\n(penguins\n # using siuba pipe\n &gt;&gt; ggplot(aes(x = 'flipper_length_mm', y = 'body_mass_g'))\n # creating plotnine plot\n  + geom_point(aes(color = 'species', shape = 'species'),\n             size = 3,\n             alpha = 0.8)\n  + theme_minimal()\n  + labs(title = \"Penguin size, Palmer Station LTER\",\n         subtitle = \"Flipper length and body mass for Adelie, Chinstrap, and Gentoo Penguins\",\n        x = \"Flipper length (mm)\",\n        y = \"Body mass (g)\",\n        color = \"Penguin species\",\n        shape = \"Penguin species\"))\n\n\n\n\n\n\n\n\n&lt;ggplot: (314581751)&gt;\n\n\nFolks have heuristics to translate ggplot2 code to plotnine. These help understand the nuances between the two."
+    "text": "plotnine\nThe plotnine package, created by Hassan Kibirige, lets you use a grammar of graphics for Python.\nYou can use siuba and plotnine together, similar to how you would use dplyr and ggplot2 together.\n\nfrom siuba import *\nfrom plotnine import *\nfrom palmerpenguins import load_penguins\npenguins = load_penguins()\n\n(penguins\n # using siuba pipe\n &gt;&gt; ggplot(aes(x = 'flipper_length_mm', y = 'body_mass_g'))\n # creating plotnine plot\n  + geom_point(aes(color = 'species', shape = 'species'),\n             size = 3,\n             alpha = 0.8)\n  + theme_minimal()\n  + labs(title = \"Penguin size, Palmer Station LTER\",\n         subtitle = \"Flipper length and body mass for Adelie, Chinstrap, and Gentoo Penguins\",\n        x = \"Flipper length (mm)\",\n        y = \"Body mass (g)\",\n        color = \"Penguin species\",\n        shape = \"Penguin species\"))\n\n\n\n\n\n\n\n\nFolks have heuristics to translate ggplot2 code to plotnine. These help understand the nuances between the two."
   },
   {
     "objectID": "blog/tidyverse-python-ports/index.html#pyjanitor",
@@ -249,7 +249,7 @@
     "href": "blog/tidyverse-python-ports/index.html#conclusion",
     "title": "Three packages that port the tidyverse to Python",
     "section": "Conclusion",
-    "text": "Conclusion\nWhile Python syntax and conventions are still on my “to-learn” list, it is helpful to know there are packages that can bring the familiarity of the tidyverse to Python.\n\nAdditional resources\nI came across other packages that port the tidyverse to Python. I didn’t investigate them deeply but wanted to share in case they are helpful.\n\ntidypandas\nplydata\ntidypolars\ndatar\n\nIf you recommend these packages or know of others, please let me know on Twitter!\n\n\n\nWorking in Python but miss #rstats' tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your #pydata work.Blog post: https://t.co/ScGycjYyOo\n\n— Isabella Velásquez (@ivelasq3) May 9, 2022"
+    "text": "Conclusion\nWhile Python syntax and conventions are still on my “to-learn” list, it is helpful to know there are packages that can bring the familiarity of the tidyverse to Python.\n\nAdditional resources\nI came across other packages that port the tidyverse to Python. I didn’t investigate them deeply but wanted to share in case they are helpful.\n\ntidypandas\nplydata\ntidypolars\ndatar\n\nIf you recommend these packages or know of others, please let me know on Twitter!\n\n\n\n\n\n\n2024-01-13 Note\n\n\n\nAdam Austin started a thread of dplyr-alike Python packages on Mastodon.\n\n\n\n\n\nWorking in Python but miss #rstats' tidyverse? 🐍 Here are three+ packages that port tidyverse-like syntax to use in your #pydata work.Blog post: https://t.co/ScGycjYyOo\n\n— Isabella Velásquez (@ivelasq3) May 9, 2022"
   },
   {
     "objectID": "blog/reticulate-data-recreation/index.html",
@@ -1164,28 +1164,28 @@
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html",
     "href": "blog/not-so-basic-base-r-functions/index.html",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "",
     "text": "R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on R-universe. But what if I told you that you could do some pretty amazing things without loading any packages at all?\nThere’s a lot of love for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by webR and the quarto-webr extension!1"
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#invisible",
     "href": "blog/not-so-basic-base-r-functions/index.html#invisible",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "1. invisible",
     "text": "1. invisible\nThe invisible() function “returns a temporarily invisible copy of an object” by hiding the output of a function in the console. When you wrap a function in invisible(), it will execute normally and can be assigned to a variable or used in other operations, but the result isn’t printed out.\n\n\nResources\n\ninvisible documentation\nWhat does the function invisible() do?\nTidyverse design guide\n\nBelow are examples where the functions return their argument x, but one does so invisibly.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThe way to see invisible output is by saving to a variable or running print(). Both of the below will print:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nLet’s try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling webr::install(). The tidytab package is compiled into a WebAssembly binary on R-universe and needs the repos argument to find it. mount = FALSE is due to a bug in the Firefox WebAssembly interpreter. If you’re not using Firefox, then feel free to try without that argument! (Note: this might take a few seconds.)\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nUsing purrr and tidytab::tab2() together results in two NULL list items we do not need.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nRunning invisible() eliminates that!\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhen writing a function, R can print a lot of stuff implicitly. Using invisible(), you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.\nPer the Tidyverse design guide, “if a function is called primarily for its side-effects, it should invisibly return a useful output”. In fact, many of your favorite functions use invisible(), such as readr::write_csv(), which invisibly returns the saved data frame."
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#noquote",
     "href": "blog/not-so-basic-base-r-functions/index.html#noquote",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "2. noquote",
     "text": "2. noquote\nThe noquote() function “prints character strings without quotes.”\n\n\nResources\n\nnoquote documentation\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nI use noquote() in a function url_make that converts Markdown reference-style links into HTML links. The input is a character string of a Markdown reference-style link mdUrl and the output is the HTML version of that URL. With noquote(), I can paste the output directly in my text.\n\n\n\nVery proud of my little #rstats function to turn a Markdown URL to HTML ☺️ (and save it to your clipboard too). pic.twitter.com/TsddtTDn9R\n\n— Isabella Velásquez (@ivelasq3) April 27, 2022\n\n\n\nTry it out in an anonymous function below!\n\n\nLearn more about this syntax in my previous blog post!\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#coplot",
     "href": "blog/not-so-basic-base-r-functions/index.html#coplot",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "3. coplot",
     "text": "3. coplot\nThe coplot() function creates conditioning plots, which are helpful in multivariate analysis. They allow you to explore pairs of variables conditioned on a third so you can understand how relationships change across different conditions.\n\n\nResources\n\ncoplot documentation\nAn introduction to R\nHow to read a coplot() graph\n\nThe syntax of coplot() is coplot(y ~ x | a, data), where y and x are the variables you want to plot, a is the conditioning variable, and data is the data frame. The variables provided to coplot() can be either numeric or factors.\nUsing the built-in quakes dataset, let’s look at the relationship between the latitude (lat) and the longitude (long) and how it varies depending on the depth in km of seismic events (depth).\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo interpret this plot:\n\nLatitude is plotted on the y-axis\nLongitude is plotted on the x-axis\nThe six plots show the relationship of these two variables for different values of depth\nThe bar plot at the top indicates the range of depth values for each of the plots\nThe plots in the lower left have the lowest range of depth values and the plots in the top right have the highest range of depth values\n\nThe orientation of plots might not be the most intuitive. Set rows = 1 to make the coplot easier to read.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHere, you can see how the area of Fiji earthquakes grows smaller with increasing depth.\nYou can also condition on two variables with the syntax coplot(y ~ x| a * b), where the plots of y versus x are produced conditional on the two variables a and b. Below, the coplot shows the relationship with depth from left to right and the relationship with magnitude (mag) from top to bottom. Check out a more in-depth explanation of this plot on StackOverflow.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nI first learned about coplot() thanks to Eric Leung’s tweet. Thanks, Eric!\n\n\n\nTIL about coplots in base #RStats. in my nearly decade use of R, i've never come across this function to quickly explore pairs of variables conditioned on a thirdlibrary(palmerpenguins)coplot(body_mass_g ~ bill_length_mm|species, data = penguins)https://t.co/EVpI738VzO pic.twitter.com/zcTw4HGvnZ\n\n— Eric Leung 梁挺亮 (@erictleung) August 5, 2022"
   },
@@ -1206,21 +1206,21 @@
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#nzchar",
     "href": "blog/not-so-basic-base-r-functions/index.html#nzchar",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "4. nzchar",
     "text": "4. nzchar\nFrom the documentation, “nzchar() is a fast way to find out if elements of a character vector are non-empty strings”. It returns TRUE for non-empty strings and FALSE for empty strings. This function is particularly helpful when working with environment variables - see an example in the tuber documentation!\n\n\nResources\n\nnzchar documentation\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nI have written about nzchar in the past and I’ve also explained how to create a GIF using asciicast!\n\n\n\nTIL: nzchar(). Super useful when working with environment variables in R.also, #asciicast is amazing! install the GIF converter with remotes::install_github('r-lib/asciicast', ref = remotes::github_pull(24)) #rstats h/t @GaborCsardi pic.twitter.com/pCZQLCNaDl\n\n— Isabella Velásquez (@ivelasq3) May 11, 2022"
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#lengths",
     "href": "blog/not-so-basic-base-r-functions/index.html#lengths",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "6. lengths",
     "text": "6. lengths\nlengths() is a more efficient version of sapply(df, length). length() determines the number of elements in an object, and lengths() will provide the lengths of elements across columns in the data frame.\n\n\nResources\n\nlengths documentation\nSumming the lengths of lists inside a list in R\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nPretty straightforward but I think it is a neat function :)"
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#with",
     "href": "blog/not-so-basic-base-r-functions/index.html#with",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "5. with",
     "text": "5. with\nIf you use base R, you’ve likely encountered the dollar signs $ when evaluating expressions with variables from a data frame. The with() function lets you reference columns directly, eliminating the need to repeat the data frame name multiple times. This makes your code more concise and easier to read.\n\n\nResources\n\nwith documentation\nWhen to use ‘with’ function and why is it good?\n\nSo, instead of writing plot(mtcars$hp, mtcars$mpg), you can write:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis is particularly handy to use with the base R pipe |&gt;:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nMichael Love’s Tweet shows how to connect a dplyr chain to a base plot function using with():\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
@@ -1234,9 +1234,9 @@
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#the-fun-ctions-never-stop",
     "href": "blog/not-so-basic-base-r-functions/index.html#the-fun-ctions-never-stop",
-    "title": "Six base R functions you should know",
+    "title": "Not-so-basic base R functions",
     "section": "The fun-ctions never stop",
-    "text": "The fun-ctions never stop\nWant even more functions (base R or not)? Here are some other resources to check out:\n\nMaëlle Salmon’s blog posts on useful functions\nNeil Wright’s post on five useful R functions\nYihui Xie’s list of three useful functions in base R\nElla Kaye’s Advent of Code walkthroughs\nIhaddaden M. EL Fodil, Ph.D’s Twitter thread\nTidyX Screencasts, such as this one\n\nThanks to all community members sharing their code and functions!"
+    "text": "The fun-ctions never stop\nWant even more functions (base R or not)? Here are some other resources to check out:\n\nMaëlle Salmon’s blog posts on useful functions\nNeil Wright’s post on five useful R functions\nYihui Xie’s list of three useful functions in base R\nElla Kaye’s Advent of Code walkthroughs\nIhaddaden M. EL Fodil, Ph.D’s Twitter thread\nTidyX Screencasts, such as this one\n\nThank you to the community members sharing their code and function compilations!"
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#section",

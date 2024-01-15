@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -941,7 +907,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Six base R functions you should know</h1>
+<h1 class="title">Not-so-basic base R functions</h1>
   <div class="quarto-categories">
     <div class="quarto-category">reference</div>
   </div>
@@ -972,7 +938,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 </header>
 
 
-<p><img src="thumbnail-wide.jpg" class="img-fluid" alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid"></p>
 <p>R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on <a href="https://r-universe.dev/search/">R-universe</a>. But what if I told you that you could do some pretty amazing things without loading any packages at all?</p>
 <p>There’s a lot of <a href="https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/">love</a> for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by <a href="https://docs.r-wasm.org/webr/latest/">webR</a> and the <a href="https://quarto-webr.thecoatlessprofessor.com/">quarto-webr extension</a>!<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -985,16 +951,15 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically loaded when you open R. Additional base R packages include grDevices, utils, and methods.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically imported when you open R. Additional base R packages include grDevices, utils, and methods.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </div>
 </div>
 <ol type="1">
-<li><a href="#invisible">invisible()</a>: Return an invisible copy of an object</li>
+<li><a href="#invisible">invisible()</a>: Return a temporarily invisible copy of an object</li>
 <li><a href="#noquote">noquote()</a>: Print a character string without quotes</li>
 <li><a href="#coplot">coplot()</a>: Visualize interactions</li>
 <li><a href="#nzchar">nzchar()</a>: Find out if elements of a character vector are non-empty strings</li>
 <li><a href="#with">with()</a>: Evaluate an expression in a data environment</li>
-<li><a href="#null-coalescing-operator-in-r">Null coalescing operator <code>%||%</code></a>: Return first input if not <code>NULL</code>, otherwise return second input</li>
 </ol>
 <section id="invisible" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="invisible">1. invisible</h2>
@@ -1510,25 +1475,8 @@ lengths(df)`,
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Pretty straightforward but I think it is a neat function :)</p>
 </section>
-<section id="null-coalescing-operator-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="null-coalescing-operator-in-r">7. Null-coalescing operator in R, %||%</h2>
-<p>OK, this one isn’t in base R – yet! In the <a href="https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26">upcoming release</a>, R will automatically provide the [null-coalescing operator]((https://en.m.wikipedia.org/wiki/Null_coalescing_operator), <code>%||%</code>. Per the release notes:</p>
-<blockquote class="blockquote">
-<p>‘L %||% R’ newly in base is an expressive idiom for the ‘if(!is.null(L)) L else R’ or ‘if(is.null(L)) R else L’ phrases.</p>
-</blockquote>
-<p>Or, in code:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">%||%</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (<span class="fu">is_null</span>(x)) y <span class="cf">else</span> x</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Essentially, this means: if the first (left-hand) input <code>x</code> is <code>NULL</code>, return <code>y</code>. If <code>x</code> is not <code>NULL</code>, return the input.</p>
-<p>It was great to see Jenny Bryan and the R community celebrate the formal inclusion of the null-coalescing operator into the R language on <a href="https://fosstodon.org/@jennybryan/111302964025298493">Mastodon</a>. The null-coalescing operator is particularly useful for R package developers, as highlighted by Jenny in her <a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">useR! 2018 keynote</a>, used when the tidyverse team needs to assess whether an argument has been supplied, or if the default value which is commonly <code>NULL</code> has been passed, meaning that the default argument has been supplied.</p>
-<img src="example.png" class="img-fluid" alt="Jenny Bryan's Code smell and feels talk, showing the slide showing an example of the use of the null-coalescing operator.">
-<center>
-
-<a href="https://speakerdeck.com/jennybc/code-smells-and-feels?slide=69" target="_blank">Jenny Bryan’s Code smell and feels null-coalescing operator example</a>
-
-</center>
-<p><br> However, the null-coalescing operator can also be useful in interactive use, for functions that take <code>NULL</code> as a valid argument. In this case, if supplied in the argument itself it can yield different interesting behaviors. For example:</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">7. %||%</h2>
 <div id="qwebr-insertion-location-19"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1544,25 +1492,10 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `# rlang must be loaded because the operator is not available in base R yet
-webr::install("rlang")
-library(rlang)
-
-add_commas <- function(x) {
-  if (length(x) <= 1) {
-    collapse_arg <- NULL
-  } else {
-    collapse_arg <- ", "
-  }
-  print(paste0(x, collapse = collapse_arg %||% ""))
-}
-
-add_commas(c("apples"))
-add_commas(c("apples", "bananas"))`, 
+  `1 %||% 2`, 
   19);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>There’s more <a href="https://fosstodon.org/@eddelbuettel@mastodon.social/111295691967509884">discussion</a> about the utility of the function.</p>
 </section>
 <section id="the-fun-ctions-never-stop" class="level2">
 <h2 class="anchored" data-anchor-id="the-fun-ctions-never-stop">The fun-ctions never stop</h2>
@@ -1575,7 +1508,7 @@ add_commas(c("apples", "bananas"))`,
 <li><a href="https://twitter.com/moh_fodil/status/1537078271501905920">Ihaddaden M. EL Fodil, Ph.D’s Twitter thread</a></li>
 <li>TidyX Screencasts, such as <a href="https://www.youtube.com/watch?v=bh-2JONnJ0k">this one</a></li>
 </ul>
-<p>Thanks to all community members sharing their code and functions!</p>
+<p>Thank you to the community members sharing their code and function compilations!</p>
 
 
 </section>
