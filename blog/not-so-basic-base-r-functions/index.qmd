@@ -62,7 +62,7 @@ a
 print(f2("This prints because of print()"))
 ```
 
-Let's try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling `webr::install()`. The tidytab package is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and needs the `repos` argument to find it. `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you're not using Firefox, then feel free to try without that argument! (Note: this might take a few seconds.)
+Let's try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling `webr::install()`. The tidytab package is compiled into a WebAssembly binary on [R-universe](https://gvelasq.r-universe.dev/tidytab#) and needs the `repos` argument to find it. `mount = FALSE` is due to a bug in the Firefox WebAssembly interpreter. If you’re not using Firefox, then I suggest you try the code below with `mount = TRUE`! (Note: this might take a few seconds, and longer with `mount = FALSE`.)
 
 ```{webr-r}
 webr::install("purrr")
@@ -87,8 +87,6 @@ dat <-
 
 vars <- c("col1", "col2")
 
-mtcars %>% tab(cyl)
-
 tab_run <- function(.x){
   dat |>
     tidytab::tab2(all_of(.x), "ct")
@@ -107,7 +105,7 @@ invisible(purrr::map(.x = vars,
 
 When writing a function, R can print a lot of stuff implicitly. Using `invisible()`, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.
 
-Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output". In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.  
+Per the [Tidyverse design guide](https://design.tidyverse.org/out-invisible.html), "if a function is called primarily for its side-effects, it should invisibly return a useful output." In fact, many of your favorite functions use `invisible()`, such as `readr::write_csv()`, which [invisibly returns](https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214) the saved data frame.  
 
 ## 2. noquote
 
@@ -226,7 +224,7 @@ I have written about nzchar [in the past](https://ivelasq.rbind.io/til/asciicast
 
 ## 5. with
 
-If you use base R, you've likely encountered the dollar signs `$` when evaluating expressions with variables from a data frame. The `with()` function lets you reference columns directly, eliminating the need to repeat the data frame name multiple times. This makes your code more concise and easier to read.
+If you use base R, you've likely encountered the dollar sign `$` when evaluating expressions with variables from a data frame. The `with()` function lets you reference columns directly, eliminating the need to repeat the data frame name multiple times. This makes your code more concise and easier to read.
 
 ::: {.column-margin}
 **Resources**
@@ -277,7 +275,7 @@ Pretty straightforward but I think it is a neat function :)
 
 ## 7. Null-coalescing operator in R, %||%
 
-OK, this one isn't in base R -- yet! In the [upcoming release](https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26), R will automatically provide the [null-coalescing operator]((https://en.m.wikipedia.org/wiki/Null_coalescing_operator), `%||%`. Per the release notes:
+OK, this one isn't in base R -- yet! In the [upcoming release](https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26), R will automatically provide the [null-coalescing operator](https://en.m.wikipedia.org/wiki/Null_coalescing_operator), `%||%`. Per the release notes:
 
 > ‘L %||% R’ newly in base is an expressive idiom for the ‘if(!is.null(L)) L else R’ or ‘if(is.null(L)) R else L’ phrases.
 
