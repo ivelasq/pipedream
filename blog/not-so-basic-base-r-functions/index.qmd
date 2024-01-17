@@ -11,7 +11,7 @@ filters:
   - webr
 ---
 
-![](thumbnail-wide.jpg){fig-alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."}
+![Leonetto Cappiello, Benedictine](thumbnail-wide.jpg){fig-alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."}
 
 R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on [R-universe](https://r-universe.dev/search/). But what if I told you that you could do some pretty amazing things without loading any packages at all?
 

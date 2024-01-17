@@ -10,7 +10,7 @@ image: thumbnail.jpg
 image-alt: "Georges Seurat's A Sunday on La Grande Jatte. People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."
 ---
 
-![](thumbnail-wide.jpg){fig-alt="People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."}
+![Georges Seurat, A Sunday on La Grande Jatte](thumbnail-wide.jpg){fig-alt="People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."}
 
 ## TL;DR
 
