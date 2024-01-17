@@ -1,6 +1,6 @@
 ---
-title: "Six base R functions you should know"
-date: "2023-11-13"
+title: "Six not-so-basic base R functions"
+date: "2024-01-17"
 categories: ["reference"]
 description: "There are so many goodies in base R. Let's explore some functions you may not know."
 image: thumbnail.jpg
