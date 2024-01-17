@@ -529,7 +529,7 @@
     "href": "blog/not-so-basic-base-r-functions/index.html",
     "title": "Six not-so-basic base R functions",
     "section": "",
-    "text": "R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on R-universe. But what if I told you that you could do some pretty amazing things without loading any packages at all?\nThere’s a lot of love for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by webR and the quarto-webr extension!1"
+    "text": "Leonetto Cappiello, Benedictine\nR is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on R-universe. But what if I told you that you could do some pretty amazing things without loading any packages at all?\nThere’s a lot of love for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by webR and the quarto-webr extension!1"
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#invisible",
