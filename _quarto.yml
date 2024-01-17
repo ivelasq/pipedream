@@ -2,7 +2,6 @@ project:
   type: website
   resources:
     - "_redirects.txt"
-    - "_headers"
 
 website:
   title: "%>% dreams"
