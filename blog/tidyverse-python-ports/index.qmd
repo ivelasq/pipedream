@@ -188,7 +188,7 @@ If you recommend these packages or know of others, please let me know on Twitter
 ::: {.callout-note}
 ## 2024-01-13 Note
 
-Adam Austin started a thread of dplyr-alike Python packages on Mastodon: https://fosstodon.org/deck/@ataustin/111664896223556142
+Adam Austin started a [thread of dplyr-alike Python packages](https://fosstodon.org/deck/@ataustin/111664896223556142) on Mastodon.
 :::
 
 <center>
