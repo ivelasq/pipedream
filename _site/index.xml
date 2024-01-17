@@ -9,10 +9,10 @@
 <link>https://ivelasq.rbind.io/</link>
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
-<generator>quarto-1.4.504</generator>
-<lastBuildDate>Mon, 13 Nov 2023 05:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.543</generator>
+<lastBuildDate>Wed, 17 Jan 2024 08:00:00 GMT</lastBuildDate>
 <item>
-  <title>Not-so-basic base R functions</title>
+  <title>Six not-so-basic base R functions</title>
   <link>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</link>
   <description><![CDATA[ 
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/loader.js"></script>
@@ -161,7 +161,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 
 
-<p><img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail-wide.jpg" class="img-fluid"></p>
+<p><img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail-wide.jpg" class="img-fluid" alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."></p>
 <p>R is known for its versatility and extensive collection of packages. As of the publishing of this post, there are over 23 thousand packages on <a href="https://r-universe.dev/search/">R-universe</a>. But what if I told you that you could do some pretty amazing things without loading any packages at all?</p>
 <p>There’s a lot of <a href="https://www.rostrum.blog/posts/2023-10-17-nhs-r-2023/">love</a> for base R, and I am excited to pile on. In this blog post, we will explore a few of my favorite “not-so-basic” (i.e., maybe new to you!) base R functions. Click ‘Run code’ in order to see them in action, made possible by <a href="https://docs.r-wasm.org/webr/latest/">webR</a> and the <a href="https://quarto-webr.thecoatlessprofessor.com/">quarto-webr extension</a>!<sup>1</sup></p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -174,15 +174,16 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically imported when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
+<p>This post includes examples from the <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html">base</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/00Index.html">graphics</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html">datasets</a>, and <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/00Index.html">stats</a> packages, which are automatically loaded when you open R. Additional base R packages include grDevices, utils, and methods.<sup>2</sup></p>
 </div>
 </div>
 <ol type="1">
-<li>invisible(): Return a temporarily invisible copy of an object</li>
+<li>invisible(): Return an invisible copy of an object</li>
 <li>noquote(): Print a character string without quotes</li>
 <li>coplot(): Visualize interactions</li>
 <li>nzchar(): Find out if elements of a character vector are non-empty strings</li>
 <li>with(): Evaluate an expression in a data environment</li>
+<li>Null coalescing operator <code>%||%</code>: Return first input if not <code>NULL</code>, otherwise return second input</li>
 </ol>
 <section id="invisible" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="invisible">1. invisible</h2>
@@ -259,7 +260,7 @@ print(f2("This prints because of print()"))`,
   3);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Let’s try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling <code>webr::install()</code>. The tidytab package is compiled into a WebAssembly binary on <a href="https://gvelasq.r-universe.dev/tidytab#">R-universe</a> and needs the <code>repos</code> argument to find it. <code>mount = FALSE</code> is due to a bug in the Firefox WebAssembly interpreter. If you’re not using Firefox, then feel free to try without that argument! (Note: this might take a few seconds.)</p>
+<p>Let’s try another example. Run the chunk below to install the purrr and tidytab packages. Installing the CRAN version of purrr from the webR binary repository is as easy as calling <code>webr::install()</code>. The tidytab package is compiled into a WebAssembly binary on <a href="https://gvelasq.r-universe.dev/tidytab#">R-universe</a> and needs the <code>repos</code> argument to find it. <code>mount = FALSE</code> is due to a bug in the Firefox WebAssembly interpreter. If you’re not using Firefox, then I suggest you try the code below with <code>mount = TRUE</code>! (Note: this might take a few seconds, and longer with <code>mount = FALSE</code>.)</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -311,8 +312,6 @@ dat <-
 
 vars <- c("col1", "col2")
 
-mtcars %>% tab(cyl)
-
 tab_run <- function(.x){
   dat |>
     tidytab::tab2(all_of(.x), "ct")
@@ -345,7 +344,7 @@ qwebrCreateMonacoEditorInstance(
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>When writing a function, R can print a lot of stuff implicitly. Using <code>invisible()</code>, you can return results while controlling what is displayed to a user, avoiding cluttering the console with intermediate results.</p>
-<p>Per the <a href="https://design.tidyverse.org/out-invisible.html">Tidyverse design guide</a>, “if a function is called primarily for its side-effects, it should invisibly return a useful output”. In fact, many of your favorite functions use <code>invisible()</code>, such as <code>readr::write_csv()</code>, which <a href="https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214">invisibly returns</a> the saved data frame.</p>
+<p>Per the <a href="https://design.tidyverse.org/out-invisible.html">Tidyverse design guide</a>, “if a function is called primarily for its side-effects, it should invisibly return a useful output.” In fact, many of your favorite functions use <code>invisible()</code>, such as <code>readr::write_csv()</code>, which <a href="https://github.com/tidyverse/readr/blob/e4d640ace3bb6ae095a1114158854a38a1da3a30/R/write.R#L214">invisibly returns</a> the saved data frame.</p>
 </section>
 <section id="noquote" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="noquote">2. noquote</h2>
@@ -593,7 +592,7 @@ TIL: nzchar(). Super useful when working with environment variables in R.<br><br
 </section>
 <section id="with" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="with">5. with</h2>
-<p>If you use base R, you’ve likely encountered the dollar signs <code>$</code> when evaluating expressions with variables from a data frame. The <code>with()</code> function lets you reference columns directly, eliminating the need to repeat the data frame name multiple times. This makes your code more concise and easier to read.</p>
+<p>If you use base R, you’ve likely encountered the dollar sign <code>$</code> when evaluating expressions with variables from a data frame. The <code>with()</code> function lets you reference columns directly, eliminating the need to repeat the data frame name multiple times. This makes your code more concise and easier to read.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>Resources</strong></p>
@@ -698,8 +697,41 @@ lengths(df)`,
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Pretty straightforward but I think it is a neat function :)</p>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">7. %||%</h2>
+<section id="null-coalescing-operator-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="null-coalescing-operator-in-r">7. Null-coalescing operator in R, %||%</h2>
+<p>OK, this one isn’t in base R – yet! In the <a href="https://developer.r-project.org/blosxom.cgi/R-devel/2023/10/26#n2023-10-26">upcoming release</a>, R will automatically provide the <a href="https://en.m.wikipedia.org/wiki/Null_coalescing_operator">null-coalescing operator</a>, <code>%||%</code>. Per the release notes:</p>
+<blockquote class="blockquote">
+<p>‘L %||% R’ newly in base is an expressive idiom for the ‘if(!is.null(L)) L else R’ or ‘if(is.null(L)) R else L’ phrases.</p>
+</blockquote>
+<p>Or, in code:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">%||%</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x, y) {</span>
+<span id="cb1-2">   <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is_null</span>(x)) y <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">else</span> x</span>
+<span id="cb1-3">}</span></code></pre></div>
+<p>Essentially, this means: if the first (left-hand) input <code>x</code> is <code>NULL</code>, return <code>y</code>. If <code>x</code> is not <code>NULL</code>, return the input.</p>
+<p>It was great to see Jenny Bryan and the R community celebrate the formal inclusion of the null-coalescing operator into the R language on <a href="https://fosstodon.org/@jennybryan/111302964025298493">Mastodon</a>. The null-coalescing operator is particularly useful for R package developers, as highlighted by Jenny in her <a href="https://www.youtube.com/watch?v=7oyiPBjLAWY">useR! 2018 keynote</a>, used when the tidyverse team needs to assess whether an argument has been supplied, or if the default value which is commonly <code>NULL</code> has been passed, meaning that the default argument has been supplied.</p>
+<img src="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/example.png" class="img-fluid" alt="Jenny Bryan's Code smell and feels talk, showing the slide showing an example of the use of the null-coalescing operator.">
+<center>
+
+<a href="https://speakerdeck.com/jennybc/code-smells-and-feels?slide=69" target="_blank">Jenny Bryan’s Code smell and feels null-coalescing operator example</a>
+
+</center>
+<p><br> However, the null-coalescing operator can also be useful in interactive use, for functions that take <code>NULL</code> as a valid argument. In this case, if supplied in the argument itself it can yield different interesting behaviors. For example:</p>
 <div id="qwebr-insertion-location-19"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -715,10 +747,25 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `1 %||% 2`, 
+  `# rlang must be loaded because the operator is not available in base R yet
+webr::install("rlang")
+library(rlang)
+
+add_commas <- function(x) {
+  if (length(x) <= 1) {
+    collapse_arg <- NULL
+  } else {
+    collapse_arg <- ", "
+  }
+  print(paste0(x, collapse = collapse_arg %||% ""))
+}
+
+add_commas(c("apples"))
+add_commas(c("apples", "bananas"))`, 
   19);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>There’s more <a href="https://fosstodon.org/@eddelbuettel@mastodon.social/111295691967509884">discussion</a> about the utility of the function.</p>
 </section>
 <section id="the-fun-ctions-never-stop" class="level2">
 <h2 class="anchored" data-anchor-id="the-fun-ctions-never-stop">The fun-ctions never stop</h2>
@@ -731,13 +778,13 @@ qwebrCreateMonacoEditorInstance(
 <li><a href="https://twitter.com/moh_fodil/status/1537078271501905920">Ihaddaden M. EL Fodil, Ph.D’s Twitter thread</a></li>
 <li>TidyX Screencasts, such as <a href="https://www.youtube.com/watch?v=bh-2JONnJ0k">this one</a></li>
 </ul>
-<p>Thank you to the community members sharing their code and function compilations!</p>
+<p>Thanks to all community members sharing their code and functions!</p>
 
 
 </section>
 
 
-<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Many thanks to the following resources for making this post possible:</p>
@@ -749,10 +796,10 @@ qwebrCreateMonacoEditorInstance(
 ↩︎</li>
 <li id="fn2"><p>This is a <a href="https://rpubs.com/Mentors_Ubiqum/list_packages">handy guide</a> for seeing the packages loaded in your R session!↩︎</p></li>
 </ol>
-</aside></div> ]]></description>
+</section></div> ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</guid>
-  <pubDate>Mon, 13 Nov 2023 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 17 Jan 2024 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -1939,7 +1986,7 @@ font-style: inherit;">:</span> </span>
 </aside></div> ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/</guid>
-  <pubDate>Mon, 31 Jul 2023 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Jul 2023 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2315,7 +2362,7 @@ We told you it was unnerving 👀
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/macos-rig/</guid>
-  <pubDate>Thu, 22 Dec 2022 05:00:00 GMT</pubDate>
+  <pubDate>Thu, 22 Dec 2022 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/macos-rig/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2904,7 +2951,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/</guid>
-  <pubDate>Mon, 09 May 2022 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 09 May 2022 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3385,7 +3432,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </aside></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/</guid>
-  <pubDate>Tue, 18 Jan 2022 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jan 2022 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3637,7 +3684,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/</guid>
-  <pubDate>Tue, 28 Sep 2021 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Sep 2021 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3862,7 +3909,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-rstudio/</guid>
-  <pubDate>Mon, 13 Sep 2021 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Sep 2021 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4006,7 +4053,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/politely-scraping/</guid>
-  <pubDate>Tue, 27 Jul 2021 04:00:00 GMT</pubDate>
+  <pubDate>Tue, 27 Jul 2021 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5247,7 +5294,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/rtistry-intro/</guid>
-  <pubDate>Sun, 09 May 2021 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 09 May 2021 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5832,7 +5879,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/other-geoms/</guid>
-  <pubDate>Sun, 28 Mar 2021 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 28 Mar 2021 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6082,7 +6129,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/</guid>
-  <pubDate>Mon, 08 Mar 2021 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Mar 2021 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -7334,7 +7381,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/vscode-live-share/</guid>
-  <pubDate>Wed, 03 Feb 2021 05:00:00 GMT</pubDate>
+  <pubDate>Wed, 03 Feb 2021 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -7545,7 +7592,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/</guid>
-  <pubDate>Tue, 10 Nov 2020 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Nov 2020 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -7963,7 +8010,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>tutorial</category>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr2/</guid>
-  <pubDate>Sun, 30 Aug 2020 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Aug 2020 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8016,7 +8063,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
  ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/party-with-R/</guid>
-  <pubDate>Mon, 13 Jul 2020 04:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Jul 2020 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8812,7 +8859,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/tidying-census-data/</guid>
-  <pubDate>Thu, 28 May 2020 04:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 May 2020 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9127,7 +9174,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/</guid>
-  <pubDate>Sun, 03 May 2020 04:00:00 GMT</pubDate>
+  <pubDate>Sun, 03 May 2020 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9239,7 +9286,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/</guid>
-  <pubDate>Tue, 25 Feb 2020 05:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2020 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
@@ -10103,7 +10150,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/things-i-google/</guid>
-  <pubDate>Mon, 27 Jan 2020 05:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2020 08:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -11628,7 +11675,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/modal-district/</guid>
-  <pubDate>Wed, 11 Sep 2019 04:00:00 GMT</pubDate>
+  <pubDate>Wed, 11 Sep 2019 07:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
