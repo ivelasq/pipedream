@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.504">
+<meta name="generator" content="quarto-1.4.543">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -203,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="img/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A group of people around a camera in a bright, colorful room"></p>
 <figcaption>Utagawa Yoshikazu, Early Foreign Photographer in Yokohama</figcaption>
 </figure>
 </div>
@@ -343,12 +344,12 @@ YouTube Channel IDs
 <p>For example, for the R-Ladies Global channel, you could run <code>list_channel_videos()</code> to get its (currently 165) videos:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tuber<span class="sc">::</span><span class="fu">list_channel_videos</span>(<span class="st">"UCDgj5-mFohWZ5irWSFMFcng"</span>, <span class="at">max_results =</span> <span class="dv">200</span>, <span class="at">auth =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>What if you want the results for all the channels we have in our spreadsheet? I used a loop for this.</p>
-<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>dat_videos <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<div class="sourceCode" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>dat_videos <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="annotated-cell-8-2"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dat_urls)) {</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(dat_urls)) {</span>
 <span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>  tmp <span class="ot">&lt;-</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    dat_urls[i, ][<span class="st">"id"</span>] <span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">pull</span>() <span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target"><a href="#annotated-cell-8-5" aria-hidden="true" tabindex="-1"></a>    dat_urls[i, ][<span class="st">"id"</span>] <span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target"><a href="#annotated-cell-8-6" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">pull</span>() <span class="sc">%&gt;%</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="5" onclick="event.preventDefault();">5</a><span id="annotated-cell-8-7" class="code-annotation-target"><a href="#annotated-cell-8-7" aria-hidden="true" tabindex="-1"></a>    tuber<span class="sc">::</span><span class="fu">list_channel_videos</span>(</span>
 <span id="annotated-cell-8-8"><a href="#annotated-cell-8-8" aria-hidden="true" tabindex="-1"></a>      .,</span>
 <span id="annotated-cell-8-9"><a href="#annotated-cell-8-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">part =</span> <span class="st">"snippet"</span>,</span>
@@ -473,49 +474,49 @@ YouTube Channel IDs
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="in">  htmltools::HTML(.noWS = "outside")</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>For the main body, I used <a href="https://rstudio.github.io/DT">{DT}</a> to create a table for the information in our clean dataset.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Column {data-width=900}</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### By default, the list is sorted by latest video.</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>&lt;style&gt;</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.dataTables_scrollBody</span> {</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-height</span>: <span class="dv">100</span><span class="dt">%</span> <span class="at">!important</span><span class="op">;</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>&lt;/style&gt;</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="in">dat_dashboard %&gt;%</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::select(-chapter, -channel_image_url) %&gt;%</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="in">  DT::datatable(</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="in">    colnames = c("Date", "Channel", "Video"),</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="in">    filter = "top",</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="in">    escape = FALSE, # &lt;1&gt;</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="in">    height = "1000", # &lt;2&gt;</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="in">    elementId = "dashboard",</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="in">    options = list(columnDefs = list( # &lt;3&gt;</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="in">      list(className = "dt-middle", targets = "_all")</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="in">    ))</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<dl>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<div class="sourceCode" id="annotated-cell-15"><pre class="sourceCode markdown md code-annotation-code code-with-copy code-annotated"><code class="sourceCode markdown"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a>Column {data-width=900}</span>
+<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>-----------------------------------------------------------------------</span>
+<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-15-4"><a href="#annotated-cell-15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">### By default, the list is sorted by latest video.</span></span>
+<span id="annotated-cell-15-5"><a href="#annotated-cell-15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-15-6"><a href="#annotated-cell-15-6" aria-hidden="true" tabindex="-1"></a>&lt;style&gt;</span>
+<span id="annotated-cell-15-7"><a href="#annotated-cell-15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">.dataTables_scrollBody</span> {</span>
+<span id="annotated-cell-15-8"><a href="#annotated-cell-15-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-height</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="annotated-cell-15-9"><a href="#annotated-cell-15-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="annotated-cell-15-10"><a href="#annotated-cell-15-10" aria-hidden="true" tabindex="-1"></a>&lt;/style&gt;</span>
+<span id="annotated-cell-15-11"><a href="#annotated-cell-15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-15-12"><a href="#annotated-cell-15-12" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="annotated-cell-15-13"><a href="#annotated-cell-15-13" aria-hidden="true" tabindex="-1"></a><span class="in">dat_dashboard %&gt;%</span></span>
+<span id="annotated-cell-15-14"><a href="#annotated-cell-15-14" aria-hidden="true" tabindex="-1"></a><span class="in">  dplyr::select(-chapter, -channel_image_url) %&gt;%</span></span>
+<span id="annotated-cell-15-15"><a href="#annotated-cell-15-15" aria-hidden="true" tabindex="-1"></a><span class="in">  DT::datatable(</span></span>
+<span id="annotated-cell-15-16"><a href="#annotated-cell-15-16" aria-hidden="true" tabindex="-1"></a><span class="in">    colnames = c("Date", "Channel", "Video"),</span></span>
+<span id="annotated-cell-15-17"><a href="#annotated-cell-15-17" aria-hidden="true" tabindex="-1"></a><span class="in">    filter = "top",</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-15-18" class="code-annotation-target"><a href="#annotated-cell-15-18" aria-hidden="true" tabindex="-1"></a><span class="in">    escape = FALSE,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-15-19" class="code-annotation-target"><a href="#annotated-cell-15-19" aria-hidden="true" tabindex="-1"></a><span class="in">    height = "1000",</span></span>
+<span id="annotated-cell-15-20"><a href="#annotated-cell-15-20" aria-hidden="true" tabindex="-1"></a><span class="in">    elementId = "dashboard",</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-15-21" class="code-annotation-target"><a href="#annotated-cell-15-21" aria-hidden="true" tabindex="-1"></a><span class="in">    options = list(columnDefs = list(</span></span>
+<span id="annotated-cell-15-22"><a href="#annotated-cell-15-22" aria-hidden="true" tabindex="-1"></a><span class="in">      list(className = "dt-middle", targets = "_all")</span></span>
+<span id="annotated-cell-15-23"><a href="#annotated-cell-15-23" aria-hidden="true" tabindex="-1"></a><span class="in">    ))</span></span>
+<span id="annotated-cell-15-24"><a href="#annotated-cell-15-24" aria-hidden="true" tabindex="-1"></a><span class="in">  )</span></span>
+<span id="annotated-cell-15-25"><a href="#annotated-cell-15-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1"><code>escape = FALSE</code> renders the URLs within the table as HTML.</span>
+<span data-code-cell="annotated-cell-15" data-code-lines="18" data-code-annotation="1"><code>escape = FALSE</code> renders the URLs within the table as HTML.</span>
 </dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2"><code>height = "1000"</code> makes it expand to the entire column height.</span>
+<span data-code-cell="annotated-cell-15" data-code-lines="19" data-code-annotation="2"><code>height = "1000"</code> makes it expand to the entire column height.</span>
 </dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="3">The list within <code>options</code> aligns the text within columns (in this case, to be in the middle of the cell for all columns).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span>
+<span data-code-cell="annotated-cell-15" data-code-lines="21" data-code-annotation="3">The list within <code>options</code> aligns the text within columns (in this case, to be in the middle of the cell for all columns).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span>
 </dd>
 </dl>
 <p>And that’s it! See the <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/index.Rmd">final dashboard code</a> on GitHub.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/dashboard.png" class="img-fluid figure-img"></p>
+<p><img src="img/dashboard.png" class="img-fluid figure-img" alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"></p>
 <figcaption>Final dashboard</figcaption>
 </figure>
 </div>
@@ -528,27 +529,15 @@ YouTube Channel IDs
 <h3 class="anchored" data-anchor-id="create-a-github-action-workflow-file-in-your-project">Create a GitHub Action workflow file in your project</h3>
 <p>GitHub Actions use <a href="https://yaml.org/">YAML syntax</a> and are saved as <code>.yml</code> or <code>.yaml</code> files within a folder called <code>.github/workflows/</code>. We can use GitHub Actions to create a bot that refreshes the dashboard on a regular basis. You can see an <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/.github/workflows/rladies-videos-bot.yaml">example workflow in the GitHub repository</a>. H/T to <a href="https://github.com/gvelasq"><span class="citation" data-cites="gvelasq">@gvelasq</span></a> and this amazing <a href="https://github.com/r-lib/actions/blob/v2/examples/render-rmarkdown.yaml">example</a> in the <a href="https://github.com/r-lib/actions/tree/v2/examples#readme">r-lib/actions</a> repo for inspiration.</p>
 <p>To create a GitHub Action:</p>
-<dl>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">Create a folder in your repository called <code>.github</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2">Within <code>.github</code>, add a folder called <code>workflows</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="3">Create a file called <code>rladies-videos-bot.yaml</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="6" data-code-annotation="4">Copy and paste the workflow below in <code>rladies-videos-bot.yaml</code>.</span>
-</dd>
-</dl>
+<ol type="1">
+<li>Create a folder in your repository called <code>.github</code>.</li>
+<li>Within <code>.github</code>, add a folder called <code>workflows</code>.</li>
+<li>Create a file called <code>rladies-videos-bot.yaml</code>.</li>
+<li>Copy and paste the workflow below in <code>rladies-videos-bot.yaml</code>.</li>
+</ol>
 <div class="sourceCode" id="annotated-cell-16"><pre class="sourceCode yaml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><span id="annotated-cell-16-1"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
 <span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">schedule</span><span class="kw">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">'0 0 * * *'</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">cron</span><span class="kw">:</span><span class="at"> </span><span class="st">'0 0 * * *'</span></span>
 <span id="annotated-cell-16-4"><a href="#annotated-cell-16-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-16-5"><a href="#annotated-cell-16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> rladies-videos-bot</span></span>
 <span id="annotated-cell-16-6"><a href="#annotated-cell-16-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -566,9 +555,9 @@ YouTube Channel IDs
 <span id="annotated-cell-16-18"><a href="#annotated-cell-16-18" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r@v2</span></span>
 <span id="annotated-cell-16-19"><a href="#annotated-cell-16-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
 <span id="annotated-cell-16-20"><a href="#annotated-cell-16-20" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">use-public-rspm</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-21" class="code-annotation-target"><a href="#annotated-cell-16-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r-dependencies@v2</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-21" class="code-annotation-target"><a href="#annotated-cell-16-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> r-lib/actions/setup-r-dependencies@v2</span></span>
 <span id="annotated-cell-16-22"><a href="#annotated-cell-16-22" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-23" class="code-annotation-target"><a href="#annotated-cell-16-23" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">extra-packages</span><span class="kw">:</span><span class="at"> soodoku/tuber</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-23" class="code-annotation-target"><a href="#annotated-cell-16-23" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">extra-packages</span><span class="kw">:</span><span class="at"> soodoku/tuber</span></span>
 <span id="annotated-cell-16-24"><a href="#annotated-cell-16-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and commit dashboard</span></span>
 <span id="annotated-cell-16-25"><a href="#annotated-cell-16-25" aria-hidden="true" tabindex="-1"></a><span class="fu">        run</span><span class="kw">: </span><span class="ch">|</span></span>
 <span id="annotated-cell-16-26"><a href="#annotated-cell-16-26" aria-hidden="true" tabindex="-1"></a>          Rscript -e 'rmarkdown::render("index.Rmd")'</span>
@@ -592,35 +581,27 @@ YouTube Channel IDs
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    bslib,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    dplyr,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    DT,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    flexdashboard,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    htmltools,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    httr2,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    jsonlite,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    readr,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    rmarkdown,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    stringr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Imports<span class="sc">:</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    bslib,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    dplyr,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    DT,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    flexdashboard,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    htmltools,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    httr2,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    jsonlite,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    readr,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    rmarkdown,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    stringr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="configure-keys-on-github" class="level3">
 <h3 class="anchored" data-anchor-id="configure-keys-on-github">Configure keys on GitHub</h3>
 <p>Now that we have the workflow set up, we need to let GitHub know what our YouTube API key is so that it can be accessed each time the workflow is triggered.</p>
-<dl>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="3" data-code-annotation="1">In your GitHub repository, click the ‘Settings’ tab.</span>
-</dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="21" data-code-annotation="2">Under ‘Security’ on the left-hand side, click ‘Secrets and variables’ then ‘Actions’.</span>
-</dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="23" data-code-annotation="3">Click the ‘Secrets’ tab, then click ‘New repository secret’.</span>
-</dd>
-</dl>
+<ol type="1">
+<li>In your GitHub repository, click the ‘Settings’ tab.</li>
+<li>Under ‘Security’ on the left-hand side, click ‘Secrets and variables’ then ‘Actions’.</li>
+<li>Click the ‘Secrets’ tab, then click ‘New repository secret’.</li>
+<li>Give your new secret the name <code>YOUTUBE_KEY</code> and in the ‘Secret’ textbox, paste your YouTube API key, then select ‘Add secret’.</li>
+</ol>
 <p>Now your GitHub repository is configured to run the workflow script. Your GitHub Action is ready to go!</p>
 </section>
 </section>
@@ -656,7 +637,7 @@ YouTube Channel IDs
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-63003"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-63003").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-95191"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-95191").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <center>
@@ -673,12 +654,12 @@ YouTube Channel IDs
 </section>
 
 
-<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>I found out about this here: <a href="https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable">https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</aside></div></main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -807,27 +788,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -842,10 +802,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -854,8 +818,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

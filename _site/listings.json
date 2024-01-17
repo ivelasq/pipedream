@@ -10,34 +10,6 @@
     ]
   },
   {
-    "listing": "/talk.html",
-    "items": [
-      "talk/you-r-a-content-creator/index.html",
-      "talk/excel-data-viz-tips-in-r/index.html",
-      "talk/whats-new-in-the-tidyverse/index.html",
-      "talk/intro-to-quarto/index.html",
-      "talk/building-a-blog-with-quarto/index.html",
-      "talk/building-a-blog-with-r/index.html",
-      "talk/using-r-and-other-tools/index.html",
-      "talk/gt-talk/index.html",
-      "talk/git-through-april/index.html",
-      "talk/longitudinal-analysis/index.html",
-      "talk/rladies-allyship/index.html",
-      "talk/package-mangement-in-r/index.html",
-      "talk/hiking-data/index.html",
-      "talk/blogdown-for-what/index.html"
-    ]
-  },
-  {
-    "listing": "/til.html",
-    "items": [
-      "/til/gitkeep/Untitled.html",
-      "/til/nzchar/index.html",
-      "/til/asciicast/index.html",
-      "/til/filter-if-any/index.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/blog/not-so-basic-base-r-functions/index.html",
@@ -64,6 +36,34 @@
       "/blog/snap-expenditures/index.html",
       "/blog/why-disaggregate-data/index.html",
       "/blog/so-youre-getting-a-masters/index.html"
+    ]
+  },
+  {
+    "listing": "/til.html",
+    "items": [
+      "/til/gitkeep/Untitled.html",
+      "/til/nzchar/index.html",
+      "/til/asciicast/index.html",
+      "/til/filter-if-any/index.html"
+    ]
+  },
+  {
+    "listing": "/talk.html",
+    "items": [
+      "talk/you-r-a-content-creator/index.html",
+      "talk/excel-data-viz-tips-in-r/index.html",
+      "talk/whats-new-in-the-tidyverse/index.html",
+      "talk/intro-to-quarto/index.html",
+      "talk/building-a-blog-with-quarto/index.html",
+      "talk/building-a-blog-with-r/index.html",
+      "talk/using-r-and-other-tools/index.html",
+      "talk/gt-talk/index.html",
+      "talk/git-through-april/index.html",
+      "talk/longitudinal-analysis/index.html",
+      "talk/rladies-allyship/index.html",
+      "talk/package-mangement-in-r/index.html",
+      "talk/hiking-data/index.html",
+      "talk/blogdown-for-what/index.html"
     ]
   }
 ]

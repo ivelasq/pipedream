@@ -812,7 +812,7 @@ add_commas(c("apples", "bananas"))`,
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A group of people around a camera in a bright, colorful room"></p>
 <figcaption>Utagawa Yoshikazu, Early Foreign Photographer in Yokohama</figcaption>
 </figure>
 </div>
@@ -1034,13 +1034,13 @@ font-style: inherit;">auth =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"key"</span>)</span></code></pre></div>
 <p>What if you want the results for all the channels we have in our spreadsheet? I used a loop for this.</p>
-<div class="sourceCode" id="annotated-cell-8" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target">dat_videos <span class="ot" style="color: #003B4F;
+<div class="sourceCode" id="annotated-cell-8" style="background: #f1f3f5;"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target">dat_videos <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NULL</span></span>
 <span id="annotated-cell-8-2"></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><span class="cf" style="color: #003B4F;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-3" class="code-annotation-target"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span> (i <span class="cf" style="color: #003B4F;
 background-color: null;
@@ -1054,12 +1054,12 @@ font-style: inherit;">nrow</span>(dat_urls)) {</span>
 <span id="annotated-cell-8-4">  tmp <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target">    dat_urls[i, ][<span class="st" style="color: #20794D;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-5" class="code-annotation-target">    dat_urls[i, ][<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"id"</span>] <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target">    dplyr<span class="sc" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-8-6" class="code-annotation-target">    dplyr<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1546,20 +1546,22 @@ font-style: inherit;">  htmltools::HTML(.noWS = "outside")</span></span>
 background-color: null;
 font-style: inherit;">```</span></span></code></pre></div>
 <p>For the main body, I used <a href="https://rstudio.github.io/DT">{DT}</a> to create a table for the information in our clean dataset.</p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb14-1">Column {data-width=900}</span>
-<span id="cb14-2">-----------------------------------------------------------------------</span>
-<span id="cb14-3"></span>
-<span id="cb14-4"><span class="fu" style="color: #4758AB;
+<div class="sourceCode" id="annotated-cell-15" style="background: #f1f3f5;"><pre class="sourceCode markdown md code-annotation-code code-with-copy code-annotated"><code class="sourceCode markdown"><span id="annotated-cell-15-1">Column {data-width=900}</span>
+<span id="annotated-cell-15-2">-----------------------------------------------------------------------</span>
+<span id="annotated-cell-15-3"></span>
+<span id="annotated-cell-15-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">### By default, the list is sorted by latest video.</span></span>
-<span id="cb14-5"></span>
-<span id="cb14-6">&lt;style&gt;</span>
-<span id="cb14-7"><span class="fu" style="color: #4758AB;
+<span id="annotated-cell-15-5"></span>
+<span id="annotated-cell-15-6">&lt;style&gt;</span>
+<span id="annotated-cell-15-7"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">.dataTables_scrollBody</span> {</span>
-<span id="cb14-8">    <span class="kw" style="color: #003B4F;
+<span id="annotated-cell-15-8">    <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">max-height</span>: <span class="dv" style="color: #AD0000;
+font-style: inherit;">max-height</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">100</span><span class="dt" style="color: #AD0000;
 background-color: null;
@@ -1568,69 +1570,69 @@ background-color: null;
 font-style: inherit;">!important</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
-<span id="cb14-9">}</span>
-<span id="cb14-10">&lt;/style&gt;</span>
-<span id="cb14-11"></span>
-<span id="cb14-12"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-9">}</span>
+<span id="annotated-cell-15-10">&lt;/style&gt;</span>
+<span id="annotated-cell-15-11"></span>
+<span id="annotated-cell-15-12"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">```{r}</span></span>
-<span id="cb14-13"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-13"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">dat_dashboard %&gt;%</span></span>
-<span id="cb14-14"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-14"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  dplyr::select(-chapter, -channel_image_url) %&gt;%</span></span>
-<span id="cb14-15"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-15"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  DT::datatable(</span></span>
-<span id="cb14-16"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-16"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    colnames = c("Date", "Channel", "Video"),</span></span>
-<span id="cb14-17"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-17"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    filter = "top",</span></span>
-<span id="cb14-18"><span class="in" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-15-18" class="code-annotation-target"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">    escape = FALSE, # &lt;1&gt;</span></span>
-<span id="cb14-19"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">    escape = FALSE,</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-15-19" class="code-annotation-target"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">    height = "1000", # &lt;2&gt;</span></span>
-<span id="cb14-20"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">    height = "1000",</span></span>
+<span id="annotated-cell-15-20"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    elementId = "dashboard",</span></span>
-<span id="cb14-21"><span class="in" style="color: #5E5E5E;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-15-21" class="code-annotation-target"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">    options = list(columnDefs = list( # &lt;3&gt;</span></span>
-<span id="cb14-22"><span class="in" style="color: #5E5E5E;
+font-style: inherit;">    options = list(columnDefs = list(</span></span>
+<span id="annotated-cell-15-22"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">      list(className = "dt-middle", targets = "_all")</span></span>
-<span id="cb14-23"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-23"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">    ))</span></span>
-<span id="cb14-24"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-24"><span class="in" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">  )</span></span>
-<span id="cb14-25"><span class="in" style="color: #5E5E5E;
+<span id="annotated-cell-15-25"><span class="in" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">```</span></span></code></pre></div>
-<dl>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+font-style: inherit;">```</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1"><code>escape = FALSE</code> renders the URLs within the table as HTML.</span>
+<span data-code-cell="annotated-cell-15" data-code-lines="18" data-code-annotation="1"><code>escape = FALSE</code> renders the URLs within the table as HTML.</span>
 </dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2"><code>height = "1000"</code> makes it expand to the entire column height.</span>
+<span data-code-cell="annotated-cell-15" data-code-lines="19" data-code-annotation="2"><code>height = "1000"</code> makes it expand to the entire column height.</span>
 </dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dt data-target-cell="annotated-cell-15" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="3">The list within <code>options</code> aligns the text within columns (in this case, to be in the middle of the cell for all columns).<sup>1</sup></span>
+<span data-code-cell="annotated-cell-15" data-code-lines="21" data-code-annotation="3">The list within <code>options</code> aligns the text within columns (in this case, to be in the middle of the cell for all columns).<sup>1</sup></span>
 </dd>
 </dl>
 <p>And that’s it! See the <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/index.Rmd">final dashboard code</a> on GitHub.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/dashboard.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/dashboard.png" class="img-fluid figure-img" alt="Screenshot of the final dashboard with a sidebar of the R-Ladies channels and the main section showing the table of videos from the various chapters"></p>
 <figcaption>Final dashboard</figcaption>
 </figure>
 </div>
@@ -1643,24 +1645,12 @@ font-style: inherit;">```</span></span></code></pre></div>
 <h3 class="anchored" data-anchor-id="create-a-github-action-workflow-file-in-your-project">Create a GitHub Action workflow file in your project</h3>
 <p>GitHub Actions use <a href="https://yaml.org/">YAML syntax</a> and are saved as <code>.yml</code> or <code>.yaml</code> files within a folder called <code>.github/workflows/</code>. We can use GitHub Actions to create a bot that refreshes the dashboard on a regular basis. You can see an <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/.github/workflows/rladies-videos-bot.yaml">example workflow in the GitHub repository</a>. H/T to <a href="https://github.com/gvelasq"><span class="citation" data-cites="gvelasq">@gvelasq</span></a> and this amazing <a href="https://github.com/r-lib/actions/blob/v2/examples/render-rmarkdown.yaml">example</a> in the <a href="https://github.com/r-lib/actions/tree/v2/examples#readme">r-lib/actions</a> repo for inspiration.</p>
 <p>To create a GitHub Action:</p>
-<dl>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">Create a folder in your repository called <code>.github</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="2">Within <code>.github</code>, add a folder called <code>workflows</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="5" data-code-annotation="3">Create a file called <code>rladies-videos-bot.yaml</code>.</span>
-</dd>
-<dt data-target-cell="annotated-cell-8" data-target-annotation="4">4</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="6" data-code-annotation="4">Copy and paste the workflow below in <code>rladies-videos-bot.yaml</code>.</span>
-</dd>
-</dl>
+<ol type="1">
+<li>Create a folder in your repository called <code>.github</code>.</li>
+<li>Within <code>.github</code>, add a folder called <code>workflows</code>.</li>
+<li>Create a file called <code>rladies-videos-bot.yaml</code>.</li>
+<li>Copy and paste the workflow below in <code>rladies-videos-bot.yaml</code>.</li>
+</ol>
 <div class="sourceCode" id="annotated-cell-16" style="background: #f1f3f5;"><pre class="sourceCode yaml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><span id="annotated-cell-16-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">on</span><span class="kw" style="color: #003B4F;
@@ -1673,7 +1663,7 @@ background-color: null;
 font-style: inherit;">schedule</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><span class="at" style="color: #657422;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1825,7 +1815,7 @@ background-color: null;
 font-style: inherit;"> </span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">true</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-21" class="code-annotation-target"><span class="at" style="color: #657422;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-16-21" class="code-annotation-target"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">      </span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -1845,7 +1835,7 @@ background-color: null;
 font-style: inherit;">with</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">:</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-23" class="code-annotation-target"><span class="at" style="color: #657422;
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-16-23" class="code-annotation-target"><span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">          </span><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1895,37 +1885,29 @@ font-style: inherit;">|</span></span>
 </dd>
 </dl>
 <p>The <code>Imports:</code> section of our <a href="https://github.com/ivelasq/rladies-video-feed/blob/main/DESCRIPTION"><code>DESCRIPTION</code></a> file looks like this:</p>
-<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">Imports<span class="sc" style="color: #5E5E5E;
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1">Imports<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span> </span>
-<span id="cb15-2">    bslib,</span>
-<span id="cb15-3">    dplyr,</span>
-<span id="cb15-4">    DT,</span>
-<span id="cb15-5">    flexdashboard,</span>
-<span id="cb15-6">    htmltools,</span>
-<span id="cb15-7">    httr2,</span>
-<span id="cb15-8">    jsonlite,</span>
-<span id="cb15-9">    readr,</span>
-<span id="cb15-10">    rmarkdown,</span>
-<span id="cb15-11">    stringr</span></code></pre></div>
+<span id="cb14-2">    bslib,</span>
+<span id="cb14-3">    dplyr,</span>
+<span id="cb14-4">    DT,</span>
+<span id="cb14-5">    flexdashboard,</span>
+<span id="cb14-6">    htmltools,</span>
+<span id="cb14-7">    httr2,</span>
+<span id="cb14-8">    jsonlite,</span>
+<span id="cb14-9">    readr,</span>
+<span id="cb14-10">    rmarkdown,</span>
+<span id="cb14-11">    stringr</span></code></pre></div>
 </section>
 <section id="configure-keys-on-github" class="level3">
 <h3 class="anchored" data-anchor-id="configure-keys-on-github">Configure keys on GitHub</h3>
 <p>Now that we have the workflow set up, we need to let GitHub know what our YouTube API key is so that it can be accessed each time the workflow is triggered.</p>
-<dl>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="3" data-code-annotation="1">In your GitHub repository, click the ‘Settings’ tab.</span>
-</dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="21" data-code-annotation="2">Under ‘Security’ on the left-hand side, click ‘Secrets and variables’ then ‘Actions’.</span>
-</dd>
-<dt data-target-cell="annotated-cell-16" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="23" data-code-annotation="3">Click the ‘Secrets’ tab, then click ‘New repository secret’.</span>
-</dd>
-</dl>
+<ol type="1">
+<li>In your GitHub repository, click the ‘Settings’ tab.</li>
+<li>Under ‘Security’ on the left-hand side, click ‘Secrets and variables’ then ‘Actions’.</li>
+<li>Click the ‘Secrets’ tab, then click ‘New repository secret’.</li>
+<li>Give your new secret the name <code>YOUTUBE_KEY</code> and in the ‘Secret’ textbox, paste your YouTube API key, then select ‘Add secret’.</li>
+</ol>
 <p>Now your GitHub repository is configured to run the workflow script. Your GitHub Action is ready to go!</p>
 </section>
 </section>
@@ -1961,7 +1943,7 @@ font-style: inherit;">:</span> </span>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-63003"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-63003").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-95191"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-95191").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <center>
@@ -1978,12 +1960,12 @@ font-style: inherit;">:</span> </span>
 </section>
 
 
-<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>I found out about this here: <a href="https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable">https://stackoverflow.com/questions/35749389/column-alignment-in-dt-datatable</a>.↩︎</p></li>
 </ol>
-</aside></div> ]]></description>
+</section></div> ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/</guid>
   <pubDate>Mon, 31 Jul 2023 07:00:00 GMT</pubDate>
@@ -2089,7 +2071,7 @@ font-style: inherit;">brew</span> install zsh</span></code></pre></div>
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-38305"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"Robby Russell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; Robby Russell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-38305").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-52832"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"Robby Russell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; Robby Russell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-52832").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -2221,7 +2203,7 @@ Note
 <p>Try a snippet out! After appending the script to your snippet file, type <code>dml</code> in the Console and press tab:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/macos-rig/gif1.gif" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/macos-rig/gif1.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Typing dml in the RStudio Console pane and then pressing tab to enable a snippet that lists out De Morgan's laws."></p>
 <figcaption>For whenever you want to remember De Morgan’s laws. 😉</figcaption>
 </figure>
 </div>
@@ -2301,7 +2283,7 @@ font-style: inherit;">--cask</span> quarto</span></code></pre></div>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-98437"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-98437").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-85925"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-85925").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
@@ -2375,7 +2357,7 @@ We told you it was unnerving 👀
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A woman holding an instrument while a man who is facing away from us paints her, the room has luxurious decorations."></p>
 <figcaption>Johannes Vermeer, The Allegory of Painting (1666)</figcaption>
 </figure>
 </div>
@@ -2964,7 +2946,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Blue and yellow dots making up the night sky"></p>
 <figcaption>Henri-Edmond Cross, Landscape with Stars, (1905–1908)</figcaption>
 </figure>
 </div>
@@ -3422,14 +3404,14 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section>
 
 
-<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>Running the same line without that argument, <code>mtcars %&gt;% plot(.$hp)</code>, does run without an error (but is not the plot that we want since it is using <code>mtcars</code> as the first argument, as mentioned above).↩︎</p></li>
 <li id="fn2"><p>Curly braces for the first expression, <code>{}()</code>, work too: <code>mtcars |&gt; {\(x) {x[which.max(x$mpg),]}}()</code>. See Ronak Shah’s reply in this <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/67638063#67638063">StackOverflow thread</a> for an example.↩︎</p></li>
 <li id="fn3"><p>Or for more on this, see Q2 and its answer in the ‘Functions’ chapter of <a href="https://advanced-r-solutions.rbind.io/functions.html">Advanced R Solutions</a>.↩︎</p></li>
 </ol>
-</aside></div> ]]></description>
+</section></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/</guid>
   <pubDate>Tue, 18 Jan 2022 08:00:00 GMT</pubDate>
@@ -3445,7 +3427,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Jungle with green trees and a red sun"></p>
 <figcaption>Henri Rousseau, Virgin Forest with Sunset (1910)</figcaption>
 </figure>
 </div>
@@ -3552,7 +3534,7 @@ font-style: inherit;">```</span></span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen Shot 2021-09-27 at 11.40.55 PM.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/reticulate-data-recreation/Screen Shot 2021-09-27 at 11.40.55 PM.png" class="img-fluid figure-img" alt="Python in R Markdown cheat sheet"></p>
 <figcaption>Python Cheatsheet</figcaption>
 </figure>
 </div>
@@ -3697,7 +3679,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Olive trees against a blue background  and a bright sun"></p>
 <figcaption>Vincent van Gogh, The Olive Trees (1889)</figcaption>
 </figure>
 </div>
@@ -3802,7 +3784,7 @@ font-style: inherit;">"tags"</span>))</span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/why-rstudio/cells.png" class="img-fluid figure-img" alt="Cell names"></p>
 <figcaption>Cell names</figcaption>
 </figure>
 </div>
@@ -3922,7 +3904,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Bunches of purple violets with a white background"></p>
 <figcaption>Pauline Powell Williams, Violets (1890)</figcaption>
 </figure>
 </div>
@@ -4066,7 +4048,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract pink flowers with red centers on a background of an orange spiral with brown background"></p>
 <figcaption>E. A. Séguy, Vintage flower patterns (1925)</figcaption>
 </figure>
 </div>
@@ -4075,7 +4057,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/rtistry-intro/rtistry2.png" class="img-fluid figure-img" alt="Generative art showing a repeated parametric equation"></p>
 <figcaption>Final image</figcaption>
 </figure>
 </div>
@@ -5307,7 +5289,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/other-geoms/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A person working in fields of colorful tulips with houses in the background"></p>
 <figcaption>Vincent Van Gogh, Flower Beds in Holland (1883)</figcaption>
 </figure>
 </div>
@@ -5892,7 +5874,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
 <figcaption>Winslow Homer, Maine Coast (1896)</figcaption>
 </figure>
 </div>
@@ -6050,14 +6032,18 @@ background-color: null;
 font-style: inherit;">:hover</span> {</span>
 <span id="cb6-2">  <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">background-color</span>: <span class="cn" style="color: #8f5902;
+font-style: inherit;">background-color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">#ffffff</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb6-3">  <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">color</span>: <span class="cn" style="color: #8f5902;
+font-style: inherit;">color</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">#ffbc49</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -6090,7 +6076,7 @@ font-style: inherit;">;</span></span>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/bookdown-manuscript/gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
 <figcaption>gtsummary Reference</figcaption>
 </figure>
 </div>
@@ -6144,7 +6130,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Two ballerina dancers at the barre, one with her leg in the air"></p>
 <figcaption>Edgar Degas, Dancers Practicing at the Barre (1877)</figcaption>
 </figure>
 </div>
@@ -7394,7 +7380,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract blue and white birds repeating on against a white and blue background"></p>
 <figcaption>Rijksmuseum, Pigeons in white and blue (1928)</figcaption>
 </figure>
 </div>
@@ -7605,7 +7591,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
 <figcaption>Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption>
 </figure>
 </div>
@@ -7834,21 +7820,21 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/1.png" class="img-fluid figure-img" alt="Screenshot of Mapbox website with Tilesets"></p>
 <figcaption>Mapbox Tilesets</figcaption>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/2.png" class="img-fluid figure-img" alt="Screenshot of Mapbox choosing a template"></p>
 <figcaption>Mapbox Template</figcaption>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/3.png" class="img-fluid figure-img" alt="Screenshot of Mapbox layers and how to add them"></p>
 <figcaption>Mapbox Layers</figcaption>
 </figure>
 </div>
@@ -7860,7 +7846,7 @@ font-style: inherit;">TRUE</span>)</span></code></pre></div>
 <p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr2/4.png" class="img-fluid figure-img" alt="Screenshot of Mapbox sharing a map"></p>
 <figcaption>Mapbox Sharing</figcaption>
 </figure>
 </div>
@@ -8023,7 +8009,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/party-with-R/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A dancer with a large skirt dancing at a dance hall with a crowd behind her"></p>
 <figcaption>Henri de Toulouse-Lautrec, Marcelle Lender Dancing the Bolero in Chilpéric (1895-1896)</figcaption>
 </figure>
 </div>
@@ -8076,7 +8062,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
 <figcaption>Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption>
 </figure>
 </div>
@@ -8157,7 +8143,7 @@ font-style: inherit;">View</span>(census_sheet1)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
 <figcaption>First three columns of the imported dataset</figcaption>
 </figure>
 </div>
@@ -8184,7 +8170,7 @@ font-style: inherit;"># View(census_sheet1)</span></span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
 <figcaption>Dataset with skipped lines</figcaption>
 </figure>
 </div>
@@ -8225,7 +8211,7 @@ font-style: inherit;">set_names</span>(new_names)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
 <figcaption>Dataset with cleaned names</figcaption>
 </figure>
 </div>
@@ -8259,7 +8245,7 @@ font-style: inherit;">61</span>)</span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
 <figcaption>Dataset with removed rows</figcaption>
 </figure>
 </div>
@@ -8310,7 +8296,7 @@ font-style: inherit;">%in%</span> filter_var) </span></code></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
 <figcaption>Dataset with filtered rows</figcaption>
 </figure>
 </div>
@@ -8426,7 +8412,7 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
 <figcaption>Column with variable names</figcaption>
 </figure>
 </div>
@@ -8435,7 +8421,7 @@ font-style: inherit;">add_column</span>(category_column)</span></code></pre></di
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
 <figcaption>Column with numbers but with character type</figcaption>
 </figure>
 </div>
@@ -8509,7 +8495,7 @@ font-style: inherit;">"Sheet"</span>)</span></code></pre></div>
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/tidying-census-data/census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
 <figcaption>Viewing the list</figcaption>
 </figure>
 </div>
@@ -8872,7 +8858,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful flowers in a pot with a black background"></p>
 <figcaption>Abraham Mignon, Still Life with Flowers and a Watch (1660 - 1679)</figcaption>
 </figure>
 </div>
@@ -9188,7 +9174,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Rosie the Riveter with a red spotted bandana and a blue shirt holding her arm"></p>
 <figcaption>J. Howard Miller, We Can Do It!</figcaption>
 </figure>
 </div>
@@ -9299,7 +9285,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/things-i-google/thumbnail-wide.jpg" class="img-fluid figure-img" alt="Colorful dots making up a painting of a garden with two women"></p>
 <figcaption>Henri Edmond Cross, Two Women by the Shore, Mediterranean (1896)</figcaption>
 </figure>
 </div>
@@ -10163,7 +10149,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://ivelasq.rbind.io/blog/modal-district/thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town showing green and yellow houses and a white church and trees"></p>
 <figcaption>Village by the River, fourth quarter 19th century</figcaption>
 </figure>
 </div>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.504">
+<meta name="generator" content="quarto-1.4.543">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -205,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="Abstract painting of black rectangles on a yellow background"></p>
 <figcaption>Piet Mondrian, Tableau No.&nbsp;2/Composition No.&nbsp;VII (1913)</figcaption>
 </figure>
 </div>
@@ -304,21 +305,21 @@ It has 18 fields</code></pre>
 <p>This is the part that I had to figure out on the Mapbox website. <a href="https://docs.mapbox.com/help/tutorials/choropleth-studio-gl-pt-1/">This</a> walkthrough was helpful. Once you have uploaded the tiles using <code>upload_tiles()</code>, you should see them available under “Custom tileset” at the bottom of this webpage: https://studio.mapbox.com/tilesets/.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="1.png" class="img-fluid figure-img"></p>
+<p><img src="1.png" class="img-fluid figure-img" alt="Screenshot of Mapbox website with Tilesets"></p>
 <figcaption>Mapbox Tilesets</figcaption>
 </figure>
 </div>
 <p>Then, go to Styles on this webpage: https://studio.mapbox.com/. Click “New Style” and choose the template you want, then Customize.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="2.png" class="img-fluid figure-img"></p>
+<p><img src="2.png" class="img-fluid figure-img" alt="Screenshot of Mapbox choosing a template"></p>
 <figcaption>Mapbox Template</figcaption>
 </figure>
 </div>
 <p>To add your tileset, go to Layers, click the Plus sign, then under “Source”, find your uploaded tileset, or add the tileset by the ID given by <code>upload_tiles()</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="3.png" class="img-fluid figure-img"></p>
+<p><img src="3.png" class="img-fluid figure-img" alt="Screenshot of Mapbox layers and how to add them"></p>
 <figcaption>Mapbox Layers</figcaption>
 </figure>
 </div>
@@ -330,7 +331,7 @@ It has 18 fields</code></pre>
 <p>To get the information to bring it back into R and be able to use the map in a Shiny app, I clicked “Share” and scrolled to find the Style ID.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="4.png" class="img-fluid figure-img"></p>
+<p><img src="4.png" class="img-fluid figure-img" alt="Screenshot of Mapbox sharing a map"></p>
 <figcaption>Mapbox Sharing</figcaption>
 </figure>
 </div>
@@ -527,27 +528,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -562,10 +542,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -574,8 +558,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

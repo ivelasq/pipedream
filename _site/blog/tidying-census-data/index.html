@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.504">
+<meta name="generator" content="quarto-1.4.543">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -205,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.jpg" class="img-fluid figure-img" alt="A town of people skating on a frozen lake"></p>
 <figcaption>Hendrick Avercamp, Ice-skating in a Village (1610)</figcaption>
 </figure>
 </div>
@@ -256,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census1.png" class="img-fluid figure-img"></p>
+<p><img src="census1.png" class="img-fluid figure-img" alt="First three columns of the imported dataset, first column is the table title and the other two don't have names and are listed as dot dot dot 2 and dot dot dot 3."></p>
 <figcaption>First three columns of the imported dataset</figcaption>
 </figure>
 </div>
@@ -269,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census2.png" class="img-fluid figure-img"></p>
+<p><img src="census2.png" class="img-fluid figure-img" alt="Dataset with skipped lines so that the column names are now characteristics, Total, and impact of the pandemic on children's education."></p>
 <figcaption>Dataset with skipped lines</figcaption>
 </figure>
 </div>
@@ -284,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census3.png" class="img-fluid figure-img"></p>
+<p><img src="census3.png" class="img-fluid figure-img" alt="Dataset with cleaned names so that they are select underscore characteristics, total, and using online resources."></p>
 <figcaption>Dataset with cleaned names</figcaption>
 </figure>
 </div>
@@ -296,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census4.png" class="img-fluid figure-img"></p>
+<p><img src="census4.png" class="img-fluid figure-img" alt="Dataset with removed rows so that the first rows start to line up with the columns."></p>
 <figcaption>Dataset with removed rows</figcaption>
 </figure>
 </div>
@@ -311,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census5.png" class="img-fluid figure-img"></p>
+<p><img src="census5.png" class="img-fluid figure-img" alt="Dataset with filtered rows so that the columns and rows match up."></p>
 <figcaption>Dataset with filtered rows</figcaption>
 </figure>
 </div>
@@ -327,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census6.png" class="img-fluid figure-img"></p>
+<p><img src="census6.png" class="img-fluid figure-img" alt="Column with variable names that repeat down the column."></p>
 <figcaption>Column with variable names</figcaption>
 </figure>
 </div>
@@ -336,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census7.png" class="img-fluid figure-img"></p>
+<p><img src="census7.png" class="img-fluid figure-img" alt="Column with numbers but with character type."></p>
 <figcaption>Column with numbers but with character type</figcaption>
 </figure>
 </div>
@@ -364,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you take a look at the list using <code>View(census_list)</code>, you can see the data is stored as tibbles within the list. If you expand <code>US</code>, you’ll see the same data as when we did the single sheet example. You can also see the same data if you run <code>census_list[["US"]]</code>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="census_list.png" class="img-fluid figure-img"></p>
+<p><img src="census_list.png" class="img-fluid figure-img" alt="Viewing the list of each state with the same data structure underneath"></p>
 <figcaption>Viewing the list</figcaption>
 </figure>
 </div>
@@ -596,27 +597,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -631,10 +611,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -643,8 +627,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

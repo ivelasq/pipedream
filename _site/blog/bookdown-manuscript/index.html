@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.504">
+<meta name="generator" content="quarto-1.4.543">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -207,7 +208,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="thumbnail-wide.png" class="img-fluid figure-img"></p>
+<p><img src="thumbnail-wide.png" class="img-fluid figure-img" alt="Rough ocean waves crashing at a rock"></p>
 <figcaption>Winslow Homer, Maine Coast (1896)</figcaption>
 </figure>
 </div>
@@ -291,8 +292,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>By right-clicking any part of a web page (including an existing bookdown) in Chrome, you can then click “Inspect Element” to see its HTML file and the hierarchy of the thing you just right-clicked on. Then, by clicking the arrow on the top left of your Inspector pane, you can click on anything to see its HTML file.</p>
 <p>This, and a combination of snooping on GitHub, allowed us to find ways to customize our bookdown. <a href="https://github.com/data-edu/data-science-in-education/blob/master/css/style.css">Here</a> is where ours is located and where you can see what is referenced and changed with CSS. For example, this bit of code is saying for the book left-hand pane, when hovering, make the color white and the text <code>#ffbc49</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.book</span> <span class="fu">.book-summary</span> ul<span class="fu">.summary</span> li a<span class="in">:hover</span> {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span>: <span class="cn">#ffffff</span><span class="op">;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">#ffbc49</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ffbc49</span><span class="op">;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This process takes a lot of trial and error, I will admit. It may be easier to pick up a bit of CSS if you have specific ideas in mind. However, if you need a quick edit of some pages, seeing how others have done it and exploring with the Developer Tools is very handy.</p>
 </section>
@@ -321,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="gt.png" class="img-fluid figure-img"></p>
+<p><img src="gt.png" class="img-fluid figure-img" alt="Table of various table print engines, the functions for creating the tables, and whether they're supported in HTML, PDF, RTF, or Word."></p>
 <figcaption>gtsummary Reference</figcaption>
 </figure>
 </div>
@@ -486,27 +487,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -521,10 +501,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -533,8 +517,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
-      return note.innerHTML;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
