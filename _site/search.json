@@ -571,7 +571,7 @@
     "href": "blog/not-so-basic-base-r-functions/index.html#lengths",
     "title": "Six not-so-basic base R functions",
     "section": "6. lengths",
-    "text": "6. lengths\nlengths() is a more efficient version of sapply(df, length). length() determines the number of elements in an object, and lengths() will provide the lengths of elements across columns in the data frame.\n\n\nResources\n\nlengths documentation\nSumming the lengths of lists inside a list in R\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nPretty straightforward but I think it is a neat function :)"
+    "text": "6. lengths\nlengths() is a more efficient version of sapply(df, length). length() determines the number of elements in an object, and lengths() will provide the lengths of elements across columns in the data frame.\n\n\nResources\n\nlengths documentation\nSumming the lengths of lists inside a list in R\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nPretty straightforward but I think it is a neat function :)\nNote 2024-01-21: As @ProfBootyPhD mentioned on Twitter, a better example of lengths() would be a list “since all the columns of a df are required to be the same length.” Here is the example from StackOverflow:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
     "objectID": "blog/not-so-basic-base-r-functions/index.html#null-coalescing-operator-in-r",

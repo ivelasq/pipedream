@@ -188,8 +188,22 @@ Note
 <li>coplot(): Visualize interactions</li>
 <li>nzchar(): Find out if elements of a character vector are non-empty strings</li>
 <li>with(): Evaluate an expression in a data environment</li>
+<li>lengths(): Determine lengths of a list or vector elements</li>
 <li>Null coalescing operator <code>%||%</code>: Return first input if not <code>NULL</code>, otherwise return second input</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I accidentally had seven functions in my post, even though it’s titled “Six not-so-basic base R functions.” Oops! Consider the null-coalescing operator as a bonus, as it’s not part of base R yet. 😊</p>
+</div>
+</div>
 <section id="invisible" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="invisible">1. invisible</h2>
 <p>The <code>invisible()</code> function “returns a temporarily invisible copy of an object” by hiding the output of a function in the console. When you wrap a function in <code>invisible()</code>, it will execute normally and can be assigned to a variable or used in other operations, but the result isn’t printed out.</p>
@@ -701,6 +715,36 @@ lengths(df)`,
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Pretty straightforward but I think it is a neat function :)</p>
+<p><strong>Note 2024-01-21</strong>: As <a href="https://twitter.com/ProfBootyPhD"><span class="citation" data-cites="ProfBootyPhD">@ProfBootyPhD</span></a> <a href="https://twitter.com/ProfBootyPhD/status/1748025353648689557">mentioned on Twitter</a>, a better example of <code>lengths()</code> would be a list “since all the columns of a df are required to be the same length.” Here is the example from StackOverflow:</p>
+<div id="qwebr-insertion-location-19"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-19");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    19
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `df1 <- data.frame(x = 1:5, y = letters[1:5])
+df2 <- data.frame(x = 1:15, y = letters[1:15])
+df3 <- data.frame(x = 1:25, y = letters[1:25])
+df4 <- data.frame(x = 1:6, y = letters[1:6])
+df5 <- data.frame(x = 1:8, y = letters[1:8])
+
+l1 <- list(df1, df2)
+l2 <- list(df3, df4, df5)
+mylist <- list(l1, l2)
+
+lengths(mylist)`, 
+  19);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="null-coalescing-operator-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="null-coalescing-operator-in-r">7. Null-coalescing operator in R, %||%</h2>
@@ -737,14 +781,14 @@ font-style: inherit;">else</span> x</span>
 
 </center>
 <p><br> However, the null-coalescing operator can also be useful in interactive use, for functions that take <code>NULL</code> as a valid argument. In this case, if supplied in the argument itself it can yield different interesting behaviors. For example:</p>
-<div id="qwebr-insertion-location-19"></div>
+<div id="qwebr-insertion-location-20"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-19");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-20");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    19
+    20
   );
 
 // Add the interactive element into the document scope
@@ -767,7 +811,7 @@ add_commas <- function(x) {
 
 add_commas(c("apples"))
 add_commas(c("apples", "bananas"))`, 
-  19);
+  20);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>There’s more <a href="https://fosstodon.org/@eddelbuettel@mastodon.social/111295691967509884">discussion</a> about the utility of the function.</p>
