@@ -350,6 +350,19 @@ Want even more functions (base R or not)? Here are some other resources to check
 
 Thanks to all community members sharing their code and functions!
 
+*Liked this article? I’d love for you to share!*
+
+::: {.panel-tabset}
+## Twitter
+{{< tweet ivelasq3 1747647547148321205 >}}
+
+## Mastodon
+
+<iframe src="https://fosstodon.org/@ivelasq3/111772069621750384/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
+
+:::
+
+
 [^longnote]: Many thanks to the following resources for making this post possible:
 
     - George Stagg's webR and the [webR documentation](https://docs.r-wasm.org/webr/latest/).
