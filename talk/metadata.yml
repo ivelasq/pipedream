@@ -70,7 +70,7 @@
   image: ./talk/you-r-a-content-creator/thumbnail.gif
   path: ./talk/you-r-a-content-creator/index.md
 - title: "The Medium is the Message: R Programmers as Content Creators"
-  subtitle: "R Ladies Nairobi"
+  subtitle: "R-Ladies Nairobi"
   date: 2024-01-23
   image: ./talk/getting-started-with-report-writing-using-quarto/thumbnail.png
   path: ./talk/getting-started-with-report-writing-using-quarto/index.md

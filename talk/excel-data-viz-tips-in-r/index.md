@@ -34,7 +34,7 @@ editor_options:
 +------------+-------------------------------------------------------+
 | Repository | [**GitHub**](https://github.com/ivelasq/excel-data-viz-tips-in-r) 
 +------------+-------------------------------------------------------+
-| Slides     | [**QuartoPub**](https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/)                                         |
+| Slides     | [**Quarto Pub**](https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/)                                         |
 +------------+-------------------------------------------------------+
 | Recording  | [**YouTube**](https://www.youtube.com/watch?v=XEDOfUp_O7w)
 +------------+-------------------------------------------------------+

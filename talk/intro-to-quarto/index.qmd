@@ -11,7 +11,7 @@ image-alt: "Intro to Quarto"
 | Location   | Remote                                                                                     |
 | Event      | [**R-Ladies St. Louis Meetup**](https://www.meetup.com/rladies-st-louis/events/288256892/) |
 | Repository | [**GitHub**](https://github.com/ivelasq/2022-10-27_intro-to-quarto/)                       |
-| Slides     | [**QuartoPub**](https://ivelasq.quarto.pub/intro-to-quarto)                                |
+| Slides     | [**Quarto Pub**](https://ivelasq.quarto.pub/intro-to-quarto)                                |
 | Recording  | [**YouTube**](https://www.youtube.com/watch?v=y6_xMIBKuP4/)                                |
 
 <center><a href="https://ivelasq.quarto.pub/intro-to-quarto"><img src="promo.jpg" target="_blank" style="width:800px;height:450px;"/></a></center>
