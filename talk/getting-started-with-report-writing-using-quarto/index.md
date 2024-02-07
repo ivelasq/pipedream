@@ -12,6 +12,7 @@ image-alt: "Getting Started With Report Writing Using Quarto"
 | Event | [**R-Ladies Nairobi Meetup**](https://www.meetup.com/rladies-nairobi/events/298652674/) |
 | Repository | [**GitHub**](https://github.com/ivelasq/2024-01-23_getting-started-with-report-writing-using-quarto) |
 | Slides | [**Quarto Pub**](https://ivelasq.quarto.pub/getting-started-with-report-writing-using-quarto/) |
+| Recordings | **YouTube** [**Part 1**](https://www.youtube.com/watch?v=vtJuo9YmlPk),  [**Part 2**](https://www.youtube.com/watch?v=Sf__ERCSgIA) |
 
 <center><a href="https://ivelasq.quarto.pub/getting-started-with-report-writing-using-quarto/"><img src="title.png" target="_blank" style="width:800px;height:450px;"/></a></center>
 

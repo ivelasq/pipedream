@@ -30,7 +30,7 @@ This post includes examples from the [base](https://stat.ethz.ch/R-manual/R-deve
 7. [Null coalescing operator `%||%`](#null-coalescing-operator-in-r): Return first input if not `NULL`, otherwise return second input
 
 ::: {.callout-note}
-I accidentally had seven functions in my post, even though it's titled "Six not-so-basic base R functions." Oops! Consider the null-coalescing operator as a bonus, as it's not part of base R yet. 😊
+I accidentally had seven functions in my post, even though it's titled "Six not-so-basic base R functions." Oops! Consider the null-coalescing operator a bonus, as it's not part of base R yet. 😊
 :::
 
 ## 1. invisible
