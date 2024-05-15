@@ -8,4 +8,5 @@
 Thumbs.db
 
 /.quarto/
-/_freeze/
+_freeze/
+_site/

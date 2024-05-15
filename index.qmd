@@ -3,7 +3,7 @@ title: "Posts"
 listing:
   contents: blog
   categories: true
-  date-format: "YYYY-MM-DD"
+  date-format: "DD MMMM YYYY"
   feed: true
   filter-ui: false
   image-align: "left"

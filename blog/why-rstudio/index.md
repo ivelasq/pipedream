@@ -1,6 +1,7 @@
 ---
 title: "Why I’m excited to join RStudio, told through a blogdown metadata project"
 date: "2021-09-13"
+date-format: "DD MMMM YYYY"
 categories: ["tutorial"]
 description: I am now a Sr. Product Marketing Manager at RStudio!
 image: thumbnail.jpg

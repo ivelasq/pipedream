@@ -10,7 +10,7 @@
 <atom:link href="https://ivelasq.rbind.io/index.xml" rel="self" type="application/rss+xml"/>
 <description>Isabella Velásquez Personal Website</description>
 <generator>quarto-1.4.543</generator>
-<lastBuildDate>Wed, 17 Jan 2024 08:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 17 Jan 2024 06:00:00 GMT</lastBuildDate>
 <item>
   <title>Six not-so-basic base R functions</title>
   <link>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</link>
@@ -201,7 +201,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>I accidentally had seven functions in my post, even though it’s titled “Six not-so-basic base R functions.” Oops! Consider the null-coalescing operator as a bonus, as it’s not part of base R yet. 😊</p>
+<p>I accidentally had seven functions in my post, even though it’s titled “Six not-so-basic base R functions.” Oops! Consider the null-coalescing operator a bonus, as it’s not part of base R yet. 😊</p>
 </div>
 </div>
 <section id="invisible" class="level2 page-columns page-full">
@@ -833,7 +833,7 @@ add_commas(c("apples", "bananas"))`,
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-93560"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1747647547148321205","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE3 New blog post: Six not-so-basic base R functions!\u003Cbr\u003E\u003Cbr\u003EThere are so many great functions in base \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E. Let&#39;s explore six lesser-known ones in our latest post.  Run them in your browser using the magic of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/webR?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#webR\u003C\/a\u003E and \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Quarto?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Quarto\u003C\/a\u003E \uD83D\uDCAB \u003Cbr\u003E\u003Cbr\u003EPost: \u003Ca href=\"https:\/\/t.co\/YaP5lAwzyw\"\u003Ehttps:\/\/t.co\/YaP5lAwzyw\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1747647547148321205?ref_src=twsrc%5Etfw\"\u003EJanuary 17, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-93560").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-73561"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1747647547148321205","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE3 New blog post: Six not-so-basic base R functions!\u003Cbr\u003E\u003Cbr\u003EThere are so many great functions in base \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E. Let&#39;s explore six lesser-known ones in our latest post.  Run them in your browser using the magic of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/webR?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#webR\u003C\/a\u003E and \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Quarto?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Quarto\u003C\/a\u003E \uD83D\uDCAB \u003Cbr\u003E\u003Cbr\u003EPost: \u003Ca href=\"https:\/\/t.co\/YaP5lAwzyw\"\u003Ehttps:\/\/t.co\/YaP5lAwzyw\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1747647547148321205?ref_src=twsrc%5Etfw\"\u003EJanuary 17, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-73561").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <iframe src="https://fosstodon.org/@ivelasq3/111772069621750384/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
@@ -862,7 +862,7 @@ add_commas(c("apples", "bananas"))`,
 </section></div> ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/</guid>
-  <pubDate>Wed, 17 Jan 2024 08:00:00 GMT</pubDate>
+  <pubDate>Wed, 17 Jan 2024 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2006,7 +2006,7 @@ font-style: inherit;">:</span> </span>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-30675"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-30675").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-75825"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83D\uDCE2New post: Using flexdashboard to create a GitHub Actions-powered YouTube feed \uD83C\uDFA5\u003Cbr\u003E\u003Cbr\u003EInterested in making your own custom feed of \u003Ca href=\"https:\/\/twitter.com\/hashtag\/YouTube?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#YouTube\u003C\/a\u003E videos? I made one with GitHub Actions + \u003Ca href=\"https:\/\/twitter.com\/hashtag\/flexdashboard?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#flexdashboard\u003C\/a\u003E for \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RLadies?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RLadies\u003C\/a\u003E! \uD83D\uDCF7 \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E\u003Cbr\u003E\u003Cbr\u003EBlog: \u003Ca href=\"https:\/\/t.co\/OOakbk2iHH\"\u003Ehttps:\/\/t.co\/OOakbk2iHH\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1687094741505306624?ref_src=twsrc%5Etfw\"\u003EAugust 3, 2023\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-75825").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <center>
@@ -2031,7 +2031,7 @@ font-style: inherit;">:</span> </span>
 </section></div> ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/automated-youtube-dashboard/</guid>
-  <pubDate>Mon, 31 Jul 2023 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 31 Jul 2023 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/automated-youtube-dashboard/img/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2139,7 +2139,7 @@ font-style: inherit;">brew</span> install zsh</span></code></pre></div>
 <li>Install <a href="https://ohmyz.sh/#install">Oh My Zsh</a>.</li>
 </ol>
 <p>Oh My Zsh (OMZ) is ‘a delightful &amp; open source framework for Zsh.’ Or as ChatGPT succinctly put it:</p>
-<p></p><div id="tweet-30888"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"Robby Russell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; Robby Russell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-30888").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-89462"></div><script>tweet={"url":"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914","author_name":"Robby Russell","author_url":"https:\/\/twitter.com\/robbyrussell","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003ESo sweet. \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/DoVNbUStmE\"\u003Epic.twitter.com\/DoVNbUStmE\u003C\/a\u003E\u003C\/p\u003E&mdash; Robby Russell (@robbyrussell) \u003Ca href=\"https:\/\/twitter.com\/robbyrussell\/status\/1599596073282342914?ref_src=twsrc%5Etfw\"\u003EDecember 5, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-89462").innerHTML = tweet["html"];</script><p></p>
 <p>It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">all the built-in OMZ plugins</a> — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, <code>gs</code> is <code>git status</code>, <code>bubo</code> is <code>brew update &amp;&amp; brew outdated</code> (very helpful), etc. Here are some you should know:</p>
 <ul>
 <li>The <a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/brew">brew</a> plugin and its aliases</li>
@@ -2351,7 +2351,7 @@ font-style: inherit;">--cask</span> quarto</span></code></pre></div>
 <ul class="nav nav-tabs"><li class="nav-item"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" aria-controls="tabset-1-1" aria-selected="true">Twitter</a></li><li class="nav-item"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" aria-controls="tabset-1-2" aria-selected="false">Mastodon</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" aria-labelledby="tabset-1-1-tab">
-<p></p><div id="tweet-57121"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-57121").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-67969"></div><script>tweet={"url":"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520","author_name":"Isabella Velásquez","author_url":"https:\/\/twitter.com\/ivelasq3","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"en\" dir=\"ltr\"\u003E\uD83C\uDF89 New post: Setting up macOS as an \u003Ca href=\"https:\/\/twitter.com\/hashtag\/RStats?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#RStats\u003C\/a\u003E data science rig in 2023\u003Cbr\u003E\u003Cbr\u003ELet’s fall together into a pit of success™ (when configuring macOS)! \uD83C\uDF4E\u003Cbr\u003EWith tools you love, like \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Homebrew?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Homebrew\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/Git?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#Git\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/OhMyZsh?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#OhMyZsh\u003C\/a\u003E \u003Ca href=\"https:\/\/twitter.com\/hashtag\/QuartoPub?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#QuartoPub\u003C\/a\u003E \uD83D\uDCBB\u003Cbr\u003EGuest appearance: \u003Ca href=\"https:\/\/twitter.com\/hashtag\/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw\"\u003E#ChatGPT\u003C\/a\u003E! \uD83E\uDD16\u003Cbr\u003E\u003Cbr\u003EBlog post: \u003Ca href=\"https:\/\/t.co\/CWugqrEDvu\"\u003Ehttps:\/\/t.co\/CWugqrEDvu\u003C\/a\u003E \u003Ca href=\"https:\/\/t.co\/AEkqxY4pza\"\u003Epic.twitter.com\/AEkqxY4pza\u003C\/a\u003E\u003C\/p\u003E&mdash; Isabella Velásquez (@ivelasq3) \u003Ca href=\"https:\/\/twitter.com\/ivelasq3\/status\/1606094450643435520?ref_src=twsrc%5Etfw\"\u003EDecember 23, 2022\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-67969").innerHTML = tweet["html"];</script><p></p>
 </div>
 <div id="tabset-1-2" class="tab-pane" aria-labelledby="tabset-1-2-tab">
 <iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen">
@@ -2412,7 +2412,7 @@ We told you it was unnerving 👀
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/macos-rig/</guid>
-  <pubDate>Thu, 22 Dec 2022 08:00:00 GMT</pubDate>
+  <pubDate>Thu, 22 Dec 2022 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/macos-rig/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3001,7 +3001,7 @@ Working in Python but miss <a href="https://twitter.com/hashtag/rstats?src=hash&
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/tidyverse-python-ports/</guid>
-  <pubDate>Mon, 09 May 2022 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 09 May 2022 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidyverse-python-ports/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3482,7 +3482,7 @@ New blog post 👩🏻‍💻📝 Understanding the native R pipe |&gt;<br><br>I
 </section></div> ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/</guid>
-  <pubDate>Tue, 18 Jan 2022 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Jan 2022 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3734,7 +3734,7 @@ Did you see the paper where a dataset was created from a cartoon and thought, ho
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/reticulate-data-recreation/</guid>
-  <pubDate>Tue, 28 Sep 2021 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 28 Sep 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/reticulate-data-recreation/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -3959,7 +3959,7 @@ Here's how to pull the YAML for your blogdown posts using <a href="https://twitt
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/why-rstudio/</guid>
-  <pubDate>Mon, 13 Sep 2021 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Sep 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/why-rstudio/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -4103,7 +4103,7 @@ font-style: inherit;">clean_names</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/politely-scraping/</guid>
-  <pubDate>Tue, 27 Jul 2021 07:00:00 GMT</pubDate>
+  <pubDate>Tue, 27 Jul 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/politely-scraping/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5344,7 +5344,7 @@ New post! 📣 Interested in using <a href="https://twitter.com/hashtag/rstats?s
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/rtistry-intro/</guid>
-  <pubDate>Sun, 09 May 2021 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 09 May 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/rtistry-intro/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -5929,7 +5929,7 @@ New post 🚀 Into the ggplot2niverse! 🚀 We love geom_point, geom_bar, and th
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/other-geoms/</guid>
-  <pubDate>Sun, 28 Mar 2021 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 28 Mar 2021 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/other-geoms/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -6183,7 +6183,7 @@ New blogpost! 🎉 We created our book's manuscript using <a href="https://twitt
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/bookdown-manuscript/</guid>
-  <pubDate>Mon, 08 Mar 2021 08:00:00 GMT</pubDate>
+  <pubDate>Mon, 08 Mar 2021 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/bookdown-manuscript/thumbnail.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
@@ -7435,7 +7435,7 @@ font-style: inherit;">View</span>(mtcars_integerized)</span>
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/vscode-live-share/</guid>
-  <pubDate>Wed, 03 Feb 2021 08:00:00 GMT</pubDate>
+  <pubDate>Wed, 03 Feb 2021 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/vscode-live-share/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -7646,7 +7646,7 @@ Are you, too, constantly frustrated there's no way to easily look through your l
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/get-tweet-likes/</guid>
-  <pubDate>Tue, 10 Nov 2020 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 10 Nov 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/get-tweet-likes/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8064,7 +8064,7 @@ New goodies for leaidr, an <a href="https://twitter.com/hashtag/rstats?src=hash&
   <category>tutorial</category>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr2/</guid>
-  <pubDate>Sun, 30 Aug 2020 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 30 Aug 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr2/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8117,7 +8117,7 @@ Party with R: How the Community Enabled Us to Write a Book<a href="https://t.co/
  ]]></description>
   <category>explanation</category>
   <guid>https://ivelasq.rbind.io/blog/party-with-R/</guid>
-  <pubDate>Mon, 13 Jul 2020 07:00:00 GMT</pubDate>
+  <pubDate>Mon, 13 Jul 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/party-with-R/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -8913,7 +8913,7 @@ New blogpost 📣: What It Takes to Tidy Census Aggregate Data! ⭐ Let's take a
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/tidying-census-data/</guid>
-  <pubDate>Thu, 28 May 2020 07:00:00 GMT</pubDate>
+  <pubDate>Thu, 28 May 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/tidying-census-data/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9228,7 +9228,7 @@ Ever wish you could easily create U.S. school district maps 🗺🏫 in <a href=
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/leaidr-shapefiles/</guid>
-  <pubDate>Sun, 03 May 2020 07:00:00 GMT</pubDate>
+  <pubDate>Sun, 03 May 2020 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/leaidr-shapefiles/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -9340,7 +9340,7 @@ Don’t get discouraged if you don’t succeed on your first try. Everyone (incl
  ]]></description>
   <category>how-to</category>
   <guid>https://ivelasq.rbind.io/blog/you-cran-do-it/</guid>
-  <pubDate>Tue, 25 Feb 2020 08:00:00 GMT</pubDate>
+  <pubDate>Tue, 25 Feb 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/you-cran-do-it/thumbnail.png" medium="image" type="image/png" height="124" width="144"/>
 </item>
 <item>
@@ -10204,7 +10204,7 @@ I wrote a quick <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src
  ]]></description>
   <category>reference</category>
   <guid>https://ivelasq.rbind.io/blog/things-i-google/</guid>
-  <pubDate>Mon, 27 Jan 2020 08:00:00 GMT</pubDate>
+  <pubDate>Mon, 27 Jan 2020 06:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/things-i-google/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -11729,7 +11729,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
  ]]></description>
   <category>tutorial</category>
   <guid>https://ivelasq.rbind.io/blog/modal-district/</guid>
-  <pubDate>Wed, 11 Sep 2019 07:00:00 GMT</pubDate>
+  <pubDate>Wed, 11 Sep 2019 05:00:00 GMT</pubDate>
   <media:content url="https://ivelasq.rbind.io/blog/modal-district/thumbnail.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

@@ -8,7 +8,7 @@ image-alt: "Taking a Peek at Hiking Data Using R"
 |           |                                                                                         |
 |-----------|-----------------------------------------------------------------------------------------|
 | Abstract  | An analysis of hiking routes and metrics.                                               |
-| Date      | July 16, 2019                                                                           |
+| Date      | 16 July 2019                                                                           |
 | Time      | 6:30PM                                                                                  |
 | Location  | Seattle, WA                                                                             |
 | Event     | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/262790588/) |

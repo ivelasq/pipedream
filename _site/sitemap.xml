@@ -2,35 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ivelasq.rbind.io/talk/excel-data-viz-tips-in-r/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.846Z</lastmod>
+    <lastmod>2024-03-01T19:59:46.792Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/gt-talk/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.857Z</lastmod>
+    <lastmod>2024-03-01T19:50:26.641Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/intro-to-quarto/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.870Z</lastmod>
+    <lastmod>2024-03-01T19:48:42.252Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/you-r-a-content-creator/index.html</loc>
-    <lastmod>2023-12-30T03:22:00.327Z</lastmod>
+    <lastmod>2024-03-01T18:06:45.869Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/hiking-data/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.866Z</lastmod>
+    <lastmod>2024-03-01T19:48:51.267Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/whats-new-in-the-tidyverse/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.895Z</lastmod>
+    <lastmod>2024-03-01T19:47:44.380Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/blogdown-for-what/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.834Z</lastmod>
+    <lastmod>2024-03-01T19:51:14.753Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/getting-started-with-report-writing-using-quarto/index.html</loc>
-    <lastmod>2024-01-23T19:37:55.148Z</lastmod>
+    <lastmod>2024-03-01T19:50:39.914Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/license.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/about.html</loc>
-    <lastmod>2023-11-26T06:33:10.803Z</lastmod>
+    <lastmod>2024-03-01T19:54:49.917Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/party-with-R/index.html</loc>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/index.html</loc>
-    <lastmod>2023-07-31T15:07:40.741Z</lastmod>
+    <lastmod>2024-03-01T19:53:30.057Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/snap-expenditures/index.html</loc>
@@ -122,7 +122,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/not-so-basic-base-r-functions/index.html</loc>
-    <lastmod>2024-01-23T01:43:05.903Z</lastmod>
+    <lastmod>2024-02-07T15:17:07.458Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/rtistry-intro/index.html</loc>
@@ -158,7 +158,7 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/why-rstudio/index.html</loc>
-    <lastmod>2023-07-31T15:07:40.729Z</lastmod>
+    <lastmod>2024-03-01T19:58:30.935Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/blog/understanding-the-r-pipe/index.html</loc>
@@ -190,19 +190,19 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/git-through-april/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.848Z</lastmod>
+    <lastmod>2024-03-01T19:50:34.243Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/building-a-blog-with-r/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.842Z</lastmod>
+    <lastmod>2024-03-01T19:50:58.919Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/building-a-blog-with-quarto/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.837Z</lastmod>
+    <lastmod>2024-03-01T19:51:06.465Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/package-mangement-in-r/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.884Z</lastmod>
+    <lastmod>2024-03-01T19:48:12.537Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/rladies-allyship/index.html</loc>
@@ -210,10 +210,10 @@
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/longitudinal-analysis/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.873Z</lastmod>
+    <lastmod>2024-03-01T19:48:33.927Z</lastmod>
   </url>
   <url>
     <loc>https://ivelasq.rbind.io/talk/using-r-and-other-tools/index.html</loc>
-    <lastmod>2023-11-26T06:33:10.893Z</lastmod>
+    <lastmod>2024-03-01T19:47:55.294Z</lastmod>
   </url>
 </urlset>

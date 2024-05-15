@@ -8,7 +8,7 @@ image-alt: "Around the World in a Single Table"
 |            |                                                                                                                          |
 |-------------|-----------------------------------------------------------|
 | Abstract   | Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package. |
-| Date       | October 27, 2021                                                                                                         |
+| Date       | 27 October 2021                                                                                                         |
 | Time       | 11:00AM CT                                                                                                               |
 | Location   | Remote                                                                                                                   |
 | Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                        |

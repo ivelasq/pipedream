@@ -7,7 +7,7 @@ image-alt: "Blogdown for What"
 |          |                                                                                         |
 |----------|-----------------------------------------------------------------------------------------|
 | Abstract | A walkthrough on creating a website using the {blogdown} package.                       |
-| Date     | August 23, 2018                                                                         |
+| Date     | 23 August 2018                                                                         |
 | Time     | 6:30PM PT                                                                                  |
 | Location | Seattle, WA                                                                             |
 | Event    | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/252412318/) |

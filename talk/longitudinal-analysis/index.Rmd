@@ -8,7 +8,7 @@ image-alt: "Longitudinal Analysis with Federal Students with Disabilities Data"
 |           |                                                                                     |
 |-----------|-------------------------------------------------------------------------------------|
 | Abstract  | A Data Science in Education Using R bookclub session on longitudinal data analysis. |
-| Date      | March 31, 2021                                                                      |
+| Date      | 31 March 2021                                                                      |
 | Time      | 4:00PM CT                                                                             |
 | Location  | Remote                                                                              |
 | Event     | [**R4DS**](https://rfordatascience.slack.com/archives/C01L93VGWJC)                  |

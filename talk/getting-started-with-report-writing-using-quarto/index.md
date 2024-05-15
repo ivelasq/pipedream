@@ -6,7 +6,7 @@ image-alt: "Getting Started With Report Writing Using Quarto"
 
 |  |  |
 |---|---|
-| Date | January 23, 2024 |
+| Date | 23 January 2024 |
 | Time | 9:00AM PT |
 | Location | Remote |
 | Event | [**R-Ladies Nairobi Meetup**](https://www.meetup.com/rladies-nairobi/events/298652674/) |
