@@ -74,7 +74,7 @@
   date: 2024-01-23
   image: ./talk/getting-started-with-report-writing-using-quarto/thumbnail.png
   path: ./talk/getting-started-with-report-writing-using-quarto/index.md
-- title: "Automating Quarto Dashboards with Posit Connect"
+- title: "Automating your reporting with Quarto Dashboards and Posit Connect"
   subtitle: "End-to-End Workflow With Posit Team"
   date: 2024-05-29
   image: ./talk/automated-quarto-dashboards/thumbnail.png
