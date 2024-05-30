@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-execute","listing-language","listing-freeze","listing-title","listing-date","listing-category","listing-output","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -129,16 +129,12 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="%>% dreams - Today I Learned">
-<meta property="og:image" content="https://ivelasq.rbind.io/til/nzchar/thumbnail.png">
+<link rel="alternate" type="application/rss+xml" title="%>% dreams" href="til.xml" data-external="1"><meta property="og:title" content="%>% dreams - Today I Learned">
+<meta property="og:description" content="Isabella Velásquez Personal Website">
 <meta property="og:site_name" content="%>% dreams">
-<meta property="og:image:height" content="758">
-<meta property="og:image:width" content="856">
 <meta name="twitter:title" content="%>% dreams - Today I Learned">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/til/nzchar/thumbnail.png">
-<meta name="twitter:image-height" content="758">
-<meta name="twitter:image-width" content="856">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Isabella Velásquez Personal Website">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -178,6 +174,10 @@ window.Quarto = {
     <a class="nav-link" href="./project.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./til.html" aria-current="page"> 
+<span class="menu-text">Today I Learned</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
@@ -212,71 +212,26 @@ window.Quarto = {
 </header>
 
 
+<p><a href="https://ivelasq.rbind.io/til.xml" target="_blank"><i class="fa-solid fa-rss"></i></a>&nbsp;&nbsp;&nbsp;<a href="https://gist.github.com/ivelasq" target="_blank"><i class="fa-brands fa-github"></i></a></p>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-</th>
-<th>
-Title
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1660280400000" data-listing-file-modified-sort="1690816060800" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="89" data-listing-title-sort="Add .gitkeep to a bunch of folders" data-listing-filename-sort="Untitled.qmd">
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-<td>
-<a href="./til/gitkeep/Untitled.html" class="title listing-title">Add .gitkeep to a bunch of folders</a>
-</td>
-<td>
-<span class="listing-date">Aug 12, 2022</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1652158800000" data-listing-file-modified-sort="1690816060800" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="91" data-listing-title-sort="Count the number of characters (or bytes or width)" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-image"><img src="./til/nzchar/thumbnail.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./til/nzchar/index.html" class="title listing-title">Count the number of characters (or bytes or width)</a>
-</td>
-<td>
-<span class="listing-date">May 10, 2022</span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1652158800000" data-listing-file-modified-sort="1690816060798" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="146" data-listing-title-sort="Create a GIF of code and its output" data-listing-filename-sort="index.Rmd">
-<td>
-<span class="listing-image"><img src="./til/asciicast/thumbnail.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./til/asciicast/index.html" class="title listing-title">Create a GIF of code and its output</a>
-</td>
-<td>
-<span class="listing-date">May 10, 2022</span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1647838800000" data-listing-file-modified-sort="1690816060799" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148" data-listing-title-sort="Filter on conditions for more than one variable at the time" data-listing-filename-sort="index.Rmd">
-<td>
-<span class="listing-image"><img src="./til/filter-if-any/thumbnail.png" style="height: 40px;"></span>
-</td>
-<td>
-<a href="./til/filter-if-any/index.html" class="title listing-title">Filter on conditions for more than one variable at the time</a>
-</td>
-<td>
-<span class="listing-date">Mar 21, 2022</span>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<ul>
+<li>
+<a href="./til/gitkeep/index.html">Add .gitkeep to a bunch of folders</a>
+</li>
+<li>
+<a href="./til/nzchar/index.html">Count the number of characters (or bytes or width)</a>
+</li>
+<li>
+<a href="./til/asciicast/index.html">Create a GIF of code and its output</a>
+</li>
+<li>
+<a href="./til/filter-if-any/index.html">Filter on conditions for more than one variable at the time</a>
+</li>
+</ul>
 <div class="listing-no-matching d-none">
 No matching items
 </div>

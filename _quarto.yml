@@ -24,6 +24,7 @@ website:
         file: index.qmd
       - file: talk.qmd
       - file: project.qmd
+      - file: til.qmd
   page-footer:
     left:
       - href: https://www.quarto.org

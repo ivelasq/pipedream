@@ -106,16 +106,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="%>% dreams - Filter on conditions for more than one variable at the time">
 <meta property="og:description" content="Isabella Velásquez Personal Website">
-<meta property="og:image" content="https://ivelasq.rbind.io/til/filter-if-any/thumbnail.png">
 <meta property="og:site_name" content="%>% dreams">
-<meta property="og:image:height" content="542">
-<meta property="og:image:width" content="1076">
 <meta name="twitter:title" content="%>% dreams - Filter on conditions for more than one variable at the time">
 <meta name="twitter:description" content="Isabella Velásquez Personal Website">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/til/filter-if-any/thumbnail.png">
-<meta name="twitter:image-height" content="542">
-<meta name="twitter:image-width" content="1076">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -154,6 +148,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../project.html"> 
 <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../til.html"> 
+<span class="menu-text">Today I Learned</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -213,7 +211,7 @@ Just to add to the confusion (😅) I think you still do use it for mutate but n
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_any</span>(<span class="fu">contains</span>(<span class="st">"m"</span>), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 19 × 11
      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
@@ -240,28 +238,33 @@ Just to add to the confusion (😅) I think you still do use it for mutate but n
 </div>
 <p><code>if_all()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>large <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">&gt;</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_all</span>(<span class="fu">contains</span>(<span class="st">"m"</span>), large))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code># A tibble: 10 × 11
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.integer)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">if_all</span>(<span class="fu">contains</span>(<span class="st">"am"</span>), <span class="sc">~</span> . <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 19 × 11
      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1    21     6   160   110     3     2    16     0     1     4     4
- 2    21     6   160   110     3     2    17     0     1     4     4
- 3    22     4   108    93     3     2    18     1     1     4     1
- 4    32     4    78    66     4     2    19     1     1     4     1
- 5    30     4    75    52     4     1    18     1     1     4     2
- 6    33     4    71    65     4     1    19     1     1     4     1
- 7    27     4    79    66     4     1    18     1     1     4     1
- 8    26     4   120    91     4     2    16     0     1     5     2
- 9    30     4    95   113     3     1    16     1     1     5     2
-10    21     4   121   109     4     2    18     1     1     4     2</code></pre>
+ 1    21     6   258   110     3     3    19     1     0     3     1
+ 2    18     8   360   175     3     3    17     0     0     3     2
+ 3    18     6   225   105     2     3    20     1     0     3     1
+ 4    14     8   360   245     3     3    15     0     0     3     4
+ 5    24     4   146    62     3     3    20     1     0     4     2
+ 6    22     4   140    95     3     3    22     1     0     4     2
+ 7    19     6   167   123     3     3    18     1     0     4     4
+ 8    17     6   167   123     3     3    18     1     0     4     4
+ 9    16     8   275   180     3     4    17     0     0     3     3
+10    17     8   275   180     3     3    17     0     0     3     3
+11    15     8   275   180     3     3    18     0     0     3     3
+12    10     8   472   205     2     5    17     0     0     3     4
+13    10     8   460   215     3     5    17     0     0     3     4
+14    14     8   440   230     3     5    17     0     0     3     4
+15    21     4   120    97     3     2    20     1     0     3     1
+16    15     8   318   150     2     3    16     0     0     3     2
+17    15     8   304   150     3     3    17     0     0     3     2
+18    13     8   350   245     3     3    15     0     0     3     4
+19    19     8   400   175     3     3    17     0     0     3     2</code></pre>
 </div>
 </div>
 <p>Any tidyselect usage is allowable inside <code>if_*()</code> just like inside <code>across()</code>, so they work very similarly.</p>

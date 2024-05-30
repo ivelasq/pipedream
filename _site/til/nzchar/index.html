@@ -106,16 +106,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="%>% dreams - Count the number of characters (or bytes or width)">
 <meta property="og:description" content="Isabella Velásquez Personal Website">
-<meta property="og:image" content="https://ivelasq.rbind.io/til/nzchar/thumbnail.png">
 <meta property="og:site_name" content="%>% dreams">
-<meta property="og:image:height" content="758">
-<meta property="og:image:width" content="856">
 <meta name="twitter:title" content="%>% dreams - Count the number of characters (or bytes or width)">
 <meta name="twitter:description" content="Isabella Velásquez Personal Website">
-<meta name="twitter:image" content="https://ivelasq.rbind.io/til/nzchar/thumbnail.png">
-<meta name="twitter:image-height" content="758">
-<meta name="twitter:image-width" content="856">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -154,6 +148,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li class="nav-item">
     <a class="nav-link" href="../../project.html"> 
 <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../til.html"> 
+<span class="menu-text">Today I Learned</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -203,14 +201,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is not empty</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"R_LIBS_USER"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code>[1] "~/Library/R/x86_64/4.1/library"</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/ivelasq/Library/R/x86_64/4.3/library"</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This returns TRUE</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nzchar</span>(<span class="fu">Sys.getenv</span>(<span class="st">"R_LIBS_USER"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
 </div>
@@ -219,14 +217,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is empty</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"test"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] ""</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This returns FALSE</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nzchar</span>(<span class="fu">Sys.getenv</span>(<span class="st">"test"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] FALSE</code></pre>
 </div>
 </div>

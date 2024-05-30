@@ -2,6 +2,7 @@
   {
     "listing": "/talk.html",
     "items": [
+      "talk/automated-quarto-dashboards/index.html",
       "talk/getting-started-with-report-writing-using-quarto/index.html",
       "talk/you-r-a-content-creator/index.html",
       "talk/excel-data-viz-tips-in-r/index.html",
@@ -22,7 +23,7 @@
   {
     "listing": "/til.html",
     "items": [
-      "/til/gitkeep/Untitled.html",
+      "/til/gitkeep/index.html",
       "/til/nzchar/index.html",
       "/til/asciicast/index.html",
       "/til/filter-if-any/index.html"

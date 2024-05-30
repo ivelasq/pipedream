@@ -4,6 +4,7 @@ listing:
   contents:
     - "metadata.yml"
   type: grid
+  date-format: "DD MMMM YYYY"
   fields: [date, subtitle, image]
   sort: "date desc"
   image-height: 100%

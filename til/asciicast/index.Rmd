@@ -1,8 +1,7 @@
 ---
 title: "Create a GIF of code and its output"
 date: '2022-05-10'
-image: thumbnail.png
-output: html_document
+category: til
 ---
 
 We can create a GIF of code and its output using [asciicast](https://github.com/r-lib/asciicast). 

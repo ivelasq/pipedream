@@ -6,8 +6,14 @@ listing:
   sort-ui: false
   filter-ui: false
   sort: "date desc"
-  fields: [image, title, date]
+  fields: [title]
+  template: til-template.ejs
+  feed: true
 format: 
   html:
     page-layout: full
 ---
+
+
+
+<a href="https://ivelasq.rbind.io/til.xml" target="_blank"><i class="fa-solid fa-rss"></i></a>&nbsp;&nbsp;&nbsp;<a href="https://gist.github.com/ivelasq" target="_blank"><i class="fa-brands fa-github"></i></a>
