@@ -57,7 +57,7 @@ To do this, follow the instructions below:
 
 ``` R
 # install.packages("pak")      # Install {pak} if not yet installed
-pak::pak(httr2, soodoku/tuber) # CRAN and GitHub syntax side by side!
+pak::pak("httr2", "soodoku/tuber") # CRAN and GitHub syntax side by side!
 ```
 
 2. On your local machine, save your YouTube API key in `.Renviron`. Running the code below will prompt you to save the API key. Paste your API key into the pop-up window:
@@ -158,7 +158,7 @@ for (i in 1:nrow(dat_urls)) { # <2>
     tuber::list_channel_videos(  # <5>
       .,
       part = "snippet",
-      config = list('maxResults' = 200),
+      config = list("maxResults" = 200),
       auth = "key"
     )
   dat_videos <- dplyr::bind_rows(dat_videos, tmp) # <6>
