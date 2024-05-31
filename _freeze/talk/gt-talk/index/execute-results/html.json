@@ -1,0 +1,14 @@
+{
+  "hash": "abb8f89c921a3a480c081a5010430f8a",
+  "result": {
+    "markdown": "---\ntitle: \"Around the World in a Single Table (gt Walkthrough)\"\ndate: \"2021-10-27\"\nimage: \"thumbnail.png\"\nimage-alt: \"Around the World in a Single Table\"\n---\n\n\n|            |                                                                                                                          |\n|-------------|-----------------------------------------------------------|\n| Abstract   | Tables are a format for communicating information. In this talk, I walk through creating a table using the {gt} package. |\n| Date       | October 27, 2021                                                                                                         |\n| Time       | 11:00AM CT                                                                                                               |\n| Location   | Remote                                                                                                                   |\n| Event      | [**R-Ladies Johannesburg Meetup**](https://www.meetup.com/rladies-johannesburg/events/281522272/)                        |\n| Repository | [**GitHub**](https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation)                                            |\n| Slides     | [**GitHub**](https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1)                               |\n| Recording  | [**YouTube**](https://www.youtube.com/watch?v=12ySKyWwX4Y)                                                               |\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
