@@ -167,7 +167,7 @@ for (i in 1:nrow(dat_urls)) { # <2>
 1. Starting with an empty data frame called `dat_videos`,
 2. For each row in `dat_urls` (which contains the channel IDs),
 3. Find the channel ID,
-4. Pull the expanded URL,
+4. Pull the ID,
 5. Run it through `list_channel_videos()`, and
 6. Add the information as rows to `dat_videos`.
 
