@@ -1,0 +1,9 @@
+---
+title: "Using flexdashboard to create a GitHub Actions-powered YouTube feed"
+categories: ["tutorial"]
+date: 2023-07-31
+description: "Interested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️."
+image: "img/thumbnail.jpg"
+image-alt: "The Geography Lesson, Vicente Palmaroli y Gonzáles, a painting of two girls looking at a map."
+---
+
