@@ -1,0 +1,33 @@
+---
+title: "Dashboard creation and automation with Quarto and {pins}"
+categories: ["tutorial"]
+date: 2024-06-06
+description: "Inteested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️."
+image: "img/thumbnail.jpg"
+image-alt: "John White Alexander, Study in Black and Green, a painting of a young woman pinning something red on her green dress."
+---
+
+![John White Alexander, Study in Black and Green](img/thumbnail-wide.jpg){fig-alt="A young woman pinning something red on her green dress."}
+Two weeks ago, I presented an automated Quarto dashboard on Posit's Monthly End-to-End Workflow with Posit Team. The project consisted of a script that pulls Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS) API, transforms and cleans the data, and then saves the data in a pin using the {pins} package[add pins footnote] to Posit Connect[add Connect footnote]. Then, there's a .qmd file that reads the data from the pin and uses it to create a Quarto dashboard that is deployed to Posit Connect. Both the script and .qmd file are scheduled to rerun on a monthly basis on Posit Connect, so that the pin and the dashboard always have the freshest data from BLS. You can watch the recording here:
+
+[youtube link]
+
+The workflow  was done in Python, and one of the top questions I received was, "Can I do this in R?" And the answer is: yes! One of the great things about all the main tools used in the workflow is that they are either multilingual or there are equivalent tools in R or Python.
+
+* {pins} has both R and a Python version
+* Quarto is independent of computational systems, and can be run with a knitr engine (for R) or a Jupyter engine (for Python)
+* Posit Connect hosts both R and Python data products
+
+This blog post will walk through the equivalent workflow but in R, but if you would like to see the Python files, check out this repository!
+
+Also, I wrote a blog post on created an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out here:
+
+## Before we begin... Quarto dashboards?!
+
+That's right! As of version 1.4, Quarto now supports dashboards. These are a new output format for easily creating dashboards from notebooks in R, Python, or Julia. You can incorporate plots, tables, value boxes, and text. Dashboards can be deployed as static web pages (no special server required) or you can optionally integrate a backend Shiny server for enhanced interactivity. You can also add custom theming either by adding a Bootstrap theme or custom Sass elements.
+
+To learn more about how to create them, check out the Quarto documentation.
+
+### Publishing Quarto dashboards
+
+There are various ways of publishing Quarto dashboards.
