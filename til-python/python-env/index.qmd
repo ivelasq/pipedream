@@ -7,7 +7,7 @@ output: html_document
 
 I recently presented a [webinar](https://www.youtube.com/watch?v=xnJuXOw7iu8) on creating a Quarto dashboard using BLS data and deploying it to Posit Connect. The process required setting three environment variables containing sensitive information, which are needed for the script but should not be publicly shared^[R users: we're fortunate to have `Sys.setenv()` and `usethis::edit_r_environ()`.]. [See the script using the environment variables](https://github.com/posit-marketing/inflation-explorer/blob/main/data-pull.qmd).
 
-In Python, you can edit and access environment variables with the `os` and `dotenv` packages. Install the dotenv package (you don't need to install `os` separately as it is part of the initial Python installation):
+In Python, you can edit and access environment variables with the `os` and `dotenv` packages. Install the `dotenv` package (you don't need to install `os` separately as it is part of the initial Python installation):
 
 ```{.bash filename="Terminal"}
 pip install python-dotenv
@@ -19,13 +19,13 @@ In your working directory, create a `.env` file:
 touch .env
 ```
 
-Open the `.env` file and add your environment variables using the syntax `VAR_NAME="value"`. Save the file:
+Open the `.env` file and add your environment variables using the syntax `VAR_NAME="value"`:
 
 ```{.bash filename=".env"}
 BLS_KEY="12345"
 ```
 
-Then, import the two packages in your Python script:
+Save the file. Then, import the two packages in your Python script:
 
 ```{.python filename="script.py"}
 import os
