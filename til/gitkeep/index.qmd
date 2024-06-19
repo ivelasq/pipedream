@@ -1,7 +1,7 @@
 ---
-title: "Add .gitkeep to a bunch of folders"
+title: "How to add .gitkeep to a bunch of folders"
 date: '2022-08-12'
-category: til
+category: Other
 output: html_document
 ---
 

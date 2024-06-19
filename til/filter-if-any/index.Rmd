@@ -1,7 +1,7 @@
 ---
-title: "Filter on conditions for more than one variable at the time"
+title: "How to filter on conditions for more than one variable at the time"
 date: "2022-03-21"
-category: til
+category: R
 ---
 
 ```{r, include=FALSE, message=FALSE}
