@@ -1,7 +1,7 @@
 ---
-title: "Count the number of characters (or bytes or width)"
+title: "How to count the number of characters (or bytes or width)"
 date: '2022-05-10'
-category: til
+category: R
 output: html_document
 ---
 
