@@ -5,14 +5,17 @@ listing:
     contents: til-r
     type: table
     template: til-template.ejs
+    feed: true
   - id: til-python
     contents: til-python
     type: table
     template: til-template.ejs
+    feed: true
   - id: til-other
     contents: til-other
     type: table
     template: til-template.ejs
+    feed: true
 format: 
   html:
     page-layout: article
