@@ -1,19 +1,41 @@
 ---
 title: "Today I Learned"
 listing:
-  contents: til
-  type: table
-  sort-ui: false
-  filter-ui: false
-  sort: "date desc"
-  fields: [title]
-  template: til-template.ejs
-  feed: true
+  - id: til-r
+    contents: til-r
+    type: table
+    template: til-template.ejs
+  - id: til-python
+    contents: til-python
+    type: table
+    template: til-template.ejs
+  - id: til-other
+    contents: til-other
+    type: table
+    template: til-template.ejs
 format: 
   html:
-    page-layout: full
+    page-layout: article
+filters:
+  - fontawesome
 ---
 
+<a href="https://ivelasq.rbind.io/til.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a>&nbsp;
+<a href="https://gist.github.com/ivelasq" target="_blank"><i class="fa-brands fa-github"></i></a>
 
+## R
 
-<a href="https://ivelasq.rbind.io/til.xml" target="_blank"><i class="fa-solid fa-rss"></i></a>&nbsp;&nbsp;&nbsp;<a href="https://gist.github.com/ivelasq" target="_blank"><i class="fa-brands fa-github"></i></a>
+:::{#til-r}
+:::
+
+## Python
+
+:::{#til-python}
+:::
+
+## Other
+
+:::{#til-other}
+:::
+
+{{< fa cat >}} 

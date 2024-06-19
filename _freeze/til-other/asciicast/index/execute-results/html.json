@@ -1,0 +1,15 @@
+{
+  "hash": "dffbc2f3ac6dbb7fa66abbc7bbb18bb1",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"How to create a GIF of code and its output\"\ndate: '2022-05-10'\ncategory: Other\n---\n\n\nWe can create a GIF of code and its output using [asciicast](https://github.com/r-lib/asciicast). \n\nInstall the development version:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nremotes::install_github('r-lib/asciicast', ref = remotes::github_pull(24)) \n```\n:::\n\n\nCreate a file called `nzchar.R` with specifications for the GIF and the code to run.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#' Title: Using nzchar\n#' Columns: 60\n#' Rows: 18\n\n# This is not empty\nSys.getenv(\"R_LIBS_USER\")\n\n# This is empty\nSys.getenv(\"test\")\n\n# This returns TRUE\nnzchar(Sys.getenv(\"R_LIBS_USER\"))\n\n# This returns FALSE\nnzchar(Sys.getenv(\"test\"))\n```\n:::\n\n\nCreate another file that creates the GIF:\n\n\n::: {.cell}\n\n```{.r .cell-code}\n#' Title: Using nzchar\n\nsrc <- \"nzchar.R\"\ncast <- asciicast::record(src)\n\n# <<\n# `cast` is an `asciicast` object, which has some metadata and the\n# recording itself:\n# <<\n\ncast\n\n# <<\n# You can write `cast` to a GIF file with the version installed above.\n# <<\n\nsvg <- tempfile(fileext = \"gif\")\nasciicast::write_gif(cast, svg, theme = \"monokai\")\n```\n:::\n\n\nReally fun for adding to tweets!\n\n![](example.gif){fig-alt=\"An animation created with asciicast that shows that nzchar() returns TRUE when a string is nonempty and FALSE when a string is empty, using Sys.getenv() to query existing 'R_LIBS_USER' and nonexisting 'test' environment variables.\"}\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
