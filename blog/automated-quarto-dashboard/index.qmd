@@ -8,9 +8,10 @@ image-alt: "John White Alexander, Study in Black and Green, a painting of a youn
 ---
 
 ![John White Alexander, Study in Black and Green](img/thumbnail-wide.jpg){fig-alt="A young woman pinning something red on her green dress."}
-Two weeks ago, I presented an automated Quarto dashboard on Posit's Monthly End-to-End Workflow with Posit Team. The project consisted of a script that pulls Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS) API, transforms and cleans the data, and then saves the data in a pin using the {pins} package[add pins footnote] to Posit Connect[add Connect footnote]. Then, there's a .qmd file that reads the data from the pin and uses it to create a Quarto dashboard that is deployed to Posit Connect. Both the script and .qmd file are scheduled to rerun on a monthly basis on Posit Connect, so that the pin and the dashboard always have the freshest data from BLS. You can watch the recording here:
 
-[youtube link]
+Two weeks ago, I presented an [automated Quarto dashboard on Posit's Monthly End-to-End Workflow with Posit Team ](https://youtu.be/xnJuXOw7iu8?feature=shared) (and a follow-up [Q&A](https://www.youtube.com/watch?v=d21PQyOGlgY)). The project consisted of a script that pulls Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS) API, transforms and cleans the data, and then saves the data in a pin using the {pins} package[add pins footnote] to Posit Connect[add Connect footnote]. Then, there's a .qmd file that reads the data from the pin and uses it to create a Quarto dashboard that is deployed to Posit Connect. Both the script and .qmd file are scheduled to rerun on a monthly basis on Posit Connect, so that the pin and the dashboard always have the freshest data from BLS. You can watch the recording here:
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/xnJuXOw7iu8?si=M01jrFbKLeCr6GyB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
 The workflow  was done in Python, and one of the top questions I received was, "Can I do this in R?" And the answer is: yes! One of the great things about all the main tools used in the workflow is that they are either multilingual or there are equivalent tools in R or Python.
 
@@ -26,8 +27,19 @@ Also, I wrote a blog post on created an automated dashboard using {flexdashboard
 
 That's right! As of version 1.4, Quarto now supports dashboards. These are a new output format for easily creating dashboards from notebooks in R, Python, or Julia. You can incorporate plots, tables, value boxes, and text. Dashboards can be deployed as static web pages (no special server required) or you can optionally integrate a backend Shiny server for enhanced interactivity. You can also add custom theming either by adding a Bootstrap theme or custom Sass elements.
 
-To learn more about how to create them, check out the Quarto documentation.
+To learn more about how to create them, check out the [Quarto documentation](https://quarto.org/docs/dashboards/).
 
 ### Publishing Quarto dashboards
 
-There are various ways of publishing Quarto dashboards.
+There are various ways of publishing Quarto dashboards, detailed in the [publishing seciton of the Quarto website](https://quarto.org/docs/publishing/).  In the webinar, I focused on [Posit Connect](), Posit's enterprise publishing system. Posit Connect allows you to schedule the refresh of documents and scripts through a configuration window. This is possible through other means, such as CRON jobs (which I detailed in my previous [blog post](https://ivelasq.rbind.io/blog/automated-youtube-dashboard), which used flexdashboard and GitHub Actions).
+
+### Today's dashboard
+
+This dashboard uses Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS). 
+
+
+The GitHub repository is here: 
+
+
+If you have GitHub set up on RStudio, you can open the project by going to File > New Project > Version Control and pasting the URL:
+
