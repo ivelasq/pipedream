@@ -1,82 +1,86 @@
-# Internal slide decks
 - title: "Blogdown for What"
   subtitle: "R-Ladies Seattle"
   date: 2018-07-23
   image: ./talk/blogdown-for-what/thumbnail.png
-  path: ./talk/blogdown-for-what/index.md
+  path: ./blogdown-for-what/index.md
 - title: "Building a Blog With R"
   subtitle: "RStudio Enterprise Community"
   date: 2022-01-25
   image: ./talk/building-a-blog-with-r/thumbnail.png
-  path: ./talk/building-a-blog-with-r/index.md
+  path: ./building-a-blog-with-r/index.md
 - title: "Git Through April"
   subtitle: "R-Ladies Seattle"
   date: 2021-04-23
   image: ./talk/git-through-april/thumbnail.png
-  path:  ./talk/git-through-april/index.Rmd
+  path:  ./git-through-april/index.Rmd
 - title: "Around the World in a Single Table (gt Walkthrough)"
   subtitle: "R-Ladies Johannesburg"
   date: 2021-10-27
   image: ./talk/gt-talk/thumbnail.png
-  path: ./talk/gt-talk/index.Rmd
+  path: ./gt-talk/index.Rmd
 - title: "Taking a Peek at Hiking Data Using R"
   subtitle: "R-Ladies Seattle"
   date: 2019-07-16
   image: ./talk/hiking-data/thumbnail.png
-  path: ./talk/hiking-data/index.md
+  path: ./hiking-data/index.md
 - title: "Longitudinal Analysis with Federal Students with Disabilities Data"
   subtitle: "R4DS"
   date: 2021-03-31
   image: ./talk/longitudinal-analysis/thumbnail.png
-  path: ./talk/longitudinal-analysis/index.Rmd
+  path: ./longitudinal-analysis/index.Rmd
 - title: "Package Management for Reproducible Data Science in R"
   subtitle: "Seattle useR Group"
   date: 2020-05-07
   image: ./talk/package-mangement-in-r/thumbnail.png
-  path: ./talk/package-mangement-in-r/index.Rmd
+  path: ./package-mangement-in-r/index.Rmd
 - title: "What do penguins have to do with being anti-racist?"
   subtitle: "R-Ladies Seattle"
   date: 2020-08-05
   image: ./talk/rladies-allyship/thumbnail.png
-  path: ./talk/rladies-allyship/index.md
+  path: ./rladies-allyship/index.md
 - title: "Packages for Using R With Python, Tableau, and Other Tools"
   subtitle: "Why R? 2021 Conference"
   date: 2021-12-10
   image: ./talk/using-r-and-other-tools/thumbnail.png
-  path: ./talk/using-r-and-other-tools/index.md
+  path: ./using-r-and-other-tools/index.md
 - title: "Building a Blog With Quarto"
   subtitle: "RStudio Enterprise Community"
   date: 2022-08-30
   image: ./talk/building-a-blog-with-quarto/thumbnail.png
-  path: ./talk/building-a-blog-with-quarto/index.md
+  path: ./building-a-blog-with-quarto/index.md
 - title: "Intro to Quarto"
   subtitle: "R-Ladies St. Louis"
   date: 2022-10-27
   image: ./talk/intro-to-quarto/thumbnail.png
-  path: ./talk/intro-to-quarto/index.qmd
+  path: ./intro-to-quarto/index.qmd
 - title: "What's new in the tidyverse"
   subtitle: "R-Ladies Rome"
   date: 2023-03-22
   image: ./talk/whats-new-in-the-tidyverse/thumbnail.png
-  path: ./talk/whats-new-in-the-tidyverse/index.md
+  path: ./whats-new-in-the-tidyverse/index.md
 - title: "Seven Essential Excel Data Visualization Tips (in R!)"
   subtitle: "Salt Lake City R Users Group"
   date: 2023-06-07
   image: ./talk/excel-data-viz-tips-in-r/thumbnail.png
-  path: ./talk/excel-data-viz-tips-in-r/index.md
+  path: ./excel-data-viz-tips-in-r/index.md
 - title: "The Medium is the Message: R Programmers as Content Creators"
   subtitle: "Cascadia R Conference"
   date: 2023-08-19
   image: ./talk/you-r-a-content-creator/thumbnail.gif
-  path: ./talk/you-r-a-content-creator/index.md
+  path: ./you-r-a-content-creator/index.md
 - title: "The Medium is the Message: R Programmers as Content Creators"
   subtitle: "R-Ladies Nairobi"
   date: 2024-01-23
   image: ./talk/getting-started-with-report-writing-using-quarto/thumbnail.png
-  path: ./talk/getting-started-with-report-writing-using-quarto/index.md
+  path: ./getting-started-with-report-writing-using-quarto/index.md
 - title: "Automating your reporting with Quarto Dashboards and Posit Connect"
   subtitle: "End-to-End Workflow With Posit Team"
   date: 2024-05-29
   image: ./talk/automated-quarto-dashboards/thumbnail.png
-  path: ./talk/automated-quarto-dashboards/index.md
+  path: ./automated-quarto-dashboards/index.md
+- title: "Quarto Dashboards"
+  subtitle: "R-Ladies Rome"
+  date: 2024-06-18
+  image: ./talk/quarto-dashboards/thumbnail.png
+  path: ./quarto-dashboards/index.md
   
