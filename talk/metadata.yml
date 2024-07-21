@@ -80,7 +80,7 @@
   path: ./automated-quarto-dashboards/index.md
 - title: "Quarto Dashboards"
   subtitle: "R-Ladies Rome"
-  date: 2024-06-18
+  date: 2024-07-18
   image: ./talk/quarto-dashboards/thumbnail.png
   path: ./quarto-dashboards/index.md
   
