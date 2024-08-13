@@ -1,0 +1,60 @@
+---
+category: exclude
+---
+
+::: {.callout-tip}
+Make sure that these extensions are installed in VS Code:
+
+- Python
+- Jupyter
+- Quarto
+:::
+
+1. Clone the [Inflation Explorer repository](https://github.com/posit-marketing/inflation-explorer) into VS Code.
+
+![](images/clone.png){fig-align="center"}
+
+2. Create a virtual environment:
+
+``` {.bash filename="Terminal"}
+python3 -m venv env
+```
+
+3. Activate the virtual environment:
+
+``` {.bash filename="Terminal"}
+source env/bin/activate
+```
+
+4. Install the required packages from the requirements file:
+
+``` {.bash filename="Terminal"}
+pip install -r requirements.txt
+```
+
+5. Create a `.env` file:
+
+``` {.bash filename="Terminal"}
+touch .env
+```
+
+6. Put your environment variables in the `.env` file:
+
+``` {.bash filename=".env"}
+BLS_KEY="key here"
+CONNECT_SERVER="key here"
+CONNECT_API_KEY="key here"
+```
+
+
+
+```
+rsconnect add \
+  --server https://pub.demo.posit.team/  \
+  --name Demo 
+  --api-key "gcySZCbkV1wB9qfwRreGrYy8DMhIYzkC"
+```
+
+The `rsconnect-python` package provides a CLI for interacting with and deploying to Posit Connec.t The rsconnect deploy command deploys the content to posit Connect.
+
+

@@ -11,6 +11,8 @@ listing:
   sort-ui: false
   type: default
   template: custom.ejs
+  exclude:
+    category: exclude
 format: 
   html:
     page-layout: article

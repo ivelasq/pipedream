@@ -1,45 +1,234 @@
 ---
-title: "Dashboard creation and automation with Quarto and {pins}"
+title: "Quarto dashboard creation and automation"
 categories: ["tutorial"]
-date: 2024-06-06
-description: "Inteested in a custom feed of YouTube videos? GitHub Actions + flexdashboard = ❤️."
+date: 2024-08-13
+description: "Pull, pin, produce, and publish. Repeat."
 image: "img/thumbnail.jpg"
 image-alt: "John White Alexander, Study in Black and Green, a painting of a young woman pinning something red on her green dress."
 ---
 
 ![John White Alexander, Study in Black and Green](img/thumbnail-wide.jpg){fig-alt="A young woman pinning something red on her green dress."}
 
-Two weeks ago, I presented an [automated Quarto dashboard on Posit's Monthly End-to-End Workflow with Posit Team ](https://youtu.be/xnJuXOw7iu8?feature=shared) (and a follow-up [Q&A](https://www.youtube.com/watch?v=d21PQyOGlgY)). The project consisted of a script that pulls Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS) API, transforms and cleans the data, and then saves the data in a pin using the {pins} package[add pins footnote] to Posit Connect[add Connect footnote]. Then, there's a .qmd file that reads the data from the pin and uses it to create a Quarto dashboard that is deployed to Posit Connect. Both the script and .qmd file are scheduled to rerun on a monthly basis on Posit Connect, so that the pin and the dashboard always have the freshest data from BLS. You can watch the recording here:
+I had the opportunity to present an [automated Quarto dashboard on Posit's Monthly End-to-End Workflow with Posit Team ](https://youtu.be/xnJuXOw7iu8?feature=shared), followed by a [Q&A](https://www.youtube.com/watch?v=d21PQyOGlgY). The project involved a script that retrieves [Consumer Price Index (CPI)](https://www.bls.gov/cpi/) data from the Bureau of Labor Statistics (BLS) API, processes and cleans the data, and saves it as a pin using the [{pins} package](https://pypi.org/project/pins/) to [Posit Connect](https://posit.co/products/enterprise/connect/)^[Posit's enterprise publishing platform.]. A `.qmd` file then reads the pinned data and generates a Quarto dashboard, which is deployed to Posit Connect. Both the script and the `.qmd` file are scheduled to run monthly on Posit Connect, ensuring the pin and dashboard always reflect the latest data from the BLS. You can watch the recording here:
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/xnJuXOw7iu8?si=M01jrFbKLeCr6GyB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
 
-The workflow  was done in Python, and one of the top questions I received was, "Can I do this in R?" And the answer is: yes! One of the great things about all the main tools used in the workflow is that they are either multilingual or there are equivalent tools in R or Python.
+The workflow was implemented in Python, and one of the most common questions I received was, "Can I do this in R?" The answer is: absolutely! A key advantage of the tools used in this workflow is their multilingualism or the availability of equivalent tools in both R and Python.
 
-* {pins} has both R and a Python version
-* Quarto is independent of computational systems, and can be run with a knitr engine (for R) or a Jupyter engine (for Python)
-* Posit Connect hosts both R and Python data products
+* The {pins} package is available in both R and Python.
+* Quarto is independent of the computational environment and can be run with either a knitr engine (for R) or a Jupyter engine (for Python).
+* Posit Connect supports hosting data products created in both R and Python.
 
-This blog post will walk through the equivalent workflow but in R, but if you would like to see the Python files, check out this repository!
+This blog post will guide you through the equivalent workflow in R, which can be found in this [repository](https://github.com/ivelasq/inflation-explorer). If you're interested in the Python version, you can explore it in this [repository](https://github.com/posit-marketing/inflation-explorer).
 
-Also, I wrote a blog post on created an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out here:
+Also, I’ve written a blog post on creating an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out [here](https://ivelasq.rbind.io/blog/automated-youtube-dashboard/).
 
 ## Before we begin... Quarto dashboards?!
 
-That's right! As of version 1.4, Quarto now supports dashboards. These are a new output format for easily creating dashboards from notebooks in R, Python, or Julia. You can incorporate plots, tables, value boxes, and text. Dashboards can be deployed as static web pages (no special server required) or you can optionally integrate a backend Shiny server for enhanced interactivity. You can also add custom theming either by adding a Bootstrap theme or custom Sass elements.
+That's right! With version 1.4, Quarto now supports dashboards — a new output format for easily creating dashboards from notebooks in R, Python, or Julia. You can include plots, tables, value boxes, and text, and deploy your dashboards as static web pages (no special server needed). For enhanced interactivity, you can integrate a backend Shiny server. You can also customize the appearance by adding a Bootstrap theme or custom Sass elements.
 
-To learn more about how to create them, check out the [Quarto documentation](https://quarto.org/docs/dashboards/).
+To learn more about creating dashboards, check out the [Quarto documentation](https://quarto.org/docs/dashboards/) or watch my [R-Ladies Rome Quarto Dashboards talk](https://ivelasq.rbind.io/talk/quarto-dashboards/).
 
-### Publishing Quarto dashboards
+## Consumer Price Index (CPI) data
 
-There are various ways of publishing Quarto dashboards, detailed in the [publishing seciton of the Quarto website](https://quarto.org/docs/publishing/).  In the webinar, I focused on [Posit Connect](), Posit's enterprise publishing system. Posit Connect allows you to schedule the refresh of documents and scripts through a configuration window. This is possible through other means, such as CRON jobs (which I detailed in my previous [blog post](https://ivelasq.rbind.io/blog/automated-youtube-dashboard), which used flexdashboard and GitHub Actions).
+This dashboard uses the Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS). The CPI monitors changes in the prices of a basket of goods over time, covering a range of categories, and is updated monthly. The dashboard automatically refreshes each month when the latest BLS data is released.
 
-### Today's dashboard
+## Setup
 
-This dashboard uses Consumer Price Index (CPI) data from the Bureau of Labor Statistics (BLS). 
+To open the project in RStudio, navigate to File > New Project > Version Control and paste the following URL: https://github.com/posit-marketing/inflation-explorer.git.
+
+![](images/clone-r.png){fig-align="center" width=50%}
+
+The files in the project include:
+
+```
+├── images
+│   └── logo.png            # Logo image to use in the dashboard
+├── .gitignore              # Files and folders to ignore when pushing up changes
+├── README.md               # Project overview and setup instructions
+├── _publish.yml            # File for specifying the publishing destination
+├── _quarto.yml             # Quarto project configuration file
+├── all_data_report.json    # JSON version of the downloaded BLS data
+├── custom.scss             # Custom Sass file
+├── index.qmd               # Quarto dashboard document
+└── script.R                # Python script version of the ETL script
+```
+
+### Virtual environments
+
+In the Python version of this demo, I created a virtual environment. Virtual environments are commonly used to manage dependencies and isolate project-specific packages. In R, using virtual environments are less common. R installs packages either system-wide or in user-specific library paths. If you are an RStudio Projects user, the project-specific settings manage your dependencies. And in general, R’s package management system is more flexible with handling packages. However, the [{renv} package](https://rstudio.github.io/renv/) provides similar functionality to Python's virtual environments by managing project-specific dependencies and package versions.
+
+### Environment variables
+
+Environment variables are variables that are needed for code but should not be publicly shared. This project has three: 
+
+1. `BLS_KEY`: A BLS API access token, obtained at <https://www.bls.gov/developers/home.htm>.
+2. `CONNECT_SERVER`: The URL for the Connect server.
+3. `CONNECT_API_KEY`: The access key for the Connect server.
+
+To store these variables in your R environment (`.Renviron`), you can use `Sys.setenv()` in your Terminal:
+
+``` {.bash filename="Terminal"}
+Sys.setenv("connect api key here")
+```
+
+Or, you can edit your `.Renviron` file using the {usethis} package. Run `usethis::edit_r_environ()` to open the .Renviron file and add the variables manually.
+
+## Extract-transform-load process
+
+We use a script to pull raw data from the BLS API, clean it for use in our dashboard, and then save it as a pin. This process, known as Extract-Transform-Load (ETL), is executed in the `script.R` file:
+
+``` {.r filename="script.R"}
+#' ---
+#' title: "R script file"
+#' ---
+
+library(httr2)
+library(jsonlite)
+library(dplyr)
+library(pins) # <1>
+library(tidyr)
+library(purrr)
+library(lubridate)
+library(stringr)
+
+# Environment variables # <2>
+
+bls_key <- Sys.getenv("BLS_KEY")
+connect_server <- Sys.getenv("CONNECT_SERVER")
+connect_api_key <- Sys.getenv("CONNECT_API_KEY")
+
+# BLS tables # <3>
+
+table_ids <- c(
+  "CUUR0000SA0",
+  "CUUR0000SA0L1E",
+  "CUUR0000SAF1",
+  "CUUR0000SA0E",
+  "CUUR0000SETB01",
+  "CUUR0000SAM",
+  "CUUR0000SEMC01",
+  "CUUR0000SEMD01",
+  "CUUR0000SEMF01",
+  "CUUR0000SAH1"
+)
+
+id_to_label <- c(
+  "CUUR0000SA0" = "All groups CPI",
+  "CUUR0000SA0L1E" = "All items less food and energy",
+  "CUUR0000SAF1" = "Food",
+  "CUUR0000SA0E" = "Energy",
+  "CUUR0000SETB01" = "Gasoline",
+  "CUUR0000SAM" = "Medical care",
+  "CUUR0000SEMC01" = "Physicians' services",
+  "CUUR0000SEMD01" = "Hospital services",
+  "CUUR0000SEMF01" = "Prescription drugs",
+  "CUUR0000SAH1" = "Shelter"
+)
+
+# Pull BLS API data # <4>
+
+get_bls_data <- function(parameters) {
+  response <- request("https://api.bls.gov/publicAPI/v2/timeseries/data/") |>
+    req_headers("Content-Type" = "application/json") |>
+    req_body_json(parameters, auto_unbox = TRUE) |>
+    req_perform()
+  
+  if (resp_status(response) != 200) {
+    stop(paste("API Error:", resp_status(response)))
+  }
+  
+  return(resp_body_json(response))
+}
+
+all_data <- list()
+
+for (table_id in table_ids) {
+  parameters <- list(
+    registrationkey = bls_key,
+    seriesid = list(table_id),
+    startyear = "2018",
+    endyear = "2024",
+    calculations = TRUE
+  )
+  
+  bls_data_object <- get_bls_data(parameters)
+  all_data[[table_id]] <- bls_data_object
+}
+
+file_path <- file.path(getwd(), "all_data_report.json")
+
+write_json(all_data, path = file_path, pretty = TRUE)
+
+dat <- fromJSON(file_path)
+
+# Clean data # <5>
+
+series_dat <- dat |>
+  map( ~ .x$Results$series) |>
+  map_dfr( ~ tibble(seriesID = .x$seriesID, data = .x$data))
+
+combined_dat <- series_dat |>
+  unnest(data)
+
+clean_dat <- combined_dat |>
+  mutate(
+    year_month = ymd(paste(year, str_sub(period, 2, 3), "01", sep = "-")),
+    value = as.numeric(value),
+    seriesID = as.character(seriesID),
+    category_label = recode(seriesID, !!!id_to_label)
+  )
+
+january_2018_values <- clean_dat |>
+  filter(year_month == ymd("2018-01-01")) |>
+  select(seriesID, jan_2018_value = value) |>
+  distinct()
+
+joined_dat <- clean_dat |>
+  left_join(january_2018_values, by = "seriesID")
+
+final_cpi_dat <- joined_dat |>
+  mutate(
+    jan_2018_diff = value - jan_2018_value,
+    jan_2018_pct_change = (jan_2018_diff / jan_2018_value) * 100
+  ) |>
+  arrange(year_month) |>
+  mutate(percent_change_from_previous_month = (value / lag(value) - 1) * 100,
+         .by = category_label)
+
+# Pin data to Connect # <6>
+
+board <- board_connect()
+pin_write(board = board, name = "isabella.velasquez/bls-cpi-data", x = final_cpi_dat)
+```
+
+1. The {pins} package allows you to pin data, models, or other objects for easy access or sharing. Pins are ideal for ephemeral, ever-changing data that needs to be referenced but does not require a database.
+2. We load the environment variables configured earlier.
+3. Next, we define the list of BLS tables containing the data we want to display on the dashboard.
+4. A function then pulls this data into R.
+5. This is followed by a series of data cleaning and transformation steps.
+6. Finally, we configure our Posit Connect server[^connecting] and write the pin to Connect. [Access the pin here](https://pub.demo.posit.team/public/inflation-explorer-pin/).
+
+Posit Connect supports rendering script files (e.g., `.py` or `.R`). Once deployed to Connect, these scripts can be scheduled for automatic refresh and their output can be emailed, similar to other content on Connect. For more details, refer to the [Scripts documentation](https://docs.posit.co/connect/user/scripts/).
+
+To publish `script.R` to Connect, run the following command:
+
+``` {.bash filename="Terminal"}
+rsconnect::deployApp(appFiles = "script.R")
+```
+
+This is the content owner view of the deployed script. You can configure it to update daily at 11 PM PT using the configuration pane.
+
+![](images/configure-schedule.png){fig-align="center" width=70%}
+
+[View the deployed script here](https://pub.demo.posit.team/public/inflation-explorer-python-script/).
+
+## Quarto dashboard
 
 
-The GitHub repository is here: 
 
+## Publishing scripts and dashboards
 
-If you have GitHub set up on RStudio, you can open the project by going to File > New Project > Version Control and pasting the URL:
+There are several ways to publish Quarto dashboards, as detailed in the [publishing section](https://quarto.org/docs/publishing/) of the Quarto website. In the webinar, I focused on Posit Connect. If you're using RStudio, there are multiple deployment options for Connect, including push-button publishing, Git-backed publishing, and command-line publishing. Posit Connect also allows you to schedule document and script refreshes through a user-friendly configuration window.
 
+[^connecting]: To publish scripts, your Connect account must be linked. For details, refer to the [Publishing documentation](https://docs.posit.co/connect/user/publishing-r/). Additionally, you need to provide the environment variables to Connect for use in the script. This can be done via the configuration pane or within the `rsconnect::deployApp()` command.
