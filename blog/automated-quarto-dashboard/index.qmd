@@ -22,7 +22,7 @@ The workflow was implemented in Python, and one of the most common questions I r
 
 This blog post will guide you through the equivalent workflow in R, which can be found in this [repository](https://github.com/ivelasq/inflation-explorer). If you're interested in the Python version, you can explore it in this [repository](https://github.com/posit-marketing/inflation-explorer).
 
-Also, I’ve written a blog post on creating an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out [here](https://ivelasq.rbind.io/blog/automated-youtube-dashboard/).
+This post features Posit Connect heavily, but there are other tools available. For example,I’ve written a blog post on creating an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out [here](https://ivelasq.rbind.io/blog/automated-youtube-dashboard/).
 
 ## Before we begin... Quarto dashboards?!
 
@@ -167,7 +167,8 @@ dat <- fromJSON(file_path)
 
 series_dat <- dat |>
   map( ~ .x$Results$series) |>
-  map_dfr( ~ tibble(seriesID = .x$seriesID, data = .x$data))
+  map( ~ tibble(seriesID = .x$seriesID, data = .x$data)) |> 
+  list_rbind()
 
 combined_dat <- series_dat |>
   unnest(data)
@@ -222,11 +223,232 @@ This is the content owner view of the deployed script. You can configure it to u
 
 ![](images/configure-schedule.png){fig-align="center" width=70%}
 
-[View the deployed script here](https://pub.demo.posit.team/public/inflation-explorer-python-script/).
+[View the deployed script here](https://pub.demo.posit.team/public/inflation-explorer-etl-script/).
 
 ## Quarto dashboard
 
+```` {.md filename="index.qmd"}
+---
+title: "Inflation explorer: showing the change in price for various goods and services"
+format:
+  dashboard:  # <1>
+    logo: images/logo.png # <2>
+    nav-buttons:
+    - icon: github
+      href: "https://github.com/ivelasq/inflation-explorer"
+    theme:
+    - pulse
+    - custom.scss
+resource_files: # <3>
+- custom.scss
+- images/logo.png
+---
 
+```{{r}}  # <4>
+#| label: setup
+#| include: false
+library(pins)
+library(lubridate)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(RColorBrewer)
+library(gt)
+library(plotly)
+
+board <-  # <5>
+  board_connect(
+    auth = "manual",
+    server = "https://pub.demo.posit.team/",
+    key = Sys.getenv("CONNECT_API_KEY")
+  )
+
+df <-
+  pin_read(board = board, name = "isabella.velasquez/bls-cpi-data") |>
+  mutate(year_month = as.Date(year_month, format = "%Y-%m-%d"))
+
+# Value for last updated date
+last_updated_date <- df |>
+  summarise(last_updated_date = max(year_month)) |>
+  pull(last_updated_date)
+
+# Value for the percentage change from the previous month
+cpi_df <- df |> 
+  filter(seriesID == "CUUR0000SA0")
+
+latest_cpi_value <- cpi_df |>
+  summarise(latest_value = last(value)) |>
+  pull(latest_value)
+
+latest_cpi_percent_change <- cpi_df |>
+  filter(year_month == last_updated_date) |>
+  pull(jan_2018_pct_change)
+
+# Data for table
+pivot_df <- df |> 
+  select(category_label, year_month, percent_change_from_previous_month) |>
+  pivot_wider(names_from = year_month, 
+              values_from = percent_change_from_previous_month) %>%
+  select(category_label, tail(names(.), 5)) |> 
+  arrange(desc(category_label))
+```
+
+## Row {height=20%}
+
+```{{r}} 
+#| label: valuebox1
+#| content: valuebox
+#| title: "Last updated"
+#| color: #fff
+last_updated_date  # <6>
+```
+
+```{{r}} 
+#| label: valuebox2
+#| content: valuebox
+#| title: "Consumer Price Index (CPI)"
+#| icon: basket
+list(  # <7>
+  value = round(latest_cpi_value, 2),
+  icon = "basket",
+  color = "primary"
+)
+```
+
+```{{r}}
+#| label: valuebox3
+#| content: valuebox
+#| title: "Increase from previous month"
+#| icon: percent
+#| color: primary
+value = round(latest_cpi_percent_change, 2)
+```
+
+## Row {height=80%}
+
+### Column {width=20%}
+
+The **Consumer Price Index (CPI)** is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. 
+
+Indexes are available for the U.S. and various geographic areas. Average price data for select utility, automotive fuel, and food items are also available.
+
+**Source: Bureau of Labor Statistics**
+
+### Column {.tabset width=80%}
+
+```{{r}}
+#| label: pct-change-jan-2018-code
+#| include: false
+df <- df %>%  # <8>
+  arrange(desc(category_label), desc(year_month))
+
+p1 <- ggplot(df,             
+             aes(x = year_month, 
+                 y = jan_2018_pct_change, 
+                 color = category_label,
+                 group = category_label)) +
+  geom_line(aes(group = category_label)) +
+  scale_color_manual(values = ifelse(df$category_label == "All groups CPI",
+                                     "#765AAF", "#765AAF")) +
+  theme_minimal() +
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.x = element_text(size = 8),
+    axis.text.y = element_text(size = 9)
+    )
+```
+
+::: {.card title="Percentage change since Jan 2018"}
+
+Use this inflation data explorer to see which goods and services are getting cheaper or more expensive in the U.S. # <7>
+
+```{{r}}
+#| fig-width: 20
+#| fig-height: 8
+ggplotly(p1)
+```
+:::
+
+```{{r}}
+#| label: pct-change-monthly-code
+#| include: false
+latest_month_data <- df %>%
+  filter(year_month == max(year_month)) %>%
+  arrange(desc(percent_change_from_previous_month))
+
+top_six_categories <- latest_month_data %>%
+  slice_head(n = 6)
+
+p2 <- ggplot(
+  top_six_categories,
+  aes(
+    x = reorder(category_label, -percent_change_from_previous_month),
+    y = percent_change_from_previous_month,
+    fill = category_label
+  )
+) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = rev(colorRampPalette(brewer.pal(9, "BuPu"))(6))) +
+  labs(x = "", y = "Percent Change") +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 0.1)) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    axis.text.x = element_text(size = 24),
+    axis.title.x = element_text(size = 20),
+    axis.text.y = element_text(size = 24)
+  ) +
+  coord_flip()
+```
+
+::: {.card title="Last month's top 6"}
+Percentage change in CPI by category for the last month, top six categories
+
+```{{r}}
+#| fig-width: 18
+#| fig-height: 8
+p2
+```
+:::
+
+```{{r}}
+#| label: pct-change-monthly-table
+#| title: "Monthly changes in prices"
+colnames(pivot_df)[1] <- "Category" 
+colnames(pivot_df)[-1] <- format(ymd(colnames(pivot_df)[-1]), "%B %Y")
+
+pivot_gt <- pivot_df %>% 
+  gt() %>%  # <9>
+  tab_header(
+    title = "Monthly Percent Change by Category",
+    subtitle = "Last four months"
+  ) %>%
+  fmt_number(
+    columns = 2:5,
+    decimals = 2,
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", align = "center"),
+    locations = cells_column_labels(everything())
+  ) |> 
+  data_color(
+    method = "numeric",
+    palette = "BuPu"
+  )
+
+pivot_gt
+```
+````
+1. Set the format to `dashboard` to create a Quarto dashboard.
+2. Incorporate additional files, like a custom Sass file for themes and a logo.
+3. Include resources for Posit Connect integration.
+4. Use Quarto chunk options, as shown in this setup chunk.
+5. Connect to Posit Connect and retrieve the recently created pin.
+6. Add value boxes to highlight key text or numbers.
+7. Use the` list()` format as needed.
+8. Embed static or interactive plots to enrich your dashboard with text and visuals.
+9. Include tables as well.
 
 ## Publishing scripts and dashboards
 
