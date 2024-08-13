@@ -225,7 +225,9 @@ This is the content owner view of the deployed script. You can configure it to u
 
 [View the deployed script here](https://pub.demo.posit.team/public/inflation-explorer-etl-script/).
 
-## Quarto dashboard
+## Creating a Quarto dashboard
+
+Now, we can move on to actually creating a Quarto dashboard!
 
 ```` {.md filename="index.qmd"}
 ---
