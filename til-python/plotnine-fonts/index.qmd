@@ -1,0 +1,36 @@
+---
+title: "How to add a custom font in plotnine"
+date: "2024-08-29"
+category: Python
+output: html_document
+---
+
+[Plotnine](https://plotnine.org/) is a package that brings the grammar of graphics, similar to [{ggplot2}](https://ggplot2.tidyverse.org/) in R, to Python.
+
+Like {ggplot2}, `plotnine` supports the use of custom fonts. To add a custom font:
+
+```python
+import matplotlib.font_manager as fm # <1>
+import os
+
+project_dir = os.getcwd() # <2>
+font_path = os.path.join(project_dir, "Raleway-VariableFont_wght.ttf") # <2>
+prop = fm.FontProperties(fname=font_path) # <2>
+
+p = (
+    ggplot(rates_long, aes(x="date", y="rate", color="type"))
+    + geom_line()
+    + theme(
+        title=element_text(hjust=0, fontproperties=prop), # <3>
+        text=element_text(fontproperties=prop), # <3>
+        plot_background=element_rect(fill="white")
+    )
+)
+```
+1. Install `matplotlib`'s font_manager.
+2. Install the custom font on your system, and use the `os` package to point to the directory with your custom font.
+3. Set the font in your `plotnine` plot using the `theme()` function.
+
+I posted a `plotnine` plot on Reddit using the Raleway font ([code here](https://github.com/ivelasq/plotnine-visualizations/blob/main/historical-mortgage-rates/historical-mortgages-plot.py)):
+
+<center><blockquote class="reddit-embed-bq" style="height:500px" data-embed-height="546"><a href="https://www.reddit.com/r/dataisbeautiful/comments/1dcnrmb/15_and_30year_fixed_rate_mortgage_average_in_the/">15- and 30-Year Fixed Rate Mortgage Average in the United States [OC]</a><br> by<a href="https://www.reddit.com/user/ionychal/">u/ionychal</a> in<a href="https://www.reddit.com/r/dataisbeautiful/">dataisbeautiful</a></blockquote><script async="" src="https://embed.reddit.com/widgets.js" charset="UTF-8"></script></center>
