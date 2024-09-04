@@ -83,4 +83,9 @@
   date: 2024-07-18
   image: ./talk/quarto-dashboards/thumbnail.png
   path: ./quarto-dashboards/index.md
+- title: "Using pins for Shiny with ever-changing data"
+  subtitle: "End-to-End Workflow With Posit Team"
+  date: 2024-08-28
+  image: ./talk/ever-changing-shiny/thumbnail.png
+  path: ./ever-changing-shiny/index.md
   
