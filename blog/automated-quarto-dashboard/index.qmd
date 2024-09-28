@@ -22,7 +22,7 @@ The workflow was implemented in Python, and one of the most common questions I r
 
 This blog post will guide you through the equivalent workflow in R, which can be found in this [repository](https://github.com/ivelasq/inflation-explorer). If you're interested in the Python version, you can explore it in this [repository](https://github.com/posit-marketing/inflation-explorer).
 
-This post features Posit Connect heavily, but there are other tools available. For example,I’ve written a blog post on creating an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out [here](https://ivelasq.rbind.io/blog/automated-youtube-dashboard/).
+This post features Posit Connect heavily, but there are other tools available. For example, I’ve written a blog post on creating an automated dashboard using {flexdashboard} and GitHub Actions, which you can check out [here](https://ivelasq.rbind.io/blog/automated-youtube-dashboard/).
 
 ## Before we begin... Quarto dashboards?!
 
@@ -36,7 +36,7 @@ This dashboard uses the Consumer Price Index (CPI) data from the Bureau of Labor
 
 ## Setup
 
-To open the project in RStudio, navigate to File > New Project > Version Control and paste the following URL: https://github.com/posit-marketing/inflation-explorer.git.
+To open the project in RStudio, navigate to File > New Project > Version Control and paste the following URL: https://github.com/ivelasq/inflation-explorer.git.
 
 ![](images/clone-r.png){fig-align="center" width=50%}
 
@@ -52,12 +52,12 @@ The files in the project include:
 ├── all_data_report.json    # JSON version of the downloaded BLS data
 ├── custom.scss             # Custom Sass file
 ├── index.qmd               # Quarto dashboard document
-└── script.R                # Python script version of the ETL script
+└── script.R                # R script version of the ETL script
 ```
 
 ### Virtual environments
 
-In the Python version of this demo, I created a virtual environment. Virtual environments are commonly used to manage dependencies and isolate project-specific packages. In R, using virtual environments are less common. R installs packages either system-wide or in user-specific library paths. If you are an RStudio Projects user, the project-specific settings manage your dependencies. And in general, R’s package management system is more flexible with handling packages. However, the [{renv} package](https://rstudio.github.io/renv/) provides similar functionality to Python's virtual environments by managing project-specific dependencies and package versions.
+In the Python version of this demo, I created a virtual environment. Virtual environments are commonly used to manage dependencies and isolate project-specific packages. In R, using virtual environments is less common. R installs packages either system-wide or in user-specific library paths. If you are an RStudio Projects user, the project-specific settings manage your dependencies. And in general, R’s package management system is more flexible with handling packages. However, the [{renv} package](https://rstudio.github.io/renv/) provides similar functionality to Python's virtual environments by managing project-specific dependencies and package versions.
 
 ### Environment variables
 
@@ -70,7 +70,7 @@ Environment variables are variables that are needed for code but should not be p
 To store these variables in your R environment (`.Renviron`), you can use `Sys.setenv()` in your Terminal:
 
 ``` {.bash filename="Terminal"}
-Sys.setenv("connect api key here")
+Sys.setenv(CONNECT_API_KEY = "connect api key here")
 ```
 
 Or, you can edit your `.Renviron` file using the {usethis} package. Run `usethis::edit_r_environ()` to open the .Renviron file and add the variables manually.
