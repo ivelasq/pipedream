@@ -12,12 +12,12 @@
   subtitle: "R-Ladies Seattle"
   date: 2021-04-23
   image: ./talk/git-through-april/thumbnail.png
-  path:  ./git-through-april/index.Rmd
+  path:  ./git-through-april/index.md
 - title: "Around the World in a Single Table (gt Walkthrough)"
   subtitle: "R-Ladies Johannesburg"
   date: 2021-10-27
   image: ./talk/gt-talk/thumbnail.png
-  path: ./gt-talk/index.Rmd
+  path: ./gt-talk/index.md
 - title: "Taking a Peek at Hiking Data Using R"
   subtitle: "R-Ladies Seattle"
   date: 2019-07-16
@@ -27,7 +27,7 @@
   subtitle: "R4DS"
   date: 2021-03-31
   image: ./talk/longitudinal-analysis/thumbnail.png
-  path: ./longitudinal-analysis/index.Rmd
+  path: ./longitudinal-analysis/index.md
 - title: "Package Management for Reproducible Data Science in R"
   subtitle: "Seattle useR Group"
   date: 2020-05-07
@@ -52,7 +52,7 @@
   subtitle: "R-Ladies St. Louis"
   date: 2022-10-27
   image: ./talk/intro-to-quarto/thumbnail.png
-  path: ./intro-to-quarto/index.qmd
+  path: ./intro-to-quarto/index.md
 - title: "What's new in the tidyverse"
   subtitle: "R-Ladies Rome"
   date: 2023-03-22
@@ -88,4 +88,9 @@
   date: 2024-08-28
   image: ./talk/ever-changing-shiny/thumbnail.png
   path: ./ever-changing-shiny/index.md
+- title: "From Notebooks to Dashboards with Quarto"
+  subtitle: "Small Data SF"
+  date: 2024-09-23
+  image: ./talk/smalldatasf-quarto-workshop/thumbnail.png
+  path: ./smalldatasf-quarto-workshop/index.md
   

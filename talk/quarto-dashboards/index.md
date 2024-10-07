@@ -2,9 +2,6 @@
 title: "Quarto Dashboards"
 image: "thumbnail.png"
 image-alt: "Quarto Dashboards"
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 
 +---------------+---------------------------------------------+
@@ -31,4 +28,4 @@ editor_options:
 | Recording     | [**YouTube**](https://www.youtube.com/watch?v=Kq1hgg2NtE4)
 +---------------+---------------------------------------------+
 
-<center><a href="https://www.youtube.com/watch?v=Kq1hgg2NtE4"><img src="title.png" target="_blank" style="width:800px;height:450px;"/></a></center>
+<center><iframe width="800" height="450" src="https://www.youtube.com/embed/Kq1hgg2NtE4?si=PQ9R4SrVHrH14Djq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
