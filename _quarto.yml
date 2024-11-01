@@ -42,6 +42,9 @@ website:
         href: https://fosstodon.org/@ivelasq3
       - icon: rss
         href: index.xml
+      - text: "{{< iconify simple-icons bluesky >}}"
+        href: https://bsky.app/profile/ivelasq3.bsky.social
+      
 format:
   html:
     theme: [litera, styles.scss]
