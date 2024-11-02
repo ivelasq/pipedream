@@ -1,0 +1,8 @@
+---
+title: Exploring Complex Survey Data Analysis Using R
+subtitle: A Tidy Introduction with {srvyr} and {survey}
+description: This book embarks on an in-depth journey into conducting complex survey analysis with the {srvyr} package and tidyverse family of functions.
+image: "thumbnail.png"
+---
+
+![](thumbnail.jpg){fig-alt="Cover of Exploring Complex Survey Data Analysis Using R"}
