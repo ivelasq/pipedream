@@ -32,18 +32,16 @@ website:
     right: 
       - href: license.qmd
         text: License
-      - icon: twitter
-        href: https://twitter.com/ivelasq3
+      - icon: rss
+        href: index.xml
+      - text: "{{< iconify simple-icons bluesky >}}"
+        href: https://bsky.app/profile/ivelasq3.bsky.social
       - icon: github
         href: https://github.com/ivelasq
       - icon: linkedin
         href: https://www.linkedin.com/in/ivelasq/
       - icon: mastodon
         href: https://fosstodon.org/@ivelasq3
-      - icon: rss
-        href: index.xml
-      - text: "{{< iconify simple-icons bluesky >}}"
-        href: https://bsky.app/profile/ivelasq3.bsky.social
       
 format:
   html:
