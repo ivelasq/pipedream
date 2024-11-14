@@ -2,7 +2,21 @@ project:
   type: website
   resources:
     - "_redirects.txt"
-
+    - "tweet-archive.html"
+    - "nitter.css"
+    - "twitter.css"
+    - "fonts/css/fontello.css"
+    - "fonts/font/fontello.ttf"
+    - "fonts/font/fontello.woff"
+    - "fonts/font/fontello.woff2"
+    - "styles.css"
+    - "js/vue.global.js"
+    - "js/minisearch.min.js"
+    - "profile.jpg"
+    - "searchDocuments.js"
+    - "app.js"
+    - "tweets_media"
+    
 website:
   title: "%>% dreams"
   site-url: "https://ivelasq.rbind.io"
@@ -42,6 +56,8 @@ website:
         href: https://www.linkedin.com/in/ivelasq/
       - icon: mastodon
         href: https://fosstodon.org/@ivelasq3
+      - icon: twitter
+        href: tweet-archive.html
       
 format:
   html:
