@@ -1,0 +1,14 @@
+---
+title: "How to make beautiful tables in Python"
+date: "2022-12-22"
+categories: ["reference"]
+author: 
+  - Isabella Velásquez
+jupyter: python3
+---
+
+When presenting data, a beautiful table can be an impactful way of getting your ideas across.
+
+One of my favorite articles by the wonderful David Keyes of R for the Rest of Us is this one, [How to Make Beautiful Tables in R](https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r), that I often referenced when I was starting off in data analysis and reporting in R. It opened my world up to a host of packages that I didn't know existed, and made it very apparent that R users were very fortunate to have a variety of tools for making beautiful display tables for their reports, dashboards, etc.
+
+For a long time, the Python world hasn't been as fortunate 
