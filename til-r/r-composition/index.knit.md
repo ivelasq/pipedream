@@ -5,6 +5,8 @@ category: R
 output: html_document
 ---
 
+
+
 Cleaning out my computer as I get ready to switch to a new one has me running into old gems. So, when I say "Today I learned," I really mean "I learned this back in December 2021." 😅
 
 Back then, I gave a talk at Why R? called 
@@ -39,8 +41,11 @@ done
 
 The script creates a file called `r_source_loc.csv`. It shows the number of lines by programming language by script in R 4.1.2. We can read it into R:
 
-```{r}
-#| warning: false
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(dplyr)
 library(stringr)
 
@@ -56,9 +61,33 @@ r_loc <-
 head(r_loc)
 ```
 
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 6 × 3
+  language lines script        
+  <chr>    <dbl> <chr>         
+1 R           20 .snow2.RR     
+2 R            9 .multicore3.RR
+3 R           15 .multicore2.RR
+4 R           10 .multicore1.RR
+5 R           25 .RSeed.R      
+6 R           36 .Master.R     
+```
+
+
+:::
+:::
+
+
+
 Now, we can visualize the percentage of R Core sourcecode files by language using ggplot2:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 library(ggplot2)
 library(forcats)
 
@@ -87,9 +116,20 @@ r_loc |>
                                "Fortran" = "#44AA99"))
 ```
 
+::: {.cell-output-display}
+![](index_files/figure-html/unnamed-chunk-2-1.png){width=672}
+:::
+:::
+
+
+
 Or, we can visualize the percentage of R Core lines of code by language:
 
-```{r}
+
+
+::: {.cell}
+
+```{.r .cell-code}
 r_loc |> 
   filter(!is.na(language)) |> 
   group_by(language) %>% 
@@ -116,5 +156,12 @@ r_loc |>
                                "C" = "#882255", 
                                "Fortran" = "#44AA99"))
 ```
+
+::: {.cell-output-display}
+![](index_files/figure-html/unnamed-chunk-3-1.png){width=672}
+:::
+:::
+
+
 
 It’s interesting to see how much goes into making R what it is: an ecosystem built on collaboration across languages and tools (which was the takeaway from the talk!). If you’re curious about R's source code, give the script a shot!
