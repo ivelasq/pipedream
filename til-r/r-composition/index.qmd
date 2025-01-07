@@ -1,5 +1,5 @@
 ---
-title: "How to find out how much of R Core is R"
+title: "How to find out how much of Core R is R"
 date: "2024-12-25"
 category: R
 output: html_document
@@ -56,7 +56,7 @@ r_loc <-
 head(r_loc)
 ```
 
-Now, we can visualize the percentage of R Core sourcecode files by language using ggplot2:
+Now, we can visualize the percentage of Core R sourcecode files by language using ggplot2:
 
 ```{r}
 library(ggplot2)
@@ -76,7 +76,7 @@ r_loc |>
     size = 4
   ) +
   theme_minimal() +
-  labs(title = "Percentage of R Core Sourcecode Files by Language") +
+  labs(title = "Percentage of Core R Sourcecode Files by Language") +
   theme(plot.title = element_text(size = 14),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
@@ -87,7 +87,7 @@ r_loc |>
                                "Fortran" = "#44AA99"))
 ```
 
-Or, we can visualize the percentage of R Core lines of code by language:
+Or, we can visualize the percentage of Core R lines of code by language:
 
 ```{r}
 r_loc |> 
@@ -105,7 +105,7 @@ r_loc |>
     size = 4
   )+
   theme_minimal() +
-  labs(title = "Percentage of R Core Lines of Code by Language") +
+  labs(title = "Percentage of Core R Lines of Code by Language") +
   theme(plot.title = element_text(size = 14),
         axis.title.x = element_blank(),
         axis.title.y = element_blank(),
