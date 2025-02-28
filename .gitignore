@@ -9,3 +9,4 @@ Thumbs.db
 
 /.quarto/
 /_site/
+*.quarto_ipynb
