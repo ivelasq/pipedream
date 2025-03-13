@@ -98,4 +98,9 @@
   date: 2025-02-21
   image: ./talk/interactive-r-python-in-browser/thumbnail.png
   path: ./interactive-r-python-in-browser/index.md
+- title: "Brand your Quarto projects with brand.yml"
+  subtitle: "R-Ladies Philly"
+  date: 2025-03-12
+  image: ./talk/brand-yml/thumbnail.png
+  path: ./brand-yml/index.md
   
