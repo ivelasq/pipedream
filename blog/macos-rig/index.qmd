@@ -10,8 +10,6 @@ image: thumbnail.jpg
 image-alt: "Georges Seurat's A Sunday on La Grande Jatte. People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."
 ---
 
-![Georges Seurat, A Sunday on La Grande Jatte](thumbnail-wide.jpg){fig-alt="People from different social classes strolling and relaxing in a park just west of Paris on La Grande Jatte, an island in the Seine River."}
-
 ## TL;DR
 
 In this post, we cover our preferred setup for R on macOS going into 2023. We highlight these awesome tools: [Homebrew](https://brew.sh/), [Git](https://git-scm.com/download/linux), [zsh](https://zsh.sourceforge.io/), [Oh My Zsh](https://ohmyz.sh/#install), [rig](https://github.com/r-lib/rig), the R packages {[usethis](https://usethis.r-lib.org/)} and {[gitcreds](https://gitcreds.r-lib.org/)}, and [Quarto](https://quarto.org).
@@ -150,7 +148,7 @@ brew install --cask rstudio
 In RStudio, install the {[usethis](https://usethis.r-lib.org/)} package, a tremendous tool for increased productivity with your R projects. In other words, you should use {usethis}. 😀
 
 ```r
-install.packages(“usethis”)
+install.packages("usethis")
 ```
 
 Once installed, open your `.Rprofile` by running:
@@ -246,18 +244,6 @@ We hope that this post is helpful in setting up an R data science rig on macOS! 
 * Tools like OMZ and snippets help you use aliases that make running your workflow easier to remember.
 
 We know there are a ton of ways of setting up a data science rig, and we'd love to learn about your dotfile repositories, best practices, or favorite workflow packages on Twitter/Mastodon!
-
-*Liked this article? I’d love for you to share!*
-
-::: {.panel-tabset}
-## Twitter
-{{< tweet ivelasq3 1606094450643435520 >}}
-
-## Mastodon
-
-<iframe src="https://fosstodon.org/@ivelasq3/109560318292130074/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" allowfullscreen="allowfullscreen"></iframe><script src="https://fosstodon.org/embed.js" async="async"></script>
-
-:::
 
 ## Related Work
 
