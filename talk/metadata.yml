@@ -103,4 +103,9 @@
   date: 2025-03-12
   image: ./talk/brand-yml/thumbnail.png
   path: ./brand-yml/index.md
+- title: "Tidy Data, Weighted Insights: Analyzing Complex Survey Data in R"
+  subtitle: "R-Ladies Amsterdam and R-Ladies RTP"
+  date: 2025-02-25
+  image: ./talk/tidy-data-weighted-analysis/thumbnail.png
+  path: ./tidy-data-weighted-analysis/index.md
   
