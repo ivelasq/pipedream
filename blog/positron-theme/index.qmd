@@ -57,7 +57,7 @@ Being so attached to the Tomorrow Night Bright theme in RStudio, I quickly notic
 
 ![](images/4-positron_ms_tnb.png){fig-align="center"}
 
-The Microsoft port of Tomorrow Night Bright had dated grey/blue workbench elements, reflecting its original design (released 2015, last updated 2017), rather than the style of more modern dark themes. Looking for other ‘bright’ themes, I found [GitHub Dark Default](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme), a sleek dark-and-bright theme with 16.3M installs in the VS Code Extension Marketplace and 156K in the [Open VSX Registry](https://open-vsx.org/extension/GitHub/github-vscode-theme) as of this writing. It is featured in [Garrick Aden-Buie](https://github.com/gadenbuie)'s popular Positron Extension Pack, [Positron +1e](https://open-vsx.org/extension/grrrck/positron-plus-1-e). While very popular, GitHub Dark Default also suffers from excessive ('saturated') syntax highlighting of R code in Positron:
+The Microsoft port of Tomorrow Night Bright had dated grey/blue workbench elements, reflecting its original design (released 2015, last updated 2017), rather than the style of more modern dark themes. Looking for other ‘bright’ themes, I found [GitHub Dark Default](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme), a sleek dark-and-bright theme with 16.3M installs in the VS Code Extension Marketplace and 156K in the [Open VSX Registry](https://open-vsx.org/extension/GitHub/github-vscode-theme) as of this writing. It is featured in [Garrick Aden-Buie](https://github.com/gadenbuie)'s Positron Extension Pack, [Positron +1e](https://open-vsx.org/extension/grrrck/positron-plus-1-e). While very popular, GitHub Dark Default also suffers from excessive ('saturated') syntax highlighting of R code in Positron:
 
 ![](images/5-positron_gdd.png){fig-align="center"}
 
@@ -75,7 +75,7 @@ Let’s walk through porting this theme over to Positron.
 
 This tutorial assumes you already have [RStudio](https://posit.co/downloads/) and [Positron](https://positron.posit.co/download.html) installed. If not, do that first![^1]
 
-[^1]: `brew install –cask r`, `brew install –cask rstudio`, `brew install –cask positron` will get you up and running quickly with Homebrew on macOS. Check out our [recommended MacOS configuration](https://github.com/gvelasq/dotfiles/tree/main/macos).
+[^1]: `brew install –-cask r`, `brew install –-cask rstudio`, `brew install –-cask positron` will get you up and running quickly with Homebrew on macOS. Check out our [recommended MacOS configuration](https://github.com/gvelasq/dotfiles/tree/main/macos).
 
 You'll need a few different programs to create your first extension.
 
@@ -86,7 +86,7 @@ Install Git:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Install Git after Homebrew is installed
-brew install –cask git
+brew install –-cask git
 ```
 
 Install [Node.js](https://nodejs.org/en/download):
@@ -257,18 +257,18 @@ gdd_colors |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
 ```{r}
 #| echo: false
 #| warning: false
-tnb_rclassic_colors |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+tnb_rclassic_colors |> knitr::kable() |> kableExtra::column_spec(1, width="12em")
 ```
 
 :::
 
 ## Fin: Tomorrow Night Bright (R Classic)
 
-Once the `tomorrow-night-bright-r-classic.json` file was ready, then it was time to publish the theme to the VS Code Extension Marketplace and then the Open VSX Registry. We added some [resources](#more-resources) on how to do this below.
+Once the `tomorrow-night-bright-r-classic.json` file was ready, then it was time to publish the theme to the VS Code Extension Marketplace and then the Open VSX Registry. We added some [resources](#more-resources) on how to do this below. With that, the Tomorrow Night Bright (R Classic) is available to the world!
 
 ![](images/8-installation.png)
 
-Like any other open-source project, this is just the beginning! We've optimized the theme for R scripts and many key workbench elements, but there's more to do. Our next steps will be to optimize the theme for Python scripts, JSON files, and other files supported by RStudio --- so those migrating from RStudio to Positron will feel at home in Tomorrow Night Bright. We welcome you to submit a [pull request in the GitHub repository](https://github.com/gvelasq/tomorrow-night-bright-r-classic) or use the files as a reference if you want to create your own Positron theme!
+Like any other open-source project, this is just the beginning! We've optimized the theme for R scripts and many key workbench elements, but there's more to do. Our next steps will be to optimize the theme for Python scripts, JSON files, and other files supported by RStudio --- so those migrating from RStudio to Positron will feel at home in Tomorrow Night Bright. We welcome you to submit a [pull request in the GitHub repository](https://github.com/gvelasq/tomorrow-night-bright-r-classic) if you'd like to contribute or use the files as a reference if you want to create your own Positron theme!
 
 ## Installing Tomorrow Night Bright (R Classic)
 
