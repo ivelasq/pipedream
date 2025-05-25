@@ -1,0 +1,216 @@
+{
+	"tokenColors": [
+		{
+			"settings": {
+				"background": "#000000",
+				"foreground": "#DEDEDE",
+				"gutter": "#191919",
+				"gutterForeground": "#404040"
+			}
+		},
+		{
+			"name": "Comment",
+			"scope": "comment",
+			"settings": {
+				"foreground": "#969896"
+			}
+		},
+		{
+			"name": "Foreground",
+			"scope": [
+				"keyword.operator.class",
+				"constant.other",
+				"source.php.embedded.line"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#EEEEEE"
+			}
+		},
+		{
+			"name": "Variable, String Link, Regular Expression, Tag Name, GitGutter deleted",
+			"scope": [
+				"variable",
+				"support.other.variable",
+				"string.other.link",
+				"string.regexp",
+				"entity.name.tag",
+				"entity.other.attribute-name",
+				"meta.tag",
+				"declaration.tag",
+				"markup.deleted.git_gutter"
+			],
+			"settings": {
+				"foreground": "#D54E53"
+			}
+		},
+		{
+			"name": "Number, Constant, Function Argument, Tag Attribute, Embedded",
+			"scope": [
+				"constant.numeric",
+				"constant.language",
+				"support.constant",
+				"constant.character",
+				"variable.parameter",
+				"punctuation.section.embedded",
+				"keyword.other.unit"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#E78C45"
+			}
+		},
+		{
+			"name": "Class, Support",
+			"scope": [
+				"entity.name.class",
+				"entity.name.type.class",
+				"support.type",
+				"support.class"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#E7C547"
+			}
+		},
+		{
+			"name": "String, Symbols, Inherited Class, Markup Heading, GitGutter inserted",
+			"scope": [
+				"string",
+				"constant.other.symbol",
+				"entity.other.inherited-class",
+				"entity.name.filename",
+				"markup.heading",
+				"markup.inserted.git_gutter"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#B9CA4A"
+			}
+		},
+		{
+			"name": "Operator, Misc",
+			"scope": [
+				"keyword.operator",
+				"constant.other.color"
+			],
+			"settings": {
+				"foreground": "#70C0B1"
+			}
+		},
+		{
+			"name": "Function, Special Method, Block Level, GitGutter changed",
+			"scope": [
+				"entity.name.function",
+				"meta.function-call",
+				"support.function",
+				"keyword.other.special-method",
+				"meta.block-level",
+				"markup.changed.git_gutter"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#7AA6DA"
+			}
+		},
+		{
+			"name": "Keyword, Storage",
+			"scope": [
+				"keyword",
+				"storage",
+				"storage.type",
+				"entity.name.tag.css"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#C397D8"
+			}
+		},
+		{
+			"name": "Invalid",
+			"scope": "invalid",
+			"settings": {
+				"background": "#DF5F5F",
+				"fontStyle": "",
+				"foreground": "#CED2CF"
+			}
+		},
+		{
+			"name": "Separator",
+			"scope": "meta.separator",
+			"settings": {
+				"background": "#82A3BF",
+				"foreground": "#CED2CF"
+			}
+		},
+		{
+			"name": "Deprecated",
+			"scope": "invalid.deprecated",
+			"settings": {
+				"background": "#B798BF",
+				"fontStyle": "",
+				"foreground": "#CED2CF"
+			}
+		},
+		{
+			"name": "Diff foreground",
+			"scope": [
+				"markup.inserted.diff",
+				"markup.deleted.diff",
+				"meta.diff.header.to-file",
+				"meta.diff.header.from-file"
+			],
+			"settings": {
+				"foreground": "#FFFFFF"
+			}
+		},
+		{
+			"name": "Diff insertion",
+			"scope": [
+				"markup.inserted.diff",
+				"meta.diff.header.to-file"
+			],
+			"settings": {
+				"foreground": "#718c00"
+			}
+		},
+		{
+			"name": "Diff deletion",
+			"scope": [
+				"markup.deleted.diff",
+				"meta.diff.header.from-file"
+			],
+			"settings": {
+				"foreground": "#c82829"
+			}
+		},
+		{
+			"name": "Diff header",
+			"scope": [
+				"meta.diff.header.from-file",
+				"meta.diff.header.to-file"
+			],
+			"settings": {
+				"foreground": "#FFFFFF",
+				"background": "#4271ae"
+			}
+		},
+		{
+			"name": "Diff range",
+			"scope": "meta.diff.range",
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#3e999f"
+			}
+		}
+	],
+	"colors": {
+		"editor.background": "#000000",
+		"editorCursor.foreground": "#9F9F9F",
+		"editor.foreground": "#DEDEDE",
+		"editorWhitespace.foreground": "#343434",
+		"editor.lineHighlightBackground": "#2A2A2A",
+		"editor.selectionBackground": "#424242"
+	},
+	"name": "Tomorrow Night Bright (rsclassic)"
+}

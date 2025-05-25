@@ -1,0 +1,295 @@
+---
+title: "Porting my favorite RStudio color theme to Positron"
+categories: ["tutorial"]
+date: 2025-05-27
+description: "Tomorrow night is always bright, regardless of IDE."
+authors:
+  - Isabella Velásquez
+  - Gustavo E. Velásquez
+image: "img/thumbnail.jpg"
+image-alt: "The evening star (1902) nouveau art by Alfons Mucha."
+filters:
+  - preview-colour
+preview-colour:
+  code: true
+  text: true
+---
+
+```{r}
+#| echo: false
+source(here::here("blog", "positron-theme", "R", "pluck_colors.R"))
+```
+
+## My favorite RStudio theme
+
+My favorite color theme in RStudio is [Tomorrow Night Bright](https://github.com/chriskempson/tomorrow-theme/blob/master/textmate/Tomorrow-Night-Bright.tmTheme). It's an excellent, dark, high-contrast (‘bright’) theme that I've used consistently since I first started using RStudio. Originally written by Chris Kempson as one of the variants included in the MIT-licensed [Tomorrow](https://github.com/chriskempson/tomorrow-theme) theme series, it has been ported widely to many editors, and is included as a default color theme in RStudio.
+
+![](images/1-tnb_palette.png){fig-align="center" style="box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); border-radius: 5px;"}
+
+In this post, we will cover various color themes in [Positron](https://positron.posit.co), specifically how they are implemented in the [editor](https://code.visualstudio.com/docs/configure/custom-layout#_editor) (i.e., syntax highlighting) and in other parts of the IDE (i.e., the [workbench](https://code.visualstudio.com/docs/configure/custom-layout#_workbench) or [chrome](https://en.m.wikipedia.org/wiki/Graphical_user_interface#GUI_and_interaction_design) around the editor). To do that, we need a great example script that shows off various R features. There’s plenty of good scripts out there, but this is a great opportunity to tell you, dear readers, about my new book and R package.
+
+For the screenshots below, I’ll be using a script from [my new book](https://tidy-survey-r.github.io/tidy-survey-book/) (co-written with Stephanie A. Zimmer and Rebecca J. Powell), which comes with an accompanying R package, [srvyexploR](https://tidy-survey-r.github.io/srvyrexploR). This package provides datasets and scripts to help readers follow along with examples and exercises. The [R script](https://github.com/tidy-survey-r/srvyrexploR/blob/main/data-raw/anes_2020.R), `anes_2020.R`, displays a wide breadth of symbols and colors. The screenshots below from RStudio and Positron should give you a flavor of the iterative changes we made in the Positron theme as we ported it from RStudio.
+
+To start, here is what lines 347-366 of `anes_2020.R` look like in RStudio with the Tomorrow Night Bright theme:
+
+![](images/2-rstudio_tnb.png){fig-align="center"}
+
+Looks great, right?! That’s what I’ve been used to for many years now. Please note that I have [rainbow parentheses](https://posit.co/blog/rstudio-1-4-preview-rainbow-parentheses) enabled in RStudio. Rainbow parentheses follow their own color palette, independent from the theme itself.
+
+::: callout-note
+## Fun fact
+After exploring RStudio’s source code, we were very excited to learn that the color palette for rainbow parentheses was [developed in R ](https://github.com/rstudio/rstudio/blob/3bda5e5a379c033d21408d5393c9daa3176641b2/src/gwt/src/org/rstudio/core/client/theme/res/themeStyles.css#L2735-L2736)!
+
+```{r}
+#| label: colorswatch
+#| eval: false
+colorspace::swatchplot(colorspace::qualitative_hcl(n = 7, palette = "set2"))
+```
+:::
+
+![](images/3-rainbow_parentheses.png){fig-align="center"}
+
+## Now back to the problem at hand
+
+I, [like](https://www.andrewheiss.com/blog/2024/07/08/fun-with-positron) [many](https://bsky.app/profile/juliasilge.fosstodon.org.ap.brid.gy/post/3l7lkkdixeul2) [others](https://bsky.app/profile/coatless.bsky.social/post/3kvxphnuinr2m), am very excited about the early release of [Positron](https://positron.posit.co/) and love seeing the community get their hands on it. As a Posit employee, I’ve had the chance to use it for many months. One of its biggest strengths is the [Open VSX Registry](https://open-vsx.org/extension/grrrck/positron-plus-1-e) extension mechanism. It unlocks infinite customizability, just like in VS Code.
+
+Being so attached to the Tomorrow Night Bright theme in RStudio, I quickly noticed that Positron includes [Tomorrow Night Blue](https://github.com/posit-dev/positron/blob/main/extensions/theme-tomorrow-night-blue/themes/tomorrow-night-blue-color-theme.json) by default, but not my favorite theme. I tried out Microsoft’s [own](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Theme-TomorrowKit) Tomorrow Night Bright [extension](https://open-vsx.org/extension/ms-vscode/Theme-TomorrowKit), but the colors felt off. It had an excessive amount of syntax highlighting and an especially distracting use of red. Here's what the same lines of `anes_2020.R` look like using the Microsoft port of Tomorrow Night Bright in Positron:
+
+![](images/4-positron_ms_tnb.png){fig-align="center"}
+
+The Microsoft port of Tomorrow Night Bright had dated grey/blue workbench elements, reflecting its original design (released 2015, last updated 2017), rather than the style of more modern dark themes. Looking for other ‘bright’ themes, I found [GitHub Dark Default](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme), a sleek dark-and-bright theme with 16.3M installs in the VS Code Extension Marketplace and 156K in the [Open VSX Registry](https://open-vsx.org/extension/GitHub/github-vscode-theme) as of this writing. It is featured in [Garrick Aden-Buie](https://github.com/gadenbuie)'s popular Positron Extension Pack, [Positron +1e](https://open-vsx.org/extension/grrrck/positron-plus-1-e). While very popular, GitHub Dark Default also suffers from excessive ('saturated') syntax highlighting of R code in Positron:
+
+![](images/5-positron_gdd.png){fig-align="center"}
+
+With help from my [brother](https://github.com/gvelasq), I decided to write my own extension to better approximate what I'm used to in RStudio, and I'm pleased to announce that the resulting extension 'Tomorrow Night Bright (R Classic)' is now available on both the [Open VSX Registry](https://open-vsx.org/extension/gvelasq/tomorrow-night-bright-r-classic) for Positron and the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=gvelasq.tomorrow-night-bright-r-classic) for VS Code!
+
+Here is the final look:
+
+![](images/7-positron_tnb_r_classic.png){fig-align="center"}
+
+Let’s walk through porting this theme over to Positron.
+
+## Creating a VS Code color theme extension
+
+### Installing the required software
+
+This tutorial assumes you already have [RStudio](https://posit.co/downloads/) and [Positron](https://positron.posit.co/download.html) installed. If not, do that first![^1]
+
+[^1]: `brew install –cask r`, `brew install –cask rstudio`, `brew install –cask positron` will get you up and running quickly with Homebrew on macOS. Check out our [recommended MacOS configuration](https://github.com/gvelasq/dotfiles/tree/main/macos).
+
+You'll need a few different programs to create your first extension.
+
+Install Git:
+
+``` bash
+# Install Homebrew (if you don't already have it on macOS)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Git after Homebrew is installed
+brew install –cask git
+```
+
+Install [Node.js](https://nodejs.org/en/download):
+
+``` bash
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+
+# Download and install Node.js:
+nvm install 22
+```
+
+Then, restart your terminal:
+
+``` bash
+# Verify the Node.js version:
+node -v # Should print "v22.13.1".
+nvm current # Should print "v22.13.1".
+
+# Verify npm version:
+npm -v # Should print "10.9.2".
+```
+
+::: callout-note
+## Note: Avoid using Homebrew for Node
+I played around with installing Node.js and, while possible to do with Homebrew with `brew install node@20`, this is quite time-consuming since Homebrew will install and then compile all of its dependencies from source. I was using an older laptop and `nvm` (as detailed in the steps above) worked great to install the Node.js binary.
+:::
+
+Finally, install Yeoman:
+
+``` bash
+npm install --global yo generator-code
+```
+
+### Creating the extension
+
+Now that everything is installed, let's begin actually creating an extension. Point your terminal to your preferred folder:
+
+``` bash
+cd ~/rrr
+```
+
+Then, start Yeoman:
+
+``` bash
+yo code
+```
+
+You will see a welcome to the VS Code extension generator.
+
+![](images/6-yeoman.png){fig-align="center"}
+
+Here’s what I inputted into the Yeoman prompt, advancing through each field by pressing <kbd>Enter</kbd>:
+
+| Yeoman Prompt | Response |
+|----|----|
+| **What type of extension do you want to create?** | `New Color Theme` |
+| **Do you want to import or convert an existing TextMate color theme?** | `Yes, import an existing theme and inline it in the Visual Studio Code color theme file.` |
+| **URL or filename to import:** | `https://raw.githubusercontent.com/chriskempson/tomorrow-theme/refs/heads/master/textmate/Tomorrow-Night-Bright.tmTheme` |
+| **What's the name of your extension?** | `tomorrow-night-bright-r-classic` |
+| **What's the identifier of your extension?** | `tomorrow-night-bright-r-classic` |
+| **What's the description of your extension?** | `A Tomorrow Night Bright theme for Positron IDE and VS Code, inspired by RStudio IDE` |
+| **What's the name of your theme shown to the user?** | `Tomorrow Night Bright (R Classic)` |
+| **Select a base theme:** | `Dark` |
+| **Initialize a git repository?** | `Yes` |
+
+Yeoman created the following files in the extension's directory:[^2]
+
+[^2]: Shoutout to [{fs}](https://fs.r-lib.org) for being an [outstanding](https://blog.djnavarro.net/posts/2024-10-06_fs) R package and `fs::dir_tree()` in particular!
+
+``` r
+fs::dir_tree("~/rrr/tomorrow-night-bright-r-classic", all = TRUE)
+#> ~/rrr/tomorrow-night-bright-r-classic
+#> ├── .gitattributes
+#> ├── .gitignore
+#> ├── .vscode
+#> │   ├── launch.json
+#> ├── .vscodeignore
+#> ├── CHANGELOG.md
+#> ├── README.md
+#> ├── package.json
+#> ├── themes
+#> │   └── tomorrow-night-bright-r-classic.json
+#> ├── vsc-extension-quickstart.md
+```
+
+The resulting folder contains all of the files necessary for the color theme extension.
+
+-   `package.json` - this is the manifest file that defines the location of the theme file and specifies the base theme.
+-   `themes/tomorrow-night-bright-r-classic.json` - the color theme definition file.
+-   `vsc-extension-quickstart.md` - this serves mainly as reference and you can feel free to delete it after reading it.
+
+If you open the folder in Positron and press <kbd>F5</kbd>, it will open a new Positron window with the header `[Extension Development Host]` which has your extension loaded. From there, open the Command Palette with <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>P</kbd> and navigate to `Preferences: Color Theme` where you can select `Tomorrow Night Bright (R Classic)`.
+
+Right now, it looks identical to the Microsoft port of Tomorrow Night Bright and is far from a perfect match for RStudio's implementation. Let's customize!
+
+## Customizing the extension
+
+First, gather all of the color themes that you'll use for inspiration. In our case, the file `tomorrow-night-bright-r-classic.json` in our local extension created by Yeoman currently mirrors the Microsoft port of Tomorrow Night Bright. The next steps for us are:
+
+- Inspect the colors in GitHub Dark Default. If you have it installed, the theme file is located at `~/.positron/extensions/github.github-vscode-theme-6.3.5-universal/themes/dark-default.json` or similar depending on the version of your copy.
+- Change a color setting in `tomorrow-night-bright-r-classic.json` and review how it impacts your theme in the `[Extension Development Host]` window.
+- Wash, rinse, and repeat until you're happy with how your new extension looks!
+
+This is the part of extension development that took the most time. It would be difficult to walk you through all of the individual design decisions we made while porting the theme. Briefly, since GitHub Dark Default is a great dark extension, it helped a lot to start with its settings, then to tweak its colors to superimpose editor and workbench colors specific to Tomorrow Night Bright. We kept most of GitHub Dark Default's workbench colors, except that we changed its workbench green/orange accent colors to blue/orange accent colors --- to match the Tomorrow Night Bright theme and aesthetic. In the end, we were able to port the editor colors to behave quite close to how they do in RStudio. We're quite happy with the result!
+
+Below I've reproduced tabsets with editor and workbench colors across the original Tomorrow Night Bright, original GitHub Dark Default, and the new Tomorrow Night Bright (R Classic) for reference. If you're interested in seeing the R code we used to tame three JSON theme files into the tabsets below, you can find it [here](https://github.com/ivelasq/pipedream/tree/main/blog/positron-theme/R/pluck_colors.R).
+
+::: callout-note
+## Statistics (created with in-line R code)
+- Tomorrow Night Bright (Original) has `{r} tnb_original_tokencolors3 |> distinct(color) |> nrow()` unique editor colors and `{r} tnb_original_colors |> distinct(color) |> nrow()` unique workbench colors.
+- GitHub Dark Default has `{r} gdd_tokencolors3 |> distinct(color) |> nrow()` unique editor colors and `{r} gdd_colors |> separate_wider_delim(color, delim = ",", names = letters[1:10], too_few = "align_start") |> select(-setting) |> pivot_longer(cols = everything()) |> filter(!is.na(value)) |> nrow()` unique workbench colors.
+- Tomorrow Night Bright (R Classic) has `{r} tnb_rclassic_tokencolors3 |> distinct(color) |> nrow()` unique editor colors and `{r} tnb_rclassic_colors |> separate_wider_delim(color, delim = ",", names = letters[1:10], too_few = "align_start") |> select(-setting) |> pivot_longer(cols = everything()) |> filter(!is.na(value)) |> nrow()` unique workbench colors.
+:::
+
+## Editor Colors
+
+::: {.panel-tabset}
+
+## Tomorrow Night Bright (Original)
+
+```{r}
+#| echo: false
+#| warning: false
+tnb_original_tokencolors3 |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+## GitHub Dark Default
+
+```{r}
+#| echo: false
+#| warning: false
+gdd_tokencolors3 |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+## Tomorrow Night Bright (R Classic)
+
+```{r}
+#| echo: false
+#| warning: false
+tnb_rclassic_tokencolors3 |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+:::
+
+## Workbench Colors
+
+::: {.panel-tabset}
+
+## Tomorrow Night Bright (Original)
+
+```{r}
+#| echo: false
+#| warning: false
+tnb_original_colors |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+## GitHub Dark Default
+
+```{r}
+#| echo: false
+#| warning: false
+gdd_colors |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+## Tomorrow Night Bright (R Classic)
+
+```{r}
+#| echo: false
+#| warning: false
+tnb_rclassic_colors |> knitr::kable() |> kableExtra::column_spec(1, width="8em")
+```
+
+:::
+
+## Fin: Tomorrow Night Bright (R Classic)
+
+Once the `tomorrow-night-bright-r-classic.json` file was ready, then it was time to publish the theme to the VS Code Extension Marketplace and then the Open VSX Registry. We added some [resources](#more-resources) on how to do this below.
+
+![](images/8-installation.png)
+
+Like any other open-source project, this is just the beginning! We've optimized the theme for R scripts and many key workbench elements, but there's more to do. Our next steps will be to optimize the theme for Python scripts, JSON files, and other files supported by RStudio --- so those migrating from RStudio to Positron will feel at home in Tomorrow Night Bright. We welcome you to submit a [pull request in the GitHub repository](https://github.com/gvelasq/tomorrow-night-bright-r-classic) or use the files as a reference if you want to create your own Positron theme!
+
+## Installing Tomorrow Night Bright (R Classic)
+
+To install the theme in Positron, navigate to the Extensions marketplace by:
+
+* Typing <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to access the Command Palette and searching for `Extensions: Install Extensions`,
+* Typing the Extensions shortcut <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>,
+* Or, clicking the  <img src="./images/9-positron_sidebar_extensions.png" style="width:20px;height:20px;"> button on the left sidebar in Positron.
+
+Search for 'Tomorrow Night Bright (R Classic)' and then click Install. Tada 🎉 you now have our theme installed. We hope you enjoy it!
+
+## More resources
+
+The process of building and publishing an extension can be quite involved! We found these links to be particularly helpful:
+
+* [VS Code: Your First Extension](https://code.visualstudio.com/api/get-started/your-first-extension): This is a primer on how to build an extension from first principles.
+* [VS Code: Color Theme](https://code.visualstudio.com/api/extension-guides/color-theme): This is a primer on how to build color theme extensions, and how color theme extensions are structured.
+* [VS Code: Theme Color](https://code.visualstudio.com/api/references/theme-color): This is comprehensive documentation on all color settings available in VS Code.
+* [VS Code: Publishing Extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension): This is a tutorial on how to publish an extension on the VS Code Extension Marketplace.
+* [VS Code: Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest): This is detailed documentation on the `package.json` file in the root folder of all extensions, also known as the 'extension manifest' or 'manifest.' Our extension's [`package.json`](https://github.com/gvelasq/tomorrow-night-bright-r-classic/blob/main/package.json) may be helpful for reference. N.B., the Yeoman utility generates only a bare-bones `package.json`, but to publish your extension online you'll need to add a publisher field and more. You will also need to add a [`package-lock.json`](https://github.com/gvelasq/tomorrow-night-bright-r-classic/blob/main/package-lock.json) file!
+* [Open VSX: Publishing Extensions](https://github.com/EclipseFdn/open-vsx.org/wiki/Publishing-Extensions): This is documentation on how to publish an extension to the Open VSX Registry.
+* [HaaLeo/publish-vscode-extension](https://github.com/HaaLeo/publish-vscode-extension/tree/master#readme): This is a very helpful GitHub Action, recommended by the Open VSX documentation, that automates publishing your extension in the VS Code Extension Marketplace and the Open VSX Registry. We lightly modified this GitHub Action in our extension: [`publish-extension.yaml`](https://github.com/gvelasq/tomorrow-night-bright-r-classic/blob/main/.github/workflows/publish-extension.yaml).
+
+Thanks to [Mickaël Canouil](https://github.com/mcanouil)'s Quarto extension, [Preview Color](https://github.com/mcanouil/quarto-preview-colour/), which allowed us to display colors associated with hex codes in this blog post.

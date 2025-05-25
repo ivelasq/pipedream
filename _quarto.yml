@@ -63,7 +63,7 @@ format:
   html:
     theme: [litera, styles.scss]
     include-in-header: plausible.html
-    highlight-style: nord
-    
+    highlight-style: tomorrow-night-bright-r-classic.theme
+
 execute:
   freeze: auto
