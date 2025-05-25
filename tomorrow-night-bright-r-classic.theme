@@ -1,0 +1,123 @@
+{
+  "custom-styles": {},
+  "editor-colors": {
+    "BackgroundColor": "#000000",
+    "BracketMatching": "#282a2e",
+    "CodeFolding": "#1c1c1c",
+    "CurrentLine": "#1d1f21",
+    "CurrentLineNumber": "#ffffff",
+    "IconBorder": "#000000",
+    "IndentationLine": "#373b41",
+    "LineNumbers": "#555",
+    "MarkBookmark": "#81a2be",
+    "MarkBreakpointActive": "#cc6666",
+    "MarkBreakpointDisabled": "#b294bb",
+    "MarkBreakpointReached": "#f0c674",
+    "MarkError": "#cc6666",
+    "MarkExecution": "#282a2e",
+    "MarkWarning": "#de935f",
+    "ModifiedLines": "#f0c674",
+    "ReplaceHighlight": "#b5bd68",
+    "SavedLines": "#b5bd68",
+    "SearchHighlight": "#373b41",
+    "Separator": "#1d1f21",
+    "SpellChecking": "#cc6666",
+    "TabMarker": "#373b41",
+    "TemplateBackground": "#1d1f21",
+    "TemplateFocusedPlaceholder": "#282a2e",
+    "TemplatePlaceholder": "#282a2e",
+    "TemplateReadOnlyPlaceholder": "#373b41",
+    "TextSelection": "#373b41",
+    "WordWrapMarker": "#1c1c1c"
+  },
+  "metadata": {
+    "name": "Tomorrow Night Bright (R Classic)",
+    "revision": 1,
+    "license": "MIT",
+    "copyright": [
+      "SPDX-FileCopyrightText: Theme adapted from VSCode",
+      "SPDX-License-Identifier: MIT"
+    ]
+  },
+  "text-styles": {
+    "Normal": {
+      "text-color": "#dedede",
+      "selected-text-color": "#dedede"
+    },
+    "Comment": {
+      "text-color": "#969896",
+      "selected-text-color": "#969896"
+    },
+    "Keyword": {
+      "text-color": "#c397d8",
+      "selected-text-color": "#c397d8"
+    },
+    "ControlFlow": {
+      "text-color": "#c397d8",
+      "selected-text-color": "#c397d8"
+    },
+    "Operator": {
+      "text-color": "#70c0b1",
+      "selected-text-color": "#70c0b1"
+    },
+    "Function": {
+      "text-color": "#dedede",
+      "selected-text-color": "#dedede"
+    },
+    "DataType": {
+      "text-color": "#e7c547",
+      "selected-text-color": "#e7c547"
+    },
+    "String": {
+      "text-color": "#b9ca4a",
+      "selected-text-color": "#b9ca4a"
+    },
+    "Char": {
+      "text-color": "#b9ca4a",
+      "selected-text-color": "#b9ca4a"
+    },
+    "DecVal": {
+      "text-color": "#e78c45",
+      "selected-text-color": "#e78c45"
+    },
+    "Float": {
+      "text-color": "#e78c45",
+      "selected-text-color": "#e78c45"
+    },
+    "Constant": {
+      "text-color": "#e78c45",
+      "selected-text-color": "#e78c45"
+    },
+    "Variable": {
+      "text-color": "#dedede",
+      "selected-text-color": "#dedede"
+    },
+    "BuiltIn": {
+      "text-color": "#e7c547",
+      "selected-text-color": "#e7c547"
+    },
+    "Attribute": {
+      "text-color": "#e7c547",
+      "selected-text-color": "#e7c547"
+    },
+    "Preprocessor": {
+      "text-color": "#c397d8",
+      "selected-text-color": "#c397d8"
+    },
+    "Error": {
+      "text-color": "#ffffff",
+      "selected-text-color": "#ffffff",
+      "background-color": "#df5f5f"
+    },
+    "Warning": {
+      "text-color": "#ffffff",
+      "selected-text-color": "#ffffff",
+      "background-color": "#b798bf"
+    },
+    "Information": {
+      "text-color": "#ffffff",
+      "selected-text-color": "#ffffff",
+      "background-color": "#82a3bf"
+    }
+  }
+}
