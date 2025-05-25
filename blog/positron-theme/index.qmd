@@ -185,7 +185,7 @@ Right now, it looks identical to the Microsoft port of Tomorrow Night Bright and
 
 ## Customizing the extension
 
-First, gather all of the color themes that you'll use for inspiration. In our case, the file `tomorrow-night-bright-r-classic.json` in our local extension created by Yeoman currently mirrors the Microsoft port of Tomorrow Night Bright. The next steps for us are:
+First, gather all of the color themes that you'll use for inspiration. In our case, the file `tomorrow-night-bright-r-classic.json` in our local extension created by Yeoman currently mirrors the Microsoft port of Tomorrow Night Bright. The next steps for us were:
 
 - Inspect the colors in GitHub Dark Default. If you have it installed, the theme file is located at `~/.positron/extensions/github.github-vscode-theme-6.3.5-universal/themes/dark-default.json` or similar depending on the version of your copy.
 - Change a color setting in `tomorrow-night-bright-r-classic.json` and review how it impacts your theme in the `[Extension Development Host]` window.
