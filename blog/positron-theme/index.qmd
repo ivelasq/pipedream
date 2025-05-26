@@ -264,11 +264,11 @@ tnb_rclassic_colors |> knitr::kable() |> kableExtra::column_spec(1, width="12em"
 
 ## Fin: Tomorrow Night Bright (R Classic)
 
-Once the `tomorrow-night-bright-r-classic.json` file was ready, then it was time to publish the theme to the VS Code Extension Marketplace and then the Open VSX Registry. We added some [resources](#more-resources) on how to do this below. With that, the Tomorrow Night Bright (R Classic) is available to the world!
+Once the `tomorrow-night-bright-r-classic.json` file was ready, then it was time to publish the theme to the VS Code Extension Marketplace and then the Open VSX Registry. We added some [resources](#more-resources) on how to do this below. With that, the Tomorrow Night Bright (R Classic) theme is available to the world!
 
 ![](images/8-installation.png)
 
-Like any other open-source project, this is just the beginning! We've optimized the theme for R scripts and many key workbench elements, but there's more to do. Our next steps will be to optimize the theme for Python scripts, JSON files, and other files supported by RStudio --- so those migrating from RStudio to Positron will feel at home in Tomorrow Night Bright. We welcome you to submit a [pull request in the GitHub repository](https://github.com/gvelasq/tomorrow-night-bright-r-classic) if you'd like to contribute or or use the files as a reference if you want to create your own Positron theme!
+Like any other open-source project, this is just the beginning! We've optimized the theme for R scripts and many key workbench elements, but there's more to do. Our next steps will be to optimize the theme for Python scripts, JSON files, and other files supported by RStudio --- so those migrating from RStudio to Positron will feel at home in Tomorrow Night Bright. We welcome you to submit a [pull request in the GitHub repository](https://github.com/gvelasq/tomorrow-night-bright-r-classic) if you'd like to make a contribution or use the files as a reference if you want to create your own Positron theme!
 
 ## Installing Tomorrow Night Bright (R Classic)
 
