@@ -293,3 +293,9 @@ The process of building and publishing an extension can be quite involved! We fo
 * [HaaLeo/publish-vscode-extension](https://github.com/HaaLeo/publish-vscode-extension/tree/master#readme): This is a very helpful GitHub Action, recommended by the Open VSX documentation, that automates publishing your extension in the VS Code Extension Marketplace and the Open VSX Registry. We lightly modified this GitHub Action in our extension: [`publish-extension.yaml`](https://github.com/gvelasq/tomorrow-night-bright-r-classic/blob/main/.github/workflows/publish-extension.yaml).
 
 Thanks to [Mickaël Canouil](https://github.com/mcanouil)'s Quarto extension, [Preview Color](https://github.com/mcanouil/quarto-preview-colour/), which allowed us to display colors associated with hex codes in this blog post.
+
+---
+
+## Comments {.unlisted}
+
+{{< bluesky-comments https://bsky.app/profile/ivelasq3.bsky.social/post/3lq5senxpbk27 >}}
