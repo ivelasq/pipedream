@@ -275,7 +275,7 @@ Like any other open-source project, this is just the beginning! We've optimized 
 To install the theme in Positron, navigate to the Extensions marketplace by:
 
 * Typing <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> to access the Command Palette and searching for `Extensions: Install Extensions`,
-* Typing the Extensions shortcut <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>,
+* Typing the Extensions shortcut <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd>,
 * Or, clicking the  <img src="./images/9-positron_sidebar_extensions.png" style="width:20px;height:20px;"> button on the left sidebar in Positron.
 
 Search for 'Tomorrow Night Bright (R Classic)' and then click Install. Tada 🎉 you now have our theme installed. We hope you enjoy it!
