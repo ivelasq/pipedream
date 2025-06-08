@@ -5,6 +5,12 @@ category: Other
 output: html_document
 ---
 
+::: {.callout-note}
+
+This blog post has been superseded by a newer post written by Mickaël Canouil on the [Quarto Blog](https://quarto.org/docs/blog/posts/2025-05-19-quarto-codespaces/).
+
+:::
+
 I recently received a question on [YouTube](https://www.youtube.com/watch?v=uLGe9zuuNl0) about running a Quarto project in GitHub Codespaces. This was new to me, so I did some research (thanks to [Mickaël Canouil](https://github.com/mcanouil) and others for their help!). The key takeaway is that everything needs to be containerized: Quarto, Jupyter, the Quarto extension, R, Python, etc. Installing the VS Code Quarto extension is not enough. The easiest way to achieve this is by using the [quarto-codespaces](https://github.com/mcanouil/quarto-codespaces) repository.
 
 1.  Fork Mickaël's `quarto-codespaces` repo: <https://github.com/mcanouil/quarto-codespaces>
