@@ -10,9 +10,10 @@ image: "img/thumbnail.jpg"
 image-alt: "The evening star (1902) nouveau art by Alfons Mucha."
 filters:
   - preview-colour
-preview-colour:
-  code: true
-  text: true
+extensions:
+  preview-colour:
+    code: true
+    text: true
 ---
 
 ```{r}
