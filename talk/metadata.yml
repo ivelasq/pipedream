@@ -113,4 +113,9 @@
   date: 2025-06-25
   image: ./talk/automated-tailored-shiny/thumbnail.png
   path: ./automated-tailored-shiny/index.md
+- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
+  subtitle: "Quarto—To Tell Your Story with Data"
+  date: 2025-06-26
+  image: ./talk/quarto-tell-your-story/thumbnail.png
+  path: ./quarto-tell-your-story/index.md
   
