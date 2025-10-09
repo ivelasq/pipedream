@@ -2,6 +2,8 @@ project:
   type: website
   resources:
     - "_redirects.txt"
+    - "talk/positron-for-rstudio-users/index.html"
+    - "/talk/positron-for-rstudio-users/assets/"
     - "tweet-archive.html"
     - "nitter.css"
     - "twitter.css"
