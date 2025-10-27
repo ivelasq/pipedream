@@ -118,4 +118,8 @@
   date: 2025-06-26
   image: ./talk/quarto-tell-your-story/thumbnail.png
   path: ./quarto-tell-your-story/index.md
-  
+- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
+  subtitle: "Positron for RStudio Users: A Gentle Introduction"
+  date: 2025-10-09
+  image: ./talk/positron-for-rstudio-users/thumbnail.jpeg
+  path: ./positron-for-rstudio-users/index.md
