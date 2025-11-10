@@ -123,3 +123,8 @@
   date: 2025-10-09
   image: ./talk/positron-for-rstudio-users/thumbnail.jpeg
   path: ./positron-for-rstudio-users/index.md
+- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
+  subtitle: "Automating Repetitive Reports with Quarto"
+  date: 2025-10-24
+  image: ./talk/automated-quarto-reports/thumbnail.jpg
+  path: ./automated-quarto-reports/index.md
