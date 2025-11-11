@@ -3,7 +3,7 @@ title: "Quarto dashboard creation and automation"
 categories: ["tutorial"]
 date: 2024-08-13
 description: "Pull, pin, produce, and publish. Repeat."
-image: "img/thumbnail.jpg"
+image: "img/thumbnail.jpeg"
 image-alt: "John White Alexander, Study in Black and Green, a painting of a young woman pinning something red on her green dress."
 code-annotations: hover
 ---

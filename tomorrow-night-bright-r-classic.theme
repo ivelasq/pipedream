@@ -57,16 +57,16 @@
       "selected-text-color": "#c397d8"
     },
     "Operator": {
-      "text-color": "#70c0b1",
-      "selected-text-color": "#70c0b1"
+      "text-color": "#56B6C2",
+      "selected-text-color": "#56B6C2"
     },
     "Function": {
-      "text-color": "#dedede",
-      "selected-text-color": "#dedede"
+      "text-color": "#c397d8",
+      "selected-text-color": "#c397d8"
     },
     "DataType": {
-      "text-color": "#e7c547",
-      "selected-text-color": "#e7c547"
+      "text-color": "#e78c45",
+      "selected-text-color": "#e78c45"
     },
     "String": {
       "text-color": "#b9ca4a",
@@ -117,7 +117,19 @@
     "Information": {
       "text-color": "#ffffff",
       "selected-text-color": "#ffffff",
-      "background-color": "#82a3bf"
+      "background-color": "#000000"
+    },
+    "Infix": {
+      "text-color": "#56B6C2",
+      "selected-text-color": "#56B6C2"
+    },
+    "Delimiter": {
+      "text-color": "#56B6C2",
+      "selected-text-color": "#56B6C2"
+    },
+    "Punctuation": {
+      "text-color": "#56B6C2",
+      "selected-text-color": "#56B6C2"
     }
   }
 }

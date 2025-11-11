@@ -51,6 +51,14 @@ $link-decoration: none;
 $link-hover-decoration: none;
 
 //** $code-block-bg: #2B2423;
+//*
+
+code {
+  background-color: #000000 !important;  /* background */
+  color: #eeeeee !important;             /* text color */
+  padding: 2px 4px 2px 4px !important;
+  border-radius: 4px !important;
+}
 
 .navbar {
   color: #FFFFFF;
@@ -75,4 +83,10 @@ a.sidebar-item-text.sidebar-link {
 
 .quarto-listing-category-title {
     font-family: "Crimson Text";
+}
+
+code span.sc,
+code span.op,
+code span.kw {
+  color: #70c0b2 !important;
 }
