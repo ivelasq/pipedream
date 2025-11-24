@@ -179,6 +179,13 @@
   recording: https://www.youtube.com/watch?v=mTuhQ64P3qc
   repo: https://github.com/ivelasq/2025-03-12_branded-quarto
   slides: https://ivelasq-branded-quarto.share.connect.posit.cloud/#/section
+- title: "Choosing the right tool for interactive dashboards: flexdashboard, Quarto, and Shiny"
+  summary: A talk comparing flexdashboard, Shiny, and Quarto dashboards, with practical guidance on choosing the right tool for your project, presented at ShinyConf 2025.
+  event: "ShinyConf 2025"
+  event_url: "https://www.shinyconf.com/"
+  path: ./interactive-dashboard-tools/index.md
+  repo: https://github.com/ivelasq/shinyconf2025
+  slides: https://ivelasq-shinyconf2025.share.connect.posit.cloud/#/section
 - title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
   date: 2025-06-25
   summary: "A demo on turning messy, manual marketing reporting into an automated, Shiny-powered dashboard that delivers clear, tailored insights, presented at the End-to-End Workflow With Posit Team Meetup."
@@ -198,6 +205,22 @@
   repo: https://github.com/ivelasq/2025-06-26_intro-to-quarto
   exercises: https://github.com/ivelasq/gasp2025-quarto-exercises
   summary: "A workshop introducing the fundamentals of Quarto, from document creation to code integration and customization, presented at GASP 2025."
+- title: "Complex Survey Data Analysis: A Tidy Introduction with {srvyr} and {survey}"
+  date: 2025-08-08
+  event: useR! 2025
+  event_url: https://user2025.r-project.org/
+  path: ./survey-data-tutorial/index.md
+  extsite: https://tidy-survey-r.github.io/user-2025-survey-data-tutorial/
+  repo: https://github.com/tidy-survey-r/user-2025-survey-data-tutorial/
+  summary: An interactive tutorial on analyzing weighted survey data in R using tidyverse workflows and survey design methods, presented at useR! 2025.
+- title: "Branded Websites, Presentations, Dashboards, and PDFs with Quarto"
+  date: 2025-09-16
+  event: "posit::conf(2025)"
+  event_url: "https://posit.co/conference"
+  extsite: https://posit-conf-2025.github.io/quarto-brand/
+  path: ./branded-quarto-workshop/index.md
+  repo: https://github.com/posit-conf-2025/quarto-brand
+  summary: A workshop on creating polished websites, reports, presentations, and dashboards with Quarto, including consistent theming with brand.yml, presented at posit::conf(2025).
 - title: "Positron for RStudio Users: A Gentle Introduction"
   date: 2025-10-09
   event: "R-Ladies Gaborone"
@@ -215,3 +238,20 @@
   path: ./automated-quarto-reports/index.md
   repo: https://github.com/ivelasq/2025-10-24_automating-quarto
   slides: "https://ivelasq-automating-quarto.share.connect.posit.cloud/#/title-slide"
+- title: "Creating Polished, Branded Documents with Quarto"
+  date: 2025-11-04
+  summary: A hands-on workshop on creating polished websites, reports, presentations, and dashboards in Quarto, with consistent theming using brand.yml, presented at R/Pharma 2025.
+  event: "R/Pharma 2025"
+  event_url: https://rinpharma.com/
+  exercises: https://github.com/ivelasq/rpharma2025-quarto-exercises
+  extsite: https://019a4f2d-6b79-72c1-834b-c2a9488f9ec8.share.connect.posit.cloud/
+  path: ./branded-quarto-rpharma/index.md
+  repo: https://github.com/ivelasq/2025-11-04_branded-quarto/
+- title: "Categorical Survey of Complex Survey Data in R"
+  date: 2025-11-21
+  summary: An interactive short course on analyzing categorical survey data in R using weighted methods and survey design techniques, presented at MAPOR 2025.
+  event: "MAPOR 2025"
+  event_url: https://www.mapor.org/2025-annual-conference/
+  path: ./categorical-survey-analysis/index.md
+  repo: https://github.com/tidy-survey-r/mapor-2025-short-course
+  slides: https://tidy-survey-r.github.io/mapor-2025-short-course/full-slide-deck.html#/title-slide/

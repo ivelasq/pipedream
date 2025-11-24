@@ -1,6 +1,8 @@
 ---
 title: "From Notebooks to Dashboards with Quarto"
-author: "Isabella Velásquez"
+author:
+  - Isabella Velásquez
+  - Sara Altman
 date: 2024-09-23
 description: A workshop on creating polished, shareable dashboards with Quarto using a clear, reproducible workflow.
 image: "thumbnail.jpeg"
