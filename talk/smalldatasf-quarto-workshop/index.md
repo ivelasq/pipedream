@@ -47,6 +47,6 @@ language:
 
 Quarto is an innovative, open-source publishing system from Posit that transforms Jupyter Notebooks and plain markdown into polished, professional outputs. This workshop will show how Quarto helps data scientists create high-quality, shareable dashboards with static and interactive features following an accessible and reproducible workflow.
 
-## Website
+## [Website](https://posit-dev.github.io/smalldatasf-quarto-workshop/){target="_blank"}
 
-<iframe src="https://posit-dev.github.io/smalldatasf-quarto-workshop/" height="415" width="800" ></iframe>
+<iframe src="https://posit-dev.github.io/smalldatasf-quarto-workshop/" width="800" height="1550" ></iframe>

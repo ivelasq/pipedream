@@ -41,7 +41,7 @@ language:
 
 ## Description
 
-This interactive short course will introduce how to analyze categorical survey data in R. We will cover the R functions needed to create the survey design object to account for the sampling design, obtain weighted proportions from survey data, and conduct 	tests and simple linear regression models.  Throughout the course, you will get hands-on experience using data from the American National Election Studies. We will be using Posit Cloud, so you do not need to have R or RStudio preinstalled on your computer. For the best learning experience, we recommend you have prior experience with R and the tidyverse, including familiarity with summarize() and group_by().
+This interactive short course will introduce how to analyze categorical survey data in R. We will cover the R functions needed to create the survey design object to account for the sampling design, obtain weighted proportions from survey data, and conduct 	tests and simple linear regression models.  Throughout the course, you will get hands-on experience using data from the American National Election Studies. We will be using Posit Cloud, so you do not need to have R or RStudio preinstalled on your computer. For the best learning experience, we recommend you have prior experience with R and the tidyverse, including familiarity with `summarize()` and `group_by()`.
 
 ## Slides
 

@@ -49,9 +49,9 @@ language:
 
 Join us for a 75-minute introduction to Quarto, the next-generation scientific and technical publishing system. In this workshop, you'll learn the fundamentals of Quarto. We'll cover document creation, code integration, and output customization, equipping you to build your own Quarto documents.
 
-## Website
+## [Website](https://ivelasq-gasp2025-quarto.share.connect.posit.cloud/){target="_blank"}
 
-<iframe src="https://ivelasq-gasp2025-quarto.share.connect.posit.cloud/" height="415" width="800" ></iframe>
+<iframe src="https://ivelasq-gasp2025-quarto.share.connect.posit.cloud/"  width="800" height="1250" ></iframe>
 
 ## Recording
 

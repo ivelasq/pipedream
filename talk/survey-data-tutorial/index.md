@@ -44,6 +44,6 @@ language:
 
 This interactive tutorial will introduce how to conduct analysis of survey data in R. We will first introduce a unifying workflow of tidy survey analysis in R for analysis of survey microdata with weights. We will cover topics of descriptive analysis, including functions to obtain weighted proportions, means, quantiles, and correlations from survey data. Then, we will discuss some statistical testing, including t-tests for comparing means and χ-squared tests for comparing proportions. Finally, we will discuss common probability sampling designs and how to create the survey design objects in R to account for the sampling design. The tutorial will include time for exercises using data from the 2020 American National Election Study and the 2020 Residential Energy Consumption Survey, so you can get hands-on experience with the functions. We will be using Posit Cloud, so you do not need to have R or RStudio preinstalled on your computer. For the best learning experience, we recommend you have some prior experience with R and the tidyverse, including familiarity with `mutate()`, `summarize()`, `count()`, and `group_by()`.
 
-## Website
+## [Website](https://tidy-survey-r.github.io/user-2025-survey-data-tutorial/){target="_blank"}
 
-<iframe src="https://tidy-survey-r.github.io/user-2025-survey-data-tutorial/" height="415" width="800" ></iframe>
+<iframe src="https://tidy-survey-r.github.io/user-2025-survey-data-tutorial/" height="1850" width="800" ></iframe>

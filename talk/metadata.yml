@@ -227,7 +227,7 @@
   event_url: "https://www.meetup.com/rladies-gaborone/events/311167479/?eventOrigin=group_events_list"
   path: ./positron-for-rstudio-users/index.md
   recording: https://www.youtube.com/watch?v=2fOQzgkxi6g
-  slides: ../positron-for-rstudio-users-presentation/index.html
+  slides: ../talk/positron-for-rstudio-users-presentation/index.html
   summary: A session introducing Positron, the new IDE from Posit, highlighting familiar features and what’s new for RStudio users, presented at R-Ladies Gaborone.
 - title: "Automating Repetitive Reports with Quarto"
   date: 2025-10-24

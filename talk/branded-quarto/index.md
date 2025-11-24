@@ -58,6 +58,6 @@ By the end of the session, you’ll be equipped to:
 
 Whether you're looking to enhance your personal projects or streamline organizational outputs, this workshop will equip you with the tools to create polished, professional results.
 
-## Website
+## [Website](https://posit-conf-2025.github.io/quarto-brand/){target="_blank"}
 
-<iframe src="https://posit-conf-2025.github.io/quarto-brand/" height="415" width="800" ></iframe>
+<iframe src="https://posit-conf-2025.github.io/quarto-brand/"  width="800" height="1100" ></iframe>

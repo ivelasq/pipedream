@@ -45,9 +45,9 @@ language:
 
 If you're an R user, you've likely heard of the tidyverse—a suite of packages revolutionizing data wrangling, visualization, and analysis. In this talk, we’ll dive into the latest updates, including new string-separating functions and joins, showcasing how the tidyverse can make your life as a data scientist easier and more intuitive.
 
-## Website
+## [Website](https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/){target="_blank"}
 
-<iframe src="https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/" height="415" width="800" ></iframe>
+<iframe src="https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/" height="1800" width="800" ></iframe>
 
 ## Recording
 

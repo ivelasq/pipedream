@@ -45,10 +45,10 @@ language:
 
 A blog is a wonderful opportunity to record your data stories, gain exposure for your expertise, and support others in their data science journey. In this talk, I discuss possible reasons for creating a blog and explore tools that make it easy to showcase your R, Python, Julia, and Observable skills.
 
-## Website
+## [Website](https://ivelasq.quarto.pub/building-a-blog-with-quarto/){target="_blank"}
 
-<iframe src="https://ivelasq.quarto.pub/building-a-blog-with-quarto/" height="415" width="800" ></iframe>
+<iframe src="https://ivelasq.quarto.pub/building-a-blog-with-quarto/"  width="800" height="1000" ></iframe>
 
 ## Recording
 
- <iframe width="800" height="450" src="https://www.youtube.com/embed/CVcvXfRyfE0?si=giumZvyyecOsvDPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+<iframe width="800" height="450" src="https://www.youtube.com/embed/CVcvXfRyfE0?si=giumZvyyecOsvDPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
