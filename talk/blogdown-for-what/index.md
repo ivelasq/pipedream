@@ -1,20 +1,45 @@
 ---
 title: "Blogdown for What"
-image: thumbnail.png
+author: "Isabella Velásquez"
+date: 2018-07-23
+description: A practical walkthrough on building a polished website in R using the blogdown package.
+image: thumbnail.jpeg
 image-alt: "Blogdown for What"
+format:
+  html:
+    css: /talk/talks.css
+language: 
+  title-block-author-single: "Presented by"
+  title-block-published: "Presented on"
 ---
 
-| **Detail**   | **Information**                                                                                                                                                            |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Abstract** | A walkthrough on creating a website using the {blogdown} package.                                                                                                           |
-| **Date**     | 23 August 2018                                                                                                                                                             |
-| **Time**     | 6:30 PM PT                                                                                                                                                                 |
-| **Location** | Seattle, WA                                                                                                                                                                |
-| **Event**    | [**R-Ladies Seattle Meetup**](https://www.meetup.com/rladies-seattle/events/252412318/)                                                                                     |
+```{=html}
+    <a href="https://www.meetup.com/rladies-seattle/events/252412318/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-calendar-event"></i>&nbsp;&nbsp;Event
+    </a>
+    
+    <a href="https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&loop=false&delayms=3000#slide=id.p1" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-tv"></i>&nbsp;&nbsp;Slides
+    </a>
+```
+
+<br>
+
+## Details
+
+<ul style="list-style-type: none; padding-left: 0;">
+  <li>👥 [R-Ladies Seattle](https://www.meetup.com/rladies-seattle/events/252412318/)</li>
+  <li>📆 23 July 29 2018 // 6:30 pm PT</li>
+  <li>📍️️ Seattle, WA</li>
+</ul>
+
+## Slides
 
 <center>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&loop=false&delayms=3000" frameborder="0" width="800" height="600" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </center>
+
+## Script
 
 Hello everybody. My name is Isabella Velasquez. I am very excited to talk to you today about the package blogdown. I’ve decided to call this presentation:
 BLOGDOWN FOR WHAT?

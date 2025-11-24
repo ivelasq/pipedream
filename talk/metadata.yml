@@ -1,130 +1,217 @@
 - title: "Blogdown for What"
-  subtitle: "R-Ladies Seattle"
   date: 2018-07-23
-  image: ./talk/blogdown-for-what/thumbnail.png
+  event_url: https://www.meetup.com/rladies-seattle/events/252412318/
   path: ./blogdown-for-what/index.md
-- title: "Building a Blog With R"
-  subtitle: "RStudio Enterprise Community"
-  date: 2022-01-25
-  image: ./talk/building-a-blog-with-r/thumbnail.png
-  path: ./building-a-blog-with-r/index.md
+  slides: https://docs.google.com/presentation/d/e/2PACX-1vR2224Z5m2CgzZu7oiIABDPFsswi_uwDUWktp2gliM0gh_rRV2ziAJwFvcBjE2OvQ/embed?start=false&loop=false&delayms=3000#slide=id.p1
+  summary: A talk on creating a website using the {blogdown} package, presented at R-Ladies Seattle.
+  thumbnail_square:  ./talk/blogdown-for-what/thumbnail_square.png
 - title: "Git Through April"
-  subtitle: "R-Ladies Seattle"
   date: 2021-04-23
-  image: ./talk/git-through-april/thumbnail.png
+  event: "R-Ladies Seattle"
+  event_url: https://www.meetup.com/rladies-seattle/events/276835843
   path:  ./git-through-april/index.md
+  repo: https://github.com/kdillmcfarland/2021-04-02-r-ladies-seattle-online
+  slides: https://ivelasq.github.io/2021-04-14_git-through-april/r-studio-gui-deck.html#1
+  summary: A practical walkthrough of using Git within the RStudio interface, presented at R-Ladies Seattle.
 - title: "Around the World in a Single Table (gt Walkthrough)"
-  subtitle: "R-Ladies Johannesburg"
   date: 2021-10-27
-  image: ./talk/gt-talk/thumbnail.png
+  event: "R-Ladies Johannesburg"
+  event_url: https://www.meetup.com/rladies-johannesburg/events/281522272/
   path: ./gt-talk/index.md
+  recording: https://www.youtube.com/watch?v=12ySKyWwX4Y
+  repo: https://github.com/ivelasq/2021-10-27_rladies-jozi-presentation
+  slides: https://ivelasq.github.io/2021-10-27_rladies-jozi-presentation/slides.html#1
+  summary: A talk on creating clear, professional tables in R using the gt package, presented at R-Ladies Johannesburg.
 - title: "Taking a Peek at Hiking Data Using R"
-  subtitle: "R-Ladies Seattle"
+  blog: https://ivelasq.rbind.io/blog/average-hike/
   date: 2019-07-16
-  image: ./talk/hiking-data/thumbnail.png
+  event: "R-Ladies Seattle"
+  event_url: https://www.meetup.com/rladies-seattle/events/262790588/
   path: ./hiking-data/index.md
-- title: "Longitudinal Analysis with Federal Students with Disabilities Data"
-  subtitle: "R4DS"
-  date: 2021-03-31
-  image: ./talk/longitudinal-analysis/thumbnail.png
-  path: ./longitudinal-analysis/index.md
+  slides: https://docs.google.com/presentation/d/e/2PACX-1vRrjejjk_XjqvF0dI2ZztGmluNrDgGVsKpq-hm36FU51lzsa0ozSmTbOQkcsR1iQWA5dPRj55HVAy34/embed?start=false&loop=false&delayms=3000
+  summary: "A talk on analyzing hiking data using R, presented at R-Ladies Seattle."
 - title: "Package Management for Reproducible Data Science in R"
-  subtitle: "Seattle useR Group"
   date: 2020-05-07
-  image: ./talk/package-mangement-in-r/thumbnail.png
-  path: ./package-mangement-in-r/index.Rmd
+  event: "Seattle useR Group"
+  event_url: https://www.meetup.com/Seattle-useR/events/270353523/
+  image: ./talk/package-management-in-r/thumbnail.png
+  path: ./package-management-in-r/index.md
+  repo: https://github.com/garciamikep/useR-webinar
+  slides: https://garciamikep.github.io/useR-webinar/useR-slides.html#1
+  summary: "A webinar on reproducible data science in R, focusing on managing packages and using renv for version control, presented at the Seattle useR Group."
 - title: "What do penguins have to do with being anti-racist?"
-  subtitle: "R-Ladies Seattle"
   date: 2020-08-05
-  image: ./talk/rladies-allyship/thumbnail.png
+  event: "R-Ladies Seattle"
+  event_url: https://www.meetup.com/rladies-seattle/events/271466720/
   path: ./rladies-allyship/index.md
+  slides: https://docs.google.com/presentation/d/e/2PACX-1vTx5T8UXzZuY-ZyppBrhbgPTUOgk3hlkVDJ6-eQxTWiV8UByiEtVGBKKNw56zasjaD4KxnklQ-1fMp-/embed?start=false&loop=false&delayms=3000
+  summary: "A talk on why being anti-racist matters in data science, presented at R-Ladies Seattle."
 - title: "Packages for Using R With Python, Tableau, and Other Tools"
-  subtitle: "Why R? 2021 Conference"
   date: 2021-12-10
-  image: ./talk/using-r-and-other-tools/thumbnail.png
+  event: "Why R? 2021 Conference"
+  event_url: https://2021.whyr.pl/
   path: ./using-r-and-other-tools/index.md
+  recording: https://youtu.be/vyA2EiIz4pI
+  repo: https://github.com/ivelasq/using-r-and-other-tools
+  summary: A talk on using R’s interoperability features to connect your work with tools like Python and Tableau, presented at Why R? Conference.
+- title: "Building a Blog With R"
+  date: 2022-01-25
+  summary: "A talk on why blogging matters and how to share your R work using tools like blogdown and distill, presented at the RStudio Enterprise Community Meetup."
+  event: "RStudio Enterprise Community"
+  event_url: https://www.meetup.com/RStudio-Enterprise-Community-Meetup/events/283184041/
+  path: ./building-a-blog-with-r/index.md
+  recording: https://www.youtube.com/watch?v=MrW5XFf7aps
+  repo: https://github.com/ivelasq/2022-01-25_building-a-blog-with-r
+  slides: https://01927710-4983-b418-c89f-81bdade6499b.share.connect.posit.cloud/#/section
 - title: "Building a Blog With Quarto"
-  subtitle: "RStudio Enterprise Community"
   date: 2022-08-30
-  image: ./talk/building-a-blog-with-quarto/thumbnail.png
+  summary: "A talk on creating a blog and sharing your data science work using Quarto, presented at the RStudio Enterprise Community Meetup."
+  event: "RStudio Enterprise Community"
+  event_url: https://www.meetup.com/rstudio-enterprise-community-meetup/events/287019963/
+  extsite: https://ivelasq.quarto.pub/building-a-blog-with-quarto/
   path: ./building-a-blog-with-quarto/index.md
+  recording: https://www.youtube.com/watch?v=CVcvXfRyfE0
+  repo: https://github.com/ivelasq/2022-08-30_building-a-blog-with-quarto
 - title: "Intro to Quarto"
-  subtitle: "R-Ladies St. Louis"
   date: 2022-10-27
+  event: "R-Ladies St. Louis"
+  event_url: https://www.meetup.com/rladies-st-louis/events/288256892/
   image: ./talk/intro-to-quarto/thumbnail.png
   path: ./intro-to-quarto/index.md
+  recording: https://www.youtube.com/watch?v=y6_xMIBKuP4/
+  repo: https://github.com/ivelasq/2022-10-27_intro-to-quarto/
+  slides: https://ivelasq.quarto.pub/intro-to-quarto
+  summary: An introduction to Quarto, a tool for creating reproducible documents, reports, and dashboards with R, Python, and more, presented at R-Ladies St. Louis.
 - title: "What's new in the tidyverse"
-  subtitle: "R-Ladies Rome"
   date: 2023-03-22
-  image: ./talk/whats-new-in-the-tidyverse/thumbnail.png
+  event: "R-Ladies Rome"
+  event_url: https://www.meetup.com/rladies-rome/events/291643998/
+  extsite: https://ivelasq.github.io/2023-03-22_whats-new-in-the-tidyverse/
   path: ./whats-new-in-the-tidyverse/index.md
+  repo: https://github.com/ivelasq/2023-03-22_whats-new-in-the-tidyverse
+  recording: https://www.youtube.com/watch?v=qyaQXGzhhZg
+  summary: "A talk on the latest tidyverse updates and how they streamline data wrangling, visualization, and analysis, presented at R-Ladies Rome."
 - title: "Seven Essential Excel Data Visualization Tips (in R!)"
-  subtitle: "Salt Lake City R Users Group"
   date: 2023-06-07
-  image: ./talk/excel-data-viz-tips-in-r/thumbnail.png
+  summary: "A talk on creating Excel-style data visualizations in R that are reproducible, customizable, and shareable, presented at the Salt Lake City R Users Group."
+  event: "Salt Lake City R Users Group"
+  event_url: https://www.meetup.com/slc-rug/events/293359518
   path: ./excel-data-viz-tips-in-r/index.md
+  repo: https://github.com/ivelasq/excel-data-viz-tips-in-r
+  recording: https://www.youtube.com/watch?v=XEDOfUp_O7w
+  slides: https://ivelasq.quarto.pub/excel-data-viz-tips-in-r/
 - title: "The Medium is the Message: R Programmers as Content Creators"
-  subtitle: "Cascadia R Conference"
   date: 2023-08-19
-  image: ./talk/you-r-a-content-creator/thumbnail.gif
+  event: "Cascadia R Conference"
+  event_url: https://cascadiarconf.com/
   path: ./you-r-a-content-creator/index.md
-- title: "The Medium is the Message: R Programmers as Content Creators"
-  subtitle: "R-Ladies Nairobi"
+  repo: https://github.com/ivelasq/you-r-a-content-creator/
+  slides: https://ivelasq.quarto.pub/you-r-a-content-creator/
+  summary: A keynote on how R programmers can shape ideas and influence others by becoming thoughtful content creators, presented at Cascadia R Conf.
+- title: "Getting Started with Report Writing Using Quarto"
   date: 2024-01-23
-  image: ./talk/getting-started-with-report-writing-using-quarto/thumbnail.png
+  summary: "A beginner-friendly introduction to writing and automating reports with Quarto, presented at R-Ladies Nairobi."
+  event: "R-Ladies Nairobi"
+  event_url: https://www.meetup.com/rladies-nairobi/events/298652674/
   path: ./getting-started-with-report-writing-using-quarto/index.md
+  recording: https://www.youtube.com/watch?v=vtJuo9YmlPk
+  repo: https://github.com/ivelasq/2024-01-23_getting-started-with-report-writing-using-quarto
+  slides: https://ivelasq.quarto.pub/getting-started-with-report-writing-using-quarto/
 - title: "Automating your reporting with Quarto Dashboards and Posit Connect"
-  subtitle: "End-to-End Workflow With Posit Team"
   date: 2024-05-29
-  image: ./talk/automated-quarto-dashboards/thumbnail.png
+  summary: "A webinar on building lightweight dashboards with Quarto and automating them on Posit Connect, presented at the End-to-End Workflows With Posit Team Meetup."
+  event: "End-to-End Workflow With Posit Team"
+  event_url: https://www.meetup.com/posit-enterprise-community-meetup/events/299970474
   path: ./automated-quarto-dashboards/index.md
+  recording: https://www.youtube.com/watch?v=xnJuXOw7iu8
+  repository: https://github.com/posit-marketing/inflation-explorer
+  slides: https://colorado.posit.co/rsc/inflation-explorer-slides/
 - title: "Quarto Dashboards"
-  subtitle: "R-Ladies Rome"
   date: 2024-07-18
-  image: ./talk/quarto-dashboards/thumbnail.png
+  event: "R-Ladies Rome"
+  event_url: https://www.meetup.com/rladies-rome/events/302078218/
   path: ./quarto-dashboards/index.md
+  recording: https://www.youtube.com/watch?v=Kq1hgg2NtE4
+  repo: https://github.com/ivelasq/2024-07-18_quarto-dashboards
+  slides: https://0190c2c9-dd44-d440-0f97-f3b3bf073d0f.share.connect.posit.cloud/#/title-slide
+  summary: A walkthrough on building dynamic, interactive dashboards with Quarto, presented at R-Ladies Rome.
 - title: "Using pins for Shiny with ever-changing data"
-  subtitle: "End-to-End Workflow With Posit Team"
   date: 2024-08-28
-  image: ./talk/ever-changing-shiny/thumbnail.png
+  summary: "A demo on keeping Shiny apps up to date automatically with frequently changing data, presented at the End-to-End Workflow With Posit Team Meetup."
+  event: "End-to-End Workflow With Posit Team"
+  event_url: https://www.meetup.com/posit-enterprise-community-meetup/events/299970474
   path: ./ever-changing-shiny/index.md
+  recording: https://www.youtube.com/watch?v=u2OK8IWJWhk
+  repo: https://github.com/posit-marketing/shiny-calendar
+  slides: https://connect.posit.cloud/ivelasq/content/0191902f-f29f-7d83-3606-3d3a013e33d5
 - title: "From Notebooks to Dashboards with Quarto"
-  subtitle: "Small Data SF"
   date: 2024-09-23
-  image: ./talk/smalldatasf-quarto-workshop/thumbnail.png
+  event: "Small Data SF"
+  event_url: https://www.smalldatasf.com/2024/
+  exercises: https://github.com/posit-dev/smalldatasf-quarto-exercises
+  extsite: https://pos.it/smalldatasf-quarto-workshop
   path: ./smalldatasf-quarto-workshop/index.md
-- title: "Interactive R, Python, and Shiny in the Browser"
-  subtitle: "R-Ladies Rome"
-  date: 2025-02-21
-  image: ./talk/interactive-r-python-in-browser/thumbnail.png
-  path: ./interactive-r-python-in-browser/index.md
-- title: "Brand your Quarto projects with brand.yml"
-  subtitle: "R-Ladies Philly"
-  date: 2025-03-12
-  image: ./talk/brand-yml/thumbnail.png
-  path: ./brand-yml/index.md
+  repo: https://github.com/posit-dev/smalldatasf-quarto-workshop
+  summary: A workshop on creating polished, shareable dashboards with Quarto using a clear, reproducible workflow, presented at Small Data SF.
 - title: "Tidy Data, Weighted Insights: Analyzing Complex Survey Data in R"
-  subtitle: "R-Ladies Amsterdam and R-Ladies RTP"
   date: 2025-02-25
-  image: ./talk/tidy-data-weighted-analysis/thumbnail.png
+  event: "R-Ladies Amsterdam and R-Ladies RTP"
+  event_url: https://www.meetup.com/rladies-amsterdam/events/305454925/?eventOrigin=group_past_events
   path: ./tidy-data-weighted-analysis/index.md
+  recording: https://www.youtube.com/watch?v=ip78qoxoZGc
+  slides: https://tidy-survey-r.github.io/site/talks/talk-rladies-ams-rtp.html#/title-slide
+  summary: A talk on analyzing weighted survey data in R using srvyr and tidyverse tools, presented at a joint meetup with R-Ladies Amsterdam and R-Ladies RTP.
+- title: "Interactive R, Python, and Shiny in the Browser"
+  date: 2025-02-21
+  event: R-Ladies Rome
+  event_url: https://www.meetup.com/rladies-rome/events/305741912/
+  path: ./interactive-r-python-in-browser/index.md
+  recording: https://www.youtube.com/watch?v=59DSo_jjTpI
+  repo: https://github.com/ivelasq/2025-02-21_r-python-shiny-in-the-browser
+  slides: https://ivelasq.github.io/2025-02-21_r-python-shiny-in-the-browser/
+  summary: A talk on bringing R, Python, and Shiny projects to life in the browser using Quarto Live and Shinylive, no server required, presented at R-Ladies Rome.
+- title: "Brand your Quarto projects with brand.yml"
+  date: 2025-03-12
+  summary: "A talk on using brand.yml to bring consistent, on-brand styling to all your Quarto reports, presentations, and websites, presented at R-Ladies Philly."
+  event: "R-Ladies Philly"
+  event_url: "https://www.meetup.com/rladies-philly/events/306157885/?eventOrigin=group_events_list"
+  path: ./brand-yml/index.md
+  recording: https://www.youtube.com/watch?v=mTuhQ64P3qc
+  repo: https://github.com/ivelasq/2025-03-12_branded-quarto
+  slides: https://ivelasq-branded-quarto.share.connect.posit.cloud/#/section
 - title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
-  subtitle: "End-to-End Workflow With Posit Team"
   date: 2025-06-25
-  image: ./talk/automated-tailored-shiny/thumbnail.png
+  summary: "A demo on turning messy, manual marketing reporting into an automated, Shiny-powered dashboard that delivers clear, tailored insights, presented at the End-to-End Workflow With Posit Team Meetup."
+  event: "End-to-End Workflow With Posit Team"
+  event_url: "https://posit.co/workflow-demo/build-automated-tailored-marketing-dashboards-for-optimized-marketing-spend/"
   path: ./automated-tailored-shiny/index.md
-- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
-  subtitle: "Quarto—To Tell Your Story with Data"
+  recording: https://www.youtube.com/watch?v=TL0OCJVDqtI
+  repo: https://github.com/ivelasq/2025-06-25_marketing-demo/
+  slides: https://ivelasq-2025-06-25-marketing-demo.share.connect.posit.cloud/
+- title: "Quarto—To Tell Your Story with Data"
   date: 2025-06-26
-  image: ./talk/quarto-tell-your-story/thumbnail.png
+  event: "Government Advances in Statistical Programming (GASP) 2025"
+  event_url: "https://community.amstat.org/gasp/home"
   path: ./quarto-tell-your-story/index.md
-- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
-  subtitle: "Positron for RStudio Users: A Gentle Introduction"
+  recording: https://www.youtube.com/watch?v=P5YfCELjaCM
+  extsite: https://ivelasq-gasp2025-quarto.share.connect.posit.cloud/
+  repo: https://github.com/ivelasq/2025-06-26_intro-to-quarto
+  exercises: https://github.com/ivelasq/gasp2025-quarto-exercises
+  summary: "A workshop introducing the fundamentals of Quarto, from document creation to code integration and customization, presented at GASP 2025."
+- title: "Positron for RStudio Users: A Gentle Introduction"
   date: 2025-10-09
-  image: ./talk/positron-for-rstudio-users/thumbnail.jpeg
+  event: "R-Ladies Gaborone"
+  event_url: "https://www.meetup.com/rladies-gaborone/events/311167479/?eventOrigin=group_events_list"
   path: ./positron-for-rstudio-users/index.md
-- title: "Build Automated, Tailored Marketing Dashboards for Optimized Marketing Spend"
-  subtitle: "Automating Repetitive Reports with Quarto"
+  recording: https://www.youtube.com/watch?v=2fOQzgkxi6g
+  slides: ../positron-for-rstudio-users-presentation/index.html
+  summary: A session introducing Positron, the new IDE from Posit, highlighting familiar features and what’s new for RStudio users, presented at R-Ladies Gaborone.
+- title: "Automating Repetitive Reports with Quarto"
   date: 2025-10-24
-  image: ./talk/automated-quarto-reports/thumbnail.jpg
+  summary: "A webinar on creating report templates with Quarto and automating polished, repeatable outputs, presented at the 2025 MAPOR Fall Webinar Series."
+  event: "2025 MAPOR Fall Webinar Series"
+  event_url: https://www.mapor.org/2025-mapor-fall-webinar-series/
+  exercises: "https://github.com/ivelasq/reports-with-quarto-exercises"
   path: ./automated-quarto-reports/index.md
+  repo: https://github.com/ivelasq/2025-10-24_automating-quarto
+  slides: "https://ivelasq-automating-quarto.share.connect.posit.cloud/#/title-slide"

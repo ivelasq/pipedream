@@ -1,0 +1,65 @@
+```{=html}
+<ul class="pub-list list">
+<% for (const item of items) { %>
+  <div class="li2" "li" <%= metadataAttrs(item) %>>
+    
+    <span class="h3"><%= item.title %></span><span style="float:right;"><span class="main-date" style="margin-left: 65px; margin-bottom: 15px; display:inline-block;"> <%= item.date %></span></span><br />
+   
+    <% if (item.event_url) { %>
+        <% } else { %>
+          <span class="h4"><%= item.event %></span><br />
+    <% } %>
+  
+    <span class="listing-author"><%= item.summary %></span><br /><br />
+    
+    <a href="<%- item.path %>" class="btn btn-primary" target="_blank">
+      <i class="bi bi-plus-square"></i>&nbsp;&nbsp;Details
+    </a>    
+    
+    <% if (item.event) { %>
+      <a href="<%- item.event_url %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-calendar-event"></i>&nbsp;&nbsp;Event
+      </a>
+    <% } %>
+    
+    <% if (item.slides) { %>
+      <a href="<%- item.slides %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-tv"></i>&nbsp;&nbsp;Slides
+      </a>
+    <% } %>
+    
+    <% if (item.extsite) { %>
+      <a href="<%- item.extsite %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-link-45deg"></i>&nbsp;&nbsp;Website
+      </a>
+    <% } %>
+    
+    <% if (item.repo) { %>
+      <a href="<%- item.repo %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-github"></i>&nbsp;&nbsp;Repo
+      </a>
+    <% } %>
+    
+    <% if (item.exercises) { %>
+      <a href="<%- item.exercises %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-card-checklist"></i>&nbsp;&nbsp;Exercises
+      </a>
+    <% } %>
+    
+    <% if (item.recording) { %>
+      <a href="<%- item.recording %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-youtube"></i>&nbsp;&nbsp;Recording
+      </a>
+    <% } %>
+    
+    <% if (item.blog) { %>
+      <a href="<%- item.blog %>" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-pen"></i>&nbsp;&nbsp;Blog Post
+      </a>
+    <% } %>
+    
+  </div>
+<% } %>
+</ul>
+
+```

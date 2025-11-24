@@ -1,12 +1,15 @@
 ---
-title: "Talks"
+title: "Talks and Workshops"
 listing:
   contents:
     - "metadata.yml"
   type: grid
   date-format: "DD MMMM YYYY"
-  fields: [date, subtitle, image]
+  fields: [date, title, event, recording, author, slides, extsite, repo]
+  template: /talk/talk-listing.ejs
   sort: "date desc"
-  image-height: 100%
 page-layout: full
+format:
+  html:
+    css: /talk/talks.css
 ---
