@@ -218,7 +218,7 @@
   event: "posit::conf(2025)"
   event_url: "https://posit.co/conference"
   extsite: https://posit-conf-2025.github.io/quarto-brand/
-  path: ./branded-quarto-workshop/index.md
+  path: ./branded-quarto/index.md
   repo: https://github.com/posit-conf-2025/quarto-brand
   summary: A workshop on creating polished websites, reports, presentations, and dashboards with Quarto, including consistent theming with brand.yml, presented at posit::conf(2025).
 - title: "Positron for RStudio Users: A Gentle Introduction"
