@@ -29,6 +29,10 @@ language:
 <a href="https://github.com/ivelasq/2025-11-04_branded-quarto/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
   <i class="bi bi-github"></i>&nbsp;&nbsp;Repo
 </a>
+
+<a href="https://www.youtube.com/watch?v=sVMgLKXJ4uc" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+  <i class="bi bi-youtube"></i>&nbsp;&nbsp;Recording
+</a>   
 ```
 
 <br>
