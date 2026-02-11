@@ -3,7 +3,7 @@ title: "Creating Polished, Branded Documents with Quarto"
 author: Isabella Velásquez
 date: 2025-11-04
 description: A hands-on workshop on creating polished websites, reports, presentations, and dashboards in Quarto, with consistent theming using brand.yml.
-image: "thumbnail.jpeg"
+image: "thumbnail.gif"
 image-alt: "Creating Polished, Branded Documents with Quarto"
 format:
   html:
