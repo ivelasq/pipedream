@@ -49,6 +49,13 @@ language:
 
 Join us for a hands-on, one-day workshop at R/Pharma, where we’ll explore the versatility of Quarto output formats. You will learn how to create dynamic websites, professional PDF documents, engaging presentations, and interactive dashboards using Quarto. This workshop highlights Quarto’s powerful theming capabilities, including the new support for brand.yml, which ensures that your work maintains a professional and cohesive style across all formats.
 
-## [Website](https://019a4f2d-6b79-72c1-834b-c2a9488f9ec8.share.connect.posit.cloud/){target="_blank"}
+<h2><a href="https://019a4f2d-6b79-72c1-834b-c2a9488f9ec8.share.connect.posit.cloud/" target="_blank" rel="noopener noreferrer">
+  Website ↗
+</a></h2>
 
-<iframe src="https://019a4f2d-6b79-72c1-834b-c2a9488f9ec8.share.connect.posit.cloud/" width="800" height="1100" ></iframe>
+Find the materials, exercises, and slides on the website.
+
+## Recording
+
+<iframe width="800" height="415" src="https://www.youtube.com/embed/sVMgLKXJ4uc?si=tXux1g2JPpQGwVZu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
