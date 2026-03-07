@@ -17,4 +17,4 @@ filters:
   - fontawesome
 ---
 
-<a href="https://ivelasq.rbind.io/til.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a> {{< fa cat >}} 
+<a href="https://ivelasq.rbind.io/talk.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a> {{< fa cat >}} 
