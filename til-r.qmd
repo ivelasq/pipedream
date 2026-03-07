@@ -1,0 +1,20 @@
+---
+title: "Today I Learned: R"
+listing:
+  - id: til-r
+    contents: til-r
+    type: table
+    template: til-template.ejs
+    feed: true
+format:
+  html:
+    page-layout: article
+filters:
+  - fontawesome
+---
+
+<a href="https://ivelasq.rbind.io/til-r.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a>&nbsp;
+<a href="https://gist.github.com/ivelasq" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+:::{#til-r}
+:::
