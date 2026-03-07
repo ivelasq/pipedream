@@ -8,6 +8,7 @@ listing:
   fields: [date, title, event, recording, author, slides, extsite, repo]
   template: /talk/talk-listing.ejs
   sort: "date desc"
+  feed: true
 page-layout: full
 format:
   html:
