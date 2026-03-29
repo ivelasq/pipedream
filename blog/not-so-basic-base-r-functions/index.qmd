@@ -9,6 +9,7 @@ webr:
   show-startup-message: false
 filters:
   - webr
+engine: knitr
 ---
 
 ![Leonetto Cappiello, Benedictine](thumbnail-wide.jpg){fig-alt="A crop of Leonetto Cappiello, Benedictine, showing a man holding a lantern over a city."}
