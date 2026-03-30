@@ -256,3 +256,12 @@
   path: ./categorical-survey-analysis/index.md
   repo: https://github.com/tidy-survey-r/mapor-2025-short-course
   slides: https://tidy-survey-r.github.io/mapor-2025-short-course/full-slide-deck.html#/title-slide/
+- title: "Working smarter with {dplyr} 1.2.0"
+  date: 2026-03-18
+  summary: A talk on the new functions introduced in the latest {dplyr} release, presented at R-Ladies Rome.
+  event: "R-Ladies Rome"
+  event_url: https://www.meetup.com/rladies-rome/events/313630747/
+  path: ./dplyr-1-2-0/index.qmd
+  recording: https://www.youtube.com/watch?v=xCbFl_Ez6VM
+  repo: https://github.com/ivelasq/2026-03-18_dplyr-1-2-0/
+  slides: https://ivelasq-dplyr-1-2-0.share.connect.posit.cloud/
