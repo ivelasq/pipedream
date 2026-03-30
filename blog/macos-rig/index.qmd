@@ -78,7 +78,7 @@ brew install zsh
 
 Oh My Zsh (OMZ) is 'a delightful & open source framework for Zsh.' Or as ChatGPT succinctly put it:
 
-{{< tweet robbyrussell 1599596073282342914 >}}
+<center><blockquote class="twitter-tweet"><p lang="en" dir="ltr">So sweet. <a href="https://twitter.com/hashtag/ChatGPT?src=hash&amp;ref_src=twsrc%5Etfw">#ChatGPT</a> <a href="https://t.co/DoVNbUStmE">pic.twitter.com/DoVNbUStmE</a></p>&mdash; Robby Russell (@robbyrussell) <a href="https://twitter.com/robbyrussell/status/1599596073282342914?ref_src=twsrc%5Etfw">December 5, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></center>
 
 It comes with a ton of plugins, themes, and functions. For most users, having the great themes available from OMZ are enough to switch. But for us, the real value is [all the built-in OMZ plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins) — which provide a rich set of aliases for Homebrew, Git, and many other command-line programs. For example, `gs` is `git status`, `bubo` is `brew update && brew outdated` (very helpful), etc. Here are some you should know:
 
