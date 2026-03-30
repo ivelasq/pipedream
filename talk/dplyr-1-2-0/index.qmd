@@ -51,7 +51,7 @@ The tidyverse keeps evolving, and {dplyr} 1.2.0 brings a set of new tools that m
 
 ## Recording
 
-<iframe width="800" height="450" src="https://www.youtube.com/watch?v=xCbFl_Ez6VM"" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+<iframe width="800" height="415" src="https://www.youtube.com/embed/xCbFl_Ez6VM?si=Yq178oYeqDzi4fI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Summary
 
