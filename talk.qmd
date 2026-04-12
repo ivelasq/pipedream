@@ -19,6 +19,10 @@ filters:
 
 ## Upcoming
 
+### April 17 | The Invisible Work in Data Science Projects | Northern Illinois University | DeKalb, IL
+
+What does it mean to work with tools, systems, and models that you didn't create yourself? I look forward to discussing with the students at Northern Illinois University's MIS and MSDA programs!
+
 ### April 22 | Working Smarter in R: Tips, Tricks & Real-World Lessons | R-Ladies Remote | Virtual
 
 Nicola Rennie, Pao C., Meghan Harris, Soraya C., Crystal Lewis, and I will share tips on workflows, data cleaning, debugging and more in R! [Register for the panel here](https://www.meetup.com/rladies-remote/events/313908392/).
