@@ -17,4 +17,18 @@ filters:
   - fontawesome
 ---
 
-<a href="https://ivelasq.rbind.io/talk.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a> {{< fa cat >}} 
+## Upcoming
+
+### April 22 | Working Smarter in R: Tips, Tricks & Real-World Lessons | R-Ladies Remote
+
+Nicola Rennie, Pao C., Meghan Harris, Soraya C., Crystal Lewis, and I will share tips on workflows, data cleaning, debugging and more in R! [Register for the panel here](https://www.meetup.com/rladies-remote/events/313908392/).
+
+### April 29 | Getting Started with Quarto: A Hands-On Workshop | RNVSU
+
+I will join the R User Group at Nueva Vizcaya State University (RNVSU) for a virtual, hands-on intro workshop on Quarto. [Register for the workshop here](https://www.meetup.com/r-nvsu/events/313601010/?eventOrigin=group_upcoming_events).
+
+### May 13 - 18 | PyCon US
+
+Come join me and other Posit folks at Booth #738! [Register for PyCon US here](https://us.pycon.org/2026/).
+
+Subscribe to event recaps: <a href="https://ivelasq.rbind.io/talk.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a> {{< fa cat >}} 
