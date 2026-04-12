@@ -19,7 +19,7 @@ filters:
 
 ## Upcoming
 
-### April 17 | The Invisible Work in Data Science Projects | Northern Illinois University | DeKalb, IL
+### April 16 | The Invisible Work in Data Science Projects | Northern Illinois University | DeKalb, IL
 
 What does it mean to work with tools, systems, and models that you didn't create yourself? I look forward to discussing with the students at Northern Illinois University's MIS and MSDA programs!
 
