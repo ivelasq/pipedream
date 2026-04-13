@@ -35,6 +35,10 @@ I will join the R User Group at Nueva Vizcaya State University (RNVSU) for a vir
 
 Come join me and other Posit folks at Booth #738! [Register for PyCon US here](https://us.pycon.org/2026/).
 
+### June 16 | R/Pharma GenAI Day | Virtual
+
+Thinking about boosting your skills in (LLM) skills? Join us to learn more! I'll add the link to register once it's available.
+
 ## Past
 
 Subscribe to event recaps: <a href="https://ivelasq.rbind.io/talk.xml" target="_blank"><i class="fa-sharp fa-solid fa-rss"></i></a> {{< fa cat >}} 
