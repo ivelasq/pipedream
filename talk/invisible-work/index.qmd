@@ -1,0 +1,63 @@
+---
+title: "The Invisible Work of Data Science Projects"
+author: "Isabella Velásquez"
+date: 2026-04-16
+description: A talk on the hidden work behind trusting data, tools, and systems.
+image: "thumbnail.jpeg"
+image-alt: "The Invisible Work of Data Science Projects"
+format:
+  html:
+    css: /talk/talks.css
+language: 
+  title-block-author-single: "Presented by"
+  title-block-published: "Presented on"
+listing:
+  id: listing-gallery
+  template: ../gallery.ejs
+  contents:
+    - gallery/*.jpg
+  sort-ui: false
+  filter-ui: false
+  categories: false
+---
+
+```{=html}
+<a href="https://www.cob.niu.edu/academics/omis/index.shtml" class="btn btn-secondary">
+  <i class="bi bi-calendar-event"></i>&nbsp;&nbsp;Event
+</a>
+
+<a href="https://ivelasq-the-invisible-work-of-data-science-projects.share.connect.posit.cloud/#/section" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+  <i class="bi bi-tv"></i>&nbsp;&nbsp;Slides
+</a>
+
+<a href="https://github.com/ivelasq/niu-invisible-work" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+  <i class="bi bi-github"></i>&nbsp;&nbsp;Repo
+</a>
+
+<a href="https://niuits-my.sharepoint.com/:v:/g/personal/a1885832_mail_niu_edu/IQDYfQld0aorSJpGl6UL0IbuAWdyYo9oqzIQnJy2NMuaEhU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=quNOdL" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+  <i class="bi bi-youtube"></i>&nbsp;&nbsp;Recording
+</a>
+```
+
+<br>
+
+## Details
+
+<ul style="list-style-type: none; padding-left: 0;">
+  <li>🐺 [Northern Illinois University College of Business](https://www.meetup.com/rladies-rome/events/302078218/)</li>
+  <li>📆 16 April 2026 // 3:00 PM CT</li>
+  <li>📍️ DeKalb, IL</li>
+</ul>
+
+## Description
+
+What does it mean to inherit systems you didn't build? This session examines the procedural habits required to manage data and systems that aren't our own. We will break down strategies for maintaining high performance when working with everything from unfamiliar tabular data to the black-box nature of large language models.
+
+## Slides
+
+<iframe src="https://ivelasq-the-invisible-work-of-data-science-projects.share.connect.posit.cloud/#/section" height="415" width="800" ></iframe>
+
+::: {#listing-gallery}
+:::
+
+Photo gallery EJS created by [Mickaël Canouil](https://github.com/orgs/quarto-dev/discussions/5972).

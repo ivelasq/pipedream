@@ -265,3 +265,11 @@
   recording: https://www.youtube.com/watch?v=xCbFl_Ez6VM
   repo: https://github.com/ivelasq/2026-03-18_dplyr-1-2-0/
   slides: https://ivelasq-dplyr-1-2-0.share.connect.posit.cloud/
+- title: "The Invisible Work of Data Science Projects"
+  date: 2026-04-16
+  event: "Northern Illinois University College of Business"
+  summary: I was honored to present on the hidden work behind trusting data, tools, and systems at Northern Illinois University.
+  path: ./invisible-work/index.qmd
+  recording: https://niuits-my.sharepoint.com/:v:/g/personal/a1885832_mail_niu_edu/IQDYfQld0aorSJpGl6UL0IbuAWdyYo9oqzIQnJy2NMuaEhU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=quNOdL
+  repo: https://github.com/ivelasq/niu-invisible-work
+  slides: https://ivelasq-the-invisible-work-of-data-science-projects.share.connect.posit.cloud/#/section
