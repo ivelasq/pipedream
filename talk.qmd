@@ -27,6 +27,10 @@ Nicola Rennie, Pao C., Meghan Harris, Soraya C., Crystal Lewis, and I will share
 
 I will join the R User Group at Nueva Vizcaya State University (RNVSU) for a virtual, hands-on intro workshop on Quarto. [Register for the workshop here](https://www.meetup.com/r-nvsu/events/313601010/?eventOrigin=group_upcoming_events).
 
+### May 9 | PyLadies Monterrey | Virtual
+
+I will join PyLadies Monterrey to discuss connecting Python with LLMs. I will share the registration link once it's available!
+
 ### May 13 - 18 | PyCon US | Long Beach, CA
 
 Come join me and other Posit folks at Booth #738! [Register for PyCon US here](https://us.pycon.org/2026/).
