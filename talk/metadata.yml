@@ -273,3 +273,10 @@
   recording: https://niuits-my.sharepoint.com/:v:/g/personal/a1885832_mail_niu_edu/IQDYfQld0aorSJpGl6UL0IbuAWdyYo9oqzIQnJy2NMuaEhU?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=quNOdL
   repo: https://github.com/ivelasq/niu-invisible-work
   slides: https://ivelasq-the-invisible-work-of-data-science-projects.share.connect.posit.cloud/#/section
+- title: "Getting Started with Quarto: A Hands-On Workshop"
+  date: 2026-04-30
+  event: "R User Group – Nueva Vizcaya State University"
+  extsite: https://bit.ly/rnvsu-quarto
+  summary: A virtual, hands-on workshop on Quarto, a tool for creating reproducible documents, presented at RNVSU.
+  path: ./intro-to-quarto-rnvsu/index.md
+  repo: https://github.com/ivelasq/2026-04-30_intro-to-quarto

@@ -19,10 +19,6 @@ filters:
 
 ## Upcoming
 
-### April 30 | Getting Started with Quarto: A Hands-On Workshop | RNVSU | Virtual
-
-I will join the R User Group at Nueva Vizcaya State University (RNVSU) for a virtual, hands-on intro workshop on Quarto. [Register for the workshop here](https://www.meetup.com/r-nvsu/events/313601010/?eventOrigin=group_upcoming_events).
-
 ### May 9 | PyLadies Monterrey | Virtual
 
 I will join PyLadies Monterrey to discuss connecting Python with LLMs. [Register for the talk here](https://docs.google.com/forms/d/e/1FAIpQLSdHzkmyf2YFu7M3GGoW-ecFOF9dmxbr7Z65LMcERafEvU0-bA/viewform).
