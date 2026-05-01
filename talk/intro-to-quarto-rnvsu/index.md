@@ -2,7 +2,7 @@
 title: "Getting Started with Quarto: A Hands-On Workshop"
 author: "Isabella Velásquez"
 date: 2026-04-30
-description: An introduction to Quarto, a tool for creating reproducible documents, reports, and dashboards with R, Python, and more.
+description: An introduction to Quarto, a tool for creating reproducible documents, reports, and dashboards with R, Python, and more. Presented at RNVSU.
 image: thumbnail.jpeg
 image-alt: "Getting Started with Quarto: A Hands-On Workshop"
 format:

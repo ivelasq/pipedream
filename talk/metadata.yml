@@ -277,6 +277,6 @@
   date: 2026-04-30
   event: "R User Group – Nueva Vizcaya State University"
   extsite: https://bit.ly/rnvsu-quarto
-  summary: A virtual, hands-on workshop on Quarto, a tool for creating reproducible documents, presented at RNVSU.
+  summary: A virtual, hands-on workshop on Quarto, a tool for creating reproducible documents.
   path: ./intro-to-quarto-rnvsu/index.md
   repo: https://github.com/ivelasq/2026-04-30_intro-to-quarto
