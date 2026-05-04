@@ -6,7 +6,8 @@
     <span class="h3"><%= item.title %></span><span style="float:right;"><span class="main-date" style="margin-left: 65px; margin-bottom: 15px; display:inline-block;"> <%= item.date %></span></span><br />
    
     <% if (item.event_url) { %>
-        <% } else { %>
+          <span class="h4"><a href="<%- item.event_url %>" target="_blank" rel="noopener noreferrer"><%= item.event %></a></span><br />
+    <% } else if (item.event) { %>
           <span class="h4"><%= item.event %></span><br />
     <% } %>
   
