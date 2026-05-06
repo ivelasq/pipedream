@@ -24,7 +24,7 @@
     </div>
     <div class="timeline" ref="timeline" style="display: none">
       <div class="timeline-item" v-for="item in currentTweets()">
-        <a class="tweet-link" :href="twitter_url(item)"></a>
+        <a class="tweet-link" :href="local_url(item)"></a>
         <div class="tweet-body">
           <div><div class="tweet-header">
               <a class="tweet-avatar" href="/"><img class="avatar round" src="profile.jpg" alt=""></a>
