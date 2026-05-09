@@ -38,7 +38,7 @@ language:
 
 <ul style="list-style-type: none; padding-left: 0;">
   <li>👥 <a href="https://www.meetup.com/r-nvsu/events/313601010/?eventOrigin=group_upcoming_events">R User Group RNVSU</a></li>
-  <li>📆 30 April 2025 // 09:30 AM PHT</li>
+  <li>📆 30 April 2026 // 09:30 AM PHT</li>
   <li>💻️ Virtual</li>
 </ul>
 
