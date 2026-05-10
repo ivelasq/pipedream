@@ -282,3 +282,11 @@
   summary: A virtual, hands-on workshop on Quarto, a tool for creating reproducible documents.
   path: ./intro-to-quarto-rnvsu/index.md
   repo: https://github.com/ivelasq/2026-04-30_intro-to-quarto
+- title: "Connecting Python with LLMs"
+  date: 2026-05-09
+  event: "PyLadies Monterrey"
+  event_url: "https://www.linkedin.com/in/pyladies-monterrey-3ab6061b8/"
+  summary: En esta charla aprenderemos a conectarnos con modelos de lenguaje (LLMs) usando código en Python y a construir aplicaciones conversacionales de forma práctica.
+  path: ./connecting-python-with-llms/index.md
+  repo: https://github.com/ivelasq/2026-05-09_connecting-python-with-llms
+  slides: https://019e0d75-ef39-43e7-55c0-dabb66e317bd.share.connect.posit.cloud/

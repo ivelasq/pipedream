@@ -19,10 +19,6 @@ filters:
 
 ## Upcoming
 
-### May 9 | PyLadies Monterrey | Virtual
-
-I will join PyLadies Monterrey to discuss connecting Python with LLMs. [Register for the talk here](https://docs.google.com/forms/d/e/1FAIpQLSdHzkmyf2YFu7M3GGoW-ecFOF9dmxbr7Z65LMcERafEvU0-bA/viewform).
-
 ### May 13 - 18 | PyCon US | Long Beach, CA
 
 Come join me and other Posit folks at Booth #738! [Register for PyCon US here](https://us.pycon.org/2026/).
