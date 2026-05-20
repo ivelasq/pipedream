@@ -1,7 +1,7 @@
 ---
 title: "Connecting Python with LLMs"
 author: "Isabella Velásquez"
-date: 2026-05-19
+date: 2026-05-09
 description: En esta charla aprenderemos a conectarnos con modelos de lenguaje (LLMs) usando código en Python y a construir aplicaciones conversacionales de forma práctica.
 image: "thumbnail.jpeg"
 image-alt: "Promotional graphic for a PyLadies Monterrey event titled Connecting Python with LLMs on May 9, 2026, at 12:30pm CT. A black snake decorated with pink and gold flowers curves across a white background with floral accents."
