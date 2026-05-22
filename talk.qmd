@@ -19,13 +19,9 @@ filters:
 
 ## Upcoming
 
-### May 13 - 18 | PyCon US | Long Beach, CA
-
-Come join me and other Posit folks at Booth #738! [Register for PyCon US here](https://us.pycon.org/2026/).
-
 ### June 16 | R/Pharma GenAI Day | Virtual
 
-Thinking about boosting your skills in (LLM) skills? Join us to learn more! I'll add the link to register once it's available.
+Thinking about boosting your skills in (LLM) skills? Join us to learn more! [Register here](https://events.zoom.us/ev/AkKYQ7Uryr8k8HeuQ7F6rkZTHJwjHlP6gxu14Z2s1LYb0kswLdDT~ApU4J3CViJWrwmjZhnw0nwGzDFCxNGoMHJAw01NbG30yNwnVwf9IJQkvOg).
 
 ## Past
 
