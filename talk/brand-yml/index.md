@@ -55,4 +55,4 @@ Join us to discover how brand.yml can elevate your Quarto documents to a new lev
 
 ## Recording
 
- <iframe width="800" height="450" src="https://www.youtube.com/embed/mTuhQ64P3qc?si=C0XeoBPmb6jY4NqG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+<iframe width="800" height="450" src="https://www.youtube.com/embed/mTuhQ64P3qc?si=C0XeoBPmb6jY4NqG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
