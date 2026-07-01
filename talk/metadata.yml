@@ -294,6 +294,7 @@
   date: 2026-06-16
   event: "2026 R/Pharma GenAI Day"
   event_url: "https://rinpharma.com/docs/ai-day/"
-  summary: "This session provides a clear, high-level introduction to agent skills: specialized capabilities that allow AI agents to navigate complex data, execute tasks, and connect workflows."
   path: ./skills-101/index.md
+  recording: https://youtu.be/MphOm5LDhi8?si=oXtv8ahhrU3sm1Bj
+  summary: "This session provides a clear, high-level introduction to agent skills: specialized capabilities that allow AI agents to navigate complex data, execute tasks, and connect workflows."
   slides: https://pos.it/skills-101
