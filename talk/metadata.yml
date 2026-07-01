@@ -290,3 +290,10 @@
   path: ./connecting-python-with-llms/index.md
   repo: https://github.com/ivelasq/2026-05-09_connecting-python-with-llms
   slides: https://019e0d75-ef39-43e7-55c0-dabb66e317bd.share.connect.posit.cloud/
+- title: "Skills 101"
+  date: 2026-06-16
+  event: "2026 R/Pharma GenAI Day"
+  event_url: "https://rinpharma.com/docs/ai-day/"
+  summary: "This session provides a clear, high-level introduction to agent skills: specialized capabilities that allow AI agents to navigate complex data, execute tasks, and connect workflows."
+  path: ./skills-101/index.md
+  slides: https://pos.it/skills-101
