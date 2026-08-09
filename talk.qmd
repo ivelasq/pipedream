@@ -19,6 +19,10 @@ filters:
 
 ## Upcoming
 
+### September 10-11 | PyData Amsterdam | Amsterdam, Netherlands
+
+The Posit DevRel team and I will be [PyData Amsterdam](https://amsterdam.pydata.org/) in September! Let me know if you'll be there, too!
+
 ### July 23 | R-Ladies Melbourne | Virtual
 
 Are you an RStudio user and want a gentle introduction to Positron? Join Libby Heeren and me at R-Ladies Melbourne! I will share the link once it is available.
