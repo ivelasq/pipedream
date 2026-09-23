@@ -19,15 +19,9 @@ filters:
 
 ## Upcoming
 
-### September 10-11 | PyData Amsterdam | Amsterdam, Netherlands
+### September 28 | R/Pharma 2026 | Virtual
 
-The Posit DevRel team and I will be [PyData Amsterdam](https://amsterdam.pydata.org/) in September! Let me know if you'll be there, too!
-
-### September 28 - Oct 1 | R/Pharma 2026 | Virtual
-
-I'll be hosting a 2-hour workshop on tailoring your R workflow with the exciting AI tools that exist these days.
-
-[Register for R/Pharma 2026 here](https://events.zoom.us/ev/Ao58QRuKpY_AuvCDVGqF3tiibvbsLw6MKXn7n_PL2vPdHVQnSAuC~AulApVxluxkRoEef4TZ6ozp1uwmnBHGti8cDERG7p01yOGKH0KXFbLhUNw).
+Michael Chow, Yilong Zhang, and I will be presenting "Python & Positron for Clinical Study Reports and Submissions"! [Register for R/Pharma 2026 here](https://events.zoom.us/ev/Ao58QRuKpY_AuvCDVGqF3tiibvbsLw6MKXn7n_PL2vPdHVQnSAuC~AulApVxluxkRoEef4TZ6ozp1uwmnBHGti8cDERG7p01yOGKH0KXFbLhUNw).
 
 ## Past
 
