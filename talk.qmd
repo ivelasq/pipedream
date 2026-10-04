@@ -19,9 +19,9 @@ filters:
 
 ## Upcoming
 
-### September 28 | R/Pharma 2026 | Virtual
+### November 13 | PyLadies Boston | Virtual
 
-Michael Chow, Yilong Zhang, and I will be presenting "Python & Positron for Clinical Study Reports and Submissions"! [Register for R/Pharma 2026 here](https://events.zoom.us/ev/Ao58QRuKpY_AuvCDVGqF3tiibvbsLw6MKXn7n_PL2vPdHVQnSAuC~AulApVxluxkRoEef4TZ6ozp1uwmnBHGti8cDERG7p01yOGKH0KXFbLhUNw).
+Have a free hour during lunch (ET)? Let’s build your Python Project Portfolio! Join us for PyLadies Boston’s Grab a Byte series, where we’ll walk through setting up your portfolio, adding your projects, and publishing them for the world to see. This session will focus on Quarto, a tool for creating beautiful, reproducible outputs with Markdown and Python. [Register here](https://www.meetup.com/pyladies-boston/events/315992566/?eventOrigin=group_events_list).
 
 ## Past
 
