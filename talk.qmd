@@ -19,9 +19,27 @@ filters:
 
 ## Upcoming
 
-### November 13 | PyLadies Boston | Virtual
+### Lunch & Launch: Build Your Python Project Portfolio with Quarto
+
+November 13 | PyLadies Boston | Virtual
 
 Have a free hour during lunch (ET)? Let’s build your Python Project Portfolio! Join us for PyLadies Boston’s Grab a Byte series, where we’ll walk through setting up your portfolio, adding your projects, and publishing them for the world to see. This session will focus on Quarto, a tool for creating beautiful, reproducible outputs with Markdown and Python. [Register here](https://www.meetup.com/pyladies-boston/events/315992566/?eventOrigin=group_events_list).
+
+### Deploying and sharing open source data projects on Posit Connect Cloud
+
+November 17 | R en Buenos Aires | Virtual
+
+Interested in learning more about Posit Connect Cloud, Posit's new platform for publishing and sharing your Quarto docs, Shiny apps, and much more? Join Alex Chisholm and me as we talk about the importance of easy deployment, the upcoming migration from shinyapps.io, and quick demos of how you can deploy your own work! I will add the registration details once they are available.
+
+### From Python to Publication: Create Beautiful, Reproducible Reports with Quarto
+
+December 1 | PyLadies San Francisco | Virtual
+
+Let's build a small data report using Python, Markdown, and Quarto! I'll add the registration details once they are available.
+
+### December 9 | PyData Global | Virtual
+
+I'm still coming up with a topic, [let me know](https://www.linkedin.com/feed/update/urn:li:activity:7520482880116920320/) if you have any ideas :) Meanwhile, [register for PyData Global](https://pydata.org/global2026/tickets) here.
 
 ## Past
 
