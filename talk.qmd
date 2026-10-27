@@ -33,11 +33,13 @@ Interested in learning more about Posit Connect Cloud, Posit's new platform for 
 
 ### From Python to Publication: Create Beautiful, Reproducible Reports with Quarto
 
-December 1 | PyLadies San Francisco | Virtual
+December 3 | PyLadies San Francisco | Virtual
 
 Let's build a small data report using Python, Markdown, and Quarto! I'll add the registration details once they are available.
 
-### December 9 | PyData Global | Virtual
+### TBD
+
+December 9 | PyData Global | Virtual
 
 I'm still coming up with a topic, [let me know](https://www.linkedin.com/feed/update/urn:li:activity:7520482880116920320/) if you have any ideas :) Meanwhile, [register for PyData Global](https://pydata.org/global2026/tickets) here.
 
