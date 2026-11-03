@@ -19,6 +19,8 @@ filters:
 
 ## Upcoming
 
+For the next few months, I'm stepping in as host of the Data Science Lab for Libby Heeren! Come learn, build, and chat with us: <https://pos.it/dslab>
+
 ### Lunch & Launch: Build Your Python Project Portfolio with Quarto
 
 November 13 | PyLadies Boston | Virtual
