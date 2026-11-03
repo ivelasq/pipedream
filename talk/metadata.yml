@@ -295,7 +295,7 @@
   event: "R-Ladies Abuja"
   event_url: "https://www.meetup.com/rladies-abuja/events/315092217/"
   summary: Discover how the latest features in {dplyr} 1.2.0 can help you write cleaner, faster, and more maintainable data transformation workflows.
-  path: ./dplyr-1-2-0-r-ladies-abuja/index.md
+  path: ./dplyr-1-2-0-r-ladies-abuja/index.qmd
   recording: https://www.youtube.com/watch?v=Ka9wf3Z2IcY
   repo: https://github.com/ivelasq/2026-06-24_dplyr-1-2-0
   slides: https://ivelasq.github.io/2026-06-24_dplyr-1-2-0
