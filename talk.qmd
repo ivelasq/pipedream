@@ -31,6 +31,12 @@ November 17 | R en Buenos Aires | Virtual
 
 Curious about Posit Connect Cloud, Posit's new platform for publishing and sharing Quarto docs, Shiny apps, and more? Join Alex Chisholm and me to explore why easy deployment matters, what the upcoming migration from shinyapps.io looks like, and how to deploy your own work in a few quick demos. [Register here](https://www.meetup.com/rbuenosaires/events/317245969/).
 
+### Working with Weights and Sampling Designs for Official Statistics
+
+November 18 | uRos 2026 | Paris, France
+
+This short, hands-on tutorial will get you started in tidy survey analysis in R using the {srvyr} package. We will use motivating examples from the European Social Survey to introduce survey design objects, descriptive analysis, and data dissemination. Learn more about [uRos 2026](https://r-project.ro/conference2026.html).
+
 ### From Python to Publication: Create Beautiful, Reproducible Reports with Quarto
 
 December 3 | PyLadies San Francisco | Virtual
